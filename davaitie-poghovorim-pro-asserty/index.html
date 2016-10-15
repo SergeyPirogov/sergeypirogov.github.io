@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">05/05/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">4 библиотеки, о которых должен знать каждый Автоматизатор</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Самая выразительная часть хорошо написанного теста - хорошо написанный assert (acсершин, ассерт далее). Assert подтверждает поведение системы, которое вы ожидаете. Хороший assert должен с первого взгляда показывать, что делает тест. Ни в коем случае в ваших тестах не должно быть циклов, в недрах которых будет спрятан assert, и вам нужно будет потратить уйму времени, чтобы разобраться с тем, что происходит. Более того, любая не тривиальная логика в тест кейсе повышает риск того, что тест сам по себе неправильный.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.itshouldjustworktm.com/wp-content/uploads/2012/03/assert-sign-photoshopped.jpg" alt="assert sign photoshopped">
+</div>
+</div>
+<div class="paragraph">
+<p>В последние годы значительно увеличилось количество подходов, инструментов и библиотек, которые позволяют просто и быстро писать легко читаемый код. Это касается как кода программы, так и кода тестов.</p>
+</div>
+<div class="paragraph">
+<p>В области написания тестов существует много библиотек, которые поддерживают понятные ассершины на любом языке. Вы можете спросить: "А зачем оно нужно?". Легко читаемые ассершины - это самый простой путь написания утверждений в более естественной, более доступной и более экспрессивной манере.</p>
+</div>
+<div class="paragraph">
+<p>Существует два подхода для написания ассертов. Первый - используя ключевое слово "assert", второй же - используя такие слова как <strong>"should"</strong> или <strong>"expect"</strong>. Первый берет свое начало из более традиционного стиля написания юнит тестов и фокусируется на тестировании и верификации. Второй - более BDD - ориентирован - слова "should" и "expect" описывают поведение, которое вы ожидаете от системы. В этой заметке я предлагаю рассмотреть несколько библиотек, которые помогут в написании понятных ассертов.</p>
+</div>
+<div class="paragraph">
+<p><strong>Аssertions in JavaScript.</strong></p>
+</div>
+<div class="paragraph">
+<p>JavaScript обладает большим количеством библиотек, которые помогают делать ассерты более выразительными. Jasmine имеет встроенную функцию <code>expect()</code>. Такие библиотеки как <strong>Should.js</strong> и <strong>Chai</strong> поддерживают схожие функции.
+Я покажу пару примеров из библиотеки <strong>Chai</strong>, так как она является самой гибкой и поддерживает оба формата: как <code>expect()</code> и <code>should()</code>, так и старый формат - assert. <strong>Chai</strong> фокусируется на использовании цепочек для того, чтобы сделать утверждения более читабельными и выразительными.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-javascript" data-lang="javascript">var expect = require('chai').expect
+
+var medal = "Bronze";
+...
+expect(medal).to.equal('Bronze');</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Chai поддерживает богатый набор ассертов для коллекций:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-javascript" data-lang="javascript">var obtainableStatuses = ['Silver','Gold','Platinum']
+...
+expect(obtainableStatuses).to.have.length(3).and.to.include('Gold')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну и наконец assert в стиле BDD:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-javascript" data-lang="javascript">var expect = require('chai').should();
+
+medal.should.equal('Bronze');
+obtainableStatuses.should.have.length(3).and.include('Silver');</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Следует отметить, что оба подхода одинаково выразительны. Таким образом выбор стиля написания зависит от персональных предпочтений. Лично мой выбор в пользу <strong>should</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Assertions in Java.</strong></p>
+</div>
+<div class="paragraph">
+<p>Буду немного Капитаном Очевидностью и скажу, что библиотеки для написания внятных утверждений существуют и в Java. Они менее выразительны, чем их динамический эквивалент. В Java существуют стандартные утверждения, которые можно получить, используя такие всем известные библиотеки, как <strong>JUnit</strong> и <strong>TestNG</strong>. Но ассершины, которые они предоставляют, как по мне, бедноваты и слишком просты по сравнению с теми, о которых далее пойдет речь.</p>
+</div>
+<div class="paragraph">
+<p>Я приведу пример нескольких библиотек, которые, по моему мнению, могут быть полезными.</p>
+</div>
+<div class="paragraph">
+<p><strong>1. Hamcrest</strong></p>
+</div>
+<div class="paragraph">
+<p>Пожалуй, самая известная библиотека из этой области. Основной метод, который в ней используется, называется <strong>assertThat()</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+import junit.framework.TestCase;
+
+public class BiscuitTest extends TestCase {
+  public void testEquals() {
+    Biscuit theBiscuit = new Biscuit("Ginger");
+    Biscuit myBiscuit = new Biscuit("Ginger");
+    assertThat(theBiscuit, equalTo(myBiscuit));
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Самое приятное, что она предоставляет большой выбор матчеров:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Core
+    anything - always matches, useful if you don't care what the object under test is
+    describedAs - decorator to adding custom failure description
+    is - decorator to improve readability - see "Sugar", below
+Logical
+    allOf - matches if all matchers match, short circuits (like Java &amp;&amp;)
+    anyOf - matches if any matchers match, short circuits (like Java ||)
+    not - matches if the wrapped matcher doesn't match and vice versa
+Object
+    equalTo - test object equality using Object.equals
+    hasToString - test Object.toString
+    instanceOf, isCompatibleType - test type
+    notNullValue, nullValue - test for null
+    sameInstance - test object identity
+Beans
+    hasProperty - test JavaBeans properties
+Collections
+    array - test an array's elements against an array of matchers
+    hasEntry, hasKey, hasValue - test a map contains an entry, key or value
+    hasItem, hasItems - test a collection contains elements
+    hasItemInArray - test an array contains an element
+Number
+    closeTo - test floating point values are close to a given value
+    greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo - test ordering
+Text
+    equalToIgnoringCase - test string equality ignoring case
+    equalToIgnoringWhiteSpace - test string equality ignoring differences in runs of whitespace
+    containsString, endsWith, startsWith - test string matching</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Более подробно можно посмотреть на их <a href="https://code.google.com/p/hamcrest/wiki/Tutorial">сайте</a>.</p>
+</div>
+<div class="paragraph">
+<p>Лично я пользуюсь этой библиотекой.</p>
+</div>
+<div class="paragraph">
+<p><strong>2. FestAssert</strong></p>
+</div>
+<div class="paragraph">
+<p>Как утрверждают сами разработчики:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+FEST Assertions 2.0 is a Java library that provides a fluent interface for writing assertions. Its main goal is to improve test code readability and make maintenance of tests easier.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Парочка примеров использования:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import static org.fest.assertions.api.Assertions.*;
+
+// common assertions
+assertThat(yoda).isInstanceOf(Jedi.class);
+assertThat(frodo.getName()).isEqualTo("Frodo");
+assertThat(frodo).isNotEqualTo(sauron);
+assertThat(frodo).isIn(fellowshipOfTheRing);
+assertThat(sauron).isNotIn(fellowshipOfTheRing);
+
+// String specific assertions
+assertThat(frodo.getName()).startsWith("Fro").endsWith("do")
+                           .isEqualToIgnoringCase("frodo");
+
+// collection specific assertions
+assertThat(fellowshipOfTheRing).hasSize(9)
+                               .contains(frodo, sam)
+                               .excludes(sauron);
+// throwable specific assertions
+try {
+  fellowshipOfTheRing.get(9); // argggl !
+} catch (Exception e) {
+  assertThat(e).isInstanceOf(IndexOutOfBoundsException.class)
+               .hasMessage("Index: 9, Size: 9")
+               .hasNoCause();
+}
+
+// map specific assertions (One ring and elves ring bearers initialized before)
+assertThat(ringBearers).hasSize(4)
+                       .includes(entry(oneRing, frodo), entry(nenya, galadriel))
+                       .excludes(entry(oneRing, aragorn));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Лично я на проектах активно не использовал эту библиотеку, но меня она привлекла тем, что есть готовые ассершины для <strong>Joda Time</strong>, <strong>Guava</strong>. Также есть возможность использования компараттора для утверждений.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">// frodo and sam are instances of Character with Hobbit race (obviously :), they are not equal ...
+assertThat(frodo).isNotEqualTo(sam);
+// ... but if we compare race only, they are (raceComparator implements Comparator&lt;Character&gt;)
+assertThat(frodo).usingComparator(raceComparator).isEqualTo(sam);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Более подробно можно посмотреть и скачать <a href="https://github.com/alexruiz/fest-assert-2.x">здесь</a></p>
+</div>
+<div class="paragraph">
+<p>Обе эти библиотеки очень похожи, они предлагают большой набор матчеров. Например для того, чтобы проверить, что список содержит элементы. В хамкресте это делается так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">assertThat(member.getUnachievedStatuses(), hasItems(GOLD,PLATINUM));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В <strong>FestAssert</strong> это будет выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">assertThat(member.getUnachievedStatuses()).contains(GOLD,PLATINUM);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>К сожалению, FestAssert больше не активен, поэтому взамен этой библиотеки предлагаю посмотреть на следующую в списке.</p>
+</div>
+<div class="paragraph">
+<p><strong>3. AssertJ</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>AssertJ</strong> - форк библиотеки Fest Assert, предоставляет большой набор утверждений, сообщений об ошибках и позволяет улучшить читабельность тестового кода.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">// unique entry point to get access to all assertThat methods and utility methods (e.g. entry)
+import static org.assertj.core.api.Assertions.*;
+
+// common assertions
+assertThat(frodo.getName()).isEqualTo("Frodo");
+assertThat(frodo).isNotEqualTo(sauron)
+                 .isIn(fellowshipOfTheRing);
+
+// String specific assertions
+assertThat(frodo.getName()).startsWith("Fro")
+                           .endsWith("do")
+                           .isEqualToIgnoringCase("frodo");
+
+// collection specific assertions
+assertThat(fellowshipOfTheRing).hasSize(9)
+                               .contains(frodo, sam)
+                               .doesNotContain(sauron);
+
+// using extracting magical feature to check fellowshipOfTheRing characters name :)
+assertThat(fellowshipOfTheRing).extracting("name").contains("Boromir", "Gandalf", "Frodo", "Legolas")
+                                                  .doesNotContain("Sauron", "Elrond");
+
+// map specific assertions, ringBearers initialized with the elves rings and the one ring bearers.
+assertThat(ringBearers).hasSize(4)
+                       .contains(entry(oneRing, frodo), entry(nenya, galadriel))
+                       .doesNotContainEntry(oneRing, aragorn);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Больше примеров и документации можно найти на их <a href="http://joel-costigliola.github.io/assertj/">сайте</a>. Лично я в своем следующем проекте обязательно буду использовать <strong>AssertJ</strong>, так как он, по моему личному мнению, лучше и проще, чем <strong>Hamcrest</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>4.Google Truth</strong></p>
+</div>
+<div class="paragraph">
+<p>Еще одна библиотечка от одноименной компании с очень приятным именем.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Set&lt;Foo&gt; foo = ...;
+assertTrue(foo.isEmpty()); // or, shudder, foo.size() == 0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Дает непонятное и нечитабельное исключение:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java.lang.AssertionError
+    at org.junit.Assert.fail(Assert.java:92)
+    at org.junit.Assert.assertTrue(Assert.java:43)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>С применением Truth читабельность и понятность гораздо выше:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Set&lt;Foo&gt; foo = ...;
+assertThat(foo).isEmpty()
+
+
+org.truth0.FailureStrategy$ThrowableAssertionError: Not true that  is empty
+    at org.truth0.FailureStrategy.fail(FailureStrategy.java:33)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Хотите узнать больше и попробовать, смотрите здесь <a href="http://google.github.io/truth/">cайт</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ну вот собственно и все.</p>
+</div>
+<div class="paragraph">
+<p>Небольшой итог об этих монстрах:</p>
+</div>
+<div class="paragraph">
+<p><strong>Hamcrest</strong> и <strong>FestAssert</strong> играют подобные роли в Java-based BDD. Hamcrest более гибкий и легко расширяемый, но FestAssert обладает более простым синтаксисом и более прост в использовании. <strong>AssertJ</strong> - улучшенная версия <strong>FestAssert</strong>, которая обладает уймой полезных фишек.</p>
+</div>
+<div class="paragraph">
+<p>В целом все библиотеки предназначены для того, чтобы сделать юнит тесты проще и понятнее. Хороших вам assertов =)</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                           <li><a href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                           <li><a href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                           <li><a href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                           <li><a href="/maghiia-groovy-i-sql/index.html">Магия Groovy и SQL</a></li>
+                                           <li><a href="/zamienitie-property-faily-na-ghruvi-skripty/index.html">Достойная замена проперти файлам</a></li>
+                                           <li><a href="/sql-dlia-manualnykh-tiestirovshchikov/index.html">SQL для мануальных тестировщиков</a></li>
+                                           <li><a href="/davaitie-poghovorim-pro-asserty/index.html">4 библиотеки, о которых должен знать каждый Автоматизатор</a></li>
+                                           <li><a href="/ci-build-tools-for-newbies/index.html">CI & Build tools for newbies</a></li>
+                                           <li><a href="/svoie-aop/index.html">Свое АОP в JDK</a></li>
+                                           <li><a href="/a-kak-vy-loghiruietie/index.html">А как вы логируете?</a></li>
+                                           <li><a href="/bdd-in-test-automation-lecture/index.html">BDD In Test Automation lecture</a></li>
+                                           <li><a href="/lettuce-python/index.html">Lettuce Python</a></li>
+                                           <li><a href="/vyvieditie-vashi-tiesty-na-novyi-urovien/index.html">Выведите ваши тесты на новый уровень!</a></li>
+                                           <li><a href="/webdriver-factory-biez-if-else/index.html">WebDriver factory без IF-ELSE</a></li>
+                                           <li><a href="/zamiechatielnyi-katalogh-riefaktoringha/index.html">Замечательный каталог рефакторинга</a></li>
+                                           <li><a href="/gradle-run-single-test-method/index.html">Gradle run single TestNG method</a></li>
+                                           <li><a href="/groovy-power-reading-url-content/index.html">Мощь Groovy: Reading URL Content</a></li>
+                                           <li><a href="/pravilnyi-tiestovyi-frieimvork/index.html">"Правильный" тестовый фреймворк</a></li>
+                                           <li><a href="/niebolshoi-vidosik-pro-jenkins/index.html">Небольшой видосик про Jenkins</a></li>
+                                           <li><a href="/java-rest-client/index.html">Java Simple REST Client</a></li>
+                                           <li><a href="/chto-takoie-flacky-tiest/index.html">Что такое Flaky тест?</a></li>
+                                           <li><a href="/smart-excel-reader-for-testng-dataprovided/index.html">О TestNG, Excel и DataProvider</a></li>
+                                           <li><a href="/jenkins-emailer/index.html">Как я изобрел свой Jenkins Emailer</a></li>
+                                           <li><a href="/kak-prruchit-jenkins-api/index.html">Как приручить Jenkins API</a></li>
+                                           <li><a href="/first-post/index.html">Welcome!</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread"></div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
