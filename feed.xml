@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:11:36 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:11:36 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:18:37 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:18:37 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
