@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JBake</title>
+    <title>Заметки Автоматизатора</title>
     <link>localhost</link>
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
-    <description>JBake Bootstrap Template</description>
+    <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:51:34 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:51:34 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:56:40 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:56:40 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
