@@ -1,0 +1,171 @@
+title=Получаем больше логов от Selenium
+date=2015-07-05
+type=post
+status=published
+summary=Заметка о том, как залогировать действия Selenium Webdriver.
+tags=Java, Тест фреймворк
+~~~~~~
+Заметка о том, как залогировать действия **Selenium Webdriver**. Вероятнее всего, вы всегда хотели получать больше информации от **WebDriver** так, чтобы было легко дебажить скрипты или просто получать больше информации о тестах. Теперь это стало возможным благодаря EventFiringWebDriver и  **WebDriverEventListner**. **EventFiringWebDriver** это класс, который используется как обертка над webDriver. **WebDriverEventListner** - интерфейс, который нужно реализовать, чтобы получить доступ к действиям webdriver.
+
+image::http://www.hurricanesoftwares.com/wp-content/uploads/2013/04/selenium-webdriver.jpg[]
+
+Поговорим чуть больше o классе **EventFiringWebDriver**. Этот класс реализует интерфейс WebDriver. Это означает, что в дополнение ко всем стандартным методам, появляется еще два метода:
+
+- register(WebDriverEventListener eventListener)
+- unregister(WebDriverEventListener eventListener)
+
+Метод **register** позволяет зарегистрировать вашу реализацию **WebDriverEventListner** для того, чтобы слушать все действия webdriver и метод unregister позволяет прервать работу метода register.
+
+**Шаг 1: Реализуем интерфейс WebDriverEventListener**
+
+Создаем класс **EventHandler** и реализуем **WebDriverEventListener**:
+
+[source, java]
+----
+package com.custom.listeners;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+
+public class EventHandler implements WebDriverEventListener {
+
+    private static final Logger LOG = LogManager.getLogger(EventHandler.class);
+
+    @Override
+    public void beforeNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug("Should be " + by);
+    }
+
+    @Override
+    public void afterFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug("Element found");
+    }
+
+    @Override
+    public void beforeClickOn(WebElement element, WebDriver driver) {
+        LOG.debug("Should click " + element.getTagName());
+    }
+
+    @Override
+    public void afterClickOn(WebElement element, WebDriver driver) {
+        LOG.debug("Clicked successfull");
+    }
+
+    @Override
+    public void beforeChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void onException(Throwable throwable, WebDriver driver) {
+
+    }
+}
+----
+
+**Шаг 2: Регистрируем слушателя**
+
+Создаем простой объект webdriver:
+
+[source, java]
+----
+WebDriver driver = new FirefoxDriver();
+----
+
+Создаем объект **EventFiringWebDriver** и передаем ему созданный объект driver:
+
+[source, java]
+----
+EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
+----
+
+Регистрируем **EventHandler**:
+
+[source, java]
+----
+eventDriver.register(new EventHandler());
+----
+
+Все, теперь мы можем спокойно писать тесты, как мы это делали раньше и при этом логировать действия драйвера.
+
+[source, java]
+----
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+public class Demo {
+    public static void main(String[] args) {
+                EventFiringWebDriver eventDriver = new EventFiringWebDriver(new FirefoxDriver());
+        EventHandler handler = new EventHandler();
+        eventDriver.register(handler);
+        eventDriver.get("http://automation-remarks.com");
+        WebElement element = eventDriver.findElement(By.id("target"));
+        element.click();
+    }
+}
+----
+
+В результате запуска у нас получится такой вот лог:
+
+[source, xml]
+----
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
+----
+
+Вот так просто можно улучшить логирование в вашем тестовом фреймворке. Читабельных вам логов и удачи. Подписывайтесь на нашу рассылку;)
