@@ -1,0 +1,125 @@
+title=Настраиваем Selenium Grid за 5 минут
+date=2015-06-15
+type=post
+status=published
+summary=Заметка о том, как правильно настроить Selenium-Grid.
+tags=Тест фреймворк, Java
+~~~~~~
+Заметка о том, как правильно настроить **Selenium-Grid**. Многие делали это неоднократно, а некоторые даже не знают, что это такое. Ориентируюсь на обе части аудитории: если у вас есть опыт, заметка будет служить такой себе справкой - вдруг чего забыли; если вы не пробовали, но очень хотели - это прекрасный шанс начать.
+
+Итак **Selenium-Grid** позволяет запускать тесты на разных машинах в разных браузерах параллельно.
+
+image::http://cdn.guru99.com/images/hub_and_nodes.jpg[]
+
+В основном Selenium Grid используют по нескольким причинам:
+
+[NOTE]
+===============================
+Для распараллеливания запуска тестов на различных операционных системах, в различных браузерах;
+Для того, чтобы уменьшить общее время прогона тестов.
+===============================
+
+Selenium Grid оперирует такими составляющими, как Hub и Node.
+
+Что такое Hub?
+
+[NOTE]
+===============================
+Hub - центральная точка, которая принимает запросы и направляет их к Node. Такой себе командный пункт.
+В гриде может быть только один Hub.
+===============================
+
+Что такое Node?
+
+[NOTE]
+===============================
+Node - Selenium инстанс, который будет запускать команды, загружаемые в Hub.
+Node может быть много в гриде.
+Node - может запускаться на разных операционных системах с разными браузерами.
+===============================
+
+Начало настройки:
+
+Скачать **Selenium Server Standalone** http://docs.seleniumhq.org/download/[здесь].
+
+Создайте папку **seleniumgrid** и скопируйте в нее скачанный **selenium_server_x.xx.x.jar** файл.
+
+**Стартуем Hub.**
+
+Открываем окно команд и выполняем:
+
+[source, xml]
+----
+java -jar selenium_server_standalone_2.46.0.jar -role hub
+----
+
+Должно появиться что-то подобное этому:
+
+image::http://cdn.guru99.com/images/launch_hub.jpg[]
+
+Для того, чтобы проверить, что все стартовало правильно, нужно набрать в браузере
+
+[source, xml]
+----
+http://localhost:4444/grid/console
+----
+
+**Стартуем Node.**
+
+В моем случае и **Hub** и **Node** расположены на одном компьютере, но это не сильно меняет ситуацию.
+
+Открываем консоль и пишем:
+
+Node для браузера **FireFox**
+
+[source, xml]
+----
+java -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5556 -browser browserName=firefox
+----
+
+Для браузеров Chrome и Internet Explorer настройка немного отличается. Нужно дописать путь к драйверам соответствующих браузеров -Dwebdriver.ie.driver=IEDriverServer.exe и -Dwebdriver.chrome.driver=chromedriver.exe. Скачать драйверы можно на сайте selenium.org
+
+Полные команды выглядят так:
+
+.**Internet Explorer**
+[source, xml]
+----
+java -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
+http://localhost:4444/grid/register -port 5558 -browser browserName=iexplorer
+----
+
+Для Internet explorer я уже описывал, как можно использовать драйвер, написанный самим Майкрософт. Смотреть http://automation-remarks.com/kak-pokorit-internet-explorer/[здесь].
+
+.**Chrome**
+[source, xml]
+----
+java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
+http://localhost:4444/grid/register -port 5558 -browser browserName=chrome
+----
+
+Для того, чтобы проверить, что все настроено корректно, нужно открыть все тот же http://localhost:4444/grid/console и убедиться, что там отображается один истанс IE и один Chrome.
+
+Следует добавить, конфигурировать Hub и Node можно с помощью JSON файлов.
+
+Пример для **Hub**:
+
+[source, xml]
+----
+java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json
+----
+
+Содержимое json файла https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultHub.json[здесь].
+
+Пример для **Node**:
+
+[source, xml]
+----
+java -jar selenium-server-standalone.jar -role node -nodeConfig nodeconfig.json
+----
+
+Содержимое json файла https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultNode.json[здесь].
+
+Ну вот и все, в следующих заметках я покажу, как пользоваться настроенным гридом и запускать тесты. Если вам интересно, подписывайтесь,чтобы получать обновления первым.
+
+
+
