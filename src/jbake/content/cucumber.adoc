@@ -1,4 +1,4 @@
-title=Cucumber+Spring+Selenium или жирное BDD
+title=Cucumber плюс Spring и Selenium или жирное BDD
 date=2015-06-24
 type=post
 status=published
