@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:56:40 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:56:40 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 12:37:08 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 12:37:08 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -518,7 +518,7 @@ DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
 	</description>
     </item>
     <item>
-      <title>Cucumber+Spring+Selenium или жирное BDD</title>
+      <title>Cucumber плюс Spring и Selenium или жирное BDD</title>
       <link>localhost/cucumber/index.html</link>
       <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">cucumber/index.html</guid>
