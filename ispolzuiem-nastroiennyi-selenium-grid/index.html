@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">23/06/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Используем Selenium Grid</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке. О том, как настроить grid, я писал в предыдущей <a href="http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/">заметке</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.guru99.com/images/AdvanceSelenium/071514_0700_CrossBrowse1.png" alt="071514 0700 CrossBrowse1">
+</div>
+</div>
+<div class="paragraph">
+<p>Начнем с самого простого. Создаем <strong>Maven</strong> проект, подключаем две зависимости <strong>TestNG</strong> и <strong>Selenium-java</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.testng&lt;/groupId&gt;
+            &lt;artifactId&gt;testng&lt;/artifactId&gt;
+            &lt;version&gt;6.8.8&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+            &lt;version&gt;2.46.0&lt;/version&gt;
+        &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>TestNG</strong> приведен не случайно: именно его проще всего использовать для распараллеливания тестов. Почему? Попробуйте - и вы поймете сами =)</p>
+</div>
+<div class="paragraph">
+<p>В этом примере показан тест для страницы поиска Google. Но это не столь важно, следуя примеру, можно создать инфраструктуру для тестирования любого web-приложения.</p>
+</div>
+<div class="paragraph">
+<p>Создаем общий класс, от которого будут наследоваться все классы тестов. В него помещаем методы фикстуры и другие методы, общие для всех классов тестов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.grid.shedule.core.WebDriverInstansiator;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+public class BaseTestGrid {
+
+    @Parameters({"browserName", "browserVersion"})
+    @BeforeClass
+    public void setUp(@Optional String browserName, String browserVersion){
+        WebDriverInstansiator.setDriver(browserName, browserVersion);
+    }
+
+    @AfterClass
+    public void tearDown() throws Exception{
+        WebDriverInstansiator.getDriver().quit();
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Самое важное в коде, приведенном выше - класс <strong>WebDriverInstantiator</strong>. Этот класс будет служить менеджером веб-драйверов для наших тестов. Самое важное в этом классе - ThreadLocal переменная webdriver. Она вводится для того, чтобы на каждый новый поток создавать свой веб-драйвер.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.WebDriver;
+
+public class WebDriverInstansiator {
+
+    private static InheritableThreadLocal&lt;WebDriver&gt; webDriver = new InheritableThreadLocal&lt;WebDriver&gt;();
+    private static WebDriverFactory factory;
+
+    public static void setDriver(String browserName, String browserVersion){
+        factory = new WebDriverFactory();
+        webDriver.set(factory.getWebDriver(browserName, browserVersion));
+    }
+
+    public static WebDriver getDriver(){
+        return webDriver.get();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Внутри класса <strong>WebDriverInstansiator</strong> находится <strong>PageFactory</strong>, его цель - упростить создание новых инстансов веб-драйверов.</p>
+</div>
+<div class="paragraph">
+<p>Создаем <strong>Page object</strong> и класс тестов.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class GooglePage extends Page{
+
+    private static final String URL = "http://google.com/";
+
+    private static final By SEARCH_INPUT = By.name("q");
+    private static final By SEARCH_BTN = By.name("btnK");
+
+
+    public GooglePage(WebDriver driver) {
+       super(driver);
+    }
+
+    public void search(String name){
+        $(SEARCH_INPUT).sendKeys(name);
+        $(SEARCH_BTN).click();
+    }
+
+    public void open() {
+        toPage(URL);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Класс тестов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.grid.shedule.core.WebDriverInstansiator;
+import com.grid.shedule.pages.GooglePage;
+import org.testng.annotations.*;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class TestGoogleSearch extends BaseTestGrid {
+
+    GooglePage googlePage;
+
+    @BeforeMethod
+    public void setUp() {
+        googlePage = new GooglePage(WebDriverInstansiator.getDriver());
+    }
+
+    @Test
+    public void shouldBeBlogTitle() {
+        googlePage.open();
+        googlePage.search("automation remarks");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>И самая последняя часть: нужно настроить <strong>TestNG</strong> xml, в котором указать, какие тесты и в каких браузерах нужно запускать.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"&gt;
+&lt;suite name="ScheduleBusTest" parallel="tests" thread-count="5"&gt;
+    &lt;test name="ChromeTest" verbose="1" parallel="true"&gt;
+        &lt;parameter name="browserName" value="chrome" /&gt;
+        &lt;parameter name="browserVersion" value="" /&gt;
+        &lt;classes&gt;
+            &lt;class name="com.grid.shedule.test.TestGoogleSearch" /&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+    &lt;test name="InternetExplorerTest" verbose="1" parallel="true"&gt;
+        &lt;parameter name="browserName" value="internet explorer" /&gt;
+        &lt;parameter name="browserVersion" value="8" /&gt;
+        &lt;classes&gt;
+            &lt;class name="com.grid.shedule.test.TestGoogleSearch" /&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну вот, на этом настройка закончена. Для того, чтобы запустить тесты, нужно сначала стартовать наш Grid Hub с подключенными Node. Приведу пример скрипта с json файлом конфигурации:</p>
+</div>
+<div class="paragraph">
+<p><strong>NodeConfig.json</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+  "capabilities":
+      [
+        {
+            "browserName": "chrome",
+            "platform": "WINDOWS",
+            "maxInstances": 13,
+            "seleniumProtocol": "WebDriver",
+            "nodeName": "simpleNode"
+        },
+        {
+            "seleniumProtocol": "WebDriver",
+            "browserName": "internet explorer",
+            "version": "8",
+            "maxInstances": 13,
+            "platform" : "WINDOWS",
+            "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "22",
+          "platform": "WINDOWS",
+          "firefox_binary":"FirefoxExe/ff22/firefox.exe",
+          "maxInstances": 25,
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "24",
+          "platform": "WINDOWS",
+          "maxInstances": 25,
+          "firefox_binary":"FirefoxExe/ff24/firefox.exe",
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        }
+      ],
+  "configuration":
+    {
+        "nodeTimeout":120,
+        "nodePolling":2000,
+        "registerCycle":10000,
+        "register":true,
+        "cleanUpCycle":2000,
+        "timeout":30000,
+        "maxSession":25,
+        "nodeStatusCheckTimeout":10000,
+        "downPollingLimit":360000
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Код самого <strong>.bat</strong> или <strong>.sh</strong> файла, который я использую для запуска сервера:</p>
+</div>
+<div class="paragraph">
+<p><strong>StartGrid.bat(.sh)</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role hub -port 4445 -timeout 300 -browserTimeout 360
+cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role node -port 5599 -hub http://localhost:4445/grid/register -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=Drivers\chromedriver.exe -Dwebdriver.ie.driver=Drivers\IEDriverServer.exe</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну вот, теперь можно запускать тест. Должны открыться два браузера IE и Chrome, в которых параллельно будет выполняться наш единственный тест.</p>
+</div>
+<div class="paragraph">
+<p>Надеюсь, вам понравилась заметка и вы нашли в ней что-то полезное. Подписывайтесь на мой блог, присылайте идеи, делитесь опытом. До новых встреч!..</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Используем Selenium Grid&url=ispolzuiem-nastroiennyi-selenium-grid/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=ispolzuiem-nastroiennyi-selenium-grid/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=ispolzuiem-nastroiennyi-selenium-grid/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/nastraivaiem-selenium-grid-za-5-minut/index.html">Настраиваем Selenium Grid за 5 минут</a></li>
+                                                <li><a class='js-ajax-link' href="/maghiia-groovy-i-sql/index.html">Магия Groovy и SQL</a></li>
+                                                <li><a class='js-ajax-link' href="/zamienitie-property-faily-na-ghruvi-skripty/index.html">Достойная замена проперти файлам</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

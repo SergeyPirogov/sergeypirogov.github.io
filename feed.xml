@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:18:37 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:18:37 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:28:30 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:28:30 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,266 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Используем Selenium Grid</title>
+      <link>localhost/ispolzuiem-nastroiennyi-selenium-grid/index.html</link>
+      <pubDate>Tue, 23 Jun 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">ispolzuiem-nastroiennyi-selenium-grid/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке. О том, как настроить grid, я писал в предыдущей &lt;a href=&quot;http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/&quot;&gt;заметке&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://www.guru99.com/images/AdvanceSelenium/071514_0700_CrossBrowse1.png&quot; alt=&quot;071514 0700 CrossBrowse1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начнем с самого простого. Создаем &lt;strong&gt;Maven&lt;/strong&gt; проект, подключаем две зависимости &lt;strong&gt;TestNG&lt;/strong&gt; и &lt;strong&gt;Selenium-java&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.testng&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;testng&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;6.8.8&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.seleniumhq.selenium&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;selenium-java&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;2.46.0&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+&amp;lt;/dependencies&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;TestNG&lt;/strong&gt; приведен не случайно: именно его проще всего использовать для распараллеливания тестов. Почему? Попробуйте - и вы поймете сами =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом примере показан тест для страницы поиска Google. Но это не столь важно, следуя примеру, можно создать инфраструктуру для тестирования любого web-приложения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем общий класс, от которого будут наследоваться все классы тестов. В него помещаем методы фикстуры и другие методы, общие для всех классов тестов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import com.grid.shedule.core.WebDriverInstansiator;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+public class BaseTestGrid {
+
+    @Parameters({&quot;browserName&quot;, &quot;browserVersion&quot;})
+    @BeforeClass
+    public void setUp(@Optional String browserName, String browserVersion){
+        WebDriverInstansiator.setDriver(browserName, browserVersion);
+    }
+
+    @AfterClass
+    public void tearDown() throws Exception{
+        WebDriverInstansiator.getDriver().quit();
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Самое важное в коде, приведенном выше - класс &lt;strong&gt;WebDriverInstantiator&lt;/strong&gt;. Этот класс будет служить менеджером веб-драйверов для наших тестов. Самое важное в этом классе - ThreadLocal переменная webdriver. Она вводится для того, чтобы на каждый новый поток создавать свой веб-драйвер.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.WebDriver;
+
+public class WebDriverInstansiator {
+
+    private static InheritableThreadLocal&amp;lt;WebDriver&amp;gt; webDriver = new InheritableThreadLocal&amp;lt;WebDriver&amp;gt;();
+    private static WebDriverFactory factory;
+
+    public static void setDriver(String browserName, String browserVersion){
+        factory = new WebDriverFactory();
+        webDriver.set(factory.getWebDriver(browserName, browserVersion));
+    }
+
+    public static WebDriver getDriver(){
+        return webDriver.get();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Внутри класса &lt;strong&gt;WebDriverInstansiator&lt;/strong&gt; находится &lt;strong&gt;PageFactory&lt;/strong&gt;, его цель - упростить создание новых инстансов веб-драйверов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем &lt;strong&gt;Page object&lt;/strong&gt; и класс тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class GooglePage extends Page{
+
+    private static final String URL = &quot;http://google.com/&quot;;
+
+    private static final By SEARCH_INPUT = By.name(&quot;q&quot;);
+    private static final By SEARCH_BTN = By.name(&quot;btnK&quot;);
+
+
+    public GooglePage(WebDriver driver) {
+       super(driver);
+    }
+
+    public void search(String name){
+        $(SEARCH_INPUT).sendKeys(name);
+        $(SEARCH_BTN).click();
+    }
+
+    public void open() {
+        toPage(URL);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Класс тестов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import com.grid.shedule.core.WebDriverInstansiator;
+import com.grid.shedule.pages.GooglePage;
+import org.testng.annotations.*;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class TestGoogleSearch extends BaseTestGrid {
+
+    GooglePage googlePage;
+
+    @BeforeMethod
+    public void setUp() {
+        googlePage = new GooglePage(WebDriverInstansiator.getDriver());
+    }
+
+    @Test
+    public void shouldBeBlogTitle() {
+        googlePage.open();
+        googlePage.search(&quot;automation remarks&quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И самая последняя часть: нужно настроить &lt;strong&gt;TestNG&lt;/strong&gt; xml, в котором указать, какие тесты и в каких браузерах нужно запускать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+ &amp;lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&amp;gt;
+&amp;lt;suite name=&quot;ScheduleBusTest&quot; parallel=&quot;tests&quot; thread-count=&quot;5&quot;&amp;gt;
+    &amp;lt;test name=&quot;ChromeTest&quot; verbose=&quot;1&quot; parallel=&quot;true&quot;&amp;gt;
+        &amp;lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot; /&amp;gt;
+        &amp;lt;parameter name=&quot;browserVersion&quot; value=&quot;&quot; /&amp;gt;
+        &amp;lt;classes&amp;gt;
+            &amp;lt;class name=&quot;com.grid.shedule.test.TestGoogleSearch&quot; /&amp;gt;
+        &amp;lt;/classes&amp;gt;
+    &amp;lt;/test&amp;gt;
+    &amp;lt;test name=&quot;InternetExplorerTest&quot; verbose=&quot;1&quot; parallel=&quot;true&quot;&amp;gt;
+        &amp;lt;parameter name=&quot;browserName&quot; value=&quot;internet explorer&quot; /&amp;gt;
+        &amp;lt;parameter name=&quot;browserVersion&quot; value=&quot;8&quot; /&amp;gt;
+        &amp;lt;classes&amp;gt;
+            &amp;lt;class name=&quot;com.grid.shedule.test.TestGoogleSearch&quot; /&amp;gt;
+        &amp;lt;/classes&amp;gt;
+    &amp;lt;/test&amp;gt;
+&amp;lt;/suite&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот, на этом настройка закончена. Для того, чтобы запустить тесты, нужно сначала стартовать наш Grid Hub с подключенными Node. Приведу пример скрипта с json файлом конфигурации:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;NodeConfig.json&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &quot;capabilities&quot;:
+      [
+        {
+            &quot;browserName&quot;: &quot;chrome&quot;,
+            &quot;platform&quot;: &quot;WINDOWS&quot;,
+            &quot;maxInstances&quot;: 13,
+            &quot;seleniumProtocol&quot;: &quot;WebDriver&quot;,
+            &quot;nodeName&quot;: &quot;simpleNode&quot;
+        },
+        {
+            &quot;seleniumProtocol&quot;: &quot;WebDriver&quot;,
+            &quot;browserName&quot;: &quot;internet explorer&quot;,
+            &quot;version&quot;: &quot;8&quot;,
+            &quot;maxInstances&quot;: 13,
+            &quot;platform&quot; : &quot;WINDOWS&quot;,
+            &quot;nodeName&quot;: &quot;simpleNode&quot;
+        },
+        {
+          &quot;browserName&quot;: &quot;firefox&quot;,
+          &quot;version&quot;: &quot;22&quot;,
+          &quot;platform&quot;: &quot;WINDOWS&quot;,
+          &quot;firefox_binary&quot;:&quot;FirefoxExe/ff22/firefox.exe&quot;,
+          &quot;maxInstances&quot;: 25,
+          &quot;seleniumProtocol&quot;: &quot;WebDriver&quot;,
+          &quot;nodeName&quot;: &quot;simpleNode&quot;
+        },
+        {
+          &quot;browserName&quot;: &quot;firefox&quot;,
+          &quot;version&quot;: &quot;24&quot;,
+          &quot;platform&quot;: &quot;WINDOWS&quot;,
+          &quot;maxInstances&quot;: 25,
+          &quot;firefox_binary&quot;:&quot;FirefoxExe/ff24/firefox.exe&quot;,
+          &quot;seleniumProtocol&quot;: &quot;WebDriver&quot;,
+          &quot;nodeName&quot;: &quot;simpleNode&quot;
+        }
+      ],
+  &quot;configuration&quot;:
+    {
+        &quot;nodeTimeout&quot;:120,
+        &quot;nodePolling&quot;:2000,
+        &quot;registerCycle&quot;:10000,
+        &quot;register&quot;:true,
+        &quot;cleanUpCycle&quot;:2000,
+        &quot;timeout&quot;:30000,
+        &quot;maxSession&quot;:25,
+        &quot;nodeStatusCheckTimeout&quot;:10000,
+        &quot;downPollingLimit&quot;:360000
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Код самого &lt;strong&gt;.bat&lt;/strong&gt; или &lt;strong&gt;.sh&lt;/strong&gt; файла, который я использую для запуска сервера:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;StartGrid.bat(.sh)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role hub -port 4445 -timeout 300 -browserTimeout 360
+cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role node -port 5599 -hub http://localhost:4445/grid/register -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=Drivers\chromedriver.exe -Dwebdriver.ie.driver=Drivers\IEDriverServer.exe&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот, теперь можно запускать тест. Должны открыться два браузера IE и Chrome, в которых параллельно будет выполняться наш единственный тест.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Надеюсь, вам понравилась заметка и вы нашли в ней что-то полезное. Подписывайтесь на мой блог, присылайте идеи, делитесь опытом. До новых встреч!..&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
