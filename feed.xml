@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 09:38:43 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 09:38:43 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:11:36 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:11:36 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,190 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Настраиваем Selenium Grid за 5 минут</title>
+      <link>localhost/nastraivaiem-selenium-grid-za-5-minut/index.html</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">nastraivaiem-selenium-grid-za-5-minut/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка о том, как правильно настроить &lt;strong&gt;Selenium-Grid&lt;/strong&gt;. Многие делали это неоднократно, а некоторые даже не знают, что это такое. Ориентируюсь на обе части аудитории: если у вас есть опыт, заметка будет служить такой себе справкой - вдруг чего забыли; если вы не пробовали, но очень хотели - это прекрасный шанс начать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак &lt;strong&gt;Selenium-Grid&lt;/strong&gt; позволяет запускать тесты на разных машинах в разных браузерах параллельно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://cdn.guru99.com/images/hub_and_nodes.jpg&quot; alt=&quot;hub and nodes&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В основном Selenium Grid используют по нескольким причинам:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для распараллеливания запуска тестов на различных операционных системах, в различных браузерах;
+Для того, чтобы уменьшить общее время прогона тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Selenium Grid оперирует такими составляющими, как Hub и Node.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что такое Hub?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Hub - центральная точка, которая принимает запросы и направляет их к Node. Такой себе командный пункт.
+В гриде может быть только один Hub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что такое Node?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Node - Selenium инстанс, который будет запускать команды, загружаемые в Hub.
+Node может быть много в гриде.
+Node - может запускаться на разных операционных системах с разными браузерами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начало настройки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скачать &lt;strong&gt;Selenium Server Standalone&lt;/strong&gt; &lt;a href=&quot;http://docs.seleniumhq.org/download/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создайте папку &lt;strong&gt;seleniumgrid&lt;/strong&gt; и скопируйте в нее скачанный &lt;strong&gt;selenium_server_x.xx.x.jar&lt;/strong&gt; файл.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Стартуем Hub.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Открываем окно команд и выполняем:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -jar selenium_server_standalone_2.46.0.jar -role hub&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Должно появиться что-то подобное этому:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://cdn.guru99.com/images/launch_hub.jpg&quot; alt=&quot;launch hub&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для того, чтобы проверить, что все стартовало правильно, нужно набрать в браузере&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;http://localhost:4444/grid/console&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Стартуем Node.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В моем случае и &lt;strong&gt;Hub&lt;/strong&gt; и &lt;strong&gt;Node&lt;/strong&gt; расположены на одном компьютере, но это не сильно меняет ситуацию.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Открываем консоль и пишем:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Node для браузера &lt;strong&gt;FireFox&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5556 -browser browserName=firefox&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для браузеров Chrome и Internet Explorer настройка немного отличается. Нужно дописать путь к драйверам соответствующих браузеров -Dwebdriver.ie.driver=IEDriverServer.exe и -Dwebdriver.chrome.driver=chromedriver.exe. Скачать драйверы можно на сайте selenium.org&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Полные команды выглядят так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;strong&gt;Internet Explorer&lt;/strong&gt;&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
+http://localhost:4444/grid/register -port 5558 -browser browserName=iexplorer&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для Internet explorer я уже описывал, как можно использовать драйвер, написанный самим Майкрософт. Смотреть &lt;a href=&quot;http://automation-remarks.com/kak-pokorit-internet-explorer/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;strong&gt;Chrome&lt;/strong&gt;&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
+http://localhost:4444/grid/register -port 5558 -browser browserName=chrome&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для того, чтобы проверить, что все настроено корректно, нужно открыть все тот же &lt;a href=&quot;http://localhost:4444/grid/console&quot; class=&quot;bare&quot;&gt;http://localhost:4444/grid/console&lt;/a&gt; и убедиться, что там отображается один истанс IE и один Chrome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Следует добавить, конфигурировать Hub и Node можно с помощью JSON файлов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример для &lt;strong&gt;Hub&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Содержимое json файла &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultHub.json&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример для &lt;strong&gt;Node&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -jar selenium-server-standalone.jar -role node -nodeConfig nodeconfig.json&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Содержимое json файла &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultNode.json&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот и все, в следующих заметках я покажу, как пользоваться настроенным гридом и запускать тесты. Если вам интересно, подписывайтесь,чтобы получать обновления первым.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
