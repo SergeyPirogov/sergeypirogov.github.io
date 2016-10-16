@@ -1,0 +1,96 @@
+title=Магия Groovy и SQL
+date=2015-05-12
+type=post
+status=published
+summary=Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
+tags=Java, Groovy, Test фреймворк
+~~~~~~
+
+Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
+Начну с описания примерной ситуации, в которой может пригодиться данный подход. Скажем, есть у вас схема базы данных и вы перед стартом приложения, хотите проверить целостность базы данных и находящихся в ней данных. Для этого можно использовать различные подходы, я покажу один из них. В показаном примере используется Groovy. Лично для меня, он привлекателен тем, что некоторые вещи можно делать проще и быстрее. К примеру я уже показывал здесь как быстро и просто прочитать данные из url.
+Итак приступим к делу, в примере ниже, я покажу как соедениться с базой данных SQLite. Итак открываем Groovy Console и пишем:
+
+[source, groovy]
+----
+@Grapes([
+ @Grab(group='org.xerial',module='sqlite-jdbc',version='3.7.2'),
+ @GrabConfig(systemClassLoader=true)
+])
+
+import java.sql.*
+import org.sqlite.SQLite
+import groovy.sql.Sql
+
+//Class.forName("org.sqlite.JDBC")
+
+def sql = Sql.newInstance("jdbc:sqlite:sample.db", "org.sqlite.JDBC")
+
+sql.execute("drop table if exists person")
+sql.execute("create table person (id integer, name string)")
+
+def people = sql.dataSet("person")
+people.add(id:1, name:"leo")
+people.add(id:2,name:'yui')
+
+sql.eachRow("select * from person") {
+  println("id=${it.id}, name= ${it.name}")
+}
+
+result:
+id=1, name= leo
+id=2, name= yui
+----
+
+Вот так вот, всего пару строк, котрые позволяют создать таблицу, заполнить ее данными и извлечь их.
+Пойдем еще дальше, так как груви консоль - это инструмент "поиграться".
+Берем более серъезные инструменты **Groovy + Spock Framework**.Базы данных **H2**.
+
+Создаем тестовый класс:
+
+[source, groovy]
+----
+import groovy.sql.Sql
+import spock.lang.Shared
+import spock.lang.Specification
+
+class DatabaseDrivenSpec extends Specification {
+    @Shared
+            sql = Sql.newInstance("jdbc:h2:mem:", "org.h2.Driver")
+
+    // insert data (usually the database would already contain the data)
+    def setupSpec() {
+        sql.execute("""
+                        CREATE TABLE employees
+                        ( employee_number number(10) not null,
+                          employee_name varchar2(50) not null,
+                          salary number(6),
+                          CONSTRAINT employees_pk PRIMARY KEY (employee_number)
+                        );
+                    """
+        );
+
+sql.execute("INSERT INTO employees (employee_number, employee_name, salary) VALUES (1001, 'Sally Johnson', 32000);")
+    }
+
+
+    def "employees test"() {
+        expect:
+        employee_number == 1001
+        employee_name == "Sally Johnson"
+        salary == 32000
+
+        where:
+        [employee_number, employee_name, salary] << sql.rows("select * from employees")
+    }
+}
+----
+
+Можно очень легко читать .sql файлы.
+
+[source, groovy]
+----
+String query = new File('insert.sql').text
+sql.execute(query)
+----
+
+Вот так вот, мы очень легко и понятно можем обращаться с данными используя Groovy SQL.

@@ -1,0 +1,179 @@
+title=Свое АОP в JDK
+date=2015-03-29
+type=post
+status=published
+summary=Заметка о том, как можно реализовать AOP без Spring и AspectJ.
+tags=Тест фреймворк, Java
+~~~~~~
+Заметка о том, как можно реализовать **AOP** без **Spring** и **AspectJ**. Для тех, кто не особо в курсе, что такое AOP смотреть суда. Итак, приступим. Создадим нашу мини программу:
+
+[source, java]
+----
+public interface Calculator {
+    public int calculate( int a , int b);
+}
+
+public class CalculatorImpl implements Calculator {
+    @Override
+    public int calculate(int a, int b) {
+        System.out.println("**********Actual Method Execution**********");
+        return a/b;
+    }
+}
+----
+
+Класс **Calculator** будет имеенно тем классом, который мы будем проксировать. В java есть такой интересный интерфейс **InvocationHandler**, его мы и будем использовать для нашей реализации **AOP**. Создадим абстрактный **Handler**:
+
+[source, java]
+----
+public abstract class AbstractHandler implements InvocationHandler {
+
+    private Object targetObject;
+
+    public void setTargetObject(Object targetObject) {
+        this.targetObject = targetObject;
+    }
+
+    public Object getTargetObject() {
+        return targetObject;
+    }
+}
+----
+
+Создадим **ProxyFactory**:
+
+[source, java]
+----
+public class ProxyFactory {
+
+public static Object getProxy(Object targetObject,
+        List<AbstractHandler> handlers) {
+    Object proxyObject = null;
+    if (handlers.size() > 0) {
+        proxyObject = targetObject;
+        for (int i = 0; i < handlers.size(); i++) {
+            handlers.get(i).setTargetObject(proxyObject);
+            proxyObject = Proxy.newProxyInstance(targetObject.getClass()
+                    .getClassLoader(), targetObject.getClass()
+                    .getInterfaces(), handlers.get(i));
+        }
+        return proxyObject;
+    } else {
+        return targetObject;
+    }
+}
+}
+----
+
+В AOP существует несколько срезов: **Before**, **After**, **AfterThrowing**, **AfterReturning** и **Around**.
+
+Так как реализации каждого среза могут быть разными, для разных случаев, создадим для них абстрактные классы:
+
+Пример для **AfterHandler** и **BeforeHandler**.
+
+[source, java]
+----
+public abstract class AfterHandler extends AbstractHandler {
+
+    /**
+     * Handles after the execution of method.
+     *
+     * @param proxy the proxy
+     * @param method the method
+     * @param args the args
+     */
+    public abstract void handleAfter(Object proxy, Method method, Object[] args);
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        Object result = method.invoke(getTargetObject(), args);
+        handleAfter(proxy, method, args);
+        return result;
+    }
+}
+----
+
+**AbstractBeforeHandler:**
+
+[source, java]
+----
+public abstract class BeforeHandler extends AbstractHandler {
+
+    /**
+     * Handles before execution of actual method.
+     *
+     * @param proxy the proxy
+     * @param method the method
+     * @param args the args
+     */
+    public abstract void handleBefore(Object proxy, Method method, Object[] args);
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        handleBefore(proxy, method, args);
+        return method.invoke(getTargetObject(), args);
+    }
+}
+----
+
+Теперь нам нужно сделать конкретные реализации для каждого из срезов:
+
+[source, java]
+----
+public class AfterHandlerImpl extends AfterHandler {
+
+    @Override
+    public void handleAfter(Object proxy, Method method, Object[] args) {
+        //Provide your own cross cutting concern
+        System.out.println(method.getName() + Arrays.toString(args));
+        System.out.println("Handling after actual method execution ........");
+    }
+}
+
+public class BeforeHandlerImpl extends BeforeHandler {
+
+    @Override
+    public void handleBefore(Object proxy, Method method, Object[] args) {
+        //Provide your own cross cutting concern
+        System.out.println("Handling before actual method execution ........");
+    }
+}
+----
+
+Теперь мы можем легко проксировать наш **Calculator** класс:
+
+[source, java]
+----
+public class TestAopInJDK {
+
+    public static void main(String[] args) {
+        CalculatorImpl calcImpl = new CalculatorImpl();
+        BeforeHandler before = new BeforeHandlerImpl();
+        AfterHandler after = new AfterHandlerImpl();
+        List<AbstractHandler> handlers = new ArrayList<AbstractHandler>();
+        handlers.add(before);
+        handlers.add(after);
+        Calculator proxy = (Calculator) ProxyFactory.getProxy(calcImpl,
+                handlers);
+        int result = proxy.calculate(20, 10);
+        System.out.println("FInal Result :::" + result);
+    }
+}
+----
+
+После запуска вывод в консоль оказывается таким:
+
+[source, xml]
+----
+Handling before actual method execution ........
+**********Actual Method Execution**********
+calculate[20, 10]
+Handling after actual method execution ........
+Final Result :::2
+----
+
+Как вы можете заметить срабатывает Before, затем идет работа метода и затем срабатывает After.
+**P.S.**
+Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.
+

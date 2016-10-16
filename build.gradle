@@ -1,0 +1,40 @@
+buildscript {
+  repositories {
+      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
+      jcenter()
+  }
+
+  dependencies {
+    classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2.1'
+    classpath 'org.akhikhl.gretty:gretty:1.4.0'
+  }
+}
+                      
+apply plugin: 'me.champeau.jbake'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+gretty {
+  httpPort = 8085
+  contextPath = "/"
+  extraResourceBases = ["$buildDir/jbake"]
+}
+
+jbake{
+  version = "2.5.0"
+  asciidoctorjVersion = "1.5.4.1"
+  configuration['db.store'] = "local" 
+  configuration['db.path']= "build/cache" 
+  configuration['site.host'] = "localhost"
+  configuration['render.tags'] = true
+  configuration['site.contextPath'] = "/"
+  configuration['asciidoctor.attributes'] = [
+    "imagesdir=/img",
+    "source-highlighter=prettify"
+  ]
+}
+
+task publish(type: GradleBuild) {           
+    buildFile = 'publish.gradle'
+    tasks = ['publishGhPages']
+}

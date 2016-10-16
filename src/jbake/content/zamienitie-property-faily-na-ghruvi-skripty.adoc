@@ -1,0 +1,82 @@
+title=Достойная замена проперти файлам
+date=2015-05-12
+type=post
+status=published
+summary=Этой заметкой я продолжу когда-то уже начатый разговор о груви.
+tags=Java,Groovy, Тест фреймворк
+~~~~~~
+
+Этой заметкой я продолжу когда-то уже начатый разговор о груви. Сегодня хочу предложить подход, который я испробовал лично, а именно - заменить проперти файл в проекте на груви скрипт.
+
+Итак у нас есть стандартный Java проект со стандартной структурой. Создадим в папке **resources** файл **config.groovy** со следующим содержанием:
+
+[source, groovy]
+----
+environments{
+    local{
+        mail = "localhost"
+        servers{
+            linux = "0.0.0.0"
+            solaris = "192.168.1.1"
+        }
+    }
+    prod{
+        mail = "prodhost"
+        servers = ["1.1.1.1","2.2.2.2.2"]
+    }
+}
+----
+
+Стандартная ситуация: у нас есть несколько инвайроментов, на которых мы можем запускать тесты. Теперь начнется магия груви. Создаем класс:
+
+.Config.groovy
+[source, groovy]
+----
+class Config {
+
+    final String CONFIG_FILE = 'src/test/resources/config.groovy'
+    final String ENVIRONMENTS = 'environments'
+
+    def read() {
+        new File(CONFIG_FILE).text
+    }
+
+    def getEnv(String envName) {
+        def config = new ConfigSlurper(envName)
+        config.registerConditionalBlock(ENVIRONMENTS, envName)
+        config.parse(read())
+    }
+}
+----
+
+Сердцем этого класса является метод **getEnv**, который использует **ConfigSlurper**. ConfigSlurper может парсить груфи файлы, что даст нам возможность использовать скрипты вместо стандартных Java проперти файлов. Ну и теперь нам остается попробовать класс в действии:
+
+[source, groovy]
+----
+class ConfigTest {
+    public static void main(String[] args) {
+        def local= new Config().getEnv('local')
+        println "Local"
+        println local.mail
+        println local.servers.linux
+        println local.servers.solaris
+
+        def prod = new Config().getEnv('prod')
+        println "Production"
+        println prod.mail
+        println prod.servers
+    }
+}
+
+Console output:
+Local
+localhost
+0.0.0.0
+192.168.1.1
+
+Production
+prodhost
+[1.1.1.1, 2.2.2.2.2]
+----
+
+Собственно, результат говорит сам за себя. Лично мое мнение: груви скрипты могут полностью заменить проперти файлы, к тому же скрипт обладает большими возможностями, чем проперти файл. А как вы считаете, применим ли такой подход на вашем проекте?

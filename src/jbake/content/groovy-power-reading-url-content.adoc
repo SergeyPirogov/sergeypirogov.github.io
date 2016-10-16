@@ -1,0 +1,33 @@
+title=Мощь Groovy: Reading URL Content
+date=2015-02-26
+type=post
+status=published
+summary=Groovy adds some methods to the URL class which make reading data from an URL easy.
+tags=Java, Groovy
+~~~~~~
+Groovy adds some methods to the URL class which make reading data from an URL easy. For example the text property returns the complete contents of the document that is identified by the URL. Or we can use the **eachLine()** method to loop through each line of the document. Groovy also adds a **toURL()** to the String class to make a URL object.
+
+[source, groovy]
+----
+def url = "http://www.mrhaki.com/url.html".toURL()
+
+assert '''\
+     Simple test document
+     for testing URL extensions
+     in Groovy.
+''' == url.text
+
+def result = []
+    url.eachLine {
+        if (it =~ /Groovy/) {
+        result << it
+    }
+}
+assert ['in Groovy.'] == result
+
+url.withReader { reader ->
+    assert 'Simple test document' == reader.readLine()
+}
+----
+
+That's all, just simple.

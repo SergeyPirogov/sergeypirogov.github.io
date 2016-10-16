@@ -1,0 +1,68 @@
+title=Выведите ваши тесты на новый уровень!
+date=2015-03-20
+summary=Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно!
+tags=Тест фреймворк
+type=post
+status=published
+~~~~~~
+Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через **Sonar**. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный __NullPointerException__. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим **MySQL**, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на **Maven**, то просто в pom нужно вписать:
+
+[source, xml]
+----
+<project>
+  ...
+  <build>
+    <!-- To define the plugin version in your parent POM -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        ...
+      </plugins>
+    </pluginManagement>
+    <!-- To use the plugin goals in your POM or parent POM -->
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+      ...
+    </plugins>
+  </build>
+  ...
+</project>
+----
+
+Далее в Maven setting.xml добавляем:
+
+[source, xml]
+----
+<profile>
+    <id>sonar</id>
+    <activation>
+       <activeByDefault>true</activeByDefault>
+    </activation>
+<properties>
+<sonar.jdbc.url>jdbc:postgresql://localhost/sonar<;/sonar.jdbc.url>
+<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
+<sonar.jdbc.username>user</sonar.jdbc.username>
+<sonar.jdbc.password>password</sonar.jdbc.password>
+<!-- SERVER ON A REMOTE HOST -->
+<sonar.host.url>http://localhost:9000</sonar.host.url>
+   </properties>
+</profile>
+----
+
+Вот и все! При запущенном сервере - выполняем **mvn sonar:sonar** ждем завершения сканирования. Далее отрываем в браузере адрес, который мы прописывали:
+
+[source, xml]
+----
+<sonar.host.url>http://localhost:9000</sonar.host.url>
+----
+
+Проделав все эти действия, я был шокирован. В проекте был ужжаасный код. Сделав выводы, на новом проете, я начал применять Sonar с самого первого дня. Спустя три месяца, мы создали 300 тестов. Техникал дебт равен 0.1. А сложность кода - 1.2. Вы можете себе представить такое? Разработчики даже подшучивают иногда, что тесты "чище" чем сам проект. Вот так вот Sonar помог повыситься качество кода тестов. А вы используете статические анализаторы кода?
+

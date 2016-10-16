@@ -1,0 +1,106 @@
+title=А как вы логируете?
+date=2015-03-28
+type=post
+status=published
+summary=Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
+tags=Тест фреймворк, Java
+~~~~~~
+Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
+Итак, начну с предыстории. Есть у меня проект который организован на основе **Spring + Jbehave + Selenium**, все вроде как хорошо, тесты бегают, тесты падают. Но вот бывает такое, что тест идет и в одном методе выполняется пару действий - понять какое именно действие вызывает фейл, бывает очень сложно. Что в таком случае делать? Правильно - начинать логировать. А как логировать? Очень просто берем **Slf4j** делаем:
+
+[source, java]
+----
+public class SomePage {
+    private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);
+
+    public void someMethod(){
+        LOG.info("something happens");
+    }
+}
+----
+
+Как любит говорить один мой знакомый: "казалось бы". Но здесь всего один метод. При увеличении строк кода, логер будет пропорционально захламлять код. В дополнение не всегда хочеться писать вот эту вот строку в каждом классе:
+
+[source, java]
+----
+private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);
+----
+
+Да, можно использовать **Lombook**, но не все положительно относятся к библиотекам такого рода.
+Передем к более насущной проблеме, скажем есть у вас метод:
+
+[source, java]
+----
+public void login(User user){
+    driver.find(By.id("login")).sendKeys(user.name);
+    driver.find(By.id("pass")).sendKeys(user.pass);
+    driver.find(By.id("login_btn")).click();
+}
+----
+
+Как здесь залогировать то, что я заполнил два поля и тыцнул на кнопку? Первое что приходит на ум - просто добавить логер. А куда добавлять? Перед действием или после? А если я хочу и там и там? Давайте посмотрим:
+
+[source, java]
+----
+public void login(User user){
+    LOG.info("Type login {}",user.name);
+    driver.find(By.id("login")).sendKeys(user.name);
+    LOG.info("Type password {}",user.pass);
+    driver.find(By.id("pass")).sendKeys(user.pass);
+    LOG.info("Click login btn);
+    driver.find(By.id("login_btn")).click();
+}
+----
+
+Последний кусок кода выглядит просто ужасно. В таких ситуациях очень кстати приходиться **Selenium WebDriver Event Listener Interface**. Этот интерфейс предоставляет доступ ко всем основным действиям драйвера:
+
+[source, java]
+----
+public class EventHandler implements WebDriverEventListener{
+
+    public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterClickOn(WebElement arg0, WebDriver arg1) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterNavigateBack(WebDriver arg0) {
+    // TODO Auto-generated method stub
+    }
+    ...
+}
+----
+
+Все что нужно сделать, просто реализовать методы, затем зарегистрировать ваш листенер и начать наслаждаться происходящим:
+
+[source, java]
+----
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        FirefoxDriver driver = new FirefoxDriver();
+        EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
+
+        EventHandler handler = new EventHandler();
+        eventDriver.register(handler);
+        eventDriver.get("http://www.toolsqa.com/automation-practice-switch-windows/");
+        WebElement element = eventDriver.findElement(By.id("target"));
+        element.click();
+
+    }
+}
+----
+
+Используя такой подход можно легко и просто залогировать все действия драйвера.
