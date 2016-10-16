@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:37:34 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:37:34 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:42:32 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:42:32 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,27 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Введение в Selenium для мануальных тестировщиков</title>
+      <link>localhost/selenium-for-manual/index.html</link>
+      <pubDate>Sat, 4 Jul 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">selenium-for-manual/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Одна из лекций под одноименным названием. Полезно для людей без опыта работы с Selenium webdriver. В лекции показан пример написания самого простого теста. Основное внимание уделено ожиданиям. Показан пример организации кода в проекте.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/oHqHXFklXww?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/Qrqr53X4XMg?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>

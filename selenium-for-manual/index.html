@@ -80,123 +80,42 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">12/05/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">04/07/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Магия Groovy и SQL</h1>
+                        <h1 class="post-title">Введение в Selenium для мануальных тестировщиков</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
-Начну с описания примерной ситуации, в которой может пригодиться данный подход. Скажем, есть у вас схема базы данных и вы перед стартом приложения, хотите проверить целостность базы данных и находящихся в ней данных. Для этого можно использовать различные подходы, я покажу один из них. В показаном примере используется Groovy. Лично для меня, он привлекателен тем, что некоторые вещи можно делать проще и быстрее. К примеру я уже показывал здесь как быстро и просто прочитать данные из url.
-Итак приступим к делу, в примере ниже, я покажу как соедениться с базой данных SQLite. Итак открываем Groovy Console и пишем:</p>
+<p>Одна из лекций под одноименным названием. Полезно для людей без опыта работы с Selenium webdriver. В лекции показан пример написания самого простого теста. Основное внимание уделено ожиданиям. Показан пример организации кода в проекте.</p>
 </div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">@Grapes([
- @Grab(group='org.xerial',module='sqlite-jdbc',version='3.7.2'),
- @GrabConfig(systemClassLoader=true)
-])
-
-import java.sql.*
-import org.sqlite.SQLite
-import groovy.sql.Sql
-
-//Class.forName("org.sqlite.JDBC")
-
-def sql = Sql.newInstance("jdbc:sqlite:sample.db", "org.sqlite.JDBC")
-
-sql.execute("drop table if exists person")
-sql.execute("create table person (id integer, name string)")
-
-def people = sql.dataSet("person")
-people.add(id:1, name:"leo")
-people.add(id:2,name:'yui')
-
-sql.eachRow("select * from person") {
-  println("id=${it.id}, name= ${it.name}")
-}
-
-result:
-id=1, name= leo
-id=2, name= yui</code></pre>
+<iframe src="https://www.youtube.com/embed/oHqHXFklXww?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
-<div class="paragraph">
-<p>Вот так вот, всего пару строк, котрые позволяют создать таблицу, заполнить ее данными и извлечь их.
-Пойдем еще дальше, так как груви консоль - это инструмент "поиграться".
-Берем более серъезные инструменты <strong>Groovy + Spock Framework</strong>.Базы данных <strong>H2</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Создаем тестовый класс:</p>
-</div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">import groovy.sql.Sql
-import spock.lang.Shared
-import spock.lang.Specification
-
-class DatabaseDrivenSpec extends Specification {
-    @Shared
-            sql = Sql.newInstance("jdbc:h2:mem:", "org.h2.Driver")
-
-    // insert data (usually the database would already contain the data)
-    def setupSpec() {
-        sql.execute("""
-                        CREATE TABLE employees
-                        ( employee_number number(10) not null,
-                          employee_name varchar2(50) not null,
-                          salary number(6),
-                          CONSTRAINT employees_pk PRIMARY KEY (employee_number)
-                        );
-                    """
-        );
-
-sql.execute("INSERT INTO employees (employee_number, employee_name, salary) VALUES (1001, 'Sally Johnson', 32000);")
-    }
-
-
-    def "employees test"() {
-        expect:
-        employee_number == 1001
-        employee_name == "Sally Johnson"
-        salary == 32000
-
-        where:
-        [employee_number, employee_name, salary] &lt;&lt; sql.rows("select * from employees")
-    }
-}</code></pre>
+<iframe src="https://www.youtube.com/embed/Qrqr53X4XMg?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Можно очень легко читать .sql файлы.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">String query = new File('insert.sql').text
-sql.execute(query)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Вот так вот, мы очень легко и понятно можем обращаться с данными используя Groovy SQL.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                                     <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Groovy.html">Groovy</a>
-                                    <a href="/tags/Test-фреймворк.html">Test фреймворк</a>
+                                    <a href="/tags/Видео.html">Видео</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Магия Groovy и SQL&url=maghiia-groovy-i-sql/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Введение в Selenium для мануальных тестировщиков&url=selenium-for-manual/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=maghiia-groovy-i-sql/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=selenium-for-manual/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=maghiia-groovy-i-sql/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=selenium-for-manual/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -212,7 +131,6 @@ sql.execute(query)</code></pre>
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/selenium-for-manual/index.html">Введение в Selenium для мануальных тестировщиков</a></li>
                                                 <li><a class='js-ajax-link' href="/cucumber/index.html">Cucumber+Spring+Selenium или жирное BDD</a></li>
                                                 <li><a class='js-ajax-link' href="/ispolzuiem-nastroiennyi-selenium-grid/index.html">Используем Selenium Grid</a></li>
                                                 <li><a class='js-ajax-link' href="/nastraivaiem-selenium-grid-za-5-minut/index.html">Настраиваем Selenium Grid за 5 минут</a></li>
