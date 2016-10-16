@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">24/06/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Cucumber+Spring+Selenium или жирное BDD</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Заметка с громким названием на достаточно спорную тему - BDD. Многие используют Behavior-Driven Development у себя на проектах, многие его ругают. Но, я уверен, есть люди, которые не видели и не пробовали, как это работает. О том, что такое BDD, в чем его основной смысл, вы можете посмотреть <a href="http://automation-remarks.com/bdd-in-test-automation-lecture/">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p>Дальше я покажу, как настроить проект, показанный на видео по ссылке выше, с использованием <strong>Cucumber</strong>, <strong>Spring Framework</strong> и <strong>Selenium</strong>. Традиционно пример будет реализован на Java.</p>
+</div>
+<div class="paragraph">
+<p>Итак начнем. Создаем простой Maven проект и добавляем зависимости в <strong>pom.xml</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;CucumberDemo&lt;/groupId&gt;
+    &lt;artifactId&gt;CucumberDemo&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;properties&gt;
+        &lt;cucumber-core.version&gt;1.1.8&lt;/cucumber-core.version&gt;
+        &lt;cucumber-html.version&gt;0.2.3&lt;/cucumber-html.version&gt;
+        &lt;cucumber-java.version&gt;1.1.8&lt;/cucumber-java.version&gt;
+        &lt;cucumber-junit.version&gt;1.1.8&lt;/cucumber-junit.version&gt;
+        &lt;cucumber-jvm-deps.version&gt;1.0.3&lt;/cucumber-jvm-deps.version&gt;
+        &lt;cucumber-spring.version&gt;1.1.8&lt;/cucumber-spring.version&gt;
+        &lt;gherkin.version&gt;2.12.2&lt;/gherkin.version&gt;
+        &lt;hamcrest-all.version&gt;1.3&lt;/hamcrest-all.version&gt;
+        &lt;junit.version&gt;4.11&lt;/junit.version&gt;
+        &lt;selenium-server.version&gt;2.46.0&lt;/selenium-server.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-core&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-core.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-html&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-html.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-java&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-java.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-junit&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-junit.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-jvm-deps&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-jvm-deps.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-spring&lt;/artifactId&gt;
+            &lt;version&gt;${cucumber-spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;gherkin&lt;/artifactId&gt;
+            &lt;version&gt;${gherkin.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+            &lt;artifactId&gt;hamcrest-all&lt;/artifactId&gt;
+            &lt;version&gt;${hamcrest-all.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-server&lt;/artifactId&gt;
+            &lt;version&gt;${selenium-server.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;version&gt;4.1.5.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;4.1.5.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Далее нам нужно создать класс CucumberRunner, который будет запускать наши сценарии. Сейчас вы удивитесь краткости настроек:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@RunWith(Cucumber.class)
+@CucumberOptions(tags = {},format = {"pretty", "json:target/cucumber.json","html:target/cucumber.html"}, features = {"src/main/java/com/features/"})
+public class CucumberRunner {
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Здесь мы указали формат вывода результатов, формат отчета и путь к папке, где лежат наши <strong>feature</strong> файлы.</p>
+</div>
+<div class="paragraph">
+<p>Теперь создадим непосредственно сам feature файл <strong>pc.feature</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Feature: PC Feature
+
+  @1
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category "Компьютеры"
+    Then I should see page url "http://pn.com.ua/computers/"
+
+  @2
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category "Компьютеры"
+    Then verify that has sub-column:
+    |name|
+    |Ноутбуки, планшеты|</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теги <strong>@1</strong> и <strong>@2</strong> - это аннотации, с помощью которых мы можем фильтровать сценарии при запуске, указав параметр в CucumberRunner, к примеру <strong>tags{"@2"}</strong>. Ну вот, с настройкой <strong>Cucumber</strong> мы справились, теперь приступим к настройке <strong>Spring</strong>, который будет управлять зависимостями в нашем фреймворке. Создаем в папке <strong>src/java/resources</strong> файл <strong>cucumber.xml</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"&gt;
+
+    &lt;context:annotation-config/&gt;
+
+    &lt;context:component-scan base-package="com.cucumber"/&gt;
+
+    &lt;import resource="classpath*:/applicationContext.xml"/&gt;
+    &lt;bean id="driver" class="org.openqa.selenium.firefox.FirefoxDriver" destroy-method="quit"/&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь приступим к ComponentObject. Создаем класс Page, от которого будем наследовать все наши классы-компоненты.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Page {
+
+    @Autowired
+    WebDriver driver;
+
+    @PostConstruct
+    public void setUp() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    protected void open(String url) {
+        driver.get(url);
+    }
+
+
+    protected WebElement $(String xpath, String... args) {
+        return driver.findElement(By.xpath(String.format(xpath, args)));
+    }
+
+
+    protected List&lt;WebElement&gt; $$(By by) {
+        return driver.findElements(by);
+    }
+
+    protected WebElement $(By by) {
+        return driver.findElement(by);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Создаем класс-компонент <strong>Home</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Component
+public class Home extends Page{
+
+    private static final String URl = "http://pn.com.ua/";
+
+    public void open(){
+        open(URl);
+    }
+
+    public WebElement getCategoty(String name){
+        return $("//a[contains(.,'%s')]",name);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Аннотация <strong>@Component</strong> говорит <strong>Spring</strong> о том, что нужно создать инстанс этого класса.</p>
+</div>
+<div class="paragraph">
+<p>Создаем класс <strong>HomeSteps</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class HomeSteps {
+
+    @Autowired
+    Home home;
+
+    @Given("^I open pn\\.com\\.ua$")
+    public void shouldOpenMainPage() throws Throwable {
+        home.open();
+    }
+
+    @When("^I select category \"(.*?)\"$")
+    public void shoulSelectCategory(String cat) throws Throwable {
+        home.getCategoty(cat).click();
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вот она магия <strong>Spring</strong> - не нужно никаких конструкторов и прочей лишней чепухи, ставим аннотацию @<strong>Autowired</strong> и все. На этом, собственно, вся настройка заканчивается. Остается создать оставшиеся классы-компоненты, реализовать шаги и запустить тесты. В конце получается красивенький HTML - отчет о результатах прохождения тестов, смотреть его в папке <strong>\target\cucumber.html</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Полный код примера вы можете посмотреть в репозитории <a href="https://bitbucket.org/Semen4ik20/cucmberspringdemo/src">bitbucket</a>.</p>
+</div>
+<div class="paragraph">
+<p>Качайте, пробуйте, подписывайтесь на email рассылку, чтобы получать свежие заметки первыми. Спасибо</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Cucumber+Spring+Selenium или жирное BDD&url=cucumber/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=cucumber/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=cucumber/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/ispolzuiem-nastroiennyi-selenium-grid/index.html">Используем Selenium Grid</a></li>
+                                                <li><a class='js-ajax-link' href="/nastraivaiem-selenium-grid-za-5-minut/index.html">Настраиваем Selenium Grid за 5 минут</a></li>
+                                                <li><a class='js-ajax-link' href="/maghiia-groovy-i-sql/index.html">Магия Groovy и SQL</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

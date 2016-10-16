@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:28:30 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:28:30 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:37:34 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:37:34 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,262 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Cucumber+Spring+Selenium или жирное BDD</title>
+      <link>localhost/cucumber/index.html</link>
+      <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">cucumber/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка с громким названием на достаточно спорную тему - BDD. Многие используют Behavior-Driven Development у себя на проектах, многие его ругают. Но, я уверен, есть люди, которые не видели и не пробовали, как это работает. О том, что такое BDD, в чем его основной смысл, вы можете посмотреть &lt;a href=&quot;http://automation-remarks.com/bdd-in-test-automation-lecture/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Дальше я покажу, как настроить проект, показанный на видео по ссылке выше, с использованием &lt;strong&gt;Cucumber&lt;/strong&gt;, &lt;strong&gt;Spring Framework&lt;/strong&gt; и &lt;strong&gt;Selenium&lt;/strong&gt;. Традиционно пример будет реализован на Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак начнем. Создаем простой Maven проект и добавляем зависимости в &lt;strong&gt;pom.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&amp;gt;
+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+    &amp;lt;groupId&amp;gt;CucumberDemo&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;CucumberDemo&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+
+    &amp;lt;properties&amp;gt;
+        &amp;lt;cucumber-core.version&amp;gt;1.1.8&amp;lt;/cucumber-core.version&amp;gt;
+        &amp;lt;cucumber-html.version&amp;gt;0.2.3&amp;lt;/cucumber-html.version&amp;gt;
+        &amp;lt;cucumber-java.version&amp;gt;1.1.8&amp;lt;/cucumber-java.version&amp;gt;
+        &amp;lt;cucumber-junit.version&amp;gt;1.1.8&amp;lt;/cucumber-junit.version&amp;gt;
+        &amp;lt;cucumber-jvm-deps.version&amp;gt;1.0.3&amp;lt;/cucumber-jvm-deps.version&amp;gt;
+        &amp;lt;cucumber-spring.version&amp;gt;1.1.8&amp;lt;/cucumber-spring.version&amp;gt;
+        &amp;lt;gherkin.version&amp;gt;2.12.2&amp;lt;/gherkin.version&amp;gt;
+        &amp;lt;hamcrest-all.version&amp;gt;1.3&amp;lt;/hamcrest-all.version&amp;gt;
+        &amp;lt;junit.version&amp;gt;4.11&amp;lt;/junit.version&amp;gt;
+        &amp;lt;selenium-server.version&amp;gt;2.46.0&amp;lt;/selenium-server.version&amp;gt;
+    &amp;lt;/properties&amp;gt;
+
+    &amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-core&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-core.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-html&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-html.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-java&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-java.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-junit&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-junit.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-jvm-deps&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-jvm-deps.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;cucumber-spring&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${cucumber-spring.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;info.cukes&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;gherkin&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${gherkin.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.hamcrest&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;hamcrest-all&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${hamcrest-all.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${junit.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.seleniumhq.selenium&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;selenium-server&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;${selenium-server.version}&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;spring-test&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;4.1.5.RELEASE&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;4.1.5.RELEASE&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+    &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее нам нужно создать класс CucumberRunner, который будет запускать наши сценарии. Сейчас вы удивитесь краткости настроек:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@RunWith(Cucumber.class)
+@CucumberOptions(tags = {},format = {&quot;pretty&quot;, &quot;json:target/cucumber.json&quot;,&quot;html:target/cucumber.html&quot;}, features = {&quot;src/main/java/com/features/&quot;})
+public class CucumberRunner {
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Здесь мы указали формат вывода результатов, формат отчета и путь к папке, где лежат наши &lt;strong&gt;feature&lt;/strong&gt; файлы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь создадим непосредственно сам feature файл &lt;strong&gt;pc.feature&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;Feature: PC Feature
+
+  @1
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category &quot;Компьютеры&quot;
+    Then I should see page url &quot;http://pn.com.ua/computers/&quot;
+
+  @2
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category &quot;Компьютеры&quot;
+    Then verify that has sub-column:
+    |name|
+    |Ноутбуки, планшеты|&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теги &lt;strong&gt;@1&lt;/strong&gt; и &lt;strong&gt;@2&lt;/strong&gt; - это аннотации, с помощью которых мы можем фильтровать сценарии при запуске, указав параметр в CucumberRunner, к примеру &lt;strong&gt;tags{&quot;@2&quot;}&lt;/strong&gt;. Ну вот, с настройкой &lt;strong&gt;Cucumber&lt;/strong&gt; мы справились, теперь приступим к настройке &lt;strong&gt;Spring&lt;/strong&gt;, который будет управлять зависимостями в нашем фреймворке. Создаем в папке &lt;strong&gt;src/java/resources&lt;/strong&gt; файл &lt;strong&gt;cucumber.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&amp;gt;
+
+    &amp;lt;context:annotation-config/&amp;gt;
+
+    &amp;lt;context:component-scan base-package=&quot;com.cucumber&quot;/&amp;gt;
+
+    &amp;lt;import resource=&quot;classpath*:/applicationContext.xml&quot;/&amp;gt;
+    &amp;lt;bean id=&quot;driver&quot; class=&quot;org.openqa.selenium.firefox.FirefoxDriver&quot; destroy-method=&quot;quit&quot;/&amp;gt;
+&amp;lt;/beans&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь приступим к ComponentObject. Создаем класс Page, от которого будем наследовать все наши классы-компоненты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class Page {
+
+    @Autowired
+    WebDriver driver;
+
+    @PostConstruct
+    public void setUp() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    protected void open(String url) {
+        driver.get(url);
+    }
+
+
+    protected WebElement $(String xpath, String... args) {
+        return driver.findElement(By.xpath(String.format(xpath, args)));
+    }
+
+
+    protected List&amp;lt;WebElement&amp;gt; $$(By by) {
+        return driver.findElements(by);
+    }
+
+    protected WebElement $(By by) {
+        return driver.findElement(by);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем класс-компонент &lt;strong&gt;Home&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Component
+public class Home extends Page{
+
+    private static final String URl = &quot;http://pn.com.ua/&quot;;
+
+    public void open(){
+        open(URl);
+    }
+
+    public WebElement getCategoty(String name){
+        return $(&quot;//a[contains(.,&apos;%s&apos;)]&quot;,name);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Аннотация &lt;strong&gt;@Component&lt;/strong&gt; говорит &lt;strong&gt;Spring&lt;/strong&gt; о том, что нужно создать инстанс этого класса.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем класс &lt;strong&gt;HomeSteps&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class HomeSteps {
+
+    @Autowired
+    Home home;
+
+    @Given(&quot;^I open pn\\.com\\.ua$&quot;)
+    public void shouldOpenMainPage() throws Throwable {
+        home.open();
+    }
+
+    @When(&quot;^I select category \&quot;(.*?)\&quot;$&quot;)
+    public void shoulSelectCategory(String cat) throws Throwable {
+        home.getCategoty(cat).click();
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот она магия &lt;strong&gt;Spring&lt;/strong&gt; - не нужно никаких конструкторов и прочей лишней чепухи, ставим аннотацию @&lt;strong&gt;Autowired&lt;/strong&gt; и все. На этом, собственно, вся настройка заканчивается. Остается создать оставшиеся классы-компоненты, реализовать шаги и запустить тесты. В конце получается красивенький HTML - отчет о результатах прохождения тестов, смотреть его в папке &lt;strong&gt;\target\cucumber.html&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Полный код примера вы можете посмотреть в репозитории &lt;a href=&quot;https://bitbucket.org/Semen4ik20/cucmberspringdemo/src&quot;&gt;bitbucket&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Качайте, пробуйте, подписывайтесь на email рассылку, чтобы получать свежие заметки первыми. Спасибо&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
