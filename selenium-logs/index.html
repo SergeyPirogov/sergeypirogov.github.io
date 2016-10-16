@@ -80,141 +80,199 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">07/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">05/07/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">WebDriver factory без IF-ELSE</h1>
+                        <h1 class="post-title">Получаем больше логов от Selenium</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
-Зачастую во фреймворках в случае кросс-браузерного тестирования приходится писать драйвер фэктори. Большинство реализаций, которые мне приходилось видеть, выглядели так:</p>
+<p>Заметка о том, как залогировать действия <strong>Selenium Webdriver</strong>. Вероятнее всего, вы всегда хотели получать больше информации от <strong>WebDriver</strong> так, чтобы было легко дебажить скрипты или просто получать больше информации о тестах. Теперь это стало возможным благодаря EventFiringWebDriver и  <strong>WebDriverEventListner</strong>. <strong>EventFiringWebDriver</strong> это класс, который используется как обертка над webDriver. <strong>WebDriverEventListner</strong> - интерфейс, который нужно реализовать, чтобы получить доступ к действиям webdriver.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.hurricanesoftwares.com/wp-content/uploads/2013/04/selenium-webdriver.jpg" alt="selenium webdriver">
+</div>
 </div>
 <div class="paragraph">
-<p>BrowserFactory.class</p>
+<p>Поговорим чуть больше o классе <strong>EventFiringWebDriver</strong>. Этот класс реализует интерфейс WebDriver. Это означает, что в дополнение ко всем стандартным методам, появляется еще два метода:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>register(WebDriverEventListener eventListener)</p>
+</li>
+<li>
+<p>unregister(WebDriverEventListener eventListener)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Метод <strong>register</strong> позволяет зарегистрировать вашу реализацию <strong>WebDriverEventListner</strong> для того, чтобы слушать все действия webdriver и метод unregister позволяет прервать работу метода register.</p>
+</div>
+<div class="paragraph">
+<p><strong>Шаг 1: Реализуем интерфейс WebDriverEventListener</strong></p>
+</div>
+<div class="paragraph">
+<p>Создаем класс <strong>EventHandler</strong> и реализуем <strong>WebDriverEventListener</strong>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class BrowserFactory{
-    public static final WebDriver DEFAULT_FF = new FirefoxDriver();
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">package com.custom.listeners;
 
- public static WebDriver getDriver(String name){
-     WebDriver driver = null;
-     if("FIREFOX".equalsIgnoreCase(name)){
-        driver= new FirefoxDriver();
-     }else if("CHROME".equalsIgnoreCase(name)){
-         driver = new ChromeDriver();
-     }else if("IE".equalsIgnoreCase(name)){
-         driver = new InternetExplorerDriver();
-     }else {
-         driver = DEFAULT_FF;
-     }
-     return driver;
- }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Но такая реализация, скажем так, не самая хорошая: читабельность кода страдает, человеку приходится гадать, как же правильно задать имя браузера, ну и самое неприятное - куча if-else. Давайте посмотрим, как можно улучшить ситуацию.
-Объектно-ориентированные языки программирования обладают мощнейщим принципом - полиморфизмом. Его мы и будем использовать, чтобы удалить if-else в коде. В результате читабельность кода значительно повысится.</p>
-</div>
-<div class="paragraph">
-<p><strong>Рефлексия</strong></p>
-</div>
-<div class="paragraph">
-<p>Первое "топорное" решение (я назвал бы его "решением для реальных пацанов"):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Browsers{
-    public static WebDriver newBrowser(String name){
-        return Class.forName(name).newInstance();
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+
+public class EventHandler implements WebDriverEventListener {
+
+    private static final Logger LOG = LogManager.getLogger(EventHandler.class);
+
+    @Override
+    public void beforeNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug("Should be " + by);
+    }
+
+    @Override
+    public void afterFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug("Element found");
+    }
+
+    @Override
+    public void beforeClickOn(WebElement element, WebDriver driver) {
+        LOG.debug("Should click " + element.getTagName());
+    }
+
+    @Override
+    public void afterClickOn(WebElement element, WebDriver driver) {
+        LOG.debug("Clicked successfull");
+    }
+
+    @Override
+    public void beforeChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void onException(Throwable throwable, WebDriver driver) {
+
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Смотрится очень просто, НО сложность заключается в том, что человек должен помнить полное имя класса. К тому же, использование рефлексии повышает степень брутальности в пару раз. Поэтому таких решений следует избегать.</p>
+<p><strong>Шаг 2: Регистрируем слушателя</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Map</strong></p>
-</div>
-<div class="paragraph">
-<p>Второе решение более приемлемое - использование Map.</p>
+<p>Создаем простой объект webdriver:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Browsers{
-    private static Map&lt;String,WebDriver&gt; drivers = new HashMap&lt;&gt;(){
-        put("CHROME",new ChromeDriver());
-        put("FIREFOX",new FirefoxDriver());
-        put("IE",new InternetExplorerDriver());
-    }
-
-    public static WebDriver newDriver(String name){
-        return drivers.get(name);
-    }
-}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">WebDriver driver = new FirefoxDriver();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Это решение обладает недостатком: нужно знать правильное имя драйвера, которое задано в Map.</p>
-</div>
-<div class="paragraph">
-<p><strong>Switch</strong></p>
+<p>Создаем объект <strong>EventFiringWebDriver</strong> и передаем ему созданный объект driver:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">switch (name) {
-    case "FIREFOX": return new FirefoxDriver();
-    case "CHROME": return new ChromeDriver();
-    case "IE": return new InternetExplorerDriver();
-    default: return DEFAULT_FF;
-}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Enum</strong></p>
-</div>
-<div class="paragraph">
-<p>Самое элегантное решение:</p>
+<p>Регистрируем <strong>EventHandler</strong>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public enum Browsers {
-    CHROME {
-        public WebDriver create(){
-            return new ChromeDriver();
-        }
-    },
-    IE {
-        public WebDriver create(){
-            return new InternetExplorerDriver();
-        }
-    },
-    FIREFOX {
-        public WebDriver create() {
-            return new FirefoxDriver();
-        }
-    };
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">eventDriver.register(new EventHandler());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все, теперь мы можем спокойно писать тесты, как мы это делали раньше и при этом логировать действия драйвера.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-    public WebDriver create(){
-        return null;
-    }
-}
-
-class Test {
+public class Demo {
     public static void main(String[] args) {
-       WebDriver driver = Browsers.FIREFOX.create();
+                EventFiringWebDriver eventDriver = new EventFiringWebDriver(new FirefoxDriver());
+        EventHandler handler = new EventHandler();
+        eventDriver.register(handler);
+        eventDriver.get("http://automation-remarks.com");
+        WebElement element = eventDriver.findElement(By.id("target"));
+        element.click();
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Классно, не правда ли? Нету надоедливых if-else, нету строк, которые нужно помнить - просто вызываем нужный нам тип драйвера и все. Лично я предпочитаю этот метод.</p>
+<p>В результате запуска у нас получится такой вот лог:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>P.S. Конструкция if-else делает код сложным для чтения, поэтому нужно стараться избегать их использования.</p>
+<p>Вот так просто можно улучшить логирование в вашем тестовом фреймворке. Читабельных вам логов и удачи. Подписывайтесь на нашу рассылку;)</p>
 </div>
                     </section>
 
@@ -224,13 +282,13 @@ class Test {
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=WebDriver factory без IF-ELSE&url=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Получаем больше логов от Selenium&url=selenium-logs/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=selenium-logs/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=selenium-logs/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -246,7 +304,6 @@ class Test {
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/selenium-logs/index.html">Получаем больше логов от Selenium</a></li>
                                                 <li><a class='js-ajax-link' href="/selenium-for-manual/index.html">Введение в Selenium для мануальных тестировщиков</a></li>
                                                 <li><a class='js-ajax-link' href="/cucumber/index.html">Cucumber+Spring+Selenium или жирное BDD</a></li>
                                                 <li><a class='js-ajax-link' href="/ispolzuiem-nastroiennyi-selenium-grid/index.html">Используем Selenium Grid</a></li>

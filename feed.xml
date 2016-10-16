@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 10:42:32 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 10:42:32 +0000</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 10:51:34 +0000</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 10:51:34 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,201 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Получаем больше логов от Selenium</title>
+      <link>localhost/selenium-logs/index.html</link>
+      <pubDate>Sun, 5 Jul 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">selenium-logs/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка о том, как залогировать действия &lt;strong&gt;Selenium Webdriver&lt;/strong&gt;. Вероятнее всего, вы всегда хотели получать больше информации от &lt;strong&gt;WebDriver&lt;/strong&gt; так, чтобы было легко дебажить скрипты или просто получать больше информации о тестах. Теперь это стало возможным благодаря EventFiringWebDriver и  &lt;strong&gt;WebDriverEventListner&lt;/strong&gt;. &lt;strong&gt;EventFiringWebDriver&lt;/strong&gt; это класс, который используется как обертка над webDriver. &lt;strong&gt;WebDriverEventListner&lt;/strong&gt; - интерфейс, который нужно реализовать, чтобы получить доступ к действиям webdriver.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://www.hurricanesoftwares.com/wp-content/uploads/2013/04/selenium-webdriver.jpg&quot; alt=&quot;selenium webdriver&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Поговорим чуть больше o классе &lt;strong&gt;EventFiringWebDriver&lt;/strong&gt;. Этот класс реализует интерфейс WebDriver. Это означает, что в дополнение ко всем стандартным методам, появляется еще два метода:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;register(WebDriverEventListener eventListener)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;unregister(WebDriverEventListener eventListener)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Метод &lt;strong&gt;register&lt;/strong&gt; позволяет зарегистрировать вашу реализацию &lt;strong&gt;WebDriverEventListner&lt;/strong&gt; для того, чтобы слушать все действия webdriver и метод unregister позволяет прервать работу метода register.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Шаг 1: Реализуем интерфейс WebDriverEventListener&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем класс &lt;strong&gt;EventHandler&lt;/strong&gt; и реализуем &lt;strong&gt;WebDriverEventListener&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;package com.custom.listeners;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+
+public class EventHandler implements WebDriverEventListener {
+
+    private static final Logger LOG = LogManager.getLogger(EventHandler.class);
+
+    @Override
+    public void beforeNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateTo(String url, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateBack(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterNavigateForward(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug(&quot;Should be &quot; + by);
+    }
+
+    @Override
+    public void afterFindBy(By by, WebElement element, WebDriver driver) {
+        LOG.debug(&quot;Element found&quot;);
+    }
+
+    @Override
+    public void beforeClickOn(WebElement element, WebDriver driver) {
+        LOG.debug(&quot;Should click &quot; + element.getTagName());
+    }
+
+    @Override
+    public void afterClickOn(WebElement element, WebDriver driver) {
+        LOG.debug(&quot;Clicked successfull&quot;);
+    }
+
+    @Override
+    public void beforeChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterChangeValueOf(WebElement element, WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterScript(String script, WebDriver driver) {
+
+    }
+
+    @Override
+    public void onException(Throwable throwable, WebDriver driver) {
+
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Шаг 2: Регистрируем слушателя&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем простой объект webdriver:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;WebDriver driver = new FirefoxDriver();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем объект &lt;strong&gt;EventFiringWebDriver&lt;/strong&gt; и передаем ему созданный объект driver:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Регистрируем &lt;strong&gt;EventHandler&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;eventDriver.register(new EventHandler());&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все, теперь мы можем спокойно писать тесты, как мы это делали раньше и при этом логировать действия драйвера.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+public class Demo {
+    public static void main(String[] args) {
+                EventFiringWebDriver eventDriver = new EventFiringWebDriver(new FirefoxDriver());
+        EventHandler handler = new EventHandler();
+        eventDriver.register(handler);
+        eventDriver.get(&quot;http://automation-remarks.com&quot;);
+        WebElement element = eventDriver.findElement(By.id(&quot;target&quot;));
+        element.click();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В результате запуска у нас получится такой вот лог:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.name: banner
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener beforeFindBy - Should be By.id: ibm-banner-welcome
+DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так просто можно улучшить логирование в вашем тестовом фреймворке. Читабельных вам логов и удачи. Подписывайтесь на нашу рассылку;)&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
