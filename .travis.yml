@@ -8,13 +8,20 @@ before_install:
 script:
   - ./gradlew clean jbake	
 
-after_success:      
-  - cd build/jbake
-  - git init
+after_success:
+    #clone `master' branch of the repository using encrypted GH_TOKEN for authentification
+  - git clone https://${GH_TOKEN}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
+
+    # copy generated HTML site to `master' branch
+  - cp -R build/jbake/* ../sergeypirogov.github.io.master
+    # commit and push generated content to `master' branch
+    # since repository was cloned in write mode with token auth - we can push there
+  - cd ../sergeypirogov.github.io.master
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
-  - git add . ; git commit -m "Deploy to GitHub Pages ${TRAVIS_BUILD_NUMBER}"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" origin:master > /dev/null 2>&1
+  - git add -A . 
+  - git commit -m "Deploy to GitHub Pages ${TRAVIS_BUILD_NUMBER}"
+  - git push --quiet origin master > /dev/null 2>&1
 
 branches:
   only:
