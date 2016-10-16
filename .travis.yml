@@ -27,3 +27,9 @@ branches:
   only:
   - source
 
+notifications:
+  email:
+    recipients:
+      - sergio_89@ukr.net
+    on_success: always
+
