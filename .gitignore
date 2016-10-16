@@ -2,5 +2,7 @@
 ### Java template
 *.class
 .idea
+build/
+.gradle
 
 
