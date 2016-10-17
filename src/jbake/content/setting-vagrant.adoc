@@ -1,0 +1,135 @@
+title=Тюнингуем Vagrant box
+date=2015-08-16
+type=post
+status=published
+summary=Снова о Vagrant
+tags=Тест фреймворк, Java
+~~~~~~
+
+В прошлой http://automation-remarks.com/vagrant/[заметке] я начал разговор об инструменте под названием Vagrant. В этот раз я покажу, как работать с готовой виртуальной машиной, подключаться к ней через ssh, использовать provisioner.
+
+image::http://noethics.net/News/images/stories/vagrant1.png[]
+
+Но перед тем как начать, хочу отметить, что для работы с **Vagrant** активно используется консоль. Если вы работаете из-под Windows, то я бы рекомендовал перейти на **ConsoleZ**. Почему? Потому, что она гораздо удобнее, чем стандартная CMD.
+
+Настроили консоль - теперь начнем играться с **Vagrant**.
+
+**Создаем машину:**
+
+[source, xml]
+----
+mkdir vagrant_box
+cd vagrant_box
+vagrant init ubuntu/trusty64; vagrant up --provider virtualbox
+----
+
+После этого запустится виртуальная машина, а в папке **vagrant_box** появится файл - **Vagrantfile**. Собственно в этом файле и кроется вся магия настроек виртуальной машины. Для того чтобы влючить вашу созданную машину в сеть и получать к ней доступ по сети, в **Vagrantfile** нужно раскомментировать две строчки:
+
+[source, xml]
+----
+config.vm.network :private_network, ip: "192.168.33.10"
+config.vm.network :public_network
+----
+
+Для того, чтобы изменения вступили в силу, нужно в консоли выполнить команду:
+
+[source, xml]
+----
+vagrant reload
+----
+
+**Подключаемся к запущенной машине:**
+
+Вы можете подключаться к запущенным виртуальным машинам с помощью команд **vagrant ssh** и **vagrant rdp**. Лично я создавал машины на основе **Ubuntu**, поэтому мой пример будет основан на этом. Находясь в папке **vagrant_box**, выполните две команды:
+
+[source, xml]
+----
+vagrant status
+----
+
+Эта команда должна показать, что ваша машина запущена.
+
+[source, xml]
+----
+vagrant ssh
+----
+
+По окончании выполнения последней команды вы будете подключены к виртуальной машине, после чего сможете выполнять команды, которые будут манипулировать вашей машиной.
+
+**Создаем provision:**
+
+**Vagrant** предоставляет функциональность **provisioning**. С помощью этой фичи вы можете манипулировать машиной используя **puppet**, **chef** или просто **shell** скрипты. Я покажу пример с использованием **shell** скриптов. Допустим, вы хотите, чтобы при старте машины у вас устанавливалась java. Вы можете, конечно, каждый раз выполнять одни и те же команды, а можете поступить следующим образом. Открываем **Vagrantfile** и ищем раздел:
+
+[source, xml]
+----
+# Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   sudo apt-get update
+  #   sudo apt-get install -y apache2
+  # SHELL
+----
+
+Если такого нету (а такое бывает), то добавляем этот кусок в наш файл и сохряняем. Для того, чтобы использовать provision для нашего случая с установкой java, мы прописываем следующее:
+
+[source, xml]
+----
+config.vm.provision "shell", path: "java.sh"
+----
+
+Файл **java.sh** должен лежать в папке vagrant_box рядом с Vagrantfile. Содержание файла java.sh:
+
+[source, xml]
+----
+#! /usr/bin/env bash
+echo "Installing java 7"
+sudo apt-get install -y python-software-properties
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+
+# Enable silent install
+echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+
+sudo apt-get install -y oracle-java7-installer
+
+# Not always necessary, but just in case...
+sudo update-java-alternatives -s java-7-oracle
+
+# Setting Java environment variables
+sudo apt-get install -y oracle-java7-set-default
+echo "Java 7 installation finished"
+----
+
+Если наша машина была запущена, то нужно выполнить команду:
+
+[source, xml]
+----
+vagrant reload --provision
+----
+
+Для случая с выключенной машиной выполняем:
+
+[source, xml]
+----
+vagrant up --provision
+----
+
+Теперь при запуске машины будет произведена установка oracle-java-7. Нужно отметить, что существует и другой подход написания скриптов для provision. Можно писать их прямо в **Vagrantfile**:
+
+[source, xml]
+----
+config.vm.provision "shell", inline: <<-SHELL
+    echo "Start nodejs installation"
+    sudo apt-get install -y curl
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install build-essential
+    sudo apt-get install -y npm
+SHELL
+----
+
+Этот скрипт установит nodejs.
+
+Таким образом вы можете легко и быстро получать виртуальные машины с предустановленным ПО. В целом, поигравшись с Vagrant, могу сказать, что мне эта штука очень понравилась. На моем текущем проекте мы не нуждаемся в виртуальных машинах, но, как только мне выпадет шанс, я обязательно буду его использовать.
