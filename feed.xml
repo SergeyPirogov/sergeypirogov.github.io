@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 10:50:43 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 10:50:43 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 11:14:16 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 11:14:16 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,37 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Как развиваться тестировщику. Учим Groovy за 15 минут</title>
+      <link>localhost/learning-groovy/index.html</link>
+      <pubDate>Tue, 8 Sep 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">learning-groovy/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой заметке я поделюсь своими наработками и материалами, с помощью которых вы сможете легко и быстро освоить этот язык.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://cdn.liviutudor.com/wp-content/uploads/2015/05/groovy-lang-300x150.png&quot; alt=&quot;groovy lang 300x150&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, самый первый источник знаний - это вебсайт &lt;a href=&quot;http://www.groovy-lang.org/&quot; class=&quot;bare&quot;&gt;http://www.groovy-lang.org/&lt;/a&gt;. Кстати, когда &lt;strong&gt;Groovy&lt;/strong&gt; перешел под опеку &lt;strong&gt;Apache&lt;/strong&gt;, сайт сильно преобразился. Здесь в разделе документации вы можете найти уйму полезной информации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Следующим этапом идет книга - &lt;strong&gt;Mining Groovy In Action&lt;/strong&gt;. &lt;a href=&quot;https://www.manning.com/books/groovy-in-action-second-edition&quot;&gt;Ссылка&lt;/a&gt; на книгу для заинтересовавшихся. Хочу отметить, что лично я, изучая какую-то технологию, всегда ищу книги данного издательства. Книга позволит вам пройтись по синтаксису от самых начальных синтаксических конструкций до примеров кода из реальных проектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но книги книгами, а интернет богат кучей материалов. В частности, самым большим ресурсом c множеством полезных советов является &lt;a href=&quot;http://mrhaki.blogspot.com/&quot;&gt;Groovy Goodness&lt;/a&gt;. Сам являюсь подписчиком данного блога. В дополнение, автор выкладывает все примеры на &lt;a href=&quot;https://github.com/SergeyPirogov/Groovy-Goodness&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И напоследок &lt;strong&gt;Youtube&lt;/strong&gt; канал &lt;a href=&quot;https://www.youtube.com/channel/UC7wUp2KIa1hoMNn0r7JUVEg&quot;&gt;GR8Conf&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Собственно из качественных ресурсов, которые я знаю, это все. От себя хочу добавить, что со знаниями &lt;strong&gt;Java&lt;/strong&gt; изучить &lt;strong&gt;Groovy&lt;/strong&gt; действительно можно за 15 минут. Успешного обучения и удачи. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
