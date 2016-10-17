@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 14:12:41 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 14:12:41 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 14:19:57 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 14:19:57 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,156 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Подборка Rest клиентов на любой случай жизни</title>
+      <link>localhost/rest-clients/index.html</link>
+      <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">rest-clients/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://anton.shevchuk.name/wp-content/uploads/2013/09/restful-api-460x307.jpg&quot; alt=&quot;restful api 460x307&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже писал подобную &lt;a href=&quot;http://automation-remarks.com/java-rest-client/&quot;&gt;заметку&lt;/a&gt;, еще когда блог только зарождался. Тогда я упоминал о двух библиотеках, сейчас же хочу расширить список. Для всех примеров я буду использовать ресурс &lt;a href=&quot;https://swapi.co/&quot; class=&quot;bare&quot;&gt;https://swapi.co/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;1. Groovy URL&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Самый простой способ сделать запрос из кода - использовать Groovy URL.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def endpoint = &apos;http://swapi.co/api/planets/1/&apos;
+
+def content = endpoint.toURL().getText(requestProperties: [&apos;User-agent&apos;:&apos;firefox&apos;,Accept: &apos;application/json&apos;,&apos;Content-Type&apos;: &apos;application/json&apos;])
+
+def json = new JsonSlurper().parseText(content)
+
+assert json.name == &apos;Luke Skywalker&apos;
+assert json.films[0] == &apos;http://swapi.co/api/films/7/&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Здесь мы выполнили запрос, а затем с помощью &lt;strong&gt;JsonSlurper&lt;/strong&gt; распарсили его в json. В Groovy мы можем работать с json объектом как с Map.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;2. Groovy wslite&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще одна библиотека семейства Groovy. Здесь у вас будет полноценный rest client, с помощью которого можно будет достать все параметры ответа:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def endpoint = &apos;http://swapi.co/api/&apos;
+
+def client = new RESTClient(endpoint)
+
+def response = client.get(path:&apos;people/1/&apos;,accept: ContentType.JSON,headers:[&apos;User-agent&apos;:&apos;firefox&apos;])
+
+assert 200 == response.statusCode
+assert &apos;Luke Skywalker&apos; == response.json.name&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вы наверное заметили, что с применением wslite не нужно преобразовывать ответ в json, так как объект ответа содержит в себе свойство json. Логика работы с json в этом случае аналогична случаю с URL. Вы можете использовать wslite и для работы с SOAP сервисами, примеры можно посмотреть &lt;a href=&quot;https://github.com/jwagenleitner/groovy-wslite&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;3. Rest Assured&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Rest Assured&lt;/strong&gt; - java библиотека, которая делает тестирование Rest с использованием java похожим на подход с использованием groovy. Мощнейшая библиотека, с помощью которой можно создавать тесты, которые будут понятными и легко поддерживаемыми.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.junit.Test;
+
+import static com.jayway.restassured.RestAssured.get;
+import static org.hamcrest.core.IsEqual.equalTo;
+
+/**
+ * Created by sergey on 15.11.15.
+ */
+public class SwapiTest {
+
+    @Test
+    public void shouldGetLuke() {
+        get(&quot;http://swapi.co/api/people/1/&quot;)
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body(&quot;name&quot;, equalTo(&quot;Luke Skywalker&quot;));
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Смотрится неплохо, внутри body можно использовать &lt;strong&gt;JsonPath&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;4. Spring RestTemplate&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Те, кто плотно работает с Java и знает, что такое Spring framework, наверняка пользовались данной библиотекой. Не хочу особо растекаться мыслями по древу, но Spring - это мощнейший фреймворк, а RestTemplate - отличнейшая библиотека, с помощью которой вы можете создавать рест клиент. Лично я на своем проекте пользуюсь именно ней.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Test
+    public void shouldGetLuke2() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add(&quot;User-Agent&quot;, &quot;firefox&quot;);
+
+        HttpEntity payload = new HttpEntity(headers);
+
+        ResponseEntity&amp;lt;String&amp;gt; response = restTemplate.exchange(&quot;http://swapi.co/api/people/1/&quot;, GET, payload, String.class);
+
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Настроив маршалеры и маперы, вы можете легко оперировать сущностями &lt;a href=&quot;https://spring.io/guides/gs/consuming-rest/&quot;&gt;пример&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;5. Restlet&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://restlet.com/&quot;&gt;Restlet framework&lt;/a&gt; лично не пробовал, но по документации выглядит прикольно, правда очень запутано;) У него есть куча расширений, которые позволяют интегрироваться с множеством существующих фреймворков, но именно запутанность и отсутствие яркого примера на сайте меня лично отпугнули.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;6. RetroFit&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://square.github.io/retrofit/&quot;&gt;RetroFit&lt;/a&gt; смотрится достаточно симпатично, в документации очень часто проскакивает слово Android, соответственно смело могу предположить, что он ориентирован на создание легковесных rest клиентов для Android. Среди ярких отличий - возможность выполнять как синхронные, так и асинхронные вызовы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Примеры кода можно найти на сайте либо же &lt;a href=&quot;https://futurestud.io/blog/retrofit-getting-started-and-android-client/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;7. Postman&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Postman - это не фреймворк и не библиотка, а простой плагин к Chrome браузеру. Достаточно простой и удобный клиент, с помощью которого можно делать запросы прямо из браузера.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;8. httpie&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jkbrzt/httpie&quot;&gt;Httpie&lt;/a&gt; - простая утилита, написанная на Python. Эту утилиту должны оценить любители консоли. Httpie может стать полноценным заменителем curl или wget в повседневной работе. Сильно много вы из нее не выжмите, но сделать запрос или скачать файлик, при этом не запоминая кучи ключевых значений, как это нужно делать с использованием culr, вы сможете легко.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот, собственно, и все, о чем я хотел поговорить в данной заметке. Пару мыслей от себя: для java существует большое количество библиотек, на моем проекте используется Spring и все, что с ним связано, но если бы мне нужно было писать клиент вот прямо сейчас, я бы выбирал что-то из Groovy, так как там все просто, легко и быстро. До встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>

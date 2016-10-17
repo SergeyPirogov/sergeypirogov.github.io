@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">15/11/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Подборка Rest клиентов на любой случай жизни</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://anton.shevchuk.name/wp-content/uploads/2013/09/restful-api-460x307.jpg" alt="restful api 460x307">
+</div>
+</div>
+<div class="paragraph">
+<p>Я уже писал подобную <a href="http://automation-remarks.com/java-rest-client/">заметку</a>, еще когда блог только зарождался. Тогда я упоминал о двух библиотеках, сейчас же хочу расширить список. Для всех примеров я буду использовать ресурс <a href="https://swapi.co/" class="bare">https://swapi.co/</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>1. Groovy URL</strong></p>
+</div>
+<div class="paragraph">
+<p>Самый простой способ сделать запрос из кода - использовать Groovy URL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def endpoint = 'http://swapi.co/api/planets/1/'
+
+def content = endpoint.toURL().getText(requestProperties: ['User-agent':'firefox',Accept: 'application/json','Content-Type': 'application/json'])
+
+def json = new JsonSlurper().parseText(content)
+
+assert json.name == 'Luke Skywalker'
+assert json.films[0] == 'http://swapi.co/api/films/7/'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Здесь мы выполнили запрос, а затем с помощью <strong>JsonSlurper</strong> распарсили его в json. В Groovy мы можем работать с json объектом как с Map.</p>
+</div>
+<div class="paragraph">
+<p><strong>2. Groovy wslite</strong></p>
+</div>
+<div class="paragraph">
+<p>Еще одна библиотека семейства Groovy. Здесь у вас будет полноценный rest client, с помощью которого можно будет достать все параметры ответа:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def endpoint = 'http://swapi.co/api/'
+
+def client = new RESTClient(endpoint)
+
+def response = client.get(path:'people/1/',accept: ContentType.JSON,headers:['User-agent':'firefox'])
+
+assert 200 == response.statusCode
+assert 'Luke Skywalker' == response.json.name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вы наверное заметили, что с применением wslite не нужно преобразовывать ответ в json, так как объект ответа содержит в себе свойство json. Логика работы с json в этом случае аналогична случаю с URL. Вы можете использовать wslite и для работы с SOAP сервисами, примеры можно посмотреть <a href="https://github.com/jwagenleitner/groovy-wslite">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>3. Rest Assured</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Rest Assured</strong> - java библиотека, которая делает тестирование Rest с использованием java похожим на подход с использованием groovy. Мощнейшая библиотека, с помощью которой можно создавать тесты, которые будут понятными и легко поддерживаемыми.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.junit.Test;
+
+import static com.jayway.restassured.RestAssured.get;
+import static org.hamcrest.core.IsEqual.equalTo;
+
+/**
+ * Created by sergey on 15.11.15.
+ */
+public class SwapiTest {
+
+    @Test
+    public void shouldGetLuke() {
+        get("http://swapi.co/api/people/1/")
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body("name", equalTo("Luke Skywalker"));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Смотрится неплохо, внутри body можно использовать <strong>JsonPath</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>4. Spring RestTemplate</strong></p>
+</div>
+<div class="paragraph">
+<p>Те, кто плотно работает с Java и знает, что такое Spring framework, наверняка пользовались данной библиотекой. Не хочу особо растекаться мыслями по древу, но Spring - это мощнейший фреймворк, а RestTemplate - отличнейшая библиотека, с помощью которой вы можете создавать рест клиент. Лично я на своем проекте пользуюсь именно ней.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Test
+    public void shouldGetLuke2() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add("User-Agent", "firefox");
+
+        HttpEntity payload = new HttpEntity(headers);
+
+        ResponseEntity&lt;String&gt; response = restTemplate.exchange("http://swapi.co/api/people/1/", GET, payload, String.class);
+
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Настроив маршалеры и маперы, вы можете легко оперировать сущностями <a href="https://spring.io/guides/gs/consuming-rest/">пример</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>5. Restlet</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="http://restlet.com/">Restlet framework</a> лично не пробовал, но по документации выглядит прикольно, правда очень запутано;) У него есть куча расширений, которые позволяют интегрироваться с множеством существующих фреймворков, но именно запутанность и отсутствие яркого примера на сайте меня лично отпугнули.</p>
+</div>
+<div class="paragraph">
+<p><strong>6. RetroFit</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="http://square.github.io/retrofit/">RetroFit</a> смотрится достаточно симпатично, в документации очень часто проскакивает слово Android, соответственно смело могу предположить, что он ориентирован на создание легковесных rest клиентов для Android. Среди ярких отличий - возможность выполнять как синхронные, так и асинхронные вызовы.</p>
+</div>
+<div class="paragraph">
+<p>Примеры кода можно найти на сайте либо же <a href="https://futurestud.io/blog/retrofit-getting-started-and-android-client/">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>7. Postman</strong></p>
+</div>
+<div class="paragraph">
+<p>Postman - это не фреймворк и не библиотка, а простой плагин к Chrome браузеру. Достаточно простой и удобный клиент, с помощью которого можно делать запросы прямо из браузера.</p>
+</div>
+<div class="paragraph">
+<p><strong>8. httpie</strong></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/jkbrzt/httpie">Httpie</a> - простая утилита, написанная на Python. Эту утилиту должны оценить любители консоли. Httpie может стать полноценным заменителем curl или wget в повседневной работе. Сильно много вы из нее не выжмите, но сделать запрос или скачать файлик, при этом не запоминая кучи ключевых значений, как это нужно делать с использованием culr, вы сможете легко.</p>
+</div>
+<div class="paragraph">
+<p>Ну вот, собственно, и все, о чем я хотел поговорить в данной заметке. Пару мыслей от себя: для java существует большое количество библиотек, на моем проекте используется Spring и все, что с ним связано, но если бы мне нужно было писать клиент вот прямо сейчас, я бы выбирал что-то из Groovy, так как там все просто, легко и быстро. До встреч&#8230;&#8203;</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Подборка Rest клиентов на любой случай жизни&url=rest-clients/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=rest-clients/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=rest-clients/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/zamietka-dlia-nachinaiushchikh-pro-kursy/index.html">Заметка для начинающих: о курсах</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-retrospective/index.html">QAFest 2015 : ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/travis-ci-na-sluzhbie-u-avtomatizatsii/index.html">Travis CI на службе у автоматизации</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
