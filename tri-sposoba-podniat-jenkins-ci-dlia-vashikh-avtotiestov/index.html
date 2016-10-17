@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">06/12/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Три способа поднять Jenkins CI для ваших автотестов</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Заметка, в которой я решил поделиться знаниями в организации CI для автотестов. Такая задача возникает практически на каждом проекте, так как автоматизация без CI сервера - это как хлеб без масла. Я уже писал про <a href="http://automation-remarks.com/travis-ci-na-sluzhbie-u-avtomatizatsii/">Travis CI</a>, теперь посмотрим на Jenkins.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.cloudbees.com/sites/default/files/Jenkins_8.png" alt="Jenkins 8">
+</div>
+</div>
+<div class="paragraph">
+<p>Основным источником информации относительно Jenkins является официальный сайт <a href="https://jenkins-ci.org/">jenkins-ci.org</a>.</p>
+</div>
+<div class="paragraph">
+<p>Я покажу три способа запуска Jenkins CI и дам определенные советы и пояснения относительно каждого способа. Для тех же, кто не знаком с CI процессом и Jenkins, советую посмотреть видео.</p>
+</div>
+<div class="paragraph">
+<p>Итак, начнем с самого простого.</p>
+</div>
+<div class="paragraph">
+<p><strong>Способ 1: Запустить Jenkins war в консоли</strong></p>
+</div>
+<div class="paragraph">
+<p>Самый простой и банальный способ - скачать <strong>jenkins.war</strong> и запустить его, как простое java приложение. Для этого нужно открыть консоль cmd Windows или terminal Unix и набрать команду:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -jar jenkins.war</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>После того как выполните данную команду в вашей системе запустится jetty сервер; если в вашей консоли появилась надпись типа <strong>jenkins is fully configured and running</strong>, значит вы смело можете открывать браузер и по стандартному пути</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">http://localhost:8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>у вас появится главная страница <strong>Jenkins</strong>.</p>
+</div>
+<div class="paragraph">
+<p><code>Комментарий</code>:</p>
+</div>
+<div class="paragraph">
+<p>Данный способ является самым простым и самым ненадежным. Ни в коем случае не используйте его в production. Если вы закроете консоль, то ваш CI сервер свалится, информация о созданных job и установленные плагины сохранятся, вы сможете зайти на хост и снова запустить сервер таким способом, но вот захотите ли вы это делать часто - это вопрос. Данный способ больше подходит для демонстрационных случаев, либо как временная мера.</p>
+</div>
+<div class="paragraph">
+<p><strong>Способ 2: Запустить Jenkins на Tomcat</strong></p>
+</div>
+<div class="paragraph">
+<p>Самый распространенный и надежный способ - настроить Tomcat сервер и запустить Jenkins как стандартное web приложение.</p>
+</div>
+<div class="paragraph">
+<p>Скачиваем Tomcat 7 и распаковываем его в удобное для вас место. Если у вас Windows - это скорее будет корень раздела C. Проще всего сделать TOMCAT_HOME в глобальных переменных, дабы иметь доступ к Tomcat в консоли.</p>
+</div>
+<div class="paragraph">
+<p>После того, как вы скачали Tomcat, нужно скопировать скачанный jenkins.war по пути:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">${TOMCAT_HOME}/webapps/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Затем перейти в папку <strong>${TOMCAT_HOME}/bin</strong></p>
+</div>
+<div class="paragraph">
+<p>В этой папке вам нужно найти скрипт под названием <strong>catalina.bat</strong> либо <strong>catalina.sh</strong>. Далее нужно запустить этот скрипт. Для Unix это выглядит так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">${TOMCAT_HOME}/bin/catalina.sh start</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>После этого вы увидите в консоли вывод типа:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">bin ➤ sh catalina.sh start
+Using CATALINA_BASE:   /home/sergey/Downloads/apache-tomcat-7.0.65
+Using CATALINA_HOME:   /home/sergey/Downloads/apache-tomcat-7.0.65
+Using CATALINA_TMPDIR: /home/sergey/Downloads/apache-tomcat-7.0.65/temp
+Using JRE_HOME:        /usr/lib/jvm/java-8-oracle
+Using CLASSPATH:       /home/sergey/Downloads/apache-tomcat-7.0.65/bin/bootstrap.jar:/home/sergey/Downloads/apache-tomcat-7.0.65/bin/tomcat-juli.jar
+Tomcat started.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь можете смело открывать в браузере</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">http://localhost:8080/jenkins</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Если вы делаете это в первый раз, то, возможно, придется немного подождать перед тем, как Jenkins станет доступен. Обычно это занимает меньше минуты.</p>
+</div>
+<div class="paragraph">
+<p><code>Комментарий</code>:</p>
+</div>
+<div class="paragraph">
+<p>Как я уже говорил, это самый распространенный способ и самый надежный. Большинство java web приложений работает на Tomcat. К тому же, в случае какого-либо падения вы сможете посмотреть лог файл Tomcat и разобраться, в чем же дело. В своей практике мне приходилось разбираться один раз, да и то Tomcat упал только из-за того, что закончилось место на диске.</p>
+</div>
+<div class="paragraph">
+<p><strong>Способ 3: Использовать Docker контейнер</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Docker</strong>, ну куда же без него! Сейчас контейнеры набирают огромную популярность. Могу смело заявить, что в какой-то степени - это тренд. Если вы не знакомы с этой технологией, настоятельно рекомендую почитать и посмотреть на этого "зверька".</p>
+</div>
+<div class="paragraph">
+<p>Для запуска докер контейнера у вас на компьютере должен быть предустановлен Docker. Установку смотреть <a href="https://docs.docker.com/engine/installation/">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p>Теперь можем спокойно запускать наш контейнер.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">docker run -p 8080:8080 jenkins</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В результате выполнения этой команды Docker скачает контейнер и запустит его. Внутри контейнера находится Tomcat с предустановленным Jenkins CI. Вот и все, с Docker эта процедура выглядит очень просто.</p>
+</div>
+<div class="paragraph">
+<p><code>Комментарий</code>:</p>
+</div>
+<div class="paragraph">
+<p>Данный способ мало в чем уступает способу с Tomcat, так как внутри контейнера находится такой же Tomcat сервер. Единственный недостаток - это то, что при падении или остановке вашего контейнера вы потеряете всю информацию. Чтобы избежать таких печальных последствий, советую детально почитать <a href="https://github.com/jenkinsci/docker/blob/master/README.md">документ</a> и запускать контейнер такой вот командой:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">docker run -p 8080:8080 -v /your/home:/var/jenkins_home jenkins</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Таким образом все содержимое папки jenkins_home будет сохранено на вашей host машине и потери данных не произойдет.</p>
+</div>
+<div class="paragraph">
+<p>На этом у меня все, подписывайтесь на блог в социальных сетях и через имейл. В следующий раз я покажу как подключать и настраивать слейвы к Jenkins CI. До встреч!..</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Jenkins.html">Jenkins</a>
+                                    <a href="/tags/CI.html">CI</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Три способа поднять Jenkins CI для ваших автотестов&url=tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/sqa-days-18-retro/index.html">SQA days 18: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/6-sposobov-raboty-s-propierti-failami/index.html">6 способов работы с проперти файлами</a></li>
+                                                <li><a class='js-ajax-link' href="/automation-testing-using-javascript/index.html">Automation testing using JavaScript</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
