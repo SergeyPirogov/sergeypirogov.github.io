@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 11:21:42 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 11:21:42 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 11:34:23 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 11:34:23 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,105 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Парсим командную строку с Groovy CliBuilder</title>
+      <link>localhost/parse-command-line/index.html</link>
+      <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">parse-command-line/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой заметке хочу снова затронуть тему Groovy. Эта заметка будет ярким дополнением к уже написанным ранее:
+&lt;a href=&quot;http://automation-remarks.com/learning-groovy/&quot;&gt;о ресурсах, на которых можно найти много интересного про Groovy&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://www.primalsecurity.net/wp-content/uploads/2014/08/terminal-md.png&quot; alt=&quot;terminal md&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, начнем с постановки задачи! Приходилось ли вам когда-нибудь писать свои библиотеки? А какие-нибудь утилиты, которые нужно запускать из командной строки?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот мне приходилось! В частности &lt;strong&gt;JBehave&lt;/strong&gt; reporter работает именно через командную строку. Теперь давайте подумаем, каким образом можно передавать параметры в наш jar файл, используя командную строку? Правильно - через аргументы командной строки, задавая VM options либо Program arguments. И вот если с VM options все более-менее понятно, то с вариантом аргументов приходится повозиться. Именно этот случай и рассмотрим.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, давайте зададимся начальными условиями: чего хотим? Хотим передавать параметры в jar файл в любой последовательности и не переживать, что у нас что-то пойдет не так.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Будем смотреть на примере репортера. Раньше он запускался так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;java -jar reporter.jar D:\\jbehave D:\\report&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом примере наглядно видно, что если поменять параметры местами, то все сломается; да и вообще человеку, который не писал эту штуку, будет непонятно, с какими аргументами ее запустить.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Чтобы исправить эти неудобства, я использовал библиотеку, которая называется &lt;strong&gt;Groovy CliBuilder&lt;/strong&gt;. С ее помощью можно легко парсить аргументы командной строки.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В результате применения этой библиотеки у нас должно получиться такое вот:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;java -jar reporter.jar -g D:\\jbehave -d D:\\report&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Казалось бы, добавилось всего две буквы, но на самом деле изменилось многое. Харош говорить - смотрим в код.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;private static parse(String[] args) {
+        def cli = new CliBuilder(usage: &apos;reporter [options]&apos;)
+
+        cli.with {
+            h longOpt: &apos;help&apos;, &apos;Show usage information&apos;
+            g longOpt: &apos;generate report&apos;, required: true, args: 1, &apos;Generate report based on files from folder&apos;
+            d longOpt: &apos;report folder&apos;, args: 1, &apos;Generated report path&apos;
+        }
+
+        def options = cli.parse(args)
+
+        // print usage if -h, --help, or no argument is given
+        if (!options || options.h) {
+            cli.usage()
+            System.exit(1);
+        }
+
+        options
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Этот кусок кода анализирует наш массив входных параметров и возвращает так называемые опции. На самом деле опции - не что иное, как Map ;). Но самая приятная вещь этой штуки скрывается вот в чем: если мы не передадим никаких параметров или передадим их неправильно, то вместо ужасного стектрейса у нас выведется такое вот сообщение:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;image::/images/ter.png&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Обратите внимание на понятность сообщения. Любой, прочитав его, сможет понять, какие параметры доступны и за что они отвечают.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В самом же коде все предельно просто: чтобы достать значение любого ключа, нужно просто написать:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def folderPath = options.d
+def sourceFiles = options.g&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь вы можете не переживать за порядок передачи аргументов через командную строку.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; Для чистой &lt;strong&gt;Java&lt;/strong&gt; есть реализация подобной библиотеки, называется она &lt;strong&gt;Apache Commons Cli&lt;/strong&gt;.
+На этом все. До новых заметок.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
