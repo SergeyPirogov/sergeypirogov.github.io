@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">22/12/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Делаем матчеры веселее с Groovy</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy. Я уже писал ряд заметок как о Groovy, так и о создании матчеров для Hamcrest. Теперь опишу свою борьбу с написанием такого же матчера только в Groovy style.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://i.ytimg.com/vi/juHgQBB2tLU/hqdefault.jpg" alt="hqdefault">
+</div>
+</div>
+<div class="paragraph">
+<p>Перед началом написания кода и шевеления извилинами, покажу интересный инструмент от Yandex, который позволяет генерировать метчеры для ваших доменных объектов - смотреть <a href="https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator">здесь</a>. Единственный недостаток этой штуки: если у вас нету возможности натыкать аннотаций в объектах, то придется писать самим.</p>
+</div>
+<div class="paragraph">
+<p>Если у вас нету возможности воспользоваться инструментом, описанным выше, велкам кодить матчеры самостоятельно.</p>
+</div>
+<div class="paragraph">
+<p>Итак, сначала напишем наш доменный класс:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">@ToString
+class Person {
+    String name, phone
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>После написания метчеров у нас будет такая вот штука:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">Person p = new Person(name: "Ivan", phone: "0661234567")
+
+assertThat(p, hasName("Ivan"))
+assertThat(p, withPhone("0661234567"))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну и в случае ошибки ожидаем увидеть сообщение:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Exception in thread "main" java.lang.AssertionError:
+Expected: person with phone 1235678
+     but: was 0661234567</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Начнем реализовывать метод <strong>hasName</strong>. Стандартная реализация будет выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">def hasName(String name) {
+    new TypeSafeMatcher&lt;Person&gt;() {
+        @Override
+        protected boolean matchesSafely(Person p) {
+            name == p.name
+        }
+
+        @Override
+        void describeTo(Description description) {
+            description.appendText("a Person with name ").appendValue(name)
+        }
+
+        @Override
+        protected void describeMismatchSafely(Person person, Description mismatchDescription) {
+            mismatchDescription.appendText("was ").appendValue(person.name)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ничего особо военного, анонимный метод и реализация трех методов - не слишком в стиле Groovy.</p>
+</div>
+<div class="paragraph">
+<p>Давайте же поправим это все. Groovy крут из-за такой его возможности, как metaprogramming. Прибегая к чудесам метапрограммирования, мы можем в классе <strong>Description</strong> переопределить метод leftShift:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">Description.metaClass.leftShift = { text -&gt;
+    delegate.appendText(text.toString())
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь, используя полученный метод &lt;&lt;, напишем наш матчер:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">static hasName(String name) {
+    [
+       matchesSafely: { name == it.name },
+       describeTo: { it &lt;&lt; "a person with name" + name },
+       describeMismatchSafely: { item, descr -&gt; descr &lt;&lt; "was " + item.name }
+    ] as TypeSafeMatcher&lt;Person&gt;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Оба-на! кода стало в разы меньше и его читаемость улучшилась. Правда ухудшилась степень понимания, особенно если вы не знаете таких слов, как Closure.</p>
+</div>
+<div class="paragraph">
+<p>От себя хочу добавить, что подход с реализацией интерфейса через Map в случае с тремя методами не очень удачен, вот если бы у нас был один метод, тогда бы было все очень красиво и просто.</p>
+</div>
+<div class="paragraph">
+<p>Давайте же посмотрим на упрощение реализации с тремя методами. Реализовываем класс GroovyMatcher&lt;T&gt;:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">abstract class GroovyMatcher&lt;T&gt; extends TypeSafeMatcher&lt;T&gt; {
+    private Description description = new StringDescription()
+    private Description mismatchDescription = new StringDescription()
+
+    @Override
+    boolean matchesSafely(T item) {
+        match(item, description, mismatchDescription)
+    }
+
+    @Override
+    void describeTo(Description description) {
+        description &lt;&lt; this.description
+    }
+
+    @Override
+    void describeMismatchSafely(T item, Description mismatchDescription) {
+        mismatchDescription &lt;&lt; this.mismatchDescription
+    }
+
+    abstract boolean match(T item, Description description, Description mismatchDescription)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все достаточно стандатно, но давайте теперь применим магию Groovy. В написанном нами классе GroovyMatcher нам нужно реализовать всего один абстрактный метод match. Пишем матчер для проверки номера телефона withPhone:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">static withPhone(String actual) {
+        { item, description, mismatchDescription -&gt;
+            def expected = item.phone
+            description &lt;&lt; "person with phone " | actual
+            mismatchDescription &lt;&lt; "was " | expected
+            actual == expected
+        } as GroovyMatcher&lt;Person&gt;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Как вы можете заметить, мы использовали мощь Groovy и реализовали абстрактный метод через closure.</p>
+</div>
+<div class="paragraph">
+<p>Перед подведением итогов и определением, какой-же подход лучше, хочу поделиться собственным опытом написания ExtentionModule.</p>
+</div>
+<div class="paragraph">
+<p>Дабы не переживать по поводу метапрограммирования, можно написать <strong>ExtentionModule</strong> для нашего Description класса. Делается это так: пишем сначала класс, в котором реализовываем нужные нам методы:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class MatchersExtention {
+
+    static Description leftShift(Description self, StringDescription desc) {
+        self.appendText(desc.toString())
+        self
+    }
+
+    static Description leftShift(Description desc, String text) {
+        desc.appendText(text)
+        desc
+    }
+
+    static Description or(Description self, String value) {
+        self.appendValue(value)
+        self
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Далее, чтобы этот класс начал работать, мы создаем в папке src/main/resources папку META-INF/services, в ней создаем файлик <strong>org.codehaus.groovy.runtime.ExtensionModule</strong> со следующим содержанием:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">moduleName = matchers-module
+moduleVersion = 1.0
+extensionClasses = org.example.MatchersExtention</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все, теперь наш класс Description обзавелся поддержкой метода <strong>leftShift(&lt;&lt;)</strong> и or (<strong>|</strong>).</p>
+</div>
+<div class="paragraph">
+<p>Вот так с использованием силы Groovy вы можете добавить в любой класс всяких-всячин. Даже если это класс из какой-то библиотеки!!!</p>
+</div>
+<div class="paragraph">
+<p>Теперь давайте проанализируем подходы к написанию матчеров на Groovy. Я показал три подхода к написанию матчеров. Но какой из них лучше? Лично у меня все реализовано на данный момент через классический путь с анонимным методом. Но там куча лишнего кода и при наличии парочки таких методов в классе становится реально страшно в него заходить.</p>
+</div>
+<div class="paragraph">
+<p>Подход c использованием Map, по моему мнению, самый классный. Магия метапрограммирования делает его очень коротким и понятным.</p>
+</div>
+<div class="paragraph">
+<p>Ну и наконец последний подход с применение closure. Да, этот подход элегантен, нам нужно реализовать только один метод, но зачастую проверки бывают не настолько простыми и реализация этого одного метода может наносить больше вреда чем пользы.</p>
+</div>
+<div class="paragraph">
+<p>На этом у меня все! Всех с наступающими праздниками и до встреч в Новом 2016 году&#8230;&#8203;уиииии =)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.stickbutik.ru/upload/iblock/1f3/1f3417a4cb7b36be3b530db5c95a674b.png" alt="1f3417a4cb7b36be3b530db5c95a674b">
+</div>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Groovy.html">Groovy</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Делаем матчеры веселее с Groovy&url=groovy-matcher/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=groovy-matcher/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=groovy-matcher/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/performance-lecture/index.html">Введение в нагрузочное тестирование</a></li>
+                                                <li><a class='js-ajax-link' href="/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html">Три способа поднять Jenkins CI для ваших автотестов</a></li>
+                                                <li><a class='js-ajax-link' href="/sqa-days-18-retro/index.html">SQA days 18: ретроспектива</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

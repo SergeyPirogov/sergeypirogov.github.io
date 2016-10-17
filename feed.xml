@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 14:40:10 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 14:40:10 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 14:50:46 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 14:50:46 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,224 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Делаем матчеры веселее с Groovy</title>
+      <link>localhost/groovy-matcher/index.html</link>
+      <pubDate>Tue, 22 Dec 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">groovy-matcher/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy. Я уже писал ряд заметок как о Groovy, так и о создании матчеров для Hamcrest. Теперь опишу свою борьбу с написанием такого же матчера только в Groovy style.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://i.ytimg.com/vi/juHgQBB2tLU/hqdefault.jpg&quot; alt=&quot;hqdefault&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Перед началом написания кода и шевеления извилинами, покажу интересный инструмент от Yandex, который позволяет генерировать метчеры для ваших доменных объектов - смотреть &lt;a href=&quot;https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator&quot;&gt;здесь&lt;/a&gt;. Единственный недостаток этой штуки: если у вас нету возможности натыкать аннотаций в объектах, то придется писать самим.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если у вас нету возможности воспользоваться инструментом, описанным выше, велкам кодить матчеры самостоятельно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, сначала напишем наш доменный класс:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;@ToString
+class Person {
+    String name, phone
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После написания метчеров у нас будет такая вот штука:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;Person p = new Person(name: &quot;Ivan&quot;, phone: &quot;0661234567&quot;)
+
+assertThat(p, hasName(&quot;Ivan&quot;))
+assertThat(p, withPhone(&quot;0661234567&quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну и в случае ошибки ожидаем увидеть сообщение:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;Exception in thread &quot;main&quot; java.lang.AssertionError:
+Expected: person with phone 1235678
+     but: was 0661234567&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начнем реализовывать метод &lt;strong&gt;hasName&lt;/strong&gt;. Стандартная реализация будет выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;def hasName(String name) {
+    new TypeSafeMatcher&amp;lt;Person&amp;gt;() {
+        @Override
+        protected boolean matchesSafely(Person p) {
+            name == p.name
+        }
+
+        @Override
+        void describeTo(Description description) {
+            description.appendText(&quot;a Person with name &quot;).appendValue(name)
+        }
+
+        @Override
+        protected void describeMismatchSafely(Person person, Description mismatchDescription) {
+            mismatchDescription.appendText(&quot;was &quot;).appendValue(person.name)
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ничего особо военного, анонимный метод и реализация трех методов - не слишком в стиле Groovy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте же поправим это все. Groovy крут из-за такой его возможности, как metaprogramming. Прибегая к чудесам метапрограммирования, мы можем в классе &lt;strong&gt;Description&lt;/strong&gt; переопределить метод leftShift:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;Description.metaClass.leftShift = { text -&amp;gt;
+    delegate.appendText(text.toString())
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь, используя полученный метод &amp;lt;&amp;lt;, напишем наш матчер:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;static hasName(String name) {
+    [
+       matchesSafely: { name == it.name },
+       describeTo: { it &amp;lt;&amp;lt; &quot;a person with name&quot; + name },
+       describeMismatchSafely: { item, descr -&amp;gt; descr &amp;lt;&amp;lt; &quot;was &quot; + item.name }
+    ] as TypeSafeMatcher&amp;lt;Person&amp;gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Оба-на! кода стало в разы меньше и его читаемость улучшилась. Правда ухудшилась степень понимания, особенно если вы не знаете таких слов, как Closure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;От себя хочу добавить, что подход с реализацией интерфейса через Map в случае с тремя методами не очень удачен, вот если бы у нас был один метод, тогда бы было все очень красиво и просто.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте же посмотрим на упрощение реализации с тремя методами. Реализовываем класс GroovyMatcher&amp;lt;T&amp;gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;abstract class GroovyMatcher&amp;lt;T&amp;gt; extends TypeSafeMatcher&amp;lt;T&amp;gt; {
+    private Description description = new StringDescription()
+    private Description mismatchDescription = new StringDescription()
+
+    @Override
+    boolean matchesSafely(T item) {
+        match(item, description, mismatchDescription)
+    }
+
+    @Override
+    void describeTo(Description description) {
+        description &amp;lt;&amp;lt; this.description
+    }
+
+    @Override
+    void describeMismatchSafely(T item, Description mismatchDescription) {
+        mismatchDescription &amp;lt;&amp;lt; this.mismatchDescription
+    }
+
+    abstract boolean match(T item, Description description, Description mismatchDescription)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все достаточно стандатно, но давайте теперь применим магию Groovy. В написанном нами классе GroovyMatcher нам нужно реализовать всего один абстрактный метод match. Пишем матчер для проверки номера телефона withPhone:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;static withPhone(String actual) {
+        { item, description, mismatchDescription -&amp;gt;
+            def expected = item.phone
+            description &amp;lt;&amp;lt; &quot;person with phone &quot; | actual
+            mismatchDescription &amp;lt;&amp;lt; &quot;was &quot; | expected
+            actual == expected
+        } as GroovyMatcher&amp;lt;Person&amp;gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как вы можете заметить, мы использовали мощь Groovy и реализовали абстрактный метод через closure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Перед подведением итогов и определением, какой-же подход лучше, хочу поделиться собственным опытом написания ExtentionModule.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Дабы не переживать по поводу метапрограммирования, можно написать &lt;strong&gt;ExtentionModule&lt;/strong&gt; для нашего Description класса. Делается это так: пишем сначала класс, в котором реализовываем нужные нам методы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class MatchersExtention {
+
+    static Description leftShift(Description self, StringDescription desc) {
+        self.appendText(desc.toString())
+        self
+    }
+
+    static Description leftShift(Description desc, String text) {
+        desc.appendText(text)
+        desc
+    }
+
+    static Description or(Description self, String value) {
+        self.appendValue(value)
+        self
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее, чтобы этот класс начал работать, мы создаем в папке src/main/resources папку META-INF/services, в ней создаем файлик &lt;strong&gt;org.codehaus.groovy.runtime.ExtensionModule&lt;/strong&gt; со следующим содержанием:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;moduleName = matchers-module
+moduleVersion = 1.0
+extensionClasses = org.example.MatchersExtention&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все, теперь наш класс Description обзавелся поддержкой метода &lt;strong&gt;leftShift(&amp;lt;&amp;lt;)&lt;/strong&gt; и or (&lt;strong&gt;|&lt;/strong&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так с использованием силы Groovy вы можете добавить в любой класс всяких-всячин. Даже если это класс из какой-то библиотеки!!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь давайте проанализируем подходы к написанию матчеров на Groovy. Я показал три подхода к написанию матчеров. Но какой из них лучше? Лично у меня все реализовано на данный момент через классический путь с анонимным методом. Но там куча лишнего кода и при наличии парочки таких методов в классе становится реально страшно в него заходить.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подход c использованием Map, по моему мнению, самый классный. Магия метапрограммирования делает его очень коротким и понятным.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну и наконец последний подход с применение closure. Да, этот подход элегантен, нам нужно реализовать только один метод, но зачастую проверки бывают не настолько простыми и реализация этого одного метода может наносить больше вреда чем пользы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом у меня все! Всех с наступающими праздниками и до встреч в Новом 2016 году&amp;#8230;&amp;#8203;уиииии =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://www.stickbutik.ru/upload/iblock/1f3/1f3417a4cb7b36be3b530db5c95a674b.png&quot; alt=&quot;1f3417a4cb7b36be3b530db5c95a674b&quot;&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>
