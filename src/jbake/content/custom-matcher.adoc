@@ -1,0 +1,93 @@
+title=Делаем тесты читабельнее. Кастомный Matcher
+date=2015-08-02
+type=post
+status=published
+summary=Новая заметка о том, как сделать тесты читабельнее.
+tags=Тест фреймворк, Java
+~~~~~~
+Новая заметка о том, как сделать тесты читабельнее. Я уже писал http://automation-remarks.com/davaitie-poghovorim-pro-asserty/[заметку] про библиотеки, которые помогают писать простые ассерты. Зачастую функциональности, которую предоставляют эти библиотеки, хватает для написания читабельных тестов. Но мы же идем путем улучшения. Бывают случаи, когда нужно написать свой собственный матчер, чтобы упростить ассерт или сделать его читабельнее.
+
+image::http://automation-remarks.com/content/images/2015/08/debrief.gif[]
+
+Зачем вообще это нужно? Скажем, у вас есть инстанс HttpResponse и вам нужно проверить его параметры.
+
+[source, java]
+----
+@Test
+public void testSpeller() throws Exception {
+        ResponseEntity<String> response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
+
+//typical
+assertThat(response.getStatusCode(),equalTo(HttpStatus.OK));
+
+//custom
+assertThat(response,code(OK));
+}
+----
+
+Этот пример наглядно показывает, что с применением кастомных матчеров код становится читабельнее. Нужно отметить, что существует определенное количество библиотек, которые позволяют использовать готовые матчеры. К примеру, набор матчеров от **Yandex**. Брать чужое и пользоваться - это хорошо, но еще лучше уметь написать свой матчер. Приступим к написанию **hamcrest** матчера.
+
+[source, java]
+----
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+/**
+ * Created by sergey on 02.08.15.
+ */
+public class HttpResponseCodeMatcher extends TypeSafeMatcher<ResponseEntity<String>> {
+
+     private HttpStatus status;
+
+    public HttpResponseCodeMatcher(HttpStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    protected boolean matchesSafely(ResponseEntity<String> response) {
+        return response.getStatusCode().equals(status);
+    }
+
+    @Override
+    public void describeTo(Description description) {
+        description.appendText("status code: ").appendValue(status);
+    }
+
+    @Override
+    protected void describeMismatchSafely(ResponseEntity<String> item, Description mismatchDescription) {
+        mismatchDescription.appendText("was: ").appendValue(item.getStatusCode());
+    }
+
+    public static Matcher<ResponseEntity<String>> code(HttpStatus status) {
+        return new HttpResponseCodeMatcher(status);
+    }
+}
+----
+
+Все, что нам нужно, - это просто наследовать класс **TypeSafeMatcher** и реализовать три метода. Нужно быть внимательным: третий метод **describeMismatchSafely** не является абстрактным, по умолчанию он будет выводить результат, просто вызывая на объекте **toString()**. Мы же переопределили этот метод и в результате у нас получается такой вот код:
+
+[source, java]
+----
+@Test
+public void testSpeller() throws Exception {
+   ResponseEntity<String> response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
+   assertThat(response, code(ACCEPTED));
+}
+----
+
+И такое сообщение об ошибке:
+
+[source, java]
+----
+java.lang.AssertionError:
+Expected: status code: <202>
+     but: was: <200>
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+    at com.matcher.MatcherTest.testSpeller(MatcherTest.java:62)
+----
+
+Ну вот, очень легко и просто мы написали свой матчер и улучшили читабельность наших тестов. Более того, кастомные матчеры очень хороши при использовании **Spock Framework** в качестве тест ранера. Но это уже история следующей заметки. Подписывайтесь, чтобы получать заметки первыми. До встреч...
