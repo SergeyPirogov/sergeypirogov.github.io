@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 10:43:58 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 10:43:58 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 10:50:43 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 10:50:43 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -309,7 +309,7 @@ class TestClass{
       	<description>
 	&lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/img/epam_photo.jpg&quot; alt=&quot;epam photo&quot;&gt;
+&lt;img src=&quot;/images/epam_photo.jpg&quot; alt=&quot;epam photo&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -338,7 +338,7 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/img/ibm.jpg&quot; alt=&quot;ibm&quot;&gt;
+&lt;img src=&quot;/images/ibm.jpg&quot; alt=&quot;ibm&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
