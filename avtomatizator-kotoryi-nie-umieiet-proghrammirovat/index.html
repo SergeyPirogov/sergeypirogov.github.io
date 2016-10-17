@@ -80,114 +80,54 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">14/07/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">11/10/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Пишем видео во время прогона тестов</h1>
+                        <h1 class="post-title">Автоматизатор, который не умеет программировать. Кто он?</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.</p>
+<p>Заметка, в которой попробуем разобраться в реалиях современности и попробуем дать ответ на вопрос: должен ли тестировщик, у которого на табличке написано "Software Test Automation Engineer" уметь программировать?</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://it-112.ru/olderfiles/1/videofail.jpg" alt="videofail">
+<img src="http://www.towave.ru/sites/default/files/imagecache/250x200/_250developer.png" alt=" 250developer">
 </div>
 </div>
 <div class="paragraph">
-<p>Да-да, вы не ошиблись, будем рассматривать именно запись видео. Зачем? Бывают ситуации, когда скриншотов не достаточно. К тому же, скриншоты есть у всех, а вот видео - это уже интересно. Реализовать такую киллер-фичу в вашем фреймворке можно разными способами. Я покажу пример с использованием библиотеки <strong>Monte Screen Recorder</strong>.</p>
+<p>Существует достаточно много мнений, кто же такие эти люди - автоматизаторы. Достаточно крепко эта тема перетиралась на Radio QA. Но я, как человек идейный, попытаюсь обрисовать свою точку зрения. Итак, начну с того, что оговорка "все зависит от проекта" - не принимается. Если у тебя на табличке написано Test Automation, но в реальности 80% времени ты занимаешься мануальщиной, гоняешь регрессию и обновляешь тест кейсы, то, увы, друг мой, ты далек от автоматизации. Возьмем два кардинально разных примера: автоматизатор, работающий в команде только с мануальщиками, и автоматизатор, работающий в команде с программистами.</p>
 </div>
 <div class="paragraph">
-<p>Информацию об этой библиотеке можно почитать на сайте. На главной странице, в разделе <strong>Downloads</strong>, скачиваем <a href="http://www.randelshofer.ch/monte/files/demos/MonteScreenRecorder.jar">MonteScreenRecorder.jar</a> Этой библиотеки нету в центральном <strong>Maven</strong> репозитории, поэтому, если у вас Maven проект, придётся добавить библиотеку самостоятельно. Пример команды, которая в этом поможет, приведен ниже. Просто нужно открыть консоль и там набрать команду:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mvn install:install-file -Dfile=MonteScreenRecorder.jar -DgroupId=org.monte -DartifactId=monte-screen-recorder -Dversion=0.7.7 -Dpackaging=jar</code></pre>
-</div>
+<p>Так вот, в первом случае вы будете явно выделяться, так как вы технически подкованнее и команда не будет особо вдаваться в то, что вы там клепаете. Главное, чтобы отчеты о прогоне тестов приходили вовремя и руками проверять нужно было меньше. В общем те, кто работает в такой команде долго, могут почувствовать, что они достигли вершины и будут немного деградировать в техническом плане. Возможно даже, что сменить проект будет не так легко, так как у вас есть опыт, но технически вы уже староваты.</p>
 </div>
 <div class="paragraph">
-<p>Теперь можно подключить <strong>monte-screen-recorder</strong> как простую зависимость. Идем в <strong>pom.xml</strong> и прописываем там следующие строки:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
-   &lt;groupId&gt;org.monte&lt;/groupId&gt;
-   &lt;artifactId&gt;monte-screen-recorder&lt;/artifactId&gt;
-   &lt;version&gt;0.7.7&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
+<p>Во втором случае в команде на вас будут смотреть немного свысока, так как всея господа разработчики и кодопись - это ж типа неотъемлемые вещи. Но я бы сильно по этому поводу не расстраивался, ведь, чтобы вас зауважали, нужно показать, что вы действительно крутой парень. Тем более, если и учиться писать код, то у разработчиков. В такой команде вам нужно будет показать, что вы делаете вещи, без которых команде будет тяжело поддерживать качество продукта на должном уровне. Более того, если вы технически сильно подкованы, вам будет легче работать в команде, так как вы будете находить общий язык и понимать что Spring - это вовсе не то, о чем вы подумали =) В команде разрботчиков у вас больший шанс развиваться технически и следить за техническими новинками.</p>
 </div>
 <div class="paragraph">
-<p>Создадим класс <strong>VideoRecord</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">package com.pages.recorder;
-
-import java.awt.*;
-import org.monte.screenrecorder.ScreenRecorder;
-
-public class VideoRecord {
-    private static ScreenRecorder screenRecorder;
-
-    public static void startRecording() throws Exception {
-        GraphicsConfiguration gc = GraphicsEnvironment
-                .getLocalGraphicsEnvironment().getDefaultScreenDevice()
-                .getDefaultConfiguration();
-
-        screenRecorder = new ScreenRecorder(gc);
-        screenRecorder.start();
-    }
-
-    public static void stopRecording() throws Exception {
-        screenRecorder.stop();
-    }
-}</code></pre>
-</div>
+<p>Итак, что мы имеем на выходе в обоих случаях - автоматизаторы занимаются техническими вещами. И там и там нужно уметь писать код. Умение писать код позволит вам приобрести уверенность в том, что вы можете решать сложные технические задачи. Это зачастую начнет ярко проявляться, когда вам нужно будет предлагать решения для Автоматизации. Выбор инструментов и подходов, что лучше выбрать - Junit или TestNG.</p>
 </div>
 <div class="paragraph">
-<p>В этом классе у нас есть два метода <strong>startRecording</strong> и <strong>stopRecording</strong>. Их-то мы и будем использовать для управления записью видео.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Before
-    public void setUpMethod() throws Exception {
-        VideoRecord.startRecording();
-    }
-
-    @Test
-    public void shouldBeErrorMessage() {
-        mainPage.open();
-        mainPage.login("adasd", "asdasd");
-        String err = mainPage.getErrorMsg();
-        assertThat(err, equalTo("Не вірний логін або пароль. Спробуйте знову."));
-    }
-
-    @After
-    public void stop() throws Exception {
-        VideoRecord.stopRecording();
-    }</code></pre>
-</div>
+<p>В общем, по моему личному мнению, автоматизаторы - это больше программисты с уклоном на тестирование. Эти люди обязаны уметь писать код и быть технически подкованными в технологиях и языках программирования, с которыми они работают.</p>
 </div>
 <div class="paragraph">
-<p>По умолчанию записи будут сохраняться в папку <strong>${user.dir}/Movies(Мои Видеозаписи)</strong>. Собственно, на этом все. Хороших вам роликов и до встреч =)</p>
+<p>А что касается автоматизатора, который не умеет программировать, - ну так он вовсе и не автоматизатор. Возможно, где-то в глубине души он и считает себя таким, но чтобы желаемое стало действительным, ему осталось сделать совсем небольшой шаг - научиться хорошо программировать ;)</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Java.html">Java</a>
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Пишем видео во время прогона тестов&url=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Автоматизатор, который не умеет программировать. Кто он?&url=avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -203,7 +143,6 @@ public class VideoRecord {
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html">Автоматизатор, который не умеет программировать. Кто он?</a></li>
                                                 <li><a class='js-ajax-link' href="/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html">Как развиваться тестировщику. Разбираемся с Linux.</a></li>
                                                 <li><a class='js-ajax-link' href="/parse-command-line/index.html">Парсим командную строку с Groovy CliBuilder</a></li>
                                                 <li><a class='js-ajax-link' href="/zapuskaiem-jbehave-iz-gradle/index.html">Запускаем JBehave из Gradle</a></li>
