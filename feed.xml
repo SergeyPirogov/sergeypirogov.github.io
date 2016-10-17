@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Sun, 16 Oct 2016 17:46:08 +0000</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 17:46:08 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 09:08:07 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 09:08:07 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,100 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Пишем видео во время прогона тестов</title>
+      <link>localhost/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</link>
+      <pubDate>Tue, 14 Jul 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://it-112.ru/olderfiles/1/videofail.jpg&quot; alt=&quot;videofail&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да-да, вы не ошиблись, будем рассматривать именно запись видео. Зачем? Бывают ситуации, когда скриншотов не достаточно. К тому же, скриншоты есть у всех, а вот видео - это уже интересно. Реализовать такую киллер-фичу в вашем фреймворке можно разными способами. Я покажу пример с использованием библиотеки &lt;strong&gt;Monte Screen Recorder&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Информацию об этой библиотеке можно почитать на сайте. На главной странице, в разделе &lt;strong&gt;Downloads&lt;/strong&gt;, скачиваем &lt;a href=&quot;http://www.randelshofer.ch/monte/files/demos/MonteScreenRecorder.jar&quot;&gt;MonteScreenRecorder.jar&lt;/a&gt; Этой библиотеки нету в центральном &lt;strong&gt;Maven&lt;/strong&gt; репозитории, поэтому, если у вас Maven проект, придётся добавить библиотеку самостоятельно. Пример команды, которая в этом поможет, приведен ниже. Просто нужно открыть консоль и там набрать команду:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;mvn install:install-file -Dfile=MonteScreenRecorder.jar -DgroupId=org.monte -DartifactId=monte-screen-recorder -Dversion=0.7.7 -Dpackaging=jar&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь можно подключить &lt;strong&gt;monte-screen-recorder&lt;/strong&gt; как простую зависимость. Идем в &lt;strong&gt;pom.xml&lt;/strong&gt; и прописываем там следующие строки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+   &amp;lt;groupId&amp;gt;org.monte&amp;lt;/groupId&amp;gt;
+   &amp;lt;artifactId&amp;gt;monte-screen-recorder&amp;lt;/artifactId&amp;gt;
+   &amp;lt;version&amp;gt;0.7.7&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создадим класс &lt;strong&gt;VideoRecord&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;package com.pages.recorder;
+
+import java.awt.*;
+import org.monte.screenrecorder.ScreenRecorder;
+
+public class VideoRecord {
+    private static ScreenRecorder screenRecorder;
+
+    public static void startRecording() throws Exception {
+        GraphicsConfiguration gc = GraphicsEnvironment
+                .getLocalGraphicsEnvironment().getDefaultScreenDevice()
+                .getDefaultConfiguration();
+
+        screenRecorder = new ScreenRecorder(gc);
+        screenRecorder.start();
+    }
+
+    public static void stopRecording() throws Exception {
+        screenRecorder.stop();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом классе у нас есть два метода &lt;strong&gt;startRecording&lt;/strong&gt; и &lt;strong&gt;stopRecording&lt;/strong&gt;. Их-то мы и будем использовать для управления записью видео.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Before
+    public void setUpMethod() throws Exception {
+        VideoRecord.startRecording();
+    }
+
+    @Test
+    public void shouldBeErrorMessage() {
+        mainPage.open();
+        mainPage.login(&quot;adasd&quot;, &quot;asdasd&quot;);
+        String err = mainPage.getErrorMsg();
+        assertThat(err, equalTo(&quot;Не вірний логін або пароль. Спробуйте знову.&quot;));
+    }
+
+    @After
+    public void stop() throws Exception {
+        VideoRecord.stopRecording();
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По умолчанию записи будут сохраняться в папку &lt;strong&gt;${user.dir}/Movies(Мои Видеозаписи)&lt;/strong&gt;. Собственно, на этом все. Хороших вам роликов и до встреч =)&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
