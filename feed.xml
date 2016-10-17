@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 10:25:47 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 10:25:47 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 10:36:45 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 10:36:45 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,128 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Интегрируем YAML и тестовый фреймворк</title>
+      <link>localhost/yaml/index.html</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">yaml/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Новая заметка, в которой я покажу, как можно использовать файлы с разширением .yml в качестве конфигурационых файлов для тестового фреймворка. Хочу отметить, что я уже писал на подобную тему, только &lt;a href=&quot;http://automation-remarks.com/zamienitie-property-faily-na-ghruvi-skripty/&quot;&gt;тогда&lt;/a&gt; применял &lt;strong&gt;Groovy&lt;/strong&gt; файл.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://ifireball.files.wordpress.com/2015/01/yaml-logo.png&quot; alt=&quot;yaml logo&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте посмотрим на суть задачи. Наверняка те, кто писал фреймворки на Java, пользовался стандартными файлами c расширением &lt;strong&gt;.proprties&lt;/strong&gt;. Наличие проперти файлов - это правило хорошего тона.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вся конфигурационная информация выносится за переделы кода, откуда ее можно легко изменять. Вот, скажем, стандартный пример из жизни: у нас есть несколько окружений, на которых мы запускаем наши тесты. Для каждого окружения нужны различные парметры: хост, порт и т.п. Зачастую люди делают либо разные проперти файлы и пишут Factory pattern для того, чтобы считывать из них информацию, либо делают один проперти файл, который зачастую выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;#dev env
+dev.server.host=localhost
+dev.server.port=7070
+
+#qa env
+qa.server.host=qahost
+qa.server.port=8081&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Затем пишется все та же Factory для считывания данного файла. Чего греха таить, я, бывало, тоже такое писал. Но пришло время совершенствоваться и использовать более элегантные подходы. И здесь на помощь приходит язык разметки YAML. Что это и для чего придумано, читать в Википедии ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мы можем легко и просто использовать &lt;strong&gt;.yml&lt;/strong&gt; файлы как замену для проперти файлов c помощью библиотеки &lt;strong&gt;snakeyml&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Создаем config.yml файл:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;environment:
+  dev:
+    server.host: http://localhost:7070
+    db.url: jdbc:usernarm:userpass@test
+  qa:
+    server.host: http://qa.test:8080&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь напишем класс, который будет считывать наш файл:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class YamlReader {
+
+    public Map&amp;lt;String, Object&amp;gt; read(String path) throws IOException {
+        InputStream in = Files.newInputStream(Paths.get(path));
+        Yaml yaml = new Yaml();
+        return (Map&amp;lt;String, Object&amp;gt;) yaml.load(in);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Читаем файл:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public static void main(String[] args) throws IOException {
+        YamlReader reader = new YamlReader();
+        Map&amp;lt;String, Object&amp;gt; config = reader.read(&quot;src/main/resources/config.yml&quot;);
+        System.out.println(config);
+}
+
+Console output:
+{environment={dev={server.host=http://localhost:7070, db.url=jdbc:usernarm:userpass@test}, qa={server.host=http://qa.test:8080}}}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нам возвращается Map, с которой мы можем дальше работать. Но здесь есть один недостаток - casting. Нам нужно кастить каждый раз, когда мы будем доставать значение из map.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Есть гораздо лучшее решение. Cоздаем класс &lt;strong&gt;Configuration&lt;/strong&gt; следующего содержания:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class Configuration {
+    public Map&amp;lt;String,Map&amp;lt;String,String&amp;gt;&amp;gt; environment;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем метод в ридере:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public &amp;lt;T&amp;gt; T read(String path, Class&amp;lt;T&amp;gt; c) throws IOException {
+        Yaml yaml = new Yaml();
+        try (InputStream in = Files.newInputStream(Paths.get(path))) {
+            return yaml.loadAs(in, c);
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Используем новый метод для чтения проперти:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; YamlReader reader = new YamlReader();
+ Configuration read = reader.read(&quot;src/main/resources/config.yml&quot;, Configuration.class);
+
+ Map&amp;lt;String, String&amp;gt; map = read.environment.get(&quot;qa&quot;);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как вы могли заметить, второй подход более элегантен и удобен. Правда, вы не сможете использовать никакой другой конструкции, кроме Map; в первом же случае вы вольны кастить значения к тому типу, к которому душе угодно. На этом у меня все. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
