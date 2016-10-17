@@ -80,92 +80,196 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">20/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">20/09/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Выведите ваши тесты на новый уровень!</h1>
+                        <h1 class="post-title">Запускаем JBehave из Gradle</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через <strong>Sonar</strong>. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный <em>NullPointerException</em>. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим <strong>MySQL</strong>, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на <strong>Maven</strong>, то просто в pom нужно вписать:</p>
+<p>Я уже достаточно прилично заметок написал про <strong>JBehave</strong>.</p>
+</div>
+<div class="paragraph">
+<p>В принципе существует много мнений относительно BDD: кто-то вражески настроен против него, кому-то он кажется слишком сложным; но я с ним работаю уже больше 2х лет и мне он нравится. В частности, тесты, написанные для REST сервисов, упрощают понимание того, что они вообще тестируют.</p>
+</div>
+<div class="paragraph">
+<p>Но вот есть определеннного рода трудность - настройка <strong>JBehave</strong> и <strong>Gradle</strong>. Именно этот момент я и попытаюсь прояснить в данной заметке.</p>
+</div>
+<div class="paragraph">
+<p>Итак, при настройке <strong>Jbehave</strong> самое сложное - конфигурация тест раннера. Почему? Потому что кода много:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;project&gt;
-  ...
-  &lt;build&gt;
-    &lt;!-- To define the plugin version in your parent POM --&gt;
-    &lt;pluginManagement&gt;
-      &lt;plugins&gt;
-        &lt;plugin&gt;
-          &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-          &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-          &lt;version&gt;2.5&lt;/version&gt;
-        &lt;/plugin&gt;
-        ...
-      &lt;/plugins&gt;
-    &lt;/pluginManagement&gt;
-    &lt;!-- To use the plugin goals in your POM or parent POM --&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-        &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.5&lt;/version&gt;
-      &lt;/plugin&gt;
-      ...
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-  ...
-&lt;/project&gt;</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">package com.copyright.rup.ecom.tests.runner;
+
+import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
+import static org.jbehave.core.reporters.Format.CONSOLE;
+import static org.jbehave.core.reporters.Format.HTML;
+import static org.jbehave.core.reporters.Format.XML;
+
+import com.copyright.rup.ecom.tests.custom.CustomStoryReporter;
+
+import org.jbehave.core.ConfigurableEmbedder;
+import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.embedder.Embedder;
+import org.jbehave.core.embedder.StoryControls;
+import org.jbehave.core.failures.FailingUponPendingStep;
+import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.StoryFinder;
+import org.jbehave.core.reporters.CrossReference;
+import org.jbehave.core.reporters.StoryReporterBuilder;
+import org.jbehave.core.steps.InjectableStepsFactory;
+import org.jbehave.core.steps.ParameterConverters;
+import org.jbehave.core.steps.ParameterConverters.EnumConverter;
+import org.jbehave.core.steps.spring.SpringStepsFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by Serhii_Pirohov on 07.07.2015.
+ */
+public class StoryRunnerConfig extends ConfigurableEmbedder {
+
+    private static final String CLASSPATH_APPLICATION_XML = "classpath:application.xml";
+    private static final int STORY_TIMEOUT_IN_SECS = 12000000;
+
+    private CrossReference crossReference = new CrossReference().withJsonOnly()
+        .withOutputAfterEachStory(true);
+
+    @Override
+    public void run() {
+        Embedder embedder = configuredEmbedder();
+        embedder.useMetaFilters(getMetaFilters());
+        embedder.embedderControls().doIgnoreFailureInStories(true)
+            .doIgnoreFailureInView(false)
+            .useStoryTimeoutInSecs(STORY_TIMEOUT_IN_SECS);
+        try {
+            embedder.runStoriesAsPaths(storyPaths());
+        } finally {
+            embedder.generateCrossReference();
+        }
+    }
+
+    private List&lt;String&gt; getMetaFilters() {
+        String metaFiltersProperty = System.getProperty("metaFilters", "");
+        String[] split = metaFiltersProperty.split(",");
+        return Arrays.asList(split);
+    }
+
+    @Override
+    public Configuration configuration() {
+
+        ParameterConverters parameterConverters = new ParameterConverters();
+        // factory to allow parameter conversion and loading from external
+        // resources (used by StoryParser too)
+        parameterConverters.addConverters(new EnumConverter());
+        return new MostUsefulConfiguration()
+            .useStoryControls(
+                new StoryControls().doSkipScenariosAfterFailure(false))
+            .usePendingStepStrategy(new FailingUponPendingStep())
+            .useStoryLoader(new LoadFromClasspath(getClass()))
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new CustomStoryReporter())
+                    .withFormats(CONSOLE, HTML, XML).withCrossReference(crossReference)
+                    .withRelativeDirectory("../build/jbehave")
+            )
+            .useParameterConverters(parameterConverters)
+            .useStepMonitor(crossReference.getStepMonitor());
+    }
+
+    @Override
+    public InjectableStepsFactory stepsFactory() {
+        ApplicationContext ctx = new GenericXmlApplicationContext(
+            CLASSPATH_APPLICATION_XML);
+        return new SpringStepsFactory(configuration(), ctx);
+    }
+
+    /**
+     * Story paths.
+     *
+     * @return the list
+     */
+    protected List&lt;String&gt; storyPaths() {
+        String storyToInclude = "**/" + System.getProperty("story", "*")
+            + "*.story";
+        return new StoryFinder().findPaths(codeLocationFromClass(getClass()).getFile(), storyToInclude, null);
+    }
+
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Далее в Maven setting.xml добавляем:</p>
+<p>Но при настройке с <strong>Gradle</strong> загвоздка заключается в правильном написании task в <strong>build.gradle</strong> файле.</p>
+</div>
+<div class="paragraph">
+<p>Итак, идем в <strong>build.gradle</strong> файл, создаем там task для запуска <strong>BDD</strong> тестов.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;profile&gt;
-    &lt;id&gt;sonar&lt;/id&gt;
-    &lt;activation&gt;
-       &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-    &lt;/activation&gt;
-&lt;properties&gt;
-&lt;sonar.jdbc.url&gt;jdbc:postgresql://localhost/sonar&lt;;/sonar.jdbc.url&gt;
-&lt;sonar.jdbc.driver&gt;org.postgresql.Driver&lt;/sonar.jdbc.driver&gt;
-&lt;sonar.jdbc.username&gt;user&lt;/sonar.jdbc.username&gt;
-&lt;sonar.jdbc.password&gt;password&lt;/sonar.jdbc.password&gt;
-&lt;!-- SERVER ON A REMOTE HOST --&gt;
-&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;
-   &lt;/properties&gt;
-&lt;/profile&gt;</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">task(type: Test, 'bddTest') {
+    description 'Runs the BDD tests'
+
+    // Use properties for filtering stories
+    systemProperty "metaFilters", System.getProperty("filter", "")
+    systemProperty "story", System.getProperty("story", "*")
+
+    /*
+     * JBehave requires the Maven's "target" folder in order
+     * to obtain the absolute path from relative path.
+     */
+    doFirst {
+        file('target').mkdirs();
+
+        copy {
+            from(zipTree(jarPath("jbehave-core"))) {
+                include "style/*"
+            }
+            into("build/jbehave/view")
+
+        }
+        copy {
+            from(zipTree(jarPath("jbehave-site-resources"))) {
+                include "js/**/*"
+                include "style/**/*"
+                include "images/*"
+            }
+            into("build/jbehave/view")
+        }
+
+    }
+
+    doLast {
+        file('target').delete();
+    }
+}
+
+def jarPath(String jarName) {
+    configurations.testCompile.find({ it.name.startsWith(jarName) }).absolutePath
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вот и все! При запущенном сервере - выполняем <strong>mvn sonar:sonar</strong> ждем завершения сканирования. Далее отрываем в браузере адрес, который мы прописывали:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Проделав все эти действия, я был шокирован. В проекте был ужжаасный код. Сделав выводы, на новом проете, я начал применять Sonar с самого первого дня. Спустя три месяца, мы создали 300 тестов. Техникал дебт равен 0.1. А сложность кода - 1.2. Вы можете себе представить такое? Разработчики даже подшучивают иногда, что тесты "чище" чем сам проект. Вот так вот Sonar помог повыситься качество кода тестов. А вы используете статические анализаторы кода?</p>
+<p>Вот, собственно, на этом и все =)</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Выведите ваши тесты на новый уровень!&url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Запускаем JBehave из Gradle&url=zapuskaiem-jbehave-iz-gradle/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=zapuskaiem-jbehave-iz-gradle/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=zapuskaiem-jbehave-iz-gradle/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -181,7 +285,6 @@
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/zapuskaiem-jbehave-iz-gradle/index.html">Запускаем JBehave из Gradle</a></li>
                                                 <li><a class='js-ajax-link' href="/pochemy-svoy-fremawork-ploho/index.html">Почему фразу "Мы будем писать свой тестовый фреймворк" нужно произносить шепотом</a></li>
                                                 <li><a class='js-ajax-link' href="/learning-groovy/index.html">Как развиваться тестировщику. Учим Groovy за 15 минут</a></li>
                                                 <li><a class='js-ajax-link' href="/person-of-the-month/index.html">Автоматизация тестирования, обмен опытом и полезные увлечения</a></li>

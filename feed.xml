@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 11:17:10 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 11:17:10 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 11:21:42 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 11:21:42 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,182 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Запускаем JBehave из Gradle</title>
+      <link>localhost/zapuskaiem-jbehave-iz-gradle/index.html</link>
+      <pubDate>Sun, 20 Sep 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">zapuskaiem-jbehave-iz-gradle/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже достаточно прилично заметок написал про &lt;strong&gt;JBehave&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В принципе существует много мнений относительно BDD: кто-то вражески настроен против него, кому-то он кажется слишком сложным; но я с ним работаю уже больше 2х лет и мне он нравится. В частности, тесты, написанные для REST сервисов, упрощают понимание того, что они вообще тестируют.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но вот есть определеннного рода трудность - настройка &lt;strong&gt;JBehave&lt;/strong&gt; и &lt;strong&gt;Gradle&lt;/strong&gt;. Именно этот момент я и попытаюсь прояснить в данной заметке.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, при настройке &lt;strong&gt;Jbehave&lt;/strong&gt; самое сложное - конфигурация тест раннера. Почему? Потому что кода много:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;package com.copyright.rup.ecom.tests.runner;
+
+import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
+import static org.jbehave.core.reporters.Format.CONSOLE;
+import static org.jbehave.core.reporters.Format.HTML;
+import static org.jbehave.core.reporters.Format.XML;
+
+import com.copyright.rup.ecom.tests.custom.CustomStoryReporter;
+
+import org.jbehave.core.ConfigurableEmbedder;
+import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.embedder.Embedder;
+import org.jbehave.core.embedder.StoryControls;
+import org.jbehave.core.failures.FailingUponPendingStep;
+import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.StoryFinder;
+import org.jbehave.core.reporters.CrossReference;
+import org.jbehave.core.reporters.StoryReporterBuilder;
+import org.jbehave.core.steps.InjectableStepsFactory;
+import org.jbehave.core.steps.ParameterConverters;
+import org.jbehave.core.steps.ParameterConverters.EnumConverter;
+import org.jbehave.core.steps.spring.SpringStepsFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by Serhii_Pirohov on 07.07.2015.
+ */
+public class StoryRunnerConfig extends ConfigurableEmbedder {
+
+    private static final String CLASSPATH_APPLICATION_XML = &quot;classpath:application.xml&quot;;
+    private static final int STORY_TIMEOUT_IN_SECS = 12000000;
+
+    private CrossReference crossReference = new CrossReference().withJsonOnly()
+        .withOutputAfterEachStory(true);
+
+    @Override
+    public void run() {
+        Embedder embedder = configuredEmbedder();
+        embedder.useMetaFilters(getMetaFilters());
+        embedder.embedderControls().doIgnoreFailureInStories(true)
+            .doIgnoreFailureInView(false)
+            .useStoryTimeoutInSecs(STORY_TIMEOUT_IN_SECS);
+        try {
+            embedder.runStoriesAsPaths(storyPaths());
+        } finally {
+            embedder.generateCrossReference();
+        }
+    }
+
+    private List&amp;lt;String&amp;gt; getMetaFilters() {
+        String metaFiltersProperty = System.getProperty(&quot;metaFilters&quot;, &quot;&quot;);
+        String[] split = metaFiltersProperty.split(&quot;,&quot;);
+        return Arrays.asList(split);
+    }
+
+    @Override
+    public Configuration configuration() {
+
+        ParameterConverters parameterConverters = new ParameterConverters();
+        // factory to allow parameter conversion and loading from external
+        // resources (used by StoryParser too)
+        parameterConverters.addConverters(new EnumConverter());
+        return new MostUsefulConfiguration()
+            .useStoryControls(
+                new StoryControls().doSkipScenariosAfterFailure(false))
+            .usePendingStepStrategy(new FailingUponPendingStep())
+            .useStoryLoader(new LoadFromClasspath(getClass()))
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new CustomStoryReporter())
+                    .withFormats(CONSOLE, HTML, XML).withCrossReference(crossReference)
+                    .withRelativeDirectory(&quot;../build/jbehave&quot;)
+            )
+            .useParameterConverters(parameterConverters)
+            .useStepMonitor(crossReference.getStepMonitor());
+    }
+
+    @Override
+    public InjectableStepsFactory stepsFactory() {
+        ApplicationContext ctx = new GenericXmlApplicationContext(
+            CLASSPATH_APPLICATION_XML);
+        return new SpringStepsFactory(configuration(), ctx);
+    }
+
+    /**
+     * Story paths.
+     *
+     * @return the list
+     */
+    protected List&amp;lt;String&amp;gt; storyPaths() {
+        String storyToInclude = &quot;**/&quot; + System.getProperty(&quot;story&quot;, &quot;*&quot;)
+            + &quot;*.story&quot;;
+        return new StoryFinder().findPaths(codeLocationFromClass(getClass()).getFile(), storyToInclude, null);
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но при настройке с &lt;strong&gt;Gradle&lt;/strong&gt; загвоздка заключается в правильном написании task в &lt;strong&gt;build.gradle&lt;/strong&gt; файле.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, идем в &lt;strong&gt;build.gradle&lt;/strong&gt; файл, создаем там task для запуска &lt;strong&gt;BDD&lt;/strong&gt; тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;task(type: Test, &apos;bddTest&apos;) {
+    description &apos;Runs the BDD tests&apos;
+
+    // Use properties for filtering stories
+    systemProperty &quot;metaFilters&quot;, System.getProperty(&quot;filter&quot;, &quot;&quot;)
+    systemProperty &quot;story&quot;, System.getProperty(&quot;story&quot;, &quot;*&quot;)
+
+    /*
+     * JBehave requires the Maven&apos;s &quot;target&quot; folder in order
+     * to obtain the absolute path from relative path.
+     */
+    doFirst {
+        file(&apos;target&apos;).mkdirs();
+
+        copy {
+            from(zipTree(jarPath(&quot;jbehave-core&quot;))) {
+                include &quot;style/*&quot;
+            }
+            into(&quot;build/jbehave/view&quot;)
+
+        }
+        copy {
+            from(zipTree(jarPath(&quot;jbehave-site-resources&quot;))) {
+                include &quot;js/**/*&quot;
+                include &quot;style/**/*&quot;
+                include &quot;images/*&quot;
+            }
+            into(&quot;build/jbehave/view&quot;)
+        }
+
+    }
+
+    doLast {
+        file(&apos;target&apos;).delete();
+    }
+}
+
+def jarPath(String jarName) {
+    configurations.testCompile.find({ it.name.startsWith(jarName) }).absolutePath
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот, собственно, на этом и все =)&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
