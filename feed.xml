@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 11:46:31 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 11:46:31 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 11:51:24 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 11:51:24 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,78 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Travis CI на службе у автоматизации</title>
+      <link>localhost/travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</link>
+      <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В данной заметке хочу поговорить о сервисе, который называется &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt;. Достаточно интересный проект, о котором может многие и слышали, но не имели возможности попробовать. Так вот, я попробовал и мне очень понравилось, теперь поделюсь своими впечатлениями.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, начнем с самого начала. Для тех, кто не знаком с этим проектом: &lt;strong&gt;Travis CI&lt;/strong&gt; - это облачный сервис, который позволяет пользователям организовать CI процесс для своих проектов. Для того, чтобы начать пользоваться этим сервисом, нужно завести аккаунт на &lt;strong&gt;github&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее все очень просто: переходим на &lt;a href=&quot;https://travis-ci.org&quot; class=&quot;bare&quot;&gt;https://travis-ci.org&lt;/a&gt; и логинимся с помощью гитхаб.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хочу отметить, что Travis меня удивил простотой интеграции, ведь все, что нужно для начала работы, - просто выбрать свой репозиторий и создать в нем файл &lt;strong&gt;.travis.yml&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я экспериментировал со своим репозиторием, в котором лежит проект с Groovy репортером для Jbehave.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Travis CI поддерживает большое количество языков программирования, для полного ознакомления можно почитать &lt;a href=&quot;http://docs.travis-ci.com/user/getting-started/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мой проект написан на Groovy и собирается с помощью &lt;strong&gt;Gradle&lt;/strong&gt;. Какое удивление - &lt;strong&gt;Travis&lt;/strong&gt; умеет работать со всеми этими штуками. Все, что нужно, - просто указать в созданном файле &lt;strong&gt;.travis.yml&lt;/strong&gt; пару строк:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;language: groovy
+jdk:
+ - oraclejdk7
+branches:
+ only:
+ - master&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Идем в Travis CI &lt;a href=&quot;https://travis-ci.org/profile/${username}&quot; class=&quot;bare&quot;&gt;https://travis-ci.org/profile/${username}&lt;/a&gt; и среди своих репозиториев выбираем нужный и включаем его в билд процесс.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Затем меняем в нашем проекте любой файлик, коммитим, пушим и начинается магия. Travis сам понимает, какого рода проект и какой инструмент сборки использовать. Буквально через пару секунд он начинает собирать ваш проект.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В моем случае я наткнулся на одну неприятность: первая сборка завершилась неуспехом =) Проблемой было то, что у тревиса не было прав на вызов команды gradlew. Исправляется это тем, что в наш файл &lt;strong&gt;.travis.yml&lt;/strong&gt; нужно добавить строчку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;before_install:
+ - chmod +x gradlew&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для тех, кто знаком с unix системами, эта команда достаточно знакома: она дает права на запуск команды gradlew.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По умолчанию Travis запускает команду gradlew assemble; если вы хотите переопределить такое поведение, то вам нужно дописать еще пару строк в .yml файл:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;install: true
+script: &quot;./gradlew build -x copyDistFiles&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот и все. Теперь наш проект собирается и завершается успехом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь поговорим о тех, кому эта штука может быть полезна. В первую очередь тем, кто пишет свои проекты и не хочет особо париться с настройкой полноценного CI сервера - это очень удобно. Автоматизаторов же должна заинтересовать такая функциональность &lt;a href=&quot;http://docs.travis-ci.com/user/gui-and-headless-browsers/&quot;&gt;GUI and Headless Browser Testing&lt;/a&gt;. В документации указано, что можно запускать тесты с помощью Sauce Labs, xvfb и phantomjs. Крутяк, да? Эта штука поможет сэкономить кучу времени на настройку энваромента. Попробуйте - и вам понравится.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
