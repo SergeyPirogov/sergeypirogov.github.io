@@ -80,71 +80,47 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">09/08/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">12/08/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Создаем виртуальную машину в три шага</h1>
+                        <h1 class="post-title">EPAM IT Week Summer 2015</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую <strong>VirtualBox</strong>. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента <strong>Vagrant</strong>.</p>
+<p>Заметка, которая носит чисто информационный характер. Хочу поделиться записью выступления на EPAM IT Week Summer 2015. Во второй раз принял участие в данном мероприятии как спикер. В прошлом году рассказывал о том, как мне удалось улучшить CI на нашем проекте. В этом году решил выступить с не техническим докладом и поговорить о том, как можно построить автоматизацию на проекте с самого начала. Решил провести интересные параллели и выстроить ассоциации.</p>
 </div>
-<div class="paragraph">
-<p>Идея вагранта очень проста: он основывается на наличии готовых базовых образов. В оригинале они называются - <strong>box</strong>. The Tao of Vagrant содержит несколько простых принципов, которые гарантируют то, что созданная вами виртуальная машина будет работать на любой операционной системе: Mac OS, Windows, Linux.</p>
-</div>
-<div class="paragraph">
-<p>Начнем работать с <strong>Vagrant</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Шаг 1: Установка</strong></p>
-</div>
-<div class="paragraph">
-<p>Нам потребуется установить <strong>VirtualBox</strong> и собственно <strong>Vagrant</strong>. Скачиваем нужный инсталятор <a href="http://www.vagrantup.com/downloads">здесь</a> и устанавливаем. Инструкция по установке VirtualBox <a href="http://www.windxp.com.ru/article9.htm">здесь</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Шаг 2: Скачиваем готовый box</strong></p>
-</div>
-<div class="paragraph">
-<p>Открываем консоль и выполняем команды:</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vm
-cd vm
-vagrant box add hashicorp/precise32
-vagrant init hashicorp/precise32</code></pre>
+<img src="/images/it-week.jpg" alt="it week">
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Шаг 3: Запускаем виртуальную машину:</strong></p>
+<p>Перед выступлением и в самом его начале я немного нервничал, так как слайды доделывал буквально за пару часов до старта. Плюс ко всему, у людей была возможность не только присутствовать во время выступления, но и смотреть онлайн. В целом получилось очень хорошо, я доволен. После выступления я получил много положительных отзывов и лайков.</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p>Собственно, вот запись выступления:</p>
+</div>
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">vagrant up</code></pre>
+<iframe src="https://www.youtube.com/embed/6o3aox0RAWQ?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Через несколько секунд у вас поднимется готовая виртуальная машина.</p>
-</div>
-<div class="paragraph">
-<p>Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/События.html">События</a>
+                                    <a href="/tags/Видео.html">Видео</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Создаем виртуальную машину в три шага&url=vagrant/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=EPAM IT Week Summer 2015&url=it-week-summer-2015/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vagrant/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=it-week-summer-2015/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=vagrant/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=it-week-summer-2015/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -160,7 +136,7 @@ vagrant init hashicorp/precise32</code></pre>
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/it-week-summer-2015/index.html">EPAM IT Week Summer 2015</a></li>
+                                                <li><a class='js-ajax-link' href="/vagrant/index.html">Создаем виртуальную машину в три шага</a></li>
                                                 <li><a class='js-ajax-link' href="/custom-matcher/index.html">Делаем тесты читабельнее. Кастомный Matcher</a></li>
                                                 <li><a class='js-ajax-link' href="/allure-jbehave-adapter/index.html">Пишем Allure Jbehave адаптер</a></li>
                                      </ul>
