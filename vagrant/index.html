@@ -80,67 +80,71 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">19/11/2014</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">09/08/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как приручить Jenkins API</h1>
+                        <h1 class="post-title">Создаем виртуальную машину в три шага</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Небольшой пост о том, как можно добраться до внутренностей <a href="https://jenkins.io/index.html">Jenkins</a>.
-Бывают ситуации, когда СI сервер установлен где-то на удаленной машине, доступ к которой осуществляется через VPN. В общем ситуация сложная, а информацию о джобах и письма от дженкинса получать хотелось бы.
-В таком случае в помощь приходит <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">Jenkins API</a>.
-API позволяет извлекать информацию в трех форматах XML, JSON и Python.
-Как это работает? Очень просто: все что нужно - вбить в браузере в строке адреса:</p>
+<p>Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую <strong>VirtualBox</strong>. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента <strong>Vagrant</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Идея вагранта очень проста: он основывается на наличии готовых базовых образов. В оригинале они называются - <strong>box</strong>. The Tao of Vagrant содержит несколько простых принципов, которые гарантируют то, что созданная вами виртуальная машина будет работать на любой операционной системе: Mac OS, Windows, Linux.</p>
+</div>
+<div class="paragraph">
+<p>Начнем работать с <strong>Vagrant</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Шаг 1: Установка</strong></p>
+</div>
+<div class="paragraph">
+<p>Нам потребуется установить <strong>VirtualBox</strong> и собственно <strong>Vagrant</strong>. Скачиваем нужный инсталятор <a href="http://www.vagrantup.com/downloads">здесь</a> и устанавливаем. Инструкция по установке VirtualBox <a href="http://www.windxp.com.ru/article9.htm">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Шаг 2: Скачиваем готовый box</strong></p>
+</div>
+<div class="paragraph">
+<p>Открываем консоль и выполняем команды:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;jenkins host&gt;/api/json</code></pre>
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vm
+cd vm
+vagrant box add hashicorp/precise32
+vagrant init hashicorp/precise32</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вуаля! Круто, не правда ли? Но текст не читабелен. Решается это просто: нужно добавить pretty формат:</p>
+<p><strong>Шаг 3: Запускаем виртуальную машину:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://9.21.103.66:8255/jenkins/api/json?pretty=true</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">vagrant up</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь на экране в <strong>JSON</strong> формате отображается информация обо всех джобах. Для того, чтобы опуститься на уровень одного <strong>Job</strong>, необходимо просто указать имя:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/api/json?pretty=true</code></pre>
-</div>
+<p>Через несколько секунд у вас поднимется готовая виртуальная машина.</p>
 </div>
 <div class="paragraph">
-<p>А чтобы получить информацию о какой-либо сборке, нужно всего лишь указать ее номер:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/&lt;BUILD_NUMBER&gt;/api/json?pretty=true</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>После получения информации ее можно использовать в благих целях. Но об этом я расскажу в следующий раз&#8230;&#8203;</p>
+<p>Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Jenkins.html">Jenkins</a>
-                                    <a href="/tags/CI.html">CI</a>
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Как приручить Jenkins API&url=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Создаем виртуальную машину в три шага&url=vagrant/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vagrant/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=vagrant/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -156,7 +160,6 @@ API позволяет извлекать информацию в трех фо�
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/vagrant/index.html">Создаем виртуальную машину в три шага</a></li>
                                                 <li><a class='js-ajax-link' href="/custom-matcher/index.html">Делаем тесты читабельнее. Кастомный Matcher</a></li>
                                                 <li><a class='js-ajax-link' href="/allure-jbehave-adapter/index.html">Пишем Allure Jbehave адаптер</a></li>
                                                 <li><a class='js-ajax-link' href="/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html">Пишем видео во время прогона тестов</a></li>

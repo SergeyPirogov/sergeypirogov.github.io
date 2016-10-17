@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 09:56:24 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 09:56:24 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 10:12:44 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 10:12:44 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,57 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Создаем виртуальную машину в три шага</title>
+      <link>localhost/vagrant/index.html</link>
+      <pubDate>Sun, 9 Aug 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">vagrant/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую &lt;strong&gt;VirtualBox&lt;/strong&gt;. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента &lt;strong&gt;Vagrant&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Идея вагранта очень проста: он основывается на наличии готовых базовых образов. В оригинале они называются - &lt;strong&gt;box&lt;/strong&gt;. The Tao of Vagrant содержит несколько простых принципов, которые гарантируют то, что созданная вами виртуальная машина будет работать на любой операционной системе: Mac OS, Windows, Linux.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начнем работать с &lt;strong&gt;Vagrant&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Шаг 1: Установка&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нам потребуется установить &lt;strong&gt;VirtualBox&lt;/strong&gt; и собственно &lt;strong&gt;Vagrant&lt;/strong&gt;. Скачиваем нужный инсталятор &lt;a href=&quot;http://www.vagrantup.com/downloads&quot;&gt;здесь&lt;/a&gt; и устанавливаем. Инструкция по установке VirtualBox &lt;a href=&quot;http://www.windxp.com.ru/article9.htm&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Шаг 2: Скачиваем готовый box&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Открываем консоль и выполняем команды:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;mkdir vm
+cd vm
+vagrant box add hashicorp/precise32
+vagrant init hashicorp/precise32&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Шаг 3: Запускаем виртуальную машину:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;vagrant up&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Через несколько секунд у вас поднимется готовая виртуальная машина.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
