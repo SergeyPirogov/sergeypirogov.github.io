@@ -80,88 +80,35 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">26/09/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">12/12/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как развиваться тестировщику. Разбираемся с Linux.</h1>
+                        <h1 class="post-title">Введение в нагрузочное тестирование</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Заметка, которая будет продолжением серии "Как развиваться начинающим тестировщикам". Ранее я писал про <strong>Groovy</strong>, теперь хочу поделиться опытом изучения <strong>Linux</strong>.</p>
+<p>Лекция, в которой я рассказываю про основы нагрузочного тестирования. В конце приведены примеры записи скриптов с помощью JMeter и Gatling</p>
 </div>
-<div class="imageblock">
+<div class="videoblock">
 <div class="content">
-<img src="http://prach.poltava.ua/images/stories/logoLinux.png" alt="logoLinux">
+<iframe src="https://www.youtube.com/embed/X5TLt2JvfoA?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Давайте разберемся, нужно ли вообще тестировщикам знать Linux? Конечно же ответ зависит от многих факторов. Первый из них: есть ли у вас на проекте машины или сервера с *nix на борту ? Если нет, то можете закрывать страницу и наслаждаться жизнью, унывая за рабочим столом <strong>Windows 10</strong> ;) Но, если у вас есть все-таки поддержка *nix платформ и вы не унылый овощ, то вам следует разобраться с <strong>Linux</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Лично мое знакомство c Linux началось с того, что у нас на проекте было 4 машинки и на всех стоял разный дистрибутив IBM AIX, Solaris, Red Hat Linux.</p>
-</div>
-<div class="paragraph">
-<p>Дабы не быть полным профаном, я решил себе дома установить тогда еще <strong>Ubuntu 12.04 LTS</strong>, чтобы начать разбираться с системой и учить команды. Это была кардинальная перемена, меня затянуло и до сих пор у меня дома стоит Ubuntu, и на все возгласы по поводу выхода новых версий <strong>Windows</strong> я даже не парюсь.</p>
-</div>
-<div class="paragraph">
-<p>Чисто в образовательных целях можете установить себе <strong>Ubuntu</strong> на виртуальную машину. Сделать это максимально быстро можно с помощью <a href="http://automation-remarks.com/vagrant/">Vagrant</a>.</p>
-</div>
-<div class="paragraph">
-<p>Далее стоит задача в изучении команд, которые поддерживаются командной оболочкой. Конечно же всегда можно посмотреть в гугл, но все же самые основные нужно выучить. На собеседованиях гугл не поможет=).</p>
-</div>
-<div class="paragraph">
-<p>Я бы рекомендовал почитать книгу - <strong>Скотта Граннеманна</strong>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="http://book2.me/f/LinuxSprav2010.jpg" alt="LinuxSprav2010">
-</div>
-</div>
-<div class="paragraph">
-<p>Отличнейшая книга, которую я прочел на одном дыхании. Идеально подходит для изучения всех самых известных команд <strong>Linux</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Вторая книга, которую я бы посоветовал тем, кто уже немного знаком с системой и хочет понять все ее внутренности, - <strong>How Linux Works: What Every Superuser Should Know</strong></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="http://www.allitebooks.com/wp-content/uploads/2015/04/How-Linux-Works-200x250.jpg" alt="How Linux Works 200x250">
-</div>
-</div>
-<div class="paragraph">
-<p>Под конец, для тех, кто уже хочет научиться писать Bash скрипты:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="http://ecx.images-amazon.com/images/I/51EjC-yjBKL._SX403_BO1,204,203,200_.jpg" alt="51EjC yjBKL. SX403 BO1,204,203,200 ">
-</div>
-</div>
-<div class="paragraph">
-<p>Последнюю книгу полностью не читал, но могу сказать, что издательство apress всегда издает стОящие книги.</p>
-</div>
-<div class="paragraph">
-<p>Ну и напоследок на обучающей платформе edx есть полезный курс - <strong>Introduction to Linux</strong>. Этот курс дает практические знания графической оболочки и командной строки для всех самых распространенных дистрибутивов Linux. Лично я его прошел и получил сертификат;)</p>
-</div>
-<div class="paragraph">
-<p>Удачного изучения и до встреч.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Groovy.html">Groovy</a>
+                                    <a href="/tags/Видео.html">Видео</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Как развиваться тестировщику. Разбираемся с Linux.&url=kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Введение в нагрузочное тестирование&url=performance-lecture/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=performance-lecture/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=performance-lecture/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -177,7 +124,6 @@
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/performance-lecture/index.html">Введение в нагрузочное тестирование</a></li>
                                                 <li><a class='js-ajax-link' href="/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html">Три способа поднять Jenkins CI для ваших автотестов</a></li>
                                                 <li><a class='js-ajax-link' href="/sqa-days-18-retro/index.html">SQA days 18: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/6-sposobov-raboty-s-propierti-failami/index.html">6 способов работы с проперти файлами</a></li>

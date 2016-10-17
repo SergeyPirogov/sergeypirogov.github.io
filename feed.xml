@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 14:38:44 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 14:38:44 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 14:40:10 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 14:40:10 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,22 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Введение в нагрузочное тестирование</title>
+      <link>localhost/performance-lecture/index.html</link>
+      <pubDate>Sat, 12 Dec 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">performance-lecture/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лекция, в которой я рассказываю про основы нагрузочного тестирования. В конце приведены примеры записи скриптов с помощью JMeter и Gatling&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/X5TLt2JvfoA?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>
