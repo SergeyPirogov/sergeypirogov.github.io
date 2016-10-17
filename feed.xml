@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 14:22:56 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 14:22:56 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 14:25:18 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 14:25:18 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,22 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>6 способов работы с проперти файлами</title>
+      <link>localhost/6-sposobov-raboty-s-propierti-failami/index.html</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тренинг, в котором я показываю различные способы работы с проперти файлами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/e2LWKxIwOfk?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>
