@@ -80,92 +80,91 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">20/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">18/10/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Выведите ваши тесты на новый уровень!</h1>
+                        <h1 class="post-title">Книги, обязательные к прочтению автоматизатору</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через <strong>Sonar</strong>. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный <em>NullPointerException</em>. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим <strong>MySQL</strong>, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на <strong>Maven</strong>, то просто в pom нужно вписать:</p>
+<p>Продолжение цикла под названием "Как развиваться тестировщику". В прошлых заметках вы узнали, <a href="http://automation-remarks.com/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/">как изучить Linux</a>. Теперь напишу о том, какие книги было бы полезно почитать автоматизаторам.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;project&gt;
-  ...
-  &lt;build&gt;
-    &lt;!-- To define the plugin version in your parent POM --&gt;
-    &lt;pluginManagement&gt;
-      &lt;plugins&gt;
-        &lt;plugin&gt;
-          &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-          &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-          &lt;version&gt;2.5&lt;/version&gt;
-        &lt;/plugin&gt;
-        ...
-      &lt;/plugins&gt;
-    &lt;/pluginManagement&gt;
-    &lt;!-- To use the plugin goals in your POM or parent POM --&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-        &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.5&lt;/version&gt;
-      &lt;/plugin&gt;
-      ...
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-  ...
-&lt;/project&gt;</code></pre>
+<img src="http://sportkniga.com.ua/images/books228577dtg3.jpg" alt="books228577dtg3">
 </div>
 </div>
 <div class="paragraph">
-<p>Далее в Maven setting.xml добавляем:</p>
+<p>Первая книга - <strong>"xUnit Test Patterns"</strong>. Почему именно эта книга? Потому что в ней очень хорошо и понятно описывается, как писать Unit тесты. Описаны основные ошибки при написании тестов и приведены шаблоны для наиболее общих случаев. В целом, после прочтение этой книги я пересмотрел свой стиль написания тестов и кода.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;profile&gt;
-    &lt;id&gt;sonar&lt;/id&gt;
-    &lt;activation&gt;
-       &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-    &lt;/activation&gt;
-&lt;properties&gt;
-&lt;sonar.jdbc.url&gt;jdbc:postgresql://localhost/sonar&lt;;/sonar.jdbc.url&gt;
-&lt;sonar.jdbc.driver&gt;org.postgresql.Driver&lt;/sonar.jdbc.driver&gt;
-&lt;sonar.jdbc.username&gt;user&lt;/sonar.jdbc.username&gt;
-&lt;sonar.jdbc.password&gt;password&lt;/sonar.jdbc.password&gt;
-&lt;!-- SERVER ON A REMOTE HOST --&gt;
-&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;
-   &lt;/properties&gt;
-&lt;/profile&gt;</code></pre>
+<img src="http://d.gr-assets.com/books/1348288284l/337302.jpg" alt="337302">
 </div>
 </div>
 <div class="paragraph">
-<p>Вот и все! При запущенном сервере - выполняем <strong>mvn sonar:sonar</strong> ждем завершения сканирования. Далее отрываем в браузере адрес, который мы прописывали:</p>
+<p>Следующая книга - <strong>Стива Макконела "Совершенный код"</strong>.</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p>В этой книге очень хорошо описаны проблемы при написании кода. Эта книга поможет вам избавиться от привычки писать макаронный код. В книге есть целый раздел, в котором приведены пути решения основных проблем в написании тестов. Лично я из этой книги почерпнул некоторые советы и часто пользуюсь ими при написании <a href="http://automation-remarks.com/pochemy-svoy-fremawork-ploho/">фреймворков</a>.</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</code></pre>
+<img src="http://v673.com/wp-content/uploads/1001320063.jpg" alt="1001320063">
 </div>
 </div>
 <div class="paragraph">
-<p>Проделав все эти действия, я был шокирован. В проекте был ужжаасный код. Сделав выводы, на новом проете, я начал применять Sonar с самого первого дня. Спустя три месяца, мы создали 300 тестов. Техникал дебт равен 0.1. А сложность кода - 1.2. Вы можете себе представить такое? Разработчики даже подшучивают иногда, что тесты "чище" чем сам проект. Вот так вот Sonar помог повыситься качество кода тестов. А вы используете статические анализаторы кода?</p>
+<p>Хочу также упомянуть о книге <strong>Чистый код</strong> от <strong>Боба Мартина</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Если вы ни разу не слышали о дядюшке Бобе, то я настоятельно рекомендую загуглить и ,конечно, прочитать его книги. Одна из них - "Чистый код". Отличное чтиво, во время знакомства с которым у вас возникнет понимание, что код, который вы пишете, чистым назвать сложно.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://static2.ozone.ru/multimedia/books_covers/c300/1001563239.jpg" alt="1001563239">
+</div>
+</div>
+<div class="paragraph">
+<p>Ну и последняя книга - <strong>Мартина Фаулера "Рефакторинг"</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://ab.kh.ua/wp-content/uploads/2013/12/%D0%9C%D0%B0%D1%80%D1%82%D0%B8%D0%BD-%D0%A4%D0%B0%D1%83%D0%BB%D0%B5%D1%80-%D0%A0%D0%B5%D1%84%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3-%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B3%D0%BE-%D0%BA%D0%BE%D0%B4%D0%B0.jpg" alt="%D0%9C%D0%B0%D1%80%D1%82%D0%B8%D0%BD %D0%A4%D0%B0%D1%83%D0%BB%D0%B5%D1%80 %D0%A0%D0%B5%D1%84%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3 %D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D0%B5 %D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B3%D0%BE %D0%BA%D0%BE%D0%B4%D0%B0">
+</div>
+</div>
+<div class="paragraph">
+<p>Еще одна книга от еще одного знаменитого человека в сфере программирования. Если вы не слышали имени этого человека, то настоятельно рекомендую познакомиться с его книгами. В целом книга хорошо описывает стандартные антипаттерны и после ее прочтения вы научитесь понимать, как писать и переписывать код так, чтобы он был легко читаем и его было легко поддерживать.</p>
+</div>
+<div class="paragraph">
+<p>Ну и последняя в этой заметке - <strong>Gojko Adzic: Fifty Quick Ideas to Improve Your Tests</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://ecx.images-amazon.com/images/I/51DlCCMPOoL._SY498_BO1,204,203,200_.jpg" alt="51DlCCMPOoL. SY498 BO1,204,203,200 ">
+</div>
+</div>
+<div class="paragraph">
+<p>Сам я ее пока не читал, но уважаемые люди советовали и в интернетах о ней очень положительные отзывы.</p>
+</div>
+<div class="paragraph">
+<p>Вот, собственно, и все на этот раз. Многие могут сказать, что большинство этих книг о написании кода и больше о программировании.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Выведите ваши тесты на новый уровень!&url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Книги, обязательные к прочтению автоматизатору&url=knigi-aqa/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=knigi-aqa/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=knigi-aqa/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -181,7 +180,6 @@
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/knigi-aqa/index.html">Книги, обязательные к прочтению автоматизатору</a></li>
                                                 <li><a class='js-ajax-link' href="/avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html">Автоматизатор, который не умеет программировать. Кто он?</a></li>
                                                 <li><a class='js-ajax-link' href="/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html">Как развиваться тестировщику. Разбираемся с Linux.</a></li>
                                                 <li><a class='js-ajax-link' href="/parse-command-line/index.html">Парсим командную строку с Groovy CliBuilder</a></li>
