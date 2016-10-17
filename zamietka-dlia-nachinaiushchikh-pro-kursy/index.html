@@ -80,114 +80,48 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">14/07/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">07/11/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Пишем видео во время прогона тестов</h1>
+                        <h1 class="post-title">Заметка для начинающих: о курсах</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.</p>
+<p>Давно хотел выразить свои мысли по поводу ситуации с курсами для тестировщиков, в частности - курсами для автоматизаторов.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://it-112.ru/olderfiles/1/videofail.jpg" alt="videofail">
+<img src="http://zapad24.ru/uploads/posts/2013-08/1375430184_1368701158_konsultacijas_apmacibu-iespejas_latinsoft.jpg" alt="1375430184 1368701158 konsultacijas apmacibu iespejas latinsoft">
 </div>
 </div>
 <div class="paragraph">
-<p>Да-да, вы не ошиблись, будем рассматривать именно запись видео. Зачем? Бывают ситуации, когда скриншотов не достаточно. К тому же, скриншоты есть у всех, а вот видео - это уже интересно. Реализовать такую киллер-фичу в вашем фреймворке можно разными способами. Я покажу пример с использованием библиотеки <strong>Monte Screen Recorder</strong>.</p>
+<p>Итак, обосную суть проблемы. Почему проблемы - поясню далее. В данный момент сфера растет большими темпами, потребность в кадрах все еще превышает количество этих самых кадров. Относительно автоматизации тестирования - эта тенденция ощущается прям на нюх. Почему? Потому что ХОРОШИХ специалистов мало, а крутых еще меньше. Раньше ведь автоматизировать начинали как? Работали мануальщиками, затем начинали автоматизировать. Да и автоматизировали на динозаврячьих технологиях типа VB script или QTP. Сейчас эти ребята уже опытные специалисты, большинство из них стали менеджерами и почивают на лаврах. А что же с подрастающим поколением? Оно все еще растет. В данный момент нужны люди со знанием Java, C#, Python. Всем нужны готовые специалисты, но готовые уже давно хотят много денег =). Получается, что автоматизаторами становятся либо те, кто не смог стать девелоперами, либо мануальщики, которые смогли что-то там выучить. И здесь ключевое слово ВЫУЧИТЬ!</p>
 </div>
 <div class="paragraph">
-<p>Информацию об этой библиотеке можно почитать на сайте. На главной странице, в разделе <strong>Downloads</strong>, скачиваем <a href="http://www.randelshofer.ch/monte/files/demos/MonteScreenRecorder.jar">MonteScreenRecorder.jar</a> Этой библиотеки нету в центральном <strong>Maven</strong> репозитории, поэтому, если у вас Maven проект, придётся добавить библиотеку самостоятельно. Пример команды, которая в этом поможет, приведен ниже. Просто нужно открыть консоль и там набрать команду:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mvn install:install-file -Dfile=MonteScreenRecorder.jar -DgroupId=org.monte -DartifactId=monte-screen-recorder -Dversion=0.7.7 -Dpackaging=jar</code></pre>
-</div>
+<p>Предприимчивые ребята открывают большое количество курсов, на которых обещают обучить вас всем прелестям автоматизации с нуля. И вот тут кроется самая большая неприятность для желающих - на курсах вас чему-то научат, возможно, даже приближенно нужному для рынка. Тут в силу вступает второй фактор: компании уже давно поняли, что кадров не хватает и начали готовить кадры для себя по своим обучающим программам. Им не нужны джуниоры с рынка, которые, к тому же, как правило, слабее тех, которых муштруют в аудиториях компании. Болезненно, но факт. И что же делать в такой ситуации? Выхода два: либо долбить этот тернистый путь, платить деньги, которые, возможно, себя не оправдают, либо идти учиться на курсы в компании, после которых 90% участников успешно работают и растут по карьерной лестнице. А как найти эти компании и курсы? Первый <a href="http://dou.ua/lenta/articles/it-obrazovanie-v-kompaniyah-obzor-vozmozhnostej/">источник</a>. Лично я шел по второму пути и не вижу смысла платить деньги за эфемерные курсы, после которых у вас будет сертификат и крошечный шанс найти работу в гонке массы людей, которые окончили такие же курсы.</p>
 </div>
 <div class="paragraph">
-<p>Теперь можно подключить <strong>monte-screen-recorder</strong> как простую зависимость. Идем в <strong>pom.xml</strong> и прописываем там следующие строки:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
-   &lt;groupId&gt;org.monte&lt;/groupId&gt;
-   &lt;artifactId&gt;monte-screen-recorder&lt;/artifactId&gt;
-   &lt;version&gt;0.7.7&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
+<p>Может показаться, что я как-то критикую курсы и пиарю компании. На самом деле это не так, я просто даю совет тем, кто не знает, как действовать. Я живу в этой сфере и знаю все внутренности.</p>
 </div>
 <div class="paragraph">
-<p>Создадим класс <strong>VideoRecord</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">package com.pages.recorder;
-
-import java.awt.*;
-import org.monte.screenrecorder.ScreenRecorder;
-
-public class VideoRecord {
-    private static ScreenRecorder screenRecorder;
-
-    public static void startRecording() throws Exception {
-        GraphicsConfiguration gc = GraphicsEnvironment
-                .getLocalGraphicsEnvironment().getDefaultScreenDevice()
-                .getDefaultConfiguration();
-
-        screenRecorder = new ScreenRecorder(gc);
-        screenRecorder.start();
-    }
-
-    public static void stopRecording() throws Exception {
-        screenRecorder.stop();
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В этом классе у нас есть два метода <strong>startRecording</strong> и <strong>stopRecording</strong>. Их-то мы и будем использовать для управления записью видео.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Before
-    public void setUpMethod() throws Exception {
-        VideoRecord.startRecording();
-    }
-
-    @Test
-    public void shouldBeErrorMessage() {
-        mainPage.open();
-        mainPage.login("adasd", "asdasd");
-        String err = mainPage.getErrorMsg();
-        assertThat(err, equalTo("Не вірний логін або пароль. Спробуйте знову."));
-    }
-
-    @After
-    public void stop() throws Exception {
-        VideoRecord.stopRecording();
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>По умолчанию записи будут сохраняться в папку <strong>${user.dir}/Movies(Мои Видеозаписи)</strong>. Собственно, на этом все. Хороших вам роликов и до встреч =)</p>
+<p>Курсы вне компании я бы советовал тем, кто, имея постоянную работу, хочет перейти на новый уровень, либо тем, кто планирует сменить место работы&#8230;&#8203;</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Java.html">Java</a>
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Пишем видео во время прогона тестов&url=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Заметка для начинающих: о курсах&url=zamietka-dlia-nachinaiushchikh-pro-kursy/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=zamietka-dlia-nachinaiushchikh-pro-kursy/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=zamietka-dlia-nachinaiushchikh-pro-kursy/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -203,7 +137,6 @@ public class VideoRecord {
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/zamietka-dlia-nachinaiushchikh-pro-kursy/index.html">Заметка для начинающих: о курсах</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-retrospective/index.html">QAFest 2015 : ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/travis-ci-na-sluzhbie-u-avtomatizatsii/index.html">Travis CI на службе у автоматизации</a></li>
                                                 <li><a class='js-ajax-link' href="/knigi-aqa/index.html">Книги, обязательные к прочтению автоматизатору</a></li>
