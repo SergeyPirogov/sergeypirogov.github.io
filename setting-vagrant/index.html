@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">16/08/2015</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Тюнингуем Vagrant box</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>В прошлой <a href="http://automation-remarks.com/vagrant/">заметке</a> я начал разговор об инструменте под названием Vagrant. В этот раз я покажу, как работать с готовой виртуальной машиной, подключаться к ней через ssh, использовать provisioner.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://noethics.net/News/images/stories/vagrant1.png" alt="vagrant1">
+</div>
+</div>
+<div class="paragraph">
+<p>Но перед тем как начать, хочу отметить, что для работы с <strong>Vagrant</strong> активно используется консоль. Если вы работаете из-под Windows, то я бы рекомендовал перейти на <strong>ConsoleZ</strong>. Почему? Потому, что она гораздо удобнее, чем стандартная CMD.</p>
+</div>
+<div class="paragraph">
+<p>Настроили консоль - теперь начнем играться с <strong>Vagrant</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Создаем машину:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vagrant_box
+cd vagrant_box
+vagrant init ubuntu/trusty64; vagrant up --provider virtualbox</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>После этого запустится виртуальная машина, а в папке <strong>vagrant_box</strong> появится файл - <strong>Vagrantfile</strong>. Собственно в этом файле и кроется вся магия настроек виртуальной машины. Для того чтобы влючить вашу созданную машину в сеть и получать к ней доступ по сети, в <strong>Vagrantfile</strong> нужно раскомментировать две строчки:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.network :private_network, ip: "192.168.33.10"
+config.vm.network :public_network</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Для того, чтобы изменения вступили в силу, нужно в консоли выполнить команду:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant reload</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Подключаемся к запущенной машине:</strong></p>
+</div>
+<div class="paragraph">
+<p>Вы можете подключаться к запущенным виртуальным машинам с помощью команд <strong>vagrant ssh</strong> и <strong>vagrant rdp</strong>. Лично я создавал машины на основе <strong>Ubuntu</strong>, поэтому мой пример будет основан на этом. Находясь в папке <strong>vagrant_box</strong>, выполните две команды:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Эта команда должна показать, что ваша машина запущена.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant ssh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>По окончании выполнения последней команды вы будете подключены к виртуальной машине, после чего сможете выполнять команды, которые будут манипулировать вашей машиной.</p>
+</div>
+<div class="paragraph">
+<p><strong>Создаем provision:</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Vagrant</strong> предоставляет функциональность <strong>provisioning</strong>. С помощью этой фичи вы можете манипулировать машиной используя <strong>puppet</strong>, <strong>chef</strong> или просто <strong>shell</strong> скрипты. Я покажу пример с использованием <strong>shell</strong> скриптов. Допустим, вы хотите, чтобы при старте машины у вас устанавливалась java. Вы можете, конечно, каждый раз выполнять одни и те же команды, а можете поступить следующим образом. Открываем <strong>Vagrantfile</strong> и ищем раздел:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml"># Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: &lt;&lt;-SHELL
+  #   sudo apt-get update
+  #   sudo apt-get install -y apache2
+  # SHELL</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Если такого нету (а такое бывает), то добавляем этот кусок в наш файл и сохряняем. Для того, чтобы использовать provision для нашего случая с установкой java, мы прописываем следующее:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.provision "shell", path: "java.sh"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Файл <strong>java.sh</strong> должен лежать в папке vagrant_box рядом с Vagrantfile. Содержание файла java.sh:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">#! /usr/bin/env bash
+echo "Installing java 7"
+sudo apt-get install -y python-software-properties
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+
+# Enable silent install
+echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+
+sudo apt-get install -y oracle-java7-installer
+
+# Not always necessary, but just in case...
+sudo update-java-alternatives -s java-7-oracle
+
+# Setting Java environment variables
+sudo apt-get install -y oracle-java7-set-default
+echo "Java 7 installation finished"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Если наша машина была запущена, то нужно выполнить команду:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant reload --provision</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Для случая с выключенной машиной выполняем:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant up --provision</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь при запуске машины будет произведена установка oracle-java-7. Нужно отметить, что существует и другой подход написания скриптов для provision. Можно писать их прямо в <strong>Vagrantfile</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.provision "shell", inline: &lt;&lt;-SHELL
+    echo "Start nodejs installation"
+    sudo apt-get install -y curl
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install build-essential
+    sudo apt-get install -y npm
+SHELL</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Этот скрипт установит nodejs.</p>
+</div>
+<div class="paragraph">
+<p>Таким образом вы можете легко и быстро получать виртуальные машины с предустановленным ПО. В целом, поигравшись с Vagrant, могу сказать, что мне эта штука очень понравилась. На моем текущем проекте мы не нуждаемся в виртуальных машинах, но, как только мне выпадет шанс, я обязательно буду его использовать.</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Тюнингуем Vagrant box&url=setting-vagrant/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=setting-vagrant/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=setting-vagrant/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/it-week-summer-2015/index.html">EPAM IT Week Summer 2015</a></li>
+                                                <li><a class='js-ajax-link' href="/vagrant/index.html">Создаем виртуальную машину в три шага</a></li>
+                                                <li><a class='js-ajax-link' href="/custom-matcher/index.html">Делаем тесты читабельнее. Кастомный Matcher</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

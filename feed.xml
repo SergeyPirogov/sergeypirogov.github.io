@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 10:15:46 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 10:15:46 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 10:25:47 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 10:25:47 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,164 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Тюнингуем Vagrant box</title>
+      <link>localhost/setting-vagrant/index.html</link>
+      <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">setting-vagrant/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В прошлой &lt;a href=&quot;http://automation-remarks.com/vagrant/&quot;&gt;заметке&lt;/a&gt; я начал разговор об инструменте под названием Vagrant. В этот раз я покажу, как работать с готовой виртуальной машиной, подключаться к ней через ssh, использовать provisioner.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://noethics.net/News/images/stories/vagrant1.png&quot; alt=&quot;vagrant1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но перед тем как начать, хочу отметить, что для работы с &lt;strong&gt;Vagrant&lt;/strong&gt; активно используется консоль. Если вы работаете из-под Windows, то я бы рекомендовал перейти на &lt;strong&gt;ConsoleZ&lt;/strong&gt;. Почему? Потому, что она гораздо удобнее, чем стандартная CMD.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Настроили консоль - теперь начнем играться с &lt;strong&gt;Vagrant&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Создаем машину:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;mkdir vagrant_box
+cd vagrant_box
+vagrant init ubuntu/trusty64; vagrant up --provider virtualbox&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После этого запустится виртуальная машина, а в папке &lt;strong&gt;vagrant_box&lt;/strong&gt; появится файл - &lt;strong&gt;Vagrantfile&lt;/strong&gt;. Собственно в этом файле и кроется вся магия настроек виртуальной машины. Для того чтобы влючить вашу созданную машину в сеть и получать к ней доступ по сети, в &lt;strong&gt;Vagrantfile&lt;/strong&gt; нужно раскомментировать две строчки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;config.vm.network :private_network, ip: &quot;192.168.33.10&quot;
+config.vm.network :public_network&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для того, чтобы изменения вступили в силу, нужно в консоли выполнить команду:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;vagrant reload&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Подключаемся к запущенной машине:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вы можете подключаться к запущенным виртуальным машинам с помощью команд &lt;strong&gt;vagrant ssh&lt;/strong&gt; и &lt;strong&gt;vagrant rdp&lt;/strong&gt;. Лично я создавал машины на основе &lt;strong&gt;Ubuntu&lt;/strong&gt;, поэтому мой пример будет основан на этом. Находясь в папке &lt;strong&gt;vagrant_box&lt;/strong&gt;, выполните две команды:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;vagrant status&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эта команда должна показать, что ваша машина запущена.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;vagrant ssh&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По окончании выполнения последней команды вы будете подключены к виртуальной машине, после чего сможете выполнять команды, которые будут манипулировать вашей машиной.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Создаем provision:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Vagrant&lt;/strong&gt; предоставляет функциональность &lt;strong&gt;provisioning&lt;/strong&gt;. С помощью этой фичи вы можете манипулировать машиной используя &lt;strong&gt;puppet&lt;/strong&gt;, &lt;strong&gt;chef&lt;/strong&gt; или просто &lt;strong&gt;shell&lt;/strong&gt; скрипты. Я покажу пример с использованием &lt;strong&gt;shell&lt;/strong&gt; скриптов. Допустим, вы хотите, чтобы при старте машины у вас устанавливалась java. Вы можете, конечно, каждый раз выполнять одни и те же команды, а можете поступить следующим образом. Открываем &lt;strong&gt;Vagrantfile&lt;/strong&gt; и ищем раздел:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;# Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision &quot;shell&quot;, inline: &amp;lt;&amp;lt;-SHELL
+  #   sudo apt-get update
+  #   sudo apt-get install -y apache2
+  # SHELL&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если такого нету (а такое бывает), то добавляем этот кусок в наш файл и сохряняем. Для того, чтобы использовать provision для нашего случая с установкой java, мы прописываем следующее:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;config.vm.provision &quot;shell&quot;, path: &quot;java.sh&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Файл &lt;strong&gt;java.sh&lt;/strong&gt; должен лежать в папке vagrant_box рядом с Vagrantfile. Содержание файла java.sh:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;#! /usr/bin/env bash
+echo &quot;Installing java 7&quot;
+sudo apt-get install -y python-software-properties
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+
+# Enable silent install
+echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+
+sudo apt-get install -y oracle-java7-installer
+
+# Not always necessary, but just in case...
+sudo update-java-alternatives -s java-7-oracle
+
+# Setting Java environment variables
+sudo apt-get install -y oracle-java7-set-default
+echo &quot;Java 7 installation finished&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если наша машина была запущена, то нужно выполнить команду:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;vagrant reload --provision&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для случая с выключенной машиной выполняем:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;vagrant up --provision&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь при запуске машины будет произведена установка oracle-java-7. Нужно отметить, что существует и другой подход написания скриптов для provision. Можно писать их прямо в &lt;strong&gt;Vagrantfile&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;config.vm.provision &quot;shell&quot;, inline: &amp;lt;&amp;lt;-SHELL
+    echo &quot;Start nodejs installation&quot;
+    sudo apt-get install -y curl
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install build-essential
+    sudo apt-get install -y npm
+SHELL&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Этот скрипт установит nodejs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Таким образом вы можете легко и быстро получать виртуальные машины с предустановленным ПО. В целом, поигравшись с Vagrant, могу сказать, что мне эта штука очень понравилась. На моем текущем проекте мы не нуждаемся в виртуальных машинах, но, как только мне выпадет шанс, я обязательно буду его использовать.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
