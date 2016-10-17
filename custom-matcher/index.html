@@ -80,145 +80,124 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">21/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">02/08/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Lettuce Python</h1>
+                        <h1 class="post-title">Делаем тесты читабельнее. Кастомный Matcher</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Готовился я как-то к презентации по Behaviour Driven Development, готовил практические примеры по различным тулам и решил показать пример того как можно реализовать BDD с помощью Python. Посмотрел на Behave и на Lettuce см тут. Мой выбор пал на второй инструмент, не знаю почему, видимо потому что тесты писать проще и быстрее. Дабы не быть голословным приведу пример. Начнем с установки. Ставим Python <strong>2.7 (Это ВАЖНО - на Python 3 работать не будет)</strong>. Ставим lettuce и selenium:</p>
+<p>Новая заметка о том, как сделать тесты читабельнее. Я уже писал <a href="http://automation-remarks.com/davaitie-poghovorim-pro-asserty/">заметку</a> про библиотеки, которые помогают писать простые ассерты. Зачастую функциональности, которую предоставляют эти библиотеки, хватает для написания читабельных тестов. Но мы же идем путем улучшения. Бывают случаи, когда нужно написать свой собственный матчер, чтобы упростить ассерт или сделать его читабельнее.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">pip install lettuce
-pip install selenium
-pip install PyHumcrest</code></pre>
+<img src="http://automation-remarks.com/content/images/2015/08/debrief.gif" alt="debrief">
 </div>
 </div>
 <div class="paragraph">
-<p>Создадим иерархию папок:</p>
+<p>Зачем вообще это нужно? Скажем, у вас есть инстанс HttpResponse и вам нужно проверить его параметры.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">lettuce_demo
-    | features</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+public void testSpeller() throws Exception {
+        ResponseEntity&lt;String&gt; response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
+
+//typical
+assertThat(response.getStatusCode(),equalTo(HttpStatus.OK));
+
+//custom
+assertThat(response,code(OK));
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В корневом каталоге создадим файлик <strong>terrain.py</strong>, он будет содержать команды, которые будут выполнять на разных стадиях исполнения тестов, в данном случае файл имеет такое содержание:</p>
+<p>Этот пример наглядно показывает, что с применением кастомных матчеров код становится читабельнее. Нужно отметить, что существует определенное количество библиотек, которые позволяют использовать готовые матчеры. К примеру, набор матчеров от <strong>Yandex</strong>. Брать чужое и пользоваться - это хорошо, но еще лучше уметь написать свой матчер. Приступим к написанию <strong>hamcrest</strong> матчера.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import before, after, world
-from selenium import webdriver
-from mapping import site_mapping
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
+/**
+ * Created by sergey on 02.08.15.
+ */
+public class HttpResponseCodeMatcher extends TypeSafeMatcher&lt;ResponseEntity&lt;String&gt;&gt; {
 
-@before.each_feature
-def setup(server):
-    world.browser = webdriver.Firefox()
-    world.mapping = site_mapping
+     private HttpStatus status;
 
+    public HttpResponseCodeMatcher(HttpStatus status) {
+        this.status = status;
+    }
 
-@after.all
-def tear_down(total):
-    world.browser.close()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Затем, в корне,создаем файл <strong>mapping.py</strong>. Этой файл содержит локаторы элементов, такой себе <strong>PageObject</strong>, только необычный:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">host_url = "http://pn.com.ua"
+    @Override
+    protected boolean matchesSafely(ResponseEntity&lt;String&gt; response) {
+        return response.getStatusCode().equals(status);
+    }
 
-site_mapping = {
-    "pc_search": {
-        "url": host_url,
-        "computers": ".//*[@id='page-content-wrap']/div/div[1]/div/h1[1]/a",
-        "notebook": ".//*[@id='page-content-wrap']/div[3]/div[1]/div/div[2]/a",
-        "model_number": ".//*[@id='page-content-wrap']/div[3]/div[1]/div[1]/div/div[2]/div[1]/b"
+    @Override
+    public void describeTo(Description description) {
+        description.appendText("status code: ").appendValue(status);
+    }
+
+    @Override
+    protected void describeMismatchSafely(ResponseEntity&lt;String&gt; item, Description mismatchDescription) {
+        mismatchDescription.appendText("was: ").appendValue(item.getStatusCode());
+    }
+
+    public static Matcher&lt;ResponseEntity&lt;String&gt;&gt; code(HttpStatus status) {
+        return new HttpResponseCodeMatcher(status);
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В локаторых можно использовать как <strong>XPath</strong> так и СSS Selectors.
-В папке features создаем <strong>pc.feature</strong> - этот файл содержит описание теста.</p>
+<p>Все, что нам нужно, - это просто наследовать класс <strong>TypeSafeMatcher</strong> и реализовать три метода. Нужно быть внимательным: третий метод <strong>describeMismatchSafely</strong> не является абстрактным, по умолчанию он будет выводить результат, просто вызывая на объекте <strong>toString()</strong>. Мы же переопределили этот метод и в результате у нас получается такой вот код:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Feature: search
-  Scenario: Search pc
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "2703" in "model_number"
-
-  Scenario: Search pc fail
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "27012" in "model_number"</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+public void testSpeller() throws Exception {
+   ResponseEntity&lt;String&gt; response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
+   assertThat(response, code(ACCEPTED));
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В создаем <strong>features/steps.py</strong> - файл содержит описания шагов, используемых в <strong>*.feature</strong> файлах</p>
+<p>И такое сообщение об ошибке:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import step, world
-from hamcrest import *
-
-@step(r'Open "(.*)" page')
-def should_open_main_page(step, page):
-    world.current_page = world.mapping[page]
-    world.browser.get(world.current_page['url'])
-
-@step(u'Click "([^"]*)"')
-def click_group1(step, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    el.click()
-
-@step(u'See "([^"]*)" in "([^"]*)"')
-def see_group1_in_group2(step, text, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    assert_that(el.text, equal_to(text))</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">java.lang.AssertionError:
+Expected: status code: <b class="conum">(202)</b>
+     but: was: <b class="conum">(200)</b>
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+    at com.matcher.MatcherTest.testSpeller(MatcherTest.java:62)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вот и все. В консоли в корне проекта пишем: <strong>lettuce</strong> - вуаля видим как запускается браузер и проходят тесты.</p>
-</div>
-<div class="paragraph">
-<p><strong>Вывод:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Lettuce могут использовать как тестировщики так и разработчики.</p>
-</li>
-<li>
-<p>Высокая устойчивость к изменениям в верстке и структуре сайта в целом благодоря mapping.py</p>
-</li>
-</ul>
+<p>Ну вот, очень легко и просто мы написали свой матчер и улучшили читабельность наших тестов. Более того, кастомные матчеры очень хороши при использовании <strong>Spock Framework</strong> в качестве тест ранера. Но это уже история следующей заметки. Подписывайтесь, чтобы получать заметки первыми. До встреч&#8230;&#8203;</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Python.html">Python</a>
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Lettuce Python&url=lettuce-python/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Делаем тесты читабельнее. Кастомный Matcher&url=custom-matcher/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=lettuce-python/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=custom-matcher/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=lettuce-python/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=custom-matcher/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -234,7 +213,6 @@ def see_group1_in_group2(step, text, element):
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/custom-matcher/index.html">Делаем тесты читабельнее. Кастомный Matcher</a></li>
                                                 <li><a class='js-ajax-link' href="/allure-jbehave-adapter/index.html">Пишем Allure Jbehave адаптер</a></li>
                                                 <li><a class='js-ajax-link' href="/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html">Пишем видео во время прогона тестов</a></li>
                                                 <li><a class='js-ajax-link' href="/selenium-logs/index.html">Получаем больше логов от Selenium</a></li>

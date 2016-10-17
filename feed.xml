@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 09:47:35 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 09:47:35 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 09:56:24 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 09:56:24 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,110 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Делаем тесты читабельнее. Кастомный Matcher</title>
+      <link>localhost/custom-matcher/index.html</link>
+      <pubDate>Sun, 2 Aug 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">custom-matcher/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Новая заметка о том, как сделать тесты читабельнее. Я уже писал &lt;a href=&quot;http://automation-remarks.com/davaitie-poghovorim-pro-asserty/&quot;&gt;заметку&lt;/a&gt; про библиотеки, которые помогают писать простые ассерты. Зачастую функциональности, которую предоставляют эти библиотеки, хватает для написания читабельных тестов. Но мы же идем путем улучшения. Бывают случаи, когда нужно написать свой собственный матчер, чтобы упростить ассерт или сделать его читабельнее.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://automation-remarks.com/content/images/2015/08/debrief.gif&quot; alt=&quot;debrief&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Зачем вообще это нужно? Скажем, у вас есть инстанс HttpResponse и вам нужно проверить его параметры.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+public void testSpeller() throws Exception {
+        ResponseEntity&amp;lt;String&amp;gt; response = restTemplate.getForEntity(&quot;http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне&quot;, String.class);
+
+//typical
+assertThat(response.getStatusCode(),equalTo(HttpStatus.OK));
+
+//custom
+assertThat(response,code(OK));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Этот пример наглядно показывает, что с применением кастомных матчеров код становится читабельнее. Нужно отметить, что существует определенное количество библиотек, которые позволяют использовать готовые матчеры. К примеру, набор матчеров от &lt;strong&gt;Yandex&lt;/strong&gt;. Брать чужое и пользоваться - это хорошо, но еще лучше уметь написать свой матчер. Приступим к написанию &lt;strong&gt;hamcrest&lt;/strong&gt; матчера.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+/**
+ * Created by sergey on 02.08.15.
+ */
+public class HttpResponseCodeMatcher extends TypeSafeMatcher&amp;lt;ResponseEntity&amp;lt;String&amp;gt;&amp;gt; {
+
+     private HttpStatus status;
+
+    public HttpResponseCodeMatcher(HttpStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    protected boolean matchesSafely(ResponseEntity&amp;lt;String&amp;gt; response) {
+        return response.getStatusCode().equals(status);
+    }
+
+    @Override
+    public void describeTo(Description description) {
+        description.appendText(&quot;status code: &quot;).appendValue(status);
+    }
+
+    @Override
+    protected void describeMismatchSafely(ResponseEntity&amp;lt;String&amp;gt; item, Description mismatchDescription) {
+        mismatchDescription.appendText(&quot;was: &quot;).appendValue(item.getStatusCode());
+    }
+
+    public static Matcher&amp;lt;ResponseEntity&amp;lt;String&amp;gt;&amp;gt; code(HttpStatus status) {
+        return new HttpResponseCodeMatcher(status);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все, что нам нужно, - это просто наследовать класс &lt;strong&gt;TypeSafeMatcher&lt;/strong&gt; и реализовать три метода. Нужно быть внимательным: третий метод &lt;strong&gt;describeMismatchSafely&lt;/strong&gt; не является абстрактным, по умолчанию он будет выводить результат, просто вызывая на объекте &lt;strong&gt;toString()&lt;/strong&gt;. Мы же переопределили этот метод и в результате у нас получается такой вот код:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+public void testSpeller() throws Exception {
+   ResponseEntity&amp;lt;String&amp;gt; response = restTemplate.getForEntity(&quot;http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне&quot;, String.class);
+   assertThat(response, code(ACCEPTED));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И такое сообщение об ошибке:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;java.lang.AssertionError:
+Expected: status code: &lt;b class=&quot;conum&quot;&gt;(202)&lt;/b&gt;
+     but: was: &lt;b class=&quot;conum&quot;&gt;(200)&lt;/b&gt;
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+    at com.matcher.MatcherTest.testSpeller(MatcherTest.java:62)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну вот, очень легко и просто мы написали свой матчер и улучшили читабельность наших тестов. Более того, кастомные матчеры очень хороши при использовании &lt;strong&gt;Spock Framework&lt;/strong&gt; в качестве тест ранера. Но это уже история следующей заметки. Подписывайтесь, чтобы получать заметки первыми. До встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
