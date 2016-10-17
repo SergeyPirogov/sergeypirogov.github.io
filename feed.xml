@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 10:36:45 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 10:36:45 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 10:43:58 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 10:43:58 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,93 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Автоматизация тестирования, обмен опытом и полезные увлечения</title>
+      <link>localhost/person-of-the-month/index.html</link>
+      <pubDate>Sat, 29 Aug 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">person-of-the-month/index.html</guid>
+      	<description>
+	&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/epam_photo.jpg&quot; alt=&quot;epam photo&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Сережа, ты начал свою карьеру в ЕРАМ в первом наборе автоматизаторов весной 2013 года. Расскажи, пожалуйста, о своем опыте и росте в рамках компании.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я пришел на курсы в ЕРАМ молодым, перспективным айтишником, жаждущим новых знаний и навыков. Тогда было трудно и тренерам, и студентам, потому как это был первый набор и опыта не хватало всем. Но я горжусь тем, что мы справились с трудностями и прошли в продакшн. Важно отметить, что мы были не только первым набором автоматизаторов, но и теми, на ком испытывали первую CDP программу для автоматизаторов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сейчас я принимаю активное участие в CDP программе для нынешних выпускников Пре-продакшна в роли ментора и лектора. Если говорить об опыте, то выйти из Пре-продакшна и попасть на настоящий проект было немного страшновато: «старые волки» там с удивительной легкостью делали то, на что у меня уходило по полтора, а то и два дня :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что касается роста, то я одним из первых из нашего набора перешел на позицию Software Test Automation Engineer, и на меня возложили ответственность за управление автоматизацией тестирования на проекте ALG-RISK. Именно на этом проекте мне выпала возможность побывать и поработать в офисе IBM в Торонто. А сейчас на проекте CCC мне предстоит организовать автоматизированное тестирование на одном из подпроектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Почему ты изначально выбрал для себя направление автоматизированного тестирования?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вопрос, который чаще всего задают автоматизаторам :) Просто так сложилось. До ЕРАМ я писал код для баз данных Oracle и немного знал С#. В ЕРАМ меня обратили в другую &quot;веру&quot;. Сейчас я пишу на Java, и мне это нравится. Сегодня автоматизация – это тренд, и я не жалею, что выбрал этот путь.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Помимо работы на продакшне ты читаешь лекции студентам. Видишь ли ты разницу между каждым новым набором Пре-продакшна?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Разница заметна, ведь сейчас ребят учат большему стеку технологий. Если нашему, первому набору многому приходилось учиться с нуля прямо на проекте, то сейчас выпускники Пре-продакшна в основном приходят на проект набираться практического опыта при работе с инструментами. Это позволяет им быстрее влиться в процесс, да и облегчает работу менторам.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/ibm.jpg&quot; alt=&quot;ibm&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Твой блог - &lt;a href=&quot;http://automation-remarks.com/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/&lt;/a&gt; - недавно посетил 10 000-й пользователь. Давно ли ты ведешь этот сайт, и стал ли он для тебя больше, чем хобби?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;История создания automation-remarks.com – это как путь от заметки в школьной стенгазете до авторской колонки в серьёзном издании :) в области автоматизации тестирования. Идея создания блога родилась у меня в ноябре прошлого года. Изначально я написал “Привет, мир!” и забросил его. В свободное время просто игрался с версткой и разными штуками из обасти JQuery. Параллельно создавал контент, делал заметки. И выглядело это все ужасТно ;D Сделать из этого ужаса полноценный блог меня вдохновил мой друг. Он сказал, что я пишу полезные вещи, и людям это будет интересно. Было страшно, но я вывел блог в большой мир и назвал “Заметки Автоматизатора”. В общем, все началось с трех пользователей, а по состоянию на сегодня блог посетило уже больше 10500 читателей. 6 моих заметок были опубликованы в QA дайджестах на dou.ua. Могу с уверенностью сказать, что на сегодня блог - уже не просто хобби. Сайт стал площадкой для общения, обмена опытом и установления новых полезных знакомств и связей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Какой опыт, полученный на сегодняшний день на продакшне, ты можешь назвать самым ценным?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В ноябре 2014 я попробовал себя в роли ментора для команды из 6 человек. Мы делали внутренний проект, на котором я приобрел полезный опыт командной работы. А вообще весь опыт работы в ЕРАМ ценен.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Какие планы ты строишь на ближайшее время?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ближайшая цель - стать первым в харьковской локации выпускником пре-продакшна среди автоматизаторов, кто прошел путь от &lt;strong&gt;Student&lt;/strong&gt; до &lt;strong&gt;Senior Software Test Automation Engineer&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Поговорим о неформальном :) Как ты любишь проводить свои выходные?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как среднестатистический житель нашей страны.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Набор опций самый разнообразный: от режима «couch potato» до походов в спортзал и пеших прогулок по 2-3 часа. А еще у меня есть котейка, которая не дает скучать (она, можно сказать, тоже часть компании, так как мы ее подобрали в Краснокутске, когда были на экскурсии с командой коллег из ЕРАМ). Ну и выходные - это единственная возможность съездить на малую родину к родителям.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Доводилось ли тебе работать не в сфере IT? Если да – расскажи, пожалуйста, о своем опыте.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;О да, имеется недолгий, но интересный опыт работы на заводе “Мивина” :) Могу гордо заявить, что интернет в их цехах появился не без моего участия.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- Если не секрет, что для тебя является главной мотивацией?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сила собственного характера и поддержка родных.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;- И напоследок: что ты пожелаешь тем, кто прочитал это интервью?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Оставаться на позитиве, невзирая на неработающий код ;)&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
