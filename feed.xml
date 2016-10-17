@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 09:08:07 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 09:08:07 +0000</lastBuildDate>
+    <pubDate>Mon, 17 Oct 2016 09:47:35 +0000</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 09:47:35 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,62 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Пишем Allure Jbehave адаптер</title>
+      <link>localhost/allure-jbehave-adapter/index.html</link>
+      <pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">allure-jbehave-adapter/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметка о том, как я писал свой адаптер для интеграции &lt;strong&gt;Allure Yandex&lt;/strong&gt; и &lt;strong&gt;JBehave&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://hsto.org/getpro/habr/post_images/c43/a4d/cf7/c43a4dcf7aa2837e5136db9abd9b919a.jpg&quot; alt=&quot;c43a4dcf7aa2837e5136db9abd9b919a&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для начала определим суть проблемы. Allure позволяет интегрироваться практически со всеми известными тест-ранерами. Примеры можно найти здесь. &lt;strong&gt;Jbehave&lt;/strong&gt; в качестве тест-ранера использует &lt;strong&gt;JUnit&lt;/strong&gt;. Вы можете без особых проблем использовать Allure и JBehave, ничего не изобретая. Но есть пару неудобств. Allure отображает в отчете текст шагов или имена методов, отмеченных аннотацией &lt;strong&gt;@Step&lt;/strong&gt;. Меньше слов - пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@When(&quot;I perform some action&quot;)
+@Step
+public void shouldPerformSomeAction(){
+//some code
+}
+
+@Then(&quot;I check that action completed&quot;)
+@Step(&quot;I check that action completed&quot;)
+public void shouldBeComplitedAction(){
+//some code
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как вы можете заметить, в первом случае имя метода не совсем совпадает со Step definition, а во втором присутствует дублирование, что еще хуже. Конечно, можно использовать первый подход, но имя метода писать &lt;strong&gt;whenIperformSomeAction&lt;/strong&gt;, но, как по мне, можно попробовать сделать лучше.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Идем на страничку Wiki сюда и пытаемся понять, как написать свой адаптер. Далее, как специалисты высоко полета, понимаем, что все реализуется через листенеры (так реализоваы практически все адаптеры, если посмотреть их сорс коды). Ищем такой листенер для JBehave. Он называется &lt;strong&gt;org.jbehave.core.reporters.StoryReporter&lt;/strong&gt;. Если мы реализуем этот интерфейс, то получим кучу методов, см пример здесь. Вот собственно здесь мы и зацепимся. Подключаем &lt;strong&gt;allure-java-adaptor-api&lt;/strong&gt; и реализовываем методы. Важно помнить: чтобы &lt;strong&gt;Allure&lt;/strong&gt; сгенерировал &lt;strong&gt;xml&lt;/strong&gt; файлы, из которых будет собираться отчет, нужно обязательно в методе, который отвечает за окончание тестового прогона, указать TestSuiteFinishedEvent. Мой листенер называется &lt;strong&gt;AllureReporter&lt;/strong&gt;. Для того, чтобы подключить его к JBehave и начать получать отчеты, нужно просто пойти в класс-раннер (пример того, как выглядит, см здесь) и прописать там одну простую строку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;  @Override
+  public Configuration configuration() {
+    return new MostUsefulConfiguration()
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new AllureReporter())
+   ...
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот и все, после запуска тестов в папке target/allure-results будут находиться сгенерированные xml файлы. Затем нужно просто собрать отчет.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;P.S. Возможно, вам понравится идея и вы решите использовать отчет у себя на проекте, либо вы решите усовершенствовать код, поэтому привожу ссылки на репортер и на пример проекта: &lt;a href=&quot;https://bitbucket.org/Semen4ik20/allure-jbehave-adapter/src&quot;&gt;репортер&lt;/a&gt; и &lt;a href=&quot;https://github.com/SergeyPirogov/JbehaveGradleAllure&quot;&gt;пример использования&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>

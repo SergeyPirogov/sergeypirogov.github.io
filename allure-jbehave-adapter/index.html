@@ -80,46 +80,76 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">10/05/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">19/07/2015</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">SQL для мануальных тестировщиков</h1>
+                        <h1 class="post-title">Пишем Allure Jbehave адаптер</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Лекция предназначенная для мануальных тестироовщиков. Речь будет идти про SQL. Полезно тем, кто хотел бы изучить основыи научиться писать запросы.</p>
+<p>Заметка о том, как я писал свой адаптер для интеграции <strong>Allure Yandex</strong> и <strong>JBehave</strong>.</p>
 </div>
-<div class="videoblock">
+<div class="imageblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/JfhtwAyQbT4?rel=0" frameborder="0" allowfullscreen></iframe>
+<img src="https://hsto.org/getpro/habr/post_images/c43/a4d/cf7/c43a4dcf7aa2837e5136db9abd9b919a.jpg" alt="c43a4dcf7aa2837e5136db9abd9b919a">
 </div>
 </div>
-<div class="videoblock">
+<div class="paragraph">
+<p>Для начала определим суть проблемы. Allure позволяет интегрироваться практически со всеми известными тест-ранерами. Примеры можно найти здесь. <strong>Jbehave</strong> в качестве тест-ранера использует <strong>JUnit</strong>. Вы можете без особых проблем использовать Allure и JBehave, ничего не изобретая. Но есть пару неудобств. Allure отображает в отчете текст шагов или имена методов, отмеченных аннотацией <strong>@Step</strong>. Меньше слов - пример:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/83VuI7aTVZo?rel=0" frameborder="0" allowfullscreen></iframe>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@When("I perform some action")
+@Step
+public void shouldPerformSomeAction(){
+//some code
+}
+
+@Then("I check that action completed")
+@Step("I check that action completed")
+public void shouldBeComplitedAction(){
+//some code
+}</code></pre>
 </div>
 </div>
-<div class="videoblock">
+<div class="paragraph">
+<p>Как вы можете заметить, в первом случае имя метода не совсем совпадает со Step definition, а во втором присутствует дублирование, что еще хуже. Конечно, можно использовать первый подход, но имя метода писать <strong>whenIperformSomeAction</strong>, но, как по мне, можно попробовать сделать лучше.</p>
+</div>
+<div class="paragraph">
+<p>Идем на страничку Wiki сюда и пытаемся понять, как написать свой адаптер. Далее, как специалисты высоко полета, понимаем, что все реализуется через листенеры (так реализоваы практически все адаптеры, если посмотреть их сорс коды). Ищем такой листенер для JBehave. Он называется <strong>org.jbehave.core.reporters.StoryReporter</strong>. Если мы реализуем этот интерфейс, то получим кучу методов, см пример здесь. Вот собственно здесь мы и зацепимся. Подключаем <strong>allure-java-adaptor-api</strong> и реализовываем методы. Важно помнить: чтобы <strong>Allure</strong> сгенерировал <strong>xml</strong> файлы, из которых будет собираться отчет, нужно обязательно в методе, который отвечает за окончание тестового прогона, указать TestSuiteFinishedEvent. Мой листенер называется <strong>AllureReporter</strong>. Для того, чтобы подключить его к JBehave и начать получать отчеты, нужно просто пойти в класс-раннер (пример того, как выглядит, см здесь) и прописать там одну простую строку:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/5XjyHjzbLEo?rel=0" frameborder="0" allowfullscreen></iframe>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">  @Override
+  public Configuration configuration() {
+    return new MostUsefulConfiguration()
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new AllureReporter())
+   ...
+  }</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Вот и все, после запуска тестов в папке target/allure-results будут находиться сгенерированные xml файлы. Затем нужно просто собрать отчет.</p>
+</div>
+<div class="paragraph">
+<p>P.S. Возможно, вам понравится идея и вы решите использовать отчет у себя на проекте, либо вы решите усовершенствовать код, поэтому привожу ссылки на репортер и на пример проекта: <a href="https://bitbucket.org/Semen4ik20/allure-jbehave-adapter/src">репортер</a> и <a href="https://github.com/SergeyPirogov/JbehaveGradleAllure">пример использования</a>.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/SQL.html">SQL</a>
-                                    <a href="/tags/Видео.html">Видео</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=SQL для мануальных тестировщиков&url=sql-dlia-manualnykh-tiestirovshchikov/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Пишем Allure Jbehave адаптер&url=allure-jbehave-adapter/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=sql-dlia-manualnykh-tiestirovshchikov/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=allure-jbehave-adapter/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=sql-dlia-manualnykh-tiestirovshchikov/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=allure-jbehave-adapter/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -135,7 +165,6 @@
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/allure-jbehave-adapter/index.html">Пишем Allure Jbehave адаптер</a></li>
                                                 <li><a class='js-ajax-link' href="/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html">Пишем видео во время прогона тестов</a></li>
                                                 <li><a class='js-ajax-link' href="/selenium-logs/index.html">Получаем больше логов от Selenium</a></li>
                                                 <li><a class='js-ajax-link' href="/selenium-for-manual/index.html">Введение в Selenium для мануальных тестировщиков</a></li>
