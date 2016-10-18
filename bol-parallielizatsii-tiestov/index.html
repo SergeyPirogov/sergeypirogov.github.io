@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">14/02/2016</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Боль при параллелизации тестов</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Хочу поделиться личным опытом параллелизации тестов и выводами, которые я для себя сделал.</p>
+</div>
+<div class="paragraph">
+<p>Сейчас писать автоматические тесты умеет практически каждый. Роль автоматизации растет, все больше проектов начинают применять автоматизацию тестирования в том или ином виде. Большинство людей думает, что делать автоматизацию - это просто. Смотрим пару роликов в Youtube, берем связку Selenium + TestNG и все - мы автоматизаторы, которые будут делать успешную автоматизацию. В такие моменты у людей, познавших дзен, находится только один аргумент:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://301-1.ru/gen-mems/img_mems/7f80a5765fb2e99d2b55a2da20504d19.jpg" alt="7f80a5765fb2e99d2b55a2da20504d19">
+</div>
+</div>
+<div class="paragraph">
+<p>Чего не учитывают многие, стартуя автоматизацию у себя на проекте?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Сколько будет автоматизировано тестов и какого рода они будут?</p>
+</li>
+<li>
+<p>Сколько примерно времени будет занимать прогон всех автотестов?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Почему эти вопросы нужно задавать себе? Потому что архитектура и проекта, и самих тестов будет зависеть от этих факторов. Особенно если перед вами стал вопрос параллелизации тестов.</p>
+</div>
+<div class="paragraph">
+<p>Обычная история на проектах: тесты пишутся и запускаются в одном потоке, люди не брезгуют сделать тесты зависимыми, не особо задумываясь над последствиями. Не переживайте, я тоже так делал =)</p>
+</div>
+<div class="paragraph">
+<p>Вот к каким выводам я пришел впоследствии.</p>
+</div>
+<div class="paragraph">
+<p>Если пишем автотесты для <strong>REST API</strong>, то никаких зависимостей между тестами быть не должно! Эти тесты сами по себе достаточно быстрые и нужда в их параллелизации возникает редко, но даже если уж так все у вас долго и хочется из 5-10 минут выжать 1 минуту, то проблем быть не должно, так как CRUD операции параллелятся на раз-два. Единственное, где вы можете напороться на проблемы, - это уникальность данных.</p>
+</div>
+<div class="paragraph">
+<p>Если пишем автотесты на UI, то здесь может возникнуть масса сложностей. Обычно основным источником являются тесты, тестовые данные, браузеры и их драйверы.</p>
+</div>
+<div class="paragraph">
+<p>Если пишем автотесты на UI, то здесь может возникнуть масса сложностей. Обычно основным источником являются тесты, тестовые данные, браузеры и их драйверы.</p>
+</div>
+<div class="paragraph">
+<p>Да, благо что есть Selenium Grid, но и при работе с ним возникает куча проблем. К примеру, отвалившаяся или зависшая нода. Да, все эти проблемы решаемы, но я бы начал решать проблемы еще на этапе самой задумки.</p>
+</div>
+<div class="paragraph">
+<p>Необходимость гнать тесты в параллель обычно возникает при их большом количестве и, соответственно, большом времени прогона. А теперь внимание: не всегда для ускорения тестов нужно их распараллеливать.</p>
+</div>
+<div class="paragraph">
+<p>Первое: следует подумать, а нужно ли нам так много UI тестов? Может быть, мы будем проверять только функциональность нашего UI, а не всякие рюшечки, для которых Selenium не придумывался? Лучше иметь 100, но стабильных тестов, чем 1000 постоянно требующих внимания нестабильных.</p>
+</div>
+<div class="paragraph">
+<p>Второе: нужно сначала попытаться оптимизировать тесты на уровне кода. Пример из моего проекта: у нас было 500 UI тестов (да, можно сказать,что до хрена, но там была риск менеджмент система с кучей формочек и попапов) и общее время прогона тестов на тот момент составляло 16 часов!!. Я понимал, что у нас не все ОК, и начал искать узкие места в коде. Поубирав все Thread.sleep и переписав пару методов на вызов JS функций, я сократил время в два раза и у нас появилась возможность прогонять их за 8 часов. Таким образом мне удалось ускорить тесты и сохранить их стабильность и работоспособность.</p>
+</div>
+<div class="paragraph">
+<p>Самая большая боль параллельных UI тестов - их высокая нестабильность. И перед тем, как сказать "да, мы готовы к нестабильным тестам", подумайте: а оно вам нужно? Лично я отдаю предпочтение стабильным и надежным автотестам, что подтверждается графиком из Jenkins:</p>
+</div>
+<div class="paragraph">
+<p>image::/images/jenkins_trend.jpg</p>
+</div>
+<div class="paragraph">
+<p>На этой мажорной ноте желаю вам думать о параллелизации еще на самом старте проекта и отдавать предпочтение автоматизации, которая делает свою работу и приносит пользу проекту в целом. Спасибо, что вы с нами&#8230;&#8203;</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Боль при параллелизации тестов&url=bol-parallielizatsii-tiestov/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=bol-parallielizatsii-tiestov/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=bol-parallielizatsii-tiestov/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/dieistvitielno-krasivyi-soft-assert/index.html">Красивый Soft Assert</a></li>
+                                                <li><a class='js-ajax-link' href="/groovy-page/index.html">Лаконичный PageObject с GroovyPage + Selenide</a></li>
+                                                <li><a class='js-ajax-link' href="/working-with-database/index.html">Работа с базой данных без боли и страданий</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
