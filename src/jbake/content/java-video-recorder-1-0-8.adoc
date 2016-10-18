@@ -1,0 +1,118 @@
+title=Java Video Recorder 1.0.8 is production ready
+date=2016-08-28
+type=post
+status=published
+tags=REST, Java
+summary=Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API.
+~~~~~~
+
+image::http://sr.photos1.fotosearch.com/bthumb/CSP/CSP992/k13975116.jpg[]
+
+Well, it took some time to make video recorder stable. I've added a couple useful features since version 1.0.1.
+
+So let's make it clear and answer the question "What kind of problems does it solve?".
+
+The main idea was to create a library that provides an easy way to record video during test execution. It doesn't matter what java test runner you use, it supports JUnit, TestNG and Spock.
+
+Let's look at some real cases. For example you have a lot of automated test scenarios in your project, but some test scripts are flaky.
+
+So you have two options:
+
+First is to delete them from test execution because you have already spend a huge amount of time to debug them.
+
+Second one is to add Video recorder, catch all the problems, fix them and be happy.
+
+Moreover, to add video recording support in your existing test automations framework require three simple steps:
+
+**1.Add project dependency**
+
+[source, xml]
+----
+<dependency>
+    <groupId>com.automation-remarks</groupId>
+    <artifactId>video-recorder-junit</artifactId>
+    <version>1.0.8</version>
+</dependency>
+----
+
+**2.Add JUnit rule to you test class**
+
+[source, java]
+----
+import com.automation.remarks.video.junit.VideoRule;
+import org.junit.Rule;
+
+public class JUnitVideoTest {
+
+    @Rule
+    public VideoRule videoRule = new VideoRule();
+
+}
+----
+
+**3.Add test and mark it with **@Video** annotation:**
+
+[source, java]
+----
+import com.automation.remarks.video.annotations.Video;
+import com.automation.remarks.video.junit.VideoRule;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertTrue;
+
+public class JUnitVideoTest {
+
+    @Rule
+    public VideoRule videoRule = new VideoRule();
+
+    @Test
+    @Video
+    public void shouldFailAndCreateRecordWithTestName() {
+        // test code
+    }
+----
+
+That's all! Now if your test fails, video will be recordered automatically.
+
+The same scenario can be done for TestNG, please refer to https://sergeypirogov.github.io/video-recorder-java/[documetation]
+
+Isn't it cool?
+
+But hold on, it has even more features such as configurations and @Video annotation parameters.
+
+**@Video** annotation takes two optional parameters. By setting values to them you can override video file name or disable video recording for one particular test.
+
+Video configuration example:
+
+[source, java]
+----
+VideoRecorder.conf()
+                .withVideoFolder("custom_folder")
+                .videoEnabled(true)
+                .withVideoSaveMode(VideoSaveMode.ALL)
+                .withRecordMode(RecordingMode.ANNOTATED);
+----
+
+As you can see it allows to override default parameters.
+
+All this parameters can be passed by command line, for example if you are executing you test in CI server.
+
+Example:
+
+[source, java]
+----
+mvn test -Dvideo.folder="custom_folder"
+         -Dvideo.enabled=true
+         -Dvideo.mode=ANNOTATED
+         -Dvideo.save.mode=ALL
+----
+
+Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN'T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.
+
+I hope this library will make life of test automation engineers easier and will help to detect fix flaky tests.
+
+P/S Project is licensed under Apache 2.0 and can be found publicly available on https://github.com/SergeyPirogov/video-recorder-java[GITHUB].
+
+
+
