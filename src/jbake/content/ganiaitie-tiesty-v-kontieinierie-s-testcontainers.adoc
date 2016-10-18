@@ -11,8 +11,6 @@ image::https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/1026/larg
 
 Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью **VirtualBox** либо каких-то других систем виртуализации. Я уже писал о http://automation-remarks.com/vagrant/[Vagrant], который упрощает создание виртуалок и позволяет создавать **stateless** окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: **"Используй AWS, дурень"** :
 
-image::/images/risovach-ru.jpg
-
 Возможно, но за **AWS** нужно платить деньги, а это может значительно ударить по бюджету проекта.
 
 Нам нужно что-то альтернативное. И здесь на помощь приходит **Docker** и библиотека **TestContainers**. Я уже писал про настройку **Jenkins** в контейнере.
@@ -21,13 +19,10 @@ image::/images/risovach-ru.jpg
 
 Есть несколько типов контейнеров, которые она умеет обрабатывать:
 
-[NOTE]
-----
-**Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
-**Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
-**Generic containers** - run any Docker container as a test dependency
-**Docker compose** - reuse services defined in a Docker Compose YAML file
-----
+- **Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
+- **Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
+- **Generic containers** - run any Docker container as a test dependency
+- **Docker compose** - reuse services defined in a Docker Compose YAML file
 
 Я конкретно игрался с модулем для **Selenium** тестов.
 

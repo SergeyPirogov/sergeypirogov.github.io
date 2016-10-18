@@ -49,6 +49,14 @@ article div.inner {
 	max-width: 70%;
 }
 
+#push > section > div.admonitionblock.tip > table > tbody > tr > td.content{
+    line-height: 1.5;
+}
+
+#push > section > div.admonitionblock.tip{
+    background-color: beige;
+}
+
 .post-content{
     text-align: justify;
 }
