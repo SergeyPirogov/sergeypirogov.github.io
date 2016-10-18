@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">16/01/2016</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Лаконичный PageObject с GroovyPage + Selenide</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.</p>
+</div>
+<div class="paragraph">
+<p>Если вы не знакомы с паттерном page object, то вот <a href="http://www.protesting.ru/automation/practice/pageobject_selenium.html">ссылка</a> напочитать.</p>
+</div>
+<div class="paragraph">
+<p>Если же вы знакомы с этим паттерном, то вы его пишете примерно так, как показано в этих <a href="http://internetka.in.ua/selenium-page-object/">примерах</a>.</p>
+</div>
+<div class="paragraph">
+<p>Не имею ничего против этого паттерна, сам такое же писал. Более того, применение page объектов, я считаю обязательным, при том в самом начале проекта. Привыкайте делать все правильно с самого начала.</p>
+</div>
+<div class="paragraph">
+<p>Но достаточно ли стандартного page оbject в суровой реальности? Беру на себя смелость сказать "нет", так как web приложения стали компонентными, страницы и их контент становится все динамичнее и динамичнее, а наши фреймворки все так же статичны.</p>
+</div>
+<div class="paragraph">
+<p>Перед тем, как перейти к самому главному, стоит отметить, что самый крутой на нынешний момент фреймворк для написания UI тестов Selenide поддерживает работу с page объектами.</p>
+</div>
+<div class="paragraph">
+<p>Казалось бы, все есть и очередной блогер решил "закапитанить" о всем давно известном паттерне. Нет! На самом деле я хочу поделиться с вами своей реализацией этого паттерна.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://risovach.ru/upload/2013/05/mem/nu-davay-taya-rasskazhi-kak-ty-men_19565671_big_.jpeg" alt="nu davay taya rasskazhi kak ty men 19565671 big ">
+</div>
+</div>
+<div class="paragraph">
+<p>Еще очень давно я узнал о таком фреймворке для написания UI тестов как Geb. Отличный инструмент, написанный на Groovy и предназаченый для написания тестов на нем же. Если вы окунетесь в документацию, то можете заметить, что Geb - это тот же Selenide, с той лишь только разницей, что Geb не умеет так "умно" ждать состояний элементов. Плюс ко всему, в репозиторий Geb последний раз коммитили 5 лет назад, в отличие от Selenide, который активно развивается.</p>
+</div>
+<div class="paragraph">
+<p>И тем не менее есть у Geb одна классная штука - page object.</p>
+</div>
+<div class="paragraph">
+<p>Внимание!!! Все знаки $ в куске кода, показанного ниже, никакого отношения к Selenide не имеют - это все чистый Geb. Да, у него тоже поиск элементов через знак доллара.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import geb.Page
+
+class LoginPage extends Page {
+    static url = "http://myapp.com/login"
+    static at = { heading.text() == "Please Login" }
+    static content = {
+        heading { $("h1") }
+        loginForm { $("form.login") }
+        loginButton(to: AdminPage) { loginForm.login() }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Лаконичный и читабельный page object. НО! Как всегда есть один недостаток - эта штука работает только с нативными методами Geb, нельзя так просто взять его и использовать с тем же Selenide или чистым WebDriver. Вот такая пИчалька, можно было бы ставить точку и закрывать лавочку.</p>
+</div>
+<div class="paragraph">
+<p>Но нет, я потратил достаточное количество времени и сил,чтобы разобраться в том, как работает Geb и сделал свою реализацию geb page object, которую можно использовать как с Selenide, так и с WebDriver. Я решил назвать эту штуку GroovyPage.</p>
+</div>
+<div class="paragraph">
+<p>Весь код ниже теперь уже будет использовать <strong>Selenide</strong>!!!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import static com.codeborne.selenide.Selenide.$
+
+class MainPage extends Page{
+
+    static url = "http://ukr.net"
+
+    static content = {
+        login {$ '.login input'}
+        password {$ '.password input'}
+        submitBtn {$ '.submit button'}
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Тесты в таком исполнении будут выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login.val "test"
+        mainPage.password.val "test"
+        mainPage.submitBtn.click()
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Заметили разницу? Обращение к элементам идет как к свойствам объекта. Все поля, объявленные внутри блока 'content', являются <strong>SelenideElement</strong>. Но и это еще не все приятности на данный момент. Используя силу <strong>Groovy</strong>, есть возможность писать тесты так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login &lt;&lt; "test"
+        mainPage.password &lt;&lt; "test"
+        mainPage.submitBtn.click()
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В этом случае метод leftShift переопределен и выполняет те же действия, что и метод val.</p>
+</div>
+<div class="paragraph">
+<p>Ну и самая последняя фича, доступная на данный момент - Page компоненты. Перепишем нашу <strong>MainPage</strong> c использованием компонента <strong>LoginForm</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class LoginForm extends Page{
+
+    static content = {
+        login {$ '.login input'}
+        password {$ '.password input'}
+        submitBtn {$ '.submit button'}
+    }
+}
+
+class MainPageWithComponent {
+
+    static url = "http://ukr.net"
+
+    @Component
+    LoginForm loginForm
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Тест в таком случае будет выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.login &lt;&lt; "test"
+        mainPage.loginForm.password &lt;&lt; "test"
+        mainPage.loginForm.submitBtn.click()
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Применяя магию, тест будет выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.with{
+                 login &lt;&lt; "test"
+                 password &lt;&lt; "test"
+                 submitBtn.click()
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Какие недостатки? Недостаток один - такой код можно писать только используя динамику Groovy, строгий компилятор Java такие выкрутасы не пропустит. И да, Intelij Idea весь этот синтаксис понимает и везде работает автодополнение.</p>
+</div>
+<div class="paragraph">
+<p>На этом у меня все, если у вас буду вопросы или пожелания, пишите - будем развивать отрасль вместе.</p>
+</div>
+<div class="paragraph">
+<p>Оставайтесь на связи, подписывайтесь на группы в Facebook и <a href="https://github.com/SergeyPirogov/GroovyPage">Вконтакте</a>.</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Groovy.html">Groovy</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Лаконичный PageObject с GroovyPage + Selenide&url=groovy-page/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=groovy-page/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=groovy-page/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                                <li><a class='js-ajax-link' href="/working-with-database/index.html">Работа с базой данных без боли и страданий</a></li>
+                                                <li><a class='js-ajax-link' href="/ssh/index.html">Как автоматизатору побороть SSH</a></li>
+                                                <li><a class='js-ajax-link' href="/groovy-matcher/index.html">Делаем матчеры веселее с Groovy</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 10:32:21 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 10:32:21 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 10:45:37 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 10:45:37 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,182 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Лаконичный PageObject с GroovyPage + Selenide</title>
+      <link>localhost/groovy-page/index.html</link>
+      <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">groovy-page/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы не знакомы с паттерном page object, то вот &lt;a href=&quot;http://www.protesting.ru/automation/practice/pageobject_selenium.html&quot;&gt;ссылка&lt;/a&gt; напочитать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если же вы знакомы с этим паттерном, то вы его пишете примерно так, как показано в этих &lt;a href=&quot;http://internetka.in.ua/selenium-page-object/&quot;&gt;примерах&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не имею ничего против этого паттерна, сам такое же писал. Более того, применение page объектов, я считаю обязательным, при том в самом начале проекта. Привыкайте делать все правильно с самого начала.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но достаточно ли стандартного page оbject в суровой реальности? Беру на себя смелость сказать &quot;нет&quot;, так как web приложения стали компонентными, страницы и их контент становится все динамичнее и динамичнее, а наши фреймворки все так же статичны.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Перед тем, как перейти к самому главному, стоит отметить, что самый крутой на нынешний момент фреймворк для написания UI тестов Selenide поддерживает работу с page объектами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Казалось бы, все есть и очередной блогер решил &quot;закапитанить&quot; о всем давно известном паттерне. Нет! На самом деле я хочу поделиться с вами своей реализацией этого паттерна.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://risovach.ru/upload/2013/05/mem/nu-davay-taya-rasskazhi-kak-ty-men_19565671_big_.jpeg&quot; alt=&quot;nu davay taya rasskazhi kak ty men 19565671 big &quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще очень давно я узнал о таком фреймворке для написания UI тестов как Geb. Отличный инструмент, написанный на Groovy и предназаченый для написания тестов на нем же. Если вы окунетесь в документацию, то можете заметить, что Geb - это тот же Selenide, с той лишь только разницей, что Geb не умеет так &quot;умно&quot; ждать состояний элементов. Плюс ко всему, в репозиторий Geb последний раз коммитили 5 лет назад, в отличие от Selenide, который активно развивается.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И тем не менее есть у Geb одна классная штука - page object.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Внимание!!! Все знаки $ в куске кода, показанного ниже, никакого отношения к Selenide не имеют - это все чистый Geb. Да, у него тоже поиск элементов через знак доллара.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import geb.Page
+
+class LoginPage extends Page {
+    static url = &quot;http://myapp.com/login&quot;
+    static at = { heading.text() == &quot;Please Login&quot; }
+    static content = {
+        heading { $(&quot;h1&quot;) }
+        loginForm { $(&quot;form.login&quot;) }
+        loginButton(to: AdminPage) { loginForm.login() }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лаконичный и читабельный page object. НО! Как всегда есть один недостаток - эта штука работает только с нативными методами Geb, нельзя так просто взять его и использовать с тем же Selenide или чистым WebDriver. Вот такая пИчалька, можно было бы ставить точку и закрывать лавочку.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но нет, я потратил достаточное количество времени и сил,чтобы разобраться в том, как работает Geb и сделал свою реализацию geb page object, которую можно использовать как с Selenide, так и с WebDriver. Я решил назвать эту штуку GroovyPage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Весь код ниже теперь уже будет использовать &lt;strong&gt;Selenide&lt;/strong&gt;!!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import static com.codeborne.selenide.Selenide.$
+
+class MainPage extends Page{
+
+    static url = &quot;http://ukr.net&quot;
+
+    static content = {
+        login {$ &apos;.login input&apos;}
+        password {$ &apos;.password input&apos;}
+        submitBtn {$ &apos;.submit button&apos;}
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тесты в таком исполнении будут выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login.val &quot;test&quot;
+        mainPage.password.val &quot;test&quot;
+        mainPage.submitBtn.click()
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Заметили разницу? Обращение к элементам идет как к свойствам объекта. Все поля, объявленные внутри блока &apos;content&apos;, являются &lt;strong&gt;SelenideElement&lt;/strong&gt;. Но и это еще не все приятности на данный момент. Используя силу &lt;strong&gt;Groovy&lt;/strong&gt;, есть возможность писать тесты так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login &amp;lt;&amp;lt; &quot;test&quot;
+        mainPage.password &amp;lt;&amp;lt; &quot;test&quot;
+        mainPage.submitBtn.click()
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом случае метод leftShift переопределен и выполняет те же действия, что и метод val.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну и самая последняя фича, доступная на данный момент - Page компоненты. Перепишем нашу &lt;strong&gt;MainPage&lt;/strong&gt; c использованием компонента &lt;strong&gt;LoginForm&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class LoginForm extends Page{
+
+    static content = {
+        login {$ &apos;.login input&apos;}
+        password {$ &apos;.password input&apos;}
+        submitBtn {$ &apos;.submit button&apos;}
+    }
+}
+
+class MainPageWithComponent {
+
+    static url = &quot;http://ukr.net&quot;
+
+    @Component
+    LoginForm loginForm
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тест в таком случае будет выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.login &amp;lt;&amp;lt; &quot;test&quot;
+        mainPage.loginForm.password &amp;lt;&amp;lt; &quot;test&quot;
+        mainPage.loginForm.submitBtn.click()
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Применяя магию, тест будет выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.with{
+                 login &amp;lt;&amp;lt; &quot;test&quot;
+                 password &amp;lt;&amp;lt; &quot;test&quot;
+                 submitBtn.click()
+        }
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Какие недостатки? Недостаток один - такой код можно писать только используя динамику Groovy, строгий компилятор Java такие выкрутасы не пропустит. И да, Intelij Idea весь этот синтаксис понимает и везде работает автодополнение.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом у меня все, если у вас буду вопросы или пожелания, пишите - будем развивать отрасль вместе.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Оставайтесь на связи, подписывайтесь на группы в Facebook и &lt;a href=&quot;https://github.com/SergeyPirogov/GroovyPage&quot;&gt;Вконтакте&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
