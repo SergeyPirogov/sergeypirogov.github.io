@@ -80,157 +80,47 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">07/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">10/05/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">WebDriver factory без IF-ELSE</h1>
+                        <h1 class="post-title">SeleniumCamp 2016 видео</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
-Зачастую во фреймворках в случае кросс-браузерного тестирования приходится писать драйвер фэктори. Большинство реализаций, которые мне приходилось видеть, выглядели так:</p>
+<p>Наконец-то появились видео с прошедшего <a href="http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/">SeleniumCamp</a>. По результатам отзывов я вошел в тройку лучших спикеров.</p>
 </div>
 <div class="paragraph">
-<p>BrowserFactory.class</p>
+<p>Видео отчет:</p>
 </div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class BrowserFactory{
-    public static final WebDriver DEFAULT_FF = new FirefoxDriver();
-
- public static WebDriver getDriver(String name){
-     WebDriver driver = null;
-     if("FIREFOX".equalsIgnoreCase(name)){
-        driver= new FirefoxDriver();
-     }else if("CHROME".equalsIgnoreCase(name)){
-         driver = new ChromeDriver();
-     }else if("IE".equalsIgnoreCase(name)){
-         driver = new InternetExplorerDriver();
-     }else {
-         driver = DEFAULT_FF;
-     }
-     return driver;
- }</code></pre>
+<iframe src="https://www.youtube.com/embed/liQxXvXg0Uc?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div class="paragraph">
-<p>Но такая реализация, скажем так, не самая хорошая: читабельность кода страдает, человеку приходится гадать, как же правильно задать имя браузера, ну и самое неприятное - куча if-else. Давайте посмотрим, как можно улучшить ситуацию.
-Объектно-ориентированные языки программирования обладают мощнейщим принципом - полиморфизмом. Его мы и будем использовать, чтобы удалить if-else в коде. В результате читабельность кода значительно повысится.</p>
+<p>Запись моего доклада:</p>
 </div>
-<div class="paragraph">
-<p><strong>Рефлексия</strong></p>
-</div>
-<div class="paragraph">
-<p>Первое "топорное" решение (я назвал бы его "решением для реальных пацанов"):</p>
-</div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Browsers{
-    public static WebDriver newBrowser(String name){
-        return Class.forName(name).newInstance();
-    }
-}</code></pre>
+<iframe src="https://www.youtube.com/embed/cW6DSthdLaw?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Смотрится очень просто, НО сложность заключается в том, что человек должен помнить полное имя класса. К тому же, использование рефлексии повышает степень брутальности в пару раз. Поэтому таких решений следует избегать.</p>
-</div>
-<div class="paragraph">
-<p><strong>Map</strong></p>
-</div>
-<div class="paragraph">
-<p>Второе решение более приемлемое - использование Map.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Browsers{
-    private static Map&lt;String,WebDriver&gt; drivers = new HashMap&lt;&gt;(){
-        put("CHROME",new ChromeDriver());
-        put("FIREFOX",new FirefoxDriver());
-        put("IE",new InternetExplorerDriver());
-    }
-
-    public static WebDriver newDriver(String name){
-        return drivers.get(name);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Это решение обладает недостатком: нужно знать правильное имя драйвера, которое задано в Map.</p>
-</div>
-<div class="paragraph">
-<p><strong>Switch</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">switch (name) {
-    case "FIREFOX": return new FirefoxDriver();
-    case "CHROME": return new ChromeDriver();
-    case "IE": return new InternetExplorerDriver();
-    default: return DEFAULT_FF;
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Enum</strong></p>
-</div>
-<div class="paragraph">
-<p>Самое элегантное решение:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public enum Browsers {
-    CHROME {
-        public WebDriver create(){
-            return new ChromeDriver();
-        }
-    },
-    IE {
-        public WebDriver create(){
-            return new InternetExplorerDriver();
-        }
-    },
-    FIREFOX {
-        public WebDriver create() {
-            return new FirefoxDriver();
-        }
-    };
-
-    public WebDriver create(){
-        return null;
-    }
-}
-
-class Test {
-    public static void main(String[] args) {
-       WebDriver driver = Browsers.FIREFOX.create();
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Классно, не правда ли? Нету надоедливых if-else, нету строк, которые нужно помнить - просто вызываем нужный нам тип драйвера и все. Лично я предпочитаю этот метод.</p>
-</div>
-<div class="paragraph">
-<p>P.S. Конструкция if-else делает код сложным для чтения, поэтому нужно стараться избегать их использования.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/События.html">События</a>
+                                    <a href="/tags/Видео.html">Видео</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=WebDriver factory без IF-ELSE&url=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=SeleniumCamp 2016 видео&url=seleniumcamp-2016-vidieo/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=seleniumcamp-2016-vidieo/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=webdriver-factory-biez-if-else/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=seleniumcamp-2016-vidieo/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -245,7 +135,6 @@ class Test {
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
-                                                <li><a class='js-ajax-link' href="/seleniumcamp-2016-vidieo/index.html">SeleniumCamp 2016 видео</a></li>
                                                 <li><a class='js-ajax-link' href="/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html">Автоматизация в контейнере с TestContainers</a></li>
                                                 <li><a class='js-ajax-link' href="/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html">Копаемся в закромах Jenkins</a></li>
                                                 <li><a class='js-ajax-link' href="/seleniumcamp-2016-rietrospiektiva/index.html">SeleniumCamp 2016: ретроспектива</a></li>
