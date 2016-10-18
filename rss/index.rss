@@ -6,8 +6,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 14:44:00 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 14:44:00 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 14:53:47 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 14:53:47 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -623,9 +623,6 @@ public void testName2() throws Exception {
 &lt;p&gt;Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью &lt;strong&gt;VirtualBox&lt;/strong&gt; либо каких-то других систем виртуализации. Я уже писал о &lt;a href=&quot;http://automation-remarks.com/vagrant/&quot;&gt;Vagrant&lt;/a&gt;, который упрощает создание виртуалок и позволяет создавать &lt;strong&gt;stateless&lt;/strong&gt; окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: &lt;strong&gt;&quot;Используй AWS, дурень&quot;&lt;/strong&gt; :&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;image::/images/risovach-ru.jpg&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Возможно, но за &lt;strong&gt;AWS&lt;/strong&gt; нужно платить деньги, а это может значительно ударить по бюджету проекта.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -637,13 +634,21 @@ public void testName2() throws Exception {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Есть несколько типов контейнеров, которые она умеет обрабатывать:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;**Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
-**Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
-**Generic containers** - run any Docker container as a test dependency
-**Docker compose** - reuse services defined in a Docker Compose YAML file&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Temporary database containers&lt;/strong&gt; - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Webdriver containers&lt;/strong&gt; - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Generic containers&lt;/strong&gt; - run any Docker container as a test dependency&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Docker compose&lt;/strong&gt; - reuse services defined in a Docker Compose YAML file&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Я конкретно игрался с модулем для &lt;strong&gt;Selenium&lt;/strong&gt; тестов.&lt;/p&gt;

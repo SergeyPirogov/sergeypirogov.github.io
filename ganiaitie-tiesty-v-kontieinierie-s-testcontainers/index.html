@@ -99,9 +99,6 @@
 <p>Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью <strong>VirtualBox</strong> либо каких-то других систем виртуализации. Я уже писал о <a href="http://automation-remarks.com/vagrant/">Vagrant</a>, который упрощает создание виртуалок и позволяет создавать <strong>stateless</strong> окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: <strong>"Используй AWS, дурень"</strong> :</p>
 </div>
 <div class="paragraph">
-<p>image::/images/risovach-ru.jpg</p>
-</div>
-<div class="paragraph">
 <p>Возможно, но за <strong>AWS</strong> нужно платить деньги, а это может значительно ударить по бюджету проекта.</p>
 </div>
 <div class="paragraph">
@@ -113,13 +110,21 @@
 <div class="paragraph">
 <p>Есть несколько типов контейнеров, которые она умеет обрабатывать:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>**Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
-**Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
-**Generic containers** - run any Docker container as a test dependency
-**Docker compose** - reuse services defined in a Docker Compose YAML file</pre>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Temporary database containers</strong> - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support</p>
+</li>
+<li>
+<p><strong>Webdriver containers</strong> - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording</p>
+</li>
+<li>
+<p><strong>Generic containers</strong> - run any Docker container as a test dependency</p>
+</li>
+<li>
+<p><strong>Docker compose</strong> - reuse services defined in a Docker Compose YAML file</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Я конкретно игрался с модулем для <strong>Selenium</strong> тестов.</p>
