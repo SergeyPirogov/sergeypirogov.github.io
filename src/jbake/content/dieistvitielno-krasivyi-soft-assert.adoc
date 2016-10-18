@@ -1,0 +1,133 @@
+title=Красивый Soft Assert
+date=2016-01-24
+type=post
+status=published
+summary=Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться.
+tags=Тест фреймворк, Java, Groovy
+~~~~~~
+
+Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться. Я уже писал о http://automation-remarks.com/davaitie-poghovorim-pro-asserty/[библиотеках], которые упрощают написание ассертов и делают их более читабельными.
+
+В этой заметке хочу поговорить о **soft assert**. Лично я ими раньше не пользовался, потому что не совсем понятно было, как оно поможет, да в количестве строк кода написание таких ассертов было делом затратным.
+
+Вот, скажем, пример **SoftAssert** и **TestNG**:
+
+[source, java]
+----
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class SoftAsert
+{
+    @Test
+    public void test()
+    {
+        SoftAssert asert=new SoftAssert();
+        asert.assertEquals(false, true,"failed");
+        asert.assertEquals(0, 1,"brokedown");
+        asert.assertAll();
+    }
+}
+----
+
+Вроде как работает, но выглядит ужасно. К тому же, каждый раз нужно создавать объект и в конце писать **assertAll()**. И это не прихоть одной конкретной библиотеки, такой принцип у всех.
+
+Хочу поделиться своим видением ситуации. Если вам что-то не нравится, попробуйте изменить ситуацию. Я так и сделал и заменил **Java** на **Groovy**. Закоренелые читатели блога это заметили давно. Почему? Потому, что **Groovy** позволяет мне быть эффективнее в 2.5-3 раза. Код выглядит читабельнее и проще.
+
+Стоит посмотреть на http://automation-remarks.com/groovy-page/[page object]. Ну или на http://automation-remarks.com/rest-clients/[REST Client].
+
+До этого момента в Groovy был очень крутой **assert**, а soft assert не было.
+
+Теперь есть, и выглядит он так!
+
+[source, java]
+----
+softAsserts {
+    expect "foo", equalTo("bar")
+    expect 1, equalTo(1)
+}
+----
+
+Круто, не правда ли? Мне такой подход к делу нравится больше. К тому же, в этом коде везде работает автодополнение, а сами ассерты являются оберткой над Hamcrest.
+
+Реализация этого счастья выглядит так:
+
+[source, java]
+----
+class SoftAsserts {
+    def static failedAssertions = []
+
+    static softAsserts(Closure closure) {
+        new SoftAsserts().bundleAsserts(closure)
+    }
+
+    private bundleAsserts(Closure closure) {
+        closure.resolveStrategy = Closure.DELEGATE_ONLY
+        closure.delegate = this
+        closure()
+
+        if (failedAssertions) {
+            throw new AssertionError("${failedAssertions.size()}
+            failed assertions found:\n ${failedAssertions.
+            message.join('\n')}".toString())
+        }
+    }
+
+    public static <T> void expect(T actual, Matcher<? super T> matcher) {
+        expect("", actual, matcher)
+    }
+
+    public static <T> void expect(String reason, T actual, Matcher<? super T> matcher) {
+        try {
+            if (!matcher.matches(actual)) {
+                Description description = new StringDescription();
+                description.appendText(reason)
+                        .appendText("\nExpected: ")
+                        .appendDescriptionOf(matcher)
+                        .appendText("\n     but: ");
+                matcher.describeMismatch(actual, description);
+
+                throw new AssertionError(description.toString());
+            }
+        } catch (AssertionError e) {
+            failedAssertions << e
+        }
+    }
+
+    public static void expect(String reason, boolean assertion) {
+        if (!assertion) {
+            try {
+                throw new AssertionError(reason);
+            } catch (AssertionError e) {
+                failedAssertions << e
+            }
+        }
+    }
+
+    def invokeMethod(String name, args) {
+        try {
+            def actual = args[0]
+            def expected = args[1]
+            assert actual == expected
+        } catch (AssertionError e) {
+            failedAssertions << e
+        }
+    }
+}
+----
+
+Все предельно просто - один класс, в котором реализована вся логика.
+
+Тесты с применением этих ассертов становятся очень красивыми и понятными:
+
+[source, java]
+----
+def endpoint = 'http://swapi.co/api/'
+def client = new RESTClient(endpoint)
+def response = client.get(path:'people/1/',accept: ContentType.JSON,headers:['User-agent':'firefox'])
+
+softAsserts {
+    expect response.statusCode, is(200)
+    expect response.json.name, equalTo('Luke Skywalker')
+}
+----
