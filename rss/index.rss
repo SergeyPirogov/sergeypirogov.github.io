@@ -6,8 +6,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 15:01:50 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 15:01:50 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 19:10:41 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 19:10:41 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
