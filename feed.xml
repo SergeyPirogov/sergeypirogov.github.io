@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 12:26:34 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 12:26:34 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 12:35:56 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 12:35:56 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -472,7 +472,7 @@ public class JUnitVideoTest {
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: &lt;a href=&quot;https://sergeypirogov.github.io/VideoRecorder/&quot;&gt;пример с рекордером&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: &lt;a href=&quot;http://automation-remarks.com/video-recorder-java/&quot;&gt;пример с рекордером&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Почему это круто?&lt;/p&gt;
