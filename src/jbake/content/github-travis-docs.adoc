@@ -23,10 +23,8 @@ image::https://sites.google.com/site/limenncom/_/rsrc/1396435997305/dokumentacia
 
 Но иногда хочется, чтобы документация была еще и красивой, со всякими там рюшечками! Это можно сделать, если последовать этому замечательному http://mgreau.com/posts/2016/03/28/asciidoc-to-gh-pages-with-travis-ci-docker-asciidoctor.html[туториалу]. Там все подробно описано, за исключением пары моментов, из-за которых у меня не работало с первого раза:
 
-[IMPORTANT]
-----
-Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.
-----
+TIP: Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.
+
 
 Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: https://sergeypirogov.github.io/VideoRecorder/[пример с рекордером].
 
