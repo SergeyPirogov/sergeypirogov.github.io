@@ -76,7 +76,7 @@ span.name{
 	color: white !important;
 }
 pre.codeblock code{
-	background: white;
+    background: floralwhite;
 }
 .metrics{
 	display: block;
