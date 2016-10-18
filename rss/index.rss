@@ -6,8 +6,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 14:34:37 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 14:34:37 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 14:44:00 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 14:44:00 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -407,7 +407,7 @@ public class JUnitVideoTest {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN&amp;#8217;T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN&amp;#8217;T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I hope this library will make life of test automation engineers easier and will help to detect fix flaky tests.&lt;/p&gt;
