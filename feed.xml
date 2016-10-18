@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 10:45:37 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 10:45:37 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 10:53:27 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 10:53:27 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,152 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Красивый Soft Assert</title>
+      <link>localhost/dieistvitielno-krasivyi-soft-assert/index.html</link>
+      <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">dieistvitielno-krasivyi-soft-assert/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться. Я уже писал о &lt;a href=&quot;http://automation-remarks.com/davaitie-poghovorim-pro-asserty/&quot;&gt;библиотеках&lt;/a&gt;, которые упрощают написание ассертов и делают их более читабельными.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой заметке хочу поговорить о &lt;strong&gt;soft assert&lt;/strong&gt;. Лично я ими раньше не пользовался, потому что не совсем понятно было, как оно поможет, да в количестве строк кода написание таких ассертов было делом затратным.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот, скажем, пример &lt;strong&gt;SoftAssert&lt;/strong&gt; и &lt;strong&gt;TestNG&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class SoftAsert
+{
+    @Test
+    public void test()
+    {
+        SoftAssert asert=new SoftAssert();
+        asert.assertEquals(false, true,&quot;failed&quot;);
+        asert.assertEquals(0, 1,&quot;brokedown&quot;);
+        asert.assertAll();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вроде как работает, но выглядит ужасно. К тому же, каждый раз нужно создавать объект и в конце писать &lt;strong&gt;assertAll()&lt;/strong&gt;. И это не прихоть одной конкретной библиотеки, такой принцип у всех.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хочу поделиться своим видением ситуации. Если вам что-то не нравится, попробуйте изменить ситуацию. Я так и сделал и заменил &lt;strong&gt;Java&lt;/strong&gt; на &lt;strong&gt;Groovy&lt;/strong&gt;. Закоренелые читатели блога это заметили давно. Почему? Потому, что &lt;strong&gt;Groovy&lt;/strong&gt; позволяет мне быть эффективнее в 2.5-3 раза. Код выглядит читабельнее и проще.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Стоит посмотреть на &lt;a href=&quot;http://automation-remarks.com/groovy-page/&quot;&gt;page object&lt;/a&gt;. Ну или на &lt;a href=&quot;http://automation-remarks.com/rest-clients/&quot;&gt;REST Client&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;До этого момента в Groovy был очень крутой &lt;strong&gt;assert&lt;/strong&gt;, а soft assert не было.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь есть, и выглядит он так!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;softAsserts {
+    expect &quot;foo&quot;, equalTo(&quot;bar&quot;)
+    expect 1, equalTo(1)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Круто, не правда ли? Мне такой подход к делу нравится больше. К тому же, в этом коде везде работает автодополнение, а сами ассерты являются оберткой над Hamcrest.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Реализация этого счастья выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class SoftAsserts {
+    def static failedAssertions = []
+
+    static softAsserts(Closure closure) {
+        new SoftAsserts().bundleAsserts(closure)
+    }
+
+    private bundleAsserts(Closure closure) {
+        closure.resolveStrategy = Closure.DELEGATE_ONLY
+        closure.delegate = this
+        closure()
+
+        if (failedAssertions) {
+            throw new AssertionError(&quot;${failedAssertions.size()}
+            failed assertions found:\n ${failedAssertions.
+            message.join(&apos;\n&apos;)}&quot;.toString())
+        }
+    }
+
+    public static &amp;lt;T&amp;gt; void expect(T actual, Matcher&amp;lt;? super T&amp;gt; matcher) {
+        expect(&quot;&quot;, actual, matcher)
+    }
+
+    public static &amp;lt;T&amp;gt; void expect(String reason, T actual, Matcher&amp;lt;? super T&amp;gt; matcher) {
+        try {
+            if (!matcher.matches(actual)) {
+                Description description = new StringDescription();
+                description.appendText(reason)
+                        .appendText(&quot;\nExpected: &quot;)
+                        .appendDescriptionOf(matcher)
+                        .appendText(&quot;\n     but: &quot;);
+                matcher.describeMismatch(actual, description);
+
+                throw new AssertionError(description.toString());
+            }
+        } catch (AssertionError e) {
+            failedAssertions &amp;lt;&amp;lt; e
+        }
+    }
+
+    public static void expect(String reason, boolean assertion) {
+        if (!assertion) {
+            try {
+                throw new AssertionError(reason);
+            } catch (AssertionError e) {
+                failedAssertions &amp;lt;&amp;lt; e
+            }
+        }
+    }
+
+    def invokeMethod(String name, args) {
+        try {
+            def actual = args[0]
+            def expected = args[1]
+            assert actual == expected
+        } catch (AssertionError e) {
+            failedAssertions &amp;lt;&amp;lt; e
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все предельно просто - один класс, в котором реализована вся логика.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тесты с применением этих ассертов становятся очень красивыми и понятными:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def endpoint = &apos;http://swapi.co/api/&apos;
+def client = new RESTClient(endpoint)
+def response = client.get(path:&apos;people/1/&apos;,accept: ContentType.JSON,headers:[&apos;User-agent&apos;:&apos;firefox&apos;])
+
+softAsserts {
+    expect response.statusCode, is(200)
+    expect response.json.name, equalTo(&apos;Luke Skywalker&apos;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>

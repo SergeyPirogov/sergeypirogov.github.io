@@ -80,92 +80,167 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">20/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">24/01/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Выведите ваши тесты на новый уровень!</h1>
+                        <h1 class="post-title">Красивый Soft Assert</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через <strong>Sonar</strong>. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный <em>NullPointerException</em>. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим <strong>MySQL</strong>, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на <strong>Maven</strong>, то просто в pom нужно вписать:</p>
+<p>Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться. Я уже писал о <a href="http://automation-remarks.com/davaitie-poghovorim-pro-asserty/">библиотеках</a>, которые упрощают написание ассертов и делают их более читабельными.</p>
+</div>
+<div class="paragraph">
+<p>В этой заметке хочу поговорить о <strong>soft assert</strong>. Лично я ими раньше не пользовался, потому что не совсем понятно было, как оно поможет, да в количестве строк кода написание таких ассертов было делом затратным.</p>
+</div>
+<div class="paragraph">
+<p>Вот, скажем, пример <strong>SoftAssert</strong> и <strong>TestNG</strong>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;project&gt;
-  ...
-  &lt;build&gt;
-    &lt;!-- To define the plugin version in your parent POM --&gt;
-    &lt;pluginManagement&gt;
-      &lt;plugins&gt;
-        &lt;plugin&gt;
-          &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-          &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-          &lt;version&gt;2.5&lt;/version&gt;
-        &lt;/plugin&gt;
-        ...
-      &lt;/plugins&gt;
-    &lt;/pluginManagement&gt;
-    &lt;!-- To use the plugin goals in your POM or parent POM --&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-        &lt;artifactId&gt;sonar-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.5&lt;/version&gt;
-      &lt;/plugin&gt;
-      ...
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-  ...
-&lt;/project&gt;</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class SoftAsert
+{
+    @Test
+    public void test()
+    {
+        SoftAssert asert=new SoftAssert();
+        asert.assertEquals(false, true,"failed");
+        asert.assertEquals(0, 1,"brokedown");
+        asert.assertAll();
+    }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Далее в Maven setting.xml добавляем:</p>
+<p>Вроде как работает, но выглядит ужасно. К тому же, каждый раз нужно создавать объект и в конце писать <strong>assertAll()</strong>. И это не прихоть одной конкретной библиотеки, такой принцип у всех.</p>
+</div>
+<div class="paragraph">
+<p>Хочу поделиться своим видением ситуации. Если вам что-то не нравится, попробуйте изменить ситуацию. Я так и сделал и заменил <strong>Java</strong> на <strong>Groovy</strong>. Закоренелые читатели блога это заметили давно. Почему? Потому, что <strong>Groovy</strong> позволяет мне быть эффективнее в 2.5-3 раза. Код выглядит читабельнее и проще.</p>
+</div>
+<div class="paragraph">
+<p>Стоит посмотреть на <a href="http://automation-remarks.com/groovy-page/">page object</a>. Ну или на <a href="http://automation-remarks.com/rest-clients/">REST Client</a>.</p>
+</div>
+<div class="paragraph">
+<p>До этого момента в Groovy был очень крутой <strong>assert</strong>, а soft assert не было.</p>
+</div>
+<div class="paragraph">
+<p>Теперь есть, и выглядит он так!</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;profile&gt;
-    &lt;id&gt;sonar&lt;/id&gt;
-    &lt;activation&gt;
-       &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-    &lt;/activation&gt;
-&lt;properties&gt;
-&lt;sonar.jdbc.url&gt;jdbc:postgresql://localhost/sonar&lt;;/sonar.jdbc.url&gt;
-&lt;sonar.jdbc.driver&gt;org.postgresql.Driver&lt;/sonar.jdbc.driver&gt;
-&lt;sonar.jdbc.username&gt;user&lt;/sonar.jdbc.username&gt;
-&lt;sonar.jdbc.password&gt;password&lt;/sonar.jdbc.password&gt;
-&lt;!-- SERVER ON A REMOTE HOST --&gt;
-&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;
-   &lt;/properties&gt;
-&lt;/profile&gt;</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">softAsserts {
+    expect "foo", equalTo("bar")
+    expect 1, equalTo(1)
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вот и все! При запущенном сервере - выполняем <strong>mvn sonar:sonar</strong> ждем завершения сканирования. Далее отрываем в браузере адрес, который мы прописывали:</p>
+<p>Круто, не правда ли? Мне такой подход к делу нравится больше. К тому же, в этом коде везде работает автодополнение, а сами ассерты являются оберткой над Hamcrest.</p>
+</div>
+<div class="paragraph">
+<p>Реализация этого счастья выглядит так:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class SoftAsserts {
+    def static failedAssertions = []
+
+    static softAsserts(Closure closure) {
+        new SoftAsserts().bundleAsserts(closure)
+    }
+
+    private bundleAsserts(Closure closure) {
+        closure.resolveStrategy = Closure.DELEGATE_ONLY
+        closure.delegate = this
+        closure()
+
+        if (failedAssertions) {
+            throw new AssertionError("${failedAssertions.size()}
+            failed assertions found:\n ${failedAssertions.
+            message.join('\n')}".toString())
+        }
+    }
+
+    public static &lt;T&gt; void expect(T actual, Matcher&lt;? super T&gt; matcher) {
+        expect("", actual, matcher)
+    }
+
+    public static &lt;T&gt; void expect(String reason, T actual, Matcher&lt;? super T&gt; matcher) {
+        try {
+            if (!matcher.matches(actual)) {
+                Description description = new StringDescription();
+                description.appendText(reason)
+                        .appendText("\nExpected: ")
+                        .appendDescriptionOf(matcher)
+                        .appendText("\n     but: ");
+                matcher.describeMismatch(actual, description);
+
+                throw new AssertionError(description.toString());
+            }
+        } catch (AssertionError e) {
+            failedAssertions &lt;&lt; e
+        }
+    }
+
+    public static void expect(String reason, boolean assertion) {
+        if (!assertion) {
+            try {
+                throw new AssertionError(reason);
+            } catch (AssertionError e) {
+                failedAssertions &lt;&lt; e
+            }
+        }
+    }
+
+    def invokeMethod(String name, args) {
+        try {
+            def actual = args[0]
+            def expected = args[1]
+            assert actual == expected
+        } catch (AssertionError e) {
+            failedAssertions &lt;&lt; e
+        }
+    }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Проделав все эти действия, я был шокирован. В проекте был ужжаасный код. Сделав выводы, на новом проете, я начал применять Sonar с самого первого дня. Спустя три месяца, мы создали 300 тестов. Техникал дебт равен 0.1. А сложность кода - 1.2. Вы можете себе представить такое? Разработчики даже подшучивают иногда, что тесты "чище" чем сам проект. Вот так вот Sonar помог повыситься качество кода тестов. А вы используете статические анализаторы кода?</p>
+<p>Все предельно просто - один класс, в котором реализована вся логика.</p>
+</div>
+<div class="paragraph">
+<p>Тесты с применением этих ассертов становятся очень красивыми и понятными:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def endpoint = 'http://swapi.co/api/'
+def client = new RESTClient(endpoint)
+def response = client.get(path:'people/1/',accept: ContentType.JSON,headers:['User-agent':'firefox'])
+
+softAsserts {
+    expect response.statusCode, is(200)
+    expect response.json.name, equalTo('Luke Skywalker')
+}</code></pre>
+</div>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Groovy.html">Groovy</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Выведите ваши тесты на новый уровень!&url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Красивый Soft Assert&url=dieistvitielno-krasivyi-soft-assert/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=dieistvitielno-krasivyi-soft-assert/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=vyvieditie-vashi-tiesty-na-novyi-urovien/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=dieistvitielno-krasivyi-soft-assert/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -181,7 +256,6 @@
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/dieistvitielno-krasivyi-soft-assert/index.html">Красивый Soft Assert</a></li>
                                                 <li><a class='js-ajax-link' href="/groovy-page/index.html">Лаконичный PageObject с GroovyPage + Selenide</a></li>
                                                 <li><a class='js-ajax-link' href="/working-with-database/index.html">Работа с базой данных без боли и страданий</a></li>
                                                 <li><a class='js-ajax-link' href="/ssh/index.html">Как автоматизатору побороть SSH</a></li>
