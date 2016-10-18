@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 12:23:43 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 12:23:43 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 12:26:34 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 12:26:34 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -459,10 +459,17 @@ public class JUnitVideoTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Но иногда хочется, чтобы документация была еще и красивой, со всякими там рюшечками! Это можно сделать, если последовать этому замечательному &lt;a href=&quot;http://mgreau.com/posts/2016/03/28/asciidoc-to-gh-pages-with-travis-ci-docker-asciidoctor.html&quot;&gt;туториалу&lt;/a&gt;. Там все подробно описано, за исключением пары моментов, из-за которых у меня не работало с первого раза:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;admonitionblock tip&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: &lt;a href=&quot;https://sergeypirogov.github.io/VideoRecorder/&quot;&gt;пример с рекордером&lt;/a&gt;.&lt;/p&gt;
