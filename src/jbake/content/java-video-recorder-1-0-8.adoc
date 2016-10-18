@@ -108,7 +108,7 @@ mvn test -Dvideo.folder="custom_folder"
          -Dvideo.save.mode=ALL
 ----
 
-Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN'T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.
+**Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN'T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.**
 
 I hope this library will make life of test automation engineers easier and will help to detect fix flaky tests.
 
