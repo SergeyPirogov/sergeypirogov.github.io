@@ -26,7 +26,7 @@ image::https://sites.google.com/site/limenncom/_/rsrc/1396435997305/dokumentacia
 TIP: Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.
 
 
-Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: https://sergeypirogov.github.io/VideoRecorder/[пример с рекордером].
+Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: http://automation-remarks.com/video-recorder-java/[пример с рекордером].
 
 Почему это круто?
 
