@@ -80,55 +80,81 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">09/08/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">19/05/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Создаем виртуальную машину в три шага</h1>
+                        <h1 class="post-title">Избавьтесь от нестабильных тестов с VideoRecorder</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую <strong>VirtualBox</strong>. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента <strong>Vagrant</strong>.</p>
+<p>Привет, новая заметка немного подзадержалась, так как я готовлюсь к поездке на <a href="http://qaconf.ru/speakers.html">QA Conference</a>.</p>
 </div>
 <div class="paragraph">
-<p>Идея вагранта очень проста: он основывается на наличии готовых базовых образов. В оригинале они называются - <strong>box</strong>. The Tao of Vagrant содержит несколько простых принципов, которые гарантируют то, что созданная вами виртуальная машина будет работать на любой операционной системе: Mac OS, Windows, Linux.</p>
+<p>В этот раз хочу поделиться парой мыслей по поводу нестабильных тестов и способами борьбы с ними. Конкретно речь пойдет о UI тестах для WEB и Desktop приложений.</p>
 </div>
 <div class="paragraph">
-<p>Начнем работать с <strong>Vagrant</strong>.</p>
+<p>Естественно, всем хотелось бы иметь стабильные UI автотесты, которые можно запускать на любом компьютере и, тем самым, проверять работоспособность системы, но, увы, зачастую это не так. На всех конференциях автоматизаторы сходятся во мнениях о том, что нужно соблюдать баланс и сохранять структуру пирамиды автоматизации. Тем не менее, в силу каких-либо обстоятельств на многих проектах до сих пор вместо пирамиды мы можем видеть "мороженко".</p>
 </div>
 <div class="paragraph">
-<p><strong>Шаг 1: Установка</strong></p>
+<p>Мне удается держать свои автотесты стабильными и запускать их практически в любой момент. Как такого можно добиться? Мой секрет заключается в том, что UI тесты - это, по сути, автоматизация E2E сценариев, более того, в тестах мы проверяем функциональность нашего UI. Немаловажным фактором является то, что я мастерски использую Selenide, ну и последнее - автотесты запускаются каждый день! Именно ежедневные запуски, даже на тех же сборках, позволяют мне быть уверенным, что мой тест работает стабильно и все падения вызваны изменениями или ошибками в тестируемом приложении.</p>
 </div>
 <div class="paragraph">
-<p>Нам потребуется установить <strong>VirtualBox</strong> и собственно <strong>Vagrant</strong>. Скачиваем нужный инсталятор <a href="http://www.vagrantup.com/downloads">здесь</a> и устанавливаем. Инструкция по установке VirtualBox <a href="http://www.windxp.com.ru/article9.htm">здесь</a>.</p>
+<p>Но, тем не менее, я знаю проекты или случаи (на моем прошлом проекте так было), когда было достаточно серьезное число нестабильных тестов, ситуация усугублялась еще и тем, что тестирование проводилось только в браузере Internet Explorer 8-10.</p>
 </div>
 <div class="paragraph">
-<p><strong>Шаг 2: Скачиваем готовый box</strong></p>
+<p>У всех на проектах есть скриншоты, которые призваны помогать выяснить причины падений тестов, но вот одна проблема - не всегда скриншоты дают ясную картину. Самая досадная вещь - когда у вас есть снимок экрана, но на нем не запечатлена ошибка, так как скриншотер сработал на секунду позже нужного момента. Как быть в этом случае? Можно принудительно делать скриншот и пытаться угадать момент падения, а можно <a href="http://automation-remarks.com/pishiem-vidieo-vo-vriemia-proghona-tiestov/">писать видео</a> нестабильного теста!</p>
 </div>
 <div class="paragraph">
-<p>Открываем консоль и выполняем команды:</p>
+<p>Наверное вы удивитесь, но да, зачастую это самый верный способ выявить причины нестабильности, более того, теперь писать видео ваших тестов стало очень просто, так как я решил написать библиотеку, которая позволит многим не думать о деталях реализации процесса записи, - <strong>VideoRecorder</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Что полезного даст эта библиотека?</p>
+</div>
+<div class="paragraph">
+<p>Все очень просто - вы сможете легко записывать видео ваших автотестов, просто добавив аннотацию <strong>@Video</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Пример:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vm
-cd vm
-vagrant box add hashicorp/precise32
-vagrant init hashicorp/precise32</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Listeners(VideoListener.class)
+public class TestNGVideo {
+
+@Test
+@Video
+public void testName3() throws Exception {
+     open("http://ukr.net");
+     $(".login &gt; input").val("Hello");
+     $(".password &gt; input").val("test");
+     $(".submit &gt; bu").click();
+}}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Шаг 3: Запускаем виртуальную машину:</strong></p>
+<p>Вот так просто! Выполнение данного теста будет записано на видео и сохранено в нужном вам месте. На данный момент я успел реализовать интеграцию с TestNG, но в планах сделать подобное и для работы с JUnit, Spock или же любого другого тест-ранера из мира Java.</p>
+</div>
+<div class="paragraph">
+<p>Из фишек! По умолчанию видеофайл будет иметь имя теста и записи будут сохраняться только для FAILED тестов. Вы можете легко переопределить новое имя для файла, просто указав его в параметрах аннотации:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">vagrant up</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+@Video(name = "second_test")
+public void testName2() throws Exception {
+    open("http://ukr.net");
+    $(".login &gt; input").val("User");
+    $(".password &gt; input").val("User");
+    $(".submit &gt; button").click();
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Через несколько секунд у вас поднимется готовая виртуальная машина.</p>
+<p>Вот такая вот получилась штучка. Вы можете использовать это как для тестов с <strong>Selenide</strong>, так и для тестов с <strong>Winium</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.</p>
+<p>Если вам интересна данная идея, напишите в комментариях свои мысли&#8230;&#8203;</p>
 </div>
                     </section>
 
@@ -138,13 +164,13 @@ vagrant init hashicorp/precise32</code></pre>
                                     <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Создаем виртуальную машину в три шага&url=vagrant/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Избавьтесь от нестабильных тестов с VideoRecorder&url=avtomatizatsiia-i-kino/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=vagrant/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=avtomatizatsiia-i-kino/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=vagrant/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=avtomatizatsiia-i-kino/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -159,7 +185,6 @@ vagrant init hashicorp/precise32</code></pre>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
-                                                <li><a class='js-ajax-link' href="/avtomatizatsiia-i-kino/index.html">Избавьтесь от нестабильных тестов с VideoRecorder</a></li>
                                                 <li><a class='js-ajax-link' href="/seleniumcamp-2016-vidieo/index.html">SeleniumCamp 2016 видео</a></li>
                                                 <li><a class='js-ajax-link' href="/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html">Автоматизация в контейнере с TestContainers</a></li>
                                                 <li><a class='js-ajax-link' href="/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html">Копаемся в закромах Jenkins</a></li>

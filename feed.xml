@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 12:03:03 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 12:03:03 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 12:08:20 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 12:08:20 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -272,6 +272,83 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Избавьтесь от нестабильных тестов с VideoRecorder</title>
+      <link>localhost/avtomatizatsiia-i-kino/index.html</link>
+      <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">avtomatizatsiia-i-kino/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, новая заметка немного подзадержалась, так как я готовлюсь к поездке на &lt;a href=&quot;http://qaconf.ru/speakers.html&quot;&gt;QA Conference&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этот раз хочу поделиться парой мыслей по поводу нестабильных тестов и способами борьбы с ними. Конкретно речь пойдет о UI тестах для WEB и Desktop приложений.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Естественно, всем хотелось бы иметь стабильные UI автотесты, которые можно запускать на любом компьютере и, тем самым, проверять работоспособность системы, но, увы, зачастую это не так. На всех конференциях автоматизаторы сходятся во мнениях о том, что нужно соблюдать баланс и сохранять структуру пирамиды автоматизации. Тем не менее, в силу каких-либо обстоятельств на многих проектах до сих пор вместо пирамиды мы можем видеть &quot;мороженко&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мне удается держать свои автотесты стабильными и запускать их практически в любой момент. Как такого можно добиться? Мой секрет заключается в том, что UI тесты - это, по сути, автоматизация E2E сценариев, более того, в тестах мы проверяем функциональность нашего UI. Немаловажным фактором является то, что я мастерски использую Selenide, ну и последнее - автотесты запускаются каждый день! Именно ежедневные запуски, даже на тех же сборках, позволяют мне быть уверенным, что мой тест работает стабильно и все падения вызваны изменениями или ошибками в тестируемом приложении.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но, тем не менее, я знаю проекты или случаи (на моем прошлом проекте так было), когда было достаточно серьезное число нестабильных тестов, ситуация усугублялась еще и тем, что тестирование проводилось только в браузере Internet Explorer 8-10.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;У всех на проектах есть скриншоты, которые призваны помогать выяснить причины падений тестов, но вот одна проблема - не всегда скриншоты дают ясную картину. Самая досадная вещь - когда у вас есть снимок экрана, но на нем не запечатлена ошибка, так как скриншотер сработал на секунду позже нужного момента. Как быть в этом случае? Можно принудительно делать скриншот и пытаться угадать момент падения, а можно &lt;a href=&quot;http://automation-remarks.com/pishiem-vidieo-vo-vriemia-proghona-tiestov/&quot;&gt;писать видео&lt;/a&gt; нестабильного теста!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Наверное вы удивитесь, но да, зачастую это самый верный способ выявить причины нестабильности, более того, теперь писать видео ваших тестов стало очень просто, так как я решил написать библиотеку, которая позволит многим не думать о деталях реализации процесса записи, - &lt;strong&gt;VideoRecorder&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что полезного даст эта библиотека?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все очень просто - вы сможете легко записывать видео ваших автотестов, просто добавив аннотацию &lt;strong&gt;@Video&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Пример:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Listeners(VideoListener.class)
+public class TestNGVideo {
+
+@Test
+@Video
+public void testName3() throws Exception {
+     open(&quot;http://ukr.net&quot;);
+     $(&quot;.login &amp;gt; input&quot;).val(&quot;Hello&quot;);
+     $(&quot;.password &amp;gt; input&quot;).val(&quot;test&quot;);
+     $(&quot;.submit &amp;gt; bu&quot;).click();
+}}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так просто! Выполнение данного теста будет записано на видео и сохранено в нужном вам месте. На данный момент я успел реализовать интеграцию с TestNG, но в планах сделать подобное и для работы с JUnit, Spock или же любого другого тест-ранера из мира Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из фишек! По умолчанию видеофайл будет иметь имя теста и записи будут сохраняться только для FAILED тестов. Вы можете легко переопределить новое имя для файла, просто указав его в параметрах аннотации:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+@Video(name = &quot;second_test&quot;)
+public void testName2() throws Exception {
+    open(&quot;http://ukr.net&quot;);
+    $(&quot;.login &amp;gt; input&quot;).val(&quot;User&quot;);
+    $(&quot;.password &amp;gt; input&quot;).val(&quot;User&quot;);
+    $(&quot;.submit &amp;gt; button&quot;).click();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот такая вот получилась штучка. Вы можете использовать это как для тестов с &lt;strong&gt;Selenide&lt;/strong&gt;, так и для тестов с &lt;strong&gt;Winium&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вам интересна данная идея, напишите в комментариях свои мысли&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
