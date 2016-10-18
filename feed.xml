@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 12:08:20 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 12:08:20 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 12:17:07 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 12:17:07 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -272,6 +272,83 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Документация к проекту на Github c AsciiDoctor и Travis CI</title>
+      <link>localhost/github-travis-docs/index.html</link>
+      <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">github-travis-docs/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В данной заметке хочу поговорить о создании качественной документации к проектам. Почему это важно? Однажды я услышал одну очень правильную мысль: хорошая документация позволяет экономить деньги проекта. Каким образом? Давайте разберемся!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://sites.google.com/site/limenncom/_/rsrc/1396435997305/dokumentacia/instruct.jpg?height=320&amp;width=320&quot; alt=&quot;instruct&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Когда к вам на проект приходит новый человек, вы можете ему дать документацию, с помощью которой он сможет ознакомиться с вашим проектом. Обычно как бывает: приходит новый человек и к нему приставляют какого-то опытного коллегу. А теперь представьте что рейт этого человека 30 $/час. В тот момент, когда он что-то объясняет и вводит нового человека в курс дела, он полезной работы не делает, ну кроме как помогает потенциально будущему коллеге разобраться с тем барахлом, которое уже понаписано.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Всем уже работающим на проекте это помогает быстро решать проблемы. Ну вот, скажем, когда я пришел 2 года назад на проект, я все настроил и работал себе - документация мне не нужна. Но тут вдруг у меня накрылась рабочая станция. Что делать? Всего в голове не удержать, как и с какими настройками Postgres ставить.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Все проекты когда-либо заканчиваются. И в момент передачи знаний документация, а точнее ее отсутствие, начинает играть очень важную роль.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, обычно на проектах есть какая-то документация, она лежит в гуглдоках или каких-то абстрактных хранилищах. Вроде как все счастливы. Но основная проблема - это держать эту самую документацию в актуальном состоянии. Мне, к примеру, бывает сложно всегда помнить, в каком места и как у нас называется какой-то конкретный документ. Соответственно пойти и проапдейтить его я забываю. Знакомая ситуация, не правда ли?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как же мы можем это поправить? Хранить документацию вместе с проектом! Да, именно так. Мы же каждый день работаем с нашими проектами, качаем сорс из гитхаба, пушим наши изменения. Почему бы не делать тоже самое с документацией к проекту?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Благо, для этого уже придумано огромное количество средств и инструментов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Самое простое, что вы можете сделать, - это написать &lt;strong&gt;README.md&lt;/strong&gt; к вашему проекту на &lt;strong&gt;Github&lt;/strong&gt;. Опишите там &lt;strong&gt;Getting Started&lt;/strong&gt; и это уже будет огромным шагом к прогрессу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но иногда хочется, чтобы документация была еще и красивой, со всякими там рюшечками! Это можно сделать, если последовать этому замечательному &lt;a href=&quot;http://mgreau.com/posts/2016/03/28/asciidoc-to-gh-pages-with-travis-ci-docker-asciidoctor.html&quot;&gt;туториалу&lt;/a&gt;. Там все подробно описано, за исключением пары моментов, из-за которых у меня не работало с первого раза:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;Когда будете связывать свой проект и Travis CI, то параметр GH_REF нужно указывать без http(s):// в формате github.com/SergeyPirogov/VideoRecorder.&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы все правильно сделаете, у вас после билда на тревисе в бранче gh-pages будет два файлика index.html и .pdf. Затем сразу же можно будет в браузере открыть эту документацию как простую веб-страницу: &lt;a href=&quot;https://sergeypirogov.github.io/VideoRecorder/&quot;&gt;пример с рекордером&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Почему это круто?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Все знают, где лежит дока.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ссылку на нее можно расшарить любому.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Документацию легче поддерживать в актуальном состоянии, так как ее можно править из Github или же в вашей любимой Idea. Да что там, достаточно даже простого редактора по типу Vim.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Вы можете легко отслеживать, кто и как изменял файл, так как вся история хранится в гите.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Изменения автоматически будут пересобраны на Travis CI и документация на вашем условном сайте обновится практически моментально.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично мне этот подход очень понравился. Теперь я стараюсь применять его для всех своих проектов. Хорошей вам документации и до встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
