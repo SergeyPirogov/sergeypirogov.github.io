@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 11:40:38 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 11:40:38 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 11:49:25 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 11:49:25 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -272,6 +272,106 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Копаемся в закромах Jenkins</title>
+      <link>localhost/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</link>
+      <pubDate>Sun, 6 Mar 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Такая вот темка, о которой захотелось написать после альфа релиза Jenkins 2.0. У нас всех на проектах есть CI сервер. У вас нету? Плохо, нужно срочно завести. Если вы не знаете, что такое Jenkins, можете посмотреть &lt;a href=&quot;http://automation-remarks.com/ci-build-tools-for-newbies/&quot;&gt;видео&lt;/a&gt;, либо почитать о &lt;a href=&quot;http://automation-remarks.com/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/&quot;&gt;способах настройки&lt;/a&gt; Jenkins CI у себя на проекте.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой же заметке хочу немного пролить свет на то, как и где хранятся созданные вами задачи, ну и описать такой инструмент как Jenkins Job Builder, о котором я услышал от Алексея Солдатенко на прошедшем SeleniumCamp 2016. Только спустя неделю удалось попробовать этот инструмент.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сейчас все большую популярность набирает &lt;strong&gt;DevOps&lt;/strong&gt; направление, а автоматизаторы как никто близки по духу к этой специализации в IT. Когда автоматизатор умеет самостоятельно развернуть тестовую инфраструктуру - это круто. Так вот, чтобы ваша инфраструктура соответствовала духу InfrastructureAsCode, нужно очень хорошо разбираться в инструментах и их особенностях. Скажем, на моем прошлом проекте я был ответственен за настройку и поддержку Jenkins сервера и естественно переживал, дабы чего не хлопнулось, - поэтому делал бекапы. Правда, делал я это косо: просто архивировал папку &lt;strong&gt;${USR_HOME}/.jenkins&lt;/strong&gt; в tar архив. Достаточно топорно, зато надежно =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь же хочу поделиться некоторыми полезными советами, которые, возможно, помогут кому-то на проекте.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начну с того, что сейчас я предпочитаю запускать &lt;strong&gt;Jenkins в Docker&lt;/strong&gt; контейнере. Делается это простой командой:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;docker run --name myjenkins -p 8080:8080 -p 50000:50000
+-v /your/home:/var/jenkins_home jenkins&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эта штука отлично работает, в особенности если вам нужен Jenkins для каких-либо экспериментов. Более того, вы можете собрать Jenkins с предустановленными плагинами. Для этого нужно следовать инструкциям, описанным в разделе документации &lt;a href=&quot;https://github.com/jenkinsci/docker/blob/master/README.md&quot;&gt;Installing more tools&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мое мнение: если следовать этим путем, то можно каждый раз запускать Jenkins со всеми нужными плагинами, не тратя время на их ручную установку. Очень сильно экономит время, к тому же, не нужно держать в голове все имена нужных вам плагинов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;P.S. Почему-то на &lt;strong&gt;Windows 10&lt;/strong&gt; у меня эта штука не завелась.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если же вы хотите установить какой-то плагин, а его нету в Jenkins репозитории или вам нужна конкретная версия. Вы можете свободно скачать .hpi файлы из этого репозитория и потом просто скопировать их в папку &lt;strong&gt;.jenkins/plugins&lt;/strong&gt; и рестартовать ваш сервер.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь давайте посмотрим на создание &lt;strong&gt;Job Item&lt;/strong&gt;. Раньше я создавал все задачи вручную и особо не переживал, но вот, оказывается, есть отличный инструмент &lt;strong&gt;Jenkins Job Builder&lt;/strong&gt;, с помощью которого можно хранить конфигурации в &lt;strong&gt;Yaml&lt;/strong&gt; файлах. По умолчанию все созданные задачи хранятся в &lt;strong&gt;config.xml&lt;/strong&gt; файлах в папке &lt;strong&gt;.jenkins/jobs/${job_name}&lt;/strong&gt;. Вот пример такого &lt;strong&gt;config.xml&lt;/strong&gt; для задачи, которая всего лишь извлекает shell команду &lt;strong&gt;echo &quot;Hello&quot;&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;config.xml&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&amp;gt;
+&amp;lt;project&amp;gt;
+  &amp;lt;actions/&amp;gt;
+  &amp;lt;description&amp;gt;&amp;lt;/description&amp;gt;
+  &amp;lt;keepDependencies&amp;gt;false&amp;lt;/keepDependencies&amp;gt;
+  &amp;lt;properties/&amp;gt;
+  &amp;lt;scm class=&quot;hudson.scm.NullSCM&quot;/&amp;gt;
+  &amp;lt;canRoam&amp;gt;true&amp;lt;/canRoam&amp;gt;
+  &amp;lt;disabled&amp;gt;false&amp;lt;/disabled&amp;gt;
+  &amp;lt;blockBuildWhenDownstreamBuilding&amp;gt;false&amp;lt;/blockBuildWhenDownstreamBuilding&amp;gt;
+  &amp;lt;blockBuildWhenUpstreamBuilding&amp;gt;false&amp;lt;/blockBuildWhenUpstreamBuilding&amp;gt;
+  &amp;lt;triggers/&amp;gt;
+  &amp;lt;concurrentBuild&amp;gt;false&amp;lt;/concurrentBuild&amp;gt;
+  &amp;lt;builders&amp;gt;
+    &amp;lt;hudson.tasks.Shell&amp;gt;
+      &amp;lt;command&amp;gt;echo &amp;amp;quot;Hello&amp;amp;quot;&amp;lt;/command&amp;gt;
+    &amp;lt;/hudson.tasks.Shell&amp;gt;
+  &amp;lt;/builders&amp;gt;
+  &amp;lt;publishers/&amp;gt;
+  &amp;lt;buildWrappers/&amp;gt;
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Достаточно массивно, потому что в &lt;strong&gt;Yaml&lt;/strong&gt; формате это выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;config.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;- job:
+    name: Test JJB
+    description: &apos;Do not edit this job through the web!&apos;
+    project-type: freestyle
+    builders:
+    - shell: echo &quot;Hello&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мое мнение: достаточно удобно, так как можно хранить конфигурации под системой контроля версий вместе с файлом плагинов и не переживать о возможном сбое сервера и потере всех настроек. Правда, разбираться с &lt;strong&gt;Jenkins Job Builder&lt;/strong&gt; тоже придется, так как не каждый может взять и сразу написать валидный &lt;strong&gt;Yaml&lt;/strong&gt; файл :) Но штука классная.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Увы про слейвы ничего такого нету, вы можете просто хранить в git файлы конфигурации из папки &lt;strong&gt;.jenkins/nodes/${node_name}/config.xml&lt;/strong&gt;, так как они не слишком большие.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы хотите как-то похачить Jenkins, то вот &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console&quot;&gt;здесь&lt;/a&gt; есть много полезных скриптов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом все.. Если у вас есть чем поделиться, пишите, давайте шарить знания вместе.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
