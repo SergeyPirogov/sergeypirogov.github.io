@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Заметки Автоматизатора</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="/rss/index.rss"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">13/03/2016</span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Автоматизация в контейнере с TestContainers</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов. Вчера хорошо посидели на <strong>Radio QA</strong>, но так как из-за проблем со Skype я ушел из эфира раньше всех и не успел рассказать об одной интересной библиотеке, которую нарыл на просторах интернета, а точнее на Github, решил написать статью. Называется она <strong>TestContainers</strong>. Что она позволяет делать? Она умеет по требованию поднимать <strong>Docker</strong> контейнер и использовать его для ваших нужд.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/1026/large/1396373089/docker.png" alt="docker">
+</div>
+</div>
+<div class="paragraph">
+<p>Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью <strong>VirtualBox</strong> либо каких-то других систем виртуализации. Я уже писал о <a href="http://automation-remarks.com/vagrant/">Vagrant</a>, который упрощает создание виртуалок и позволяет создавать <strong>stateless</strong> окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: <strong>"Используй AWS, дурень"</strong> :</p>
+</div>
+<div class="paragraph">
+<p>image::/images/risovach-ru.jpg</p>
+</div>
+<div class="paragraph">
+<p>Возможно, но за <strong>AWS</strong> нужно платить деньги, а это может значительно ударить по бюджету проекта.</p>
+</div>
+<div class="paragraph">
+<p>Нам нужно что-то альтернативное. И здесь на помощь приходит <strong>Docker</strong> и библиотека <strong>TestContainers</strong>. Я уже писал про настройку <strong>Jenkins</strong> в контейнере.</p>
+</div>
+<div class="paragraph">
+<p>Эта же библиотека позволяет вам поднимать контейнер из Java кода, использовать его и потом убивать контейнер по завершении вашего процесса.</p>
+</div>
+<div class="paragraph">
+<p>Есть несколько типов контейнеров, которые она умеет обрабатывать:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>**Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
+**Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
+**Generic containers** - run any Docker container as a test dependency
+**Docker compose** - reuse services defined in a Docker Compose YAML file</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Я конкретно игрался с модулем для <strong>Selenium</strong> тестов.</p>
+</div>
+<div class="paragraph">
+<p>Работает эта штука через <strong>JUnit</strong> рулы:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Rule
+public BrowserWebDriverContainer chrome =
+       new BrowserWebDriverContainer()
+        .withDesiredCapabilities(DesiredCapabilities.chrome());</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вот такой вот простой командой у вас поднимется docker контейнер, в котором вы сможете запускать ваши тесты.</p>
+</div>
+<div class="paragraph">
+<p>Самая приятная вещь - эта штука умеет записывать видео. По умолчанию она будет писать видео для всех тестов, но вы можете указать ключ <strong>VncRecordingMode.RECORD_FAILING</strong> и запись будет вестись только для упавших тестов.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">new BrowserWebDriverContainer()
+         .withDesiredCapabilities(DesiredCapabilities.chrome())
+         .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("./target/"))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Давайте посмотрим на конкретный пример:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class TestTestContainers {
+
+ public static BrowserWebDriverContainer chrome =
+           new BrowserWebDriverContainer()
+.withDesiredCapabilities(DesiredCapabilities.chrome())
+.withRecordingMode(RECORD_ALL, new File("./target/"));
+
+    @BeforeClass
+    public static void setUp(){
+        chrome.start();
+        RemoteWebDriver driver = chrome.getWebDriver();
+        WebDriverRunner.setWebDriver(driver);
+    }
+
+    @Test
+    public void test() throws InterruptedException {
+        Selenide.open("http://ukr.net");
+        $(".login &gt; input").val("Hello");
+        $(".password &gt; input").val("test");
+        $(".submit &gt; button").click();
+    }
+
+    @Test
+    public void test2() throws InterruptedException {
+        Selenide.open("http://ukr.net");
+        $(".login &gt; input").val("Word");
+        $(".password &gt; input").val("Hello");
+        $(".submit &gt; button").click();
+    }
+
+    @AfterClass
+    public static void tearDown() throws Exception {
+        chrome.stop();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В целом вещь очень крутая. Как вы могли заметить, мне не составило труда использовать Selenide для моих тестов, а это означает, что у вас есть все плюшки. Вы можете ваши существующие тесты прогонять в контейнере уже прям завтра. Так как это Java, вы можете писать все на Groovy с использованием <strong>Groovy PageObject</strong>,<strong>SoftAssert</strong> и <strong>Spock Framework</strong>. В общем, я больше чем доволен этой штукой.</p>
+</div>
+<div class="paragraph">
+<p><strong>PS.</strong></p>
+</div>
+<div class="paragraph">
+<p>Но без горечи не обойтись. Первый раз эта штука стартует очень долго, так как Docker должен спулить образ контейнера из репозитория. Возможность использовать с JUnit Rule есть, но мне это показалось глупой идеей, так как после каждого теста мы пересоздаем контейнер, а это занимает приличное количество времени. Именно поэтому в примере я показал альтернативный метод запуска контейнера, к тому же, таким образом вы можете использовать эту библиотреку с TestNG или любым другим фреймворком.</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Автоматизация в контейнере с TestContainers&url=ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html">Копаемся в закромах Jenkins</a></li>
+                                                <li><a class='js-ajax-link' href="/seleniumcamp-2016-rietrospiektiva/index.html">SeleniumCamp 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/bol-parallielizatsii-tiestov/index.html">Боль при параллелизации тестов</a></li>
+                                                <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/dependencies.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

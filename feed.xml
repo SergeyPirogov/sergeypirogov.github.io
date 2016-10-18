@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 11:49:25 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 11:49:25 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 11:57:46 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 11:57:46 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -272,6 +272,126 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Автоматизация в контейнере с TestContainers</title>
+      <link>localhost/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</link>
+      <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов. Вчера хорошо посидели на &lt;strong&gt;Radio QA&lt;/strong&gt;, но так как из-за проблем со Skype я ушел из эфира раньше всех и не успел рассказать об одной интересной библиотеке, которую нарыл на просторах интернета, а точнее на Github, решил написать статью. Называется она &lt;strong&gt;TestContainers&lt;/strong&gt;. Что она позволяет делать? Она умеет по требованию поднимать &lt;strong&gt;Docker&lt;/strong&gt; контейнер и использовать его для ваших нужд.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/1026/large/1396373089/docker.png&quot; alt=&quot;docker&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью &lt;strong&gt;VirtualBox&lt;/strong&gt; либо каких-то других систем виртуализации. Я уже писал о &lt;a href=&quot;http://automation-remarks.com/vagrant/&quot;&gt;Vagrant&lt;/a&gt;, который упрощает создание виртуалок и позволяет создавать &lt;strong&gt;stateless&lt;/strong&gt; окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: &lt;strong&gt;&quot;Используй AWS, дурень&quot;&lt;/strong&gt; :&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;image::/images/risovach-ru.jpg&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Возможно, но за &lt;strong&gt;AWS&lt;/strong&gt; нужно платить деньги, а это может значительно ударить по бюджету проекта.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нам нужно что-то альтернативное. И здесь на помощь приходит &lt;strong&gt;Docker&lt;/strong&gt; и библиотека &lt;strong&gt;TestContainers&lt;/strong&gt;. Я уже писал про настройку &lt;strong&gt;Jenkins&lt;/strong&gt; в контейнере.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эта же библиотека позволяет вам поднимать контейнер из Java кода, использовать его и потом убивать контейнер по завершении вашего процесса.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Есть несколько типов контейнеров, которые она умеет обрабатывать:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;**Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
+**Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
+**Generic containers** - run any Docker container as a test dependency
+**Docker compose** - reuse services defined in a Docker Compose YAML file&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я конкретно игрался с модулем для &lt;strong&gt;Selenium&lt;/strong&gt; тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Работает эта штука через &lt;strong&gt;JUnit&lt;/strong&gt; рулы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Rule
+public BrowserWebDriverContainer chrome =
+       new BrowserWebDriverContainer()
+        .withDesiredCapabilities(DesiredCapabilities.chrome());&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот такой вот простой командой у вас поднимется docker контейнер, в котором вы сможете запускать ваши тесты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Самая приятная вещь - эта штука умеет записывать видео. По умолчанию она будет писать видео для всех тестов, но вы можете указать ключ &lt;strong&gt;VncRecordingMode.RECORD_FAILING&lt;/strong&gt; и запись будет вестись только для упавших тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;new BrowserWebDriverContainer()
+         .withDesiredCapabilities(DesiredCapabilities.chrome())
+         .withRecordingMode(VncRecordingMode.RECORD_ALL, new File(&quot;./target/&quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте посмотрим на конкретный пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class TestTestContainers {
+
+ public static BrowserWebDriverContainer chrome =
+           new BrowserWebDriverContainer()
+.withDesiredCapabilities(DesiredCapabilities.chrome())
+.withRecordingMode(RECORD_ALL, new File(&quot;./target/&quot;));
+
+    @BeforeClass
+    public static void setUp(){
+        chrome.start();
+        RemoteWebDriver driver = chrome.getWebDriver();
+        WebDriverRunner.setWebDriver(driver);
+    }
+
+    @Test
+    public void test() throws InterruptedException {
+        Selenide.open(&quot;http://ukr.net&quot;);
+        $(&quot;.login &amp;gt; input&quot;).val(&quot;Hello&quot;);
+        $(&quot;.password &amp;gt; input&quot;).val(&quot;test&quot;);
+        $(&quot;.submit &amp;gt; button&quot;).click();
+    }
+
+    @Test
+    public void test2() throws InterruptedException {
+        Selenide.open(&quot;http://ukr.net&quot;);
+        $(&quot;.login &amp;gt; input&quot;).val(&quot;Word&quot;);
+        $(&quot;.password &amp;gt; input&quot;).val(&quot;Hello&quot;);
+        $(&quot;.submit &amp;gt; button&quot;).click();
+    }
+
+    @AfterClass
+    public static void tearDown() throws Exception {
+        chrome.stop();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом вещь очень крутая. Как вы могли заметить, мне не составило труда использовать Selenide для моих тестов, а это означает, что у вас есть все плюшки. Вы можете ваши существующие тесты прогонять в контейнере уже прям завтра. Так как это Java, вы можете писать все на Groovy с использованием &lt;strong&gt;Groovy PageObject&lt;/strong&gt;,&lt;strong&gt;SoftAssert&lt;/strong&gt; и &lt;strong&gt;Spock Framework&lt;/strong&gt;. В общем, я больше чем доволен этой штукой.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;PS.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но без горечи не обойтись. Первый раз эта штука стартует очень долго, так как Docker должен спулить образ контейнера из репозитория. Возможность использовать с JUnit Rule есть, но мне это показалось глупой идеей, так как после каждого теста мы пересоздаем контейнер, а это занимает приличное количество времени. Именно поэтому в примере я показал альтернативный метод запуска контейнера, к тому же, таким образом вы можете использовать эту библиотреку с TestNG или любым другим фреймворком.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
