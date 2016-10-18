@@ -6,13 +6,13 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 19:51:43 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 19:51:43 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 19:53:14 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 19:53:14 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
       <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-      <pubDate>Tue, 18 Oct 2016 19:49:57 +0000</pubDate>
+      <pubDate>Tue, 18 Oct 2016 19:51:17 +0000</pubDate>
       <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
@@ -2111,22 +2111,6 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В целом я очень доволен посещением такого мероприятия, хочется отметить высокий профессионализм организаторов и докладчиков. Помимо докладов было очень большое количество знакомств, впечатлений, разговоров и классных идей. Теперь все они у меня в голове и ждут своей реализации =) В этом году я долго возился с докладом, но уже на SQA days 19, которая запланирована на май 2016 в Санк-Петербурге, я поставил цель выступить в основной сетке конференции. Так что от себя могу сказать: &quot;СПАСИБО, увидимся на SQA days 19. Let&amp;#8217;s go together&amp;#8230;&amp;#8203;&quot;&lt;/p&gt;
-&lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>6 способов работы с проперти файлами</title>
-      <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
-      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Тренинг, в котором я показываю различные способы работы с проперти файлами.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;videoblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;iframe src=&quot;https://www.youtube.com/embed/e2LWKxIwOfk?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>
