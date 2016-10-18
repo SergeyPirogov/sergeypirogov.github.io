@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 11:16:13 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 11:16:13 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 11:40:38 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 11:40:38 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -272,6 +272,49 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>SeleniumCamp 2016: ретроспектива</title>
+      <link>localhost/seleniumcamp-2016-rietrospiektiva/index.html</link>
+      <pubDate>Sun, 28 Feb 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">seleniumcamp-2016-rietrospiektiva/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хочу поделиться своими впечатлениями от посещения конференции &lt;a href=&quot;http://seleniumcamp.com/&quot;&gt;SeleniumCamp 2016&lt;/a&gt;, которая проходила 26-27 февраля 2016 года в Киеве.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://seleniumcamp.com/wp-content/themes/selenium/images/logo-color.svg&quot; alt=&quot;logo color&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Перед тем как рассказать о своих впечатлениях, своем выступлении (я был одним из спикеров) и немного поспойлерить о понравившихся докладах, хочу рассказать, как я вообще узнал об этой конференции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Впервые я узнал о SeleniumCamp в 2013 году: копаясь в Youtube, случайно наткнулся на запись одного из докладов, посмотрел и нашел много полезного для себя. Так я пересмотрел все доклады с той конференции, и затем год за годом ждал записей после каждой новой конференции и где-то в глубинах души мечтал попасть на &lt;strong&gt;SeleniumCamp&lt;/strong&gt; лично.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В прошлом году я поставил себе цель - поехать на на SeleniumCamp 2016, более того, поехать в роли докладчика!!! Так что, как только я увидел в &lt;strong&gt;Twitter&lt;/strong&gt; объявление о начале регистрации, сразу же подал свой доклад.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как результат - я среди &lt;a href=&quot;http://seleniumcamp.com/speakers/&quot;&gt;спикеров&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Моей целью было рассказать и показать, чем Groovy может быть полезен автоматизаторам (без спойлеров, будет видео). В целом я доволен своим выступлением и, что важнее, на мой доклад пришло достаточно много людей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я, конечно же, немного нервничал, так как на &lt;strong&gt;QAFest&lt;/strong&gt; у меня получилось немного смазанное выступление. Но все удалось, так как с момента выступления на QAFest я провел приличное количество лекций и различных публичных выступлений.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь, собственно, мои впечатления от самой конференции, организации и подбора тем. Могу сказать, что мои ожидания полностью оправдались: уровень организации, помощь в подготовке к докладу, ну и забота о докладчиках во время самой конференции были на высоком уровне. Меня порадовало то, что все доклады были направлены именно на технические аспекты автоматизации тестирования, без диких рассказов о менеджменте или развитии софт скиллов. Только хардкор! Как по мне, именно в этом и заключается основной успех этой конференции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Несмотря на то, что в этот раз среди докладчиков были представители 10 стран, атмосфера была дружественной и, вопреки различиям в годах опыта и языковым барьерам, мы находили, о чем поговорить (в основном, конечно, об автоматизации =)) Скептики, которые утверждают, что конференции - это чушь, не правы. Конференция - это не только способ узнать что-то новое, это, в первую очередь, много знакомств, а если вы принимаете участие в качестве докладчика - это еще и огромный опыт, который можно получить только вот на такого рода мероприятиях.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из докладов хочу отметить &lt;strong&gt;Николая Алименкова&lt;/strong&gt; и его мега-фреймворк,Игоря Хрола, который кодил на &lt;strong&gt;Ruby&lt;/strong&gt; прямо во время доклада и по традиции показал всем, как должна выглядеть пирамида автоматизации. Очень порадовал доклад &lt;strong&gt;Алексея Буля&lt;/strong&gt;, в котором он показал один из способов разделить тестирование back-end и ui. Действительно полезным стал доклад Андрея Солдатенко, который показал способ настройки &lt;strong&gt;Jenkins CI&lt;/strong&gt;, теперь я точно не буду настраивать его каждый раз руками;) Во второй день мне больше всего понравился доклад Сергея Короля - простые, но очень полезные советы по прикручиванию Hibernate и TestNG. Ну и завершил для меня конференцию доклад о тестировании Android и IOS приложений с помощью appium от Justin Ison (Germany). Теперь я знаю, как разворачивать Mobile Grid. Напоследок: я вчера уже благодарил организаторов за предоставленную возможность выступить. Хочу сказать еще раз большое спасибо! Я рад, что стал частью &lt;strong&gt;SeleniumCamp 2016&lt;/strong&gt;, и, надеюсь, мы увидимся в следующем году;)&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
