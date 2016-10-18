@@ -46,6 +46,11 @@ article div.inner {
 
 .inner-post{
 	padding-top: 2em;
+	max-width: 70%;
+}
+
+.post-content{
+    text-align: justify;
 }
 
 .post-list .post .post-image {

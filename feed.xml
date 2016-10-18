@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 12:35:56 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 12:35:56 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 14:01:58 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 14:01:58 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
