@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 09:32:36 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 09:32:36 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 10:32:21 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 10:32:21 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,296 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Работа с базой данных без боли и страданий</title>
+      <link>localhost/working-with-database/index.html</link>
+      <pubDate>Sat, 9 Jan 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">working-with-database/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Уже очень давно я писал &lt;a href=&quot;http://automation-remarks.com/maghiia-groovy-i-sql/&quot;&gt;заметку&lt;/a&gt; про работу с базой данных с использованием &lt;strong&gt;Groovy&lt;/strong&gt;. В этот раз хочу более глубоко раскрыть тему.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://2.bp.blogspot.com/-vJbX3sRQTiI/UrpyumG5TkI/AAAAAAAAAbI/Q5kGfDXBPVE/s1600/sql+basis+data.png&quot; alt=&quot;sql+basis+data&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, допустим, вам нужно работать с базой данных: выполнять запросы, вызывать хранимые процедуры, возможно, записывать какие-то данные. Стандартом работы с базами данных в java является &lt;strong&gt;JDBC&lt;/strong&gt;. Но вот код, написанный с использованием &lt;strong&gt;jdbc&lt;/strong&gt;, выглядит не очень:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class JDBCExample1 {
+  public static void main(String[] args) {
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    try{
+      Class.forName(&quot;org.gjt.mm.mysql.Driver&quot;);
+      con = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/words&quot;,
+           &quot;words&quot;, &quot;words&quot;);
+      stmt = con.createStatement();
+      rs = stmt.executeQuery(&quot;select * from word&quot;);
+      while (rs.next()) {
+        System.out.println(&quot;word id: &quot; + rs.getLong(1) +
+            &quot; spelling: &quot; + rs.getString(2) +
+            &quot; part of speech: &quot; + rs.getString(3));
+      }
+    }catch(SQLException e){
+      e.printStackTrace();
+    }catch(ClassNotFoundException e){
+      e.printStackTrace();
+    }finally{
+      try{rs.close();}catch(Exception e){}
+      try{stmt.close();}catch(Exception e){}
+      try{con.close();}catch(Exception e){}
+   }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Писать такой код очень не хотелось бы, тем более в тестовом фреймворке, который должен быть легковесным. Что же можно с этим сделать? Нужно использовать библиотеки, которые значительно облегчат жизнь.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;1. JDBI&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Имплементация этой библиотеки схожа с Groovy SQL. C использованием JBDI библиотеки можно будет писать такой вот код:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;DataSource ds = JdbcConnectionPool.create(&quot;jdbc:h2:mem:test&quot;,
+                                          &quot;username&quot;,
+                                          &quot;password&quot;);
+DBI dbi = new DBI(ds);
+Handle h = dbi.open();
+h.execute(&quot;create table something (id int primary key, name varchar(100))&quot;);
+h.execute(&quot;insert into something (id, name) values (?, ?)&quot;, 1, &quot;Brian&quot;);
+String name = h.createQuery(&quot;select name from something where id = :id&quot;)
+                    .bind(&quot;id&quot;, 1)
+                    .map(StringMapper.FIRST)
+                    .first();
+
+assertThat(name, equalTo(&quot;Brian&quot;));
+h.close();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очень не кисло и читабельно, более того - можно запросы мапить на объекты, что позволит еще больше упростить жизнь.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;2. JOOQ&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Библиотека, о которой я читал давно, но вот только сейчас руки дошли поработать с ней. Скажу сразу, я с ней просто игрался. Впечатление двоякое: во-первых, почему-то есть бесплатная и платная версия, во-вторых, она умеет делать кучу всего, чего только душе угодно, и из-за этого повышается сложность работы с ней. Пример кода:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;select(KeyColumnUsage.CONSTRAINT_NAME, KeyColumnUsage.TABLE_NAME, KeyColumnUsage.COLUMN_NAME)
+                .from(KEY_COLUMN_USAGE).join(TABLE_CONSTRAINTS)
+                .on(KeyColumnUsage.TABLE_SCHEMA.equal(TableConstraints.TABLE_SCHEMA))
+                .and(KeyColumnUsage.TABLE_NAME.equal(TableConstraints.TABLE_NAME))
+                .and(KeyColumnUsage.CONSTRAINT_NAME.equal(TableConstraints.CONSTRAINT_NAME))
+                .where(TableConstraints.CONSTRAINT_TYPE.equal(constraintType))
+                .and(KeyColumnUsage.TABLE_SCHEMA.equal(getSchemaName()))
+                .orderBy(KeyColumnUsage.TABLE_NAME.ascending(), KeyColumnUsage.ORDINAL_POSITION.ascending()).fetch()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично мое мнение: я бы не использовал ее на проекте, лучше уж что-то попроще, чем такие куски не совсем читабельного и плохо отлаживаемого кода.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;3. Querydsl&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще одна библиотека из разряда навороченных. Умеет делать кучу всего полезного. Код, который можно писать, выглядит вот так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;List&amp;lt;Person&amp;gt; persons = queryFactory.selectFrom(person)
+  .where(
+    person.firstName.eq(&quot;John&quot;),
+    person.lastName.eq(&quot;Doe&quot;))
+  .fetch();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мое мнение: слишком уж навороченная. К тому же, документация достаточно запутанная. Не люблю, когда для чего-то простого нужно перечитать тонну документации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;4. Sql2o&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Достаточно симпатичная библиотека, которая позволит вещи делать быстро и просто. На странице Github сами же разработчики пишут, что Sql2o является самой производительной библиотекой. Лично не проверял, оставил этот момент на совести разработчиков. Код можно писать такой:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class Task{
+    private int id;
+    private String category;
+    private Date dueDate;
+
+    // getters and setters here
+}
+
+Sql2o sql2o = new Sql2o(DB_URL, USER, PASS);
+
+String sql =
+    &quot;SELECT id, category, duedate &quot; +
+    &quot;FROM tasks &quot; +
+    &quot;WHERE category = :category&quot;;
+
+try(Connection con = sql2o.open()) {
+    List&amp;lt;Task&amp;gt; tasks = con.createQuery(sql)
+        .addParameter(&quot;category&quot;, &quot;foo&quot;)
+        .executeAndFetch(Task.class);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Личное мнение: все достаточно просто и удобно, хорошая документация с четкими и понятными примерами. Одно удручает - вот эти вот строки SQL с конкатенациями =(&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;5. Groovy SQL&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не могу не написать про Groovy еще раз. Ну вот нравится мне этот язык за гибкость и отсутствие &lt;strong&gt;boilerplate&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Только теперь я расскажу о том, как я написал свою обертку над стандартым DataSet и добавил метод удаления, которого у стандартного класса нету.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, чего хотелось? Хотелось уметь удалять записи из базы в таком вот виде:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;employees.delete {it.id &amp;gt; 5}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но такой возможности не было, делать select можно, а удалять нет. Что ж, пришлось написать такой вот класс:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class DataTable {
+
+    @Delegate
+    DataSet dataSet
+
+    DataTable(Sql sql, Class&amp;lt;?&amp;gt; type) {
+        dataSet = sql.dataSet(type)
+    }
+
+    def delete(Closure where) {
+        def visitor = getSqlWhereVisitor(where)
+        def whereClause = visitor.getWhere()
+        def params = visitor.getParameters()
+        def sql = &quot;DELETE FROM ${dataSet.@table} WHERE &quot; + whereClause
+        dataSet.@delegate.executeUpdate(sql, params)
+    }
+
+    protected SqlWhereVisitor getSqlWhereVisitor(Closure where) {
+        def visitor = new SqlWhereVisitor();
+        visit(where, visitor);
+        return visitor;
+    }
+
+    private void visit(Closure closure, CodeVisitorSupport visitor) {
+        if (closure != null) {
+            ClassNode classNode = closure.getMetaClass().getClassNode();
+            if (classNode == null) {
+                throw new GroovyRuntimeException(
+                        &quot;DataSet unable to evaluate expression. AST not available for closure: &quot; + closure.getMetaClass().getTheClass().getName() +
+                                &quot;. Is the source code on the classpath?&quot;);
+            }
+            List methods = classNode.getDeclaredMethods(&quot;doCall&quot;);
+            if (!methods.isEmpty()) {
+                MethodNode method = (MethodNode) methods.get(0);
+                if (method != null) {
+                    Statement statement = method.getCode();
+                    if (statement != null) {
+                        statement.visit(visitor);
+                    }
+                }
+            }
+        }
+    }
+
+    def add(Map... maps) {
+        for (row in maps) {
+            dataSet.add(row)
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После этого появилась возможность делать такие вот приятные штучки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;@Canonical
+class Employee {
+    Integer id
+    String name
+    String lastName
+    Integer age
+    Integer department
+}
+
+dbSettings = [
+        url: &apos;jdbc:hsqldb:hsql://localhost/cookingdb&apos;,
+        driver: &apos;org.hsqldb.jdbcDriver&apos;,
+        user: &apos;sa&apos;,
+        password: &apos;&apos;
+]
+
+def db = Sql.newInstance(dbSettings)
+def employees = new DataTable(db, Employee)
+
+employees.add(
+        [id: 5, name: &quot;vova&quot;, lastName: &quot;ivliv&quot;],
+        [id: 8, name: &quot;viktor&quot;, lastName: &quot;lovliv&quot;],
+        [id: 1, name: &quot;adam&quot;, lastName: &quot;bomobm&quot;, age: 23, department: &quot;5&quot;]
+)
+
+employees.delete { it.id == 5 || it.id == 6 }
+
+employees.findAll { it.id &amp;gt; 0 }.rows()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Один горький недостаток этого подхода - нельзя параметризовать запросы. Такой вот код не сработает:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def userId = 0
+employees.findAll { it.id &amp;gt; userId }.rows()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не очень удобно конечно, но это легко объезжается на велосипеде =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;def query = employees.findAll { it.id == &quot;:id&quot; &amp;amp;&amp;amp; it.name == &quot;:name&quot; }.sql
+
+db.eachRow(query, [id: 3, name: &quot;ivan&quot;]) {
+    println it
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этот раз все.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
