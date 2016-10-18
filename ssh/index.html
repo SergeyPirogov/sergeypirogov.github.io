@@ -80,103 +80,107 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">26/09/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">03/01/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Парсим командную строку с Groovy CliBuilder</h1>
+                        <h1 class="post-title">Как автоматизатору побороть SSH</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке хочу снова затронуть тему Groovy. Эта заметка будет ярким дополнением к уже написанным ранее:
-<a href="http://automation-remarks.com/learning-groovy/">о ресурсах, на которых можно найти много интересного про Groovy</a>.</p>
+<p>Хоу-хоу, надеюсь все отлично встретили Новый год и теперь ждут Рождества. Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку. В этот раз напишу о возможных вариантах работы с <strong>SSH</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="http://www.primalsecurity.net/wp-content/uploads/2014/08/terminal-md.png" alt="terminal md">
+<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q" alt="images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q">
 </div>
 </div>
 <div class="paragraph">
-<p>Итак, начнем с постановки задачи! Приходилось ли вам когда-нибудь писать свои библиотеки? А какие-нибудь утилиты, которые нужно запускать из командной строки?</p>
+<p>Я думаю, что люди, работающие с Linux, имеют достаточно хороший опыт работы с ssh. Для тех же, кто не знает и не пробовал, рекомендую почитать про <strong>ssh</strong>, <strong>putty</strong>, установить виртуалку с помощью <a href="http://automation-remarks.com/vagrant/">Vagrant</a> и поиграться.</p>
 </div>
 <div class="paragraph">
-<p>Вот мне приходилось! В частности <strong>JBehave</strong> reporter работает именно через командную строку. Теперь давайте подумаем, каким образом можно передавать параметры в наш jar файл, используя командную строку? Правильно - через аргументы командной строки, задавая VM options либо Program arguments. И вот если с VM options все более-менее понятно, то с вариантом аргументов приходится повозиться. Именно этот случай и рассмотрим.</p>
+<p>Приступим ближе к делу: зачем оно автоматизаторам и зачем я вообще затронул эту тему? Все очень просто! Если у вас на проекте есть linux сервера, то вам не избежать работы с ssh. У меня был опыт реализации такой задачи, когда нам нужно было закидывать конфигурационные файлы на сервер и смотреть, как себя поведет система после таких изменений. Делать это руками интересно, но только в первый раз =) Я заавтоматизировал этот процесс.</p>
 </div>
 <div class="paragraph">
-<p>Итак, давайте зададимся начальными условиями: чего хотим? Хотим передавать параметры в jar файл в любой последовательности и не переживать, что у нас что-то пойдет не так.</p>
+<p>Тогда я был маленьким джуниором и мое решение свелось к использованию библиотеки <strong>Jsch</strong>. Штука работала, но пришлось нахвататься проблем и опыта. Не буду вдаваться в подробности, просто посмотрите пример реализации <a href="http://www.jcraft.com/jsch/examples/Shell.java.html">здесь</a>.</p>
 </div>
 <div class="paragraph">
-<p>Будем смотреть на примере репортера. Раньше он запускался так:</p>
+<p>Гораздо проще пользоваться библиотеками-обертками, к примеру <a href="http://ssh.jcabi.com/">Jcabi-ssh</a>. Здесь и кода меньше и выглядит он поприятнее:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">java -jar reporter.jar D:\\jbehave D:\\report</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.jcabi.ssh.Shell;
+import com.jcabi.ssh.SSH;
+Shell shell = new SSH("example.com", 22, "username", "password");
+String stdout = new Shell.Plain(shell).exec("echo 'Hello, world!'");</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>На этом примере наглядно видно, что если поменять параметры местами, то все сломается; да и вообще человеку, который не писал эту штуку, будет непонятно, с какими аргументами ее запустить.</p>
+<p>Но все равно как-то выглядит не очень элегантно.</p>
 </div>
 <div class="paragraph">
-<p>Чтобы исправить эти неудобства, я использовал библиотеку, которая называется <strong>Groovy CliBuilder</strong>. С ее помощью можно легко парсить аргументы командной строки.</p>
+<p>Абсолютным победителем для меня является библиотека - <a href="https://github.com/aestasit/sshoogr">sshoogr</a>. По сути - это Groovy DSL для работы с SSH.</p>
 </div>
 <div class="paragraph">
-<p>В результате применения этой библиотеки у нас должно получиться такое вот:</p>
+<p>Посмотрите, как легко с ней работать:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">java -jar reporter.jar -g D:\\jbehave -d D:\\report</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Grab('com.aestasit.infrastructure.sshoogr:sshoogr:0.9.18')
+import static com.aestasit.infrastructure.ssh.DefaultSsh.*
+
+remoteSession('user2:654321@localhost:2222') {
+  exec 'rm -rf /tmp/*'
+  exec 'touch /var/lock/my.pid'
+  remoteFile('/var/my.conf').text = "enabled=true"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Казалось бы, добавилось всего две буквы, но на самом деле изменилось многое. Харош говорить - смотрим в код.</p>
+<p>Что стало для меня самым приятным, так это работа с файлами. К примеру:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">private static parse(String[] args) {
-        def cli = new CliBuilder(usage: 'reporter [options]')
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def file = "/root/home/test.txt"
+ def selenium = "selenium-server-standalone-2.48.2.jar"
 
-        cli.with {
-            h longOpt: 'help', 'Show usage information'
-            g longOpt: 'generate report', required: true, args: 1, 'Generate report based on files from folder'
-            d longOpt: 'report folder', args: 1, 'Generated report path'
-        }
+ //write to file
+ remoteFile(file).text = "Hello"
 
-        def options = cli.parse(args)
+ //read from file
+ print remoteFile(file).text
 
-        // print usage if -h, --help, or no argument is given
-        if (!options || options.h) {
-            cli.usage()
-            System.exit(1);
-        }
-
-        options
-    }</code></pre>
+ //copy file to remote host
+ scp {
+      from { localFile "/root/home/${selenium}"}
+      into { remoteFile "/root/remote/${selenium}" }
+ }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Этот кусок кода анализирует наш массив входных параметров и возвращает так называемые опции. На самом деле опции - не что иное, как Map ;). Но самая приятная вещь этой штуки скрывается вот в чем: если мы не передадим никаких параметров или передадим их неправильно, то вместо ужасного стектрейса у нас выведется такое вот сообщение:</p>
+<p>Вот как можно легко и просто делать вещи. Не нужно париться с тысячей try-catch блоков, просто бери и делай. А самое важное здесь то, что все это является кодом, вы можете писать свои функции и использовать их, вы можете использовать мощь <strong>GString</strong> для параметризации и многие другие фишки <strong>Groovy</strong>. Я жалею, что узнал о ней только когда начал разбираться с <strong>Groovy</strong>.</p>
 </div>
 <div class="paragraph">
-<p>image::/images/ter.png</p>
+<p><strong>P.S</strong></p>
 </div>
 <div class="paragraph">
-<p>Обратите внимание на понятность сообщения. Любой, прочитав его, сможет понять, какие параметры доступны и за что они отвечают.</p>
-</div>
-<div class="paragraph">
-<p>В самом же коде все предельно просто: чтобы достать значение любого ключа, нужно просто написать:</p>
+<p>В бочке меда не без ложки дегтя: у меня почему-то не сработал вариант конфигурации:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def folderPath = options.d
-def sourceFiles = options.g</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">remoteSession {
+
+  host = 'localhost'
+  username = 'user2'
+  password = '654321'
+  port = 2222
+
+  ...
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь вы можете не переживать за порядок передачи аргументов через командную строку.</p>
-</div>
-<div class="paragraph">
-<p><strong>P.S.</strong> Для чистой <strong>Java</strong> есть реализация подобной библиотеки, называется она <strong>Apache Commons Cli</strong>.
-На этом все. До новых заметок.</p>
+<p>Возможно, я что-то недосмотрел, но во всех остальных случаях работает отлично. На этом все! спасибо, что читали. Возможно, эта заметка поможет в будущем решать подобные проблемы проще и эффективнее. Счастливого Рождества всем! Подписывайтесь - в 2016 будем на связи&#8230;&#8203;</p>
 </div>
                     </section>
 
@@ -187,13 +191,13 @@ def sourceFiles = options.g</code></pre>
                                     <a href="/tags/Groovy.html">Groovy</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Парсим командную строку с Groovy CliBuilder&url=parse-command-line/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Как автоматизатору побороть SSH&url=ssh/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=parse-command-line/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=ssh/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=parse-command-line/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=ssh/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -209,7 +213,6 @@ def sourceFiles = options.g</code></pre>
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/anons-sqa-days-19/index.html">Анонс SQA Days 19</a></li>
-                                                <li><a class='js-ajax-link' href="/ssh/index.html">Как автоматизатору побороть SSH</a></li>
                                                 <li><a class='js-ajax-link' href="/groovy-matcher/index.html">Делаем матчеры веселее с Groovy</a></li>
                                                 <li><a class='js-ajax-link' href="/performance-lecture/index.html">Введение в нагрузочное тестирование</a></li>
                                                 <li><a class='js-ajax-link' href="/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html">Три способа поднять Jenkins CI для ваших автотестов</a></li>

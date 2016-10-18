@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>localhost/author/index.html</loc>
-        <lastmod>2016-10-17</lastmod>
+        <lastmod>2016-10-18</lastmod>
     </url>
     <url>
         <loc>localhost/budtie-ostorozhny-s-testng-lisienierami/index.html</loc>
@@ -15,6 +15,10 @@
     <url>
         <loc>localhost/anons-sqa-days-19/index.html</loc>
         <lastmod>2016-01-30</lastmod>
+    </url>
+    <url>
+        <loc>localhost/ssh/index.html</loc>
+        <lastmod>2016-01-03</lastmod>
     </url>
     <url>
         <loc>localhost/groovy-matcher/index.html</loc>

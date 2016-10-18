@@ -6,8 +6,8 @@
     <atom:link href="localhost/feed.xml" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Oct 2016 14:57:37 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 14:57:37 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 09:32:36 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 09:32:36 +0000</lastBuildDate>
 
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
@@ -298,6 +298,109 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>Как автоматизатору побороть SSH</title>
+      <link>localhost/ssh/index.html</link>
+      <pubDate>Sun, 3 Jan 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">ssh/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хоу-хоу, надеюсь все отлично встретили Новый год и теперь ждут Рождества. Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку. В этот раз напишу о возможных вариантах работы с &lt;strong&gt;SSH&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q&quot; alt=&quot;images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я думаю, что люди, работающие с Linux, имеют достаточно хороший опыт работы с ssh. Для тех же, кто не знает и не пробовал, рекомендую почитать про &lt;strong&gt;ssh&lt;/strong&gt;, &lt;strong&gt;putty&lt;/strong&gt;, установить виртуалку с помощью &lt;a href=&quot;http://automation-remarks.com/vagrant/&quot;&gt;Vagrant&lt;/a&gt; и поиграться.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Приступим ближе к делу: зачем оно автоматизаторам и зачем я вообще затронул эту тему? Все очень просто! Если у вас на проекте есть linux сервера, то вам не избежать работы с ssh. У меня был опыт реализации такой задачи, когда нам нужно было закидывать конфигурационные файлы на сервер и смотреть, как себя поведет система после таких изменений. Делать это руками интересно, но только в первый раз =) Я заавтоматизировал этот процесс.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тогда я был маленьким джуниором и мое решение свелось к использованию библиотеки &lt;strong&gt;Jsch&lt;/strong&gt;. Штука работала, но пришлось нахвататься проблем и опыта. Не буду вдаваться в подробности, просто посмотрите пример реализации &lt;a href=&quot;http://www.jcraft.com/jsch/examples/Shell.java.html&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гораздо проще пользоваться библиотеками-обертками, к примеру &lt;a href=&quot;http://ssh.jcabi.com/&quot;&gt;Jcabi-ssh&lt;/a&gt;. Здесь и кода меньше и выглядит он поприятнее:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import com.jcabi.ssh.Shell;
+import com.jcabi.ssh.SSH;
+Shell shell = new SSH(&quot;example.com&quot;, 22, &quot;username&quot;, &quot;password&quot;);
+String stdout = new Shell.Plain(shell).exec(&quot;echo &apos;Hello, world!&apos;&quot;);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но все равно как-то выглядит не очень элегантно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Абсолютным победителем для меня является библиотека - &lt;a href=&quot;https://github.com/aestasit/sshoogr&quot;&gt;sshoogr&lt;/a&gt;. По сути - это Groovy DSL для работы с SSH.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Посмотрите, как легко с ней работать:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Grab(&apos;com.aestasit.infrastructure.sshoogr:sshoogr:0.9.18&apos;)
+import static com.aestasit.infrastructure.ssh.DefaultSsh.*
+
+remoteSession(&apos;user2:654321@localhost:2222&apos;) {
+  exec &apos;rm -rf /tmp/*&apos;
+  exec &apos;touch /var/lock/my.pid&apos;
+  remoteFile(&apos;/var/my.conf&apos;).text = &quot;enabled=true&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что стало для меня самым приятным, так это работа с файлами. К примеру:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;def file = &quot;/root/home/test.txt&quot;
+ def selenium = &quot;selenium-server-standalone-2.48.2.jar&quot;
+
+ //write to file
+ remoteFile(file).text = &quot;Hello&quot;
+
+ //read from file
+ print remoteFile(file).text
+
+ //copy file to remote host
+ scp {
+      from { localFile &quot;/root/home/${selenium}&quot;}
+      into { remoteFile &quot;/root/remote/${selenium}&quot; }
+ }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот как можно легко и просто делать вещи. Не нужно париться с тысячей try-catch блоков, просто бери и делай. А самое важное здесь то, что все это является кодом, вы можете писать свои функции и использовать их, вы можете использовать мощь &lt;strong&gt;GString&lt;/strong&gt; для параметризации и многие другие фишки &lt;strong&gt;Groovy&lt;/strong&gt;. Я жалею, что узнал о ней только когда начал разбираться с &lt;strong&gt;Groovy&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В бочке меда не без ложки дегтя: у меня почему-то не сработал вариант конфигурации:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;remoteSession {
+
+  host = &apos;localhost&apos;
+  username = &apos;user2&apos;
+  password = &apos;654321&apos;
+  port = 2222
+
+  ...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Возможно, я что-то недосмотрел, но во всех остальных случаях работает отлично. На этом все! спасибо, что читали. Возможно, эта заметка поможет в будущем решать подобные проблемы проще и эффективнее. Счастливого Рождества всем! Подписывайтесь - в 2016 будем на связи&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
