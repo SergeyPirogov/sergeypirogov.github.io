@@ -80,135 +80,162 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">28/03/2015</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">28/08/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">А как вы логируете?</h1>
+                        <h1 class="post-title">Java Video Recorder 1.0.8 is production ready</h1>
                     </header>
 
                     <section class="post-content">
-                        <div class="paragraph">
-<p>Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
-Итак, начну с предыстории. Есть у меня проект который организован на основе <strong>Spring + Jbehave + Selenium</strong>, все вроде как хорошо, тесты бегают, тесты падают. Но вот бывает такое, что тест идет и в одном методе выполняется пару действий - понять какое именно действие вызывает фейл, бывает очень сложно. Что в таком случае делать? Правильно - начинать логировать. А как логировать? Очень просто берем <strong>Slf4j</strong> делаем:</p>
+                        <div class="imageblock">
+<div class="content">
+<img src="http://sr.photos1.fotosearch.com/bthumb/CSP/CSP992/k13975116.jpg" alt="k13975116">
+</div>
+</div>
+<div class="paragraph">
+<p>Well, it took some time to make video recorder stable. I&#8217;ve added a couple useful features since version 1.0.1.</p>
+</div>
+<div class="paragraph">
+<p>So let&#8217;s make it clear and answer the question "What kind of problems does it solve?".</p>
+</div>
+<div class="paragraph">
+<p>The main idea was to create a library that provides an easy way to record video during test execution. It doesn&#8217;t matter what java test runner you use, it supports JUnit, TestNG and Spock.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s look at some real cases. For example you have a lot of automated test scenarios in your project, but some test scripts are flaky.</p>
+</div>
+<div class="paragraph">
+<p>So you have two options:</p>
+</div>
+<div class="paragraph">
+<p>First is to delete them from test execution because you have already spend a huge amount of time to debug them.</p>
+</div>
+<div class="paragraph">
+<p>Second one is to add Video recorder, catch all the problems, fix them and be happy.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, to add video recording support in your existing test automations framework require three simple steps:</p>
+</div>
+<div class="paragraph">
+<p><strong>1.Add project dependency</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class SomePage {
-    private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.automation-remarks&lt;/groupId&gt;
+    &lt;artifactId&gt;video-recorder-junit&lt;/artifactId&gt;
+    &lt;version&gt;1.0.8&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>2.Add JUnit rule to you test class</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.automation.remarks.video.junit.VideoRule;
+import org.junit.Rule;
 
-    public void someMethod(){
-        LOG.info("something happens");
-    }
+public class JUnitVideoTest {
+
+    @Rule
+    public VideoRule videoRule = new VideoRule();
+
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Как любит говорить один мой знакомый: "казалось бы". Но здесь всего один метод. При увеличении строк кода, логер будет пропорционально захламлять код. В дополнение не всегда хочеться писать вот эту вот строку в каждом классе:</p>
+<p><strong>3.Add test and mark it with </strong>@Video<strong> annotation:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.automation.remarks.video.annotations.Video;
+import com.automation.remarks.video.junit.VideoRule;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertTrue;
+
+public class JUnitVideoTest {
+
+    @Rule
+    public VideoRule videoRule = new VideoRule();
+
+    @Test
+    @Video
+    public void shouldFailAndCreateRecordWithTestName() {
+        // test code
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Да, можно использовать <strong>Lombook</strong>, но не все положительно относятся к библиотекам такого рода.
-Передем к более насущной проблеме, скажем есть у вас метод:</p>
+<p>That&#8217;s all! Now if your test fails, video will be recordered automatically.</p>
+</div>
+<div class="paragraph">
+<p>The same scenario can be done for TestNG, please refer to <a href="https://sergeypirogov.github.io/video-recorder-java/">documetation</a></p>
+</div>
+<div class="paragraph">
+<p>Isn&#8217;t it cool?</p>
+</div>
+<div class="paragraph">
+<p>But hold on, it has even more features such as configurations and @Video annotation parameters.</p>
+</div>
+<div class="paragraph">
+<p><strong>@Video</strong> annotation takes two optional parameters. By setting values to them you can override video file name or disable video recording for one particular test.</p>
+</div>
+<div class="paragraph">
+<p>Video configuration example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public void login(User user){
-    driver.find(By.id("login")).sendKeys(user.name);
-    driver.find(By.id("pass")).sendKeys(user.pass);
-    driver.find(By.id("login_btn")).click();
-}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">VideoRecorder.conf()
+                .withVideoFolder("custom_folder")
+                .videoEnabled(true)
+                .withVideoSaveMode(VideoSaveMode.ALL)
+                .withRecordMode(RecordingMode.ANNOTATED);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Как здесь залогировать то, что я заполнил два поля и тыцнул на кнопку? Первое что приходит на ум - просто добавить логер. А куда добавлять? Перед действием или после? А если я хочу и там и там? Давайте посмотрим:</p>
+<p>As you can see it allows to override default parameters.</p>
+</div>
+<div class="paragraph">
+<p>All this parameters can be passed by command line, for example if you are executing you test in CI server.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public void login(User user){
-    LOG.info("Type login {}",user.name);
-    driver.find(By.id("login")).sendKeys(user.name);
-    LOG.info("Type password {}",user.pass);
-    driver.find(By.id("pass")).sendKeys(user.pass);
-    LOG.info("Click login btn);
-    driver.find(By.id("login_btn")).click();
-}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">mvn test -Dvideo.folder="custom_folder"
+         -Dvideo.enabled=true
+         -Dvideo.mode=ANNOTATED
+         -Dvideo.save.mode=ALL</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Последний кусок кода выглядит просто ужасно. В таких ситуациях очень кстати приходиться <strong>Selenium WebDriver Event Listener Interface</strong>. Этот интерфейс предоставляет доступ ко всем основным действиям драйвера:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class EventHandler implements WebDriverEventListener{
-
-    public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterClickOn(WebElement arg0, WebDriver arg1) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterNavigateBack(WebDriver arg0) {
-    // TODO Auto-generated method stub
-    }
-    ...
-}</code></pre>
-</div>
+<p>Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN&#8217;T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.</p>
 </div>
 <div class="paragraph">
-<p>Все что нужно сделать, просто реализовать методы, затем зарегистрировать ваш листенер и начать наслаждаться происходящим:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        FirefoxDriver driver = new FirefoxDriver();
-        EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
-
-        EventHandler handler = new EventHandler();
-        eventDriver.register(handler);
-        eventDriver.get("http://www.toolsqa.com/automation-practice-switch-windows/");
-        WebElement element = eventDriver.findElement(By.id("target"));
-        element.click();
-
-    }
-}</code></pre>
-</div>
+<p>I hope this library will make life of test automation engineers easier and will help to detect fix flaky tests.</p>
 </div>
 <div class="paragraph">
-<p>Используя такой подход можно легко и просто залогировать все действия драйвера.</p>
+<p>P/S Project is licensed under Apache 2.0 and can be found publicly available on <a href="https://github.com/SergeyPirogov/video-recorder-java">GITHUB</a>.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/REST.html">REST</a>
                                     <a href="/tags/Java.html">Java</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=А как вы логируете?&url=a-kak-vy-loghiruietie/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Java Video Recorder 1.0.8 is production ready&url=java-video-recorder-1-0-8/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=a-kak-vy-loghiruietie/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=java-video-recorder-1-0-8/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=a-kak-vy-loghiruietie/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=java-video-recorder-1-0-8/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -223,7 +250,6 @@ public class Main {
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
-                                                <li><a class='js-ajax-link' href="/java-video-recorder-1-0-8/index.html">Java Video Recorder 1.0.8 is production ready</a></li>
                                                 <li><a class='js-ajax-link' href="/github-travis-docs/index.html">Документация к проекту на Github c AsciiDoctor и Travis CI</a></li>
                                                 <li><a class='js-ajax-link' href="/avtomatizatsiia-i-kino/index.html">Избавьтесь от нестабильных тестов с VideoRecorder</a></li>
                                                 <li><a class='js-ajax-link' href="/seleniumcamp-2016-vidieo/index.html">SeleniumCamp 2016 видео</a></li>
