@@ -33,12 +33,12 @@ image::/images/qa_fest_photo.jpg[]
 - Kharkiv QA Club
 - QA Expert day Odessa
 
-image::http://automation-remarks.com/content/images/2016/05/eIwqM1DZ7Mo.jpg[]
+image::/images/qa_conf.jpg[]
 
 Самым большим успехом считаю выступление на http://seleniumcamp.com/[Selenium Camp 2016].
 По итогам http://xpinjection.com/2016/03/16/selenium-camp-2016-review/[зрительского голосования], я попал в тройку лучших спикеров.
 
-image::http://automation-remarks.com/content/images/2016/05/32_YSXxA0KY.jpg[]
+image::/images/sel_camp.jpg[]
 
 Этот блог - попытка поделиться накопленными знаниями с людьми, которые интересуются автоматизацией тестирования.
 
