@@ -6,13 +6,13 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Oct 2016 19:56:59 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 19:56:59 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 05:31:49 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 05:31:49 +0000</lastBuildDate>
 
     <item>
       <title>6 способов работы с проперти файлами</title>
       <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
-      <pubDate>Tue, 18 Oct 2016 19:54:55 +0000</pubDate>
+      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
       <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
@@ -28,7 +28,7 @@
     <item>
       <title>А как вы логируете?</title>
       <link>http://automation-remarks.com/a-kak-vy-loghiruietie/index.html</link>
-      <pubDate>Tue, 18 Oct 2016 19:54:55 +0000</pubDate>
+      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
       <guid isPermaLink="false">a-kak-vy-loghiruietie/index.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
@@ -143,7 +143,7 @@ public class Main {
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
       <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-      <pubDate>Tue, 18 Oct 2016 19:54:55 +0000</pubDate>
+      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
       <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
