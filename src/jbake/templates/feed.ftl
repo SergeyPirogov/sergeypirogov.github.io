@@ -10,7 +10,7 @@
     <description>
         <![CDATA[Автоматизация рутины приоритетнее давления массой]]>
     </description>
-    <link>http://automation-remarks.com/</link>
+    <link>http://automation-remarks.com</link>
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
