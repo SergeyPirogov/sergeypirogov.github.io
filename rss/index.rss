@@ -10,19 +10,19 @@
     <description>
         <![CDATA[Автоматизация рутины приоритетнее давления массой]]>
     </description>
-    <link>http://automation-remarks.com/</link>
+    <link>http://automation-remarks.com</link>
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 19 Oct 2016 12:04:06 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 12:04:06 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 12:41:49 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 12:41:49 +0000</lastBuildDate>
 
         <item>
           <title>
               Будьте осторожны с TestNG лисенерами
           </title>
           <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-          <pubDate>Wed, 19 Oct 2016 12:01:29 +0000</pubDate>
+          <pubDate>Wed, 19 Oct 2016 12:39:27 +0000</pubDate>
           <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
           <description>
                         Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
