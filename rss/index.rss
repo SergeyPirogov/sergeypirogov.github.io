@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 19 Oct 2016 13:34:01 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 13:34:01 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 13:43:44 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 13:43:44 +0000</lastBuildDate>
 
         <item>
           <title>
               Будьте осторожны с TestNG лисенерами
           </title>
           <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-          <pubDate>Wed, 19 Oct 2016 13:31:08 +0000</pubDate>
+          <pubDate>Wed, 19 Oct 2016 13:41:34 +0000</pubDate>
           <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
           <description>
                         Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
