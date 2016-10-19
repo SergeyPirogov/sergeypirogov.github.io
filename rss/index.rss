@@ -1,21 +1,34 @@
-<?xml version="1.0"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Заметки Автоматизатора</title>
+    <title>
+        <![CDATA[Заметки Автоматизатора]]>
+    </title>
+    <description>
+        <![CDATA[Автоматизация рутины приоритетнее давления массой]]>
+    </description>
     <link>http://automation-remarks.com/</link>
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
-    <description>Заметки Автоматизатора</description>
+    <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 19 Oct 2016 06:44:33 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 06:44:33 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 12:04:06 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 12:04:06 +0000</lastBuildDate>
 
-    <item>
-      <title>Будьте осторожны с TestNG лисенерами</title>
-      <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-      <pubDate>Wed, 19 Oct 2016 06:42:10 +0000</pubDate>
-      <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+        <item>
+          <title>
+              Будьте осторожны с TestNG лисенерами
+          </title>
+          <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
+          <pubDate>Wed, 19 Oct 2016 12:01:29 +0000</pubDate>
+          <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
+          <description>
+                        Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -217,15 +230,20 @@ class TestClass{
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Успехов и до новых заметок..&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>QAFest 2016: ретроспектива</title>
-      <link>http://automation-remarks.com/qafest-2016-rietrospiektiva/index.html</link>
-      <pubDate>Sun, 2 Oct 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">qafest-2016-rietrospiektiva/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAFest 2016: ретроспектива
+          </title>
+          <link>http://automation-remarks.com/qafest-2016-rietrospiektiva/index.html</link>
+          <pubDate>Sun, 2 Oct 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">qafest-2016-rietrospiektiva/index.html</guid>
+          <description>
+                        Спешу поделиться своими впечатления о прошедшей, уже третьей по счету, конференции QAFest.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Как и в прошлом &lt;a href=&quot;http://automation-remarks/qafest-retrospective/&quot;&gt;году&lt;/a&gt;, мне посчастливилось посетить это мероприятие в качестве докладчика.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -273,15 +291,20 @@ class TestClass{
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Конференция &lt;strong&gt;QAFest 2016&lt;/strong&gt; закончилась, а впереди целый год для поиска и подготовки новых интересных и полезных докладов для &lt;strong&gt;QAFest 2017&lt;/strong&gt; :D&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Java Video Recorder 1.0.8 is production ready</title>
-      <link>http://automation-remarks.com/java-video-recorder-1-0-8/index.html</link>
-      <pubDate>Sun, 28 Aug 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">java-video-recorder-1-0-8/index.html</guid>
-      	<description>
-	&lt;div class=&quot;imageblock&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Java Video Recorder 1.0.8 is production ready
+          </title>
+          <link>http://automation-remarks.com/java-video-recorder-1-0-8/index.html</link>
+          <pubDate>Sun, 28 Aug 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">java-video-recorder-1-0-8/index.html</guid>
+          <description>
+                        Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;img src=&quot;http://sr.photos1.fotosearch.com/bthumb/CSP/CSP992/k13975116.jpg&quot; alt=&quot;k13975116&quot;&gt;
 &lt;/div&gt;
@@ -415,15 +438,20 @@ public class JUnitVideoTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;P/S Project is licensed under Apache 2.0 and can be found publicly available on &lt;a href=&quot;https://github.com/SergeyPirogov/video-recorder-java&quot;&gt;GITHUB&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Документация к проекту на Github c AsciiDoctor и Travis CI</title>
-      <link>http://automation-remarks.com/github-travis-docs/index.html</link>
-      <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">github-travis-docs/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Документация к проекту на Github c AsciiDoctor и Travis CI
+          </title>
+          <link>http://automation-remarks.com/github-travis-docs/index.html</link>
+          <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">github-travis-docs/index.html</guid>
+          <description>
+                        В данной заметке хочу поговорить о создании качественной документации к проектам.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В данной заметке хочу поговорить о создании качественной документации к проектам. Почему это важно? Однажды я услышал одну очень правильную мысль: хорошая документация позволяет экономить деньги проекта. Каким образом? Давайте разберемся!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -499,15 +527,20 @@ public class JUnitVideoTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Лично мне этот подход очень понравился. Теперь я стараюсь применять его для всех своих проектов. Хорошей вам документации и до встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Избавьтесь от нестабильных тестов с VideoRecorder</title>
-      <link>http://automation-remarks.com/avtomatizatsiia-i-kino/index.html</link>
-      <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">avtomatizatsiia-i-kino/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Избавьтесь от нестабильных тестов с VideoRecorder
+          </title>
+          <link>http://automation-remarks.com/avtomatizatsiia-i-kino/index.html</link>
+          <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">avtomatizatsiia-i-kino/index.html</guid>
+          <description>
+                        В этот раз хочу поделиться парой мыслей по поводу нестабильных тестов и способами борьбы с ними.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Привет, новая заметка немного подзадержалась, так как я готовлюсь к поездке на &lt;a href=&quot;http://qaconf.ru/speakers.html&quot;&gt;QA Conference&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -576,15 +609,20 @@ public void testName2() throws Exception {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Если вам интересна данная идея, напишите в комментариях свои мысли&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>SeleniumCamp 2016 видео</title>
-      <link>http://automation-remarks.com/seleniumcamp-2016-vidieo/index.html</link>
-      <pubDate>Tue, 10 May 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">seleniumcamp-2016-vidieo/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              SeleniumCamp 2016 видео
+          </title>
+          <link>http://automation-remarks.com/seleniumcamp-2016-vidieo/index.html</link>
+          <pubDate>Tue, 10 May 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">seleniumcamp-2016-vidieo/index.html</guid>
+          <description>
+                        Наконец-то появились видео с прошедшего SeleniumCamp.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Наконец-то появились видео с прошедшего &lt;a href=&quot;http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/&quot;&gt;SeleniumCamp&lt;/a&gt;. По результатам отзывов я вошел в тройку лучших спикеров.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -603,15 +641,20 @@ public void testName2() throws Exception {
 &lt;iframe src=&quot;https://www.youtube.com/embed/cW6DSthdLaw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Автоматизация в контейнере с TestContainers</title>
-      <link>http://automation-remarks.com/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</link>
-      <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Автоматизация в контейнере с TestContainers
+          </title>
+          <link>http://automation-remarks.com/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</link>
+          <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html</guid>
+          <description>
+                        Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов. Вчера хорошо посидели на &lt;strong&gt;Radio QA&lt;/strong&gt;, но так как из-за проблем со Skype я ушел из эфира раньше всех и не успел рассказать об одной интересной библиотеке, которую нарыл на просторах интернета, а точнее на Github, решил написать статью. Называется она &lt;strong&gt;TestContainers&lt;/strong&gt;. Что она позволяет делать? Она умеет по требованию поднимать &lt;strong&gt;Docker&lt;/strong&gt; контейнер и использовать его для ваших нужд.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -728,15 +771,20 @@ public BrowserWebDriverContainer chrome =
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Но без горечи не обойтись. Первый раз эта штука стартует очень долго, так как Docker должен спулить образ контейнера из репозитория. Возможность использовать с JUnit Rule есть, но мне это показалось глупой идеей, так как после каждого теста мы пересоздаем контейнер, а это занимает приличное количество времени. Именно поэтому в примере я показал альтернативный метод запуска контейнера, к тому же, таким образом вы можете использовать эту библиотреку с TestNG или любым другим фреймворком.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Копаемся в закромах Jenkins</title>
-      <link>http://automation-remarks.com/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</link>
-      <pubDate>Sun, 6 Mar 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Копаемся в закромах Jenkins
+          </title>
+          <link>http://automation-remarks.com/kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</link>
+          <pubDate>Sun, 6 Mar 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">kakuiu-polzu-docker-mozhiet-priniesti-avtomatizatoru/index.html</guid>
+          <description>
+                        Такая вот темка, о которой захотелось написать после альфа релиза Jenkins 2.0.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Такая вот темка, о которой захотелось написать после альфа релиза Jenkins 2.0. У нас всех на проектах есть CI сервер. У вас нету? Плохо, нужно срочно завести. Если вы не знаете, что такое Jenkins, можете посмотреть &lt;a href=&quot;http://automation-remarks.com/ci-build-tools-for-newbies/&quot;&gt;видео&lt;/a&gt;, либо почитать о &lt;a href=&quot;http://automation-remarks.com/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/&quot;&gt;способах настройки&lt;/a&gt; Jenkins CI у себя на проекте.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -828,15 +876,20 @@ public BrowserWebDriverContainer chrome =
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;На этом все.. Если у вас есть чем поделиться, пишите, давайте шарить знания вместе.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>SeleniumCamp 2016: ретроспектива</title>
-      <link>http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html</link>
-      <pubDate>Sun, 28 Feb 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">seleniumcamp-2016-rietrospiektiva/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              SeleniumCamp 2016: ретроспектива
+          </title>
+          <link>http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html</link>
+          <pubDate>Sun, 28 Feb 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">seleniumcamp-2016-rietrospiektiva/index.html</guid>
+          <description>
+                        Хочу поделиться своими впечатлениями от посещения конференции SeleniumCamp 2016
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хочу поделиться своими впечатлениями от посещения конференции &lt;a href=&quot;http://seleniumcamp.com/&quot;&gt;SeleniumCamp 2016&lt;/a&gt;, которая проходила 26-27 февраля 2016 года в Киеве.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -871,15 +924,20 @@ public BrowserWebDriverContainer chrome =
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Из докладов хочу отметить &lt;strong&gt;Николая Алименкова&lt;/strong&gt; и его мега-фреймворк,Игоря Хрола, который кодил на &lt;strong&gt;Ruby&lt;/strong&gt; прямо во время доклада и по традиции показал всем, как должна выглядеть пирамида автоматизации. Очень порадовал доклад &lt;strong&gt;Алексея Буля&lt;/strong&gt;, в котором он показал один из способов разделить тестирование back-end и ui. Действительно полезным стал доклад Андрея Солдатенко, который показал способ настройки &lt;strong&gt;Jenkins CI&lt;/strong&gt;, теперь я точно не буду настраивать его каждый раз руками;) Во второй день мне больше всего понравился доклад Сергея Короля - простые, но очень полезные советы по прикручиванию Hibernate и TestNG. Ну и завершил для меня конференцию доклад о тестировании Android и IOS приложений с помощью appium от Justin Ison (Germany). Теперь я знаю, как разворачивать Mobile Grid. Напоследок: я вчера уже благодарил организаторов за предоставленную возможность выступить. Хочу сказать еще раз большое спасибо! Я рад, что стал частью &lt;strong&gt;SeleniumCamp 2016&lt;/strong&gt;, и, надеюсь, мы увидимся в следующем году;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Боль при параллелизации тестов</title>
-      <link>http://automation-remarks.com/bol-parallielizatsii-tiestov/index.html</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">bol-parallielizatsii-tiestov/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Боль при параллелизации тестов
+          </title>
+          <link>http://automation-remarks.com/bol-parallielizatsii-tiestov/index.html</link>
+          <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">bol-parallielizatsii-tiestov/index.html</guid>
+          <description>
+                        Хочу поделиться личным опытом параллелизации тестов и выводами, которые я для себя сделал.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хочу поделиться личным опытом параллелизации тестов и выводами, которые я для себя сделал.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -942,15 +1000,20 @@ public BrowserWebDriverContainer chrome =
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;На этой мажорной ноте желаю вам думать о параллелизации еще на самом старте проекта и отдавать предпочтение автоматизации, которая делает свою работу и приносит пользу проекту в целом. Спасибо, что вы с нами&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Анонс SQA Days 19</title>
-      <link>http://automation-remarks.com/anons-sqa-days-19/index.html</link>
-      <pubDate>Sat, 30 Jan 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">anons-sqa-days-19/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Анонс SQA Days 19
+          </title>
+          <link>http://automation-remarks.com/anons-sqa-days-19/index.html</link>
+          <pubDate>Sat, 30 Jan 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">anons-sqa-days-19/index.html</guid>
+          <description>
+                        Компания &quot;Лаборатория тестирования&quot; объявила даты проведения Software Quality Assurance Days...
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Компания &quot;Лаборатория тестирования&quot; объявила даты проведения Software Quality Assurance Days - крупнейшей в СНГ международной конференции по вопросам качества программного обеспечения. Следующая, девятнадцатая по счету конференция пройдет 20-21 мая в Санкт-Петербурге. Культурная столица примет конференцию уже в четвертый раз.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -968,15 +1031,20 @@ public BrowserWebDriverContainer chrome =
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пока расписание конференции формируется, организаторы будут рады конструктивным предложениям и, конечно же, новым докладчикам. Предложить собственный доклад на конференцию можно через форму на сайте SQA Days.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Красивый Soft Assert</title>
-      <link>http://automation-remarks.com/dieistvitielno-krasivyi-soft-assert/index.html</link>
-      <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">dieistvitielno-krasivyi-soft-assert/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Красивый Soft Assert
+          </title>
+          <link>http://automation-remarks.com/dieistvitielno-krasivyi-soft-assert/index.html</link>
+          <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">dieistvitielno-krasivyi-soft-assert/index.html</guid>
+          <description>
+                        Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться. Я уже писал о &lt;a href=&quot;http://automation-remarks.com/davaitie-poghovorim-pro-asserty/&quot;&gt;библиотеках&lt;/a&gt;, которые упрощают написание ассертов и делают их более читабельными.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1114,15 +1182,20 @@ softAsserts {
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Лаконичный PageObject с GroovyPage + Selenide</title>
-      <link>http://automation-remarks.com/groovy-page/index.html</link>
-      <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">groovy-page/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Лаконичный PageObject с GroovyPage + Selenide
+          </title>
+          <link>http://automation-remarks.com/groovy-page/index.html</link>
+          <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">groovy-page/index.html</guid>
+          <description>
+                        Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1290,15 +1363,20 @@ class MainPageWithComponent {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Оставайтесь на связи, подписывайтесь на группы в Facebook и &lt;a href=&quot;https://github.com/SergeyPirogov/GroovyPage&quot;&gt;Вконтакте&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Работа с базой данных без боли и страданий</title>
-      <link>http://automation-remarks.com/working-with-database/index.html</link>
-      <pubDate>Sat, 9 Jan 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">working-with-database/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Работа с базой данных без боли и страданий
+          </title>
+          <link>http://automation-remarks.com/working-with-database/index.html</link>
+          <pubDate>Sat, 9 Jan 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">working-with-database/index.html</guid>
+          <description>
+                        Уже очень давно я писал заметку про работу с базой данных с использованием Groovy.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Уже очень давно я писал &lt;a href=&quot;http://automation-remarks.com/maghiia-groovy-i-sql/&quot;&gt;заметку&lt;/a&gt; про работу с базой данных с использованием &lt;strong&gt;Groovy&lt;/strong&gt;. В этот раз хочу более глубоко раскрыть тему.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -1580,15 +1658,20 @@ db.eachRow(query, [id: 3, name: &quot;ivan&quot;]) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;На этот раз все.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Как автоматизатору побороть SSH</title>
-      <link>http://automation-remarks.com/ssh/index.html</link>
-      <pubDate>Sun, 3 Jan 2016 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">ssh/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как автоматизатору побороть SSH
+          </title>
+          <link>http://automation-remarks.com/ssh/index.html</link>
+          <pubDate>Sun, 3 Jan 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">ssh/index.html</guid>
+          <description>
+                        Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хоу-хоу, надеюсь все отлично встретили Новый год и теперь ждут Рождества. Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку. В этот раз напишу о возможных вариантах работы с &lt;strong&gt;SSH&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -1683,15 +1766,20 @@ remoteSession(&apos;user2:654321@localhost:2222&apos;) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Возможно, я что-то недосмотрел, но во всех остальных случаях работает отлично. На этом все! спасибо, что читали. Возможно, эта заметка поможет в будущем решать подобные проблемы проще и эффективнее. Счастливого Рождества всем! Подписывайтесь - в 2016 будем на связи&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Делаем матчеры веселее с Groovy</title>
-      <link>http://automation-remarks.com/groovy-matcher/index.html</link>
-      <pubDate>Tue, 22 Dec 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">groovy-matcher/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Делаем матчеры веселее с Groovy
+          </title>
+          <link>http://automation-remarks.com/groovy-matcher/index.html</link>
+          <pubDate>Tue, 22 Dec 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">groovy-matcher/index.html</guid>
+          <description>
+                        Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy. Я уже писал ряд заметок как о Groovy, так и о создании матчеров для Hamcrest. Теперь опишу свою борьбу с написанием такого же матчера только в Groovy style.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -1901,15 +1989,20 @@ extensionClasses = org.example.MatchersExtention&lt;/code&gt;&lt;/pre&gt;
 &lt;img src=&quot;http://www.stickbutik.ru/upload/iblock/1f3/1f3417a4cb7b36be3b530db5c95a674b.png&quot; alt=&quot;1f3417a4cb7b36be3b530db5c95a674b&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Введение в нагрузочное тестирование</title>
-      <link>http://automation-remarks.com/performance-lecture/index.html</link>
-      <pubDate>Sat, 12 Dec 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">performance-lecture/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Введение в нагрузочное тестирование
+          </title>
+          <link>http://automation-remarks.com/performance-lecture/index.html</link>
+          <pubDate>Sat, 12 Dec 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">performance-lecture/index.html</guid>
+          <description>
+                        Лекция, в которой я рассказываю про основы нагрузочного тестирования.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Лекция, в которой я рассказываю про основы нагрузочного тестирования. В конце приведены примеры записи скриптов с помощью JMeter и Gatling&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -1917,15 +2010,20 @@ extensionClasses = org.example.MatchersExtention&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&quot;https://www.youtube.com/embed/X5TLt2JvfoA?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Три способа поднять Jenkins CI для ваших автотестов</title>
-      <link>http://automation-remarks.com/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html</link>
-      <pubDate>Sun, 6 Dec 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Три способа поднять Jenkins CI для ваших автотестов
+          </title>
+          <link>http://automation-remarks.com/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html</link>
+          <pubDate>Sun, 6 Dec 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/index.html</guid>
+          <description>
+                        Как запустить JBahve из Gradle
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, в которой я решил поделиться знаниями в организации CI для автотестов. Такая задача возникает практически на каждом проекте, так как автоматизация без CI сервера - это как хлеб без масла. Я уже писал про &lt;a href=&quot;http://automation-remarks.com/travis-ci-na-sluzhbie-u-avtomatizatsii/&quot;&gt;Travis CI&lt;/a&gt;, теперь посмотрим на Jenkins.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2066,15 +2164,20 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;На этом у меня все, подписывайтесь на блог в социальных сетях и через имейл. В следующий раз я покажу как подключать и настраивать слейвы к Jenkins CI. До встреч!..&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>SQA days 18: ретроспектива</title>
-      <link>http://automation-remarks.com/sqa-days-18-retro/index.html</link>
-      <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">sqa-days-18-retro/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              SQA days 18: ретроспектива
+          </title>
+          <link>http://automation-remarks.com/sqa-days-18-retro/index.html</link>
+          <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">sqa-days-18-retro/index.html</guid>
+          <description>
+                        Заметка схожая с отчетом о прошедшем QA Fest 2015.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Мне посчастливилось съездить на &lt;a href=&quot;http://sqadays.com/en/index&quot;&gt;SQA days 18&lt;/a&gt;, которая в этот раз проходила в Москве. Я опишу свой опыт и свои впечатления после посещения данного мероприятия.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2112,15 +2215,20 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В целом я очень доволен посещением такого мероприятия, хочется отметить высокий профессионализм организаторов и докладчиков. Помимо докладов было очень большое количество знакомств, впечатлений, разговоров и классных идей. Теперь все они у меня в голове и ждут своей реализации =) В этом году я долго возился с докладом, но уже на SQA days 19, которая запланирована на май 2016 в Санк-Петербурге, я поставил цель выступить в основной сетке конференции. Так что от себя могу сказать: &quot;СПАСИБО, увидимся на SQA days 19. Let&amp;#8217;s go together&amp;#8230;&amp;#8203;&quot;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>6 способов работы с проперти файлами</title>
-      <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
-      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              6 способов работы с проперти файлами
+          </title>
+          <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
+          <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
+          <description>
+                        Тренинг, в котором я показываю различные способы работы с проперти файлами.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Тренинг, в котором я показываю различные способы работы с проперти файлами.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -2128,15 +2236,20 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&quot;https://www.youtube.com/embed/e2LWKxIwOfk?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Automation testing using JavaScript</title>
-      <link>http://automation-remarks.com/automation-testing-using-javascript/index.html</link>
-      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">automation-testing-using-javascript/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Automation testing using JavaScript
+          </title>
+          <link>http://automation-remarks.com/automation-testing-using-javascript/index.html</link>
+          <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">automation-testing-using-javascript/index.html</guid>
+          <description>
+                        Лекция, в которой показаны инструменты для автоматизации тестирования с использованием языка JavaScript.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Лекция, в которой показаны инструменты для автоматизации тестирования с использованием языка JavaScript. Показаны примеры с Jasmine, Protractor, PhantomJS и NightwatchJS.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -2144,15 +2257,20 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&quot;https://www.youtube.com/embed/ZDC4aEHwWkU?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Подборка Rest клиентов на любой случай жизни</title>
-      <link>http://automation-remarks.com/rest-clients/index.html</link>
-      <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">rest-clients/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Подборка Rest клиентов на любой случай жизни
+          </title>
+          <link>http://automation-remarks.com/rest-clients/index.html</link>
+          <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">rest-clients/index.html</guid>
+          <description>
+                        Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2294,15 +2412,20 @@ public class SwapiTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Ну вот, собственно, и все, о чем я хотел поговорить в данной заметке. Пару мыслей от себя: для java существует большое количество библиотек, на моем проекте используется Spring и все, что с ним связано, но если бы мне нужно было писать клиент вот прямо сейчас, я бы выбирал что-то из Groovy, так как там все просто, легко и быстро. До встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Заметка для начинающих: о курсах</title>
-      <link>http://automation-remarks.com/zamietka-dlia-nachinaiushchikh-pro-kursy/index.html</link>
-      <pubDate>Sat, 7 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">zamietka-dlia-nachinaiushchikh-pro-kursy/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Заметка для начинающих: о курсах
+          </title>
+          <link>http://automation-remarks.com/zamietka-dlia-nachinaiushchikh-pro-kursy/index.html</link>
+          <pubDate>Sat, 7 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">zamietka-dlia-nachinaiushchikh-pro-kursy/index.html</guid>
+          <description>
+                        О курсах...
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Давно хотел выразить свои мысли по поводу ситуации с курсами для тестировщиков, в частности - курсами для автоматизаторов.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2322,15 +2445,20 @@ public class SwapiTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Курсы вне компании я бы советовал тем, кто, имея постоянную работу, хочет перейти на новый уровень, либо тем, кто планирует сменить место работы&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>QAFest 2015 : ретроспектива</title>
-      <link>http://automation-remarks.com/qafest-retrospective/index.html</link>
-      <pubDate>Sun, 1 Nov 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">qafest-retrospective/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAFest 2015 : ретроспектива
+          </title>
+          <link>http://automation-remarks.com/qafest-retrospective/index.html</link>
+          <pubDate>Sun, 1 Nov 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">qafest-retrospective/index.html</guid>
+          <description>
+                        Заметка, в которой я поделюсь впечатлениями о QAFest
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, в которой я поделюсь впечатлениями о &lt;a href=&quot;http://www.qafest.com/&quot;&gt;QAFest&lt;/a&gt;, который мне посчастливилось посетить в роли спикера 31 октября 2015 года.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2373,15 +2501,20 @@ public class SwapiTest {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Ну, а самым интересным, как по мне, был доклад Глеба Бахмутова &quot;Обзор будущих технологий тестирования&quot;. Докладчик четко и ясно пояснил, какие инструменты он использует и зачем. А в самом конце он еще потролил тех, кто на собеседованиях просит протестировать карандаш. Не хочу особо много писать об этом докладе, дабы не спойлить, просто дождитесь записи и обязательно посмотрите. Уверен - вам понравится. На этом с докладами все. После было афтепати и неформальная часть. В целом конференция получилась очень хорошей. Надеюсь, увидимся в следующем году на QAFest 3, но это уже будет совсем другая история&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Travis CI на службе у автоматизации</title>
-      <link>http://automation-remarks.com/travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</link>
-      <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Travis CI на службе у автоматизации
+          </title>
+          <link>http://automation-remarks.com/travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</link>
+          <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">travis-ci-na-sluzhbie-u-avtomatizatsii/index.html</guid>
+          <description>
+                        В данной заметке хочу поговорить о сервисе, который называется Travis CI
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В данной заметке хочу поговорить о сервисе, который называется &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt;. Достаточно интересный проект, о котором может многие и слышали, но не имели возможности попробовать. Так вот, я попробовал и мне очень понравилось, теперь поделюсь своими впечатлениями.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2445,15 +2578,20 @@ script: &quot;./gradlew build -x copyDistFiles&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Теперь поговорим о тех, кому эта штука может быть полезна. В первую очередь тем, кто пишет свои проекты и не хочет особо париться с настройкой полноценного CI сервера - это очень удобно. Автоматизаторов же должна заинтересовать такая функциональность &lt;a href=&quot;http://docs.travis-ci.com/user/gui-and-headless-browsers/&quot;&gt;GUI and Headless Browser Testing&lt;/a&gt;. В документации указано, что можно запускать тесты с помощью Sauce Labs, xvfb и phantomjs. Крутяк, да? Эта штука поможет сэкономить кучу времени на настройку энваромента. Попробуйте - и вам понравится.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Книги, обязательные к прочтению автоматизатору</title>
-      <link>http://automation-remarks.com/knigi-aqa/index.html</link>
-      <pubDate>Sun, 18 Oct 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">knigi-aqa/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Книги, обязательные к прочтению автоматизатору
+          </title>
+          <link>http://automation-remarks.com/knigi-aqa/index.html</link>
+          <pubDate>Sun, 18 Oct 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">knigi-aqa/index.html</guid>
+          <description>
+                        Продолжение цикла под названием &quot;Как развиваться тестировщику&quot;
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Продолжение цикла под названием &quot;Как развиваться тестировщику&quot;. В прошлых заметках вы узнали, &lt;a href=&quot;http://automation-remarks.com/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/&quot;&gt;как изучить Linux&lt;/a&gt;. Теперь напишу о том, какие книги было бы полезно почитать автоматизаторам.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2516,15 +2654,20 @@ script: &quot;./gradlew build -x copyDistFiles&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот, собственно, и все на этот раз. Многие могут сказать, что большинство этих книг о написании кода и больше о программировании.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Автоматизатор, который не умеет программировать. Кто он?</title>
-      <link>http://automation-remarks.com/avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html</link>
-      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Автоматизатор, который не умеет программировать. Кто он?
+          </title>
+          <link>http://automation-remarks.com/avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html</link>
+          <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">avtomatizator-kotoryi-nie-umieiet-proghrammirovat/index.html</guid>
+          <description>
+                        Заметка, в которой попробуем разобраться в реалиях современности и попробуем дать ответ на вопрос: должен ли тестировщик, у которого на табличке написано &quot;Software Test Automation Engineer&quot; уметь программировать?
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, в которой попробуем разобраться в реалиях современности и попробуем дать ответ на вопрос: должен ли тестировщик, у которого на табличке написано &quot;Software Test Automation Engineer&quot; уметь программировать?&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2550,15 +2693,20 @@ script: &quot;./gradlew build -x copyDistFiles&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;А что касается автоматизатора, который не умеет программировать, - ну так он вовсе и не автоматизатор. Возможно, где-то в глубине души он и считает себя таким, но чтобы желаемое стало действительным, ему осталось сделать совсем небольшой шаг - научиться хорошо программировать ;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Как развиваться тестировщику. Разбираемся с Linux.</title>
-      <link>http://automation-remarks.com/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html</link>
-      <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как развиваться тестировщику. Разбираемся с Linux.
+          </title>
+          <link>http://automation-remarks.com/kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html</link>
+          <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">kak-razvivatsia-tiestirovshchiku-razbiraiemsia-s-linux/index.html</guid>
+          <description>
+                        В этой заметке хочу снова затронуть тему Groovy
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, которая будет продолжением серии &quot;Как развиваться начинающим тестировщикам&quot;. Ранее я писал про &lt;strong&gt;Groovy&lt;/strong&gt;, теперь хочу поделиться опытом изучения &lt;strong&gt;Linux&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2617,15 +2765,20 @@ script: &quot;./gradlew build -x copyDistFiles&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Удачного изучения и до встреч.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Парсим командную строку с Groovy CliBuilder</title>
-      <link>http://automation-remarks.com/parse-command-line/index.html</link>
-      <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">parse-command-line/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Парсим командную строку с Groovy CliBuilder
+          </title>
+          <link>http://automation-remarks.com/parse-command-line/index.html</link>
+          <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">parse-command-line/index.html</guid>
+          <description>
+                        В этой заметке хочу снова затронуть тему Groovy
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этой заметке хочу снова затронуть тему Groovy. Эта заметка будет ярким дополнением к уже написанным ранее:
 &lt;a href=&quot;http://automation-remarks.com/learning-groovy/&quot;&gt;о ресурсах, на которых можно найти много интересного про Groovy&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -2716,15 +2869,20 @@ def sourceFiles = options.g&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; Для чистой &lt;strong&gt;Java&lt;/strong&gt; есть реализация подобной библиотеки, называется она &lt;strong&gt;Apache Commons Cli&lt;/strong&gt;.
 На этом все. До новых заметок.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Запускаем JBehave из Gradle</title>
-      <link>http://automation-remarks.com/zapuskaiem-jbehave-iz-gradle/index.html</link>
-      <pubDate>Sun, 20 Sep 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">zapuskaiem-jbehave-iz-gradle/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Запускаем JBehave из Gradle
+          </title>
+          <link>http://automation-remarks.com/zapuskaiem-jbehave-iz-gradle/index.html</link>
+          <pubDate>Sun, 20 Sep 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">zapuskaiem-jbehave-iz-gradle/index.html</guid>
+          <description>
+                        Как запустить JBahve из Gradle
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Я уже достаточно прилично заметок написал про &lt;strong&gt;JBehave&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2892,15 +3050,20 @@ def jarPath(String jarName) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот, собственно, на этом и все =)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Почему фразу &quot;Мы будем писать свой тестовый фреймворк&quot; нужно произносить шепотом</title>
-      <link>http://automation-remarks.com/pochemy-svoy-fremawork-ploho/index.html</link>
-      <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">pochemy-svoy-fremawork-ploho/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Почему фразу &quot;Мы будем писать свой тестовый фреймворк&quot; нужно произносить шепотом
+          </title>
+          <link>http://automation-remarks.com/pochemy-svoy-fremawork-ploho/index.html</link>
+          <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">pochemy-svoy-fremawork-ploho/index.html</guid>
+          <description>
+                        Достаточно интересная тема, на которую я попробую покумекать.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Достаточно интересная тема, на которую я попробую покумекать. Задумайтесь, сколько интересного скрывается под фразой &quot;Мы пишем тестовый фреймворк!&quot;. Хм&amp;#8230;&amp;#8203; звучит почти как &quot;мы строим Вавилонскую башню&quot;. Хотяяя, ее судьба всем известна.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2928,15 +3091,20 @@ def jarPath(String jarName) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Но! Я тоже был таким же, читал книги по паттернам, учил языки программирования и писал всякие штуки. Хотя, че писал? Пишу и буду писать, только буду делать это на основе готовых библиотек и качественных решений. Спасибо за внимание.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Как развиваться тестировщику. Учим Groovy за 15 минут</title>
-      <link>http://automation-remarks.com/learning-groovy/index.html</link>
-      <pubDate>Tue, 8 Sep 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">learning-groovy/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как развиваться тестировщику. Учим Groovy за 15 минут
+          </title>
+          <link>http://automation-remarks.com/learning-groovy/index.html</link>
+          <pubDate>Tue, 8 Sep 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">learning-groovy/index.html</guid>
+          <description>
+                        Об изучении Groovy
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этой заметке я поделюсь своими наработками и материалами, с помощью которых вы сможете легко и быстро освоить этот язык.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -2959,15 +3127,20 @@ def jarPath(String jarName) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Собственно из качественных ресурсов, которые я знаю, это все. От себя хочу добавить, что со знаниями &lt;strong&gt;Java&lt;/strong&gt; изучить &lt;strong&gt;Groovy&lt;/strong&gt; действительно можно за 15 минут. Успешного обучения и удачи. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Автоматизация тестирования, обмен опытом и полезные увлечения</title>
-      <link>http://automation-remarks.com/person-of-the-month/index.html</link>
-      <pubDate>Sat, 29 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">person-of-the-month/index.html</guid>
-      	<description>
-	&lt;div class=&quot;imageblock&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Автоматизация тестирования, обмен опытом и полезные увлечения
+          </title>
+          <link>http://automation-remarks.com/person-of-the-month/index.html</link>
+          <pubDate>Sat, 29 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">person-of-the-month/index.html</guid>
+          <description>
+                        Заметка о том, как можно coздавать виртуалки.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;img src=&quot;/images/epam_photo.jpg&quot; alt=&quot;epam photo&quot;&gt;
 &lt;/div&gt;
@@ -3046,15 +3219,20 @@ def jarPath(String jarName) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Оставаться на позитиве, невзирая на неработающий код ;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Интегрируем YAML и тестовый фреймворк</title>
-      <link>http://automation-remarks.com/yaml/index.html</link>
-      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">yaml/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Интегрируем YAML и тестовый фреймворк
+          </title>
+          <link>http://automation-remarks.com/yaml/index.html</link>
+          <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">yaml/index.html</guid>
+          <description>
+                        Новая заметка, в которой я покажу, как можно использовать файлы с разширением .yml в качестве конфигурационых файлов для тестового фреймворка.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Новая заметка, в которой я покажу, как можно использовать файлы с разширением .yml в качестве конфигурационых файлов для тестового фреймворка. Хочу отметить, что я уже писал на подобную тему, только &lt;a href=&quot;http://automation-remarks.com/zamienitie-property-faily-na-ghruvi-skripty/&quot;&gt;тогда&lt;/a&gt; применял &lt;strong&gt;Groovy&lt;/strong&gt; файл.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3168,15 +3346,20 @@ Console output:
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Как вы могли заметить, второй подход более элегантен и удобен. Правда, вы не сможете использовать никакой другой конструкции, кроме Map; в первом же случае вы вольны кастить значения к тому типу, к которому душе угодно. На этом у меня все. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Тюнингуем Vagrant box</title>
-      <link>http://automation-remarks.com/setting-vagrant/index.html</link>
-      <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">setting-vagrant/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Тюнингуем Vagrant box
+          </title>
+          <link>http://automation-remarks.com/setting-vagrant/index.html</link>
+          <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">setting-vagrant/index.html</guid>
+          <description>
+                        Снова о Vagrant
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В прошлой &lt;a href=&quot;http://automation-remarks.com/vagrant/&quot;&gt;заметке&lt;/a&gt; я начал разговор об инструменте под названием Vagrant. В этот раз я покажу, как работать с готовой виртуальной машиной, подключаться к ней через ssh, использовать provisioner.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3326,15 +3509,20 @@ SHELL&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Таким образом вы можете легко и быстро получать виртуальные машины с предустановленным ПО. В целом, поигравшись с Vagrant, могу сказать, что мне эта штука очень понравилась. На моем текущем проекте мы не нуждаемся в виртуальных машинах, но, как только мне выпадет шанс, я обязательно буду его использовать.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>EPAM IT Week Summer 2015</title>
-      <link>http://automation-remarks.com/it-week-summer-2015/index.html</link>
-      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">it-week-summer-2015/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              EPAM IT Week Summer 2015
+          </title>
+          <link>http://automation-remarks.com/it-week-summer-2015/index.html</link>
+          <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">it-week-summer-2015/index.html</guid>
+          <description>
+                        Заметка, которая носит чисто информационный характер.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, которая носит чисто информационный характер. Хочу поделиться записью выступления на EPAM IT Week Summer 2015. Во второй раз принял участие в данном мероприятии как спикер. В прошлом году рассказывал о том, как мне удалось улучшить CI на нашем проекте. В этом году решил выступить с не техническим докладом и поговорить о том, как можно построить автоматизацию на проекте с самого начала. Решил провести интересные параллели и выстроить ассоциации.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3353,15 +3541,20 @@ SHELL&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&quot;https://www.youtube.com/embed/6o3aox0RAWQ?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Создаем виртуальную машину в три шага</title>
-      <link>http://automation-remarks.com/vagrant/index.html</link>
-      <pubDate>Sun, 9 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">vagrant/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Создаем виртуальную машину в три шага
+          </title>
+          <link>http://automation-remarks.com/vagrant/index.html</link>
+          <pubDate>Sun, 9 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">vagrant/index.html</guid>
+          <description>
+                        Заметка о том, как можно coздавать виртуалки.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую &lt;strong&gt;VirtualBox&lt;/strong&gt;. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента &lt;strong&gt;Vagrant&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -3404,15 +3597,20 @@ vagrant init hashicorp/precise32&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Делаем тесты читабельнее. Кастомный Matcher</title>
-      <link>http://automation-remarks.com/custom-matcher/index.html</link>
-      <pubDate>Sun, 2 Aug 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">custom-matcher/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Делаем тесты читабельнее. Кастомный Matcher
+          </title>
+          <link>http://automation-remarks.com/custom-matcher/index.html</link>
+          <pubDate>Sun, 2 Aug 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">custom-matcher/index.html</guid>
+          <description>
+                        Новая заметка о том, как сделать тесты читабельнее.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Новая заметка о том, как сделать тесты читабельнее. Я уже писал &lt;a href=&quot;http://automation-remarks.com/davaitie-poghovorim-pro-asserty/&quot;&gt;заметку&lt;/a&gt; про библиотеки, которые помогают писать простые ассерты. Зачастую функциональности, которую предоставляют эти библиотеки, хватает для написания читабельных тестов. Но мы же идем путем улучшения. Бывают случаи, когда нужно написать свой собственный матчер, чтобы упростить ассерт или сделать его читабельнее.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3508,15 +3706,20 @@ Expected: status code: &lt;b class=&quot;conum&quot;&gt;(202)&lt;/b&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Ну вот, очень легко и просто мы написали свой матчер и улучшили читабельность наших тестов. Более того, кастомные матчеры очень хороши при использовании &lt;strong&gt;Spock Framework&lt;/strong&gt; в качестве тест ранера. Но это уже история следующей заметки. Подписывайтесь, чтобы получать заметки первыми. До встреч&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Пишем Allure Jbehave адаптер</title>
-      <link>http://automation-remarks.com/allure-jbehave-adapter/index.html</link>
-      <pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">allure-jbehave-adapter/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Пишем Allure Jbehave адаптер
+          </title>
+          <link>http://automation-remarks.com/allure-jbehave-adapter/index.html</link>
+          <pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">allure-jbehave-adapter/index.html</guid>
+          <description>
+                        Заметка о том, как я писал свой адаптер для интеграции Allure Yandex и JBehave.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка о том, как я писал свой адаптер для интеграции &lt;strong&gt;Allure Yandex&lt;/strong&gt; и &lt;strong&gt;JBehave&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3564,15 +3767,20 @@ public void shouldBeComplitedAction(){
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;P.S. Возможно, вам понравится идея и вы решите использовать отчет у себя на проекте, либо вы решите усовершенствовать код, поэтому привожу ссылки на репортер и на пример проекта: &lt;a href=&quot;https://bitbucket.org/Semen4ik20/allure-jbehave-adapter/src&quot;&gt;репортер&lt;/a&gt; и &lt;a href=&quot;https://github.com/SergeyPirogov/JbehaveGradleAllure&quot;&gt;пример использования&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Пишем видео во время прогона тестов</title>
-      <link>http://automation-remarks.com/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</link>
-      <pubDate>Tue, 14 Jul 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Пишем видео во время прогона тестов
+          </title>
+          <link>http://automation-remarks.com/pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</link>
+          <pubDate>Tue, 14 Jul 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">pishiem-vidieo-vo-vriemia-proghona-tiestov/index.html</guid>
+          <description>
+                        В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3658,15 +3866,20 @@ public class VideoRecord {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;По умолчанию записи будут сохраняться в папку &lt;strong&gt;${user.dir}/Movies(Мои Видеозаписи)&lt;/strong&gt;. Собственно, на этом все. Хороших вам роликов и до встреч =)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Получаем больше логов от Selenium</title>
-      <link>http://automation-remarks.com/selenium-logs/index.html</link>
-      <pubDate>Sun, 5 Jul 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">selenium-logs/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Получаем больше логов от Selenium
+          </title>
+          <link>http://automation-remarks.com/selenium-logs/index.html</link>
+          <pubDate>Sun, 5 Jul 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">selenium-logs/index.html</guid>
+          <description>
+                        Заметка о том, как залогировать действия Selenium Webdriver.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка о том, как залогировать действия &lt;strong&gt;Selenium Webdriver&lt;/strong&gt;. Вероятнее всего, вы всегда хотели получать больше информации от &lt;strong&gt;WebDriver&lt;/strong&gt; так, чтобы было легко дебажить скрипты или просто получать больше информации о тестах. Теперь это стало возможным благодаря EventFiringWebDriver и  &lt;strong&gt;WebDriverEventListner&lt;/strong&gt;. &lt;strong&gt;EventFiringWebDriver&lt;/strong&gt; это класс, который используется как обертка над webDriver. &lt;strong&gt;WebDriverEventListner&lt;/strong&gt; - интерфейс, который нужно реализовать, чтобы получить доступ к действиям webdriver.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -3853,15 +4066,20 @@ DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот так просто можно улучшить логирование в вашем тестовом фреймворке. Читабельных вам логов и удачи. Подписывайтесь на нашу рассылку;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Введение в Selenium для мануальных тестировщиков</title>
-      <link>http://automation-remarks.com/selenium-for-manual/index.html</link>
-      <pubDate>Sat, 4 Jul 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">selenium-for-manual/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Введение в Selenium для мануальных тестировщиков
+          </title>
+          <link>http://automation-remarks.com/selenium-for-manual/index.html</link>
+          <pubDate>Sat, 4 Jul 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">selenium-for-manual/index.html</guid>
+          <description>
+                        Одна из лекций под одноименным названием.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Одна из лекций под одноименным названием. Полезно для людей без опыта работы с Selenium webdriver. В лекции показан пример написания самого простого теста. Основное внимание уделено ожиданиям. Показан пример организации кода в проекте.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -3874,15 +4092,20 @@ DEBUG com.home.custom.listeners.WDriverEventListener afterFindBy - Element found
 &lt;iframe src=&quot;https://www.youtube.com/embed/Qrqr53X4XMg?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Cucumber плюс Spring и Selenium или жирное BDD</title>
-      <link>http://automation-remarks.com/cucumber/index.html</link>
-      <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">cucumber/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Cucumber плюс Spring и Selenium или жирное BDD
+          </title>
+          <link>http://automation-remarks.com/cucumber/index.html</link>
+          <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">cucumber/index.html</guid>
+          <description>
+                        Заметка с громким названием на достаточно спорную тему - BDD.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка с громким названием на достаточно спорную тему - BDD. Многие используют Behavior-Driven Development у себя на проектах, многие его ругают. Но, я уверен, есть люди, которые не видели и не пробовали, как это работает. О том, что такое BDD, в чем его основной смысл, вы можете посмотреть &lt;a href=&quot;http://automation-remarks.com/bdd-in-test-automation-lecture/&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -4130,15 +4353,20 @@ public class Home extends Page{
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Качайте, пробуйте, подписывайтесь на email рассылку, чтобы получать свежие заметки первыми. Спасибо&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Используем Selenium Grid</title>
-      <link>http://automation-remarks.com/ispolzuiem-nastroiennyi-selenium-grid/index.html</link>
-      <pubDate>Tue, 23 Jun 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">ispolzuiem-nastroiennyi-selenium-grid/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Используем Selenium Grid
+          </title>
+          <link>http://automation-remarks.com/ispolzuiem-nastroiennyi-selenium-grid/index.html</link>
+          <pubDate>Tue, 23 Jun 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">ispolzuiem-nastroiennyi-selenium-grid/index.html</guid>
+          <description>
+                        Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке. О том, как настроить grid, я писал в предыдущей &lt;a href=&quot;http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/&quot;&gt;заметке&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -4390,15 +4618,20 @@ cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role node -por
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Надеюсь, вам понравилась заметка и вы нашли в ней что-то полезное. Подписывайтесь на мой блог, присылайте идеи, делитесь опытом. До новых встреч!..&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Настраиваем Selenium Grid за 5 минут</title>
-      <link>http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">nastraivaiem-selenium-grid-za-5-minut/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Настраиваем Selenium Grid за 5 минут
+          </title>
+          <link>http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html</link>
+          <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">nastraivaiem-selenium-grid-za-5-minut/index.html</guid>
+          <description>
+                        Заметка о том, как правильно настроить Selenium-Grid.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка о том, как правильно настроить &lt;strong&gt;Selenium-Grid&lt;/strong&gt;. Многие делали это неоднократно, а некоторые даже не знают, что это такое. Ориентируюсь на обе части аудитории: если у вас есть опыт, заметка будет служить такой себе справкой - вдруг чего забыли; если вы не пробовали, но очень хотели - это прекрасный шанс начать.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -4574,15 +4807,20 @@ http://localhost:4444/grid/register -port 5558 -browser browserName=chrome&lt;/c
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Ну вот и все, в следующих заметках я покажу, как пользоваться настроенным гридом и запускать тесты. Если вам интересно, подписывайтесь,чтобы получать обновления первым.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Магия Groovy и SQL</title>
-      <link>http://automation-remarks.com/maghiia-groovy-i-sql/index.html</link>
-      <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">maghiia-groovy-i-sql/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Магия Groovy и SQL
+          </title>
+          <link>http://automation-remarks.com/maghiia-groovy-i-sql/index.html</link>
+          <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">maghiia-groovy-i-sql/index.html</guid>
+          <description>
+                        Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
 Начну с описания примерной ситуации, в которой может пригодиться данный подход. Скажем, есть у вас схема базы данных и вы перед стартом приложения, хотите проверить целостность базы данных и находящихся в ней данных. Для этого можно использовать различные подходы, я покажу один из них. В показаном примере используется Groovy. Лично для меня, он привлекателен тем, что некоторые вещи можно делать проще и быстрее. К примеру я уже показывал здесь как быстро и просто прочитать данные из url.
 Итак приступим к делу, в примере ниже, я покажу как соедениться с базой данных SQLite. Итак открываем Groovy Console и пишем:&lt;/p&gt;
@@ -4676,15 +4914,20 @@ sql.execute(query)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот так вот, мы очень легко и понятно можем обращаться с данными используя Groovy SQL.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Достойная замена проперти файлам</title>
-      <link>http://automation-remarks.com/zamienitie-property-faily-na-ghruvi-skripty/index.html</link>
-      <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">zamienitie-property-faily-na-ghruvi-skripty/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Достойная замена проперти файлам
+          </title>
+          <link>http://automation-remarks.com/zamienitie-property-faily-na-ghruvi-skripty/index.html</link>
+          <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">zamienitie-property-faily-na-ghruvi-skripty/index.html</guid>
+          <description>
+                        Этой заметкой я продолжу когда-то уже начатый разговор о груви.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Этой заметкой я продолжу когда-то уже начатый разговор о груви. Сегодня хочу предложить подход, который я испробовал лично, а именно - заменить проперти файл в проекте на груви скрипт.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -4764,15 +5007,20 @@ prodhost
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Собственно, результат говорит сам за себя. Лично мое мнение: груви скрипты могут полностью заменить проперти файлы, к тому же скрипт обладает большими возможностями, чем проперти файл. А как вы считаете, применим ли такой подход на вашем проекте?&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>SQL для мануальных тестировщиков</title>
-      <link>http://automation-remarks.com/sql-dlia-manualnykh-tiestirovshchikov/index.html</link>
-      <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">sql-dlia-manualnykh-tiestirovshchikov/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              SQL для мануальных тестировщиков
+          </title>
+          <link>http://automation-remarks.com/sql-dlia-manualnykh-tiestirovshchikov/index.html</link>
+          <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">sql-dlia-manualnykh-tiestirovshchikov/index.html</guid>
+          <description>
+                        Лекция предназначенная для мануальных тестироовщиков. Речь будет идти про SQL.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Лекция предназначенная для мануальных тестироовщиков. Речь будет идти про SQL. Полезно тем, кто хотел бы изучить основыи научиться писать запросы.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -4790,15 +5038,20 @@ prodhost
 &lt;iframe src=&quot;https://www.youtube.com/embed/5XjyHjzbLEo?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>4 библиотеки, о которых должен знать каждый Автоматизатор</title>
-      <link>http://automation-remarks.com/davaitie-poghovorim-pro-asserty/index.html</link>
-      <pubDate>Tue, 5 May 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">davaitie-poghovorim-pro-asserty/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              4 библиотеки, о которых должен знать каждый Автоматизатор
+          </title>
+          <link>http://automation-remarks.com/davaitie-poghovorim-pro-asserty/index.html</link>
+          <pubDate>Tue, 5 May 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">davaitie-poghovorim-pro-asserty/index.html</guid>
+          <description>
+                        Самая выразительная часть хорошо написанного теста - хорошо написанный Assert.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Самая выразительная часть хорошо написанного теста - хорошо написанный assert (acсершин, ассерт далее). Assert подтверждает поведение системы, которое вы ожидаете. Хороший assert должен с первого взгляда показывать, что делает тест. Ни в коем случае в ваших тестах не должно быть циклов, в недрах которых будет спрятан assert, и вам нужно будет потратить уйму времени, чтобы разобраться с тем, что происходит. Более того, любая не тривиальная логика в тест кейсе повышает риск того, что тест сам по себе неправильный.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -5104,15 +5357,20 @@ org.truth0.FailureStrategy$ThrowableAssertionError: Not true that  is empty
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В целом все библиотеки предназначены для того, чтобы сделать юнит тесты проще и понятнее. Хороших вам assertов =)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>CI &amp; Build tools for newbies</title>
-      <link>http://automation-remarks.com/ci-build-tools-for-newbies/index.html</link>
-      <pubDate>Fri, 1 May 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">ci-build-tools-for-newbies/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              CI &amp; Build tools for newbies
+          </title>
+          <link>http://automation-remarks.com/ci-build-tools-for-newbies/index.html</link>
+          <pubDate>Fri, 1 May 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">ci-build-tools-for-newbies/index.html</guid>
+          <description>
+                        Привет! Новый пост - лекция про билд тулы и континиус интегрейшин.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Привет! Новый пост - лекция про билд тулы и континиус интегрейшин.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -5130,15 +5388,20 @@ org.truth0.FailureStrategy$ThrowableAssertionError: Not true that  is empty
 &lt;iframe src=&quot;https://www.youtube.com/embed/CVItdJV_cqM?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Свое АОP в JDK</title>
-      <link>http://automation-remarks.com/svoie-aop/index.html</link>
-      <pubDate>Sun, 29 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">svoie-aop/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Свое АОP в JDK
+          </title>
+          <link>http://automation-remarks.com/svoie-aop/index.html</link>
+          <pubDate>Sun, 29 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">svoie-aop/index.html</guid>
+          <description>
+                        Заметка о том, как можно реализовать AOP без Spring и AspectJ.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Заметка о том, как можно реализовать &lt;strong&gt;AOP&lt;/strong&gt; без &lt;strong&gt;Spring&lt;/strong&gt; и &lt;strong&gt;AspectJ&lt;/strong&gt;. Для тех, кто не особо в курсе, что такое AOP смотреть суда. Итак, приступим. Создадим нашу мини программу:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -5321,15 +5584,20 @@ Final Result :::2&lt;/code&gt;&lt;/pre&gt;
 &lt;strong&gt;P.S.&lt;/strong&gt;
 Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>А как вы логируете?</title>
-      <link>http://automation-remarks.com/a-kak-vy-loghiruietie/index.html</link>
-      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">a-kak-vy-loghiruietie/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              А как вы логируете?
+          </title>
+          <link>http://automation-remarks.com/a-kak-vy-loghiruietie/index.html</link>
+          <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">a-kak-vy-loghiruietie/index.html</guid>
+          <description>
+                        Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
 Итак, начну с предыстории. Есть у меня проект который организован на основе &lt;strong&gt;Spring + Jbehave + Selenium&lt;/strong&gt;, все вроде как хорошо, тесты бегают, тесты падают. Но вот бывает такое, что тест идет и в одном методе выполняется пару действий - понять какое именно действие вызывает фейл, бывает очень сложно. Что в таком случае делать? Правильно - начинать логировать. А как логировать? Очень просто берем &lt;strong&gt;Slf4j&lt;/strong&gt; делаем:&lt;/p&gt;
 &lt;/div&gt;
@@ -5436,15 +5704,20 @@ public class Main {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Используя такой подход можно легко и просто залогировать все действия драйвера.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>BDD In Test Automation lecture</title>
-      <link>http://automation-remarks.com/bdd-in-test-automation-lecture/index.html</link>
-      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">bdd-in-test-automation-lecture/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              BDD In Test Automation lecture
+          </title>
+          <link>http://automation-remarks.com/bdd-in-test-automation-lecture/index.html</link>
+          <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">bdd-in-test-automation-lecture/index.html</guid>
+          <description>
+                        Моя лекция, которую я проводил в компании, для студентов.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Моя лекция, которую я проводил в компании, для студентов. В лекции попытался доступным языком рассказать о том, что такое BDD и как его имплеменитровать в жизнь. Сделал небольше овервью таких иснтрументов как &lt;strong&gt;Cucumber&lt;/strong&gt;, &lt;strong&gt;JBehave&lt;/strong&gt;, &lt;strong&gt;Spock&lt;/strong&gt;, &lt;strong&gt;Lettuce&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -5467,15 +5740,20 @@ public class Main {
 &lt;iframe src=&quot;https://www.youtube.com/embed/GJFvMQ_IW1Y?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Lettuce Python</title>
-      <link>http://automation-remarks.com/lettuce-python/index.html</link>
-      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">lettuce-python/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Lettuce Python
+          </title>
+          <link>http://automation-remarks.com/lettuce-python/index.html</link>
+          <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">lettuce-python/index.html</guid>
+          <description>
+                        О BDD для Python
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Готовился я как-то к презентации по Behaviour Driven Development, готовил практические примеры по различным тулам и решил показать пример того как можно реализовать BDD с помощью Python. Посмотрел на Behave и на Lettuce см тут. Мой выбор пал на второй инструмент, не знаю почему, видимо потому что тесты писать проще и быстрее. Дабы не быть голословным приведу пример. Начнем с установки. Ставим Python &lt;strong&gt;2.7 (Это ВАЖНО - на Python 3 работать не будет)&lt;/strong&gt;. Ставим lettuce и selenium:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -5592,15 +5870,20 @@ def see_group1_in_group2(step, text, element):
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Выведите ваши тесты на новый уровень!</title>
-      <link>http://automation-remarks.com/vyvieditie-vashi-tiesty-na-novyi-urovien/index.html</link>
-      <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">vyvieditie-vashi-tiesty-na-novyi-urovien/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Выведите ваши тесты на новый уровень!
+          </title>
+          <link>http://automation-remarks.com/vyvieditie-vashi-tiesty-na-novyi-urovien/index.html</link>
+          <pubDate>Fri, 20 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">vyvieditie-vashi-tiesty-na-novyi-urovien/index.html</guid>
+          <description>
+                        Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно!
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через &lt;strong&gt;Sonar&lt;/strong&gt;. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный &lt;em&gt;NullPointerException&lt;/em&gt;. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим &lt;strong&gt;MySQL&lt;/strong&gt;, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на &lt;strong&gt;Maven&lt;/strong&gt;, то просто в pom нужно вписать:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -5665,15 +5948,20 @@ def see_group1_in_group2(step, text, element):
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Проделав все эти действия, я был шокирован. В проекте был ужжаасный код. Сделав выводы, на новом проете, я начал применять Sonar с самого первого дня. Спустя три месяца, мы создали 300 тестов. Техникал дебт равен 0.1. А сложность кода - 1.2. Вы можете себе представить такое? Разработчики даже подшучивают иногда, что тесты &quot;чище&quot; чем сам проект. Вот так вот Sonar помог повыситься качество кода тестов. А вы используете статические анализаторы кода?&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>WebDriver factory без IF-ELSE</title>
-      <link>http://automation-remarks.com/webdriver-factory-biez-if-else/index.html</link>
-      <pubDate>Sat, 7 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">webdriver-factory-biez-if-else/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              WebDriver factory без IF-ELSE
+          </title>
+          <link>http://automation-remarks.com/webdriver-factory-biez-if-else/index.html</link>
+          <pubDate>Sat, 7 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">webdriver-factory-biez-if-else/index.html</guid>
+          <description>
+                        В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
 Зачастую во фреймворках в случае кросс-браузерного тестирования приходится писать драйвер фэктори. Большинство реализаций, которые мне приходилось видеть, выглядели так:&lt;/p&gt;
 &lt;/div&gt;
@@ -5802,15 +6090,20 @@ class Test {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;P.S. Конструкция if-else делает код сложным для чтения, поэтому нужно стараться избегать их использования.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Замечательный каталог рефакторинга</title>
-      <link>http://automation-remarks.com/zamiechatielnyi-katalogh-riefaktoringha/index.html</link>
-      <pubDate>Sun, 1 Mar 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">zamiechatielnyi-katalogh-riefaktoringha/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Замечательный каталог рефакторинга
+          </title>
+          <link>http://automation-remarks.com/zamiechatielnyi-katalogh-riefaktoringha/index.html</link>
+          <pubDate>Sun, 1 Mar 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">zamiechatielnyi-katalogh-riefaktoringha/index.html</guid>
+          <description>
+                        Совсем недавно решил окунуться в мир &quot;правильного&quot; рефакторинга.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Совсем недавно решил окунуться в мир &quot;правильного&quot; рефакторинга. Зачастую так бывает: люди думают, что они умеют рефакторить правильно. Изменил пару строк, переименовал пару переменных - зарефакторил. Порешал как царь =). Но на самом деле по сравнению с настоящим рефакторингом - это всего лишь махание руками и трата драгоценного времени. Чтобы научиться рефакторить и узнать, зачем это делать, можно почитать книгу Фаулера - &quot;Рефакторинг - улучшение существующего кода&quot;. А еще можно зайти на этот замечательный ресурс, в котором описаны основные проблемы - &quot;запахи кода&quot;, а также советы по их устранению и улучшению существующего кода.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -5821,15 +6114,20 @@ class Test {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Удачного рефакторинга!&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Gradle run single TestNG method</title>
-      <link>http://automation-remarks.com/gradle-run-single-test-method/index.html</link>
-      <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">gradle-run-single-test-method/index.html</guid>
-      	<description>
-	&lt;div class=&quot;imageblock&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Gradle run single TestNG method
+          </title>
+          <link>http://automation-remarks.com/gradle-run-single-test-method/index.html</link>
+          <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">gradle-run-single-test-method/index.html</guid>
+          <description>
+                        This is the shortest remark ever. Just a few word and a few lines of code.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;img src=&quot;http://kaczanowscy.pl/tomek/sites/default/files/2012_04_uncle_sam_170.png&quot; alt=&quot;2012 04 uncle sam 170&quot;&gt;
 &lt;/div&gt;
@@ -5890,15 +6188,20 @@ gradle test --tests *IntegTest*ui*&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Cheers! Thats all;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Мощь Groovy: Reading URL Content</title>
-      <link>http://automation-remarks.com/groovy-power-reading-url-content/index.html</link>
-      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">groovy-power-reading-url-content/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Мощь Groovy: Reading URL Content
+          </title>
+          <link>http://automation-remarks.com/groovy-power-reading-url-content/index.html</link>
+          <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">groovy-power-reading-url-content/index.html</guid>
+          <description>
+                        Groovy adds some methods to the URL class which make reading data from an URL easy.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Groovy adds some methods to the URL class which make reading data from an URL easy. For example the text property returns the complete contents of the document that is identified by the URL. Or we can use the &lt;strong&gt;eachLine()&lt;/strong&gt; method to loop through each line of the document. Groovy also adds a &lt;strong&gt;toURL()&lt;/strong&gt; to the String class to make a URL object.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -5927,15 +6230,20 @@ url.withReader { reader -&amp;gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;That&amp;#8217;s all, just simple.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>&quot;Правильный&quot; тестовый фреймворк</title>
-      <link>http://automation-remarks.com/pravilnyi-tiestovyi-frieimvork/index.html</link>
-      <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">pravilnyi-tiestovyi-frieimvork/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              &quot;Правильный&quot; тестовый фреймворк
+          </title>
+          <link>http://automation-remarks.com/pravilnyi-tiestovyi-frieimvork/index.html</link>
+          <pubDate>Sun, 22 Feb 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">pravilnyi-tiestovyi-frieimvork/index.html</guid>
+          <description>
+                        Несколько мыслей о том, каким должен быть &quot;правильный&quot; тестовый фреймворк.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Несколько мыслей о том, каким должен быть &quot;правильный&quot; тестовый фреймворк.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
@@ -5955,15 +6263,20 @@ url.withReader { reader -&amp;gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Когда есть такие маленкие блоки, как &lt;strong&gt;PageObject&lt;/strong&gt;, &lt;strong&gt;DataProvider&lt;/strong&gt;,&lt;strong&gt;DAO&lt;/strong&gt;, &lt;strong&gt;BaseTest&lt;/strong&gt; class, собрать из этого всего фреймворк может даже джуниор, который пришел к вам на проект пару недель назад. Еще одно преимущество модульности в том, что вы легко можете заменить один элемент на другой, поменяв реализацию либо инструмент. Модульность дает вам гораздо больший радиус поворота. Скажем, когда у вас на проекте 15 - 20 тестовых сценариев, то вы можете не задумываясь в них ковыряться и тратить по 15-20 минут в день на поддержку, а вот когда их становится 1500-2000, то тут начинаются пляски с бубном, сопли и визги: &quot;какой же хреновый у нас фреймворк, че ж мы раньше-то не делали хорошо, сейчас уже поздно&amp;#8230;&amp;#8203;&quot; Так вот, чтобы избежать такой ситуации, мой вам совет перед началом разработки фреймворка: подумайте, выделите основные части, запрограммируйте их в виде модулей, напишите пару тестов на конкретные функциональности, поэкспериментируйте, найдите свой рецепт успеха. Лично мой опыт показывает, что модульный фреймворк выигрывает у &quot;макаронного кода&quot; по всем параметрам.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Небольшой видосик про Jenkins</title>
-      <link>http://automation-remarks.com/niebolshoi-vidosik-pro-jenkins/index.html</link>
-      <pubDate>Sat, 14 Feb 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">niebolshoi-vidosik-pro-jenkins/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Небольшой видосик про Jenkins
+          </title>
+          <link>http://automation-remarks.com/niebolshoi-vidosik-pro-jenkins/index.html</link>
+          <pubDate>Sat, 14 Feb 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">niebolshoi-vidosik-pro-jenkins/index.html</guid>
+          <description>
+                        Решил поделиться одним из первых своих выступлений! Enjoy;)
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Решил поделиться одним из первых своих выступлений! Enjoy;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
@@ -5971,15 +6284,20 @@ url.withReader { reader -&amp;gt;
 &lt;iframe src=&quot;https://www.youtube.com/embed/tXFENp-RFWs?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Java Simple REST Client</title>
-      <link>http://automation-remarks.com/java-rest-client/index.html</link>
-      <pubDate>Sat, 7 Feb 2015 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">java-rest-client/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Java Simple REST Client
+          </title>
+          <link>http://automation-remarks.com/java-rest-client/index.html</link>
+          <pubDate>Sat, 7 Feb 2015 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">java-rest-client/index.html</guid>
+          <description>
+                        Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API.
 Я покажу два способа, как можно добиться желаемого результата быстро и качественно. Оба способа предусматривают использование сторонних библиотек.&lt;/p&gt;
 &lt;/div&gt;
@@ -6162,15 +6480,20 @@ System.out.println(&quot;Response &quot; + response.getEntity(String.class));&lt
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Как вы можете заметить, обе представленные здесь библиотеки позволяют достаточно легко создать запросы и получить ответы от сервера, обработать их и вывести результат. Лично мне больше нравится Jersey - просто из-за того, что он не такой брутальный, как Apache, но выбирать Вам =)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Что такое Flaky тест?</title>
-      <link>http://automation-remarks.com/chto-takoie-flacky-tiest/index.html</link>
-      <pubDate>Tue, 2 Dec 2014 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">chto-takoie-flacky-tiest/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Что такое Flaky тест?
+          </title>
+          <link>http://automation-remarks.com/chto-takoie-flacky-tiest/index.html</link>
+          <pubDate>Tue, 2 Dec 2014 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">chto-takoie-flacky-tiest/index.html</guid>
+          <description>
+                        Если у вас нету Flacky тестов - значит вы занимаетесь чем-то нереальным :). Flacky тесты - это зло!
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;image::http://cdn.meme.am/instances/500x/52587305.jpg&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -6192,15 +6515,20 @@ System.out.println(&quot;Response &quot; + response.getEntity(String.class));&lt
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Все просто: метод ждал, пока появится окно с нужным title и затем делал switch в новое окно. Все работало прекрасно, пока я не заметил, что у меня тест два раза проходит, а один раз валится с &lt;em&gt;NullPointerException&lt;/em&gt;. Оказалось, что подставил меня метод waitForWindowTitle. Один раз он дожидался, пока окно появится, а в другой принимал решение, что окно появилось, хотя на самом деле его еще не было. Вот и все, таким образом я избавился от &lt;strong&gt;Flaky&lt;/strong&gt; теста.&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>О TestNG, Excel и DataProvider</title>
-      <link>http://automation-remarks.com/smart-excel-reader-for-testng-dataprovided/index.html</link>
-      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">smart-excel-reader-for-testng-dataprovided/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              О TestNG, Excel и DataProvider
+          </title>
+          <link>http://automation-remarks.com/smart-excel-reader-for-testng-dataprovided/index.html</link>
+          <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">smart-excel-reader-for-testng-dataprovided/index.html</guid>
+          <description>
+                        Велкам!Второй пост не задержался.Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Сегодня пост о том, как справиться с чтением Excel файлов, а именно - написать &quot;умный DataReader&quot;.
 Excel файлы удобно использовать для храннения тестовых данных в тестовых фреймворках, что позволяет вынести данные из тестов. Так сказать: &lt;strong&gt;&quot;Долой хардкод!&quot;&lt;/strong&gt;.
 Такой подход называют D&lt;strong&gt;ata-Driven Testing&lt;/strong&gt;. Это очень удобно, потому что любой человек (даже не технарь) может изменить данные требуемые для теста: вам не нужно лезть в код и что-то там менять. В качестве тестового фреймворка будем использовать &lt;strong&gt;TestNG&lt;/strong&gt;, потому что у него есть много преимуществ, среди которых - DataProvider. Для чтения Excel файлов я использую библиотеку - &lt;strong&gt;Apache POI&lt;/strong&gt;.
@@ -6321,15 +6649,20 @@ public List[] getRowData(int rowNo) {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот и вступил в силу наш массив листов: вместо того, чтобы передавать ОГРОМНОЕ количество параметров, мы передаем элегантный список, с которым легко и просто работать. Создаем Excel файл, заполняем данными, запускаем тесты и наслаждаемся, попивая чаек:)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Как я изобрел свой Jenkins Emailer</title>
-      <link>http://automation-remarks.com/jenkins-emailer/index.html</link>
-      <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">jenkins-emailer/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как я изобрел свой Jenkins Emailer
+          </title>
+          <link>http://automation-remarks.com/jenkins-emailer/index.html</link>
+          <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">jenkins-emailer/index.html</guid>
+          <description>
+                        Велкам!Второй пост не задержался.Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Велкам!
 Второй пост не задержался. Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
 Применив хитрость с &lt;strong&gt;Jenkins API&lt;/strong&gt;, как было показано в предыдущем посте, я не только добыл нужную мне информацию из недр этого чУдного инструмента, но и заставил ее приносить пользу проекту.
@@ -6445,15 +6778,20 @@ Failed: 24 Total: 480&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В итоге: использовав &lt;a href=&quot;http://commons.apache.org/proper/commons-email/&quot;&gt;Apache Commons Email&lt;/a&gt;, я отправляю данные на почтовые ящики, тем самым оповещая всех о результатах наших тестов. Хотите и вам одно сброшу ;)&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Как приручить Jenkins API</title>
-      <link>http://automation-remarks.com/kak-prruchit-jenkins-api/index.html</link>
-      <pubDate>Wed, 19 Nov 2014 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">kak-prruchit-jenkins-api/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как приручить Jenkins API
+          </title>
+          <link>http://automation-remarks.com/kak-prruchit-jenkins-api/index.html</link>
+          <pubDate>Wed, 19 Nov 2014 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">kak-prruchit-jenkins-api/index.html</guid>
+          <description>
+                        Небольшой пост о том, как можно добраться до внутренностей Jenkins.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Небольшой пост о том, как можно добраться до внутренностей &lt;a href=&quot;https://jenkins.io/index.html&quot;&gt;Jenkins&lt;/a&gt;.
 Бывают ситуации, когда СI сервер установлен где-то на удаленной машине, доступ к которой осуществляется через VPN. В общем ситуация сложная, а информацию о джобах и письма от дженкинса получать хотелось бы.
 В таком случае в помощь приходит &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API&quot;&gt;Jenkins API&lt;/a&gt;.
@@ -6492,19 +6830,24 @@ API позволяет извлекать информацию в трех фо�
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;После получения информации ее можно использовать в благих целях. Но об этом я расскажу в следующий раз&amp;#8230;&amp;#8203;&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>Welcome!</title>
-      <link>http://automation-remarks.com/first-post/index.html</link>
-      <pubDate>Sun, 16 Nov 2014 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">first-post/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Welcome!
+          </title>
+          <link>http://automation-remarks.com/first-post/index.html</link>
+          <pubDate>Sun, 16 Nov 2014 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">first-post/index.html</guid>
+          <description>
+                        Начало...
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Привет! Случилось: блог для автоматизторов от автоматизатора!&lt;/p&gt;
 &lt;/div&gt;
-	</description>
-    </item>
+          </content:encoded>
+        </item>
 
   </channel> 
 </rss>
