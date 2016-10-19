@@ -6,144 +6,13 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <description>Заметки Автоматизатора</description>
     <language>en-gb</language>
-    <pubDate>Wed, 19 Oct 2016 05:31:49 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 05:31:49 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 05:39:28 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 05:39:28 +0000</lastBuildDate>
 
-    <item>
-      <title>6 способов работы с проперти файлами</title>
-      <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
-      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
-      <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Тренинг, в котором я показываю различные способы работы с проперти файлами.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;videoblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;iframe src=&quot;https://www.youtube.com/embed/e2LWKxIwOfk?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>А как вы логируете?</title>
-      <link>http://automation-remarks.com/a-kak-vy-loghiruietie/index.html</link>
-      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
-      <guid isPermaLink="false">a-kak-vy-loghiruietie/index.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
-Итак, начну с предыстории. Есть у меня проект который организован на основе &lt;strong&gt;Spring + Jbehave + Selenium&lt;/strong&gt;, все вроде как хорошо, тесты бегают, тесты падают. Но вот бывает такое, что тест идет и в одном методе выполняется пару действий - понять какое именно действие вызывает фейл, бывает очень сложно. Что в таком случае делать? Правильно - начинать логировать. А как логировать? Очень просто берем &lt;strong&gt;Slf4j&lt;/strong&gt; делаем:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class SomePage {
-    private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);
-
-    public void someMethod(){
-        LOG.info(&quot;something happens&quot;);
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Как любит говорить один мой знакомый: &quot;казалось бы&quot;. Но здесь всего один метод. При увеличении строк кода, логер будет пропорционально захламлять код. В дополнение не всегда хочеться писать вот эту вот строку в каждом классе:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Да, можно использовать &lt;strong&gt;Lombook&lt;/strong&gt;, но не все положительно относятся к библиотекам такого рода.
-Передем к более насущной проблеме, скажем есть у вас метод:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public void login(User user){
-    driver.find(By.id(&quot;login&quot;)).sendKeys(user.name);
-    driver.find(By.id(&quot;pass&quot;)).sendKeys(user.pass);
-    driver.find(By.id(&quot;login_btn&quot;)).click();
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Как здесь залогировать то, что я заполнил два поля и тыцнул на кнопку? Первое что приходит на ум - просто добавить логер. А куда добавлять? Перед действием или после? А если я хочу и там и там? Давайте посмотрим:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public void login(User user){
-    LOG.info(&quot;Type login {}&quot;,user.name);
-    driver.find(By.id(&quot;login&quot;)).sendKeys(user.name);
-    LOG.info(&quot;Type password {}&quot;,user.pass);
-    driver.find(By.id(&quot;pass&quot;)).sendKeys(user.pass);
-    LOG.info(&quot;Click login btn);
-    driver.find(By.id(&quot;login_btn&quot;)).click();
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Последний кусок кода выглядит просто ужасно. В таких ситуациях очень кстати приходиться &lt;strong&gt;Selenium WebDriver Event Listener Interface&lt;/strong&gt;. Этот интерфейс предоставляет доступ ко всем основным действиям драйвера:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class EventHandler implements WebDriverEventListener{
-
-    public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterClickOn(WebElement arg0, WebDriver arg1) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-    // TODO Auto-generated method stub
-    }
-
-    public void afterNavigateBack(WebDriver arg0) {
-    // TODO Auto-generated method stub
-    }
-    ...
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Все что нужно сделать, просто реализовать методы, затем зарегистрировать ваш листенер и начать наслаждаться происходящим:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        FirefoxDriver driver = new FirefoxDriver();
-        EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
-
-        EventHandler handler = new EventHandler();
-        eventDriver.register(handler);
-        eventDriver.get(&quot;http://www.toolsqa.com/automation-practice-switch-windows/&quot;);
-        WebElement element = eventDriver.findElement(By.id(&quot;target&quot;));
-        element.click();
-
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Используя такой подход можно легко и просто залогировать все действия драйвера.&lt;/p&gt;
-&lt;/div&gt;
-	</description>
-    </item>
     <item>
       <title>Будьте осторожны с TestNG лисенерами</title>
       <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-      <pubDate>Wed, 19 Oct 2016 05:29:54 +0000</pubDate>
+      <pubDate>Wed, 19 Oct 2016 05:37:30 +0000</pubDate>
       <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
@@ -2242,6 +2111,22 @@ Tomcat started.&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В целом я очень доволен посещением такого мероприятия, хочется отметить высокий профессионализм организаторов и докладчиков. Помимо докладов было очень большое количество знакомств, впечатлений, разговоров и классных идей. Теперь все они у меня в голове и ждут своей реализации =) В этом году я долго возился с докладом, но уже на SQA days 19, которая запланирована на май 2016 в Санк-Петербурге, я поставил цель выступить в основной сетке конференции. Так что от себя могу сказать: &quot;СПАСИБО, увидимся на SQA days 19. Let&amp;#8217;s go together&amp;#8230;&amp;#8203;&quot;&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>6 способов работы с проперти файлами</title>
+      <link>http://automation-remarks.com/6-sposobov-raboty-s-propierti-failami/index.html</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">6-sposobov-raboty-s-propierti-failami/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тренинг, в котором я показываю различные способы работы с проперти файлами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/e2LWKxIwOfk?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 	</description>
     </item>
@@ -5435,6 +5320,121 @@ Final Result :::2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Как вы можете заметить срабатывает Before, затем идет работа метода и затем срабатывает After.
 &lt;strong&gt;P.S.&lt;/strong&gt;
 Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.&lt;/p&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>А как вы логируете?</title>
+      <link>http://automation-remarks.com/a-kak-vy-loghiruietie/index.html</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">a-kak-vy-loghiruietie/index.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Данной статьей хотелось бы поделиться тем, как я переизобрел велосипед и перестал писать логер после каждой строки кода.
+Итак, начну с предыстории. Есть у меня проект который организован на основе &lt;strong&gt;Spring + Jbehave + Selenium&lt;/strong&gt;, все вроде как хорошо, тесты бегают, тесты падают. Но вот бывает такое, что тест идет и в одном методе выполняется пару действий - понять какое именно действие вызывает фейл, бывает очень сложно. Что в таком случае делать? Правильно - начинать логировать. А как логировать? Очень просто берем &lt;strong&gt;Slf4j&lt;/strong&gt; делаем:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class SomePage {
+    private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);
+
+    public void someMethod(){
+        LOG.info(&quot;something happens&quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как любит говорить один мой знакомый: &quot;казалось бы&quot;. Но здесь всего один метод. При увеличении строк кода, логер будет пропорционально захламлять код. В дополнение не всегда хочеться писать вот эту вот строку в каждом классе:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;private static final Logger LOG = LoggerManager.getLoggger(SomePage.class);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, можно использовать &lt;strong&gt;Lombook&lt;/strong&gt;, но не все положительно относятся к библиотекам такого рода.
+Передем к более насущной проблеме, скажем есть у вас метод:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public void login(User user){
+    driver.find(By.id(&quot;login&quot;)).sendKeys(user.name);
+    driver.find(By.id(&quot;pass&quot;)).sendKeys(user.pass);
+    driver.find(By.id(&quot;login_btn&quot;)).click();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как здесь залогировать то, что я заполнил два поля и тыцнул на кнопку? Первое что приходит на ум - просто добавить логер. А куда добавлять? Перед действием или после? А если я хочу и там и там? Давайте посмотрим:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public void login(User user){
+    LOG.info(&quot;Type login {}&quot;,user.name);
+    driver.find(By.id(&quot;login&quot;)).sendKeys(user.name);
+    LOG.info(&quot;Type password {}&quot;,user.pass);
+    driver.find(By.id(&quot;pass&quot;)).sendKeys(user.pass);
+    LOG.info(&quot;Click login btn);
+    driver.find(By.id(&quot;login_btn&quot;)).click();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Последний кусок кода выглядит просто ужасно. В таких ситуациях очень кстати приходиться &lt;strong&gt;Selenium WebDriver Event Listener Interface&lt;/strong&gt;. Этот интерфейс предоставляет доступ ко всем основным действиям драйвера:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class EventHandler implements WebDriverEventListener{
+
+    public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterClickOn(WebElement arg0, WebDriver arg1) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+    // TODO Auto-generated method stub
+    }
+
+    public void afterNavigateBack(WebDriver arg0) {
+    // TODO Auto-generated method stub
+    }
+    ...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все что нужно сделать, просто реализовать методы, затем зарегистрировать ваш листенер и начать наслаждаться происходящим:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        FirefoxDriver driver = new FirefoxDriver();
+        EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
+
+        EventHandler handler = new EventHandler();
+        eventDriver.register(handler);
+        eventDriver.get(&quot;http://www.toolsqa.com/automation-practice-switch-windows/&quot;);
+        WebElement element = eventDriver.findElement(By.id(&quot;target&quot;));
+        element.click();
+
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Используя такой подход можно легко и просто залогировать все действия драйвера.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
