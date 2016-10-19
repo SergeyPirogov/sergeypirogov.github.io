@@ -23,9 +23,6 @@ gretty {
 jbake {
     version = "2.5.0"
     asciidoctorjVersion = "1.5.4.1"
-    configuration['db.store'] = "local"
-    configuration['db.path'] = "build/cache"
-    configuration['site.host'] = "localhost"
     configuration['render.tags'] = true
     configuration['site.contextPath'] = "/"
     configuration['asciidoctor.attributes'] = [
