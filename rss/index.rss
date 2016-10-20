@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 20 Oct 2016 05:48:45 +0000</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 05:48:45 +0000</lastBuildDate>
+    <pubDate>Thu, 20 Oct 2016 11:31:04 +0000</pubDate>
+    <lastBuildDate>Thu, 20 Oct 2016 11:31:04 +0000</lastBuildDate>
 
         <item>
           <title>
               Будьте осторожны с TestNG лисенерами
           </title>
           <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-          <pubDate>Thu, 20 Oct 2016 05:47:51 +0000</pubDate>
+          <pubDate>Thu, 20 Oct 2016 11:29:54 +0000</pubDate>
           <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
           <description>
                         Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
@@ -229,6 +229,76 @@ class TestClass{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Успехов и до новых заметок..&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Selenium Webdriver Manager
+          </title>
+          <link>http://automation-remarks.com/selenium-webdriver-manager/index.html</link>
+          <pubDate>Thu, 20 Oct 2016 11:29:54 +0000</pubDate>
+          <guid isPermaLink="false">selenium-webdriver-manager/index.html</guid>
+          <description>
+                        Небольшая заметка об одной полезной библиотеке
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хочу поделиться небольшой утилитой, которую я нарыл на просторах &lt;strong&gt;Github&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Называется она &lt;a href=&quot;https://github.com/bonigarcia/webdrivermanager&quot;&gt;WebDriverManager&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С помощью этой библиотеки вы можете решить достаточно банальную проблему управления драйверами для &lt;strong&gt;Chrome&lt;/strong&gt;, &lt;strong&gt;Firefox&lt;/strong&gt; или &lt;strong&gt;InternetExplorer&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я думаю, многим автоматизаторам знакома &quot;проблема&quot;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;org.openqa.selenium.WebDriverException:
+The path to the driver executable must be set by the webdriver.chrome.driver system property;
+for more information, see http://code.google.com/p/selenium/wiki/ChromeDriver.
+The latest version can be downloaded from http://code.google.com/p/chromedriver/downloads/list&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, все это не ново и решается достаточно просто:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;При таком подходе обычно нужно скачивать и хранить этот самый &lt;strong&gt;chromedriver&lt;/strong&gt; в папке &lt;strong&gt;resources&lt;/strong&gt;, а что еще более неприятно, - если мы запускаем тесты на разных платформах, то нужно творить разные фабрики и писать кучу дополнительного кода.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Библиотека же решает это все следующим образом:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class ChromeTest {
+
+    protected WebDriver driver;
+
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+    }
+
+    @Test
+    public void test() {
+        // Using Selenide
+        open(&apos;http://automation-remarks.com&apos;);
+        $$(&apos;.post&apos;).shouldHave(size(10));
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом, эта находка меня очень порадовала и я уже ее прикрутил к своему проекту - рекомендую!!&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>

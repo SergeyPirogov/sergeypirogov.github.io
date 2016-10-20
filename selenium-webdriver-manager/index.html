@@ -80,67 +80,85 @@
 				<div id="push">
                     <header class="post-header">
                         <span class="post-meta">
-                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">19/11/2014</span>
+                            <span class="post-author">Сергей Пирогов</span> | <span class="post-date">20/10/2016</span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как приручить Jenkins API</h1>
+                        <h1 class="post-title">Selenium Webdriver Manager</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Небольшой пост о том, как можно добраться до внутренностей <a href="https://jenkins.io/index.html">Jenkins</a>.
-Бывают ситуации, когда СI сервер установлен где-то на удаленной машине, доступ к которой осуществляется через VPN. В общем ситуация сложная, а информацию о джобах и письма от дженкинса получать хотелось бы.
-В таком случае в помощь приходит <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">Jenkins API</a>.
-API позволяет извлекать информацию в трех форматах XML, JSON и Python.
-Как это работает? Очень просто: все что нужно - вбить в браузере в строке адреса:</p>
+<p>Хочу поделиться небольшой утилитой, которую я нарыл на просторах <strong>Github</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Называется она <a href="https://github.com/bonigarcia/webdrivermanager">WebDriverManager</a>.</p>
+</div>
+<div class="paragraph">
+<p>С помощью этой библиотеки вы можете решить достаточно банальную проблему управления драйверами для <strong>Chrome</strong>, <strong>Firefox</strong> или <strong>InternetExplorer</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Я думаю, многим автоматизаторам знакома "проблема":</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;jenkins host&gt;/api/json</code></pre>
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">org.openqa.selenium.WebDriverException:
+The path to the driver executable must be set by the webdriver.chrome.driver system property;
+for more information, see http://code.google.com/p/selenium/wiki/ChromeDriver.
+The latest version can be downloaded from http://code.google.com/p/chromedriver/downloads/list</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вуаля! Круто, не правда ли? Но текст не читабелен. Решается это просто: нужно добавить pretty формат:</p>
+<p>Да, все это не ново и решается достаточно просто:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://9.21.103.66:8255/jenkins/api/json?pretty=true</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь на экране в <strong>JSON</strong> формате отображается информация обо всех джобах. Для того, чтобы опуститься на уровень одного <strong>Job</strong>, необходимо просто указать имя:</p>
+<p>При таком подходе обычно нужно скачивать и хранить этот самый <strong>chromedriver</strong> в папке <strong>resources</strong>, а что еще более неприятно, - если мы запускаем тесты на разных платформах, то нужно творить разные фабрики и писать кучу дополнительного кода.</p>
+</div>
+<div class="paragraph">
+<p>Библиотека же решает это все следующим образом:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/api/json?pretty=true</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class ChromeTest {
+
+    protected WebDriver driver;
+
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+    }
+
+    @Test
+    public void test() {
+        // Using Selenide
+        open('http://automation-remarks.com');
+        $$('.post').shouldHave(size(10));
+    }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>А чтобы получить информацию о какой-либо сборке, нужно всего лишь указать ее номер:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/&lt;BUILD_NUMBER&gt;/api/json?pretty=true</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>После получения информации ее можно использовать в благих целях. Но об этом я расскажу в следующий раз&#8230;&#8203;</p>
+<p>В целом, эта находка меня очень порадовала и я уже ее прикрутил к своему проекту - рекомендую!!</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Jenkins.html">Jenkins</a>
-                                    <a href="/tags/CI.html">CI</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                             </div>
                         <div class="post-share">
-                            <a class="icon-twitter" href="https://twitter.com/share?text=Как приручить Jenkins API&url=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Selenium Webdriver Manager&url=selenium-webdriver-manager/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                                 <span>Twitter</span>
                             </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=selenium-webdriver-manager/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                                 <span>Facebook</span>
                             </a>
-                            <a class="icon-gplus" href="https://plus.google.com/share?url=kak-prruchit-jenkins-api/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=selenium-webdriver-manager/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                                 <span>Google+</span>
                             </a>
                         </div>
@@ -154,7 +172,6 @@ API позволяет извлекать информацию в трех фо�
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
-                                                <li><a class='js-ajax-link' href="/selenium-webdriver-manager/index.html">Selenium Webdriver Manager</a></li>
                                                 <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/java-video-recorder-1-0-8/index.html">Java Video Recorder 1.0.8 is production ready</a></li>
                                                 <li><a class='js-ajax-link' href="/github-travis-docs/index.html">Документация к проекту на Github c AsciiDoctor и Travis CI</a></li>
