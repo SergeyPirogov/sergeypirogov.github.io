@@ -1,10 +1,10 @@
-title=Пишем Allure Jbehave адаптер
-date=2015-07-19
-summary=Заметка о том, как я писал свой адаптер для интеграции Allure Yandex и JBehave.
-type=post
-tags=Java, Тест фреймворк
-status=published
-~~~~~~
+= Пишем Allure Jbehave адаптер
+Sergey Pirogov
+2015-07-19
+:jbake-summary: Заметка о том, как я писал свой адаптер для интеграции Allure Yandex и JBehave.
+:jbake-type: post
+:jbake-tags: Java, Тест фреймворк
+
 Заметка о том, как я писал свой адаптер для интеграции **Allure Yandex** и **JBehave**.
 
 image::https://hsto.org/getpro/habr/post_images/c43/a4d/cf7/c43a4dcf7aa2837e5136db9abd9b919a.jpg[]
