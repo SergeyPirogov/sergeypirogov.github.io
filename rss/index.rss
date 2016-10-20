@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 20 Oct 2016 11:31:04 +0000</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 11:31:04 +0000</lastBuildDate>
+    <pubDate>Thu, 20 Oct 2016 11:33:24 +0000</pubDate>
+    <lastBuildDate>Thu, 20 Oct 2016 11:33:24 +0000</lastBuildDate>
 
         <item>
           <title>
               Будьте осторожны с TestNG лисенерами
           </title>
           <link>http://automation-remarks.com/budtie-ostorozhny-s-testng-lisienierami/index.html</link>
-          <pubDate>Thu, 20 Oct 2016 11:29:54 +0000</pubDate>
+          <pubDate>Thu, 20 Oct 2016 11:32:32 +0000</pubDate>
           <guid isPermaLink="false">budtie-ostorozhny-s-testng-lisienierami/index.html</guid>
           <description>
                         Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
@@ -237,7 +237,7 @@ class TestClass{
               Selenium Webdriver Manager
           </title>
           <link>http://automation-remarks.com/selenium-webdriver-manager/index.html</link>
-          <pubDate>Thu, 20 Oct 2016 11:29:54 +0000</pubDate>
+          <pubDate>Thu, 20 Oct 2016 11:32:32 +0000</pubDate>
           <guid isPermaLink="false">selenium-webdriver-manager/index.html</guid>
           <description>
                         Небольшая заметка об одной полезной библиотеке
