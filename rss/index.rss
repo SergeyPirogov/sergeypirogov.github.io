@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 20 Oct 2016 11:36:43 +0000</pubDate>
-    <lastBuildDate>Thu, 20 Oct 2016 11:36:43 +0000</lastBuildDate>
+    <pubDate>Sat, 22 Oct 2016 08:03:51 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Oct 2016 08:03:51 +0000</lastBuildDate>
 
         <item>
           <title>
               Selenium Webdriver Manager
           </title>
           <link>http://automation-remarks.com/selenium-webdriver-manager/index.html</link>
-          <pubDate>Thu, 20 Oct 2016 11:35:30 +0000</pubDate>
+          <pubDate>Sat, 22 Oct 2016 08:02:56 +0000</pubDate>
           <guid isPermaLink="false">selenium-webdriver-manager/index.html</guid>
           <description>
                         Небольшая заметка об одной полезной библиотеке
