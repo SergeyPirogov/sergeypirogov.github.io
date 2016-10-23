@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 23 Oct 2016 12:36:51 +0000</pubDate>
-    <lastBuildDate>Sun, 23 Oct 2016 12:36:51 +0000</lastBuildDate>
+    <pubDate>Sun, 23 Oct 2016 12:56:31 +0000</pubDate>
+    <lastBuildDate>Sun, 23 Oct 2016 12:56:31 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -29,52 +29,52 @@
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;История большого переезда на новую платформу. Я еще не писал история возникновения этого блога. Вот теперь я решил, что в предверии второй годовoщины его существования пора бы раскрыть все тайны.&lt;/p&gt;
+&lt;p&gt;Я еще не писал об истории возникновения этого блога. А теперь решил, что в предверии второй годовщины его существования пора бы раскрыть все тайны.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Началось все еще в ноябре 2014 года, я просто хотел создать страничку &lt;strong&gt;&quot;О Себе&quot;&lt;/strong&gt; и повесить ее где-то в интернете. Да, так как я не являюсь матерым девелопером в тот момент я не знал как же вообще это все делается. Честно говоря я даже не особо знал как эти все красивые сайты преобретуют вменяемые доменные имена.&lt;/p&gt;
+&lt;p&gt;Началось все еще в ноябре 2014 года. Тогда я просто хотел создать страничку &lt;strong&gt;&quot;О Себе&quot;&lt;/strong&gt; и повесить ее где-то в интернете. Да, так как я не являюсь матерым девелопером, то в тот момент не знал, как же вообще это все делается. Честно говоря, я даже не особо представлял, как эти все красивые сайты приобретают вменяемые доменные имена.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Все началось с того, что я узнал о &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; и залил туда какой-то невменяемый кусок &lt;strong&gt;HTML&lt;/strong&gt; файла дабы попробовать как оно вообще работает.&lt;/p&gt;
+&lt;p&gt;Все началось с того, что я узнал о &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; и залил туда какой-то невменяемый кусок &lt;strong&gt;HTML&lt;/strong&gt; файла, дабы попробовать, как это вообще работает.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Потом покопавшись в интеренете в поисках бесплатной платформы для создания блога, я случайно наткнулся на &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost blog&lt;/a&gt;. Собственно она мне понравилась своим минимализмом и наличием большого количества шаблонов. Едиственный минус - для публикации статей на &lt;strong&gt;Github Pages&lt;/strong&gt; требовалась установка какой-то станной утилиты написанной на &lt;strong&gt;Python&lt;/strong&gt; - &lt;strong&gt;buster&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Потом, покопавшись в интернете в поисках бесплатной платформы для создания блога, я случайно наткнулся на &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost blog&lt;/a&gt;. Собственно, она мне понравилась своим минимализмом и наличием большого количества шаблонов. Едиственный минус - для публикации статей на &lt;strong&gt;Github Pages&lt;/strong&gt; требовалась установка какой-то станной утилиты, написанной на &lt;strong&gt;Python&lt;/strong&gt; - &lt;strong&gt;buster&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В общем овладев этим инструментарием &lt;strong&gt;16 ноября 2014&lt;/strong&gt; года я выложил первую &lt;a href=&quot;http://automation-remarks.com/first-post/index.html&quot;&gt;заметку&lt;/a&gt;. Собственно с того момента начался необратимый процесс =)&lt;/p&gt;
+&lt;p&gt;В общем, овладев этим инструментарием &lt;strong&gt;16 ноября 2014 года&lt;/strong&gt;, я выложил первую &lt;a href=&quot;http://automation-remarks.com/first-post/index.html&quot;&gt;заметку&lt;/a&gt;. Вот с того момента начался необратимый процесс =)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Вскоре я порчитал книгу &lt;a href=&quot;https://www.amazon.com/Technical-Blogging-Expertise-Remarkable-Presence/dp/1934356883&quot;&gt;Technical Blogging: Turn Your Expertise into a Remarkable Online Presence&lt;/a&gt;. Там все достаточно грамотно расписано как сделать блог и на нем зарабатывать деньги, но попробовав использовать советы из книги, я понял, что все это фигня и нужно делать так как подсказывает интуиция. Долой рекламу и продакт плейсмент.&lt;/p&gt;
+&lt;p&gt;Вскоре я прочитал книгу &lt;a href=&quot;https://www.amazon.com/Technical-Blogging-Expertise-Remarkable-Presence/dp/1934356883&quot;&gt;Technical Blogging: Turn Your Expertise into a Remarkable Online Presence&lt;/a&gt;. Там достаточно грамотно расписано, как сделать блог и на нем зарабатывать деньги, но, попробовав использовать советы, я понял, что все это - фигня, и нужно делать так, как подсказывает интуиция. Долой рекламу и product placement!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Таким образом, постепенно я выкладывал статьи о инструментах и подходах, которые я использовал на своих проектах. Блог постепенно обрастал ссылками на различные ресурсы, количество читателей постепенно росло. В среднем я публиковал одну заметку в неделю.&lt;/p&gt;
+&lt;p&gt;Таким образом, постепенно я выкладывал статьи об инструментах и подходах, которые использовал на своих проектах. Блог постепенно обрастал ссылками на различные ресурсы, количество читателей постепенно росло. В среднем я публиковал одну заметку в неделю.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В скором времени заметки стали попадать в дайджесты на &lt;strong&gt;DOU&lt;/strong&gt; и других площадках связанных с автоматизацией тестирования.&lt;/p&gt;
+&lt;p&gt;В скором времени заметки стали попадать в дайджесты на &lt;strong&gt;DOU&lt;/strong&gt; и других площадках, связанных с автоматизацией тестирования.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Но за этим всем стояла еще и техническая соствляющая. Я был жестко завязан на платформу, которая была завязана на версии &lt;strong&gt;nodejs&lt;/strong&gt;, а так как я публиковал статьи с помощью &lt;strong&gt;buster&lt;/strong&gt;, я еще и следил за версиями &lt;strong&gt;Python&lt;/strong&gt; и чинил баги в этой адской утилите. В общем я мог писать и публиковать статьи только с одного ноутбука, который стоит у меня дома. Я был очень недоволен такой ситуацией, но альтернатив я найти не мог. Был &lt;strong&gt;Jekyll&lt;/strong&gt; завязанный на &lt;strong&gt;Ruby&lt;/strong&gt;, но я не хотел менять шило на мыло.&lt;/p&gt;
+&lt;p&gt;Но за этим всем стояла еще и техническая составляющая. Я был жестко завязан на платформе, которая была завязана на версии &lt;strong&gt;nodejs&lt;/strong&gt;, а так как я публиковал статьи с помощью &lt;strong&gt;buster&lt;/strong&gt;, то еще и следил за версиями &lt;strong&gt;Python&lt;/strong&gt; и чинил баги в этой адской утилите. В общем, я мог писать и публиковать статьи только с одного ноутбука, который стоит у меня дома. Ситуация меня не радовала, но альтернатив я найти не мог. Был &lt;strong&gt;Jekyll&lt;/strong&gt;, завязанный на &lt;strong&gt;Ruby&lt;/strong&gt;, но я не хотел менять шило на мыло.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;И вот буквально месяц назад листая ленту в &lt;strong&gt;Twitter&lt;/strong&gt; я наткнулся на &lt;a href=&quot;http://jbake.org/&quot;&gt;&lt;strong&gt;JBake&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;И вот буквально месяц назад, листая ленту в &lt;strong&gt;Twitter&lt;/strong&gt;, я наткнулся на &lt;a href=&quot;http://jbake.org/&quot;&gt;&lt;strong&gt;JBake&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Естественно руки зачесались и начал двигать свой блог на эту платформу. Меня привлекло то, что все написано на &lt;strong&gt;Java&lt;/strong&gt;, есть поддержка разных темплейтов: &lt;strong&gt;Freemarker&lt;/strong&gt;, &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Thymeleaf&lt;/strong&gt; и &lt;strong&gt;Jade&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Естественно, руки зачесались и я начал двигать свой блог на эту платформу. Меня привлекло то, что все написано на &lt;strong&gt;Java&lt;/strong&gt;, есть поддержка разных темплейтов: &lt;strong&gt;Freemarker&lt;/strong&gt;, &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Thymeleaf&lt;/strong&gt; и &lt;strong&gt;Jade&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Более того, в интернете я нашел примеры того, как можно все это собирать с помощью любимого мною &lt;strong&gt;Gradle&lt;/strong&gt;. Да, мне потребовалось примерно 3 недели, чтобы полностью перенести шаблон и весь сайт на &lt;strong&gt;JBake&lt;/strong&gt;, но это того стоило.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Все по-прежнему хранится на &lt;strong&gt;Github pages&lt;/strong&gt;, но теперь я не привязан к какой либо платорме, все что мне нужно - это &lt;strong&gt;Java&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Все по-прежнему хранится на &lt;strong&gt;Github pages&lt;/strong&gt;, но теперь я не привязан к какой-либо платформе, и все, что мне нужно, - это &lt;strong&gt;Java&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Заметки можно писать в простых файлах формата &lt;strong&gt;.adoc&lt;/strong&gt; или &lt;strong&gt;.md&lt;/strong&gt;. Более того, с помощью &lt;strong&gt;Travis CI&lt;/strong&gt; я получил полноценный процесс &lt;strong&gt;Continuous Delivery&lt;/strong&gt;. Все что мне нужно это просто открыть &lt;strong&gt;Intelij IDEA(!)&lt;/strong&gt;, написать статью или поправить какой-то файл, сделать &lt;strong&gt;commit&lt;/strong&gt; и &lt;strong&gt;push&lt;/strong&gt; и уже буквально через минуту новые изменения будут опубликованы без каких либо &lt;strong&gt;down time&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Заметки можно писать в простых файлах формата &lt;strong&gt;.adoc&lt;/strong&gt; или &lt;strong&gt;.md&lt;/strong&gt;. Более того, с помощью &lt;strong&gt;Travis CI&lt;/strong&gt; я получил полноценный процесс &lt;strong&gt;Continuous Delivery&lt;/strong&gt;. Все, что требуется, - это просто открыть &lt;strong&gt;Intelij IDEA(!)&lt;/strong&gt;, написать статью или поправить какой-то файл, сделать &lt;strong&gt;commit&lt;/strong&gt; и &lt;strong&gt;push&lt;/strong&gt; и уже буквально через минуту новые изменения будут опубликованы без каких-либо &lt;strong&gt;down time&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В целом я очень доволен, я потратил кучу времени на имплементацию, зато я узнал много нового.&lt;/p&gt;
+&lt;p&gt;В целом, я очень доволен, потратил, конечно, кучу времени на имплементацию, зато узнал много нового.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Если вы задумываетесь над созданием своего сайта- визитки или блога, рекомендую посмотеть на &lt;strong&gt;JBake&lt;/strong&gt;. Да придется немного попрограмировать, но усилия того стоят.&lt;/p&gt;
+&lt;p&gt;Если вы задумываетесь над созданием своего сайта-визитки или блога, рекомендую посмотреть на &lt;strong&gt;JBake&lt;/strong&gt;. Да, придется немного попрограммировать, но усилия того стоят.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
