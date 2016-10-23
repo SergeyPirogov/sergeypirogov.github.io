@@ -37,6 +37,8 @@ task publish(type: GradleBuild) {
     tasks = ['publishGhPages']
 }
 
+task run(dependsOn: ['clean', 'jbake', 'jettyRun'])
+
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
 }
