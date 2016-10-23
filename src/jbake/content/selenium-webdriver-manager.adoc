@@ -1,5 +1,6 @@
 = Selenium Webdriver Manager
 Sergey Pirogov
+2016-10-18
 :jbake-type: post
 :jbake-tags: Java, Тест фреймворк
 :jbake-summary: Небольшая заметка об одной полезной библиотеке
