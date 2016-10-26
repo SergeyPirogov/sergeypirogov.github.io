@@ -13,7 +13,7 @@ tags=Тест фреймворк, Java
 
 **Шаг 1: Установка**
 
-Нам потребуется установить **VirtualBox** и собственно **Vagrant**. Скачиваем нужный инсталятор http://www.vagrantup.com/downloads[здесь] и устанавливаем. Инструкция по установке VirtualBox http://www.windxp.com.ru/article9.htm[здесь].
+Нам потребуется установить **VirtualBox** и собственно **Vagrant**. Скачиваем нужный инсталятор и устанавливаем. Инструкция по установке VirtualBox http://www.windxp.com.ru/article9.htm[здесь].
 
 **Шаг 2: Скачиваем готовый box**
 
