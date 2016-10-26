@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 Oct 2016 10:45:47 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 10:45:47 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2016 11:09:49 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 11:09:49 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -375,7 +375,7 @@ class TestClass{
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Как и в прошлом &lt;a href=&quot;http://automation-remarks/qafest-retrospective/index.html&quot;&gt;году&lt;/a&gt;, мне посчастливилось посетить это мероприятие в качестве докладчика.&lt;/p&gt;
+&lt;p&gt;Как и в прошлом &lt;a href=&quot;http://automation-remarks.com/qafest-retrospective/index.html&quot;&gt;году&lt;/a&gt;, мне посчастливилось посетить это мероприятие в качестве докладчика.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
