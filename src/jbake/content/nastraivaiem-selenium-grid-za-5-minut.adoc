@@ -115,8 +115,6 @@ java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json
 java -jar selenium-server-standalone.jar -role node -nodeConfig nodeconfig.json
 ----
 
-Содержимое json файла https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultNode.json[здесь].
-
 Ну вот и все, в следующих заметках я покажу, как пользоваться настроенным гридом и запускать тесты. Если вам интересно, подписывайтесь,чтобы получать обновления первым.
 
 
