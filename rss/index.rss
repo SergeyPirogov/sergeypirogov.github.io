@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 Oct 2016 11:13:30 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 11:13:30 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2016 11:14:32 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 11:14:32 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -3698,7 +3698,7 @@ SHELL&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Шаг 1: Установка&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Нам потребуется установить &lt;strong&gt;VirtualBox&lt;/strong&gt; и собственно &lt;strong&gt;Vagrant&lt;/strong&gt;. Скачиваем нужный инсталятор &lt;a href=&quot;http://www.vagrantup.com/downloads&quot;&gt;здесь&lt;/a&gt; и устанавливаем. Инструкция по установке VirtualBox &lt;a href=&quot;http://www.windxp.com.ru/article9.htm&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Нам потребуется установить &lt;strong&gt;VirtualBox&lt;/strong&gt; и собственно &lt;strong&gt;Vagrant&lt;/strong&gt;. Скачиваем нужный инсталятор и устанавливаем. Инструкция по установке VirtualBox &lt;a href=&quot;http://www.windxp.com.ru/article9.htm&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Шаг 2: Скачиваем готовый box&lt;/strong&gt;&lt;/p&gt;
