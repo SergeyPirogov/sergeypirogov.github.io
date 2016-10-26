@@ -108,8 +108,6 @@ http://localhost:4444/grid/register -port 5558 -browser browserName=chrome
 java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json
 ----
 
-Содержимое json файла https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultHub.json[здесь].
-
 Пример для **Node**:
 
 [source, xml]
