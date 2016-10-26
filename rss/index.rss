@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 Oct 2016 11:11:24 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 11:11:24 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2016 11:13:30 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 11:13:30 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -4917,9 +4917,6 @@ http://localhost:4444/grid/register -port 5558 -browser browserName=chrome&lt;/c
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Содержимое json файла &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/blob/master/java/server/src/org/openqa/grid/common/defaults/DefaultHub.json&quot;&gt;здесь&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пример для &lt;strong&gt;Node&lt;/strong&gt;:&lt;/p&gt;
