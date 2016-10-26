@@ -41,5 +41,3 @@ public void shouldBeComplitedAction(){
 ----
 
 Вот и все, после запуска тестов в папке target/allure-results будут находиться сгенерированные xml файлы. Затем нужно просто собрать отчет.
-
-P.S. Возможно, вам понравится идея и вы решите использовать отчет у себя на проекте, либо вы решите усовершенствовать код, поэтому привожу ссылки на репортер и на пример проекта: https://bitbucket.org/Semen4ik20/allure-jbehave-adapter/src[репортер] и https://github.com/SergeyPirogov/JbehaveGradleAllure[пример использования].
