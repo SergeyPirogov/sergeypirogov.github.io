@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 Oct 2016 11:09:49 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 11:09:49 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2016 11:11:24 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 11:11:24 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -3894,9 +3894,6 @@ public void shouldBeComplitedAction(){
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот и все, после запуска тестов в папке target/allure-results будут находиться сгенерированные xml файлы. Затем нужно просто собрать отчет.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;P.S. Возможно, вам понравится идея и вы решите использовать отчет у себя на проекте, либо вы решите усовершенствовать код, поэтому привожу ссылки на репортер и на пример проекта: &lt;a href=&quot;https://bitbucket.org/Semen4ik20/allure-jbehave-adapter/src&quot;&gt;репортер&lt;/a&gt; и &lt;a href=&quot;https://github.com/SergeyPirogov/JbehaveGradleAllure&quot;&gt;пример использования&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
