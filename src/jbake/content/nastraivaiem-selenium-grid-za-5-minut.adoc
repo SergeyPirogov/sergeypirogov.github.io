@@ -88,7 +88,7 @@ java -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-2.
 http://localhost:4444/grid/register -port 5558 -browser browserName=iexplorer
 ----
 
-Для Internet explorer я уже описывал, как можно использовать драйвер, написанный самим Майкрософт. Смотреть http://automation-remarks.com/kak-pokorit-internet-explorer/[здесь].
+Для Internet explorer я уже описывал, как можно использовать драйвер, написанный самим Майкрософт.
 
 .**Chrome**
 [source, xml]
