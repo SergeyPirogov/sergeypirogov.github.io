@@ -6,7 +6,7 @@ tags=Конференции, События
 summary=Спешу поделиться своими впечатления о прошедшей, уже третьей по счету, конференции QAFest.
 ~~~~~~
 
-Как и в прошлом http://automation-remarks/qafest-retrospective/index.html[году], мне посчастливилось посетить это мероприятие в качестве докладчика.
+Как и в прошлом http://automation-remarks.com/qafest-retrospective/index.html[году], мне посчастливилось посетить это мероприятие в качестве докладчика.
 
 image::/images/qa_fest_2016.jpg[]
 
