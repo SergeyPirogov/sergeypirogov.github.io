@@ -14,9 +14,177 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 30 Oct 2016 09:04:54 +0000</pubDate>
-    <lastBuildDate>Sun, 30 Oct 2016 09:04:54 +0000</lastBuildDate>
+    <pubDate>Sun, 30 Oct 2016 11:04:13 +0000</pubDate>
+    <lastBuildDate>Sun, 30 Oct 2016 11:04:13 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Как менялось мое отношение к PageObject
+          </title>
+          <link>http://automation-remarks.com/2016/pages-objects-history/index.html</link>
+          <pubDate>Sun, 30 Oct 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2016/pages-objects-history/index.html</guid>
+          <description>
+                        История преобразования PageObject
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Во многих сообществах тестировщиков холиварят о том, как должен выглядеть &lt;strong&gt;PageObject&lt;/strong&gt;. Одни кричат, что нужно хранить локаторы в полях, другие выступают только за методы. Должен PageObject содержать логику или нет? Как и в любом холиваре, каждая из сторон считает свою точку зрения самой правильной.
+Как участник социума и человек, сидящий в &lt;a href=&quot;https://software-testers.herokuapp.com/&quot;&gt;Slack сообществе тестировщиков&lt;/a&gt;, я тоже наблюдаю эти перепалки. У меня есть свое мнение по этому поводу, но перед тем, как его выразить, сначала опишу историю преобразования PageObject на различных проектах, в которых я принимал участие.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для меня все началось еще в далеком 2012 году, когда я попал на проект, на котором только зарождалась автоматизация. Так как я был совсем неопытным Junior&amp;#8217;ом, я впитывал и делал так, как мне говорили.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;PageObject&lt;/strong&gt; на том проекте выглядел примерно так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class Portfolios extends BasePage {
+	private Actions builder = new Actions(getDriverProvider().get());
+
+	public Portfolios(WebDriverProvider driverProvider) {
+		super(driverProvider);
+	}
+
+	public void selectActionMenuItem(String name) {
+		clickActionsButton();
+		waitForVisible(locators.ACTIONS_MENU_ITEM_BY(name)).click();
+	}
+
+	private void openNodePortfolioFolder() {
+		find(locators.NAVIGATION_TREE_PORTFOLIOS_FOLDER()).click();
+		waitForVisible(By.xpath(&quot;//a[contains(@title,&apos;BOOK:&apos;)]&quot;));
+	}
+
+	public boolean isActionsMenuItemDisplayed(String menuItem) {
+		return isDisplayed(locators.ACTIONS_MENU_ITEM_BY(menuItem));
+	}
+
+	public void actionsCreateVirtualPortfolio() {
+		WebElement createPortfolio = waitForVisible(locators
+				.ACTIONS_CREATE_VIRTUAL_PORTFOLIO());
+		createPortfolio.click();
+	}
+
+	public void actionsCreatePortfolioLinks() {
+		waitForVisible(BaseAraPage.locators.getACTIONS_CREATE_PORTFOLIO_LINKS())
+				.click();
+	}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, все выглядит ужасно! Проект писался на базе самописной обертки для &lt;strong&gt;Selenium Webdriver&lt;/strong&gt;. Локаторы выносились с отдельный класс &lt;strong&gt;Locators&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом нам удавалось более-менее успешно с этим жить, но, смотря на это все, я, конечно, понимаю, что такая реализация является категорически неприемлимой в наше время.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Page Object на базе @FindBy и Component object&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В следующем проекте мы пробовали описывать страницы примерно так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class DictionaryPage extends PageObject {
+
+    @FindBy(name=&quot;search&quot;)
+    private WebElementFacade searchTerms;
+
+    @FindBy(name=&quot;go&quot;)
+    private WebElementFacade lookupButton;
+
+    public void enter_keywords(String keyword) {
+        searchTerms.type(keyword);
+    }
+
+    public void lookup_terms() {
+        lookupButton.click();
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично мне такой подход не нравится тем, что нужно инициализировать страницы через &lt;strong&gt;PageFactory&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;PageFactory.initElements(DictionaryPage.class)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;К тому же, при большом количестве елементов на странице такой &lt;strong&gt;PageObject&lt;/strong&gt; класс обростает уж очень большим количеством полей, помарканных аннотацией &lt;strong&gt;@FindBy&lt;/strong&gt;. Локаторы неудобно переиспользовать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;HTML Elements&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Естественно, был этап, когда появилась библиотека &lt;strong&gt;Yandex HTML elements&lt;/strong&gt; и я пробовал ее использовать, но мне не понравилось. Просто не понравилось и все. Такое бывает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;PageObject с полями By&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В попытке улучшить предыдущую реализацию мы пробовали писать &lt;strong&gt;PageObject&lt;/strong&gt; в таком стиле:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class DictionaryPage extends PageObject {
+
+    private By searchTerms = By.name(&quot;search&quot;);
+    private By lookupButton = By.name(&quot;go&quot;);
+
+    public void enter_keywords(String keyword) {
+        $(searchTerms).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(lookupButton).click();
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В принципе, мне все нравилось, пока количество елементов было небольшим. По мере роста объема елементов такие страницы было неудобно поддерживать. Постоянно нужно было скролить вверх, чтобы подправить локатор, потом возвращаться к месту использования этого локатора.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Эра Selenide&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пока я там ковырялся со своими велосипедами и экспериментировал с реализациями &lt;strong&gt;PageObject&lt;/strong&gt;, библиотека &lt;strong&gt;Selenide&lt;/strong&gt; росла и крепла, и я начал использовать ее на боевых проектах.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Реализация &lt;strong&gt;PageObject&lt;/strong&gt; стала выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name(&quot;search&quot;)).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(&quot;.lookupButton&quot;).click();
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Локаторы хранятся прямо там, где они используются - это удобно, ты заходишь в метод и сразу видишь, что там происходит. Такой подход позволяет экономить время и нервы тем, кто пишет и поддерживает тесты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Был еще один проект, на котором я использовал &lt;strong&gt;Groovy&lt;/strong&gt;, и там у нас была возможность писать PageObject в очень интересном &lt;a href=&quot;http://automation-remarks.com/groovy-page/index.html&quot;&gt;формате&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Такой подход мне нравится больше всего, но, увы, он доступен только при использовании &lt;strong&gt;Groovy&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;К более-менее удобному для себя формату реализации &lt;strong&gt;PageObject&lt;/strong&gt; я пришел через опыт, а он может быть положительным и отрицательным. Я экспериментировал и нашел самый удобный для себя формат. Считаю, что наличие холиваров - это отлично, главное - относиться к ним здраво и выносить полезный опыт.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как я блог на новую платформу двигал

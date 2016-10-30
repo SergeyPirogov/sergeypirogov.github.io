@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Как менялось мое отношение к PageObject</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как менялось мое отношение к PageObject">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="История преобразования PageObject"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script>var disqus="httpspirogovgithubio";</script>
+
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">	
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="http://feeds.feedburner.com/automation-remarks"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                30/10/2016
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Как менялось мое отношение к PageObject</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Во многих сообществах тестировщиков холиварят о том, как должен выглядеть <strong>PageObject</strong>. Одни кричат, что нужно хранить локаторы в полях, другие выступают только за методы. Должен PageObject содержать логику или нет? Как и в любом холиваре, каждая из сторон считает свою точку зрения самой правильной.
+Как участник социума и человек, сидящий в <a href="https://software-testers.herokuapp.com/">Slack сообществе тестировщиков</a>, я тоже наблюдаю эти перепалки. У меня есть свое мнение по этому поводу, но перед тем, как его выразить, сначала опишу историю преобразования PageObject на различных проектах, в которых я принимал участие.</p>
+</div>
+<div class="paragraph">
+<p>Для меня все началось еще в далеком 2012 году, когда я попал на проект, на котором только зарождалась автоматизация. Так как я был совсем неопытным Junior&#8217;ом, я впитывал и делал так, как мне говорили.</p>
+</div>
+<div class="paragraph">
+<p><strong>PageObject</strong> на том проекте выглядел примерно так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Portfolios extends BasePage {
+	private Actions builder = new Actions(getDriverProvider().get());
+
+	public Portfolios(WebDriverProvider driverProvider) {
+		super(driverProvider);
+	}
+
+	public void selectActionMenuItem(String name) {
+		clickActionsButton();
+		waitForVisible(locators.ACTIONS_MENU_ITEM_BY(name)).click();
+	}
+
+	private void openNodePortfolioFolder() {
+		find(locators.NAVIGATION_TREE_PORTFOLIOS_FOLDER()).click();
+		waitForVisible(By.xpath("//a[contains(@title,'BOOK:')]"));
+	}
+
+	public boolean isActionsMenuItemDisplayed(String menuItem) {
+		return isDisplayed(locators.ACTIONS_MENU_ITEM_BY(menuItem));
+	}
+
+	public void actionsCreateVirtualPortfolio() {
+		WebElement createPortfolio = waitForVisible(locators
+				.ACTIONS_CREATE_VIRTUAL_PORTFOLIO());
+		createPortfolio.click();
+	}
+
+	public void actionsCreatePortfolioLinks() {
+		waitForVisible(BaseAraPage.locators.getACTIONS_CREATE_PORTFOLIO_LINKS())
+				.click();
+	}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Да, все выглядит ужасно! Проект писался на базе самописной обертки для <strong>Selenium Webdriver</strong>. Локаторы выносились с отдельный класс <strong>Locators</strong>.</p>
+</div>
+<div class="paragraph">
+<p>В целом нам удавалось более-менее успешно с этим жить, но, смотря на это все, я, конечно, понимаю, что такая реализация является категорически неприемлимой в наше время.</p>
+</div>
+<div class="paragraph">
+<p><strong>Page Object на базе @FindBy и Component object</strong></p>
+</div>
+<div class="paragraph">
+<p>В следующем проекте мы пробовали описывать страницы примерно так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
+
+    @FindBy(name="search")
+    private WebElementFacade searchTerms;
+
+    @FindBy(name="go")
+    private WebElementFacade lookupButton;
+
+    public void enter_keywords(String keyword) {
+        searchTerms.type(keyword);
+    }
+
+    public void lookup_terms() {
+        lookupButton.click();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Лично мне такой подход не нравится тем, что нужно инициализировать страницы через <strong>PageFactory</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">PageFactory.initElements(DictionaryPage.class)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>К тому же, при большом количестве елементов на странице такой <strong>PageObject</strong> класс обростает уж очень большим количеством полей, помарканных аннотацией <strong>@FindBy</strong>. Локаторы неудобно переиспользовать.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTML Elements</strong></p>
+</div>
+<div class="paragraph">
+<p>Естественно, был этап, когда появилась библиотека <strong>Yandex HTML elements</strong> и я пробовал ее использовать, но мне не понравилось. Просто не понравилось и все. Такое бывает.</p>
+</div>
+<div class="paragraph">
+<p><strong>PageObject с полями By</strong></p>
+</div>
+<div class="paragraph">
+<p>В попытке улучшить предыдущую реализацию мы пробовали писать <strong>PageObject</strong> в таком стиле:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
+
+    private By searchTerms = By.name("search");
+    private By lookupButton = By.name("go");
+
+    public void enter_keywords(String keyword) {
+        $(searchTerms).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(lookupButton).click();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В принципе, мне все нравилось, пока количество елементов было небольшим. По мере роста объема елементов такие страницы было неудобно поддерживать. Постоянно нужно было скролить вверх, чтобы подправить локатор, потом возвращаться к месту использования этого локатора.</p>
+</div>
+<div class="paragraph">
+<p><strong>Эра Selenide</strong></p>
+</div>
+<div class="paragraph">
+<p>Пока я там ковырялся со своими велосипедами и экспериментировал с реализациями <strong>PageObject</strong>, библиотека <strong>Selenide</strong> росла и крепла, и я начал использовать ее на боевых проектах.</p>
+</div>
+<div class="paragraph">
+<p>Реализация <strong>PageObject</strong> стала выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name("search")).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(".lookupButton").click();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Локаторы хранятся прямо там, где они используются - это удобно, ты заходишь в метод и сразу видишь, что там происходит. Такой подход позволяет экономить время и нервы тем, кто пишет и поддерживает тесты.</p>
+</div>
+<div class="paragraph">
+<p>Был еще один проект, на котором я использовал <strong>Groovy</strong>, и там у нас была возможность писать PageObject в очень интересном <a href="http://automation-remarks.com/groovy-page/index.html">формате</a>.</p>
+</div>
+<div class="paragraph">
+<p>Такой подход мне нравится больше всего, но, увы, он доступен только при использовании <strong>Groovy</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong></p>
+</div>
+<div class="paragraph">
+<p>К более-менее удобному для себя формату реализации <strong>PageObject</strong> я пришел через опыт, а он может быть положительным и отрицательным. Я экспериментировал и нашел самый удобный для себя формат. Считаю, что наличие холиваров - это отлично, главное - относиться к ним здраво и выносить полезный опыт.</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                            </div>
+                        <div class="post-share">
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Как менялось мое отношение к PageObject&url=2016/pages-objects-history/index.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span>Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=2016/pages-objects-history/index.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span>Facebook</span>
+                            </a>
+                            <a class="icon-gplus" href="https://plus.google.com/share?url=2016/pages-objects-history/index.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span>Google+</span>
+                            </a>
+                        </div>
+                    </footer>
+
+
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2016/jbake-blog-platform/index.html">Как я блог на новую платформу двигал</a></li>
+                                                <li><a class='js-ajax-link' href="/selenium-webdriver-manager/index.html">Selenium Webdriver Manager</a></li>
+                                                <li><a class='js-ajax-link' href="/budtie-ostorozhny-s-testng-lisienierami/index.html">Будьте осторожны с TestNG лисенерами</a></li>
+                                                <li><a class='js-ajax-link' href="/qafest-2016-rietrospiektiva/index.html">QAFest 2016: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/java-video-recorder-1-0-8/index.html">Java Video Recorder 1.0.8 is production ready</a></li>
+                                                <li><a class='js-ajax-link' href="/github-travis-docs/index.html">Документация к проекту на Github c AsciiDoctor и Travis CI</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../js/dependencies.js"></script>
+    <script type="text/javascript" src="../../js/script.js"></script>
+    <script type="text/javascript" src="../../js/index.js"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
