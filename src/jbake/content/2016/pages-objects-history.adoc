@@ -1,0 +1,140 @@
+= Как менялось мое отношение к PageObject
+Sergey Pirogov
+2016-10-30
+:jbake-type: post
+:jbake-tags: Тест фреймворк
+:jbake-summary: История преобразования PageObject
+
+Во многих сообществах тестировщиков холиварят о том, как должен выглядеть **PageObject**. Одни кричат, что нужно хранить локаторы в полях, другие выступают только за методы. Должен PageObject содержать логику или нет? Как и в любом холиваре, каждая из сторон считает свою точку зрения самой правильной.
+Как участник социума и человек, сидящий в https://software-testers.herokuapp.com/[Slack сообществе тестировщиков], я тоже наблюдаю эти перепалки. У меня есть свое мнение по этому поводу, но перед тем, как его выразить, сначала опишу историю преобразования PageObject на различных проектах, в которых я принимал участие.
+
+Для меня все началось еще в далеком 2012 году, когда я попал на проект, на котором только зарождалась автоматизация. Так как я был совсем неопытным Junior'ом, я впитывал и делал так, как мне говорили.
+
+**PageObject** на том проекте выглядел примерно так:
+
+[source, java]
+----
+public class Portfolios extends BasePage {
+	private Actions builder = new Actions(getDriverProvider().get());
+
+	public Portfolios(WebDriverProvider driverProvider) {
+		super(driverProvider);
+	}
+
+	public void selectActionMenuItem(String name) {
+		clickActionsButton();
+		waitForVisible(locators.ACTIONS_MENU_ITEM_BY(name)).click();
+	}
+
+	private void openNodePortfolioFolder() {
+		find(locators.NAVIGATION_TREE_PORTFOLIOS_FOLDER()).click();
+		waitForVisible(By.xpath("//a[contains(@title,'BOOK:')]"));
+	}
+
+	public boolean isActionsMenuItemDisplayed(String menuItem) {
+		return isDisplayed(locators.ACTIONS_MENU_ITEM_BY(menuItem));
+	}
+
+	public void actionsCreateVirtualPortfolio() {
+		WebElement createPortfolio = waitForVisible(locators
+				.ACTIONS_CREATE_VIRTUAL_PORTFOLIO());
+		createPortfolio.click();
+	}
+
+	public void actionsCreatePortfolioLinks() {
+		waitForVisible(BaseAraPage.locators.getACTIONS_CREATE_PORTFOLIO_LINKS())
+				.click();
+	}
+----
+
+Да, все выглядит ужасно! Проект писался на базе самописной обертки для **Selenium Webdriver**. Локаторы выносились с отдельный класс **Locators**.
+
+В целом нам удавалось более-менее успешно с этим жить, но, смотря на это все, я, конечно, понимаю, что такая реализация является категорически неприемлимой в наше время.
+
+**Page Object на базе @FindBy и Component object**
+
+В следующем проекте мы пробовали описывать страницы примерно так:
+
+[source, java]
+----
+public class DictionaryPage extends PageObject {
+
+    @FindBy(name="search")
+    private WebElementFacade searchTerms;
+
+    @FindBy(name="go")
+    private WebElementFacade lookupButton;
+
+    public void enter_keywords(String keyword) {
+        searchTerms.type(keyword);
+    }
+
+    public void lookup_terms() {
+        lookupButton.click();
+    }
+----
+
+Лично мне такой подход не нравится тем, что нужно инициализировать страницы через **PageFactory**
+
+[source, java]
+----
+PageFactory.initElements(DictionaryPage.class)
+----
+
+К тому же, при большом количестве елементов на странице такой **PageObject** класс обростает уж очень большим количеством полей, помарканных аннотацией **@FindBy**. Локаторы неудобно переиспользовать.
+
+
+**HTML Elements**
+
+Естественно, был этап, когда появилась библиотека **Yandex HTML elements** и я пробовал ее использовать, но мне не понравилось. Просто не понравилось и все. Такое бывает.
+
+**PageObject с полями By**
+
+В попытке улучшить предыдущую реализацию мы пробовали писать **PageObject** в таком стиле:
+
+[source, java]
+----
+public class DictionaryPage extends PageObject {
+
+    private By searchTerms = By.name("search");
+    private By lookupButton = By.name("go");
+
+    public void enter_keywords(String keyword) {
+        $(searchTerms).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(lookupButton).click();
+    }
+----
+
+В принципе, мне все нравилось, пока количество елементов было небольшим. По мере роста объема елементов такие страницы было неудобно поддерживать. Постоянно нужно было скролить вверх, чтобы подправить локатор, потом возвращаться к месту использования этого локатора.
+
+**Эра Selenide**
+
+Пока я там ковырялся со своими велосипедами и экспериментировал с реализациями **PageObject**, библиотека **Selenide** росла и крепла, и я начал использовать ее на боевых проектах.
+
+Реализация **PageObject** стала выглядеть так:
+
+[source, java]
+----
+public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name("search")).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(".lookupButton").click();
+    }
+----
+
+Локаторы хранятся прямо там, где они используются - это удобно, ты заходишь в метод и сразу видишь, что там происходит. Такой подход позволяет экономить время и нервы тем, кто пишет и поддерживает тесты.
+
+Был еще один проект, на котором я использовал **Groovy**, и там у нас была возможность писать PageObject в очень интересном http://automation-remarks.com/groovy-page/index.html[формате].
+
+Такой подход мне нравится больше всего, но, увы, он доступен только при использовании **Groovy**.
+
+**P/S**
+
+К более-менее удобному для себя формату реализации **PageObject** я пришел через опыт, а он может быть положительным и отрицательным. Я экспериментировал и нашел самый удобный для себя формат. Считаю, что наличие холиваров - это отлично, главное - относиться к ним здраво и выносить полезный опыт.
