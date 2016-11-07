@@ -63,8 +63,3 @@ Work on one of the project in Testing Center of Excellence.
 == Public projects
 
 Java Video Recorder
-
-image::/images/qa_conf.jpg[]
-
-
-image::/images/sel_camp.jpg[]
