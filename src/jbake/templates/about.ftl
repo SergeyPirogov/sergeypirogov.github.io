@@ -13,19 +13,17 @@
                             ${content.body}
                         </section>
     				</div>
+
+    			<!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+                <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+                                                    <div class="slides"></div>
+                                                    <h3 class="title"></h3>
+                                                    <a class="prev">‹</a>
+                                                    <a class="next">›</a>
+                </div>
+
     			</div>
     		</article>
-
-            <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
-            <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
-                    <div class="slides"></div>
-                    <h3 class="title"></h3>
-                    <a class="prev">‹</a>
-                    <a class="next">›</a>
-            </div>
-
     </main>
 
-
-	
 	<#include "footer.ftl">
