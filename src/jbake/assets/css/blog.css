@@ -48,6 +48,10 @@ article div.inner {
 	padding-top: 2em;
 }
 
+.inner-about{
+    max-width: 66em;
+}
+
 #push > section > div.admonitionblock.tip > table > tbody > tr > td.content{
     line-height: 1.5;
 }
@@ -164,6 +168,45 @@ pre.codeblock code{
 
 div.fb-page.fb_iframe_widget span iframe{
 	margin: 0px;
+}
+
+#_technical_skills{
+   margin: 0px;
+}
+
+div.conference-list, div.skills-list{
+    line-height: 0.2em;
+}
+
+div.conference-list > ul{
+    padding-left: 0px;
+    margin-top: 60px;
+}
+
+div.conference-list > ul > li{
+    display: inline-block;
+    border: 2px solid #36D995;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+}
+
+div.conference-list > ul > li:hover{
+    background-color: cornsilk;
+}
+
+div.conference-list > ul > li > p, div.conference-list > ul > li > p > a{
+    border: none;
+    color: darkblue;
+}
+
+div.imageblock.user-photo > div > img{
+    float:right;
+    margin:0 50px;
+    height: 350px;
+    border-radius: 20px;
 }
 
 @media screen and (min-width: 1660px){
