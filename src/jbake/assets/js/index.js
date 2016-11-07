@@ -34,7 +34,7 @@
   {
           container: '#blueimp-gallery-carousel',
           carousel: true,
-          slideshowInterval: 5000
+          slideshowInterval: 9000
   });
 
 })(jQuery);
