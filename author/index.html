@@ -15,7 +15,8 @@
     <meta property="og:title" content="Sergey Pirogov">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-
+	
+	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/dependencies.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
@@ -204,24 +205,25 @@ Worked with Unix and Windows operating systems.</p>
 <div class="paragraph">
 <p>Java Video Recorder</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="/images/qa_conf.jpg" alt="qa conf">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="/images/sel_camp.jpg" alt="sel camp">
-</div>
-</div>
 </div>
 </div>
                         </section>
     				</div>
     			</div>
     		</article>
+
+            <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+            <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+                    <div class="slides"></div>
+                    <h3 class="title"></h3>
+                    <a class="prev">‹</a>
+                    <a class="next">›</a>
+            </div>
+
     </main>
 
+
+	
             <footer id="footer">
               <section class="credits">
                 <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
@@ -229,10 +231,14 @@ Worked with Unix and Windows operating systems.</p>
             </footer>
          </div>
     </section>
+
+    <script src="../js/blueimp-gallery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../js/dependencies.js"></script>
     <script type="text/javascript" src="../js/script.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+
+
 </body>
 </html>

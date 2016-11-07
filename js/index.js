@@ -20,4 +20,23 @@
     });
 
   });
+
+  blueimp.Gallery([
+      {
+          title: 'QA Conference',
+          href: 'http://automation-remarks.com/images/qa_conf.jpg',
+      },
+      {
+                title: 'Selenium Camp 2016',
+                href: 'http://automation-remarks.com/images/sel_camp.jpg',
+      }
+  ],
+  {
+          container: '#blueimp-gallery-carousel',
+          carousel: true,
+          slideshowInterval: 5000
+  });
+
 })(jQuery);
+
+
