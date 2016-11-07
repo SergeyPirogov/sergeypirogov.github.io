@@ -209,6 +209,11 @@ div.imageblock.user-photo > div > img{
     border-radius: 20px;
 }
 
+#blueimp-gallery-carousel{
+    box-shadow:none;
+    background-color: #f2f3f5;
+}
+
 @media screen and (min-width: 1660px){
 .inner {
     max-width: 75em;
