@@ -31,9 +31,9 @@ Worked with Unix and Windows operating systems.
 - http://qaconf.ru/[QA Conference Moscow]
 - QA Expert day Odessa
 - BAQ Conference Lviv
+- Ciklum Speakers corner
 - Kharkiv QA Club
 - EPAM IT Week
-- Ciklum Speakers corner
 - http://qafest.com/qafest2015/[QAFest 2015]
 - http://www.qafest.com/[QAFest 2016]
 
@@ -73,7 +73,10 @@ Worked with Unix and Windows operating systems.
 
 == Public projects
 
-Java Video Recorder
+- https://github.com/SergeyPirogov/video-recorder-java[Java Video Recorder]
+- https://github.com/SergeyPirogov/python-testcontainers[Python Testcontainers]
+- https://github.com/SergeyPirogov/python-video-service[Python Video Service]
+- https://github.com/SergeyPirogov/video_recorder_python[Video Recorder Python]
 
 [.user-photos]
 == Photos
