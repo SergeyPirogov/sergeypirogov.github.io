@@ -27,14 +27,15 @@ Worked with Unix and Windows operating systems.
 == Conference Speaker
 
 [.conference-list]
-- http://qafest.com/qafest2015/[QAFest 2015]
-- http://www.qafest.com/[QAFest 2016]
 - http://seleniumcamp.com/[SeleniumCamp 2016]
 - http://qaconf.ru/[QA Conference Moscow]
-- EPAM IT Week
+- QA Expert day Odessa
 - BAQ Conference Lviv
 - Kharkiv QA Club
-- QA Expert day Odessa
+- EPAM IT Week
+- Ciklum Speakers corner
+- http://qafest.com/qafest2015/[QAFest 2015]
+- http://www.qafest.com/[QAFest 2016]
 
 [.technical-skills]
 == Technical Skills
