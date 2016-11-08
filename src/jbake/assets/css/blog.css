@@ -174,8 +174,16 @@ div.fb-page.fb_iframe_widget span iframe{
    margin: 0px;
 }
 
-div.conference-list, div.skills-list{
+#_work_experience{
+    margin-bottom: 10px;
+}
+
+div.conference-list, div.skills-list, div.job-list{
     line-height: 0.2em;
+}
+
+.job-list{
+    padding-bottom: 1px;
 }
 
 div.conference-list > ul{
@@ -207,6 +215,10 @@ div.imageblock.user-photo > div > img{
     margin:0 50px;
     height: 350px;
     border-radius: 20px;
+}
+
+.user-photos{
+    margin-bottom: 35px;
 }
 
 #blueimp-gallery-carousel{

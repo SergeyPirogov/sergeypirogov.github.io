@@ -52,16 +52,27 @@ Worked with Unix and Windows operating systems.
 [.work-experience]
 == Work Experience
 
-Ciklum
+[.job-list]
+- **Company:** Ciklum
+- **Period:** July 2016 — present
+- **Position:** Senior QA Automation
+- **Description:** Work on one of the project in Testing Center of Excellence.
 
-July 2016 — present
+[.job-list]
+- **Company:** EPAM Systems
+- **Period:** Dec 2015 — June 2016
+- **Position:** Senior Software Test Automation Engineer
+- **Description:** Big ecommerce project
 
-Senior QA Automation
-
-Work on one of the project in Testing Center of Excellence.
+[.job-list]
+- **Company:** EPAM Systems
+- **Period:** June 2014 — Dec 2015
+- **Position:** Software Test Automation Engineer
+- **Description:** Trading platform for banks and retailers
 
 == Public projects
 
 Java Video Recorder
 
+[.user-photos]
 == Photos
