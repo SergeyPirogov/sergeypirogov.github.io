@@ -44,6 +44,10 @@ article div.inner {
     padding-bottom: 10px;
 }
 
+#about-header{
+    padding-top: 75px;
+}
+
 .inner-post{
 	padding-top: 2em;
 }
@@ -178,6 +182,11 @@ div.fb-page.fb_iframe_widget span iframe{
     margin-bottom: 10px;
 }
 
+#_public_projects{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
 div.conference-list, div.skills-list, div.job-list{
     line-height: 0.2em;
 }
@@ -210,6 +219,14 @@ div.conference-list > ul > li > p, div.conference-list > ul > li > p > a{
     color: darkblue;
 }
 
+div.skills-list > ul > li > p, div.job-list > ul > li > p{
+    color: navy;
+}
+
+div.skills-list > ul > li > p > strong, div.job-list > ul > li > p > strong{
+    color: brown;
+}
+
 div.imageblock.user-photo > div > img{
     float:right;
     margin:0 50px;
@@ -230,6 +247,11 @@ div.imageblock.user-photo > div > img{
 .inner {
     max-width: 75em;
 }
+
+.inner-about{
+    max-width: 66em;
+}
+
 }
 
 @media screen and (max-width: 1000px){
