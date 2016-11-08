@@ -24,23 +24,27 @@
   blueimp.Gallery([
       {
           title: 'QA Conference',
-          href: 'http://automation-remarks.com/images/qa_conf.jpg',
+          href: '/images/qa_conf.jpg',
       },
       {
           title: 'Selenium Camp 2016',
-          href: 'http://automation-remarks.com/images/sel_camp.jpg',
+          href: '/images/sel_camp.jpg',
       },
       {
           title: 'QAFest 2015',
-          href: 'http://automation-remarks.com/images/qa_fest_photo.jpg'
+          href: '/images/qa_fest_photo.jpg'
       },
       {
-          title: 'IBM Office',
-          href: 'http://automation-remarks.com/images/ibm.jpg'
+          title: 'QAFest 2016',
+          href: '/images/qafest_2016_1.jpg'
       },
       {
-          title: 'IT Week',
-          href: 'http://automation-remarks.com/images/it-week.jpg'
+          title: 'QAFest 2016',
+          href: '/images/qafest_2016_2.jpg'
+      },
+      {
+          title: 'BAQ Conference',
+          href: '/images/baq_2016.jpg'
       }
   ],
   {
