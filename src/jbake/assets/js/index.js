@@ -27,8 +27,20 @@
           href: 'http://automation-remarks.com/images/qa_conf.jpg',
       },
       {
-                title: 'Selenium Camp 2016',
-                href: 'http://automation-remarks.com/images/sel_camp.jpg',
+          title: 'Selenium Camp 2016',
+          href: 'http://automation-remarks.com/images/sel_camp.jpg',
+      },
+      {
+          title: 'QAFest 2015',
+          href: 'http://automation-remarks.com/images/qa_fest_photo.jpg'
+      },
+      {
+          title: 'IBM Office',
+          href: 'http://automation-remarks.com/images/ibm.jpg'
+      },
+      {
+          title: 'IT Week',
+          href: 'http://automation-remarks.com/images/it-week.jpg'
       }
   ],
   {
