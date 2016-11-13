@@ -36,6 +36,7 @@ Worked with Unix and Windows operating systems.
 - EPAM IT Week
 - http://qafest.com/qafest2015/[QAFest 2015]
 - http://www.qafest.com/[QAFest 2016]
+- QA Meetup
 
 [.technical-skills]
 == Technical Skills
