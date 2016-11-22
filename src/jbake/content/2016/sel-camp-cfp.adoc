@@ -1,4 +1,4 @@
-= Selenium Camp 2017 Call for papers
+= Selenium Camp 2017 call for papers
 Sergey Pirogov
 2016-11-22
 :jbake-type: post
