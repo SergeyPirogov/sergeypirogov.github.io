@@ -12,9 +12,11 @@ Sergey Pirogov
 
 > > This year we decided to make some important changes:
 
-- we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;
-- we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;
-- we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.
+> > - we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;
+
+> > - we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;
+
+> > - we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.
 
 > > We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.
 
