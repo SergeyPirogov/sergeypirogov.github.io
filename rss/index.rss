@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 22 Nov 2016 19:00:21 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Nov 2016 19:00:21 +0000</lastBuildDate>
+    <pubDate>Tue, 22 Nov 2016 19:28:44 +0000</pubDate>
+    <lastBuildDate>Tue, 22 Nov 2016 19:28:44 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -31,18 +31,51 @@
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хорошая новость друзья - официально объявлен прием докладов на &lt;a href=&quot;http://seleniumcamp.com/&quot;&gt;Selenium Camp 2017&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.
-
-This year we decided to make some important changes:
-
-- we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;
-- we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;
-- we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.
-
-We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This year we decided to make some important changes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;На &lt;a href=&quot;http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html&quot;&gt;прошлогодней&lt;/a&gt; конференций было очень круто.&lt;/p&gt;
