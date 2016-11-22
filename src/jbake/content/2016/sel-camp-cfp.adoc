@@ -8,17 +8,16 @@ Sergey Pirogov
 
 Хорошая новость друзья - официально объявлен прием докладов на http://seleniumcamp.com/[Selenium Camp 2017].
 
-```
-Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.
+> > Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.
 
-This year we decided to make some important changes:
+> > This year we decided to make some important changes:
 
 - we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;
 - we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;
 - we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.
 
-We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.
-```
+> > We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.
+
 На http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html[прошлогодней] конференций было очень круто.
 
 Подавайте свои доклады используя https://docs.google.com/forms/d/e/1FAIpQLSfSdULHas0IPN8D3arKmiKum-hmb7UQQJDn-1FgQ2y7e214Yw/viewform[форму] регистрации
