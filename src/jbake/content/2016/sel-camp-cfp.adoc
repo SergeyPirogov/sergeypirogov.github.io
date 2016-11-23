@@ -6,6 +6,8 @@ Sergey Pirogov
 :jbake-summary: Selenium Camp 2017 Call for papers
 :jbake-featured: true
 
+image::/images/sel-camp-logo.png[]
+
 Хорошая новость друзья - официально объявлен прием докладов на http://seleniumcamp.com/[Selenium Camp 2017].
 
 > > Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.
