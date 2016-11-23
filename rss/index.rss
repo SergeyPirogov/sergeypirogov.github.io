@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 22 Nov 2016 19:35:10 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Nov 2016 19:35:10 +0000</lastBuildDate>
+    <pubDate>Wed, 23 Nov 2016 06:26:12 +0000</pubDate>
+    <lastBuildDate>Wed, 23 Nov 2016 06:26:12 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -28,7 +28,12 @@
                         Selenium Camp 2017 Call for papers
           </description>
           <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
+                        &lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/sel-camp-logo.png&quot; alt=&quot;sel camp logo&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хорошая новость друзья - официально объявлен прием докладов на &lt;a href=&quot;http://seleniumcamp.com/&quot;&gt;Selenium Camp 2017&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;quoteblock&quot;&gt;
