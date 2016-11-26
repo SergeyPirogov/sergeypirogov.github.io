@@ -37,6 +37,7 @@ Worked with Unix and Windows operating systems.
 - http://qafest.com/qafest2015/[QAFest 2015]
 - http://www.qafest.com/[QAFest 2016]
 - QA Meetup
+- SQA days
 
 [.technical-skills]
 == Technical Skills
