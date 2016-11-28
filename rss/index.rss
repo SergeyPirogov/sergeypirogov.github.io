@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 28 Nov 2016 14:16:10 +0000</pubDate>
-    <lastBuildDate>Mon, 28 Nov 2016 14:16:10 +0000</lastBuildDate>
+    <pubDate>Mon, 28 Nov 2016 14:24:55 +0000</pubDate>
+    <lastBuildDate>Mon, 28 Nov 2016 14:24:55 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -110,9 +110,13 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Своим докладом Игорь попытался спровоцировать всех автоматизаторов и заставить их писать меньше UI автотестов. Получилось достаточно неплохо, но для того, чтобы реально спровоцировать публику, на мой взгляд, докладу на хватило эмоциональной окраски и какой-то драмы.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
 &lt;p&gt;Dzmitry Humianiuk (EPAM Systems)
 &lt;strong&gt;ReportPortal.io: пример CI/CD c метриками на основе продукта с Открытым Кодом&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;ЕПАМ наконец-то выкатил в опен-сорс СВОЙ продукт, предназначенный помочь автоматизаторам в сборе статистики после прогона автотестов. Штука достаточно интересная, нужно пробовать ей пользоваться.&lt;/p&gt;
