@@ -56,7 +56,7 @@ image:https://comaqa.by/wp-content/uploads/2016/09/htmlimage.png[]
 Из полезных могу отметить еще доклад **Badoo** о **Git хуках** и доклад Алексея Баранцева.
 
 Я выступал с докладом о http://automation-remarks.com/java-video-recorder-1-0-8/index.html[VideoRecorder]. Просто вышел, просто рассказал, просто ушел =)
-Слайды можно посмотреть http://automation-remarks.com/sqadays20/#/[здесь].
+Слайды можно посмотреть http://slides.com/sergeypirogov/sqa-days/[здесь].
 
 
 О недочетах:
