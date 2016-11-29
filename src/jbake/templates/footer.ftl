@@ -6,7 +6,6 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js" async="async"></script>
     <script type="text/javascript" src="${content.rootpath}../js/dependencies.min.js"></script>
     <script type="text/javascript" src="${content.rootpath}../js/script.js"></script>
     <script src="${content.rootpath}../js/blueimp-gallery.min.js"></script>
