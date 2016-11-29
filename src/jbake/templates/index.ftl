@@ -3,7 +3,7 @@
 	<#include "menu.ftl">
 
 	<header id="header" class="header">
-		<img id='blog-logo' src="images/blog-logo.png">
+		<img id='blog-logo' src="images/blog-logo.png" alt="Blog logo">
 		<div class="inner">
 			<a class="header-title" href="/">
 				<h1 class="header-name">Заметки Автоматизатора</h1>
