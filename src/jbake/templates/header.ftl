@@ -21,9 +21,9 @@
 	
 	<link rel="stylesheet" href="${content.rootpath}../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/dependencies.css"/>
-    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/blog.css" />
+    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/dependencies.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="${content.rootpath}../css/blog.min.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
