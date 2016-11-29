@@ -25,5 +25,4 @@
     			</div>
     		</article>
     </main>
-    <script src="${content.rootpath}../js/blueimp-gallery.min.js" async="async"></script>
 	<#include "footer.ftl">
