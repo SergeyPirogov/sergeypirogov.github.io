@@ -7,7 +7,7 @@
     </section>
 
     <script src="${content.rootpath}../js/blueimp-gallery.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script async type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="${content.rootpath}../js/dependencies.js"></script>
     <script type="text/javascript" src="${content.rootpath}../js/script.js"></script>
     <script type="text/javascript" src="${content.rootpath}../js/index.js"></script>
