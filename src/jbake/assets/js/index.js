@@ -20,39 +20,6 @@
     });
 
   });
-
-  blueimp.Gallery([
-      {
-          title: 'QA Conference',
-          href: '/images/qa_conf.jpg',
-      },
-      {
-          title: 'Selenium Camp 2016',
-          href: '/images/sel_camp.jpg',
-      },
-      {
-          title: 'QAFest 2015',
-          href: '/images/qa_fest_photo.jpg'
-      },
-      {
-          title: 'QAFest 2016',
-          href: '/images/qafest_2016_1.jpg'
-      },
-      {
-          title: 'QAFest 2016',
-          href: '/images/qafest_2016_2.jpg'
-      },
-      {
-          title: 'BAQ Conference',
-          href: '/images/baq_2016.jpg'
-      }
-  ],
-  {
-          container: '#blueimp-gallery-carousel',
-          carousel: true,
-          slideshowInterval: 9000
-  });
-
 })(jQuery);
 
 

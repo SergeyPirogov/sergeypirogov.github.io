@@ -25,4 +25,10 @@
     			</div>
     		</article>
     </main>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"></script>
+    <script src="${content.rootpath}../js/blueimp-gallery.min.js"></script>
+    <script src="${content.rootpath}../js/carousel.js"></script>
 	<#include "footer.ftl">
