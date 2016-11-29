@@ -1,5 +1,7 @@
 <#include "header.ftl">
-	
+
+	<script>var disqus="httpspirogovgithubio";</script>
+
 	<#include "menu.ftl">
 	
 	<main class="content" role="main">
