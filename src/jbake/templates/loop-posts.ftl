@@ -1,7 +1,7 @@
 <div class="post-list">
 	<div id="push">
 
-	<#list tag_posts as post>
+	<#list posts as post>
 		<#if (post.status == "published")>
 			<#include "loop.ftl">
 		</#if>

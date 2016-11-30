@@ -14,7 +14,7 @@
 
 	<div id="post-index" class="container">
 		<main class="content" role="main">
-			<#include "loop.ftl">
+			<#include "loop-posts.ftl">
 		</main>
 	</div>
 
