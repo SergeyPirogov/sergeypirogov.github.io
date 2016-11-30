@@ -191,6 +191,18 @@ div.conference-list, div.skills-list, div.job-list{
     line-height: 0.2em;
 }
 
+article.featured > div.inner > i.fa-star{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.75em;
+    height: 1.75em;
+    line-height: 2em;
+    text-align: center;
+    color: #1F2026;
+    z-index: 2;
+}
+
 .job-list{
     padding-bottom: 1px;
 }
@@ -236,6 +248,10 @@ div.imageblock.user-photo > div > img{
 
 .user-photos{
     margin-bottom: 35px;
+}
+
+#pagination > div > a > i{
+    color: #2DB77E;
 }
 
 #blueimp-gallery-carousel{
