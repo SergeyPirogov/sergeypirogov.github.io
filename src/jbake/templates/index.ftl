@@ -27,7 +27,7 @@
     	    <#if (previousFileName)??>
     	        <a class="pagination-item pagination-prev" href="${previousFileName}"><span>Older Posts</span> <i class="icon-arrow-right"></i></a>
     	    </#if>
-    	    <a class="pagination-item pagination-prev" href="/archive.html"><span>Архив</span> <i class="icon-arrow-right"></i></a>
+    	    <a class="pagination-item pagination-prev" href="/archive.html"><span>Архив</span> <i class="fa fa-chevron-right"></i></a>
     	    <div class="clear"></div>
     	</div>
     </nav>

@@ -5,7 +5,7 @@
 		<#if (post.status == "published")>
 			<article class="post <#if post.featured??>featured</#if>">
 				<div class="inner">
-
+                    <i class="fa fa-star" aria-hidden="true"></i>
 					<#if post.image??>
                         <figure class="post-image">
                             <a href="${post.uri}"><img src="${post.image}" alt=""/></a>
@@ -24,7 +24,7 @@
                         </#if>
 					</p>
 
-					<span class="post-more"><a href="${post.uri}">Читать <i class="icon-arrow-right"></i></a></span>
+					<span class="post-more"><a href="${post.uri}">Читать <i class="fa fa-chevron-right"></i></a></span>
 				</div>
 			</article>
 		</#if>
