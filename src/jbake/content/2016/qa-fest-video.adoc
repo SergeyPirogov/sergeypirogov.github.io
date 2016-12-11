@@ -1,0 +1,16 @@
+= Видео с QA Fest 2016
+Sergey Pirogov
+2016-12-11
+:jbake-type: post
+:jbake-tags: Конференции
+:jbake-summary: Видео моих выступлеий с QA Fest 2016
+
+Наконец-то появились видео с прошедшего http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/[QAFest 2016].
+
+Запись моего доклада c Junior Day:
+
+video::w_rPX9TwDkA&t[youtube]
+
+Запись моего доклада c Main Day:
+
+video::kf5SbZwuyKU[youtube]
