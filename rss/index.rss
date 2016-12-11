@@ -14,9 +14,41 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 30 Nov 2016 16:56:11 +0000</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2016 16:56:11 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Dec 2016 16:47:31 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Dec 2016 16:47:31 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Видео с QA Fest 2016
+          </title>
+          <link>http://automation-remarks.com/2016/qa-fest-video/index.html</link>
+          <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2016/qa-fest-video/index.html</guid>
+          <description>
+                        Видео моих выступлеий с QA Fest 2016
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Наконец-то появились видео с прошедшего &lt;a href=&quot;http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/&quot;&gt;QAFest 2016&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада c Junior Day:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/w_rPX9TwDkA&amp;t?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада c Main Day:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/kf5SbZwuyKU?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               SQA days 20: ретроспектива

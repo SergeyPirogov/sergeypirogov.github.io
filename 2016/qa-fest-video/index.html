@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Java Video Recorder 1.0.8 is production ready</title>
+    <title>Видео с QA Fest 2016</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Java Video Recorder 1.0.8 is production ready">
+    <meta property="og:title" content="Видео с QA Fest 2016">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API."/>
+        	<meta property="og:description" content="Видео моих выступлеий с QA Fest 2016"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.min.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.min.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -93,154 +93,38 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                28/08/2016
+                                11/12/2016
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Java Video Recorder 1.0.8 is production ready</h1>
+                        <h1 class="post-title">Видео с QA Fest 2016</h1>
                     </header>
 
                     <section class="post-content">
-                        <div class="imageblock">
+                        <div class="paragraph">
+<p>Наконец-то появились видео с прошедшего <a href="http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/">QAFest 2016</a>.</p>
+</div>
+<div class="paragraph">
+<p>Запись моего доклада c Junior Day:</p>
+</div>
+<div class="videoblock">
 <div class="content">
-<img src="http://sr.photos1.fotosearch.com/bthumb/CSP/CSP992/k13975116.jpg" alt="k13975116">
+<iframe src="https://www.youtube.com/embed/w_rPX9TwDkA&t?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div class="paragraph">
-<p>Well, it took some time to make video recorder stable. I&#8217;ve added a couple useful features since version 1.0.1.</p>
+<p>Запись моего доклада c Main Day:</p>
 </div>
-<div class="paragraph">
-<p>So let&#8217;s make it clear and answer the question "What kind of problems does it solve?".</p>
-</div>
-<div class="paragraph">
-<p>The main idea was to create a library that provides an easy way to record video during test execution. It doesn&#8217;t matter what java test runner you use, it supports JUnit, TestNG and Spock.</p>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s look at some real cases. For example you have a lot of automated test scenarios in your project, but some test scripts are flaky.</p>
-</div>
-<div class="paragraph">
-<p>So you have two options:</p>
-</div>
-<div class="paragraph">
-<p>First is to delete them from test execution because you have already spend a huge amount of time to debug them.</p>
-</div>
-<div class="paragraph">
-<p>Second one is to add Video recorder, catch all the problems, fix them and be happy.</p>
-</div>
-<div class="paragraph">
-<p>Moreover, to add video recording support in your existing test automations framework require three simple steps:</p>
-</div>
-<div class="paragraph">
-<p><strong>1.Add project dependency</strong></p>
-</div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.automation-remarks&lt;/groupId&gt;
-    &lt;artifactId&gt;video-recorder-junit&lt;/artifactId&gt;
-    &lt;version&gt;1.0.8&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+<iframe src="https://www.youtube.com/embed/kf5SbZwuyKU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p><strong>2.Add JUnit rule to you test class</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.automation.remarks.video.junit.VideoRule;
-import org.junit.Rule;
-
-public class JUnitVideoTest {
-
-    @Rule
-    public VideoRule videoRule = new VideoRule();
-
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>3.Add test and mark it with </strong>@Video<strong> annotation:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.automation.remarks.video.annotations.Video;
-import com.automation.remarks.video.junit.VideoRule;
-import org.junit.Rule;
-import org.junit.Test;
-
-import static junit.framework.Assert.assertTrue;
-
-public class JUnitVideoTest {
-
-    @Rule
-    public VideoRule videoRule = new VideoRule();
-
-    @Test
-    @Video
-    public void shouldFailAndCreateRecordWithTestName() {
-        // test code
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>That&#8217;s all! Now if your test fails, video will be recordered automatically.</p>
-</div>
-<div class="paragraph">
-<p>The same scenario can be done for TestNG, please refer to <a href="https://sergeypirogov.github.io/video-recorder-java/">documetation</a></p>
-</div>
-<div class="paragraph">
-<p>Isn&#8217;t it cool?</p>
-</div>
-<div class="paragraph">
-<p>But hold on, it has even more features such as configurations and @Video annotation parameters.</p>
-</div>
-<div class="paragraph">
-<p><strong>@Video</strong> annotation takes two optional parameters. By setting values to them you can override video file name or disable video recording for one particular test.</p>
-</div>
-<div class="paragraph">
-<p>Video configuration example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">VideoRecorder.conf()
-                .withVideoFolder("custom_folder")
-                .videoEnabled(true)
-                .withVideoSaveMode(VideoSaveMode.ALL)
-                .withRecordMode(RecordingMode.ANNOTATED);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As you can see it allows to override default parameters.</p>
-</div>
-<div class="paragraph">
-<p>All this parameters can be passed by command line, for example if you are executing you test in CI server.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">mvn test -Dvideo.folder="custom_folder"
-         -Dvideo.enabled=true
-         -Dvideo.mode=ANNOTATED
-         -Dvideo.save.mode=ALL</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Important point: FOR NOW SETTINGS PASSED IN CODE HAVE HIGHER PRIORITY AND CAN&#8217;T BE OVERRIDDEN BY COMMAND LINE PARAMETERS.</strong></p>
-</div>
-<div class="paragraph">
-<p>I hope this library will make life of test automation engineers easier and will help to detect fix flaky tests.</p>
-</div>
-<div class="paragraph">
-<p>P/S Project is licensed under Apache 2.0 and can be found publicly available on <a href="https://github.com/SergeyPirogov/video-recorder-java">GITHUB</a>.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/REST.html">REST</a>
-                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Конференции.html">Конференции</a>
                             </div>
                     </footer>
 
@@ -249,7 +133,6 @@ public class JUnitVideoTest {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2016/qa-fest-video/index.html">Видео с QA Fest 2016</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/sqa-days-20-feedback/index.html">SQA days 20: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/sel-camp-cfp/index.html">Selenium Camp 2017 call for papers</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/pages-objects-history/index.html">Как менялось мое отношение к PageObject</a></li>
@@ -288,9 +171,9 @@ public class JUnitVideoTest {
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
