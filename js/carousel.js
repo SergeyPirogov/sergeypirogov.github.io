@@ -28,6 +28,10 @@
       {
           title: 'BAQ Conference',
           href: '/images/baq_2016.jpg'
+      },
+      {
+          title: 'SQA Days 20',
+          href: '/images/sqa_days_20.jpg'
       }
   ],
   {
