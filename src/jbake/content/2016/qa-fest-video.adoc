@@ -9,7 +9,7 @@ Sergey Pirogov
 
 Запись моего доклада c Junior Day:
 
-video::w_rPX9TwDkA&t[youtube]
+video::w_rPX9TwDkA[youtube]
 
 Запись моего доклада c Main Day:
 
