@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 17 Dec 2016 13:45:53 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 13:45:53 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 19:34:04 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 19:34:04 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -77,7 +77,7 @@
     private SelenideElement lookupButton = $(&quot;.lookupButton&quot;);
 
     public void enterKeywords(String keyword) {
-        search.val(keyword);
+        searchInput.val(keyword);
         return this;
     }
 
