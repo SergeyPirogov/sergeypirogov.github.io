@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Темная сторона Selenide</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Темная сторона Selenide">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="Скромная заметка о станностях Selenide"/>
+	
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.min.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">
+	<script>var disqus="httpspirogovgithubio";</script>
+
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="http://feeds.feedburner.com/automation-remarks"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                17/12/2016
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Темная сторона Selenide</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Привет! Решил написать заметку об одной странности Selenide, на которую натолкнулся буквально пару дней назад.</p>
+</div>
+<div class="paragraph">
+<p>Disclaimer: все написанное ниже является моим видением и призвано помочь людям, которые могут столкуться с такой же проблемой.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://s-media-cache-ak0.pinimg.com/564x/fd/4a/4f/fd4a4f968c90335ce886f1fb3d106f5f.jpg" alt="fd4a4f968c90335ce886f1fb3d106f5f">
+</div>
+</div>
+<div class="paragraph">
+<p>Проводя лекцию для сотрудников своей компании и пытаясь показать разницу между тестами на "ванильном" Selenium и Selenide,
+я поймал очень неприятную ошибку, починить которую мне помогли только в Slack чатике тестировщиков.</p>
+</div>
+<div class="paragraph">
+<p>Я рассказывал о паттерне PageObject и его реализациях с использованием все того же Selenide.</p>
+</div>
+<div class="paragraph">
+<p>Буквально пару недель назад я уже писал подобную заметку о <a href="http://automation-remarks.com/2016/pages-objects-history/index.html">PageObject</a>.</p>
+</div>
+<div class="paragraph">
+<p>Итак, мы можем описывать наши страницы в таком виде:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name("search")).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(".lookupButton").click();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все будет работать отлично, но не всем нравится такой формат. Ок, мы можем написать немного по-другому:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
+
+    private SelenideElement searchInput =  $("#search"));
+    private SelenideElement lookupButton = $(".lookupButton");
+
+    public void enterKeywords(String keyword) {
+        search.val(keyword);
+        return this;
+    }
+
+    public void lookupTerms() {
+        lookupButton.click();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Из-за того, что метод <code>$()</code> возвращает lazy proxy, мы можем писать такой код и он будет отлично работать. Ну, по крайней мере, я так думал =)</p>
+</div>
+<div class="paragraph">
+<p>Давайте напишем тест:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class Test{
+
+    @Test
+    void testLookup(){
+        Selenide.open("http://site.com",MainPage.class)
+                .enterKeywords("hello")
+                .lookupTerms()
+        // assertion here
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вроде как все лаконично и красиво. Запускаем тест и получаем такую ошибку:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">INFO: Close webdriver: 1 -&gt; FirefoxDriver: firefox on MAC (f966a581-ec80-784d-b57f-ac10a336544f)
+
+Element not found {by id or name "searchInput"}
+Expected: exist
+
+Screenshot: file:/Users/sepi/Github/test/build/reports/tests/1481817473566.0.png
+Timeout: 4 s.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Опа! Обратите внимание, тест падает из-за того, что не может найти элемент с именем <code>searchInput</code>. Но у меня нету такого локатора, у меня есть поле класса с именем <code>searchInput</code>.</p>
+</div>
+<div class="paragraph">
+<p>В результате выяснения причин такого поведения выяснилось, что при написании подобного кода (см. ниже) нельзя использовать <code>PageFactory</code> от <code>Selenide</code> !!!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
+
+    public SelenideElement searchInput = $("#twotabsearchtextbox");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>То бишь нельзя этот класс передавать в методы <strong>Selenide.open()</strong> и <strong>Selenide.page()</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Что же делать в таком случае?</strong></p>
+</div>
+<div class="paragraph">
+<p>Нужно инициализировать страницы, как простые обекты, то есть через <strong>new MainPage()</strong>, тогда все будет работать нормально.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong> Имхо немного неприятное поведение, которое сначала приводит к мысли о багах в библиотеке, но на самом деле
+причиной такого поведения является Selenium PageFactory. Именно в этом классе есть метод <code>initElements</code>, который и обрабатывает
+поля класса. Если вы c использованием Selenium напишите так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class Page{
+
+    WebElement header;
+
+}
+
+PageFactory.initElements(driver, Page.class)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В таком случае Selenium попытается найти элемент <strong>header</strong> или по <strong>name</strong>, или по <strong>id</strong>. Не верите? Посмотрите на реализацию метода
+<strong>org.openqa.selenium.support.pagefactory.Annotations.buildBy</strong>. Там еще есть один метод - <strong>buildByFromDefault</strong>.
+Именно здесь и происходит магия.</p>
+</div>
+<div class="paragraph">
+<p><strong>Что нужно, чтобы поправить такое поведение Selenide?</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Вариант 1: (Самый простой)</strong></p>
+</div>
+<div class="paragraph">
+<p>Не использовать методы <strong>open()</strong> и <strong>page()</strong> для инициализации классов PageObject, написанных без исползования аннотации <strong>@FindBy</strong>:</p>
+</div>
+<div class="paragraph">
+<p><strong>Вариант 2: (Варварский)</strong></p>
+</div>
+<div class="paragraph">
+<p>Наследоваться от класса <code>org.openqa.selenium.support.pagefactory.Annotations</code> и переопределить поведение метода <code>buildByFromDefault</code>.
+Звучит неплохо, но на самом деле все, что мы можем, - это вызвать исключание c сообщением <code>"You are using page factory to initialize element without @FindBy annotation"</code>.
+В таком случае конечный юзер хоть будет понимать, что он сделал неправильно.</p>
+</div>
+<div class="paragraph">
+<p><strong>Вариант 3: (Имхо правильный)</strong></p>
+</div>
+<div class="paragraph">
+<p>Нужно просто написать <code>SelenidePageFactory</code>, переопределить там метод <strong>initElements</strong> и подправить метод <strong>proxyFields</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Пример:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.FieldDecorator;
+
+import java.lang.reflect.Field;
+
+/**
+ * Created by sergey on 17.12.16.
+ */
+public class SelenidePageFactory extends PageFactory {
+
+    public static void initElements(FieldDecorator decorator, Object page) {
+        Class&lt;?&gt; proxyIn = page.getClass();
+        while (proxyIn != Object.class) {
+            proxyFields(decorator, page, proxyIn);
+            proxyIn = proxyIn.getSuperclass();
+        }
+    }
+
+    private static void proxyFields(FieldDecorator decorator, Object page, Class&lt;?&gt; proxyIn) {
+        Field[] fields = proxyIn.getDeclaredFields();
+        for (Field field : fields) {
+            if(isInitialized(page, field)){
+                continue;
+            }
+            Object value = decorator.decorate(page.getClass().getClassLoader(), field);
+            if (value != null) {
+                try {
+                    field.setAccessible(true);
+                    field.set(page, value);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private static boolean isInitialized(Object page, Field field){
+        try {
+            field.setAccessible(true);
+            return field.get(page) != null;
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Почему я считаю такой вариант самым удачным?</p>
+</div>
+<div class="paragraph">
+<p>Потому что все начнет работать, как должно:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class Page {
+
+    public ElementsCollection posts = $$(".post");
+
+    public SelenideElement userCounter = $(".users");
+
+    public SelenideElement headerElement;
+
+    @FindBy(css = ".button")
+    public SelenideElement button;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь мы может без опаски использовать методы <strong>open()</strong> и <strong>page()</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Если сообщество поддержит, я превращу свое исследование в <strong>pull request</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Спасибо, что читали! До новых заметок ;)</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                            </div>
+                    </footer>
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2016/qa-fest-video/index.html">Видео с QA Fest 2016</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/sqa-days-20-feedback/index.html">SQA days 20: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/sel-camp-cfp/index.html">Selenium Camp 2017 call for papers</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/pages-objects-history/index.html">Как менялось мое отношение к PageObject</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/jbake-blog-platform/index.html">Как я блог на новую платформу двигал</a></li>
+                                                <li><a class='js-ajax-link' href="/selenium-webdriver-manager/index.html">Selenium Webdriver Manager</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>

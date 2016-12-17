@@ -14,9 +14,264 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 15 Dec 2016 08:28:41 +0000</pubDate>
-    <lastBuildDate>Thu, 15 Dec 2016 08:28:41 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Dec 2016 13:45:53 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Dec 2016 13:45:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Темная сторона Selenide
+          </title>
+          <link>http://automation-remarks.com/2016/selenide-shadow-sides/index.html</link>
+          <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2016/selenide-shadow-sides/index.html</guid>
+          <description>
+                        Скромная заметка о станностях Selenide
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! Решил написать заметку об одной странности Selenide, на которую натолкнулся буквально пару дней назад.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Disclaimer: все написанное ниже является моим видением и призвано помочь людям, которые могут столкуться с такой же проблемой.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://s-media-cache-ak0.pinimg.com/564x/fd/4a/4f/fd4a4f968c90335ce886f1fb3d106f5f.jpg&quot; alt=&quot;fd4a4f968c90335ce886f1fb3d106f5f&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Проводя лекцию для сотрудников своей компании и пытаясь показать разницу между тестами на &quot;ванильном&quot; Selenium и Selenide,
+я поймал очень неприятную ошибку, починить которую мне помогли только в Slack чатике тестировщиков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я рассказывал о паттерне PageObject и его реализациях с использованием все того же Selenide.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Буквально пару недель назад я уже писал подобную заметку о &lt;a href=&quot;http://automation-remarks.com/2016/pages-objects-history/index.html&quot;&gt;PageObject&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Итак, мы можем описывать наши страницы в таком виде:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name(&quot;search&quot;)).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(&quot;.lookupButton&quot;).click();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все будет работать отлично, но не всем нравится такой формат. Ок, мы можем написать немного по-другому:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class MainPage {
+
+    private SelenideElement searchInput =  $(&quot;#search&quot;));
+    private SelenideElement lookupButton = $(&quot;.lookupButton&quot;);
+
+    public void enterKeywords(String keyword) {
+        search.val(keyword);
+        return this;
+    }
+
+    public void lookupTerms() {
+        lookupButton.click();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из-за того, что метод &lt;code&gt;$()&lt;/code&gt; возвращает lazy proxy, мы можем писать такой код и он будет отлично работать. Ну, по крайней мере, я так думал =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте напишем тест:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class Test{
+
+    @Test
+    void testLookup(){
+        Selenide.open(&quot;http://site.com&quot;,MainPage.class)
+                .enterKeywords(&quot;hello&quot;)
+                .lookupTerms()
+        // assertion here
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вроде как все лаконично и красиво. Запускаем тест и получаем такую ошибку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;INFO: Close webdriver: 1 -&amp;gt; FirefoxDriver: firefox on MAC (f966a581-ec80-784d-b57f-ac10a336544f)
+
+Element not found {by id or name &quot;searchInput&quot;}
+Expected: exist
+
+Screenshot: file:/Users/sepi/Github/test/build/reports/tests/1481817473566.0.png
+Timeout: 4 s.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Опа! Обратите внимание, тест падает из-за того, что не может найти элемент с именем &lt;code&gt;searchInput&lt;/code&gt;. Но у меня нету такого локатора, у меня есть поле класса с именем &lt;code&gt;searchInput&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В результате выяснения причин такого поведения выяснилось, что при написании подобного кода (см. ниже) нельзя использовать &lt;code&gt;PageFactory&lt;/code&gt; от &lt;code&gt;Selenide&lt;/code&gt; !!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class MainPage {
+
+    public SelenideElement searchInput = $(&quot;#twotabsearchtextbox&quot;);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;То бишь нельзя этот класс передавать в методы &lt;strong&gt;Selenide.open()&lt;/strong&gt; и &lt;strong&gt;Selenide.page()&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Что же делать в таком случае?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нужно инициализировать страницы, как простые обекты, то есть через &lt;strong&gt;new MainPage()&lt;/strong&gt;, тогда все будет работать нормально.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Имхо немного неприятное поведение, которое сначала приводит к мысли о багах в библиотеке, но на самом деле
+причиной такого поведения является Selenium PageFactory. Именно в этом классе есть метод &lt;code&gt;initElements&lt;/code&gt;, который и обрабатывает
+поля класса. Если вы c использованием Selenium напишите так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class Page{
+
+    WebElement header;
+
+}
+
+PageFactory.initElements(driver, Page.class)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В таком случае Selenium попытается найти элемент &lt;strong&gt;header&lt;/strong&gt; или по &lt;strong&gt;name&lt;/strong&gt;, или по &lt;strong&gt;id&lt;/strong&gt;. Не верите? Посмотрите на реализацию метода
+&lt;strong&gt;org.openqa.selenium.support.pagefactory.Annotations.buildBy&lt;/strong&gt;. Там еще есть один метод - &lt;strong&gt;buildByFromDefault&lt;/strong&gt;.
+Именно здесь и происходит магия.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Что нужно, чтобы поправить такое поведение Selenide?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Вариант 1: (Самый простой)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не использовать методы &lt;strong&gt;open()&lt;/strong&gt; и &lt;strong&gt;page()&lt;/strong&gt; для инициализации классов PageObject, написанных без исползования аннотации &lt;strong&gt;@FindBy&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Вариант 2: (Варварский)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Наследоваться от класса &lt;code&gt;org.openqa.selenium.support.pagefactory.Annotations&lt;/code&gt; и переопределить поведение метода &lt;code&gt;buildByFromDefault&lt;/code&gt;.
+Звучит неплохо, но на самом деле все, что мы можем, - это вызвать исключание c сообщением &lt;code&gt;&quot;You are using page factory to initialize element without @FindBy annotation&quot;&lt;/code&gt;.
+В таком случае конечный юзер хоть будет понимать, что он сделал неправильно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Вариант 3: (Имхо правильный)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нужно просто написать &lt;code&gt;SelenidePageFactory&lt;/code&gt;, переопределить там метод &lt;strong&gt;initElements&lt;/strong&gt; и подправить метод &lt;strong&gt;proxyFields&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.FieldDecorator;
+
+import java.lang.reflect.Field;
+
+/**
+ * Created by sergey on 17.12.16.
+ */
+public class SelenidePageFactory extends PageFactory {
+
+    public static void initElements(FieldDecorator decorator, Object page) {
+        Class&amp;lt;?&amp;gt; proxyIn = page.getClass();
+        while (proxyIn != Object.class) {
+            proxyFields(decorator, page, proxyIn);
+            proxyIn = proxyIn.getSuperclass();
+        }
+    }
+
+    private static void proxyFields(FieldDecorator decorator, Object page, Class&amp;lt;?&amp;gt; proxyIn) {
+        Field[] fields = proxyIn.getDeclaredFields();
+        for (Field field : fields) {
+            if(isInitialized(page, field)){
+                continue;
+            }
+            Object value = decorator.decorate(page.getClass().getClassLoader(), field);
+            if (value != null) {
+                try {
+                    field.setAccessible(true);
+                    field.set(page, value);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private static boolean isInitialized(Object page, Field field){
+        try {
+            field.setAccessible(true);
+            return field.get(page) != null;
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Почему я считаю такой вариант самым удачным?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Потому что все начнет работать, как должно:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class Page {
+
+    public ElementsCollection posts = $$(&quot;.post&quot;);
+
+    public SelenideElement userCounter = $(&quot;.users&quot;);
+
+    public SelenideElement headerElement;
+
+    @FindBy(css = &quot;.button&quot;)
+    public SelenideElement button;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь мы может без опаски использовать методы &lt;strong&gt;open()&lt;/strong&gt; и &lt;strong&gt;page()&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если сообщество поддержит, я превращу свое исследование в &lt;strong&gt;pull request&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо, что читали! До новых заметок ;)&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Видео с QA Fest 2016
