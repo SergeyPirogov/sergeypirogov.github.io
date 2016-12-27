@@ -1,26 +1,25 @@
 = Python webdriver manager is comming
 Sergey Pirogov
-2016-11-27
+2016-12-27
 :jbake-type: post
 :jbake-tags: Python, Selenium
 :jbake-summary: Аналог драйвер менеджера под Python
 :jbake-featured: true
 
-Хей-хей! В предверии нового года и праздников решил написать о своей наработке.
+Хей-хей! В преддверии Нового года и праздников решил написать о своей наработке.
 
-Уходящий год для меня стал годом перемен: я переехал в дрйгой город, а еще я углубился в мир Python.
-Не сказал бы что я прям уж очень хорошо осведомлен в теме, но сам по себе язык мне нравится.
+Уходящий год для меня стал годом перемен не только благодаря тому, что я переехал в другой город, но и потому, что углубился в мир Python.
 
-В своем обучении чему-либо я больше предпочитаю подход: читать книги хорошо, но нужно что-то делать
-ручками. Пару месяцев назад я уже выкладывал свою поделку https://github.com/SergeyPirogov/python-testcontainers[python-testcontainers].
+В самостоятельном обучении чему-либо я предпочитаю такой подход: читать книги хорошо, но нужно что-то делать
+ручками. Пару месяцев назад я уже выкладывал свою поделку https://github.com/SergeyPirogov/python-testcontainer...
 
-Сейчас же я просто решил написать аналог http://automation-remarks.com/selenium-webdriver-manager/index.html[java webdriver]
-для Python. Возможно в интернете уже есть реализация, но я не нашел.
+Сейчас же я просто решил написать аналог http://automation-remarks.com/selenium-webdriver-mana..[java webdriver]
+для Python. Возможно, в интернете уже есть реализация, но я не нашел.
 
-Идея полность соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
+Идея полностью соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
 различных драйверов.
 
-Код доступен в https://github.com/SergeyPirogov/webdriver_manager[Github].
+Код доступен в https://github.com/SergeyPirogov/webdriver_manager[Gi...
 
 Как пользоваться?
 
@@ -31,7 +30,7 @@ Sergey Pirogov
 pip install webdriver_manager
 ----
 
-Использовать драйвер менеджер для нужного вам драйвера:
+Использовать драйвер-менеджер для нужного вам драйвера:
 
 [source, python]
 ----
@@ -41,7 +40,7 @@ webdriver.Chrome(executable_path=ChromeDriverManager().install())
 ----
 
 В такой конфигурации будет скачана самая последняя версия Хром драйвера для вашей OС.
-Если вы хотите зафиксировать версию, вы можете сделать это достаточно просто: передав версию как
+Если вы хотите зафиксировать версию, вы можете сделать это достаточно просто: передав версию, как
 параметр в конструктор DriverManager:
 
 [source, python]
@@ -49,7 +48,7 @@ webdriver.Chrome(executable_path=ChromeDriverManager().install())
 webdriver.Chrome(executable_path=ChromeDriverManager("2.26").install())
 ----
 
-Тоже самое валидно и в случае Firefox:
+То же самое валидно и в случае Firefox:
 
 [source, python]
 ----
@@ -59,19 +58,14 @@ driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 ----
 
 Проблема может заключаться только в одном - все драйверы для firefox релизятся на Github, вся работа
-с которым идет чере **Github API**. Если часто делать запросы в `api` как не `authorized` пользователь то
+с которым идет через **Github API**. Если часто делать запросы в `api` как не `authorized` пользователь, то
 вы можете получить ошибку **github rate limit reached**. В таком случае вам нужно добавить
 `access_token`:
 
 [source, python]
 ----
-driver = webdriver.Firefox(executable_path=GeckoDriverManager()
-                                           .use_token("adasdasdsads342")
-                                           .install())
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().use_token("adasdasdsads342").install())
 ----
 
 Лично я использую для своей работы Сhrome и Firefox, поэтому на данный момент реализована
 поддержка только этих браузеров, в будущем планирую добавить работу с другими драйверами.
-
-В завершение хочу поздравить всех с Новым Годом! Удачи и успехов в профессиональной сфере, увидимся
-уже в Новом Году =)
