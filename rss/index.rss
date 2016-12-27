@@ -14,9 +14,99 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 17 Dec 2016 19:34:04 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Dec 2016 19:34:04 +0000</lastBuildDate>
+    <pubDate>Tue, 27 Dec 2016 13:04:15 +0000</pubDate>
+    <lastBuildDate>Tue, 27 Dec 2016 13:04:15 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Python webdriver manager is comming
+          </title>
+          <link>http://automation-remarks.com/2016/python-webdriver-manager/index.html</link>
+          <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2016/python-webdriver-manager/index.html</guid>
+          <description>
+                        Аналог драйвер менеджера под Python
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хей-хей! В преддверии Нового года и праздников решил написать о своей наработке.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Уходящий год для меня стал годом перемен не только благодаря тому, что я переехал в другой город, но и потому, что углубился в мир Python.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В самостоятельном обучении чему-либо я предпочитаю такой подход: читать книги хорошо, но нужно что-то делать
+ручками. Пару месяцев назад я уже выкладывал свою поделку &lt;a href=&quot;https://github.com/SergeyPirogov/python-testcontainer&amp;#8230;&amp;#8203&quot; class=&quot;bare&quot;&gt;https://github.com/SergeyPirogov/python-testcontainer&amp;#8230;&amp;#8203&lt;/a&gt;;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сейчас же я просто решил написать аналог &lt;a href=&quot;http://automation-remarks.com/selenium-webdriver-mana&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/selenium-webdriver-mana&lt;/a&gt;..[java webdriver]
+для Python. Возможно, в интернете уже есть реализация, но я не нашел.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Идея полностью соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
+различных драйверов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Код доступен в &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot; class=&quot;bare&quot;&gt;https://github.com/SergeyPirogov/webdriver_manager&lt;/a&gt;[Gi&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как пользоваться?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Установить зависимость:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install webdriver_manager&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Использовать драйвер-менеджер для нужного вам драйвера:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;from webdriver_manager.chrome import ChromeDriverManager
+
+webdriver.Chrome(executable_path=ChromeDriverManager().install())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В такой конфигурации будет скачана самая последняя версия Хром драйвера для вашей OС.
+Если вы хотите зафиксировать версию, вы можете сделать это достаточно просто: передав версию, как
+параметр в конструктор DriverManager:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;webdriver.Chrome(executable_path=ChromeDriverManager(&quot;2.26&quot;).install())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;То же самое валидно и в случае Firefox:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;from webdriver_manager.firefox import GeckoDriverManager
+
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Проблема может заключаться только в одном - все драйверы для firefox релизятся на Github, вся работа
+с которым идет через &lt;strong&gt;Github API&lt;/strong&gt;. Если часто делать запросы в &lt;code&gt;api&lt;/code&gt; как не &lt;code&gt;authorized&lt;/code&gt; пользователь, то
+вы можете получить ошибку &lt;strong&gt;github rate limit reached&lt;/strong&gt;. В таком случае вам нужно добавить
+&lt;code&gt;access_token&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;driver = webdriver.Firefox(executable_path=GeckoDriverManager().use_token(&quot;adasdasdsads342&quot;).install())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично я использую для своей работы Сhrome и Firefox, поэтому на данный момент реализована
+поддержка только этих браузеров. В будущем планирую добавить работу с другими драйверами.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Темная сторона Selenide

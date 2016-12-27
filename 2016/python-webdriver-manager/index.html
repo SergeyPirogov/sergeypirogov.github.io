@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Небольшой видосик про Jenkins</title>
+    <title>Python webdriver manager is comming</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Небольшой видосик про Jenkins">
+    <meta property="og:title" content="Python webdriver manager is comming">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Решил поделиться одним из первых своих выступлений! Enjoy;)"/>
+        	<meta property="og:description" content="Аналог драйвер менеджера под Python"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.min.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.min.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -93,29 +93,97 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                14/02/2015
+                                27/12/2016
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Небольшой видосик про Jenkins</h1>
+                        <h1 class="post-title">Python webdriver manager is comming</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Решил поделиться одним из первых своих выступлений! Enjoy;)</p>
+<p>Хей-хей! В преддверии Нового года и праздников решил написать о своей наработке.</p>
 </div>
-<div class="videoblock">
+<div class="paragraph">
+<p>Уходящий год для меня стал годом перемен не только благодаря тому, что я переехал в другой город, но и потому, что углубился в мир Python.</p>
+</div>
+<div class="paragraph">
+<p>В самостоятельном обучении чему-либо я предпочитаю такой подход: читать книги хорошо, но нужно что-то делать
+ручками. Пару месяцев назад я уже выкладывал свою поделку <a href="https://github.com/SergeyPirogov/python-testcontainer&#8230;&#8203" class="bare">https://github.com/SergeyPirogov/python-testcontainer&#8230;&#8203</a>;</p>
+</div>
+<div class="paragraph">
+<p>Сейчас же я просто решил написать аналог <a href="http://automation-remarks.com/selenium-webdriver-mana" class="bare">http://automation-remarks.com/selenium-webdriver-mana</a>..[java webdriver]
+для Python. Возможно, в интернете уже есть реализация, но я не нашел.</p>
+</div>
+<div class="paragraph">
+<p>Идея полностью соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
+различных драйверов.</p>
+</div>
+<div class="paragraph">
+<p>Код доступен в <a href="https://github.com/SergeyPirogov/webdriver_manager" class="bare">https://github.com/SergeyPirogov/webdriver_manager</a>[Gi&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Как пользоваться?</p>
+</div>
+<div class="paragraph">
+<p>Установить зависимость:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/tXFENp-RFWs?rel=0" frameborder="0" allowfullscreen></iframe>
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">pip install webdriver_manager</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Использовать драйвер-менеджер для нужного вам драйвера:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from webdriver_manager.chrome import ChromeDriverManager
+
+webdriver.Chrome(executable_path=ChromeDriverManager().install())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В такой конфигурации будет скачана самая последняя версия Хром драйвера для вашей OС.
+Если вы хотите зафиксировать версию, вы можете сделать это достаточно просто: передав версию, как
+параметр в конструктор DriverManager:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-python" data-lang="python">webdriver.Chrome(executable_path=ChromeDriverManager("2.26").install())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>То же самое валидно и в случае Firefox:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from webdriver_manager.firefox import GeckoDriverManager
+
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Проблема может заключаться только в одном - все драйверы для firefox релизятся на Github, вся работа
+с которым идет через <strong>Github API</strong>. Если часто делать запросы в <code>api</code> как не <code>authorized</code> пользователь, то
+вы можете получить ошибку <strong>github rate limit reached</strong>. В таком случае вам нужно добавить
+<code>access_token</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-python" data-lang="python">driver = webdriver.Firefox(executable_path=GeckoDriverManager().use_token("adasdasdsads342").install())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Лично я использую для своей работы Сhrome и Firefox, поэтому на данный момент реализована
+поддержка только этих браузеров. В будущем планирую добавить работу с другими драйверами.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Конференции.html">Конференции</a>
-                                    <a href="/tags/События.html">События</a>
-                                    <a href="/tags/Видео.html">Видео</a>
+                                    <a href="/tags/Python.html">Python</a>
+                                    <a href="/tags/Selenium.html">Selenium</a>
                             </div>
                     </footer>
 
@@ -124,7 +192,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2016/python-webdriver-manager/index.html">Python webdriver manager is comming</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/selenide-shadow-sides/index.html">Темная сторона Selenide</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/qa-fest-video/index.html">Видео с QA Fest 2016</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/sqa-days-20-feedback/index.html">SQA days 20: ретроспектива</a></li>
@@ -163,9 +230,9 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
