@@ -1,0 +1,77 @@
+= Python webdriver manager is comming
+Sergey Pirogov
+2016-11-27
+:jbake-type: post
+:jbake-tags: Python, Selenium
+:jbake-summary: Аналог драйвер менеджера под Python
+:jbake-featured: true
+
+Хей-хей! В предверии нового года и праздников решил написать о своей наработке.
+
+Уходящий год для меня стал годом перемен: я переехал в дрйгой город, а еще я углубился в мир Python.
+Не сказал бы что я прям уж очень хорошо осведомлен в теме, но сам по себе язык мне нравится.
+
+В своем обучении чему-либо я больше предпочитаю подход: читать книги хорошо, но нужно что-то делать
+ручками. Пару месяцев назад я уже выкладывал свою поделку https://github.com/SergeyPirogov/python-testcontainers[python-testcontainers].
+
+Сейчас же я просто решил написать аналог http://automation-remarks.com/selenium-webdriver-manager/index.html[java webdriver]
+для Python. Возможно в интернете уже есть реализация, но я не нашел.
+
+Идея полность соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
+различных драйверов.
+
+Код доступен в https://github.com/SergeyPirogov/webdriver_manager[Github].
+
+Как пользоваться?
+
+Установить зависимость:
+
+[source, bash]
+----
+pip install webdriver_manager
+----
+
+Использовать драйвер менеджер для нужного вам драйвера:
+
+[source, python]
+----
+from webdriver_manager.chrome import ChromeDriverManager
+
+webdriver.Chrome(executable_path=ChromeDriverManager().install())
+----
+
+В такой конфигурации будет скачана самая последняя версия Хром драйвера для вашей OС.
+Если вы хотите зафиксировать версию, вы можете сделать это достаточно просто: передав версию как
+параметр в конструктор DriverManager:
+
+[source, python]
+----
+webdriver.Chrome(executable_path=ChromeDriverManager("2.26").install())
+----
+
+Тоже самое валидно и в случае Firefox:
+
+[source, python]
+----
+from webdriver_manager.firefox import GeckoDriverManager
+
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+----
+
+Проблема может заключаться только в одном - все драйверы для firefox релизятся на Github, вся работа
+с которым идет чере **Github API**. Если часто делать запросы в `api` как не `authorized` пользователь то
+вы можете получить ошибку **github rate limit reached**. В таком случае вам нужно добавить
+`access_token`:
+
+[source, python]
+----
+driver = webdriver.Firefox(executable_path=GeckoDriverManager()
+                                           .use_token("adasdasdsads342")
+                                           .install())
+----
+
+Лично я использую для своей работы Сhrome и Firefox, поэтому на данный момент реализована
+поддержка только этих браузеров, в будущем планирую добавить работу с другими драйверами.
+
+В завершение хочу поздравить всех с Новым Годом! Удачи и успехов в профессиональной сфере, увидимся
+уже в Новом Году =)
