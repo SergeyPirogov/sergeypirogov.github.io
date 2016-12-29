@@ -11,15 +11,15 @@ Sergey Pirogov
 Уходящий год для меня стал годом перемен не только благодаря тому, что я переехал в другой город, но и потому, что углубился в мир Python.
 
 В самостоятельном обучении чему-либо я предпочитаю такой подход: читать книги хорошо, но нужно что-то делать
-ручками. Пару месяцев назад я уже выкладывал свою поделку https://github.com/SergeyPirogov/python-testcontainer...
+ручками. Пару месяцев назад я уже выкладывал свою поделку https://github.com/SergeyPirogov/python-testcontainers[testcontainers-py]
 
-Сейчас же я просто решил написать аналог http://automation-remarks.com/selenium-webdriver-mana..[java webdriver]
+Сейчас же я просто решил написать аналог http://automation-remarks.com/selenium-webdriver-manager/index.html[java webdriver]
 для Python. Возможно, в интернете уже есть реализация, но я не нашел.
 
 Идея полностью соответсвует реализации на Java - автоматизировать менеджмент бинарных файлов для
 различных драйверов.
 
-Код доступен в https://github.com/SergeyPirogov/webdriver_manager[Gi...
+Код доступен в https://github.com/SergeyPirogov/webdriver_manager[Github]
 
 Как пользоваться?
 
