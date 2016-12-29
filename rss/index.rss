@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 27 Dec 2016 13:04:15 +0000</pubDate>
-    <lastBuildDate>Tue, 27 Dec 2016 13:04:15 +0000</lastBuildDate>
+    <pubDate>Thu, 29 Dec 2016 15:35:43 +0000</pubDate>
+    <lastBuildDate>Thu, 29 Dec 2016 15:35:43 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -36,10 +36,10 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В самостоятельном обучении чему-либо я предпочитаю такой подход: читать книги хорошо, но нужно что-то делать
-ручками. Пару месяцев назад я уже выкладывал свою поделку &lt;a href=&quot;https://github.com/SergeyPirogov/python-testcontainer&amp;#8230;&amp;#8203&quot; class=&quot;bare&quot;&gt;https://github.com/SergeyPirogov/python-testcontainer&amp;#8230;&amp;#8203&lt;/a&gt;;&lt;/p&gt;
+ручками. Пару месяцев назад я уже выкладывал свою поделку &lt;a href=&quot;https://github.com/SergeyPirogov/python-testcontainers&quot;&gt;testcontainers-py&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Сейчас же я просто решил написать аналог &lt;a href=&quot;http://automation-remarks.com/selenium-webdriver-mana&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/selenium-webdriver-mana&lt;/a&gt;..[java webdriver]
+&lt;p&gt;Сейчас же я просто решил написать аналог &lt;a href=&quot;http://automation-remarks.com/selenium-webdriver-manager/index.html&quot;&gt;java webdriver&lt;/a&gt;
 для Python. Возможно, в интернете уже есть реализация, но я не нашел.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -47,7 +47,7 @@
 различных драйверов.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Код доступен в &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot; class=&quot;bare&quot;&gt;https://github.com/SergeyPirogov/webdriver_manager&lt;/a&gt;[Gi&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;p&gt;Код доступен в &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Как пользоваться?&lt;/p&gt;
