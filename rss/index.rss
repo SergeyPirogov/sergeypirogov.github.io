@@ -14,9 +14,149 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 29 Dec 2016 15:35:43 +0000</pubDate>
-    <lastBuildDate>Thu, 29 Dec 2016 15:35:43 +0000</lastBuildDate>
+    <pubDate>Sat, 31 Dec 2016 10:00:32 +0000</pubDate>
+    <lastBuildDate>Sat, 31 Dec 2016 10:00:32 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Новогодний пост
+          </title>
+          <link>http://automation-remarks.com/2016/summary-2016/index.html</link>
+          <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2016/summary-2016/index.html</guid>
+          <description>
+                        Итоги года и поздравляшки
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Добрый день, уважаемые читатели! Такая вот простая заметка об уходящем 2016-ом с банальными итогами и благодарностями =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, 2016 год был очень интересным и для меня лично, и для жизни блога. Но давайте обо всем по порядку.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начался для меня 2016 год с выступления на конференции &lt;a href=&quot;http://seleniumcamp.com/archive/selenium-camp-2016/speakers/&quot;&gt;SeleniumCamp&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажу честно, было очень волнительно выступать на такой уважаемой и известной конференции. По итогам конференции мой доклад вошел
+в &lt;a href=&quot;http://xpinjection.com/general/selenium-camp-2016-memories-and-best-talks/&quot;&gt;пятерку лучших&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее последовала череда выступлений в Москве, Львове, Харькове, Киеве и Минске.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом мой топ конференций за 2016 выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SeleniumCamp 2016&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;QAFest 3.0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;QA Expert day (Provectus Odessa)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;QA Meetup (DevChallenge)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SQA days 20&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Помимо поездок и подготовки к конференциям я еще и работал на проектах. Летом у меня случились самые большие перемены.
+Увольнение из харьковского &lt;strong&gt;ЕПАМа&lt;/strong&gt; было для меня психологически сложным из-за того,
+что нужно было расставаться с отличной командой, с которой я работал в Харькове. Но тем не менее - это жизнь! На новом месте мы обжились нормально, а
+новые задачи и проекты в киевском &lt;strong&gt;Ciklum&lt;/strong&gt; в совокупности с новыми знакомсвами способствовали адаптации в новом городе.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Так как речь пошла о работе, то топ 5 лучших инструментов/языков для автомитизации тестрования за 2016, по моему мнению, выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Groovy/Spock&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Selenide&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RestAssured&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WebDriverManager&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testcontainers&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Помимо работы на проектах я начал контрибьютить в open-source и заниматься консультациями:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Java Video Recorder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Коммит в Selenide&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Погружение в Selene для Рython&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Консультации по автоматизации на Groovy/Java/Python.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все это не приносит материальных выгод, но это очень интересный и полезный опыт.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В сентябре я поехал на BAQ Coference во Львове и встретил там свой новогодний подарок =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/stiy_stil.jpg&quot; alt=&quot;stiy stil&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, это стол, за которым можно работать и стоя, и сидя. Теперь у меня меньше болит спина, спасибо &lt;a href=&quot;https://stiystil.com.ua/&quot;&gt;StiyStil&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В ноябре мне посчастливилось побывать на &lt;a href=&quot;http://www.softwaretestingawards.com/&quot;&gt;The 2016 European Software Testing Awards&lt;/a&gt;.
+Это мероприятие проходит в Лондоне. Летали мы туда дружной командой из &lt;strong&gt;Ciklum Testing Center of Excellence&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну, и уже под занавес года я был судьей на тестатоне &lt;a href=&quot;https://www.facebook.com/testuastartups/&quot;&gt;Test UA Startups&lt;/a&gt;. Интересный опыт как для учасников, так и для стартапов. Если вы еще не в теме, то вам сюда!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом этот год был хорошим - много челенджей и перемен. В Новом году их будет еще больше! У меня уже запланировано три конференции
+и несколько новых проектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну, а пока что я хочу сказать &quot;спасибо&quot; всем, кто был рядом, и поздравить всех с наступающим 2017 годом!
+Хочу поблагодарить всех, кто читает этот блог. Я искренне надеюсь, что моя писанина помогает людям познавать мир автоматизации
+тестирования и воодушевляет заниматься этой самой автоматизацией на своих проектах.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Желаю всем вам карьерных успехов, интересных проектов и замечательных команд, которые будут помогать развиваться и делать классные
+вещи. Будьте здоровы и счастливы в Новом году! Па-па! Увидимся и услышимся в Новом 2017м =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пусть все у всех сложится&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://vtemu.by/wp-content/uploads/2015/12/51.jpeg&quot; alt=&quot;51&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Python webdriver manager is comming
