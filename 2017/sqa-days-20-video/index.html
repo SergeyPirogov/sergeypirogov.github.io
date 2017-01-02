@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Что такое Flaky тест?</title>
+    <title>Видео с SQA days 20</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Что такое Flaky тест?">
+    <meta property="og:title" content="Видео с SQA days 20">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Если у вас нету Flacky тестов - значит вы занимаетесь чем-то нереальным :). Flacky тесты - это зло!"/>
+        	<meta property="og:description" content="Видео моего выступления с SQA days 20"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.min.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.min.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -93,42 +93,34 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                02/12/2014
+                                01/01/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Что такое Flaky тест?</h1>
+                        <h1 class="post-title">Видео с SQA days 20</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>image::http://cdn.meme.am/instances/500x/52587305.jpg</p>
+<p>Новый год еще только начался и сразу хорошая новость - стали доступны записи всех
+докладов SQA days 20.</p>
 </div>
 <div class="paragraph">
-<p>Если у вас нету <strong>Flacky</strong> тестов - значит вы занимаетесь чем-то нереальным :). <strong>Flacky</strong> тесты - это зло! Это то, с чем приходится бороться днями, а бывает - и неделями.
-Жизненный пример: написали вы свой <strong>Selenium</strong> тест, прогнали его, отладили, закомитили - все прекрасно! Приходите на следующий день, ну или через пару-тройку дней, смотрите: он зеленый. "Ну прекрасно", - думаете, смотрите еще через время - он упал (по никому не понятной причине), ведь код не менялся и приложение работает нормально. Перезапускаете тест - он проходит, все хорошо. Видимо, планеты в небе так встали, и он свалился :). Спустя несколько билдов вы замечаете, что этот тест ведет себя, как лампочка на новогодней елке - мигает: <strong>FAIL, PASS,FAIL,PASS</strong>&#8230;&#8203;</p>
+<p>Я уже <a href="http://automation-remarks.com/2016/sqa-days-20-feedback/index.html">писал о своих впечатлениях</a> от посещения этой конференции.</p>
 </div>
 <div class="paragraph">
-<p>Как с этим бороться? Ответ как всегда очень прост - нужно разбираться. Как говорится, у любой проблемы есть имя, фамилия и отчество. Большинство Flaky тестов случается из-за банальной невнимательности. Некоторые из них найти легко, над некоторыми же нужно пораскинуть мозгами. Приведу пример: был у меня тест, который должен был открыть модальный диалог и в нем продолжить работу.
-Задача достаточно простая, решается за 5 (нет, 10 минут) :). Я написал метод:</p>
+<p>Запись моего доклада:</p>
 </div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">private void switchToRiskFactorDialog(String title) {
-            String targetWindow = waitForWindowTitle(title);
-            switchTo().window(targetWindow);
-}</code></pre>
+<iframe src="https://player.vimeo.com/video/197670207" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Все просто: метод ждал, пока появится окно с нужным title и затем делал switch в новое окно. Все работало прекрасно, пока я не заметил, что у меня тест два раза проходит, а один раз валится с <em>NullPointerException</em>. Оказалось, что подставил меня метод waitForWindowTitle. Один раз он дожидался, пока окно появится, а в другой принимал решение, что окно появилось, хотя на самом деле его еще не было. Вот и все, таким образом я избавился от <strong>Flaky</strong> теста.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                                    <a href="/tags/Конференции.html">Конференции</a>
                             </div>
                     </footer>
 
@@ -137,7 +129,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/sqa-days-20-video/index.html">Видео с SQA days 20</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/summary-2016/index.html">Новогодний пост</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/python-webdriver-manager/index.html">Python webdriver manager is comming</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/selenide-shadow-sides/index.html">Темная сторона Selenide</a></li>
@@ -176,9 +167,9 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

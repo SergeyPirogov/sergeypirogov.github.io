@@ -14,9 +14,37 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 31 Dec 2016 10:00:32 +0000</pubDate>
-    <lastBuildDate>Sat, 31 Dec 2016 10:00:32 +0000</lastBuildDate>
+    <pubDate>Mon, 2 Jan 2017 10:41:00 +0000</pubDate>
+    <lastBuildDate>Mon, 2 Jan 2017 10:41:00 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Видео с SQA days 20
+          </title>
+          <link>http://automation-remarks.com/2017/sqa-days-20-video/index.html</link>
+          <pubDate>Sun, 1 Jan 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/sqa-days-20-video/index.html</guid>
+          <description>
+                        Видео моего выступления с SQA days 20
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Новый год еще только начался и сразу хорошая новость - стали доступны записи всех
+докладов SQA days 20.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже &lt;a href=&quot;http://automation-remarks.com/2016/sqa-days-20-feedback/index.html&quot;&gt;писал о своих впечатлениях&lt;/a&gt; от посещения этой конференции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://player.vimeo.com/video/197670207&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Новогодний пост
