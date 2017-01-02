@@ -1,0 +1,15 @@
+= Видео с SQA days 20
+Sergey Pirogov
+2017-01-01
+:jbake-type: post
+:jbake-tags: Конференции
+:jbake-summary: Видео моего выступления с SQA days 20
+
+Новый год еще только начался и сразу хорошая новость - стали доступны записи всех
+докладов SQA days 20.
+
+Я уже http://automation-remarks.com/2016/sqa-days-20-feedback/index.html[писал о своих впечатлениях] от посещения этой конференции.
+
+Запись моего доклада:
+
+video::197670207[vimeo]
