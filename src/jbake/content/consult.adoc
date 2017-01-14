@@ -9,7 +9,7 @@ status=published
 [.job-list]
 - Автоматизация тестирования
 - Continuous Integration
-- Инструменты автоматизации
+- Инструменты автоматизации из мира Java или Python
 - Индивидуальный план развития
 - Индивидуальное обучение и менторинг
 
@@ -21,10 +21,25 @@ status=published
 
 - Вы хотите найти ментора.
 
-**Как получить консультацию?**
-
-Просто опишите мне суть проблемы в письме на email automationremarks@gmail.com и мы вместе во всем разберемся!
-
 **Почему нужно попробовать?**
 
 Это быстрее, чем рыскать в Google и дешевле, чем идти на курсы ради одной конкретной проблемы!
+
+**Как получить консультацию?**
+
+Просто опишите мне суть проблемы, используя форму ниже, и мы вместе во всем разберемся!
+
+++++
+<script type="text/javascript" src="https://odamae.io/form/js/light.js"></script>
+<form id="odamae-contact-form" method="post" style="display: none">
+    <div class="odamae-row">
+		<input type="text" class="odamae-input" name="name" id="name" value="" placeholder="Name" />
+		<input type="text" class="odamae-input" name="contact" id="contact" value="" placeholder="Email" />
+		<textarea class="odamae-textarea" name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+    </div>
+    <div class="odamae-row visual-captcha"></div>
+    <div class="odamae-row actions">
+		<input type="submit" class="odamae-button odamae-submit" value="Send Message" onclick="odamaeSubmit(this)" data-apikey="odamae.io_8159ee6e4c98eacc1db6f4d6986f625e_0103" />
+    </div>
+</form>
+++++
