@@ -1,3 +1,10 @@
+= Как выжить в мире Python, после Java
+Sergey Pirogov
+2017-01-05
+:jbake-type: post
+:jbake-tags: Java, Python
+:jbake-summary: Про мой опыт пугружения в автоматизацию на Python
+
 Праздники прошли - пора браться за ум. Решил поделиться своим опытом автоматизации
 на Python после долгих лет работы с Java.
 
