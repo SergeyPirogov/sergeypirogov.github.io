@@ -14,9 +14,136 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 15 Jan 2017 11:59:58 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Jan 2017 11:59:58 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Jan 2017 12:04:08 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Jan 2017 12:04:08 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Как выжить в мире Python, после Java
+          </title>
+          <link>http://automation-remarks.com/2017/python-world-after-java/index.html</link>
+          <pubDate>Thu, 5 Jan 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/python-world-after-java/index.html</guid>
+          <description>
+                        Про мой опыт пугружения в автоматизацию на Python
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Праздники прошли - пора браться за ум. Решил поделиться своим опытом автоматизации
+на Python после долгих лет работы с Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://3.bp.blogspot.com/-KsiDvwALB_s/VTOUKDqUBTI/AAAAAAAAEUw/Dr94aYs-3bY/s1600/Python%2Bvs%2BJava%2B-%2BWhich%2BProgramming%2BLanguage%2Bis%2BMore%2BProductive.jpg&quot; alt=&quot;Python%2Bvs%2BJava%2B %2BWhich%2BProgramming%2BLanguage%2Bis%2BMore%2BProductive&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Началось все просто: меня попросили поревьюить проект, автоматизация на котором
+писалась на Python. Ну, знаете, как это бывает, - нужно посмотреть не касательно языка, а в
+общем, так сказать, архитектурно. Я согласился - посмотреть не сложно, да и, может, чего
+умного узнаю.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Благо, что сам Python я на тот момент пробовал учить, пройдя курс на Coursera и посмотрев
+&lt;a href=&quot;https://www.youtube.com/watch?v=5V7XG1mGiHc&amp;amp;list=PLlb7e2G7aSpTTNp7HBYzCBByaE1h54ruW&quot;&gt;курс лекций&lt;/a&gt; на Youtube.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тогда я достаточно быстро разобрался и дал парочку советов, которые принесли проекту пользу.
+Тот опыт дал мне толчок для более детального погружения в мир Python. Должен отметить, что это случилось еще и
+потому, что я давно хотел посмотреть на языки вне JVM. Постоянные читатели блога знают, что я работал с &lt;strong&gt;Java&lt;/strong&gt; и
+фанатею от &lt;strong&gt;Groovy&lt;/strong&gt;. Но еще один козырь в рукаве никогда не будет лишним.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Почему именно Python?&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вокруг него ходит много хайпа, что этот язык достаточно простой и его легко выучить, особенно после Java.
+Да и при смене работы очень много предложений мне приходило именно на Python.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Ну, и как оно в мире Python?&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Когда я все-таки решил, что нужно подразобраться, то прочел книгу - &lt;strong&gt;Изучаем Python. Подробный справочник&lt;/strong&gt;.
+Еще я начал проходить задания на сайте &lt;a href=&quot;https://checkio.org/&quot;&gt;https://checkio.org/&lt;/a&gt;.
+На уровне &quot;сесть и написать какой-то скриптец&quot; все было достаточно просто.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но, как обычно, вокруг любого языка существует целая инфраструкрура, состоящая из пакетных менеджеров, IDE и всего
+того барахла, без которого написать более-менее вменяемый проект нельзя.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Естественно, приходя из Java, ты начинаешь искать похожие инструменты и подходы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начнем с IDE. Компания &lt;strong&gt;Jetbrains&lt;/strong&gt; не обошла мир Python стороной и создала PyCharm. Для того, чтобы с IDEA перейти на PyCharm,
+много времени не нужно. Автодополнение, подсветка и все то, что мы любим в мире Java, там работает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Дальше интереснее. Управление зависимостями. В мире Java есть &lt;strong&gt;Gradle&lt;/strong&gt; или &lt;strong&gt;Maven&lt;/strong&gt;.
+В мире Python есть &lt;strong&gt;pip&lt;/strong&gt;. Существует еще &lt;strong&gt;easy_install&lt;/strong&gt;, но я его ни разу не пробовал =).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Так вот этот &lt;code&gt;pip&lt;/code&gt; ставит зависимость глобально. Если вы хотите &quot;жить нормально&quot;, как в мире Java, вам важно
+овладеть еще и инструментом &lt;a href=&quot;http://docs.python-guide.org/en/latest/dev/virtualenvs/&quot;&gt;virtualenv&lt;/a&gt;.
+Используя &lt;strong&gt;virtualenv&lt;/strong&gt;, нужно для каждого отдельного проекта создавать окружение и уже потом ставить в него
+все необходимые пакеты. А чтобы сделать проект переносимым, нужно еще в корне проекта создавать &lt;strong&gt;requirements.txt&lt;/strong&gt; и
+в него заносить все модули, которые необходимы для работы вашего проекта. То есть &lt;code&gt;requirements.txt&lt;/code&gt; - это примитивный аналог
+&lt;code&gt;build.gradle&lt;/code&gt; или &lt;code&gt;pom.xml&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Как писать тесты?&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мы же с вами собираемся писать тесты, верно? Чтобы писать тесты, нужен какой-то тест-ранер. В мире &lt;strong&gt;Python&lt;/strong&gt;
+есть много фреймворков для написания тестов, но, по факту, для меня самым удобным является &lt;a href=&quot;http://doc.pytest.org/en/latest/&quot;&gt;pytest&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если брать грубо, то &lt;code&gt;pytest&lt;/code&gt; в Python - это &lt;code&gt;TestNG&lt;/code&gt; в мире Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Овладев всеми этими штуками, мы можем начинать колбасить тесты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для написания UI тестов используется тот же &lt;strong&gt;Selenium&lt;/strong&gt;. Да, в мире питона на чистом Selenium тесты выглядят так же
+ужасно, поэтому нужно писать свои костыли и велосипеды.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но перед тем, как начать клепать свое, нужно пойти в гугл и поискать альтернативы. Если внимательно искать,
+можно найти библиотеку &lt;a href=&quot;https://github.com/yashaka/selene&quot;&gt;Selene&lt;/a&gt;. &lt;code&gt;Selene&lt;/code&gt; для Python - это полный аналог
+&lt;code&gt;Selenide&lt;/code&gt; для Java. Сейчас &lt;strong&gt;Selene&lt;/strong&gt; активно развивается силами Якова Крамаренко и моими стараниями и активно движется к версии &lt;strong&gt;1.0-stable&lt;/strong&gt;.
+Скоро можно будет без опаски брать ее в продакшин и писать красивые и лаконичные тесты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И последнее. Так как &lt;strong&gt;Selenium&lt;/strong&gt; развивается и выходят все новые и новые драйверы для работы с разными браузерами,
+этим все делом становится очень сложно управлять. Нужно качать драйверы, постоянно их обновлять. УжОс.
+В мире Java существует &lt;a href=&quot;http://automation-remarks.com/selenium-webdriver-manager/index.html&quot;&gt;webdriver manager&lt;/a&gt;.
+От недавнего времени в мире Python есть аналог - &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot;&gt;python webdriver manager&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Что мы имеем в итоге?&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы пришли в мир автоматизации на Python после Java, то вместо ваших любимых&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;Java 8/Gradle/TestNG/Selenide/WebdriverManager&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;вам нужно овладеть:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;Python/pip+virtualenv/pytest/Selene/WebdriverManager&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как вы можете заметить, отличия не значительны, так что дерзайте&amp;#8230;&amp;#8203;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Видео с SQA days 20

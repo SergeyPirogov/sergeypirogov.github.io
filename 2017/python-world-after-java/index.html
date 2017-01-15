@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Как выжить в мире Python, после Java</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выжить в мире Python, после Java">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="Про мой опыт пугружения в автоматизацию на Python"/>
+	
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.min.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">
+	<script>var disqus="httpspirogovgithubio";</script>
+
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html">
+            <span class="name">Видео</span>
+          </a>
+          <a class="author_link" href="/archive.html">
+            <span class="name">Архив</span>
+          </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="http://feeds.feedburner.com/automation-remarks"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                05/01/2017
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Как выжить в мире Python, после Java</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Праздники прошли - пора браться за ум. Решил поделиться своим опытом автоматизации
+на Python после долгих лет работы с Java.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://3.bp.blogspot.com/-KsiDvwALB_s/VTOUKDqUBTI/AAAAAAAAEUw/Dr94aYs-3bY/s1600/Python%2Bvs%2BJava%2B-%2BWhich%2BProgramming%2BLanguage%2Bis%2BMore%2BProductive.jpg" alt="Python%2Bvs%2BJava%2B %2BWhich%2BProgramming%2BLanguage%2Bis%2BMore%2BProductive">
+</div>
+</div>
+<div class="paragraph">
+<p>Началось все просто: меня попросили поревьюить проект, автоматизация на котором
+писалась на Python. Ну, знаете, как это бывает, - нужно посмотреть не касательно языка, а в
+общем, так сказать, архитектурно. Я согласился - посмотреть не сложно, да и, может, чего
+умного узнаю.</p>
+</div>
+<div class="paragraph">
+<p>Благо, что сам Python я на тот момент пробовал учить, пройдя курс на Coursera и посмотрев
+<a href="https://www.youtube.com/watch?v=5V7XG1mGiHc&amp;list=PLlb7e2G7aSpTTNp7HBYzCBByaE1h54ruW">курс лекций</a> на Youtube.</p>
+</div>
+<div class="paragraph">
+<p>Тогда я достаточно быстро разобрался и дал парочку советов, которые принесли проекту пользу.
+Тот опыт дал мне толчок для более детального погружения в мир Python. Должен отметить, что это случилось еще и
+потому, что я давно хотел посмотреть на языки вне JVM. Постоянные читатели блога знают, что я работал с <strong>Java</strong> и
+фанатею от <strong>Groovy</strong>. Но еще один козырь в рукаве никогда не будет лишним.</p>
+</div>
+<div class="paragraph">
+<p><em>Почему именно Python?</em></p>
+</div>
+<div class="paragraph">
+<p>Вокруг него ходит много хайпа, что этот язык достаточно простой и его легко выучить, особенно после Java.
+Да и при смене работы очень много предложений мне приходило именно на Python.</p>
+</div>
+<div class="paragraph">
+<p><em>Ну, и как оно в мире Python?</em></p>
+</div>
+<div class="paragraph">
+<p>Когда я все-таки решил, что нужно подразобраться, то прочел книгу - <strong>Изучаем Python. Подробный справочник</strong>.
+Еще я начал проходить задания на сайте <a href="https://checkio.org/">https://checkio.org/</a>.
+На уровне "сесть и написать какой-то скриптец" все было достаточно просто.</p>
+</div>
+<div class="paragraph">
+<p>Но, как обычно, вокруг любого языка существует целая инфраструкрура, состоящая из пакетных менеджеров, IDE и всего
+того барахла, без которого написать более-менее вменяемый проект нельзя.</p>
+</div>
+<div class="paragraph">
+<p>Естественно, приходя из Java, ты начинаешь искать похожие инструменты и подходы.</p>
+</div>
+<div class="paragraph">
+<p>Начнем с IDE. Компания <strong>Jetbrains</strong> не обошла мир Python стороной и создала PyCharm. Для того, чтобы с IDEA перейти на PyCharm,
+много времени не нужно. Автодополнение, подсветка и все то, что мы любим в мире Java, там работает.</p>
+</div>
+<div class="paragraph">
+<p>Дальше интереснее. Управление зависимостями. В мире Java есть <strong>Gradle</strong> или <strong>Maven</strong>.
+В мире Python есть <strong>pip</strong>. Существует еще <strong>easy_install</strong>, но я его ни разу не пробовал =).</p>
+</div>
+<div class="paragraph">
+<p>Так вот этот <code>pip</code> ставит зависимость глобально. Если вы хотите "жить нормально", как в мире Java, вам важно
+овладеть еще и инструментом <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtualenv</a>.
+Используя <strong>virtualenv</strong>, нужно для каждого отдельного проекта создавать окружение и уже потом ставить в него
+все необходимые пакеты. А чтобы сделать проект переносимым, нужно еще в корне проекта создавать <strong>requirements.txt</strong> и
+в него заносить все модули, которые необходимы для работы вашего проекта. То есть <code>requirements.txt</code> - это примитивный аналог
+<code>build.gradle</code> или <code>pom.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Как писать тесты?</em></p>
+</div>
+<div class="paragraph">
+<p>Мы же с вами собираемся писать тесты, верно? Чтобы писать тесты, нужен какой-то тест-ранер. В мире <strong>Python</strong>
+есть много фреймворков для написания тестов, но, по факту, для меня самым удобным является <a href="http://doc.pytest.org/en/latest/">pytest</a>.</p>
+</div>
+<div class="paragraph">
+<p>Если брать грубо, то <code>pytest</code> в Python - это <code>TestNG</code> в мире Java.</p>
+</div>
+<div class="paragraph">
+<p>Овладев всеми этими штуками, мы можем начинать колбасить тесты.</p>
+</div>
+<div class="paragraph">
+<p>Для написания UI тестов используется тот же <strong>Selenium</strong>. Да, в мире питона на чистом Selenium тесты выглядят так же
+ужасно, поэтому нужно писать свои костыли и велосипеды.</p>
+</div>
+<div class="paragraph">
+<p>Но перед тем, как начать клепать свое, нужно пойти в гугл и поискать альтернативы. Если внимательно искать,
+можно найти библиотеку <a href="https://github.com/yashaka/selene">Selene</a>. <code>Selene</code> для Python - это полный аналог
+<code>Selenide</code> для Java. Сейчас <strong>Selene</strong> активно развивается силами Якова Крамаренко и моими стараниями и активно движется к версии <strong>1.0-stable</strong>.
+Скоро можно будет без опаски брать ее в продакшин и писать красивые и лаконичные тесты.</p>
+</div>
+<div class="paragraph">
+<p>И последнее. Так как <strong>Selenium</strong> развивается и выходят все новые и новые драйверы для работы с разными браузерами,
+этим все делом становится очень сложно управлять. Нужно качать драйверы, постоянно их обновлять. УжОс.
+В мире Java существует <a href="http://automation-remarks.com/selenium-webdriver-manager/index.html">webdriver manager</a>.
+От недавнего времени в мире Python есть аналог - <a href="https://github.com/SergeyPirogov/webdriver_manager">python webdriver manager</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>Что мы имеем в итоге?</em></p>
+</div>
+<div class="paragraph">
+<p>Если вы пришли в мир автоматизации на Python после Java, то вместо ваших любимых</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>Java 8/Gradle/TestNG/Selenide/WebdriverManager</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>вам нужно овладеть:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>Python/pip+virtualenv/pytest/Selene/WebdriverManager</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Как вы можете заметить, отличия не значительны, так что дерзайте&#8230;&#8203;.</p>
+</div>
+                    </section>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Python.html">Python</a>
+                            </div>
+                    </footer>
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2017/sqa-days-20-video/index.html">Видео с SQA days 20</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/summary-2016/index.html">Новогодний пост</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/python-webdriver-manager/index.html">Python webdriver manager is comming</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/selenide-shadow-sides/index.html">Темная сторона Selenide</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/qa-fest-video/index.html">Видео с QA Fest 2016</a></li>
+                                                <li><a class='js-ajax-link' href="/2016/sqa-days-20-feedback/index.html">SQA days 20: ретроспектива</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
