@@ -4,7 +4,7 @@ status=published
 ~~~~~~
 Консультация c опытным специалистом - это самый быстрый и простой способ решить свои проблемы.
 
-**__Примеры консультаций:__**
+**Примеры консультаций:**
 
 - Я работаю мануальным тестировщиком, но хочу развиваться и не знаю, куда и как двигаться.
 Какие курсы выбрать или как учиться самому?
@@ -13,19 +13,40 @@ status=published
 
 - Я хочу найти ментора.
 
-**__Почему нужно попробовать?__**
+**Почему нужно попробовать?**
 
 Это быстрее, чем рыскать в Google и дешевле, чем идти на курсы ради одной конкретной проблемы!
 
-**__Как получить консультацию?__**
+**Как получить консультацию?**
 
 Просто опишите мне суть проблемы, используя форму ниже, и мы вместе во всем разберемся!
 
 ++++
-<form method="POST" action="http://formspree.io/sergio_89@ukr.net">
-  <input type="email" name="email" placeholder="Ваш email:">
-  <input name="user" placeholder="Ваше имя:">
-  <textarea name="message" placeholder="Сообщение:"></textarea>
-  <button type="submit">Send</button>
+<form class="form-horizontal" method="POST" action="http://formspree.io/sergio_89@ukr.net">
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Ваш email">
+        </div>
+    </div>
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя">
+            </div>
+    </div>
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:"></textarea>
+                </div>
+    </div>
+
+
+
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
 </form>
 ++++
