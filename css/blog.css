@@ -259,6 +259,18 @@ div.imageblock.user-photo > div > img{
     background-color: black;
 }
 
+#twitter-widget-0{
+    margin: 0;
+}
+
+#push > div.social_buttons > div > span > iframe {
+  margin: 0;
+}
+
+.social_buttons{
+  margin-bottom: 25px;
+}
+
 @media screen and (min-width: 1660px){
 .inner {
     max-width: 75em;
