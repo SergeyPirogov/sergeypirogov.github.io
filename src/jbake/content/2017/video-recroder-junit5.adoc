@@ -1,0 +1,95 @@
+= Java Video Recorder поддержка Junit 5
+Sergey Pirogov
+2017-02-015
+:jbake-type: post-draft
+:jbake-tags: Java, JUnit
+:jbake-summary: Немного о хорошести JUnit 5
+
+Привет, в предверии конференции SeleniumCamp, на которой я буду выступать
+с докладом "JUnit4 vs TestNG battle" решил немного приоткрыть тайны.
+
+Пока готовился к докладу и исследовал возможности JUnit 5, решил
+сделать поддержку https://github.com/SergeyPirogov/video-recorder-java[Java Video Recorder].
+
+Раньше для подключения записи видео в проект с тестами на JUnit 4 нужно было написать такой код:
+
+[source, java]
+```
+class TestVideo{
+
+   @Rule
+   public VideoRule rule = VideoRule();
+
+   @Test
+   @Tag("Flaky")
+   @Video
+   public void test(){
+      open("");
+      $("")
+   }
+
+}
+
+```
+
+Все достаточно не плохо, но с выходом JUnit 5 все станет еще лучше.
+
+В пятой версии JUnit сделали поддержку еще больше количества **extension points**, а также добавили
+поддержку композитных аннотаций.
+
+Естественно у меня появилось жение попробовать все эти возможности и теперь Video Recorder
+полноценно поддерживает **JUnit 5**. Хорошая новость - больше не нужно писать VideoRule
+
+[source, java]
+```
+class TestVideo{
+
+   @Test
+   @Tag("Flaky")
+   @Video
+   public void test(){
+      open("");
+      $("")
+   }
+
+}
+
+```
+
+Вроде как не особо заметное изменение - стало аж на две строчки меньше, но на самом
+деле появились скрытые возможности.
+Используя поддержку композитных аннотаций вы можете сделать код еще более компактным.
+
+[source, java]
+```
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@Video
+@Tag("Flaky")
+@Test
+public @interface FlakyTest {}
+
+```
+
+Код теста в таком случае станет более компактным и читабельным:
+
+```
+class TestVideo{
+
+   @FlakyTest
+   public void test(){
+      open("");
+      $("")
+   }
+
+}
+
+```
+
+Более того вы сможете запускать тесты по тегу "Flaky".
+
+Теперь адепты JUnit 5 смогут без боязни переходить на новую версию.
+
+**P/S** Если вы хотите еще больше познать JUnit 5 и узнать сможет ли он побить TestNG,
+приходите конференцию SeleniumCamp =)
+
