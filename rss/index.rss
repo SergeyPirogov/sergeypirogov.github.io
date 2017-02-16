@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 16 Feb 2017 12:13:36 +0000</pubDate>
-    <lastBuildDate>Thu, 16 Feb 2017 12:13:36 +0000</lastBuildDate>
+    <pubDate>Thu, 16 Feb 2017 18:50:16 +0000</pubDate>
+    <lastBuildDate>Thu, 16 Feb 2017 18:50:16 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -212,6 +212,115 @@ public class MainPage extends BasePage{
 Правда есть одно НО - Lombok содержит определенный уровень магии которую вы не будете понимать и
 плигин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но не смотря на это я
 рекомендую обратить на эту библиотеку внимание и попробовать применить ее у себя на проекте.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Java Video Recorder поддержка Junit 5
+          </title>
+          <link>http://automation-remarks.com/2017/video-recroder-junit5/index.html</link>
+          <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/video-recroder-junit5/index.html</guid>
+          <description>
+                        Чем хорош JUnit 5
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! В преддверии конференции SeleniumCamp, на которой я выступлю
+с докладом &quot;JUnit4 vs TestNG battle&quot;, решил немного приоткрыть для вас завесу тайны.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пока готовился к докладу и исследовал возможности JUnit 5, решил
+сделать поддержку &lt;a href=&quot;https://github.com/SergeyPirogov/video-recorder-java&quot;&gt;Java Video Recorder&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Раньше для подключения записи видео в проект с тестами на JUnit 4 нужно было написать такой код:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class TestVideo{
+
+   @Rule
+   public VideoRule rule = VideoRule();
+
+   @Test
+   @Tag(&quot;Flaky&quot;)
+   @Video
+   public void test(){
+      open(&quot;&quot;);
+      $(&quot;&quot;)
+   }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Достаточно неплохо, но с выходом JUnit 5 все станет еще лучше.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В пятой версии JUnit сделали поддержку еще большего количества &lt;strong&gt;extension points&lt;/strong&gt;, а также добавили
+поддержку композитных аннотаций.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Естественно, у меня возникло желание попробовать все эти возможности, и теперь Video Recorder
+полноценно поддерживает &lt;strong&gt;JUnit 5&lt;/strong&gt;. Хорошая новость - больше не нужно писать VideoRule&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class TestVideo{
+
+   @Test
+   @Tag(&quot;Flaky&quot;)
+   @Video
+   public void test(){
+      open(&quot;&quot;);
+      $(&quot;&quot;)
+   }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Может показаться, что изменение не особо заметно - стало аж на две строчки меньше, но на самом
+деле появились скрытые возможности.
+Используя поддержку композитных аннотаций, вы можете сделать код еще более компактным.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@Video
+@Tag(&quot;Flaky&quot;)
+@Test
+public @interface FlakyTest {}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Код теста в таком случае станет кратким и более читабельным:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class TestVideo{
+
+   @FlakyTest
+   public void test(){
+      open(&quot;&quot;);
+      $(&quot;&quot;)
+   }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Более того, вы сможете запускать тесты по тегу &quot;Flaky&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь адепты JUnit 5 смогут без боязни переходить на новую версию.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P.S&lt;/strong&gt; Если вы хотите еще больше постичь JUnit 5 и узнать, сможет ли он побить TestNG,
+жду вас на конференции SeleniumCamp =)&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>

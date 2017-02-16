@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Как развиваться тестировщику. Учим Groovy за 15 минут</title>
+    <title>Java Video Recorder поддержка Junit 5</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как развиваться тестировщику. Учим Groovy за 15 минут">
+    <meta property="og:title" content="Java Video Recorder поддержка Junit 5">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Об изучении Groovy"/>
+        	<meta property="og:description" content="Чем хорош JUnit 5"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -102,36 +102,109 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                08/09/2015
+                                15/02/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как развиваться тестировщику. Учим Groovy за 15 минут</h1>
+                        <h1 class="post-title">Java Video Recorder поддержка Junit 5</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>В этой заметке я поделюсь своими наработками и материалами, с помощью которых вы сможете легко и быстро освоить этот язык.</p>
+<p>Привет! В преддверии конференции SeleniumCamp, на которой я выступлю
+с докладом "JUnit4 vs TestNG battle", решил немного приоткрыть для вас завесу тайны.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>Пока готовился к докладу и исследовал возможности JUnit 5, решил
+сделать поддержку <a href="https://github.com/SergeyPirogov/video-recorder-java">Java Video Recorder</a>.</p>
+</div>
+<div class="paragraph">
+<p>Раньше для подключения записи видео в проект с тестами на JUnit 4 нужно было написать такой код:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="http://cdn.liviutudor.com/wp-content/uploads/2015/05/groovy-lang-300x150.png" alt="groovy lang 300x150">
+<pre class="prettyprint highlight"><code>class TestVideo{
+
+   @Rule
+   public VideoRule rule = VideoRule();
+
+   @Test
+   @Tag("Flaky")
+   @Video
+   public void test(){
+      open("");
+      $("")
+   }
+
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Итак, самый первый источник знаний - это вебсайт <a href="http://www.groovy-lang.org/" class="bare">http://www.groovy-lang.org/</a>. Кстати, когда <strong>Groovy</strong> перешел под опеку <strong>Apache</strong>, сайт сильно преобразился. Здесь в разделе документации вы можете найти уйму полезной информации.</p>
+<p>Достаточно неплохо, но с выходом JUnit 5 все станет еще лучше.</p>
 </div>
 <div class="paragraph">
-<p>Следующим этапом идет книга - <strong>Mining Groovy In Action</strong>. <a href="https://www.manning.com/books/groovy-in-action-second-edition">Ссылка</a> на книгу для заинтересовавшихся. Хочу отметить, что лично я, изучая какую-то технологию, всегда ищу книги данного издательства. Книга позволит вам пройтись по синтаксису от самых начальных синтаксических конструкций до примеров кода из реальных проектов.</p>
+<p>В пятой версии JUnit сделали поддержку еще большего количества <strong>extension points</strong>, а также добавили
+поддержку композитных аннотаций.</p>
 </div>
 <div class="paragraph">
-<p>Но книги книгами, а интернет богат кучей материалов. В частности, самым большим ресурсом c множеством полезных советов является <a href="http://mrhaki.blogspot.com/">Groovy Goodness</a>. Сам являюсь подписчиком данного блога. В дополнение, автор выкладывает все примеры на <strong>GitHub</strong>.</p>
+<p>Естественно, у меня возникло желание попробовать все эти возможности, и теперь Video Recorder
+полноценно поддерживает <strong>JUnit 5</strong>. Хорошая новость - больше не нужно писать VideoRule</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>class TestVideo{
+
+   @Test
+   @Tag("Flaky")
+   @Video
+   public void test(){
+      open("");
+      $("")
+   }
+
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>И напоследок <strong>Youtube</strong> канал <a href="https://www.youtube.com/channel/UC7wUp2KIa1hoMNn0r7JUVEg">GR8Conf</a>.</p>
+<p>Может показаться, что изменение не особо заметно - стало аж на две строчки меньше, но на самом
+деле появились скрытые возможности.
+Используя поддержку композитных аннотаций, вы можете сделать код еще более компактным.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@Video
+@Tag("Flaky")
+@Test
+public @interface FlakyTest {}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Собственно из качественных ресурсов, которые я знаю, это все. От себя хочу добавить, что со знаниями <strong>Java</strong> изучить <strong>Groovy</strong> действительно можно за 15 минут. Успешного обучения и удачи. Подписывайтесь, чтобы держать руку на пульсе.</p>
+<p>Код теста в таком случае станет кратким и более читабельным:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>class TestVideo{
+
+   @FlakyTest
+   public void test(){
+      open("");
+      $("")
+   }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Более того, вы сможете запускать тесты по тегу "Flaky".</p>
+</div>
+<div class="paragraph">
+<p>Теперь адепты JUnit 5 смогут без боязни переходить на новую версию.</p>
+</div>
+<div class="paragraph">
+<p><strong>P.S</strong> Если вы хотите еще больше постичь JUnit 5 и узнать, сможет ли он побить TestNG,
+жду вас на конференции SeleniumCamp =)</p>
 </div>
                     </section>
 
@@ -147,7 +220,7 @@
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="learning-groovy/index.html"
+                        data-href="2017/video-recroder-junit5/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -158,9 +231,8 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                                     <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Groovy.html">Groovy</a>
+                                    <a href="/tags/JUnit.html">JUnit</a>
                             </div>
                     </footer>
 
@@ -170,7 +242,6 @@
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/2017/lombok/index.html">Lombok как способ трансформировать test automation project</a></li>
-                                                <li><a class='js-ajax-link' href="/2017/video-recroder-junit5/index.html">Java Video Recorder поддержка Junit 5</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/python-world-after-java/index.html">Как выжить в мире Python, после Java</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/sqa-days-20-video/index.html">Видео с SQA days 20</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/summary-2016/index.html">Новогодний пост</a></li>
@@ -208,9 +279,9 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
