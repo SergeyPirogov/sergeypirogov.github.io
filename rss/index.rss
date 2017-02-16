@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 16 Feb 2017 18:50:16 +0000</pubDate>
-    <lastBuildDate>Thu, 16 Feb 2017 18:50:16 +0000</lastBuildDate>
+    <pubDate>Thu, 16 Feb 2017 19:11:37 +0000</pubDate>
+    <lastBuildDate>Thu, 16 Feb 2017 19:11:37 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -29,23 +29,22 @@
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Решил написать статейку о применении &lt;strong&gt;Lombok&lt;/strong&gt; в проекте для построения
-автоматизации тестирования.&lt;/p&gt;
+&lt;p&gt;Решил написать заметку о применении &lt;strong&gt;Lombok&lt;/strong&gt; для построения автоматизации тестирования.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://projectlombok.org/&quot;&gt;Lombok&lt;/a&gt; - это библиотека с помощью которой вы можете сократить количество шаблонного
+&lt;p&gt;&lt;a href=&quot;https://projectlombok.org/&quot;&gt;Lombok&lt;/a&gt; - это библиотека, с помощью которой вы можете сократить количество шаблонного
 кода, который нужно писать на Java.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Чем Lombok может помочь автоматизатору?&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Применить ломбок можно различным способом от уменьшения кода для простых Pojo, до применения Extension Methods.&lt;/p&gt;
+&lt;p&gt;Применить ломбок можно разными способами - от уменьшения кода для простых Pojo, до использования Extension Methods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Каноническая Java не поддерживает extension methods, хотя в языках &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Kotlin&lt;/strong&gt; и &lt;strong&gt;C#&lt;/strong&gt; они есть.
-Можно долго дискутировать нужны они или нет, но после того как я попробовал их применять в Groovy, в Джаве мне
-не их не хватало.&lt;/p&gt;
+Можно долго дискутировать на предмет того, нужны они или нет, но после того, как я попробовал их применять в Groovy, в Джаве мне
+их не хватало.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Что такое extension method?&lt;/p&gt;
@@ -54,7 +53,7 @@
 &lt;p&gt;Это возможность добавлять методы в уже существующие классы.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Скажем у нас есть  класс WebElement у которого есть свой API и вот там нету метода&lt;/p&gt;
+&lt;p&gt;Скажем, у нас есть  класс WebElement, у которого есть свой API. Вот там нету метода&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;code&gt;shouldHave(String text)&lt;/code&gt;, а нам бы очень хотелось иметь такую штуку.&lt;/p&gt;
@@ -74,7 +73,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ну и зачем использовать в наших тестах:&lt;/p&gt;
+&lt;p&gt;Затем используем в наших тестах:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -91,10 +90,10 @@ class Test{
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Вот так, легко и просто. Это лучше чем писать декоратор, который будет отличаться по типу класса.&lt;/p&gt;
+&lt;p&gt;Легко и просто. Это лучше, чем писать декоратор, который будет отличаться по типу класса.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Если брать более сложный пример то мы можем написать экстеншин и для самого драйвера:&lt;/p&gt;
+&lt;p&gt;Если брать более сложный пример, то мы можем написать экстеншн и для самого драйвера:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -209,9 +208,9 @@ public class MainPage extends BasePage{
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вы можете применять такой подход в своем существующем фреймворке практически безболезненно.
-Правда есть одно НО - Lombok содержит определенный уровень магии которую вы не будете понимать и
-плигин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но не смотря на это я
-рекомендую обратить на эту библиотеку внимание и попробовать применить ее у себя на проекте.&lt;/p&gt;
+Правда, есть одно НО - Lombok содержит определенный уровень магии, которую вы не будете понимать. Да и
+плагин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но, несмотря на это, я
+рекомендую обратить внимание на эту библиотеку и попробовать применить ее у себя на проекте.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
