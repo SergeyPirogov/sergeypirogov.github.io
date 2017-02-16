@@ -14,9 +14,207 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 16 Feb 2017 12:09:38 +0000</pubDate>
-    <lastBuildDate>Thu, 16 Feb 2017 12:09:38 +0000</lastBuildDate>
+    <pubDate>Thu, 16 Feb 2017 12:13:36 +0000</pubDate>
+    <lastBuildDate>Thu, 16 Feb 2017 12:13:36 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Lombok как способ трансформировать test automation project
+          </title>
+          <link>http://automation-remarks.com/2017/lombok/index.html</link>
+          <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/lombok/index.html</guid>
+          <description>
+                        Рассказ о библиотеке Lombok
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Решил написать статейку о применении &lt;strong&gt;Lombok&lt;/strong&gt; в проекте для построения
+автоматизации тестирования.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://projectlombok.org/&quot;&gt;Lombok&lt;/a&gt; - это библиотека с помощью которой вы можете сократить количество шаблонного
+кода, который нужно писать на Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Чем Lombok может помочь автоматизатору?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Применить ломбок можно различным способом от уменьшения кода для простых Pojo, до применения Extension Methods.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Каноническая Java не поддерживает extension methods, хотя в языках &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Kotlin&lt;/strong&gt; и &lt;strong&gt;C#&lt;/strong&gt; они есть.
+Можно долго дискутировать нужны они или нет, но после того как я попробовал их применять в Groovy, в Джаве мне
+не их не хватало.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что такое extension method?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Это возможность добавлять методы в уже существующие классы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажем у нас есть  класс WebElement у которого есть свой API и вот там нету метода&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;shouldHave(String text)&lt;/code&gt;, а нам бы очень хотелось иметь такую штуку.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С помощью Lombok мы можем такой метод легко добавить:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public class WebElementExt{
+
+    public static void shouldHave(WebElement el, String text){
+          assertEquals(el.getText(),text)
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну и зачем использовать в наших тестах:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@ExtensionMethod(WebElementExt.class)
+class Test{
+
+   @Test
+   void testWithExt(){
+        Webdriver driver = new ChromeDriver();
+        driver.findElement(By.css(&quot;.header&quot;)).shouldHave(&quot;MainPage&quot;)
+   }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так, легко и просто. Это лучше чем писать декоратор, который будет отличаться по типу класса.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если брать более сложный пример то мы можем написать экстеншин и для самого драйвера:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public class DriverExtension {
+
+     public static void goTo(WebDriver driver, String url) {
+       driver.get(url);
+     }
+
+     public static &amp;lt;T extends BasePage&amp;gt; T open(WebDriver driver, Class&amp;lt;? extends BasePage&amp;gt; tClass) {
+       try {
+         BasePage page = tClass.getDeclaredConstructor(WebDriver.class).newInstance(driver);
+         driver.get(page.getUrl());
+         return (T) page;
+       } catch (InstantiationException e) {
+         e.printStackTrace();
+       } catch (IllegalAccessException e) {
+         e.printStackTrace();
+       } catch (NoSuchMethodException e) {
+         e.printStackTrace();
+       } catch (InvocationTargetException e) {
+         e.printStackTrace();
+       }
+       return null;
+     }
+
+     public static UIElement $(WebDriver driver, String locator) {
+       return new UIElement(new Locator(By.cssSelector(locator), driver));
+     }
+
+     public static UIElement $(WebDriver driver, By locator) {
+       return new UIElement(new Locator(locator, driver));
+     }
+   }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Класс PageObject:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;abstract class BasePage{
+
+  protected WebDriver browser;
+
+  public BasePage(WebDriver driver){
+    this.browser = driver;
+  }
+
+  public abstract String getUrl();
+}
+
+@ExtensionMethod(DriverExtension.class)
+public class MainPage extends BasePage{
+
+  @Getter
+  private String url = &quot;http://automation-remarks.com/workshop&quot;;
+
+  @Getter
+  private UIElement mainLink;
+
+  public MainPage(WebDriver driver) {
+    super(driver);
+    this.mainLink = driver.$(&quot;#nav &amp;gt; div.nav-panel &amp;gt; a.main_link &amp;gt; span&quot;);
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Класс UIElement:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public class UIElement {
+
+  private Locator locator;
+
+  public UIElement(Locator locator) {
+    this.locator = locator;
+  }
+
+  public WebElement element() {
+    return locator.find();
+  }
+
+  public void should(String text) {
+    boolean res = element().getText().equals(text);
+    assert res;
+  }
+
+  public void click() {
+    element().click();
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И наконец мы можем использовать все это в наших тестах:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class Advanced{
+
+  @Test
+  void test(){
+       val browser = Browser.chrome();
+       MainPage mp = browser.open(MainPage.class);
+       mp.getMainLink().click();
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вы можете применять такой подход в своем существующем фреймворке практически безболезненно.
+Правда есть одно НО - Lombok содержит определенный уровень магии которую вы не будете понимать и
+плигин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но не смотря на это я
+рекомендую обратить на эту библиотеку внимание и попробовать применить ее у себя на проекте.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как выжить в мире Python, после Java

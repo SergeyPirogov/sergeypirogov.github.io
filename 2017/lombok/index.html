@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Свое АОP в JDK</title>
+    <title>Lombok как способ трансформировать test automation project</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Свое АОP в JDK">
+    <meta property="og:title" content="Lombok как способ трансформировать test automation project">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Заметка о том, как можно реализовать AOP без Spring и AspectJ."/>
+        	<meta property="og:description" content="Рассказ о библиотеке Lombok"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -102,196 +102,198 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                29/03/2015
+                                16/02/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Свое АОP в JDK</h1>
+                        <h1 class="post-title">Lombok как способ трансформировать test automation project</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Заметка о том, как можно реализовать <strong>AOP</strong> без <strong>Spring</strong> и <strong>AspectJ</strong>. Для тех, кто не особо в курсе, что такое AOP смотреть суда. Итак, приступим. Создадим нашу мини программу:</p>
+<p>Решил написать статейку о применении <strong>Lombok</strong> в проекте для построения
+автоматизации тестирования.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://projectlombok.org/">Lombok</a> - это библиотека с помощью которой вы можете сократить количество шаблонного
+кода, который нужно писать на Java.</p>
+</div>
+<div class="paragraph">
+<p>Чем Lombok может помочь автоматизатору?</p>
+</div>
+<div class="paragraph">
+<p>Применить ломбок можно различным способом от уменьшения кода для простых Pojo, до применения Extension Methods.</p>
+</div>
+<div class="paragraph">
+<p>Каноническая Java не поддерживает extension methods, хотя в языках <strong>Groovy</strong>, <strong>Kotlin</strong> и <strong>C#</strong> они есть.
+Можно долго дискутировать нужны они или нет, но после того как я попробовал их применять в Groovy, в Джаве мне
+не их не хватало.</p>
+</div>
+<div class="paragraph">
+<p>Что такое extension method?</p>
+</div>
+<div class="paragraph">
+<p>Это возможность добавлять методы в уже существующие классы.</p>
+</div>
+<div class="paragraph">
+<p>Скажем у нас есть  класс WebElement у которого есть свой API и вот там нету метода</p>
+</div>
+<div class="paragraph">
+<p><code>shouldHave(String text)</code>, а нам бы очень хотелось иметь такую штуку.</p>
+</div>
+<div class="paragraph">
+<p>С помощью Lombok мы можем такой метод легко добавить:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public interface Calculator {
-    public int calculate( int a , int b);
+<pre class="prettyprint highlight"><code>public class WebElementExt{
+
+    public static void shouldHave(WebElement el, String text){
+          assertEquals(el.getText(),text)
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну и зачем использовать в наших тестах:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>@ExtensionMethod(WebElementExt.class)
+class Test{
+
+   @Test
+   void testWithExt(){
+        Webdriver driver = new ChromeDriver();
+        driver.findElement(By.css(".header")).shouldHave("MainPage")
+   }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вот так, легко и просто. Это лучше чем писать декоратор, который будет отличаться по типу класса.</p>
+</div>
+<div class="paragraph">
+<p>Если брать более сложный пример то мы можем написать экстеншин и для самого драйвера:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>public class DriverExtension {
+
+     public static void goTo(WebDriver driver, String url) {
+       driver.get(url);
+     }
+
+     public static &lt;T extends BasePage&gt; T open(WebDriver driver, Class&lt;? extends BasePage&gt; tClass) {
+       try {
+         BasePage page = tClass.getDeclaredConstructor(WebDriver.class).newInstance(driver);
+         driver.get(page.getUrl());
+         return (T) page;
+       } catch (InstantiationException e) {
+         e.printStackTrace();
+       } catch (IllegalAccessException e) {
+         e.printStackTrace();
+       } catch (NoSuchMethodException e) {
+         e.printStackTrace();
+       } catch (InvocationTargetException e) {
+         e.printStackTrace();
+       }
+       return null;
+     }
+
+     public static UIElement $(WebDriver driver, String locator) {
+       return new UIElement(new Locator(By.cssSelector(locator), driver));
+     }
+
+     public static UIElement $(WebDriver driver, By locator) {
+       return new UIElement(new Locator(locator, driver));
+     }
+   }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Класс PageObject:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>abstract class BasePage{
+
+  protected WebDriver browser;
+
+  public BasePage(WebDriver driver){
+    this.browser = driver;
+  }
+
+  public abstract String getUrl();
 }
 
-public class CalculatorImpl implements Calculator {
-    @Override
-    public int calculate(int a, int b) {
-        System.out.println("**********Actual Method Execution**********");
-        return a/b;
-    }
+@ExtensionMethod(DriverExtension.class)
+public class MainPage extends BasePage{
+
+  @Getter
+  private String url = "http://automation-remarks.com/workshop";
+
+  @Getter
+  private UIElement mainLink;
+
+  public MainPage(WebDriver driver) {
+    super(driver);
+    this.mainLink = driver.$("#nav &gt; div.nav-panel &gt; a.main_link &gt; span");
+  }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Класс <strong>Calculator</strong> будет имеенно тем классом, который мы будем проксировать. В java есть такой интересный интерфейс <strong>InvocationHandler</strong>, его мы и будем использовать для нашей реализации <strong>AOP</strong>. Создадим абстрактный <strong>Handler</strong>:</p>
+<p>Класс UIElement:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class AbstractHandler implements InvocationHandler {
+<pre class="prettyprint highlight"><code>public class UIElement {
 
-    private Object targetObject;
+  private Locator locator;
 
-    public void setTargetObject(Object targetObject) {
-        this.targetObject = targetObject;
-    }
+  public UIElement(Locator locator) {
+    this.locator = locator;
+  }
 
-    public Object getTargetObject() {
-        return targetObject;
-    }
+  public WebElement element() {
+    return locator.find();
+  }
+
+  public void should(String text) {
+    boolean res = element().getText().equals(text);
+    assert res;
+  }
+
+  public void click() {
+    element().click();
+  }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Создадим <strong>ProxyFactory</strong>:</p>
+<p>И наконец мы можем использовать все это в наших тестах:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class ProxyFactory {
+<pre class="prettyprint highlight"><code>class Advanced{
 
-public static Object getProxy(Object targetObject,
-        List&lt;AbstractHandler&gt; handlers) {
-    Object proxyObject = null;
-    if (handlers.size() &gt; 0) {
-        proxyObject = targetObject;
-        for (int i = 0; i &lt; handlers.size(); i++) {
-            handlers.get(i).setTargetObject(proxyObject);
-            proxyObject = Proxy.newProxyInstance(targetObject.getClass()
-                    .getClassLoader(), targetObject.getClass()
-                    .getInterfaces(), handlers.get(i));
-        }
-        return proxyObject;
-    } else {
-        return targetObject;
-    }
-}
+  @Test
+  void test(){
+       val browser = Browser.chrome();
+       MainPage mp = browser.open(MainPage.class);
+       mp.getMainLink().click();
+  }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>В AOP существует несколько срезов: <strong>Before</strong>, <strong>After</strong>, <strong>AfterThrowing</strong>, <strong>AfterReturning</strong> и <strong>Around</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Так как реализации каждого среза могут быть разными, для разных случаев, создадим для них абстрактные классы:</p>
-</div>
-<div class="paragraph">
-<p>Пример для <strong>AfterHandler</strong> и <strong>BeforeHandler</strong>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class AfterHandler extends AbstractHandler {
-
-    /**
-     * Handles after the execution of method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleAfter(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-        Object result = method.invoke(getTargetObject(), args);
-        handleAfter(proxy, method, args);
-        return result;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>AbstractBeforeHandler:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class BeforeHandler extends AbstractHandler {
-
-    /**
-     * Handles before execution of actual method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleBefore(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        handleBefore(proxy, method, args);
-        return method.invoke(getTargetObject(), args);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь нам нужно сделать конкретные реализации для каждого из срезов:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class AfterHandlerImpl extends AfterHandler {
-
-    @Override
-    public void handleAfter(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println(method.getName() + Arrays.toString(args));
-        System.out.println("Handling after actual method execution ........");
-    }
-}
-
-public class BeforeHandlerImpl extends BeforeHandler {
-
-    @Override
-    public void handleBefore(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println("Handling before actual method execution ........");
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь мы можем легко проксировать наш <strong>Calculator</strong> класс:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class TestAopInJDK {
-
-    public static void main(String[] args) {
-        CalculatorImpl calcImpl = new CalculatorImpl();
-        BeforeHandler before = new BeforeHandlerImpl();
-        AfterHandler after = new AfterHandlerImpl();
-        List&lt;AbstractHandler&gt; handlers = new ArrayList&lt;AbstractHandler&gt;();
-        handlers.add(before);
-        handlers.add(after);
-        Calculator proxy = (Calculator) ProxyFactory.getProxy(calcImpl,
-                handlers);
-        int result = proxy.calculate(20, 10);
-        System.out.println("FInal Result :::" + result);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>После запуска вывод в консоль оказывается таким:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Handling before actual method execution ........
-**********Actual Method Execution**********
-calculate[20, 10]
-Handling after actual method execution ........
-Final Result :::2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Как вы можете заметить срабатывает Before, затем идет работа метода и затем срабатывает After.
-<strong>P.S.</strong>
-Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.</p>
+<p>Вы можете применять такой подход в своем существующем фреймворке практически безболезненно.
+Правда есть одно НО - Lombok содержит определенный уровень магии которую вы не будете понимать и
+плигин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но не смотря на это я
+рекомендую обратить на эту библиотеку внимание и попробовать применить ее у себя на проекте.</p>
 </div>
                     </section>
 
@@ -307,7 +309,7 @@ Final Result :::2</code></pre>
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="svoie-aop/index.html"
+                        data-href="2017/lombok/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -318,8 +320,8 @@ Final Result :::2</code></pre>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                                     <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
                             </div>
                     </footer>
 
@@ -328,7 +330,6 @@ Final Result :::2</code></pre>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/lombok/index.html">Lombok как способ трансформировать test automation project</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/python-world-after-java/index.html">Как выжить в мире Python, после Java</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/sqa-days-20-video/index.html">Видео с SQA days 20</a></li>
                                                 <li><a class='js-ajax-link' href="/2016/summary-2016/index.html">Новогодний пост</a></li>
@@ -367,9 +368,9 @@ Final Result :::2</code></pre>
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
