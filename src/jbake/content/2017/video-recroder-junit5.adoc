@@ -1,7 +1,7 @@
 = Java Video Recorder поддержка Junit 5
 Sergey Pirogov
-2017-02-015
-:jbake-type: post-draft
+2017-02-15
+:jbake-type: post
 :jbake-tags: Java, JUnit
 :jbake-summary: Чем хорош JUnit 5
 
@@ -92,4 +92,3 @@ class TestVideo{
 
 **P.S** Если вы хотите еще больше постичь JUnit 5 и узнать, сможет ли он побить TestNG,
 жду вас на конференции SeleniumCamp =)
-
