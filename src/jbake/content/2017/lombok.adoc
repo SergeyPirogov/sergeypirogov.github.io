@@ -1,7 +1,7 @@
 = Lombok как способ трансформировать test automation project
 Sergey Pirogov
 2017-02-16
-:jbake-type: post-draft
+:jbake-type: post
 :jbake-tags: Java, Тестовый фреймворк
 :jbake-summary: Рассказ о библиотеке Lombok
 
@@ -15,7 +15,7 @@ https://projectlombok.org/[Lombok] - это библиотека с помощь
 
 Применить ломбок можно различным способом от уменьшения кода для простых Pojo, до применения Extension Methods.
 
-Каноническая Java не поддерживает extension methods, хотя в языках **Groovy**,**Kotlin** и C# они есть.
+Каноническая Java не поддерживает extension methods, хотя в языках **Groovy**, **Kotlin** и **C#** они есть.
 Можно долго дискутировать нужны они или нет, но после того как я попробовал их применять в Groovy, в Джаве мне
 не их не хватало.
 
@@ -45,7 +45,7 @@ public class WebElementExt{
 
 [source,java]
 ```
-@ExtensionMethod(DriverExtension.class)
+@ExtensionMethod(WebElementExt.class)
 class Test{
 
    @Test
