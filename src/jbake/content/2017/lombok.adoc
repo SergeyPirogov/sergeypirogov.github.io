@@ -1,0 +1,174 @@
+= Lombok как способ трансформировать test automation project
+Sergey Pirogov
+2017-02-16
+:jbake-type: post-draft
+:jbake-tags: Java, Тестовый фреймворк
+:jbake-summary: Рассказ о библиотеке Lombok
+
+Решил написать статейку о применении **Lombok** в проекте для построения
+автоматизации тестирования.
+
+https://projectlombok.org/[Lombok] - это библиотека с помощью которой вы можете сократить количество шаблонного
+кода, который нужно писать на Java.
+
+Чем Lombok может помочь автоматизатору?
+
+Применить ломбок можно различным способом от уменьшения кода для простых Pojo, до применения Extension Methods.
+
+Каноническая Java не поддерживает extension methods, хотя в языках **Groovy**,**Kotlin** и C# они есть.
+Можно долго дискутировать нужны они или нет, но после того как я попробовал их применять в Groovy, в Джаве мне
+не их не хватало.
+
+Что такое extension method?
+
+Это возможность добавлять методы в уже существующие классы.
+
+Скажем у нас есть  класс WebElement у которого есть свой API и вот там нету метода
+
+`shouldHave(String text)`, а нам бы очень хотелось иметь такую штуку.
+
+С помощью Lombok мы можем такой метод легко добавить:
+
+[source,java]
+```
+public class WebElementExt{
+
+    public static void shouldHave(WebElement el, String text){
+          assertEquals(el.getText(),text)
+    }
+
+}
+
+```
+
+Ну и зачем использовать в наших тестах:
+
+[source,java]
+```
+@ExtensionMethod(DriverExtension.class)
+class Test{
+
+   @Test
+   void testWithExt(){
+        Webdriver driver = new ChromeDriver();
+        driver.findElement(By.css(".header")).shouldHave("MainPage")
+   }
+
+}
+```
+
+Вот так, легко и просто. Это лучше чем писать декоратор, который будет отличаться по типу класса.
+
+
+Если брать более сложный пример то мы можем написать экстеншин и для самого драйвера:
+
+[source,java]
+```
+public class DriverExtension {
+
+     public static void goTo(WebDriver driver, String url) {
+       driver.get(url);
+     }
+
+     public static <T extends BasePage> T open(WebDriver driver, Class<? extends BasePage> tClass) {
+       try {
+         BasePage page = tClass.getDeclaredConstructor(WebDriver.class).newInstance(driver);
+         driver.get(page.getUrl());
+         return (T) page;
+       } catch (InstantiationException e) {
+         e.printStackTrace();
+       } catch (IllegalAccessException e) {
+         e.printStackTrace();
+       } catch (NoSuchMethodException e) {
+         e.printStackTrace();
+       } catch (InvocationTargetException e) {
+         e.printStackTrace();
+       }
+       return null;
+     }
+
+     public static UIElement $(WebDriver driver, String locator) {
+       return new UIElement(new Locator(By.cssSelector(locator), driver));
+     }
+
+     public static UIElement $(WebDriver driver, By locator) {
+       return new UIElement(new Locator(locator, driver));
+     }
+   }
+```
+
+Класс PageObject:
+
+```
+abstract class BasePage{
+
+  protected WebDriver browser;
+
+  public BasePage(WebDriver driver){
+    this.browser = driver;
+  }
+
+  public abstract String getUrl();
+}
+
+@ExtensionMethod(DriverExtension.class)
+public class MainPage extends BasePage{
+
+  @Getter
+  private String url = "http://automation-remarks.com/workshop";
+
+  @Getter
+  private UIElement mainLink;
+
+  public MainPage(WebDriver driver) {
+    super(driver);
+    this.mainLink = driver.$("#nav > div.nav-panel > a.main_link > span");
+  }
+}
+```
+
+Класс UIElement:
+
+```
+public class UIElement {
+
+  private Locator locator;
+
+  public UIElement(Locator locator) {
+    this.locator = locator;
+  }
+
+  public WebElement element() {
+    return locator.find();
+  }
+
+  public void should(String text) {
+    boolean res = element().getText().equals(text);
+    assert res;
+  }
+
+  public void click() {
+    element().click();
+  }
+}
+```
+И наконец мы можем использовать все это в наших тестах:
+
+[source, java]
+```
+class Advanced{
+
+  @Test
+  void test(){
+       val browser = Browser.chrome();
+       MainPage mp = browser.open(MainPage.class);
+       mp.getMainLink().click();
+  }
+}
+```
+
+Вы можете применять такой подход в своем существующем фреймворке практически безболезненно.
+Правда есть одно НО - Lombok содержит определенный уровень магии которую вы не будете понимать и
+плигин для Intelij IDEA пока что не полностью поддерживает все фишки Lombok. Но не смотря на это я
+рекомендую обратить на эту библиотеку внимание и попробовать применить ее у себя на проекте.
+
