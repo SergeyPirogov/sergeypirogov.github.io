@@ -14,12 +14,12 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 26 Feb 2017 10:16:37 +0000</pubDate>
-    <lastBuildDate>Sun, 26 Feb 2017 10:16:37 +0000</lastBuildDate>
+    <pubDate>Sun, 26 Feb 2017 11:18:11 +0000</pubDate>
+    <lastBuildDate>Sun, 26 Feb 2017 11:18:11 +0000</lastBuildDate>
 
         <item>
           <title>
-              SeleniumCamp 2017 ретроспектива
+              SeleniumCamp 2017: ретроспектива
           </title>
           <link>http://automation-remarks.com/2017/sel-camp-2017-retro/index.html</link>
           <pubDate>Sun, 26 Feb 2017 00:00:00 +0000</pubDate>
@@ -37,12 +37,12 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом году формат конференции притерпел изменений:&lt;/p&gt;
+&lt;p&gt;В этом году формат конференции был изменен:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;новая локация в КВЦ &quot;Парковый&quot;&lt;/p&gt;
+&lt;p&gt;новая локация - КВЦ &quot;Парковый&quot;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;количество участников 500+ человек&lt;/p&gt;
@@ -51,25 +51,25 @@
 &lt;p&gt;три параллельных секции&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;добавлены билеты &quot;для начинающих&quot;&lt;/p&gt;
+&lt;p&gt;добавлены билеты &quot;для начинающих&quot;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Хочу заметить, что эти изменения пошли на пользу конференции. У людей появился более широкий выбор докладов по своему вкусу:
-пойти на глайвную сцену и послушать иностранныйх гостей, пойти в секцию B, чтобы послушать доклады на более узкие темы
+&lt;p&gt;Хочу заметить, что эти изменения пошли только на пользу конференции. У посетителей появился более широкий выбор докладов.
+Можно было пойти на главную сцену и послушать иностранных гостей, посетить секцию B, чтобы услышать доклады на более узкие темы
 о мобильной автоматизации и автоматизации на JavaScript и PHP, либо же пойти в секцию С и послушать &quot;доклады для начинающих&quot;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Помимо того что я выступал с докладом, я был в составе програмного коммитета, поэтому не все доклады я видел в живую, поэтому
-опишу лишь те которые я видел:&lt;/p&gt;
+&lt;p&gt;Помимо того, что выступал с докладом, я был в составе программного комитета, поэтому не все доклады видел вживую. Потому
+опишу лишь те, которые успел посетить:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Locution: Grading Your Selenium Tests (Marcus Merrell)&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Достаточно интересный доклад, в котором Marcus описал подход к оценке качества автотестов. Очень рекомендую посмотреть доклад в записи -
-навеивает много интересных мыслей.&lt;/p&gt;
+&lt;p&gt;Достаточно интересный доклад, в котором Marcus описал подход к оценке качества автотестов. Очень рекомендую посмотреть его в записи -
+наталкивает на интересные мысли.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Smart Integration Tests with Smart Mocks&lt;/strong&gt;&lt;/p&gt;
@@ -81,53 +81,52 @@
 &lt;p&gt;&lt;strong&gt;ReportPortal.io – visibility of test automation status, metrics, AI in testing, open source&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Очередной доклад от ребят из EPAM о своей &lt;strong&gt;open-source&lt;/strong&gt; поделке. Тем кто еще не слышал о ReportPortal настоятельно рекомендую
-посмотреть запись, чтобы понять нужно оно вам или нет.&lt;/p&gt;
+&lt;p&gt;Очередной доклад от ребят из EPAM об их &lt;strong&gt;open-source&lt;/strong&gt; поделке. Тем, кто еще не слышал о ReportPortal, настоятельно рекомендую
+посмотреть запись, чтобы понять, нужно оно вам или нет.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Excuse me, sir, do you have a moment to talk about tests in Kotlin?&lt;/strong&gt;
-Очень классный доклад о языке Kotlin. Если вы хотите узнать больше о языке и посмотреть как его можно использовать для написания тестов, вам следует посмотеть запись.&lt;/p&gt;
+Очень классный доклад о языке Kotlin. Если вы хотите узнать больше об этом языке и понять, как его можно использовать для написания тестов, вам следует посмотреть запись.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;QA Livecoding Battle “Typed Element Framework (JDI) VS Untyped Elements Framework (Selenide)”&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Доклад которого многие ждали в реальности оставил неоднозначное впечатление. Первые 15 минут доклада,
-складывалось спечатление, что докладчики не успели договориться и синхронизировать свои действия на сцене. Но целом вышло не плохо.&lt;/p&gt;
+&lt;p&gt;Доклад, которого многие ждали, в реальности оставил неоднозначное впечатление. В течение первых 15 минут казалось,
+что докладчики не успели договориться и синхронизировать свои действия на сцене. Но в целом вышло неплохо.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Better Bullshit Driven Development&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Доклад который еще раз рассказывает о недостатках BDD тестирования. Ребята из Automician показали
-свой опыт и свой подход в решении данной проблемы.&lt;/p&gt;
+&lt;p&gt;Доклад, в котором  Iuliia Iliukhina еще раз рассказала о недостатках BDD тестирования. В докладе показан
+личный опыт ребят из Automician и их подход к решению данной проблемы.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Extending GitHub Flow with practical testing&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Этот доклад лично посетить мне не удалось, так как я выступал в параллельном потоке, но я говорил с Андреем в куллуарах - доклад должен быть
+&lt;p&gt;Посетить этот доклад лично мне не удалось, так как я выступал в параллельном потоке. Но из разговоров с Андреем Солдатенко в кулуарах следует, что доклад должен быть
 очень полезным. Сам жду записи ;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;How does Java 8 exert hidden power on Test Automation?&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Очень содержательный и полезный доклад из которого вы можете узнать о возможностях Java 8. Было много реальных примеров, которые вы
+&lt;p&gt;Очень содержательный и полезный доклад, из которого вы можете узнать о возможностях Java 8. Было много реальных примеров, которые вы
 можете использовать на своих проектах.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;TestNG vs JUnit 5 battle&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Собсвенно этот доклад я не просто посетил - я с ним выступал =) Перед докладом меня многие упрекали в том, что батл - это обязательно два
-человека на сцене с разными взглядами. Да, я очень хотел сделать этот доклад вместе с Андреем Солнцевым, но увы он не смог приехать в Киев.
-В большей степени именно из-за этого я решил не искать замену, а делать доклад самостоятельно. Я отношусь к дколадам на конференциях
-как к театральным постановкам, если есть театр одного актера - значит может быть и баттл с одним спикером.&lt;/p&gt;
+&lt;p&gt;Этот доклад я не просто посетил - я с ним выступал =) Перед докладом меня многие упрекали в том, что батл - это обязательно два
+человека на сцене с разными взглядами. Да, я очень хотел сделать этот доклад вместе с Андреем Солнцевым, но, увы, он не смог приехать в Киев.
+Я решил не искать замену, а делать доклад самостоятельно. Почему нет? Есть же театр одного актера - значит может быть и баттл с одним спикером.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В целом я очень доволен результатом. По отзывам всем понравилось, а некоторые подходили ко мне лично и говорили, что это лучший доклад за
-два дня. Теперь мне и самому инетересно посмотреть запись =)&lt;/p&gt;
+&lt;p&gt;В целом я очень доволен результатом. Судя по первым отзывам, всем понравилось. Некоторые участники подходили ко мне лично и говорили, что это лучший доклад за
+два дня. Теперь мне и самому интересно посмотреть запись =)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -135,7 +134,11 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Записи докладов уже доступны и они совсем скоро будут опубликовы на официальном youtube канале конференции.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SeleniumCamp&lt;/strong&gt; закончился, но мое участие в конференциях только начинается. Встретимся с вами 22 апреля на &lt;strong&gt;IT Weekend Lviv&lt;/strong&gt;.
+А также спешу делиться: я в составе программного комитета QAFest 2017, так что вы знаете, к кому идти подавать доклад ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Записи докладов уже доступны и они совсем скоро будут опубликованы на официальном youtube канале конференции.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
