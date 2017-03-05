@@ -12,16 +12,20 @@ Sergey Pirogov
 
 Давайте посморим, например, какой из этих локаторов "хорош"?
 
+```
 1) #push > article:nth-child(1) > div
 2) //*[@id="push"]/article[1]/div
+```
 
 Считаю, что вариант #1 лучше, так как он более лаконичный, да и вообще я
 предпочитаю использовать css локаторы вместо xpath. Почему?
 
 Еще пример:
 
+```
 1) article.post
 2) //article[@class='post ']
+```
 
 Здесь четко видно, что css более читабельный и писать его проще. Вывод: css локаторы более предпочтительны
 для использования в наших Selenium тестах.
@@ -60,7 +64,7 @@ Sergey Pirogov
 
 Пример c http://inbox.google.com:
 
-````
+```
 def setup_module(m):
     (LoginPage()
         .open()
@@ -70,15 +74,14 @@ def test_can_add_reminder():
     (MainPage()
      .add_new_reminder("call Mama")
      .reminder.should(have.text("Call Mama")))
-````
+```
 
 Вполне читабельные тесты.
 
 Реализации PageObject:
 
-````
+```
 from selene.api import *
-
 
 class LoginPage(object):
     def __init__(self):
@@ -116,7 +119,7 @@ class MainPage(object):
         self.reminder_input.send_keys(text)
         self.reminder_save_btn.click()
         return self
-````
+```
 
 Да, некоторые локаторы длинные и нечитабельные, но они "хорошие", потому что они работают стабильно и
 стабильно и дались мне практически даром.
