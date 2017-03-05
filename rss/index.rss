@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 5 Mar 2017 12:42:53 +0000</pubDate>
-    <lastBuildDate>Sun, 5 Mar 2017 12:42:53 +0000</lastBuildDate>
+    <pubDate>Sun, 5 Mar 2017 12:56:59 +0000</pubDate>
+    <lastBuildDate>Sun, 5 Mar 2017 12:56:59 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -37,9 +37,11 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Давайте посморим, например, какой из этих локаторов &quot;хорош&quot;?&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;1) #push &amp;gt; article:nth-child(1) &amp;gt; div
-2) //*[@id=&quot;push&quot;]/article[1]/div&lt;/p&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;1) #push &amp;gt; article:nth-child(1) &amp;gt; div
+2) //*[@id=&quot;push&quot;]/article[1]/div&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Считаю, что вариант #1 лучше, так как он более лаконичный, да и вообще я
@@ -48,9 +50,11 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Еще пример:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;1) article.post
-2) //article[@class=&apos;post &apos;]&lt;/p&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;1) article.post
+2) //article[@class=&apos;post &apos;]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Здесь четко видно, что css более читабельный и писать его проще. Вывод: css локаторы более предпочтительны
@@ -96,19 +100,18 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Пример c &lt;a href=&quot;http://inbox.google.com&quot; class=&quot;bare&quot;&gt;http://inbox.google.com&lt;/a&gt;:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;code&gt;``&lt;/code&gt;
-def setup_module(m):
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;def setup_module(m):
     (LoginPage()
         .open()
-        .login_as(email,password))&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;def test_can_add_reminder():
+        .login_as(email,password))
+
+def test_can_add_reminder():
     (MainPage()
      .add_new_reminder(&quot;call Mama&quot;)
-     .reminder.should(have.text(&quot;Call Mama&quot;)))
-&lt;code&gt;``&lt;/code&gt;&lt;/p&gt;
+     .reminder.should(have.text(&quot;Call Mama&quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вполне читабельные тесты.&lt;/p&gt;
@@ -116,58 +119,46 @@ def setup_module(m):
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Реализации PageObject:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;code&gt;``&lt;/code&gt;
-from selene.api import *&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;class LoginPage(object):
-    def &lt;em&gt;init&lt;/em&gt;(self):
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;from selene.api import *
+
+class LoginPage(object):
+    def __init__(self):
         self.email = s(&quot;#Email&quot;)
         self.next_btn = s(&quot;#next&quot;)
         self.password = s(&quot;#Passwd&quot;)
         self.sign_in_btn = s(&quot;#signIn&quot;)
         self.city_input = s(&quot;#answer&quot;)
-        self.ready_btn = s(&quot;#submit&quot;)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;def open(self):
-    browser.visit(&quot;https://inbox.google.com/&quot;)
-    return self&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;def login_as(self, email, password):
-    self.email.send_keys(email)
-    self.next_btn.click()
-    self.password.send_keys(password)
-    self.sign_in_btn.click()&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;class MainPage(object):&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;def __init__(self):
-    self.plus_btn =  s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jB &amp;gt; button&quot;).hover()
-    self.create_new_reminder_btn = s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jp &amp;gt; div.S &amp;gt; button&quot;)
-    self.reminder_input = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.k0 &amp;gt; div&quot;)
-    self.reminder_save_btn = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.ft &amp;gt; div.dy.qj.ev&quot;)
-    self.reminder = s(&quot;#Nr &amp;gt; div &amp;gt; div &amp;gt; div.No &amp;gt; div.bg.summTaskTitle &amp;gt; span&quot;)&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;    def add_new_reminder(self, text):
+        self.ready_btn = s(&quot;#submit&quot;)
+
+
+    def open(self):
+        browser.visit(&quot;https://inbox.google.com/&quot;)
+        return self
+
+    def login_as(self, email, password):
+        self.email.send_keys(email)
+        self.next_btn.click()
+        self.password.send_keys(password)
+        self.sign_in_btn.click()
+
+class MainPage(object):
+
+    def __init__(self):
+        self.plus_btn =  s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jB &amp;gt; button&quot;).hover()
+        self.create_new_reminder_btn = s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jp &amp;gt; div.S &amp;gt; button&quot;)
+        self.reminder_input = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.k0 &amp;gt; div&quot;)
+        self.reminder_save_btn = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.ft &amp;gt; div.dy.qj.ev&quot;)
+        self.reminder = s(&quot;#Nr &amp;gt; div &amp;gt; div &amp;gt; div.No &amp;gt; div.bg.summTaskTitle &amp;gt; span&quot;)
+
+
+    def add_new_reminder(self, text):
         self.plus_btn.hover()
         self.create_new_reminder_btn.click()
         self.reminder_input.send_keys(text)
         self.reminder_save_btn.click()
-        return self
-````&lt;/pre&gt;
+        return self&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
