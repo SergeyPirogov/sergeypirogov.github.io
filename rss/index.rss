@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 5 Mar 2017 12:56:59 +0000</pubDate>
-    <lastBuildDate>Sun, 5 Mar 2017 12:56:59 +0000</lastBuildDate>
+    <pubDate>Sun, 5 Mar 2017 20:03:00 +0000</pubDate>
+    <lastBuildDate>Sun, 5 Mar 2017 20:03:00 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -162,8 +162,7 @@ class MainPage(object):
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Да, некоторые локаторы длинные и нечитабельные, но они &quot;хорошие&quot;, потому что они работают стабильно и
-стабильно и дались мне практически даром.&lt;/p&gt;
+&lt;p&gt;Да, некоторые локаторы длинные и нечитабельные, но они &quot;хорошие&quot;, потому что они работают стабильно и дались мне практически даром.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Вывод:&lt;/strong&gt; Для меня &quot;лучший локатор&quot; - тот, который работает стабильно и на создание
