@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Как менялось мое отношение к PageObject</title>
+    <title>Мой взгляд на &quot;хорошие&quot; локаторы в Selenium</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как менялось мое отношение к PageObject">
+    <meta property="og:title" content="Мой взгляд на &quot;хорошие&quot; локаторы в Selenium">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="История преобразования PageObject"/>
+        	<meta property="og:description" content="Почему я не сильно много времени трачу на написание локаторов"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -102,168 +102,168 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                30/10/2016
+                                04/03/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как менялось мое отношение к PageObject</h1>
+                        <h1 class="post-title">Мой взгляд на &quot;хорошие&quot; локаторы в Selenium</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Во многих сообществах тестировщиков холиварят о том, как должен выглядеть <strong>PageObject</strong>. Одни кричат, что нужно хранить локаторы в полях, другие выступают только за методы. Должен PageObject содержать логику или нет? Как и в любом холиваре, каждая из сторон считает свою точку зрения самой правильной.
-Как участник социума и человек, сидящий в <a href="https://software-testers.herokuapp.com/">Slack сообществе тестировщиков</a>, я тоже наблюдаю эти перепалки. У меня есть свое мнение по этому поводу, но перед тем, как его выразить, сначала опишу историю преобразования PageObject на различных проектах, в которых я принимал участие.</p>
+<p>Пост о том, как я пересмотрел свое отношение к локаторам и при этом никто не пострадал.
+Всем начинающим автоматизаторам советуют изучать css и xpath локаторы. Без знания локаторов
+сложно писать UI автотесты. Большинство курсов, книг и статей глаголят, что вот, мол, нужно
+уметь писать "хорошие" локаторы. При этом понятие "хороший локатор" не имеет четкого опеределения.</p>
 </div>
 <div class="paragraph">
-<p>Для меня все началось еще в далеком 2012 году, когда я попал на проект, на котором только зарождалась автоматизация. Так как я был совсем неопытным Junior&#8217;ом, я впитывал и делал так, как мне говорили.</p>
+<p>Давайте посморим, например, какой из этих локаторов "хорош"?</p>
 </div>
 <div class="paragraph">
-<p><strong>PageObject</strong> на том проекте выглядел примерно так:</p>
+<p>1) #push &gt; article:nth-child(1) &gt; div
+2) //*[@id="push"]/article[1]/div</p>
+</div>
+<div class="paragraph">
+<p>Считаю, что вариант #1 лучше, так как он более лаконичный, да и вообще я
+предпочитаю использовать css локаторы вместо xpath. Почему?</p>
+</div>
+<div class="paragraph">
+<p>Еще пример:</p>
+</div>
+<div class="paragraph">
+<p>1) article.post
+2) //article[@class='post ']</p>
+</div>
+<div class="paragraph">
+<p>Здесь четко видно, что css более читабельный и писать его проще. Вывод: css локаторы более предпочтительны
+для использования в наших Selenium тестах.
+Казалось бы, вопрос можно закрывать и расходиться делать проекты, но мы же так и не определили
+понятие "хороший локатор". Приведенные выше локаторы хороши, но достаточно ли, чтобы
+претендовать на звание "лучший локатор"?</p>
+</div>
+<div class="paragraph">
+<p>Когда я только начинал заниматься автоматизацией, следуя всем наставлениям своих менторов,
+старался учить и писать максимально хорошие локаторы. Радовало, что в то время в файрфоксе
+еще работали Firebug и FirePath. Но проект мой открывался только в IE8 и мне такие блага были недоступны.
+Поэтому я работал в убогом <code>Internet Explorer Dev Tools</code> и тогда еще парился по
+поводу "хороших" локаторов.
+После у меня был проект, на котором UI рендерился с помощью фреймворка <code>Vaadin</code>. Тогда я
+не стеснялся просто скопировать локатор, который мне предлагал FirePath и без оглядки его использовать.
+Но вопрос "хороших локаторов" по-прежнему не давал покоя.</p>
+</div>
+<div class="paragraph">
+<p>Локатор получался местами длинным:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Portfolios extends BasePage {
-	private Actions builder = new Actions(getDriverProvider().get());
+<pre class="prettyprint highlight"><code>.v-verticallayout.v-verticallayout-invoice-detail-view-main.invoice-detail-view-main
 
-	public Portfolios(WebDriverProvider driverProvider) {
-		super(driverProvider);
-	}
+или
 
-	public void selectActionMenuItem(String name) {
-		clickActionsButton();
-		waitForVisible(locators.ACTIONS_MENU_ITEM_BY(name)).click();
-	}
-
-	private void openNodePortfolioFolder() {
-		find(locators.NAVIGATION_TREE_PORTFOLIOS_FOLDER()).click();
-		waitForVisible(By.xpath("//a[contains(@title,'BOOK:')]"));
-	}
-
-	public boolean isActionsMenuItemDisplayed(String menuItem) {
-		return isDisplayed(locators.ACTIONS_MENU_ITEM_BY(menuItem));
-	}
-
-	public void actionsCreateVirtualPortfolio() {
-		WebElement createPortfolio = waitForVisible(locators
-				.ACTIONS_CREATE_VIRTUAL_PORTFOLIO());
-		createPortfolio.click();
-	}
-
-	public void actionsCreatePortfolioLinks() {
-		waitForVisible(BaseAraPage.locators.getACTIONS_CREATE_PORTFOLIO_LINKS())
-				.click();
-	}</code></pre>
+//*[@id='ordermgmtui-1932176413']//table/tbody/tr[2]/td[@class='v-formlayout-contentcell']/input</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Да, все выглядит ужасно! Проект писался на базе самописной обертки для <strong>Selenium Webdriver</strong>. Локаторы выносились с отдельный класс <strong>Locators</strong>.</p>
+<p>Но эти локаторы были хороши, потому что работали стабильно. Почему я не сильно старался
+сделать их лучше или переписать? А зачем? Они дались мне практически даром: два клика в браузере
+и все. Важно понимать, что локаторы - это не нечто архиавжное. Иногда говорят: "Мы так пишем
+локаторы, чтобы тесты были стабильнее, вдруг завтра верстка поменяется&#8230;&#8203;"
+Если верстка поменяется, вы сделаете два клика и поменяете локатор.
+Нет смысла сейчас тратить 5-10 минут на то, что может никогда и не случиться.</p>
 </div>
 <div class="paragraph">
-<p>В целом нам удавалось более-менее успешно с этим жить, но, смотря на это все, я, конечно, понимаю, что такая реализация является категорически неприемлимой в наше время.</p>
+<p>Именно поэтому я перестал обращать внимание на возгласы по поводу правильных и красивых
+локаторов. Правый клик мышкой на элементе &#8594; Copy selector и поехали.</p>
 </div>
 <div class="paragraph">
-<p><strong>Page Object на базе @FindBy и Component object</strong></p>
+<p>Пример c <a href="http://inbox.google.com" class="bare">http://inbox.google.com</a>:</p>
 </div>
 <div class="paragraph">
-<p>В следующем проекте мы пробовали описывать страницы примерно так:</p>
+<p><code>``</code>
+def setup_module(m):
+    (LoginPage()
+        .open()
+        .login_as(email,password))</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p>def test_can_add_reminder():
+    (MainPage()
+     .add_new_reminder("call Mama")
+     .reminder.should(have.text("Call Mama")))
+<code>``</code></p>
+</div>
+<div class="paragraph">
+<p>Вполне читабельные тесты.</p>
+</div>
+<div class="paragraph">
+<p>Реализации PageObject:</p>
+</div>
+<div class="paragraph">
+<p><code>``</code>
+from selene.api import *</p>
+</div>
+<div class="paragraph">
+<p>class LoginPage(object):
+    def <em>init</em>(self):
+        self.email = s("#Email")
+        self.next_btn = s("#next")
+        self.password = s("#Passwd")
+        self.sign_in_btn = s("#signIn")
+        self.city_input = s("#answer")
+        self.ready_btn = s("#submit")</p>
+</div>
+<div class="literalblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
-
-    @FindBy(name="search")
-    private WebElementFacade searchTerms;
-
-    @FindBy(name="go")
-    private WebElementFacade lookupButton;
-
-    public void enter_keywords(String keyword) {
-        searchTerms.type(keyword);
-    }
-
-    public void lookup_terms() {
-        lookupButton.click();
-    }</code></pre>
+<pre>def open(self):
+    browser.visit("https://inbox.google.com/")
+    return self</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Лично мне такой подход не нравится тем, что нужно инициализировать страницы через <strong>PageFactory</strong></p>
-</div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">PageFactory.initElements(DictionaryPage.class)</code></pre>
+<pre>def login_as(self, email, password):
+    self.email.send_keys(email)
+    self.next_btn.click()
+    self.password.send_keys(password)
+    self.sign_in_btn.click()</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>К тому же, при большом количестве елементов на странице такой <strong>PageObject</strong> класс обростает уж очень большим количеством полей, помарканных аннотацией <strong>@FindBy</strong>. Локаторы неудобно переиспользовать.</p>
+<p>class MainPage(object):</p>
 </div>
-<div class="paragraph">
-<p><strong>HTML Elements</strong></p>
-</div>
-<div class="paragraph">
-<p>Естественно, был этап, когда появилась библиотека <strong>Yandex HTML elements</strong> и я пробовал ее использовать, но мне не понравилось. Просто не понравилось и все. Такое бывает.</p>
-</div>
-<div class="paragraph">
-<p><strong>PageObject с полями By</strong></p>
-</div>
-<div class="paragraph">
-<p>В попытке улучшить предыдущую реализацию мы пробовали писать <strong>PageObject</strong> в таком стиле:</p>
-</div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
-
-    private By searchTerms = By.name("search");
-    private By lookupButton = By.name("go");
-
-    public void enter_keywords(String keyword) {
-        $(searchTerms).type(keyword);
-    }
-
-    public void lookup_terms() {
-        $(lookupButton).click();
-    }</code></pre>
+<pre>def __init__(self):
+    self.plus_btn =  s("#aVMuZe &gt; div.nPQzwd.iP &gt; div.jB &gt; button").hover()
+    self.create_new_reminder_btn = s("#aVMuZe &gt; div.nPQzwd.iP &gt; div.jp &gt; div.S &gt; button")
+    self.reminder_input = s("body &gt; div.eG.f &gt; div &gt; div.nY.na &gt; div.od &gt; div.k0 &gt; div")
+    self.reminder_save_btn = s("body &gt; div.eG.f &gt; div &gt; div.nY.na &gt; div.od &gt; div.ft &gt; div.dy.qj.ev")
+    self.reminder = s("#Nr &gt; div &gt; div &gt; div.No &gt; div.bg.summTaskTitle &gt; span")</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>В принципе, мне все нравилось, пока количество елементов было небольшим. По мере роста объема елементов такие страницы было неудобно поддерживать. Постоянно нужно было скролить вверх, чтобы подправить локатор, потом возвращаться к месту использования этого локатора.</p>
-</div>
-<div class="paragraph">
-<p><strong>Эра Selenide</strong></p>
-</div>
-<div class="paragraph">
-<p>Пока я там ковырялся со своими велосипедами и экспериментировал с реализациями <strong>PageObject</strong>, библиотека <strong>Selenide</strong> росла и крепла, и я начал использовать ее на боевых проектах.</p>
-</div>
-<div class="paragraph">
-<p>Реализация <strong>PageObject</strong> стала выглядеть так:</p>
-</div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
-
-    public void enter_keywords(String keyword) {
-        $(name("search")).type(keyword);
-    }
-
-    public void lookup_terms() {
-        $(".lookupButton").click();
-    }</code></pre>
+<pre>    def add_new_reminder(self, text):
+        self.plus_btn.hover()
+        self.create_new_reminder_btn.click()
+        self.reminder_input.send_keys(text)
+        self.reminder_save_btn.click()
+        return self
+````</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Локаторы хранятся прямо там, где они используются - это удобно, ты заходишь в метод и сразу видишь, что там происходит. Такой подход позволяет экономить время и нервы тем, кто пишет и поддерживает тесты.</p>
+<p>Да, некоторые локаторы длинные и нечитабельные, но они "хорошие", потому что они работают стабильно и
+стабильно и дались мне практически даром.</p>
 </div>
 <div class="paragraph">
-<p>Был еще один проект, на котором я использовал <strong>Groovy</strong>, и там у нас была возможность писать PageObject в очень интересном <a href="http://automation-remarks.com/groovy-page/index.html">формате</a>.</p>
-</div>
-<div class="paragraph">
-<p>Такой подход мне нравится больше всего, но, увы, он доступен только при использовании <strong>Groovy</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>P/S</strong></p>
-</div>
-<div class="paragraph">
-<p>К более-менее удобному для себя формату реализации <strong>PageObject</strong> я пришел через опыт, а он может быть положительным и отрицательным. Я экспериментировал и нашел самый удобный для себя формат. Считаю, что наличие холиваров - это отлично, главное - относиться к ним здраво и выносить полезный опыт.</p>
+<p><strong>Вывод:</strong> Для меня "лучший локатор" - тот, который работает стабильно и на создание
+которого я потратил максимум 10 секунд. Из личных наблюдений: <strong>Chrome Dev Tools</strong>
+позволяет в <strong>80%</strong> случаев получать именно такие локаторы.
+Поэтому я не стесняюсь просто брать и копировать локатор прямо оттуда.
+Мой опыт показывает, что гораздо важнее уметь быстро создавать тесты, чем изначально
+тратить кучу времени на локаторы, которые вы все равно рано или поздно будете менять.
+И все же обязательно нужно думать головой и принимать только взвешенные решения.</p>
 </div>
                     </section>
 
@@ -279,7 +279,7 @@
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="2016/pages-objects-history/index.html"
+                        data-href="2017/locators/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -290,7 +290,7 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
                             </div>
                     </footer>
 
@@ -299,7 +299,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/locators/index.html">Мой взгляд на "хорошие" локаторы в Selenium</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/sel-camp-2017-retro/index.html">SeleniumCamp 2017: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/lombok/index.html">Lombok как способ трансформировать test automation project</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/video-recroder-junit5/index.html">Java Video Recorder поддержка Junit 5</a></li>

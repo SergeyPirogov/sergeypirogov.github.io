@@ -14,9 +14,177 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 26 Feb 2017 11:18:11 +0000</pubDate>
-    <lastBuildDate>Sun, 26 Feb 2017 11:18:11 +0000</lastBuildDate>
+    <pubDate>Sun, 5 Mar 2017 12:42:53 +0000</pubDate>
+    <lastBuildDate>Sun, 5 Mar 2017 12:42:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Мой взгляд на &quot;хорошие&quot; локаторы в Selenium
+          </title>
+          <link>http://automation-remarks.com/2017/locators/index.html</link>
+          <pubDate>Sat, 4 Mar 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/locators/index.html</guid>
+          <description>
+                        Почему я не сильно много времени трачу на написание локаторов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пост о том, как я пересмотрел свое отношение к локаторам и при этом никто не пострадал.
+Всем начинающим автоматизаторам советуют изучать css и xpath локаторы. Без знания локаторов
+сложно писать UI автотесты. Большинство курсов, книг и статей глаголят, что вот, мол, нужно
+уметь писать &quot;хорошие&quot; локаторы. При этом понятие &quot;хороший локатор&quot; не имеет четкого опеределения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте посморим, например, какой из этих локаторов &quot;хорош&quot;?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;1) #push &amp;gt; article:nth-child(1) &amp;gt; div
+2) //*[@id=&quot;push&quot;]/article[1]/div&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Считаю, что вариант #1 лучше, так как он более лаконичный, да и вообще я
+предпочитаю использовать css локаторы вместо xpath. Почему?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;1) article.post
+2) //article[@class=&apos;post &apos;]&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Здесь четко видно, что css более читабельный и писать его проще. Вывод: css локаторы более предпочтительны
+для использования в наших Selenium тестах.
+Казалось бы, вопрос можно закрывать и расходиться делать проекты, но мы же так и не определили
+понятие &quot;хороший локатор&quot;. Приведенные выше локаторы хороши, но достаточно ли, чтобы
+претендовать на звание &quot;лучший локатор&quot;?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Когда я только начинал заниматься автоматизацией, следуя всем наставлениям своих менторов,
+старался учить и писать максимально хорошие локаторы. Радовало, что в то время в файрфоксе
+еще работали Firebug и FirePath. Но проект мой открывался только в IE8 и мне такие блага были недоступны.
+Поэтому я работал в убогом &lt;code&gt;Internet Explorer Dev Tools&lt;/code&gt; и тогда еще парился по
+поводу &quot;хороших&quot; локаторов.
+После у меня был проект, на котором UI рендерился с помощью фреймворка &lt;code&gt;Vaadin&lt;/code&gt;. Тогда я
+не стеснялся просто скопировать локатор, который мне предлагал FirePath и без оглядки его использовать.
+Но вопрос &quot;хороших локаторов&quot; по-прежнему не давал покоя.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Локатор получался местами длинным:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;.v-verticallayout.v-verticallayout-invoice-detail-view-main.invoice-detail-view-main
+
+или
+
+//*[@id=&apos;ordermgmtui-1932176413&apos;]//table/tbody/tr[2]/td[@class=&apos;v-formlayout-contentcell&apos;]/input&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но эти локаторы были хороши, потому что работали стабильно. Почему я не сильно старался
+сделать их лучше или переписать? А зачем? Они дались мне практически даром: два клика в браузере
+и все. Важно понимать, что локаторы - это не нечто архиавжное. Иногда говорят: &quot;Мы так пишем
+локаторы, чтобы тесты были стабильнее, вдруг завтра верстка поменяется&amp;#8230;&amp;#8203;&quot;
+Если верстка поменяется, вы сделаете два клика и поменяете локатор.
+Нет смысла сейчас тратить 5-10 минут на то, что может никогда и не случиться.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Именно поэтому я перестал обращать внимание на возгласы по поводу правильных и красивых
+локаторов. Правый клик мышкой на элементе &amp;#8594; Copy selector и поехали.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример c &lt;a href=&quot;http://inbox.google.com&quot; class=&quot;bare&quot;&gt;http://inbox.google.com&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;``&lt;/code&gt;
+def setup_module(m):
+    (LoginPage()
+        .open()
+        .login_as(email,password))&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;def test_can_add_reminder():
+    (MainPage()
+     .add_new_reminder(&quot;call Mama&quot;)
+     .reminder.should(have.text(&quot;Call Mama&quot;)))
+&lt;code&gt;``&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вполне читабельные тесты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Реализации PageObject:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;``&lt;/code&gt;
+from selene.api import *&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;class LoginPage(object):
+    def &lt;em&gt;init&lt;/em&gt;(self):
+        self.email = s(&quot;#Email&quot;)
+        self.next_btn = s(&quot;#next&quot;)
+        self.password = s(&quot;#Passwd&quot;)
+        self.sign_in_btn = s(&quot;#signIn&quot;)
+        self.city_input = s(&quot;#answer&quot;)
+        self.ready_btn = s(&quot;#submit&quot;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;def open(self):
+    browser.visit(&quot;https://inbox.google.com/&quot;)
+    return self&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;def login_as(self, email, password):
+    self.email.send_keys(email)
+    self.next_btn.click()
+    self.password.send_keys(password)
+    self.sign_in_btn.click()&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;class MainPage(object):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;def __init__(self):
+    self.plus_btn =  s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jB &amp;gt; button&quot;).hover()
+    self.create_new_reminder_btn = s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jp &amp;gt; div.S &amp;gt; button&quot;)
+    self.reminder_input = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.k0 &amp;gt; div&quot;)
+    self.reminder_save_btn = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.ft &amp;gt; div.dy.qj.ev&quot;)
+    self.reminder = s(&quot;#Nr &amp;gt; div &amp;gt; div &amp;gt; div.No &amp;gt; div.bg.summTaskTitle &amp;gt; span&quot;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;    def add_new_reminder(self, text):
+        self.plus_btn.hover()
+        self.create_new_reminder_btn.click()
+        self.reminder_input.send_keys(text)
+        self.reminder_save_btn.click()
+        return self
+````&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да, некоторые локаторы длинные и нечитабельные, но они &quot;хорошие&quot;, потому что они работают стабильно и
+стабильно и дались мне практически даром.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Вывод:&lt;/strong&gt; Для меня &quot;лучший локатор&quot; - тот, который работает стабильно и на создание
+которого я потратил максимум 10 секунд. Из личных наблюдений: &lt;strong&gt;Chrome Dev Tools&lt;/strong&gt;
+позволяет в &lt;strong&gt;80%&lt;/strong&gt; случаев получать именно такие локаторы.
+Поэтому я не стесняюсь просто брать и копировать локатор прямо оттуда.
+Мой опыт показывает, что гораздо важнее уметь быстро создавать тесты, чем изначально
+тратить кучу времени на локаторы, которые вы все равно рано или поздно будете менять.
+И все же обязательно нужно думать головой и принимать только взвешенные решения.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               SeleniumCamp 2017: ретроспектива
