@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 5 Mar 2017 20:03:00 +0000</pubDate>
-    <lastBuildDate>Sun, 5 Mar 2017 20:03:00 +0000</lastBuildDate>
+    <pubDate>Mon, 6 Mar 2017 12:59:33 +0000</pubDate>
+    <lastBuildDate>Mon, 6 Mar 2017 12:59:33 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -146,7 +146,7 @@ class LoginPage(object):
 class MainPage(object):
 
     def __init__(self):
-        self.plus_btn =  s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jB &amp;gt; button&quot;).hover()
+        self.plus_btn =  s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jB &amp;gt; button&quot;)
         self.create_new_reminder_btn = s(&quot;#aVMuZe &amp;gt; div.nPQzwd.iP &amp;gt; div.jp &amp;gt; div.S &amp;gt; button&quot;)
         self.reminder_input = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.k0 &amp;gt; div&quot;)
         self.reminder_save_btn = s(&quot;body &amp;gt; div.eG.f &amp;gt; div &amp;gt; div.nY.na &amp;gt; div.od &amp;gt; div.ft &amp;gt; div.dy.qj.ev&quot;)
