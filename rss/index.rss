@@ -14,9 +14,251 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 6 Mar 2017 12:59:33 +0000</pubDate>
-    <lastBuildDate>Mon, 6 Mar 2017 12:59:33 +0000</lastBuildDate>
+    <pubDate>Sun, 12 Mar 2017 11:57:29 +0000</pubDate>
+    <lastBuildDate>Sun, 12 Mar 2017 11:57:29 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              pipenv или замена pip + virtualenv
+          </title>
+          <link>http://automation-remarks.com/2017/pipenv/index.html</link>
+          <pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/pipenv/index.html</guid>
+          <description>
+                        Заметка об интересной Python библиотеке
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Занесло меня в питонячий мир. Эта заметка посвящена небольшой, но очень полезной утилите,
+которая значительно упрощает управление виртуальными средами и менеджмент зависимостями.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ранее я уже писал заметку &lt;a href=&quot;http://automation-remarks.com/2017/python-world-after-java/index.html&quot;&gt;о том, как выжить в Python мире после Java&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Стандартный сценарий создания пайтон проекта:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;mkdir python_project
+cd python_project
+virtualenv .venv
+source .venv/bin/activate
+pip install webdriver_mamanger selenium requests&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На первый взгляд, все достаточно просто и понятно. Но на самом деле есть несколько неудобств,
+которые поначалу не вызывают особого дискомфорта, но с течением времени начинают надоедать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Зависимости, которые вы установили с помощью &lt;code&gt;pip&lt;/code&gt;, не записываются в &lt;code&gt;requirements.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В пайтон проектах принято хранить все необходимые зависимости в файле &lt;code&gt;requirements.txt&lt;/code&gt;.
+Записывать их туда можно руками, а потом сделать &lt;code&gt;pip install -r requirements.txt&lt;/code&gt;.
+В целом вроде бы не плохо, но бывает, что поставил зависимость с помощью &lt;code&gt;pip install&lt;/code&gt;, но забыл
+прописать его в &lt;code&gt;requirements.txt&lt;/code&gt; и на CI все попадало.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Можно сначала наставить зависимостей с помощью &lt;code&gt;pip&lt;/code&gt;, а потом сделать &lt;code&gt;pip freeze &amp;gt; requirements.txt&lt;/code&gt;.
+В таком случае в файл &lt;code&gt;requirements.txt&lt;/code&gt; записываются все пакеты, которые установлены, и их версия жестко фиксируется.
+В общем удобно, но, если мы хотим всегда скачивать и устанавливать последнюю версию
+&lt;code&gt;selenium&lt;/code&gt;, нам нужно идти и ручками править файл.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще одним неудобством является выполнение команды активации &lt;strong&gt;virtualenv&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;source .venv/bin/activate&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Особенно если вам нужно переходить из одного проекта в другой. К счастью, эту проблему можно
+частично решить, используя магический bash скрипт:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock virtualenv-auto-activate sh&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;#!/bin/bash
+# virtualenv-auto-activate.sh
+#
+# Installation:
+#   Add this line to your .bashrc or .bash-profile:
+#
+#       source /path/to/virtualenv-auto-activate.sh
+#
+#   Go to your project folder, run &quot;virtualenv .venv&quot;, so your project folder
+#   has a .venv folder at the top level, next to your version control directory.
+#   For example:
+#   .
+#   ├── .git
+#   │   ├── HEAD
+#   │   ├── config
+#   │   ├── description
+#   │   ├── hooks
+#   │   ├── info
+#   │   ├── objects
+#   │   └── refs
+#   └── .venv
+#       ├── bin
+#       ├── include
+#       └── lib
+#
+#   The virtualenv will be activated automatically when you enter the directory.
+
+# Check for virtualenvwrapper
+if type workon &amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then
+  VENV_WRAPPER=true
+else
+  VENV_WRAPPER=false
+fi
+
+function _virtualenv_auto_activate() {
+    if [ -e &quot;.venv&quot; ]; then
+        # Check for symlink pointing to virtualenv
+        if [ -L &quot;.venv&quot; ]; then
+          _VENV_PATH=$(readlink .venv)
+          _VENV_WRAPPER_ACTIVATE=false
+        # Check for directory containing virtualenv
+        elif [ -d &quot;.venv&quot; ]; then
+          _VENV_PATH=$(pwd -P)/.venv
+          _VENV_WRAPPER_ACTIVATE=false
+        # Check for file containing name of virtualenv
+        elif [ -f &quot;.venv&quot; -a $VENV_WRAPPER = &quot;true&quot; ]; then
+          _VENV_PATH=$WORKON_HOME/$(cat .venv)
+          _VENV_WRAPPER_ACTIVATE=true
+        else
+          return
+        fi
+
+        # Check to see if already activated to avoid redundant activating
+        if [ &quot;$VIRTUAL_ENV&quot; != $_VENV_PATH ]; then
+            if $_VENV_WRAPPER_ACTIVATE; then
+              _VENV_NAME=$(basename $_VENV_PATH)
+              workon $_VENV_NAME
+            else
+              _VENV_NAME=$(basename `pwd`)
+              VIRTUAL_ENV_DISABLE_PROMPT=1
+              source .venv/bin/activate
+              _OLD_VIRTUAL_PS1=&quot;$PS1&quot;
+              PS1=&quot;($_VENV_NAME)$PS1&quot;
+              export PS1
+            fi
+            echo Activated virtualenv \&quot;$_VENV_NAME\&quot;.
+        fi
+    fi
+}
+
+export PROMPT_COMMAND=_virtualenv_auto_activate
+if [ -n &quot;$ZSH_VERSION&quot; ]; then
+  function chpwd() {
+    _virtualenv_auto_activate
+  }
+fi&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эту всю радость нужно сохранить в файл &lt;strong&gt;.virtualenv-auto-activate.sh&lt;/strong&gt;. Я использую &lt;a href=&quot;http://ohmyz.sh/&quot;&gt;ohmyzsh&lt;/a&gt;,
+поэтому в файл .zshrc я должен добавить такую строчку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;source .virtualenv-auto-activate.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После этого &lt;code&gt;virtualenv&lt;/code&gt; будет автоматически активироваться при переходе в папку с проектом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот как-то так я и жил, пока не увидел в &lt;a href=&quot;https://twitter.com/s_pirogov&quot;&gt;Twitter&lt;/a&gt; ссылку на
+проект &lt;a href=&quot;http://docs.pipenv.org/en/latest/&quot;&gt;pipenv&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Pipenv - это обертка над &lt;code&gt;pip virtualenv и  Pipfile&lt;/code&gt;. Он значительно упрощает работу с проектом.
+С его помощью мы можем создавать виртуальные среды и устанавливать зависимости. Но при этом
+будет создаваться &lt;code&gt;Pipfile&lt;/code&gt;, в который все установленные зависимости будут заноситься автоматически:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;pipenv --three
+pipenv shell
+pipenv install webdriver_mamanger selenium requests&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Pipfile:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;[[source]]
+url = &quot;https://pypi.org/simple&quot;
+verify_ssl = true
+
+[packages]
+requests = &quot;*&quot;
+webdriver_manager = &quot;*&quot;
+selenium = &quot;*&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Это очень удобно! Правда, чтобы научиться им пользоваться, мне потребовалось задать пару-тройку
+вопросов разработчикам. Увы, в документации некоторые вещи не совсем очевидны. Итак:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;1) Если вы хотите, чтобы &lt;code&gt;pipenv&lt;/code&gt; создавал папку &lt;code&gt;.venv&lt;/code&gt; непосредственно в корне вашего
+проекта, нужно в файл &lt;code&gt;.zshrc&lt;/code&gt; прописать такую строчку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;export PIPENV_VENV_IN_PROJECT=1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;2) Чтобы подключить автодополнение в консоли, нужно в .zshrc написать&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;eval &quot;$(env _PIPENV_COMPLETE=source-zsh pipenv)&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;3) Я долго не мог скрестить &lt;code&gt;pipenv&lt;/code&gt; и &lt;code&gt;tox&lt;/code&gt;. Оказалось, что обязательно нужно прописывать
+переменную &lt;code&gt;HOME&lt;/code&gt; через &lt;code&gt;passenv&lt;/code&gt; &lt;a href=&quot;https://github.com/kennethreitz/pipenv/issues/256&quot;&gt;Github issue&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;tox.ini&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;[tox]
+envlist=py27,py34
+
+[testenv]
+passenv = HOME
+deps =
+    pipenv
+commands=
+    pipenv lock
+    pipenv install --dev
+    pipenv run py.test&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;4) pipenv не мог установить некоторые зависимости &lt;a href=&quot;https://github.com/kennethreitz/pipenv/issues/261&quot;&gt;Github issue&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;5) При запуске тестов через tox в Travis CI я получал ошибку
+&lt;code&gt;In --require-hashes mode, all requirements must have their versions pinned with ==.&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Оказалось, что нужно сначала выполнить команду &lt;code&gt;pipenv lock&lt;/code&gt; и закомитить файл &lt;code&gt;Pipfile.lock&lt;/code&gt;
+в репозиторий.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Решив все эти проблемы, я успешно перевел проект &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot;&gt;webdriver_manager&lt;/a&gt; на &lt;code&gt;pipenv&lt;/code&gt;.
+Штука классная - сам использую и вам рекомендую на нее посмотреть.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Мой взгляд на &quot;хорошие&quot; локаторы в Selenium
