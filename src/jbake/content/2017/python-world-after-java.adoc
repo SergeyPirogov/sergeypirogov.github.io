@@ -1,4 +1,4 @@
-= Как выжить в мире Python, после Java
+= Как выжить в мире Python после Java
 Sergey Pirogov
 2017-01-05
 :jbake-type: post
