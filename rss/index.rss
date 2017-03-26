@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 26 Mar 2017 14:30:32 +0000</pubDate>
-    <lastBuildDate>Sun, 26 Mar 2017 14:30:32 +0000</lastBuildDate>
+    <pubDate>Sun, 26 Mar 2017 14:40:13 +0000</pubDate>
+    <lastBuildDate>Sun, 26 Mar 2017 14:40:13 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -41,8 +41,7 @@ UI тестов, я уже писал в заметке о &lt;a href=&quot;http
 &lt;p&gt;В этой же заметке хочу поделиться секретами тестирования REST сервисов.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Я уже писал о &lt;a href=&quot;http://automation-remarks.com/rest-clients/index.html&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/rest-clients/index.html&lt;/a&gt;
-[полезных библиотеках] для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
+&lt;p&gt;Я уже писал о &lt;a href=&quot;http://automation-remarks.com/rest-clients/index.html&quot;&gt;полезных библиотеках&lt;/a&gt; для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
 могут вам пригодиться.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -64,7 +63,7 @@ public void shouldGetLuke() {
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Все вроде отлично, но мне лично больше нравится конвертировать json ответы от сервера в
 Java объекты. Но у такого подхода есть недостаток - нужно описывать json структуру в виде Java POJO.
-Достаточно тоскливое зантяие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
+Достаточно тоскливое занятие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
 из примера выше будет выглядеть так:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
@@ -108,13 +107,13 @@ Java объекты. Но у такого подхода есть недоста
 более оптимальным путем и сгенерировать нужные нам классы.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Секрет второй: Как? Все очень просто: есть отличный инструмент json2pojo[&lt;a href=&quot;http://www.jsonschema2pojo.org/&quot; class=&quot;bare&quot;&gt;http://www.jsonschema2pojo.org/&lt;/a&gt;].
+&lt;p&gt;Секрет второй: Как? Все очень просто: есть отличный инструмент &lt;a href=&quot;http://www.jsonschema2pojo.org/&quot;&gt;json2pojo&lt;/a&gt;.
 Берем свой json, вставляем в текстовое поле, жмем кнопку - вжууух! Классы сгенерировались. Копируем их
 себе в проект и наслаждаемся.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вы заметили недостатки? Слишком много ручной работы - копировать туда, потом обратно. Можно же это
-заавтоматизировать. Для этого есть отличнейший плагин для Gradle[&lt;a href=&quot;https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin&quot; class=&quot;bare&quot;&gt;https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin&lt;/a&gt;].&lt;/p&gt;
+заавтоматизировать. Для этого есть отличнейший плагин для &lt;a href=&quot;https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin&quot;&gt;Gradle&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Подключаем его себе в проект:&lt;/p&gt;
@@ -174,7 +173,7 @@ jsonSchema2Pojo {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В папке &lt;code&gt;build/generated-sources&lt;/code&gt; повляются сгенерированные классы со всеми нужными нам атрибутами.&lt;/p&gt;
+&lt;p&gt;В папке &lt;code&gt;build/generated-sources&lt;/code&gt; появляются сгенерированные классы со всеми нужными нам атрибутами.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Теперь мы можем спокойно перенести их в нужный нам пакет и использовать в тестах:&lt;/p&gt;
@@ -189,10 +188,10 @@ public void shouldGetLuke() {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Теперь мы получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.&lt;/p&gt;
+&lt;p&gt;Получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Надеюсь, мой совет будет полезным для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.&lt;/p&gt;
+&lt;p&gt;Надеюсь, мои советы будут полезными для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В следующий раз я покажу вам, как можно экономить время на написании assert`ов.&lt;/p&gt;

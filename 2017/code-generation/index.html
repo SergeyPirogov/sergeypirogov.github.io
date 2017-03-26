@@ -123,8 +123,7 @@ UI тестов, я уже писал в заметке о <a href="http://autom
 <p>В этой же заметке хочу поделиться секретами тестирования REST сервисов.</p>
 </div>
 <div class="paragraph">
-<p>Я уже писал о <a href="http://automation-remarks.com/rest-clients/index.html" class="bare">http://automation-remarks.com/rest-clients/index.html</a>
-[полезных библиотеках] для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
+<p>Я уже писал о <a href="http://automation-remarks.com/rest-clients/index.html">полезных библиотеках</a> для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
 могут вам пригодиться.</p>
 </div>
 <div class="paragraph">
@@ -146,7 +145,7 @@ public void shouldGetLuke() {
 <div class="paragraph">
 <p>Все вроде отлично, но мне лично больше нравится конвертировать json ответы от сервера в
 Java объекты. Но у такого подхода есть недостаток - нужно описывать json структуру в виде Java POJO.
-Достаточно тоскливое зантяие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
+Достаточно тоскливое занятие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
 из примера выше будет выглядеть так:</p>
 </div>
 <div class="listingblock">
@@ -190,13 +189,13 @@ Java объекты. Но у такого подхода есть недоста
 более оптимальным путем и сгенерировать нужные нам классы.</p>
 </div>
 <div class="paragraph">
-<p>Секрет второй: Как? Все очень просто: есть отличный инструмент json2pojo[<a href="http://www.jsonschema2pojo.org/" class="bare">http://www.jsonschema2pojo.org/</a>].
+<p>Секрет второй: Как? Все очень просто: есть отличный инструмент <a href="http://www.jsonschema2pojo.org/">json2pojo</a>.
 Берем свой json, вставляем в текстовое поле, жмем кнопку - вжууух! Классы сгенерировались. Копируем их
 себе в проект и наслаждаемся.</p>
 </div>
 <div class="paragraph">
 <p>Вы заметили недостатки? Слишком много ручной работы - копировать туда, потом обратно. Можно же это
-заавтоматизировать. Для этого есть отличнейший плагин для Gradle[<a href="https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin" class="bare">https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin</a>].</p>
+заавтоматизировать. Для этого есть отличнейший плагин для <a href="https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin">Gradle</a>.</p>
 </div>
 <div class="paragraph">
 <p>Подключаем его себе в проект:</p>
@@ -256,7 +255,7 @@ jsonSchema2Pojo {
 </div>
 </div>
 <div class="paragraph">
-<p>В папке <code>build/generated-sources</code> повляются сгенерированные классы со всеми нужными нам атрибутами.</p>
+<p>В папке <code>build/generated-sources</code> появляются сгенерированные классы со всеми нужными нам атрибутами.</p>
 </div>
 <div class="paragraph">
 <p>Теперь мы можем спокойно перенести их в нужный нам пакет и использовать в тестах:</p>
@@ -271,10 +270,10 @@ public void shouldGetLuke() {
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь мы получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.</p>
+<p>Получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.</p>
 </div>
 <div class="paragraph">
-<p>Надеюсь, мой совет будет полезным для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.</p>
+<p>Надеюсь, мои советы будут полезными для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.</p>
 </div>
 <div class="paragraph">
 <p>В следующий раз я покажу вам, как можно экономить время на написании assert`ов.</p>
