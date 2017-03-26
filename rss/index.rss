@@ -14,9 +14,191 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 26 Mar 2017 12:50:26 +0000</pubDate>
-    <lastBuildDate>Sun, 26 Mar 2017 12:50:26 +0000</lastBuildDate>
+    <pubDate>Sun, 26 Mar 2017 14:30:32 +0000</pubDate>
+    <lastBuildDate>Sun, 26 Mar 2017 14:30:32 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Как писать автотесты быстро
+          </title>
+          <link>http://automation-remarks.com/2017/code-generation/index.html</link>
+          <pubDate>Sun, 26 Mar 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/code-generation/index.html</guid>
+          <description>
+                        О способах ускорить процесс написания автотестов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! Спешу поделиться очередной порцией полезностей. Сегодня хочу поговорить о подходах,
+которые позволяют экономить время создания автотестов. Задумывались ли вы когда-нибудь
+о скорости написания автотестов? Сколько времени вы тратите на их создание?
+Я для себя определил: автотесты - это такая штука, которую мы должны уметь
+быстро создать и быстро выбросить. Насчет выбрость - это понятно, а вот насчет создать?
+Есть ли способы ускорить процесс создания автотестов? О том, как я ускоряю процесс написания
+UI тестов, я уже писал в заметке о &lt;a href=&quot;http://automation-remarks.com/2017/locators/index.html&quot;&gt;хороших локаторах&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой же заметке хочу поделиться секретами тестирования REST сервисов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже писал о &lt;a href=&quot;http://automation-remarks.com/rest-clients/index.html&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/rest-clients/index.html&lt;/a&gt;
+[полезных библиотеках] для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
+могут вам пригодиться.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Первый секрет: я использую &lt;strong&gt;Rest Assured&lt;/strong&gt; и точка. Отличный инструмент, который полностью
+покрывает все потребности автоматизаторов. С &lt;strong&gt;Rest Assured&lt;/strong&gt; писать тесты - одно удовольствие.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Test
+public void shouldGetLuke() {
+        when().get(&quot;http://swapi.co/api/people/1/&quot;)
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body(&quot;name&quot;, equalTo(&quot;Luke Skywalker&quot;));
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все вроде отлично, но мне лично больше нравится конвертировать json ответы от сервера в
+Java объекты. Но у такого подхода есть недостаток - нужно описывать json структуру в виде Java POJO.
+Достаточно тоскливое зантяие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
+из примера выше будет выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;{
+    &quot;name&quot;: &quot;Luke Skywalker&quot;,
+    &quot;height&quot;: &quot;172&quot;,
+    &quot;mass&quot;: &quot;77&quot;,
+    &quot;hair_color&quot;: &quot;blond&quot;,
+    &quot;skin_color&quot;: &quot;fair&quot;,
+    &quot;eye_color&quot;: &quot;blue&quot;,
+    &quot;birth_year&quot;: &quot;19BBY&quot;,
+    &quot;gender&quot;: &quot;male&quot;,
+    &quot;homeworld&quot;: &quot;http://swapi.co/api/planets/1/&quot;,
+    &quot;films&quot;: [
+        &quot;http://swapi.co/api/films/6/&quot;,
+        &quot;http://swapi.co/api/films/3/&quot;,
+        &quot;http://swapi.co/api/films/2/&quot;,
+        &quot;http://swapi.co/api/films/1/&quot;,
+        &quot;http://swapi.co/api/films/7/&quot;
+    ],
+    &quot;species&quot;: [
+        &quot;http://swapi.co/api/species/1/&quot;
+    ],
+    &quot;vehicles&quot;: [
+        &quot;http://swapi.co/api/vehicles/14/&quot;,
+        &quot;http://swapi.co/api/vehicles/30/&quot;
+    ],
+    &quot;starships&quot;: [
+        &quot;http://swapi.co/api/starships/12/&quot;,
+        &quot;http://swapi.co/api/starships/22/&quot;
+    ],
+    &quot;created&quot;: &quot;2014-12-09T13:50:51.644000Z&quot;,
+    &quot;edited&quot;: &quot;2014-12-20T21:17:56.891000Z&quot;,
+    &quot;url&quot;: &quot;http://swapi.co/api/people/1/&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Можно потратить какое-то время, чтобы описать такую структуру с помощью Java, но можно пойти
+более оптимальным путем и сгенерировать нужные нам классы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Секрет второй: Как? Все очень просто: есть отличный инструмент json2pojo[&lt;a href=&quot;http://www.jsonschema2pojo.org/&quot; class=&quot;bare&quot;&gt;http://www.jsonschema2pojo.org/&lt;/a&gt;].
+Берем свой json, вставляем в текстовое поле, жмем кнопку - вжууух! Классы сгенерировались. Копируем их
+себе в проект и наслаждаемся.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вы заметили недостатки? Слишком много ручной работы - копировать туда, потом обратно. Можно же это
+заавтоматизировать. Для этого есть отличнейший плагин для Gradle[&lt;a href=&quot;https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin&quot; class=&quot;bare&quot;&gt;https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin&lt;/a&gt;].&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подключаем его себе в проект:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;build.gradle&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;apply plugin: &apos;java&apos;
+apply plugin: &apos;jsonschema2pojo&apos;
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath &apos;org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:${js2p.version}&apos;
+  }
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile &apos;commons-lang:commons-lang:2.6&apos;
+  compile &apos;javax.validation:validation-api:1.1.0.CR2&apos;
+  compile &apos;com.fasterxml.jackson.core:jackson-databind:2.1.4&apos;
+}
+
+jsonSchema2Pojo {
+  // Location of the JSON Schema file(s). This may refer to a single file or a directory of files.
+  source = files(&quot;${sourceSets.main.output.resourcesDir}/json&quot;)
+
+  // Target directory for generated Java source files. The plugin will add this directory to the
+  // java source set so the compiler will find and compile the newly generated source files.
+  targetDirectory = file(&quot;${project.buildDir}/generated-sources/js2p&quot;)
+
+  // Package name used for generated Java classes (for types where a fully qualified name has not
+  // been supplied in the schema using the &apos;javaType&apos; property).
+  targetPackage = &apos;&apos;
+
+  // The type of input documents that will be read. Supported values:
+  //  - jsonschema (schema documents, containing formal rules that describe the structure of json data)
+  //  - json (documents that represent an example of the kind of json data that the generated Java types
+  //          will be mapped to)
+  sourceType = &apos;json&apos;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В папку &lt;code&gt;src/java/resources/json&lt;/code&gt; складываем нужные нам json файлы. Открываем консольку
+и выполняем команду:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;./gradlew generateJsonSchema2Pojo&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В папке &lt;code&gt;build/generated-sources&lt;/code&gt; повляются сгенерированные классы со всеми нужными нам атрибутами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь мы можем спокойно перенести их в нужный нам пакет и использовать в тестах:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Test
+public void shouldGetLuke() {
+        Person = when().get(&quot;http://swapi.co/api/people/1/&quot;)
+                .then().extract().body().as(Person.class)
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь мы получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Надеюсь, мой совет будет полезным для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В следующий раз я покажу вам, как можно экономить время на написании assert`ов.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               pipenv или замена pip + virtualenv
