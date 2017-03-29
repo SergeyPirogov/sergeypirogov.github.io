@@ -7,7 +7,7 @@ status=published
 == General info
 
 [.user-photo]
-image::/images/spirogov.jpg[]
+image::/images/about_me.jpg[]
 
 [.general-description]
 Senior Software Test Automation Engineer with technical Master Degree in sphere of Information Security.
