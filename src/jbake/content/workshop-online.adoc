@@ -1,0 +1,73 @@
+title=Automation in Action Online
+type=page
+status=published
+~~~~~~
+
+image::/images/workshop.jpg[]
+
+25 марта состоялся первый воркшоп Automation in Action. Публика требует продолжения. Не смею отказать!
+По многочисленным просьбам в этот раз воркшоп уходит в онлайн.
+
+__О чем поговорим-попишем:__
+
+- - написании автотестов с помощью Java, Gradle, Selenide, Rest Assured;
+- - различных типах отчетов: Allure, Gradle Reports;
+- - фишках Docker и Travis CI;
+- - работе с базой данных.
+
+Длительность воркшопа - 6 часов.
+Планирую разбить курс на три дня по 2 часа.
+Предусмотрены небольшие д/з.
+Организуем форму обратной связи, чтобы вы могли задать все интересующие вас вопросы.
+
+__Кому будет полезно?__
+
+Всем, кто делает первые шаги в автоматизации тестирования, а также тем,
+кто еще не знаком с указанным стеком технологий. Я жду тех, кто готов учиться и на практике
+применять новые знания у себя на проекте.
+
+__Где и когда?__
+
+Онлайн 12 - 14 мая. Время проведения согласуем со всеми участниками.
+
+__Что по чем?__
+
+1500 грн за 6 часов кодинга, разборов сложностей и ответов на интересующие вас вопросы.
+
+__Как присоединиться?__
+
+Оставьте заявку, используя форму ниже.
+
+++++
+ <link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    width: 90%;
+    padding-left: 15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/sergio_89@ukr.net">
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Ваш email" style="width: 320px;">
+        </div>
+    </div>
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;">
+            </div>
+    </div>
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:" style="resize: none;"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
+</form>
+</div>
+++++
