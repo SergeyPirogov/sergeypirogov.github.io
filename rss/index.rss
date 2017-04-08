@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 1 Apr 2017 17:05:49 +0000</pubDate>
-    <lastBuildDate>Sat, 1 Apr 2017 17:05:49 +0000</lastBuildDate>
+    <pubDate>Sat, 8 Apr 2017 07:52:57 +0000</pubDate>
+    <lastBuildDate>Sat, 8 Apr 2017 07:52:57 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -1179,7 +1179,7 @@ public @interface FlakyTest {}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;iframe src=&quot;https://player.vimeo.com/video/197670207&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/jT_jm5GsFnw?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
           </content:encoded>
