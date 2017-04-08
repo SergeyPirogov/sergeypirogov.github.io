@@ -1,0 +1,95 @@
+= Как писать проверки быстро
+Sergey Pirogov
+2017-04-08
+:jbake-type: post
+:jbake-tags: Java
+:jbake-summary: О способах ускорить процесс написания проверок в автотестах
+
+Сегодня продолжу говорить а том, как http://automation-remarks.com/2017/code-generation/index.html[писать автотесты быстро].
+Мы уже научились очень быстро и эффективно конвертировать REST ответы в Java объекты.
+
+Пришло время научиться так же быстро проверять данные, которые хранятся в этих самых объектах. Не так давно я приводил
+http://automation-remarks.com/davaitie-poghovorim-pro-asserty/index.html[подборку полезных библиотек] которые
+значительно упрощают процесс написания проверок в тестах.
+
+Еще пару лет назад, для написания ассертов, я активно использовл библиотеку http://www.vogella.com/tutorials/Hamcrest/article.html[Hamcrest Matchers].
+В принципе классная библиотека, каторая отлично справляется со своими задачами, пока дело не доходит до создания матчеров
+для своих кастомных классов.
+
+Вот к примеру у нас есть класс:
+
+```
+class User{
+    String name;
+    String password;
+    List<String> phoneNumbers;
+}
+```
+
+Используя Hamcrest, мы можем написать:
+
+```
+public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    assertThat(user.name, equalTo("name"))
+    assertThat(user.password, equalTo("test"))
+    assertThat(user.phoneNumbers, hasItem("+1(234)567"))
+}
+```
+Достаточно не плохо, если вам нужно написать такой код в одном тесте и для одного объекта. Hamcrest позволяет
+http://automation-remarks.com/custom-matcher/index.html[писать кастомные матчеры]. Но писать метчеры руками занятие достаточно унылое.
+Поверьте мне, я пробовал. Польза в этом одна - вы начинаете понимать, как библиотека работает внутри. Благо в Github
+можно найти https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator[утилиту] которая позволяет генерировать матчеры.
+
+Работает она достаточно просто: берем свой класс, ставим над нужными плями аннотацию `@GenerateMatcher`, запускаем генерилку
+и на выходе получаем готовые матчеры.
+
+Используя эту супер возможность мы можем написать такой код.
+
+```
+public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    assertThat(user, hasName("name"))
+    assertThat(user, hasPassword("test"))
+    assertThat(user, hasPhoneNumberItem("+1(234)567"))
+}
+```
+
+Достаточно хорошо, но вот это вот идти и руками ставить аннотации - скукотища. Да и генерилка работает только в связке с Maven.
+Можно сделать гораздо круче, но для этого нужно сменить хорошо знакомый Hamcrest на Assertj.
+
+Нужно отметить, что синтаксис http://joel-costigliola.github.io/assertj/[assertj] отличается от того, который мы писали с Hamcrest.
+Поэтому при переходе, вам нужно будет переписать много кода.
+
+Assertj тоже позволяет генерировать матчеры для Java классов, благо для этого есть плагины как для Maven так и для Gradle.
+В документации http://joel-costigliola.github.io/assertj/assertj-assertions-generator.html[достаточно хорошо описаны] способы подключеия плагинов.
+
+С помощью assertj assertion generator мы можем генерировать матчеры для любого класса, просто указав путь к пакету, без
+какой-либо надобности ставить дополнительные аннотации. Для меня это является критически важным, так как не всегда есть возможность
+менять код доменных объектов.
+
+Давайте посмотрим, как меняется код тестов при использовании assertj:
+
+```
+public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    UserAssert.assertThat(user)
+                .hasName("user")
+                .hasPassword("test")
+                .hasPhoneNumberItem("+1(234)567");
+}
+```
+
+Чем такой подход круче?
+
+Вы генерируете 80% кода автоматически. Остается написать вызов нужных методов RestAssured и соответствующих проверок.
+В случае если ваша доменная модель меняется скажем, какое-то поле удаляется или меняет тип, все что нужно будет сделать -
+это вызывать **./gradlew generateJsonSchema2Pojo assertjGen** и код автоматически обновится. Вам нужно будет немного подправить тесты.
+Я такой подход успешно использую на своем текущем проекте - работает просто шикарно, рекомндую попробовать - вам понравится.
+
+
+
+
