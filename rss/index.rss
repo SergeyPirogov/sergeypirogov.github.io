@@ -14,9 +14,127 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 8 Apr 2017 07:52:57 +0000</pubDate>
-    <lastBuildDate>Sat, 8 Apr 2017 07:52:57 +0000</lastBuildDate>
+    <pubDate>Sat, 8 Apr 2017 18:13:16 +0000</pubDate>
+    <lastBuildDate>Sat, 8 Apr 2017 18:13:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Как писать проверки быстро
+          </title>
+          <link>http://automation-remarks.com/2017/assert-generation/index.html</link>
+          <pubDate>Sat, 8 Apr 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/assert-generation/index.html</guid>
+          <description>
+                        О способах ускорить процесс написания проверок в автотестах
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сегодня продолжу разговор о том, как &lt;a href=&quot;http://automation-remarks.com/2017/code-generation/index.html&quot;&gt;писать автотесты быстро&lt;/a&gt;.
+Мы уже разобрались, как очень быстро и эффективно конвертировать REST ответы в Java объекты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пришло время научиться так же быстро проверять данные, которые хранятся в этих объектах. Не так давно я делился
+&lt;a href=&quot;http://automation-remarks.com/davaitie-poghovorim-pro-asserty/index.html&quot;&gt;подборкой полезных библиотек&lt;/a&gt;, которые
+значительно упрощают процесс написания проверок в тестах.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще пару лет назад для написания ассертов я активно использовал библиотеку &lt;a href=&quot;http://www.vogella.com/tutorials/Hamcrest/article.html&quot;&gt;Hamcrest Matchers&lt;/a&gt;.
+Классная библиотека, которая отлично справляется со своими задачами, пока дело не доходит до создания матчеров
+для своих кастомных классов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот, к примеру, у нас есть класс:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class User{
+    String name;
+    String password;
+    List&amp;lt;String&amp;gt; phoneNumbers;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Используя Hamcrest, мы можем написать:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public void testUserInfo(){
+    User user = when().get(&quot;/users&quot;).then().extract().response().as(User.class);
+
+    assertThat(user.name, equalTo(&quot;name&quot;))
+    assertThat(user.password, equalTo(&quot;test&quot;))
+    assertThat(user.phoneNumbers, hasItem(&quot;+1(234)567&quot;))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Достаточно неплохо, если вам нужно написать такой код в одном тесте и для одного объекта. Hamcrest позволяет
+&lt;a href=&quot;http://automation-remarks.com/custom-matcher/index.html&quot;&gt;писать кастомные матчеры&lt;/a&gt;. Но писать матчеры руками - занятие унылое.
+Поверьте мне, я пробовал. Польза в этом одна: вы начинаете понимать, как библиотека работает внутри. Благо, в Github
+можно найти &lt;a href=&quot;https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator&quot;&gt;утилиту&lt;/a&gt;, которая позволяет генерировать матчеры.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Работает она достаточно просто: берем свой класс, ставим над нужными полями аннотацию &lt;code&gt;@GenerateMatcher&lt;/code&gt;, запускаем генерилку
+и на выходе получаем готовые матчеры.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Используя эту супервозможность, мы можем написать такой код:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public void testUserInfo(){
+    User user = when().get(&quot;/users&quot;).then().extract().response().as(User.class);
+
+    assertThat(user, hasName(&quot;name&quot;))
+    assertThat(user, hasPassword(&quot;test&quot;))
+    assertThat(user, hasPhoneNumberItem(&quot;+1(234)567&quot;))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хорошо. Но идти и руками ставить аннотации - скукотища! Да и генерилка работает только в связке с Maven.
+Можно сделать гораздо круче, но для этого нужно сменить знакомый нам Hamcrest на Assertj.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отмечу, что синтаксис &lt;a href=&quot;http://joel-costigliola.github.io/assertj/&quot;&gt;assertj&lt;/a&gt; отличается от того, который мы писали с Hamcrest.
+Поэтому при переходе вам нужно будет переписать много кода.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Assertj тоже позволяет генерировать матчеры для Java классов. Радует, что для этого есть плагины как для Maven, так и для Gradle.
+В документации &lt;a href=&quot;http://joel-costigliola.github.io/assertj/assertj-assertions-generator.html&quot;&gt;достаточно хорошо описаны&lt;/a&gt; способы подключения плагинов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С помощью assertj assertion generator мы можем генерировать матчеры для любого класса, просто указав путь к пакету, без
+какой-либо надобности ставить дополнительные аннотации. Для меня это архиважно, так как не всегда есть возможность
+менять код доменных объектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте посмотрим, как изменится код тестов при использовании assertj:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public void testUserInfo(){
+    User user = when().get(&quot;/users&quot;).then().extract().response().as(User.class);
+
+    UserAssert.assertThat(user)
+                .hasName(&quot;user&quot;)
+                .hasPassword(&quot;test&quot;)
+                .hasPhoneNumberItem(&quot;+1(234)567&quot;);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Чем такой подход круче?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вы генерируете 80% кода автоматически. Остается написать вызов нужных методов RestAssured и соответствующих проверок.
+В случае, если ваша доменная модель меняется - скажем, какое-то поле удаляется или меняет тип - все, что нужно будет сделать, -
+это вызвать &lt;strong&gt;./gradlew generateJsonSchema2Pojo assertjGen&lt;/strong&gt; и код автоматически обновится. Вам останется немного подправить тесты.
+Я такой подход успешно использую на своем текущем проекте - работает просто шикарно. Рекомендую попробовать - вам понравится.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как писать автотесты быстро

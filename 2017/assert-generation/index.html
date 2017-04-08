@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Замечательный каталог рефакторинга</title>
+    <title>Как писать проверки быстро</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Замечательный каталог рефакторинга">
+    <meta property="og:title" content="Как писать проверки быстро">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Совсем недавно решил окунуться в мир "правильного" рефакторинга."/>
+        	<meta property="og:description" content="О способах ускорить процесс написания проверок в автотестах"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -102,24 +102,118 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                01/03/2015
+                                08/04/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Замечательный каталог рефакторинга</h1>
+                        <h1 class="post-title">Как писать проверки быстро</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Совсем недавно решил окунуться в мир "правильного" рефакторинга. Зачастую так бывает: люди думают, что они умеют рефакторить правильно. Изменил пару строк, переименовал пару переменных - зарефакторил. Порешал как царь =). Но на самом деле по сравнению с настоящим рефакторингом - это всего лишь махание руками и трата драгоценного времени. Чтобы научиться рефакторить и узнать, зачем это делать, можно почитать книгу Фаулера - "Рефакторинг - улучшение существующего кода". А еще можно зайти на этот замечательный ресурс, в котором описаны основные проблемы - "запахи кода", а также советы по их устранению и улучшению существующего кода.</p>
+<p>Сегодня продолжу разговор о том, как <a href="http://automation-remarks.com/2017/code-generation/index.html">писать автотесты быстро</a>.
+Мы уже разобрались, как очень быстро и эффективно конвертировать REST ответы в Java объекты.</p>
+</div>
+<div class="paragraph">
+<p>Пришло время научиться так же быстро проверять данные, которые хранятся в этих объектах. Не так давно я делился
+<a href="http://automation-remarks.com/davaitie-poghovorim-pro-asserty/index.html">подборкой полезных библиотек</a>, которые
+значительно упрощают процесс написания проверок в тестах.</p>
+</div>
+<div class="paragraph">
+<p>Еще пару лет назад для написания ассертов я активно использовал библиотеку <a href="http://www.vogella.com/tutorials/Hamcrest/article.html">Hamcrest Matchers</a>.
+Классная библиотека, которая отлично справляется со своими задачами, пока дело не доходит до создания матчеров
+для своих кастомных классов.</p>
+</div>
+<div class="paragraph">
+<p>Вот, к примеру, у нас есть класс:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">http://refactoring.guru/ru/</code></pre>
+<pre class="prettyprint highlight"><code>class User{
+    String name;
+    String password;
+    List&lt;String&gt; phoneNumbers;
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Удачного рефакторинга!</p>
+<p>Используя Hamcrest, мы можем написать:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    assertThat(user.name, equalTo("name"))
+    assertThat(user.password, equalTo("test"))
+    assertThat(user.phoneNumbers, hasItem("+1(234)567"))
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Достаточно неплохо, если вам нужно написать такой код в одном тесте и для одного объекта. Hamcrest позволяет
+<a href="http://automation-remarks.com/custom-matcher/index.html">писать кастомные матчеры</a>. Но писать матчеры руками - занятие унылое.
+Поверьте мне, я пробовал. Польза в этом одна: вы начинаете понимать, как библиотека работает внутри. Благо, в Github
+можно найти <a href="https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator">утилиту</a>, которая позволяет генерировать матчеры.</p>
+</div>
+<div class="paragraph">
+<p>Работает она достаточно просто: берем свой класс, ставим над нужными полями аннотацию <code>@GenerateMatcher</code>, запускаем генерилку
+и на выходе получаем готовые матчеры.</p>
+</div>
+<div class="paragraph">
+<p>Используя эту супервозможность, мы можем написать такой код:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    assertThat(user, hasName("name"))
+    assertThat(user, hasPassword("test"))
+    assertThat(user, hasPhoneNumberItem("+1(234)567"))
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Хорошо. Но идти и руками ставить аннотации - скукотища! Да и генерилка работает только в связке с Maven.
+Можно сделать гораздо круче, но для этого нужно сменить знакомый нам Hamcrest на Assertj.</p>
+</div>
+<div class="paragraph">
+<p>Отмечу, что синтаксис <a href="http://joel-costigliola.github.io/assertj/">assertj</a> отличается от того, который мы писали с Hamcrest.
+Поэтому при переходе вам нужно будет переписать много кода.</p>
+</div>
+<div class="paragraph">
+<p>Assertj тоже позволяет генерировать матчеры для Java классов. Радует, что для этого есть плагины как для Maven, так и для Gradle.
+В документации <a href="http://joel-costigliola.github.io/assertj/assertj-assertions-generator.html">достаточно хорошо описаны</a> способы подключения плагинов.</p>
+</div>
+<div class="paragraph">
+<p>С помощью assertj assertion generator мы можем генерировать матчеры для любого класса, просто указав путь к пакету, без
+какой-либо надобности ставить дополнительные аннотации. Для меня это архиважно, так как не всегда есть возможность
+менять код доменных объектов.</p>
+</div>
+<div class="paragraph">
+<p>Давайте посмотрим, как изменится код тестов при использовании assertj:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>public void testUserInfo(){
+    User user = when().get("/users").then().extract().response().as(User.class);
+
+    UserAssert.assertThat(user)
+                .hasName("user")
+                .hasPassword("test")
+                .hasPhoneNumberItem("+1(234)567");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Чем такой подход круче?</p>
+</div>
+<div class="paragraph">
+<p>Вы генерируете 80% кода автоматически. Остается написать вызов нужных методов RestAssured и соответствующих проверок.
+В случае, если ваша доменная модель меняется - скажем, какое-то поле удаляется или меняет тип - все, что нужно будет сделать, -
+это вызвать <strong>./gradlew generateJsonSchema2Pojo assertjGen</strong> и код автоматически обновится. Вам останется немного подправить тесты.
+Я такой подход успешно использую на своем текущем проекте - работает просто шикарно. Рекомендую попробовать - вам понравится.</p>
 </div>
                     </section>
 
@@ -135,7 +229,7 @@
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="zamiechatielnyi-katalogh-riefaktoringha/index.html"
+                        data-href="2017/assert-generation/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -155,7 +249,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/assert-generation/index.html">Как писать проверки быстро</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/code-generation/index.html">Как писать автотесты быстро</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/pipenv/index.html">pipenv или замена pip + virtualenv</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/locators/index.html">Мой взгляд на "хорошие" локаторы в Selenium</a></li>
@@ -194,9 +287,9 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
