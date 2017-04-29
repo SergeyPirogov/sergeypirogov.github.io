@@ -1,0 +1,9 @@
+= JUnit 5 vs TestNG battle video
+2017-04-29
+:jbake-type: post
+:jbake-tags: Конференции
+:jbake-summary: Видео моего выступления с SeleniumCamp 2017
+
+Запись моего доклада:
+
+video::vRmVZV0fjK8[youtube]
