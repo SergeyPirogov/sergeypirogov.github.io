@@ -14,9 +14,30 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 8 Apr 2017 18:13:16 +0000</pubDate>
-    <lastBuildDate>Sat, 8 Apr 2017 18:13:16 +0000</lastBuildDate>
+    <pubDate>Sat, 29 Apr 2017 06:57:40 +0000</pubDate>
+    <lastBuildDate>Sat, 29 Apr 2017 06:57:40 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              JUnit 5 vs TestNG battle video
+          </title>
+          <link>http://automation-remarks.com/2017/selenium-camp-2017/index.html</link>
+          <pubDate>Sat, 29 Apr 2017 06:54:32 +0000</pubDate>
+          <guid isPermaLink="false">2017/selenium-camp-2017/index.html</guid>
+          <description>
+                        Видео моего выступления с SeleniumCamp 2017
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/vRmVZV0fjK8?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как писать проверки быстро
