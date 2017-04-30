@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 30 Apr 2017 10:11:52 +0000</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2017 10:11:52 +0000</lastBuildDate>
+    <pubDate>Sun, 30 Apr 2017 10:12:29 +0000</pubDate>
+    <lastBuildDate>Sun, 30 Apr 2017 10:12:29 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -236,7 +236,7 @@ test {
               JUnit 5 vs TestNG battle video
           </title>
           <link>http://automation-remarks.com/2017/selenium-camp-2017/index.html</link>
-          <pubDate>Sun, 30 Apr 2017 10:11:03 +0000</pubDate>
+          <pubDate>Sun, 30 Apr 2017 10:11:57 +0000</pubDate>
           <guid isPermaLink="false">2017/selenium-camp-2017/index.html</guid>
           <description>
                         Видео моего выступления с SeleniumCamp 2017
