@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Блеск и нищета Report Portal</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Блеск и нищета Report Portal">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="Об опенсорс проекте Report Portal"/>
+	
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter28753121 = new Ya.Metrika({
+                        id:28753121,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+    <div><img src="https://mc.yandex.ru/watch/28753121" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">
+	<script>var disqus="httpspirogovgithubio";</script>
+
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html" style="
+              width: 5em;
+          ">
+                      <span class="name">Видео</span>
+                    </a>
+          <a class="author_link" href="/archive.html" style="
+              width: 5em;
+          ">
+                      <span class="name">Архив</span>
+                    </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+          <a class="course_link" href="/course" style="
+              width: 7em;
+          ">
+                      <span class="name">Обучение</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="http://feeds.feedburner.com/automation-remarks"><i class="fa fa-rss"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                01/05/2017
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Блеск и нищета Report Portal</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>В этой заметке я опишу свои впечатления от использования <a href="https://rp.epam.com/ui/">Report Portal</a> - опенсорс проекта, который призван облегчить жизнь автоматизаторов.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://dev.by/ckeditor_assets/pictures/22979/content_rp_plate.png" alt="content rp plate">
+</div>
+</div>
+<div class="paragraph">
+<p>Что такое репорт портал?</p>
+</div>
+<div class="paragraph">
+<p>Смотрим, что говорят разработчики в <a href="http://reportportal.io/#documentation">документации</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>Report Portal is a service, it provides great capabilities for speeding up results
+analysis and reporting by means of built-in analytical features.
+Report Portal is the great addition to the
+Continuous Integration and Continuous Testing process.
+It seamlessly integrates with mainstream platforms such as Jenkins, Jira,
+BDD process, majority of Functional and Unit testing frameworks.
+Real-time integration allows to manage and track execution status directly from Report Portal.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Сервис, который ускоряет анализ результатов прогона автоматических тестов и предоставляет возможность репортинга. Звучит достаточно полезно.
+Может интегрироваться со всеми мейнстримными тулами и xUnit фреймворками - тоже многообещающе.</p>
+</div>
+<div class="paragraph">
+<p>Зачем я вообще на него смотрел?</p>
+</div>
+<div class="paragraph">
+<p>О репорт портале я слышал еще до того, как это стало мейнстримом. В сентябре 2016 года я пробовал запустить одну из первых версий, вышедных в open-source.
+Тогда мне не понравилось то, что портал потребляет очень много ресурсов (&gt;8GB RAM), да и интеграция с TestNG и Junit не выглядела так легко. Тогда я потратил примерно час,
+чтобы все поднять.</p>
+</div>
+<div class="paragraph">
+<p>Прошло уже прилично времени, вышла версия 3.0.0 и я, как технический лидер проекта, хотел выяснить, чем конкретно Report Portal может помочь нам, насколько сложно его поставить
+и сколько времени нужно потратить на интеграцию.</p>
+</div>
+<div class="paragraph">
+<p>Что из этого получилось? Давайте смотреть.</p>
+</div>
+<div class="paragraph">
+<p><em>Установка:</em></p>
+</div>
+<div class="paragraph">
+<p>Здесь все достаточно неплохо.</p>
+</div>
+<div class="paragraph">
+<p>Берем докер, делаем <code>docker-compose up</code>, ждем пару минут и сервис благополучно поднимается. Это, конечно, большой плюс. По этому пункту замечаний нет.</p>
+</div>
+<div class="paragraph">
+<p><em>Интеграция с xUnit фреймворками:</em></p>
+</div>
+<div class="paragraph">
+<p>Сначала я решил подключить портал к одному из проектов, написанных на Python + Pytest. В официальном репозитории есть соответсутвующий
+<a href="https://github.com/reportportal/agent-python-pytest">агент</a>, в котором сказано сделать следующее:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>pip install pytest-reportportal</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Не взлетело - завел <a href="https://github.com/reportportal/agent-python-pytest/issues/3">баг</a>. Такое поведение сразу отталкивает, но так как желание попробовать было выше обычного,
+я поставил его через Github:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>pip install git+https://github.com/reportportal/agent-python-pytest.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Дальше нужно создать <code>pytest.ini</code> файл:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>[pytest]
+mandatory fields
+rp_uuid = uid reportportal
+rp_endpoint = http://ip:port
+rp_project = Project of ReportPortal</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вот тут у меня есть замечание: в документации "очень мелким шрифтом" прописано, куда нужно пойти и взять эти вот значения.
+Это указано в документации к модулю для TestNG. Такой вот момент.</p>
+</div>
+<div class="paragraph">
+<p>Ну да ладно, давайте попробуем запустить тесты:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>py.test ./tests --rp-launch selene_blog_test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все классно: тесты пробегают, в портале создаются соответствующие записи.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/pytest_rp.png" alt="pytest rp">
+</div>
+</div>
+<div class="paragraph">
+<p>Однако, есть досадные минусы, которые пока что делают интеграцию портала с pytest практически бессмысленным занятием. Для упавших тестов нету ни стектрейса, ни причины падения.
+И это расходится со словами "provides great capabilities for speeding up results analysis".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/pytest_rp_no_trace.png" alt="pytest rp no trace">
+</div>
+</div>
+<div class="paragraph">
+<p>Я честно пытался понять, как их туда запихнуть. Про логи есть, а вот про такую стандартную вещь, как стектрейс, нету. Я уже не говорю о скриншотах.
+<strong>Allure умеет собирать такую информацию без лишних приседаний.</strong></p>
+</div>
+<div class="paragraph">
+<p>Мой вывод: пока что Report Portal для пайтон проектов бесполезен по причинам, указанным выше.
+Имея <strong>Jenkins</strong> и <strong>Allure</strong>, мы получаем всю нужную информацию без каких-либо накладных расходов.</p>
+</div>
+<div class="paragraph">
+<p>Затем я решил настроить Report Portal + TestNG.</p>
+</div>
+<div class="paragraph">
+<p>Весь процесс занял у меня 30 минут. В документации нету примера интеграции для проектов на <strong>Gradle</strong>. Из-за этого мне пришлось потратить определенное время на то, чтобы разобраться.</p>
+</div>
+<div class="paragraph">
+<p>Ниже описание <code>build.gradle</code> файла с настройками:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>apply plugin: 'java'
+
+repositories {
+    jcenter()
+    maven {
+        url  "http://dl.bintray.com/epam/reportportal"
+    }
+}
+
+dependencies {
+    compile 'com.epam.reportportal:agent-java-testng:3.0.0'
+    compile 'com.epam.reportportal:logger-java-logback:2.6.0'
+    compile 'com.epam.reportportal:logger-java-log4j:2.6.1'
+    compile group: 'org.testng', name: 'testng', version: '6.11'
+}
+
+test {
+    useTestNG()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В целом с TestNG все обстоит в разы лучше. Здесь и логи собираются, и стектрейсы. Однако, в документации не хватает явного примера крепления скриншотов для упавших тестов.
+За Java часть можно поставить зачет.</p>
+</div>
+<div class="paragraph">
+<p>Из хорошего:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Портал работает достаточно шустро;</p>
+</li>
+<li>
+<p>Красивый интерфейс;</p>
+</li>
+<li>
+<p>Есть возможность настроить информативные графики и фильтры.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Что имеем в итоге:
+Шероховатости заметны. Да, это опенсорс, но все же хотелось бы иметь plug&amp;play. Когда смотришь на презентации и скринкасты, все
+выглядит, как новый майбах&#8230;&#8203; но салон местами как у новой девятки =) На данный момент более предпочтительной я считаю связку <code>Jenkins + Allure</code>. Степень красивости,
+возможно, ниже, но информативность и легковесность выше.</p>
+</div>
+<div class="paragraph">
+<p>Киллер-фичей Report Portal является алгоритм, который умеет автоматически анализировать результаты фейлов
+и маркать их как баг/ не баг. Секунду! Allure умеет это делать еще с первых дней. Более того, для правильно построенной системы автоматизации время на разбор занимает пару минут, так
+как на своих проектах я предпочитаю принцип <code>Zero failed tests</code>. У нас не очень большой проект: суммарный объем тестов, которые пишут автоматизаторы, до 200. Мы стараемся всегда держать тесты зелеными и любой фейл становится причиной разбирательств.
+Именно поэтому такая штука, как репорт портал, нам не нужна.</p>
+</div>
+<div class="paragraph">
+<p>Кому может пригодиться Report Portal?</p>
+</div>
+<div class="paragraph">
+<p>Я думаю, что такую штуку нужно внедрять на проектах с оооочень большим объемом тестов и огромными командами,
+которые ковыряются в упавших тестах и тратят много времени на стабилизацию.</p>
+</div>
+<div class="paragraph">
+<p>Вот такие впечатления ОТ и выводы О Report Portal. Если вы уже успели его попробовать или успешно внедрили, пишите в комментариях - будем обсуждать и давать фидбек разработчикам. Ведь
+опенсорс успешным делает только комьюнити.
+В следующий раз в вам расскажу об инструменте <strong>Selenoid</strong>, но это уже будет совсем другая история. Па-па =)</p>
+</div>
+                    </section>
+
+                    <div class="social_buttons">
+                        <a href="https://twitter.com/s_pirogov" class="twitter-follow-button" data-show-count="false">Follow @s_pirogov</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8&appId=344312565764603";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like"
+                        data-href="2017/report-portal/index.html"
+                        data-width="100" data-layout="button_count"
+                        data-action="like"
+                        data-size="small"
+                        data-show-faces="true"
+                        data-share="true">
+                    </div>
+                    </div>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                            </div>
+                    </footer>
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2017/selenium-camp-2017/index.html">JUnit 5 vs TestNG battle video</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/assert-generation/index.html">Как писать проверки быстро</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/code-generation/index.html">Как писать автотесты быстро</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/pipenv/index.html">pipenv или замена pip + virtualenv</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/locators/index.html">Мой взгляд на "хорошие" локаторы в Selenium</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/sel-camp-2017-retro/index.html">SeleniumCamp 2017: ретроспектива</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
