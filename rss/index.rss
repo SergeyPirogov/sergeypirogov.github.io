@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 30 Apr 2017 10:07:25 +0000</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2017 10:07:25 +0000</lastBuildDate>
+    <pubDate>Sun, 30 Apr 2017 10:09:03 +0000</pubDate>
+    <lastBuildDate>Sun, 30 Apr 2017 10:09:03 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -223,7 +223,7 @@ test {
 которые ковыряются в упавших тестах и тратят много времени на стабилизацию.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Вот такие впечатления ОТ и выводы О Report Portal. Если вы уже успели его попробовать или успешно внедрили, пишите в комментариях - будем обсуждать и давать фидбек разработчикам. Ведь
+&lt;p&gt;Вот такие впечатления от Report Portal. Если вы уже успели его попробовать или успешно внедрили, пишите в комментариях - будем обсуждать и давать фидбек разработчикам. Ведь
 опенсорс успешным делает только комьюнити.
 В следующий раз в вам расскажу об инструменте &lt;strong&gt;Selenoid&lt;/strong&gt;, но это уже будет совсем другая история. Па-па =)&lt;/p&gt;
 &lt;/div&gt;
@@ -234,7 +234,7 @@ test {
               JUnit 5 vs TestNG battle video
           </title>
           <link>http://automation-remarks.com/2017/selenium-camp-2017/index.html</link>
-          <pubDate>Sun, 30 Apr 2017 10:06:54 +0000</pubDate>
+          <pubDate>Sun, 30 Apr 2017 10:08:33 +0000</pubDate>
           <guid isPermaLink="false">2017/selenium-camp-2017/index.html</guid>
           <description>
                         Видео моего выступления с SeleniumCamp 2017
