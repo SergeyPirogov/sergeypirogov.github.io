@@ -3,6 +3,7 @@ Sergey Pirogov
 2017-05-01
 :jbake-type: post
 :jbake-tags: Java
+:jbake-featured: true
 :jbake-summary: Об опенсорс проекте Report Portal
 
 В этой заметке я опишу свои впечатления от использования https://rp.epam.com/ui/[Report Portal] - опенсорс проекта, который призван облегчить жизнь автоматизаторов.
