@@ -14,9 +14,30 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 30 Apr 2017 10:12:29 +0000</pubDate>
-    <lastBuildDate>Sun, 30 Apr 2017 10:12:29 +0000</lastBuildDate>
+    <pubDate>Sun, 7 May 2017 14:06:11 +0000</pubDate>
+    <lastBuildDate>Sun, 7 May 2017 14:06:11 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              JUnit 5 vs TestNG battle video
+          </title>
+          <link>http://automation-remarks.com/2017/selenium-camp-2017/index.html</link>
+          <pubDate>Sun, 7 May 2017 14:04:39 +0000</pubDate>
+          <guid isPermaLink="false">2017/selenium-camp-2017/index.html</guid>
+          <description>
+                        Видео моего выступления с SeleniumCamp 2017
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/vRmVZV0fjK8?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Блеск и нищета Report Portal
@@ -233,22 +254,125 @@ test {
         </item>
         <item>
           <title>
-              JUnit 5 vs TestNG battle video
+              Аттачим RestAssured логи к Allure
           </title>
-          <link>http://automation-remarks.com/2017/selenium-camp-2017/index.html</link>
-          <pubDate>Sun, 30 Apr 2017 10:11:57 +0000</pubDate>
-          <guid isPermaLink="false">2017/selenium-camp-2017/index.html</guid>
+          <link>http://automation-remarks.com/2017/rest-assured-allure-log/index.html</link>
+          <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/rest-assured-allure-log/index.html</guid>
           <description>
-                        Видео моего выступления с SeleniumCamp 2017
+                        О том как прикрепить логи к отчету
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Запись моего доклада:&lt;/p&gt;
+&lt;p&gt;История о том, как прикрепить логи к отчету и сделать всем счастливыми. Эта заметка является
+продолжением серии о &lt;a href=&quot;http://automation-remarks.com/2017/code-generation/index.html&quot;&gt;быстром написании тестов&lt;/a&gt;
+и &lt;a href=&quot;http://automation-remarks.com/2017/assert-generation/index.html&quot;&gt;проверок&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В свободное от работы время я занимаюсь &lt;a href=&quot;http://automation-remarks.com/course/&quot;&gt;консультациями&lt;/a&gt; по вопросам
+построения автоматизации тестирования. Вот однажды ко мне пришли с вопросом возможности
+прикреплять к Allure отчетам логов от RestAssured. Так как на просторах интеренета сложно
+найти качественный пример реализации, я решил поделиться решением данной задачи.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По-умолчанию RestAssured выводит логи в консоль, но существует механизм перехвата с помощью фильтров.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;iframe src=&quot;https://www.youtube.com/embed/vRmVZV0fjK8?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, printStream),
+        new RequestLoggingFilter(LogDetail.ALL, printStream));&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот именно этот механизм мы и можем использовать для своих целей.
+Для того, чтобы прикреплять логи к отчетам, нам нужно написать TestNG лисенер:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public class LogListener implements ITestListener {
+  private ByteArrayOutputStream request = new ByteArrayOutputStream();
+  private ByteArrayOutputStream response = new ByteArrayOutputStream();
+
+  private PrintStream requestVar = new PrintStream(request, true);
+  private PrintStream responseVar = new PrintStream(response, true);
+
+
+  public void onStart(ITestContext iTestContext) {
+    RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, responseVar),
+            new RequestLoggingFilter(LogDetail.ALL, requestVar));
+  }
+
+  public void onTestSuccess(ITestResult iTestResult) {
+    logRequest(request);
+    logResponse(response);
+  }
+
+  public void onTestFailure(ITestResult iTestResult) {
+      onTestSuccess(iTestResult)
+  }
+
+  @Attachment(value = &quot;request&quot;)
+  public byte[] logRequest(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  @Attachment(value = &quot;response&quot;)
+  public byte[] logResponse(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  public byte[] attach(ByteArrayOutputStream log) {
+    byte[] array = log.toByteArray();
+    log.reset();
+    return array;
+  }
+
+  public void onTestStart(ITestResult iTestResult) {
+  }
+
+  public void onTestSkipped(ITestResult iTestResult) {
+
+  }
+
+  public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+
+  }
+
+  public void onFinish(ITestContext iTestContext) {
+
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Собственно теперь нужно просто использовать этот листнере в своих тестах:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Listeners(LogListener.class)
+class SignInTest {
+
+   @Test
+   public void testCanSignIn(){
+       CredentialsForResetPass credentialsRes = new CredentialsForResetPass(&quot;test@mail.com&quot;);
+       given()
+               .contentType(&quot;application/json&quot;)
+               .body(credentialsRes)
+               .when()
+               .post(&quot;http://localhost:8085/auth/reset&quot;)
+               .then()
+               .assertThat()
+               .statusCode(200)
+               .and()
+               .assertThat().body(&quot;code&quot;, equalTo(&quot;OK&quot;));
+   }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь выши логи будут отображаться в виде аттачментов к тестам. Я на своем проекте
+тоже использую такой подход - это позволяет значительно упростить жизнь, так как в случае
+ошибки вся команда знает, что нужная информация храниться в отчете.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
