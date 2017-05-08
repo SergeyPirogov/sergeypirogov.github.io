@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>&quot;Правильный&quot; тестовый фреймворк</title>
+    <title>Аттачим RestAssured логи к Allure</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="&quot;Правильный&quot; тестовый фреймворк">
+    <meta property="og:title" content="Аттачим RestAssured логи к Allure">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Несколько мыслей о том, каким должен быть "правильный" тестовый фреймворк."/>
+        	<meta property="og:description" content="О том как прикрепить логи к отчету"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -102,33 +102,124 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                22/02/2015
+                                30/04/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">&quot;Правильный&quot; тестовый фреймворк</h1>
+                        <h1 class="post-title">Аттачим RestAssured логи к Allure</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Несколько мыслей о том, каким должен быть "правильный" тестовый фреймворк.</p>
+<p>История о том, как прикрепить логи к отчету и сделать всем счастливыми. Эта заметка является
+продолжением серии о <a href="http://automation-remarks.com/2017/code-generation/index.html">быстром написании тестов</a>
+и <a href="http://automation-remarks.com/2017/assert-generation/index.html">проверок</a>.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>В свободное от работы время я занимаюсь <a href="http://automation-remarks.com/course/">консультациями</a> по вопросам
+построения автоматизации тестирования. Вот однажды ко мне пришли с вопросом возможности
+прикреплять к Allure отчетам логов от RestAssured. Так как на просторах интеренета сложно
+найти качественный пример реализации, я решил поделиться решением данной задачи.</p>
+</div>
+<div class="paragraph">
+<p>По-умолчанию RestAssured выводит логи в консоль, но существует механизм перехвата с помощью фильтров.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="http://www.ymag.it/wp-content/uploads/2014/11/robot_in_movimento.jpg" alt="robot in movimento">
+<pre class="prettyprint highlight"><code>RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, printStream),
+        new RequestLoggingFilter(LogDetail.ALL, printStream));</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>По моему мнению, степень правильности определяется исходя из требований и задач, которые должен будет выполнять фреймворк. К примеру, если на проекте есть и веб-сервисы и UI часть, то при написании фреймворка для UI тестирования следовало бы изначально закладывать возможность создавать предусловия для тестов используя веб-серввисы. Если же возможности такой нету, то просто делайте архитектуру для UI тестирования.
-Чаще всего начинающие автоматизаторы совершают большую ошибку - делаем, как получается, а потом будем рефакторить. Зачастую это самое "потом" не наступает. Но все же давайте мыслить структурировано: фреймворк должен быть модульным. Если вы пишите фреймворк на объектно-ориентированном языке ( <strong>Java,C#,Python</strong> ), то вы обязаны выделять функциональности и "отделять мух от котлет". В противном случае будет "макаронный код", а к нему в придачу большие затраты на поддержку тестов и всей инфраструктуры. Модульный фреймворк можно сравнить с конструктором лего.</p>
+<p>Вот именно этот механизм мы и можем использовать для своих целей.
+Для того, чтобы прикреплять логи к отчетам, нам нужно написать TestNG лисенер:</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="http://www.euromag.ru/storage/c/2010/09/15/1284538112,397574_86.jpg" alt="1284538112,397574 86">
+<pre class="prettyprint highlight"><code>public class LogListener implements ITestListener {
+  private ByteArrayOutputStream request = new ByteArrayOutputStream();
+  private ByteArrayOutputStream response = new ByteArrayOutputStream();
+
+  private PrintStream requestVar = new PrintStream(request, true);
+  private PrintStream responseVar = new PrintStream(response, true);
+
+
+  public void onStart(ITestContext iTestContext) {
+    RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, responseVar),
+            new RequestLoggingFilter(LogDetail.ALL, requestVar));
+  }
+
+  public void onTestSuccess(ITestResult iTestResult) {
+    logRequest(request);
+    logResponse(response);
+  }
+
+  public void onTestFailure(ITestResult iTestResult) {
+      onTestSuccess(iTestResult)
+  }
+
+  @Attachment(value = "request")
+  public byte[] logRequest(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  @Attachment(value = "response")
+  public byte[] logResponse(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  public byte[] attach(ByteArrayOutputStream log) {
+    byte[] array = log.toByteArray();
+    log.reset();
+    return array;
+  }
+
+  public void onTestStart(ITestResult iTestResult) {
+  }
+
+  public void onTestSkipped(ITestResult iTestResult) {
+
+  }
+
+  public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+
+  }
+
+  public void onFinish(ITestContext iTestContext) {
+
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Когда есть такие маленкие блоки, как <strong>PageObject</strong>, <strong>DataProvider</strong>,<strong>DAO</strong>, <strong>BaseTest</strong> class, собрать из этого всего фреймворк может даже джуниор, который пришел к вам на проект пару недель назад. Еще одно преимущество модульности в том, что вы легко можете заменить один элемент на другой, поменяв реализацию либо инструмент. Модульность дает вам гораздо больший радиус поворота. Скажем, когда у вас на проекте 15 - 20 тестовых сценариев, то вы можете не задумываясь в них ковыряться и тратить по 15-20 минут в день на поддержку, а вот когда их становится 1500-2000, то тут начинаются пляски с бубном, сопли и визги: "какой же хреновый у нас фреймворк, че ж мы раньше-то не делали хорошо, сейчас уже поздно&#8230;&#8203;" Так вот, чтобы избежать такой ситуации, мой вам совет перед началом разработки фреймворка: подумайте, выделите основные части, запрограммируйте их в виде модулей, напишите пару тестов на конкретные функциональности, поэкспериментируйте, найдите свой рецепт успеха. Лично мой опыт показывает, что модульный фреймворк выигрывает у "макаронного кода" по всем параметрам.</p>
+<p>Собственно теперь нужно просто использовать этот листнере в своих тестах:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>@Listeners(LogListener.class)
+class SignInTest {
+
+   @Test
+   public void testCanSignIn(){
+       CredentialsForResetPass credentialsRes = new CredentialsForResetPass("test@mail.com");
+       given()
+               .contentType("application/json")
+               .body(credentialsRes)
+               .when()
+               .post("http://localhost:8085/auth/reset")
+               .then()
+               .assertThat()
+               .statusCode(200)
+               .and()
+               .assertThat().body("code", equalTo("OK"));
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь выши логи будут отображаться в виде аттачментов к тестам. Я на своем проекте
+тоже использую такой подход - это позволяет значительно упростить жизнь, так как в случае
+ошибки вся команда знает, что нужная информация храниться в отчете.</p>
 </div>
                     </section>
 
@@ -144,7 +235,7 @@
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="pravilnyi-tiestovyi-frieimvork/index.html"
+                        data-href="2017/rest-assured-allure-log/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -155,8 +246,8 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
                             </div>
                     </footer>
 
@@ -204,9 +295,9 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
