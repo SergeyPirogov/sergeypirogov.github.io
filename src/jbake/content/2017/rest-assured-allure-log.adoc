@@ -4,6 +4,7 @@ Sergey Pirogov
 :jbake-type: post
 :jbake-tags: Java, Тестовый фреймворк
 :jbake-summary: О том как прикрепить логи к отчету
+:jbake-status: draft
 
 История о том, как прикрепить логи к отчету и сделать всем счастливыми. Эта заметка является
 продолжением серии о http://automation-remarks.com/2017/code-generation/index.html[быстром написании тестов]
