@@ -37,13 +37,7 @@
 		<a class='sftru' href="http://software-testing.ru/about/blogs" target="_blank">
 			<img src="http://software-testing.ru/images/stru_blog_banner.gif" border="0" width="88" height="60" alt="Software-Testing.Ru" />
 		</a>
-		<!-- Yandex.Metrika informer -->
-        <a href="https://metrika.yandex.ru/stat/?id=28753121&amp;from=informer"
-        target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/28753121/3_0_FFFFFFFF_FFFFFFFF_0_pageviews"
-        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="28753121" data-lang="ru" /></a>
-        <!-- /Yandex.Metrika informer -->
-
-		<span class='readers'>Нас читает <span class='users'></span></span>
+		<span class='readers'>Нас читает <span class='users'>74070</span></span>
 	</div>
 
 <#include "footer.ftl">
