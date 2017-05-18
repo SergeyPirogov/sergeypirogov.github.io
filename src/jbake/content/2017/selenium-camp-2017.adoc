@@ -2,7 +2,7 @@
 Sergey Pirogov
 2017-04-29
 :jbake-type: post
-:jbake-tags: Конференции
+:jbake-tags: Конференции, Видео
 :jbake-summary: Видео моего выступления с SeleniumCamp 2017
 
 Запись моего доклада:
