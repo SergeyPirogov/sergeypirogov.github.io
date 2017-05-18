@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Lettuce Python</title>
+    <title>Запись воркшопа Automation in Action</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Lettuce Python">
+    <meta property="og:title" content="Запись воркшопа Automation in Action">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="О BDD для Python"/>
+        	<meta property="og:description" content="Запись воркшопа"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,130 +82,22 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                21/03/2015
+                                18/05/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Lettuce Python</h1>
+                        <h1 class="post-title">Запись воркшопа Automation in Action</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Готовился я как-то к презентации по Behaviour Driven Development, готовил практические примеры по различным тулам и решил показать пример того как можно реализовать BDD с помощью Python. Посмотрел на Behave и на Lettuce см тут. Мой выбор пал на второй инструмент, не знаю почему, видимо потому что тесты писать проще и быстрее. Дабы не быть голословным приведу пример. Начнем с установки. Ставим Python <strong>2.7 (Это ВАЖНО - на Python 3 работать не будет)</strong>. Ставим lettuce и selenium:</p>
+<p>Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
+написав письмо на <a href="mailto:automationremarks@gmail.com">automationremarks@gmail.com</a>.</p>
 </div>
-<div class="listingblock">
+<div class="videoblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">pip install lettuce
-pip install selenium
-pip install PyHumcrest</code></pre>
+<iframe src="https://www.youtube.com/embed/QYA2V4gVGk4?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
-</div>
-<div class="paragraph">
-<p>Создадим иерархию папок:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">lettuce_demo
-    | features</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В корневом каталоге создадим файлик <strong>terrain.py</strong>, он будет содержать команды, которые будут выполнять на разных стадиях исполнения тестов, в данном случае файл имеет такое содержание:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import before, after, world
-from selenium import webdriver
-from mapping import site_mapping
-
-
-@before.each_feature
-def setup(server):
-    world.browser = webdriver.Firefox()
-    world.mapping = site_mapping
-
-
-@after.all
-def tear_down(total):
-    world.browser.close()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Затем, в корне,создаем файл <strong>mapping.py</strong>. Этой файл содержит локаторы элементов, такой себе <strong>PageObject</strong>, только необычный:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">host_url = "http://pn.com.ua"
-
-site_mapping = {
-    "pc_search": {
-        "url": host_url,
-        "computers": ".//*[@id='page-content-wrap']/div/div[1]/div/h1[1]/a",
-        "notebook": ".//*[@id='page-content-wrap']/div[3]/div[1]/div/div[2]/a",
-        "model_number": ".//*[@id='page-content-wrap']/div[3]/div[1]/div[1]/div/div[2]/div[1]/b"
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В локаторых можно использовать как <strong>XPath</strong> так и СSS Selectors.
-В папке features создаем <strong>pc.feature</strong> - этот файл содержит описание теста.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Feature: search
-  Scenario: Search pc
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "2703" in "model_number"
-
-  Scenario: Search pc fail
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "27012" in "model_number"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В создаем <strong>features/steps.py</strong> - файл содержит описания шагов, используемых в <strong>*.feature</strong> файлах</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import step, world
-from hamcrest import *
-
-@step(r'Open "(.*)" page')
-def should_open_main_page(step, page):
-    world.current_page = world.mapping[page]
-    world.browser.get(world.current_page['url'])
-
-@step(u'Click "([^"]*)"')
-def click_group1(step, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    el.click()
-
-@step(u'See "([^"]*)" in "([^"]*)"')
-def see_group1_in_group2(step, text, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    assert_that(el.text, equal_to(text))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Вот и все. В консоли в корне проекта пишем: <strong>lettuce</strong> - вуаля видим как запускается браузер и проходят тесты.</p>
-</div>
-<div class="paragraph">
-<p><strong>Вывод:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Lettuce могут использовать как тестировщики так и разработчики.</p>
-</li>
-<li>
-<p>Высокая устойчивость к изменениям в верстке и структуре сайта в целом благодоря mapping.py</p>
-</li>
-</ul>
 </div>
                     </section>
 
@@ -221,7 +113,7 @@ def see_group1_in_group2(step, text, element):
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="lettuce-python/index.html"
+                        data-href="2017/workshop-online/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -232,8 +124,8 @@ def see_group1_in_group2(step, text, element):
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Python.html">Python</a>
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
                             </div>
                     </footer>
 
@@ -243,7 +135,6 @@ def see_group1_in_group2(step, text, element):
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/2017/selenium-camp-2017/index.html">JUnit 5 vs TestNG battle video</a></li>
-                                                <li><a class='js-ajax-link' href="/2017/workshop-online/index.html">Запись воркшопа Automation in Action</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/report-portal/index.html">Блеск и нищета Report Portal</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/rest-assured-allure-log/index.html">Аттачим RestAssured логи к Allure</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/assert-generation/index.html">Как писать проверки быстро</a></li>
@@ -281,9 +172,9 @@ def see_group1_in_group2(step, text, element):
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
