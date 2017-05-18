@@ -1,6 +1,6 @@
 = Аттачим RestAssured логи к Allure
 Sergey Pirogov
-2017-04-30
+2017-05-05
 :jbake-type: post
 :jbake-tags: Java, Тестовый фреймворк
 :jbake-summary: О том, как прикрепить логи к отчету
