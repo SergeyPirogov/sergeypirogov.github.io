@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Создаем виртуальную машину в три шага</title>
+    <title>Fast and robust test automation with Selene + Python</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Создаем виртуальную машину в три шага">
+    <meta property="og:title" content="Fast and robust test automation with Selene + Python">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Заметка о том, как можно coздавать виртуалки."/>
+        	<meta property="og:description" content="Мастер-класс"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,56 +82,19 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                09/08/2015
+                                21/05/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Создаем виртуальную машину в три шага</h1>
+                        <h1 class="post-title">Fast and robust test automation with Selene + Python</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хоу-хоу. Новая заметка не заставила себя ждать. Наверняка всем автоматизаторам известна проблема создания тестровых окружений для прогона тестов. Большинство из нас использует для прогона автотестов виртуальные машины. Я зачастую использую <strong>VirtualBox</strong>. Если вы хоть раз пробовали создать виртуалку с нуля, то, вероятно, знаете, что это требует затрат времени и сил. В этой заметке я покажу, как просто и быстро создавать тестовые окружения с помощью инструмента <strong>Vagrant</strong>.</p>
+<p>На этом мастер-классе я покажу на реальном примере, как можно построить систему автоматизированного тестирования с использованием стека, описанного в названии доклада. Посетителей ждет два часа хардкора и много кода на Python. Мастер-класс будет полезен инженерам различного уровня, так как я покажу свой опыт в построении автоматизации тестирования на проектах. Новички увидят на деле работу с технологиями, старички увидят, как мы используем Travis, Docker и Allure 2.</p>
 </div>
 <div class="paragraph">
-<p>Идея вагранта очень проста: он основывается на наличии готовых базовых образов. В оригинале они называются - <strong>box</strong>. The Tao of Vagrant содержит несколько простых принципов, которые гарантируют то, что созданная вами виртуальная машина будет работать на любой операционной системе: Mac OS, Windows, Linux.</p>
-</div>
-<div class="paragraph">
-<p>Начнем работать с <strong>Vagrant</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Шаг 1: Установка</strong></p>
-</div>
-<div class="paragraph">
-<p>Нам потребуется установить <strong>VirtualBox</strong> и собственно <strong>Vagrant</strong>. Скачиваем нужный инсталятор и устанавливаем. Инструкция по установке VirtualBox <a href="http://www.windxp.com.ru/article9.htm">здесь</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Шаг 2: Скачиваем готовый box</strong></p>
-</div>
-<div class="paragraph">
-<p>Открываем консоль и выполняем команды:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vm
-cd vm
-vagrant box add hashicorp/precise32
-vagrant init hashicorp/precise32</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Шаг 3: Запускаем виртуальную машину:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">vagrant up</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Через несколько секунд у вас поднимется готовая виртуальная машина.</p>
-</div>
-<div class="paragraph">
-<p>Вот так, затратив всего 10 минут, вы получаете полностью готовую к работе виртуальную машину. Попробуйте - вам понравится. В следующих заметках я покажу, как продолжить настройку созданной машины. Как создавать свои машины, запаковывать их и делиться ими с коллегами по команде. Подписывайтесь, чтобы держать руку на пульсе.</p>
+<p>Всех интересующихся прошу присылать заявки на почту <a href="mailto:automationremarks@gmail.com">automationremarks@gmail.com</a></p>
 </div>
                     </section>
 
@@ -147,7 +110,7 @@ vagrant init hashicorp/precise32</code></pre>
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like"
-                        data-href="vagrant/index.html"
+                        data-href="2017/python-selene-workshop/index.html"
                         data-width="100" data-layout="button_count"
                         data-action="like"
                         data-size="small"
@@ -158,8 +121,8 @@ vagrant init hashicorp/precise32</code></pre>
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                                     <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
                             </div>
                     </footer>
 
@@ -168,7 +131,6 @@ vagrant init hashicorp/precise32</code></pre>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/python-selene-workshop/index.html">Fast and robust test automation with Selene + Python</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/workshop-online/index.html">Запись воркшопа Automation in Action</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/rest-assured-allure-log/index.html">Аттачим RestAssured логи к Allure</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/report-portal/index.html">Блеск и нищета Report Portal</a></li>
@@ -207,9 +169,9 @@ vagrant init hashicorp/precise32</code></pre>
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/index.min.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
