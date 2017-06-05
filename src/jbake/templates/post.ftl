@@ -26,6 +26,8 @@
                     </section>
 
                     <div class="sharethis-inline-share-buttons"></div>
+                    <div class="sharethis-inline-reaction-buttons"></div>
+
 
                     <footer class="post-footer">
                         <#if content.tags??>
