@@ -25,26 +25,7 @@
                         ${content.body}
                     </section>
 
-                    <div class="social_buttons">
-                        <a href="https://twitter.com/s_pirogov" class="twitter-follow-button" data-show-count="false">Follow @s_pirogov</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                    <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) return;
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.8&appId=344312565764603";
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-like"
-                        data-href="${content.uri}"
-                        data-width="100" data-layout="button_count"
-                        data-action="like"
-                        data-size="small"
-                        data-show-faces="true"
-                        data-share="true">
-                    </div>
-                    </div>
+                    <div class="sharethis-inline-share-buttons"></div>
 
                     <footer class="post-footer">
                         <#if content.tags??>

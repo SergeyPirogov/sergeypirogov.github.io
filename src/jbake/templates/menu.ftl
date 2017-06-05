@@ -27,6 +27,6 @@
           <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
           <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
           <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
-          <a class="rss" href="http://feeds.feedburner.com/automation-remarks"><i class="fa fa-rss"></i></a>
+          <a class="rss" href="http://104.198.254.124:3000"><i class="fa fa-slack"></i></a>
         </div>
 </nav>

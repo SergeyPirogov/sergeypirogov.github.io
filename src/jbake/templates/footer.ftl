@@ -10,5 +10,6 @@
     <script type="text/javascript" src="${content.rootpath}../js/script.js" async="async"></script>
     <script type="text/javascript" src="${content.rootpath}../js/index.min.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=593544852e01ff00121c6783&product=inline-share-buttons"></script>
 </body>
 </html>
