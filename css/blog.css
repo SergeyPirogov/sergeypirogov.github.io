@@ -72,6 +72,10 @@ article div.inner {
     background: white;
 }
 
+#mc_embed_signup{
+    margin-bottom: 25px;
+}
+
 .post-footer {
     margin: 0em 0;
 }
