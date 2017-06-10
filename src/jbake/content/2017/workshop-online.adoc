@@ -2,7 +2,7 @@
 Sergey Pirogov
 2017-05-18
 :jbake-type: post
-:jbake-tags: Java, Тестовый фреймворк
+:jbake-tags: Java, Тестовый фреймворк, Видео
 :jbake-summary: Запись воркшопа
 :jbake-status: published
 
