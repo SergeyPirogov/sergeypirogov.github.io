@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 10 Jun 2017 09:11:27 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Jun 2017 09:11:27 +0000</lastBuildDate>
+    <pubDate>Sat, 10 Jun 2017 09:14:10 +0000</pubDate>
+    <lastBuildDate>Sat, 10 Jun 2017 09:14:10 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -488,11 +488,7 @@ test {
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Запись моего доклада:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;videoblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;iframe src=&quot;https://www.youtube.com/embed/vRmVZV0fjK8?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/vRmVZV0fjK8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
         <item>
