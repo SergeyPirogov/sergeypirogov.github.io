@@ -7,4 +7,6 @@ Sergey Pirogov
 
 Запись моего доклада:
 
-video::vRmVZV0fjK8[youtube]
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vRmVZV0fjK8" frameborder="0" allowfullscreen></iframe>
+++++
