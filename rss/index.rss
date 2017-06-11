@@ -14,9 +14,119 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 10 Jun 2017 09:14:10 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Jun 2017 09:14:10 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Jun 2017 12:14:16 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Jun 2017 12:14:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Гейзенбаг Питер 2017: ретроспектива
+          </title>
+          <link>http://automation-remarks.com/2017/heisenbug-2017-piter-retro/index.html</link>
+          <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/heisenbug-2017-piter-retro/index.html</guid>
+          <description>
+                        Мои впечатления от просмотра данной конференции
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Делюсь впечатлениями от просмотра конференции &lt;a href=&quot;https://heisenbug-piter.ru/&quot;&gt;Гейзенбаг 2017 Питер&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://thetime4.net/static/images/events/logo_6w9q74lhp3sh9zk_Bg35NVDERRE.png&quot; alt=&quot;logo 6w9q74lhp3sh9zk Bg35NVDERRE&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я смотрел все выступления онлайн, поэтому комментировать организацию и место проведения не могу.
+Зачастую хорошая организация, вкусное печенье и бесплатный кофе затмевают слабые доклады. А так как я
+там не был и это все меня не отвлекало, говорить буду сугубо о контенте и крутости онлайн трансляции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Об онлайн трансляции:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажу честно, это была первая конференция, которую я смотрел онлайн. К трансляции
+у меня вопросов нет - высокое качество, ничего не сбоило и не зависало.
+Одно замечание: музыка в перерывах между докладами была немного депрессивная, но это вопрос вкуса.
+Для меня большим преимуществом также является то, что записи всех докладов доступны через пару дней.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;О программе:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По сравнению с программой дебютной конференции доклады  были намного сильнее. До того, как писать отзыв,
+я просмотрел все доклады и мой личный топ 5 выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;1) &lt;strong&gt;Паттерны проектирования в автоматизации тестирования&lt;/strong&gt; (Николай Алименков)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Коля четко и без лишних поводов для холивара назвал проблемы и показал паттерны, которые потенциально
+могут помочь решить эти самые проблемы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;NB: этот доклад с небольшими дополнениями был повтором &lt;a href=&quot;https://www.youtube.com/watch?v=SEWa5_RW2BM&amp;amp;index=4&amp;amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy&quot;&gt;доклада на Selenium Camp&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;2) &lt;strong&gt;Тестирование в мире данных&lt;/strong&gt; (Игорь Хрол)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Настоящий хардкор и лайвкодинг. Игорь показал, как TopTal тестируют аналитику.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;NB: этот же доклад был прочитан на конференции &lt;a href=&quot;https://www.youtube.com/watch?v=nFpZQOrZQfw&quot;&gt;CAMAQA Spring 2017&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;3) &lt;strong&gt;Allure 2&lt;/strong&gt; (Артем Ерошенко)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично я долго ждал релиза новой версии отчетов Allure, поэтому слушал этот доклад с особенным интересом.
+Несмотря на то, что все фичи и переработки уже давно были слиты, хотелось услышать официальную версию
+от разработчиков. Вышло достаточно информативно. Жду релиз Gradle плагина, так как сейчаc у меня все
+настроено через вызов кастомного Gradle exec таска.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;4) &lt;strong&gt;Учимся анализировать результаты нагрузочного тестирования&lt;/strong&gt; (Алексей Лавренюк)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очень круто и полезно, особенно людям, которые делают перформанс. После доклада я прям поставил себе
+цель познакомиться с Яндекс Танком и возможно даже &quot;пострелять&quot; в наш бекенд. Так или иначе - очень советую.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;5) &lt;strong&gt;Кодогенерация как способ решения проблем автоматизатора&lt;/strong&gt; (Кирилл Меркушев)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом докладе сыграло и мастерство спикера, и материал, о котором он говорил. Много чего из рассказанного
+я использую на своих проектах. Например, генерацию &lt;a href=&quot;http://automation-remarks.com/2017/code-generation/index.html&quot;&gt;кода&lt;/a&gt;
+и &lt;a href=&quot;http://automation-remarks.com/2017/assert-generation/index.html&quot;&gt;ассертов&lt;/a&gt; для тестирования API.
+В докладе упоминалась еще пара полезных инструментов, которые стоит попробовать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;NB: хоть и с некоторыми переработками, но этот доклад был &lt;a href=&quot;https://www.youtube.com/watch?v=wDqZke0Iu7Q&quot;&gt;повтором&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В 10ку я бы включил еще доклад о Котлине. Хайп и новости о том, что
+Гугл поддержал язык, делают свое грязное дело. Говорят, что на докладе яблоку негде было упасть.
+Но, увы, и он тоже был &lt;a href=&quot;https://www.youtube.com/watch?v=DLXoEmw2lzQ&amp;amp;index=40&amp;amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy&quot;&gt;повтором&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Итог&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Можно смело утверждать, что Гейзенбаг потенциально очень достойная конференция. То, что ребята
+делают упор на автоматизацию, не может не радовать, так как размазывание соплей о тест-кейсах и ISTQB,
+менеджменте больших и маленьких команд уже немного подутомило. Слегка опечалило количество докладов,
+которые уже были засвечены в сети. Да, они были немного переделаны, но все же это не был совершенно уникальный контент.
+Также немного расстраивают заморские спикеры. В прошлом году Рекс Блек, в этом году Илари.
+Имхо в докладах много воды и очевидных фактов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из финального интервью организаторов известно, что следующий Гейзенбаг пройдет в Москве уже в декабре этого года,
+и планируется расширение на 2 дня.
+Поживем-увидим, а пока у меня все. Сезон конференций по тестированию закончен. Новый сезон начнется в сентябре с конференции &lt;a href=&quot;http://www.qafest.com/&quot;&gt;QAFest 2017&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Testing Stage 17: ретроспектива

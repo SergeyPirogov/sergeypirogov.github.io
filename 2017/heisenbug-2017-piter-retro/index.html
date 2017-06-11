@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Как менялось мое отношение к PageObject</title>
+    <title>Гейзенбаг Питер 2017: ретроспектива</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как менялось мое отношение к PageObject">
+    <meta property="og:title" content="Гейзенбаг Питер 2017: ретроспектива">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="История преобразования PageObject"/>
+        	<meta property="og:description" content="Мои впечатления от просмотра данной конференции"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,168 +82,110 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                30/10/2016
+                                10/06/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как менялось мое отношение к PageObject</h1>
+                        <h1 class="post-title">Гейзенбаг Питер 2017: ретроспектива</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Во многих сообществах тестировщиков холиварят о том, как должен выглядеть <strong>PageObject</strong>. Одни кричат, что нужно хранить локаторы в полях, другие выступают только за методы. Должен PageObject содержать логику или нет? Как и в любом холиваре, каждая из сторон считает свою точку зрения самой правильной.
-Как участник социума и человек, сидящий в <a href="https://software-testers.herokuapp.com/">Slack сообществе тестировщиков</a>, я тоже наблюдаю эти перепалки. У меня есть свое мнение по этому поводу, но перед тем, как его выразить, сначала опишу историю преобразования PageObject на различных проектах, в которых я принимал участие.</p>
+<p>Делюсь впечатлениями от просмотра конференции <a href="https://heisenbug-piter.ru/">Гейзенбаг 2017 Питер</a>.</p>
 </div>
-<div class="paragraph">
-<p>Для меня все началось еще в далеком 2012 году, когда я попал на проект, на котором только зарождалась автоматизация. Так как я был совсем неопытным Junior&#8217;ом, я впитывал и делал так, как мне говорили.</p>
-</div>
-<div class="paragraph">
-<p><strong>PageObject</strong> на том проекте выглядел примерно так:</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Portfolios extends BasePage {
-	private Actions builder = new Actions(getDriverProvider().get());
-
-	public Portfolios(WebDriverProvider driverProvider) {
-		super(driverProvider);
-	}
-
-	public void selectActionMenuItem(String name) {
-		clickActionsButton();
-		waitForVisible(locators.ACTIONS_MENU_ITEM_BY(name)).click();
-	}
-
-	private void openNodePortfolioFolder() {
-		find(locators.NAVIGATION_TREE_PORTFOLIOS_FOLDER()).click();
-		waitForVisible(By.xpath("//a[contains(@title,'BOOK:')]"));
-	}
-
-	public boolean isActionsMenuItemDisplayed(String menuItem) {
-		return isDisplayed(locators.ACTIONS_MENU_ITEM_BY(menuItem));
-	}
-
-	public void actionsCreateVirtualPortfolio() {
-		WebElement createPortfolio = waitForVisible(locators
-				.ACTIONS_CREATE_VIRTUAL_PORTFOLIO());
-		createPortfolio.click();
-	}
-
-	public void actionsCreatePortfolioLinks() {
-		waitForVisible(BaseAraPage.locators.getACTIONS_CREATE_PORTFOLIO_LINKS())
-				.click();
-	}</code></pre>
+<img src="https://thetime4.net/static/images/events/logo_6w9q74lhp3sh9zk_Bg35NVDERRE.png" alt="logo 6w9q74lhp3sh9zk Bg35NVDERRE">
 </div>
 </div>
 <div class="paragraph">
-<p>Да, все выглядит ужасно! Проект писался на базе самописной обертки для <strong>Selenium Webdriver</strong>. Локаторы выносились с отдельный класс <strong>Locators</strong>.</p>
+<p>Я смотрел все выступления онлайн, поэтому комментировать организацию и место проведения не могу.
+Зачастую хорошая организация, вкусное печенье и бесплатный кофе затмевают слабые доклады. А так как я
+там не был и это все меня не отвлекало, говорить буду сугубо о контенте и крутости онлайн трансляции.</p>
 </div>
 <div class="paragraph">
-<p>В целом нам удавалось более-менее успешно с этим жить, но, смотря на это все, я, конечно, понимаю, что такая реализация является категорически неприемлимой в наше время.</p>
+<p><strong>Об онлайн трансляции:</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Page Object на базе @FindBy и Component object</strong></p>
+<p>Скажу честно, это была первая конференция, которую я смотрел онлайн. К трансляции
+у меня вопросов нет - высокое качество, ничего не сбоило и не зависало.
+Одно замечание: музыка в перерывах между докладами была немного депрессивная, но это вопрос вкуса.
+Для меня большим преимуществом также является то, что записи всех докладов доступны через пару дней.</p>
 </div>
 <div class="paragraph">
-<p>В следующем проекте мы пробовали описывать страницы примерно так:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
-
-    @FindBy(name="search")
-    private WebElementFacade searchTerms;
-
-    @FindBy(name="go")
-    private WebElementFacade lookupButton;
-
-    public void enter_keywords(String keyword) {
-        searchTerms.type(keyword);
-    }
-
-    public void lookup_terms() {
-        lookupButton.click();
-    }</code></pre>
-</div>
+<p><strong>О программе:</strong></p>
 </div>
 <div class="paragraph">
-<p>Лично мне такой подход не нравится тем, что нужно инициализировать страницы через <strong>PageFactory</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">PageFactory.initElements(DictionaryPage.class)</code></pre>
-</div>
+<p>По сравнению с программой дебютной конференции доклады  были намного сильнее. До того, как писать отзыв,
+я просмотрел все доклады и мой личный топ 5 выглядит так:</p>
 </div>
 <div class="paragraph">
-<p>К тому же, при большом количестве елементов на странице такой <strong>PageObject</strong> класс обростает уж очень большим количеством полей, помарканных аннотацией <strong>@FindBy</strong>. Локаторы неудобно переиспользовать.</p>
+<p>1) <strong>Паттерны проектирования в автоматизации тестирования</strong> (Николай Алименков)</p>
 </div>
 <div class="paragraph">
-<p><strong>HTML Elements</strong></p>
+<p>Коля четко и без лишних поводов для холивара назвал проблемы и показал паттерны, которые потенциально
+могут помочь решить эти самые проблемы.</p>
 </div>
 <div class="paragraph">
-<p>Естественно, был этап, когда появилась библиотека <strong>Yandex HTML elements</strong> и я пробовал ее использовать, но мне не понравилось. Просто не понравилось и все. Такое бывает.</p>
+<p>NB: этот доклад с небольшими дополнениями был повтором <a href="https://www.youtube.com/watch?v=SEWa5_RW2BM&amp;index=4&amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy">доклада на Selenium Camp</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>PageObject с полями By</strong></p>
+<p>2) <strong>Тестирование в мире данных</strong> (Игорь Хрол)</p>
 </div>
 <div class="paragraph">
-<p>В попытке улучшить предыдущую реализацию мы пробовали писать <strong>PageObject</strong> в таком стиле:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class DictionaryPage extends PageObject {
-
-    private By searchTerms = By.name("search");
-    private By lookupButton = By.name("go");
-
-    public void enter_keywords(String keyword) {
-        $(searchTerms).type(keyword);
-    }
-
-    public void lookup_terms() {
-        $(lookupButton).click();
-    }</code></pre>
-</div>
+<p>Настоящий хардкор и лайвкодинг. Игорь показал, как TopTal тестируют аналитику.</p>
 </div>
 <div class="paragraph">
-<p>В принципе, мне все нравилось, пока количество елементов было небольшим. По мере роста объема елементов такие страницы было неудобно поддерживать. Постоянно нужно было скролить вверх, чтобы подправить локатор, потом возвращаться к месту использования этого локатора.</p>
+<p>NB: этот же доклад был прочитан на конференции <a href="https://www.youtube.com/watch?v=nFpZQOrZQfw">CAMAQA Spring 2017</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Эра Selenide</strong></p>
+<p>3) <strong>Allure 2</strong> (Артем Ерошенко)</p>
 </div>
 <div class="paragraph">
-<p>Пока я там ковырялся со своими велосипедами и экспериментировал с реализациями <strong>PageObject</strong>, библиотека <strong>Selenide</strong> росла и крепла, и я начал использовать ее на боевых проектах.</p>
+<p>Лично я долго ждал релиза новой версии отчетов Allure, поэтому слушал этот доклад с особенным интересом.
+Несмотря на то, что все фичи и переработки уже давно были слиты, хотелось услышать официальную версию
+от разработчиков. Вышло достаточно информативно. Жду релиз Gradle плагина, так как сейчаc у меня все
+настроено через вызов кастомного Gradle exec таска.</p>
 </div>
 <div class="paragraph">
-<p>Реализация <strong>PageObject</strong> стала выглядеть так:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class MainPage {
-
-    public void enter_keywords(String keyword) {
-        $(name("search")).type(keyword);
-    }
-
-    public void lookup_terms() {
-        $(".lookupButton").click();
-    }</code></pre>
-</div>
+<p>4) <strong>Учимся анализировать результаты нагрузочного тестирования</strong> (Алексей Лавренюк)</p>
 </div>
 <div class="paragraph">
-<p>Локаторы хранятся прямо там, где они используются - это удобно, ты заходишь в метод и сразу видишь, что там происходит. Такой подход позволяет экономить время и нервы тем, кто пишет и поддерживает тесты.</p>
+<p>Очень круто и полезно, особенно людям, которые делают перформанс. После доклада я прям поставил себе
+цель познакомиться с Яндекс Танком и возможно даже "пострелять" в наш бекенд. Так или иначе - очень советую.</p>
 </div>
 <div class="paragraph">
-<p>Был еще один проект, на котором я использовал <strong>Groovy</strong>, и там у нас была возможность писать PageObject в очень интересном <a href="http://automation-remarks.com/groovy-page/index.html">формате</a>.</p>
+<p>5) <strong>Кодогенерация как способ решения проблем автоматизатора</strong> (Кирилл Меркушев)</p>
 </div>
 <div class="paragraph">
-<p>Такой подход мне нравится больше всего, но, увы, он доступен только при использовании <strong>Groovy</strong>.</p>
+<p>В этом докладе сыграло и мастерство спикера, и материал, о котором он говорил. Много чего из рассказанного
+я использую на своих проектах. Например, генерацию <a href="http://automation-remarks.com/2017/code-generation/index.html">кода</a>
+и <a href="http://automation-remarks.com/2017/assert-generation/index.html">ассертов</a> для тестирования API.
+В докладе упоминалась еще пара полезных инструментов, которые стоит попробовать.</p>
 </div>
 <div class="paragraph">
-<p><strong>P/S</strong></p>
+<p>NB: хоть и с некоторыми переработками, но этот доклад был <a href="https://www.youtube.com/watch?v=wDqZke0Iu7Q">повтором</a></p>
 </div>
 <div class="paragraph">
-<p>К более-менее удобному для себя формату реализации <strong>PageObject</strong> я пришел через опыт, а он может быть положительным и отрицательным. Я экспериментировал и нашел самый удобный для себя формат. Считаю, что наличие холиваров - это отлично, главное - относиться к ним здраво и выносить полезный опыт.</p>
+<p>В 10ку я бы включил еще доклад о Котлине. Хайп и новости о том, что
+Гугл поддержал язык, делают свое грязное дело. Говорят, что на докладе яблоку негде было упасть.
+Но, увы, и он тоже был <a href="https://www.youtube.com/watch?v=DLXoEmw2lzQ&amp;index=40&amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy">повтором</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Итог</strong></p>
+</div>
+<div class="paragraph">
+<p>Можно смело утверждать, что Гейзенбаг потенциально очень достойная конференция. То, что ребята
+делают упор на автоматизацию, не может не радовать, так как размазывание соплей о тест-кейсах и ISTQB,
+менеджменте больших и маленьких команд уже немного подутомило. Слегка опечалило количество докладов,
+которые уже были засвечены в сети. Да, они были немного переделаны, но все же это не был совершенно уникальный контент.
+Также немного расстраивают заморские спикеры. В прошлом году Рекс Блек, в этом году Илари.
+Имхо в докладах много воды и очевидных фактов.</p>
+</div>
+<div class="paragraph">
+<p>Из финального интервью организаторов известно, что следующий Гейзенбаг пройдет в Москве уже в декабре этого года,
+и планируется расширение на 2 дня.
+Поживем-увидим, а пока у меня все. Сезон конференций по тестированию закончен. Новый сезон начнется в сентябре с конференции <a href="http://www.qafest.com/">QAFest 2017</a>.</p>
 </div>
                     </section>
 
@@ -272,7 +214,7 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                    <a href="/tags/Конференции.html">Конференции</a>
                             </div>
                     </footer>
 
@@ -281,7 +223,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/heisenbug-2017-piter-retro/index.html">Гейзенбаг Питер 2017: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/testing-stage-retro/index.html">Testing Stage 17: ретроспектива</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/python-selene-workshop/index.html">Fast and robust test automation with Selene + Python</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/workshop-online/index.html">Запись воркшопа Automation in Action</a></li>
