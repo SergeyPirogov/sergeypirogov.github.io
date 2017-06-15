@@ -1,0 +1,65 @@
+= Мастер-класс: Automation in Action With Python
+Sergey Pirogov
+2017-06-15
+:jbake-type: post
+:jbake-tags: Python, Тренинги
+:jbake-featured: true
+:jbake-summary: Анонс воркшопа
+
+**24 июня** 2017 года в 16.00 буду проводить ОНЛАЙН мастер-класс - Automation in Action With Python
+
+На этом мастер-классе я покажу на реальном примере, как можно построить систему автоматизированного
+тестирования с использованием языка **Python 3** и технологий, указанных ниже:
+
+[.skills-list]
+- Selenium
+- Allure 2
+- Docker
+- Testcontainers
+- Travis CI
+- Report Portal
+- Google Cloud
+
+За четыре часа участников ждет много кода на Python и полезных советов.
+Мастер-класс подойдет инженерам различного уровня. Новички увидят на деле работу с технологиями,
+старички же увидят, как мы используем
+Travis, Docker и Allure 2. Разберемся, как можно за считанные часы создать полноценное окружение
+для запуска тестов и настроить запуск в CI.
+
+Участие в мастер-классе платное. **Стоимость - 1500 грн (60$)**.
+
+Всех интересующихся прошу регистрироваться, используя форму ниже:
+
+++++
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    width: 90%;
+    padding-left: 15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Ваш email" style="width: 320px;">
+        </div>
+    </div>
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;">
+            </div>
+    </div>
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
+</form>
+</div>
+++++

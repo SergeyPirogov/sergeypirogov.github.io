@@ -7,6 +7,6 @@ Sergey Pirogov
 :jbake-status: published
 
 Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
-написав письмо на automationremarks@gmail.com.
+можно http://automation-remarks.us10.list-manage.com/subscribe?u=d24f95005c1b66c13389aceb9&id=ce47ec0c3f[подписавшись на email рассылку]
 
 video::QYA2V4gVGk4[youtube]
