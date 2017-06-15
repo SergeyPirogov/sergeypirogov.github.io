@@ -14,9 +14,98 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 11 Jun 2017 12:14:16 +0000</pubDate>
-    <lastBuildDate>Sun, 11 Jun 2017 12:14:16 +0000</lastBuildDate>
+    <pubDate>Thu, 15 Jun 2017 17:55:00 +0000</pubDate>
+    <lastBuildDate>Thu, 15 Jun 2017 17:55:00 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Мастер-класс: Automation in Action With Python
+          </title>
+          <link>http://automation-remarks.com/2017/python-training/index.html</link>
+          <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/python-training/index.html</guid>
+          <description>
+                        Анонс воркшопа
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;24 июня&lt;/strong&gt; 2017 года в 16.00 буду проводить ОНЛАЙН мастер-класс - Automation in Action With Python&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом мастер-классе я покажу на реальном примере, как можно построить систему автоматизированного
+тестирования с использованием языка &lt;strong&gt;Python 3&lt;/strong&gt; и технологий, указанных ниже:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist skills-list&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Selenium&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allure 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Docker&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testcontainers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Travis CI&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Report Portal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Google Cloud&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;За четыре часа участников ждет много кода на Python и полезных советов.
+Мастер-класс подойдет инженерам различного уровня. Новички увидят на деле работу с технологиями,
+старички же увидят, как мы используем
+Travis, Docker и Allure 2. Разберемся, как можно за считанные часы создать полноценное окружение
+для запуска тестов и настроить запуск в CI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Участие в мастер-классе платное. &lt;strong&gt;Стоимость - 1500 грн (60$)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Всех интересующихся прошу регистрироваться, используя форму ниже:&lt;/p&gt;
+&lt;/div&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../css/bootstrap-iso.css&quot; /&gt;
+&lt;div class=&quot;bootstrap-iso&quot; style=&quot;
+    width: 90%;
+    padding-left: 15px;
+&quot;&gt;
+&lt;!-- Any HTML here will be styled with Bootstrap CSS --&gt;
+&lt;form class=&quot;form-horizontal&quot; method=&quot;POST&quot; action=&quot;http://formspree.io/automationremarks@gmail.com&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+
+        &lt;div class=&quot;col-sm-10&quot;&gt;
+           &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;inputEmail3&quot; name=&quot;email&quot; placeholder=&quot;Ваш email&quot; style=&quot;width: 320px;&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+
+            &lt;div class=&quot;col-sm-10&quot;&gt;
+               &lt;input class=&quot;form-control&quot; id=&quot;inputName3&quot; name=&quot;name&quot; placeholder=&quot;Ваше имя&quot; style=&quot;width: 320px;&quot;&gt;
+            &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;col-sm-10&quot;&gt;
+                   &lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot; name=&quot;message&quot; placeholder=&quot;Сообщение:&quot;&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+         &lt;div class=&quot;col-sm-10&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Отправить&lt;/button&gt;
+         &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Гейзенбаг Питер 2017: ретроспектива
@@ -237,7 +326,7 @@
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
-написав письмо на &lt;a href=&quot;mailto:automationremarks@gmail.com&quot;&gt;automationremarks@gmail.com&lt;/a&gt;.&lt;/p&gt;
+можно &lt;a href=&quot;http://automation-remarks.us10.list-manage.com/subscribe?u=d24f95005c1b66c13389aceb9&amp;amp;id=ce47ec0c3f&quot;&gt;подписавшись на email рассылку&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
