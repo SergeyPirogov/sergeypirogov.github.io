@@ -3,7 +3,7 @@ Sergey Pirogov
 2017-06-18
 :jbake-type: post
 :jbake-tags: Java, Allure
-:jbake-summary: Способ интегарции Allure2 и Gradle
+:jbake-summary: Способ интеграции Allure2 и Gradle
 :jbake-status: published
 
 После пары заметок о конференциях http://automation-remarks.com/2017/testing-stage-retro/index.html[Testing Stage] и http://automation-remarks.com/2017/heisenbug-2017-piter-retro/index.html[Гейзенбаг]
@@ -11,9 +11,9 @@ Sergey Pirogov
 
 image::http://automated-testing.info/uploads/default/original/2X/3/3a722f96e5c6db7ef7a54773d73a81633ba2f828.png[]
 
-Скажу сразу данный способ будет валиден до выхода в релиз официального плагина Allure2 для Gradle. Пока же работающего плагина нет, прийдется позаниматься извращением.
+Скажу сразу, данный способ будет валиден до выхода в релиз официального плагина Allure2 для Gradle. Пока же работающего плагина нет, придется позаниматься извращением.
 
-Настраивать будет для Gradle 3 и TestNG. В принципе все необходимое можно найти в https://docs.qameta.io/allure/2.0/[официальной документации] по Allure2.
+Настраивать будем для Gradle 3 и TestNG. В принципе, все необходимое можно найти в https://docs.qameta.io/allure/2.0/[официальной документации] по Allure2.
 
 Добавляем настройки в build.gradle:
 
@@ -45,18 +45,18 @@ test {
 ./gradlew clean test
 ```
 
-У вас в папке `build/allure-results` будут создаваться *.json файлы из которых потом и будет генерироваться отчет.
+У вас в папке `build/allure-results` будут создаваться *.json файлы, из которых потом и будет генерироваться отчет.
 
-В принципе этого вполне достаточно, если вы запускаете тесты на CI и используете Allure2 плагин для генерации отчета. Увы ставить плагины и обновлять
-не всегда выдается возможным, так как наш Jenkins содержат дяди с тайтлом "DevOps". Благо уже давно есть HTML Publisher плагин, который позволяет рендерить
+Этого вполне достаточно, если вы запускаете тесты на CI и используете Allure2 плагин для генерации отчета. Увы, ставить плагины и обновлять
+не всегда выдается возможным, так как наш Jenkins содержат дяди с тайтлом "DevOps". Благо, уже давно есть HTML Publisher плагин, который позволяет рендерить
 сгенерированный отчет. Именно им мы и пользуемся.
 
 Для того, чтобы сгенерировать отчет, нужно использовать https://docs.qameta.io/allure/2.0/#_installing_a_commandline[allure command line].
 
-Но я уже привык к тому, что я вызвваю `gradle clean test` и у меня после прогона тестов всегда генерируется отчет. Чтобы такого добиться с Allure2
+Но я уже привык к тому, что вызываю `gradle clean test`, и у меня после прогона тестов всегда генерируется отчет. Чтобы такого добиться с Allure2,
 нужно самим пописать код.
 
-Идем значит в https://bintray.com/qameta/generic/allure2[bintray] и качаем allure command line binary архив.
+Идем, значит, в https://bintray.com/qameta/generic/allure2[bintray] и качаем allure command line binary архив.
 Распаковываем и ложим в корень нашего проекта.
 
 Дальше делаем свой таск в build.gradle:
@@ -74,15 +74,6 @@ task generateAllure(type: Exec) {
 tasks.withType(Test)*.finalizedBy generateAllure
 ```
 
-Собственно на этом и все, теперь при выполнении `gradlew clean test` у нас будут проганяться тесты и генерироваться отчет.
+Собственно, на этом и все. Теперь при выполнении `gradlew clean test` у нас будут прогоняться тесты и генерироваться отчет.
 
-Про Allure2 и Python вы сможете послушать на http://automation-remarks.com/2017/python-training/index.html[тренинге] который пройдет буквально на следующих выходных.
-
-
-
-
-
-
-
-
-
+Про Allure2 и Python вы сможете послушать на http://automation-remarks.com/2017/python-training/index.html[мастер-классе], который назначен на 24.06.17.
