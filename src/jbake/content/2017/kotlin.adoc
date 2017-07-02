@@ -1,0 +1,79 @@
+= Все будет Kotlin
+Sergey Pirogov
+2017-07-02
+:jbake-type: post
+:jbake-tags: Java, Kotlin
+:jbake-summary: Имхо о хайповом языке
+:jbake-status: draft
+
+Ахой, ну вот и пришло мое время хайпить по поводу Kotlin. Регулярные подписчики и
+читатели блога знают, что я Java-пацан ходивший в мир Groovy, который мне безумно нравится и я писал
+о его применении http://automation-remarks.com/ssh/index.html[для работы с SSH], http://automation-remarks.com/groovy-page/index.html[UI тестировании].
+
+Но увы многие игнорируют Groovy и отдают предпочтение старой клячей Java с аргументами:
+- Groovy тормозит (хотя в тестах это пофиг)
+- А где мы возьмем людей (хотя его можно выучить за неделю)
+
+Теперь настало мое время сходить в мир https://kotlinlang.org/[Kotlin].
+
+image::https://habrastorage.org/files/a52/453/729/a52453729bd64cb3b5ca8a4892e45cc1.png[]
+
+Вокруг языка ходит много хайпа, особенно после того как Google официально начал поддерживать Kotlin, о чем
+было объявлено на https://www.theverge.com/2017/5/17/15654988/google-jet-brains-kotlin-programming-language-android-development-io-2017[Google IO 2017].
+
+Скажу честно, я уже подустал от Java, именно поэтому в какой-то момент меня понесло в http://automation-remarks.com/2016/python-webdriver-manager/index.html[Python].
+Но там мне не особо понравилось, поэтому я все еще пишу на Java 8, иногда даже с лямбдами балуюсь =).
+
+На Kotlin, я смотрел еще до релиза 1.0 и тогда многое для меня в нем было не понятным. Сейчас же я решил основательно
+в нем разобраться, чтобы понять можно на нем делать что-то внятное, или нафиг-нафиг и http://automation-remarks.com/2017/lombok/index.html[Java 8 + Lombok] наше все.
+
+Окончательным толчком стал момент выхода Gradle 4.0, в котором стали нормально поддерживать https://github.com/gradle/kotlin-dsl[Kotlin Gradle DSL].
+
+Я значит как реальные Early adopter сел и начал смотреть, что да как. Спустя пару часов я смог сделать https://github.com/SergeyPirogov/kotlin_demo[проект] на
+Gradle 4 сконфигурированный с помощью Kotlin Gradle DSL + Selenide + Allure 2. Правда я бы не справился, если бы не
+сходил в Kotlin Slack чатик и не спросил у пацанвы, как там этот Gradle DSL писать. Документации пока, что нет.
+
+Но разобраться с языком, не пописав на нем, что-то внятное практически не реально. Именно поэтому я начал
+писать https://github.com/SergeyPirogov/kirk[Kirk]. Пока, что это все находится на очень начальном этапе, но мне
+нравится то, что с помощью Kotlin можно создавать очень классный DSL c минимальными затратами по времени.
+
+```java
+@Test fun testCanDeactivateTask() {
+        Browser.drive {
+            to(::TodoPage) {
+                addTasks("A", "B", "C")
+                deactivateTask("A")
+                counter.should(have.text("2"))
+                goToCompletedTab()
+                taskList.should(have.exactText("A"))
+            }
+        }
+    }
+```
+
+В целом, я пока очень доволен языком и его возможностями. Реально писать намного приятнее и удобнее чем на Java, особенно
+лямбды:
+
+```java
+list.stream()
+    .filter(e -> e.isDisplayed())
+    .collect(toList())
+```
+и в Котлине:
+
+```
+list.filter{it.isDisplayed()}
+```
+
+В общем я пока погружаюсь в мир Котлин и мне нравится. Теперь заметок о применении Котлин вместо Java станет больше =)
+
+BTW:
+
+Больше о Котлин + Gradle можно найти в видосиках с недавнего https://www.youtube.com/playlist?list=PLLQbIfXVLZqEFMPsWijGR043NBxwPvgtI[Gradle Summit 2017].
+Ну и конечно же самый отборные материалы я размещаю в группе в https://www.facebook.com/automationremarks/[Facebook].
+
+
+
+
+
+
