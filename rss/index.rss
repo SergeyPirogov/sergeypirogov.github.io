@@ -14,9 +14,110 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 18 Jun 2017 18:54:24 +0000</pubDate>
-    <lastBuildDate>Sun, 18 Jun 2017 18:54:24 +0000</lastBuildDate>
+    <pubDate>Sun, 2 Jul 2017 11:02:53 +0000</pubDate>
+    <lastBuildDate>Sun, 2 Jul 2017 11:02:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Все будет Kotlin
+          </title>
+          <link>http://automation-remarks.com/2017/kotlin/index.html</link>
+          <pubDate>Sun, 2 Jul 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/kotlin/index.html</guid>
+          <description>
+                        Имхо о хайповом языке
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ахой, ну вот пришло и мое время хайпить по поводу Kotlin. Регулярные подписчики и
+читатели блога знают, что я Java-пацан, ходивший в мир Groovy, который мне безумно нравится. Я писал
+о его применении &lt;a href=&quot;http://automation-remarks.com/ssh/index.html&quot;&gt;для работы с SSH&lt;/a&gt;, и
+&lt;a href=&quot;http://automation-remarks.com/groovy-page/index.html&quot;&gt;в UI тестировании&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но, увы, многие игнорируют Groovy и отдают предпочтение старой кляче Java с аргументами:
+- Groovy тормозит (хотя в тестах это пофиг)
+- А где мы возьмем людей? (хотя его можно выучить за неделю).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь настал мой черед сходить в мир &lt;a href=&quot;https://kotlinlang.org/&quot;&gt;Kotlin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://habrastorage.org/files/a52/453/729/a52453729bd64cb3b5ca8a4892e45cc1.png&quot; alt=&quot;a52453729bd64cb3b5ca8a4892e45cc1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вокруг языка ходит много хайпа, особенно после того, как Google официально начал поддерживать Kotlin, о чем
+было объявлено на &lt;a href=&quot;https://www.theverge.com/2017/5/17/15654988/google-jet-brains-kotlin-programming-language-android-development-io-2017&quot;&gt;Google IO 2017&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажу честно, я уже подустал от Java. Именно поэтому в какой-то момент меня понесло в &lt;a href=&quot;http://automation-remarks.com/2016/python-webdriver-manager/index.html&quot;&gt;Python&lt;/a&gt;.
+Но там мне не особо понравилось, поэтому я все еще пишу на Java 8, иногда даже с лямбдами балуюсь =).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На Kotlin я смотрел еще до релиза 1.0 и тогда многое для меня в нем было не понятным. Сейчас же решил основательно
+в нем разобраться, чтобы понять, можно ли на нем делать что-то внятное или нафиг-нафиг и &lt;a href=&quot;http://automation-remarks.com/2017/lombok/index.html&quot;&gt;Java 8 + Lombok&lt;/a&gt; - наше все.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Окончательным толчком послужил выход Gradle 4.0, в котором стали нормально поддерживать &lt;a href=&quot;https://github.com/gradle/kotlin-dsl&quot;&gt;Kotlin Gradle DSL&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я, значит, как реальные Early adopters, сел и начал смотреть, что да как. Спустя пару часов смог сделать &lt;a href=&quot;https://github.com/SergeyPirogov/kotlin_demo&quot;&gt;проект&lt;/a&gt; на
+Gradle 4, сконфигурированный с помощью Kotlin Gradle DSL + Selenide + Allure 2. Правда, я бы не справился, если бы не
+сходил в Kotlin Slack чатик и не спросил у пацанвы, как там этот Gradle DSL писать. Документации пока что нет.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но разобраться с языком, не пописав на нем что-то внятное, практически нереально. Именно поэтому я начал
+писать &lt;a href=&quot;https://github.com/SergeyPirogov/kirk&quot;&gt;Kirk&lt;/a&gt;. Пока что это все находится на начальном этапе, но мне
+нравится то, что с помощью Kotlin можно создавать очень классный DSL c минимальными затратами по времени.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test fun testCanDeactivateTask() {
+        Browser.drive {
+            to(::TodoPage) {
+                addTasks(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)
+                deactivateTask(&quot;A&quot;)
+                counter.should(have.text(&quot;2&quot;))
+                goToCompletedTab()
+                taskList.should(have.exactText(&quot;A&quot;))
+            }
+        }
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом я пока очень доволен языком и его возможностями. Реально писать намного приятнее и удобнее, чем на Java, особенно
+лямбды:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;list.stream()
+    .filter(e -&amp;gt; e.isDisplayed())
+    .collect(toList())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;и в Котлине:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;list.filter{it.isDisplayed()}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Погружаюсь в мир Котлин и мне нравится. Теперь заметок о применении Котлин вместо Java станет больше =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;BTW:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Больше о Котлин + Gradle можно найти в видосиках с недавнего &lt;a href=&quot;https://www.youtube.com/playlist?list=PLLQbIfXVLZqEFMPsWijGR043NBxwPvgtI&quot;&gt;Gradle Summit 2017&lt;/a&gt;.
+Ну и, конечно же, самые отборные материалы я размещаю в группе в &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;Facebook&lt;/a&gt;. Присоединяйтесь!&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Переходим на Allure2 без Gradle плагина

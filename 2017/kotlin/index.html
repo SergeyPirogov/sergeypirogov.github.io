@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Избавьтесь от нестабильных тестов с VideoRecorder</title>
+    <title>Все будет Kotlin</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Избавьтесь от нестабильных тестов с VideoRecorder">
+    <meta property="og:title" content="Все будет Kotlin">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="В этот раз хочу поделиться парой мыслей по поводу нестабильных тестов и способами борьбы с ними."/>
+        	<meta property="og:description" content="Имхо о хайповом языке"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,82 +82,101 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                19/05/2016
+                                02/07/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Избавьтесь от нестабильных тестов с VideoRecorder</h1>
+                        <h1 class="post-title">Все будет Kotlin</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Привет, новая заметка немного подзадержалась, так как я готовлюсь к поездке на <a href="http://qaconf.ru/speakers.html">QA Conference</a>.</p>
+<p>Ахой, ну вот пришло и мое время хайпить по поводу Kotlin. Регулярные подписчики и
+читатели блога знают, что я Java-пацан, ходивший в мир Groovy, который мне безумно нравится. Я писал
+о его применении <a href="http://automation-remarks.com/ssh/index.html">для работы с SSH</a>, и
+<a href="http://automation-remarks.com/groovy-page/index.html">в UI тестировании</a>.</p>
 </div>
 <div class="paragraph">
-<p>В этот раз хочу поделиться парой мыслей по поводу нестабильных тестов и способами борьбы с ними. Конкретно речь пойдет о UI тестах для WEB и Desktop приложений.</p>
+<p>Но, увы, многие игнорируют Groovy и отдают предпочтение старой кляче Java с аргументами:
+- Groovy тормозит (хотя в тестах это пофиг)
+- А где мы возьмем людей? (хотя его можно выучить за неделю).</p>
 </div>
 <div class="paragraph">
-<p>Естественно, всем хотелось бы иметь стабильные UI автотесты, которые можно запускать на любом компьютере и, тем самым, проверять работоспособность системы, но, увы, зачастую это не так. На всех конференциях автоматизаторы сходятся во мнениях о том, что нужно соблюдать баланс и сохранять структуру пирамиды автоматизации. Тем не менее, в силу каких-либо обстоятельств на многих проектах до сих пор вместо пирамиды мы можем видеть "мороженко".</p>
+<p>Теперь настал мой черед сходить в мир <a href="https://kotlinlang.org/">Kotlin</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://habrastorage.org/files/a52/453/729/a52453729bd64cb3b5ca8a4892e45cc1.png" alt="a52453729bd64cb3b5ca8a4892e45cc1">
+</div>
 </div>
 <div class="paragraph">
-<p>Мне удается держать свои автотесты стабильными и запускать их практически в любой момент. Как такого можно добиться? Мой секрет заключается в том, что UI тесты - это, по сути, автоматизация E2E сценариев, более того, в тестах мы проверяем функциональность нашего UI. Немаловажным фактором является то, что я мастерски использую Selenide, ну и последнее - автотесты запускаются каждый день! Именно ежедневные запуски, даже на тех же сборках, позволяют мне быть уверенным, что мой тест работает стабильно и все падения вызваны изменениями или ошибками в тестируемом приложении.</p>
+<p>Вокруг языка ходит много хайпа, особенно после того, как Google официально начал поддерживать Kotlin, о чем
+было объявлено на <a href="https://www.theverge.com/2017/5/17/15654988/google-jet-brains-kotlin-programming-language-android-development-io-2017">Google IO 2017</a>.</p>
 </div>
 <div class="paragraph">
-<p>Но, тем не менее, я знаю проекты или случаи (на моем прошлом проекте так было), когда было достаточно серьезное число нестабильных тестов, ситуация усугублялась еще и тем, что тестирование проводилось только в браузере Internet Explorer 8-10.</p>
+<p>Скажу честно, я уже подустал от Java. Именно поэтому в какой-то момент меня понесло в <a href="http://automation-remarks.com/2016/python-webdriver-manager/index.html">Python</a>.
+Но там мне не особо понравилось, поэтому я все еще пишу на Java 8, иногда даже с лямбдами балуюсь =).</p>
 </div>
 <div class="paragraph">
-<p>У всех на проектах есть скриншоты, которые призваны помогать выяснить причины падений тестов, но вот одна проблема - не всегда скриншоты дают ясную картину. Самая досадная вещь - когда у вас есть снимок экрана, но на нем не запечатлена ошибка, так как скриншотер сработал на секунду позже нужного момента. Как быть в этом случае? Можно принудительно делать скриншот и пытаться угадать момент падения, а можно <a href="http://automation-remarks.com/pishiem-vidieo-vo-vriemia-proghona-tiestov/">писать видео</a> нестабильного теста!</p>
+<p>На Kotlin я смотрел еще до релиза 1.0 и тогда многое для меня в нем было не понятным. Сейчас же решил основательно
+в нем разобраться, чтобы понять, можно ли на нем делать что-то внятное или нафиг-нафиг и <a href="http://automation-remarks.com/2017/lombok/index.html">Java 8 + Lombok</a> - наше все.</p>
 </div>
 <div class="paragraph">
-<p>Наверное вы удивитесь, но да, зачастую это самый верный способ выявить причины нестабильности, более того, теперь писать видео ваших тестов стало очень просто, так как я решил написать библиотеку, которая позволит многим не думать о деталях реализации процесса записи, - <strong>VideoRecorder</strong>.</p>
+<p>Окончательным толчком послужил выход Gradle 4.0, в котором стали нормально поддерживать <a href="https://github.com/gradle/kotlin-dsl">Kotlin Gradle DSL</a>.</p>
 </div>
 <div class="paragraph">
-<p>Что полезного даст эта библиотека?</p>
+<p>Я, значит, как реальные Early adopters, сел и начал смотреть, что да как. Спустя пару часов смог сделать <a href="https://github.com/SergeyPirogov/kotlin_demo">проект</a> на
+Gradle 4, сконфигурированный с помощью Kotlin Gradle DSL + Selenide + Allure 2. Правда, я бы не справился, если бы не
+сходил в Kotlin Slack чатик и не спросил у пацанвы, как там этот Gradle DSL писать. Документации пока что нет.</p>
 </div>
 <div class="paragraph">
-<p>Все очень просто - вы сможете легко записывать видео ваших автотестов, просто добавив аннотацию <strong>@Video</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Пример:</strong></p>
+<p>Но разобраться с языком, не пописав на нем что-то внятное, практически нереально. Именно поэтому я начал
+писать <a href="https://github.com/SergeyPirogov/kirk">Kirk</a>. Пока что это все находится на начальном этапе, но мне
+нравится то, что с помощью Kotlin можно создавать очень классный DSL c минимальными затратами по времени.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Listeners(VideoListener.class)
-public class TestNGVideo {
-
-@Test
-@Video
-public void testName3() throws Exception {
-     open("http://ukr.net");
-     $(".login &gt; input").val("Hello");
-     $(".password &gt; input").val("test");
-     $(".submit &gt; bu").click();
-}}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test fun testCanDeactivateTask() {
+        Browser.drive {
+            to(::TodoPage) {
+                addTasks("A", "B", "C")
+                deactivateTask("A")
+                counter.should(have.text("2"))
+                goToCompletedTab()
+                taskList.should(have.exactText("A"))
+            }
+        }
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вот так просто! Выполнение данного теста будет записано на видео и сохранено в нужном вам месте. На данный момент я успел реализовать интеграцию с TestNG, но в планах сделать подобное и для работы с JUnit, Spock или же любого другого тест-ранера из мира Java.</p>
-</div>
-<div class="paragraph">
-<p>Из фишек! По умолчанию видеофайл будет иметь имя теста и записи будут сохраняться только для FAILED тестов. Вы можете легко переопределить новое имя для файла, просто указав его в параметрах аннотации:</p>
+<p>В целом я пока очень доволен языком и его возможностями. Реально писать намного приятнее и удобнее, чем на Java, особенно
+лямбды:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
-@Video(name = "second_test")
-public void testName2() throws Exception {
-    open("http://ukr.net");
-    $(".login &gt; input").val("User");
-    $(".password &gt; input").val("User");
-    $(".submit &gt; button").click();
-}</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">list.stream()
+    .filter(e -&gt; e.isDisplayed())
+    .collect(toList())</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Вот такая вот получилась штучка. Вы можете использовать это как для тестов с <strong>Selenide</strong>, так и для тестов с <strong>Winium</strong>.</p>
+<p>и в Котлине:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>list.filter{it.isDisplayed()}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Если вам интересна данная идея, напишите в комментариях свои мысли&#8230;&#8203;</p>
+<p>Погружаюсь в мир Котлин и мне нравится. Теперь заметок о применении Котлин вместо Java станет больше =)</p>
+</div>
+<div class="paragraph">
+<p>BTW:</p>
+</div>
+<div class="paragraph">
+<p>Больше о Котлин + Gradle можно найти в видосиках с недавнего <a href="https://www.youtube.com/playlist?list=PLLQbIfXVLZqEFMPsWijGR043NBxwPvgtI">Gradle Summit 2017</a>.
+Ну и, конечно же, самые отборные материалы я размещаю в группе в <a href="https://www.facebook.com/automationremarks/">Facebook</a>. Присоединяйтесь!</p>
 </div>
                     </section>
 
@@ -186,8 +205,8 @@ public void testName2() throws Exception {
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
                                     <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Kotlin.html">Kotlin</a>
                             </div>
                     </footer>
 
@@ -196,7 +215,6 @@ public void testName2() throws Exception {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/kotlin/index.html">Все будет Kotlin</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/allure-gradle-without-plugin/index.html">Переходим на Allure2 без Gradle плагина</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/python-training/index.html">Мастер-класс: Automation in Action With Python</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/heisenbug-2017-piter-retro/index.html">Гейзенбаг Питер 2017: ретроспектива</a></li>
@@ -236,8 +254,8 @@ public void testName2() throws Exception {
     </section>
 
     <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=593544852e01ff00121c6783&product=inline-share-buttons"></script>
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
