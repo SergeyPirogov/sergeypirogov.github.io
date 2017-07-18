@@ -14,9 +14,171 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 2 Jul 2017 11:02:53 +0000</pubDate>
-    <lastBuildDate>Sun, 2 Jul 2017 11:02:53 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Jul 2017 18:59:15 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Jul 2017 18:59:15 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              используем супер силу kotlin в тестах
+          </title>
+          <link>http://automation-remarks.com/2017/kotlin-power/index.html</link>
+          <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/kotlin-power/index.html</guid>
+          <description>
+                        о применении котлин в деле
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Продолжаем наше знакомство с миром kotlin. В &lt;a href=&quot;http://automation-remarks.com/2017/kotlin/index.html&quot;&gt;прошлый раз&lt;/a&gt;
+я писал о первых впечатлениях. Все глубже изучая язык, на данный
+момент я успел прочитать 80% книги &lt;a href=&quot;https://www.manning.com/books/kotlin-in-action&quot;&gt;kotlin in action&lt;/a&gt;
+и понять идиомы языка и основные, заложенные в него, идеи.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мнение: если вы начинающий тестировщик или совсем мало работаете с Java, вам будет
+сложно понять смысл котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
+покажутся уже знакомыми.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Просто читать книги и статьи о котлине не достаточно. В интернете появляется все больше материалов,
+ в которых пишут о том, какой он классный, что он &lt;a href=&quot;https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62&quot;&gt;почти не тормозит&lt;/a&gt;,
+и вообще совместим с джавой просто на ура.
+Маркетинг и хайп - это хорошо, но давайте посмотрим на реальность.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;ИМХО самой крутой фишкой являются &lt;a href=&quot;https://kotlinlang.org/docs/reference/extensions.html&quot;&gt;extension&lt;/a&gt; методы.
+С их помощью можно легко нафигачить дополнительных методов в любой java класс.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;ext.kt&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;fun webdriver.open(url: string, autoclose: boolean? = true) {
+    autoclose(autoclose)
+    get(url)
+}
+
+fun webdriver.autoclose(enabled: boolean? = true) {
+    if (enabled!!) {
+        runtime.getruntime().addshutdownhook(object : thread() {
+            override fun run() = quit()
+        })
+    }
+}
+
+fun webdriver.find(cssselector: string): webelement {
+    return findelement(by.cssselector(cssselector))
+}
+
+fun webelement.setvalue(value: any) {
+    clear()
+    sendkeys(value.tostring())
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И потом использовать все это в своем коде:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;val driver = chromedriver()
+driver.open(&quot;http://juliemr.github.io/protractor-demo/&quot;)
+driver.apply {
+    find(&quot;input[ng-model=&apos;first&apos;]&quot;).set(1)
+    find(&quot;input[ng-model=&apos;second&apos;]&quot;).set(2)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мегакруто! В джаве такого можно добиться с помощью &lt;a href=&quot;http://automation-remarks.com/2017/lombok/index.html&quot;&gt;lombok&lt;/a&gt;,
+но для этого нужно понаставить плагинов в idea.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;А как этот код можно вызвать в джава классе? Смотрим:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import com.driver.extkt;
+
+webdriver driver = new chromedriver();
+extkt.open(driver, &quot;http://juliemr.github.io/protractor-demo/&quot;, true);
+extkt.find(driver,&quot;input[ng-model=&apos;first&apos;]&quot;).sendkeys(&quot;1&quot;);
+extkt.find(driver,&quot;input[ng-model=&apos;second&apos;]&quot;).sendkeys(&quot;2&quot;);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Красота, не правда ли? =)) Такова уж природа джавы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте глянем еще на один пример c лямбдами. В котлине их реализовали схожим образом с Groovу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;val userlist = listof(user(&quot;ivan&quot;, 26),user(&quot;dima&quot;, 12))
+assert userlist.filter { it.name == &quot;ivan&quot; }.first().age == 26&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Намного лучше и удобнее джавы. Но как на счет такого кода? Скажем, мы пишем такой DSL&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;browser.drive {
+    to(::calculatorpage) {
+        first.setvalue(10)
+        second.setvalue(2)
+        command.set(&quot;/&quot;)
+        gobtn.click()
+        result.shouldbe(5)
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Джава эквивалент будет таким:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;Browser.Companion.drive(browser -&amp;gt; {
+      browser.to(Calculator::new, calculator -&amp;gt; {
+      calculator.getFirst().setValue(&quot;10&quot;);
+      calculator.getSecond().setValue(&quot;2&quot;);
+      сalculator.getSelect().deselectByVisibleText(&quot;/&quot;);
+      calculator.getGoBtn().click();
+      calculator.getResult().should(new Have().text(&quot;5&quot;));
+      return Unit.INSTANCE;
+   });
+   return Unit.INSTANCE;
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Неплохая попытка. Я считаю, это - следующий убийца &lt;strong&gt;Selenide&lt;/strong&gt; =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На самом деле (без шуток) это все - часть моих безумных экспериментов. Чтобы понять язык, нужно с ним поиграться
+и попробовать разные идеи. Конечно же, максимальная совместимость Котлин и Джава задумывалась для более простой
+миграции на этот самый Котлин, а не наоборот.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На деле язык оставляет хорошее впечатление и облегчает решение повседневных задач. Да, есть проблемы
+с идиоматичными Котлин библиотеками, так как местами приходится строить костыли, делая вызовы в стиле&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;toJson(KotlinUser.klass.javaClass)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но взамен вы получаете лаконичный синтаксис и ежедневный фан при работе с языком в Idea.
+Продолжаем погружение в яркий мир Котлин! Проект &lt;a href=&quot;http://automation-remarks.com/kirk/&quot;&gt;Kirk&lt;/a&gt; обрастает
+новыми фишками и идеями и даже появился в &lt;a href=&quot;https://search.maven.org/#artifactdetails%7Ccom.automation-remarks%7Ckirk%7C0.7.1%7Cjar&quot;&gt;Maven Central&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Так на Котлине ж &lt;a href=&quot;https://www.jetbrains.com/research/devecosystem-2017/&quot;&gt;пишут всего 2%&lt;/a&gt; разрабочиков?
+А, пофиг. Если что, пойдем формошлепить на джаваскрипте =))&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Все будет Kotlin
