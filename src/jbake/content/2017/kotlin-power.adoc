@@ -1,4 +1,4 @@
-= используем супер силу kotlin в тестах
+= Используем супер силу Kotlin в тестах
 sergey pirogov
 2017-07-18
 :jbake-type: post
