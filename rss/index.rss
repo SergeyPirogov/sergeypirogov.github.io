@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Jul 2017 19:02:28 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Jul 2017 19:02:28 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Jul 2017 19:03:00 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Jul 2017 19:03:00 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -36,12 +36,12 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Мнение: если вы начинающий тестировщик или совсем мало работаете с Java, вам будет
-сложно понять смысл Котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
+сложно понять смысл котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
 покажутся уже знакомыми.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Просто читать книги и статьи о котлине не достаточно. В интернете появляется все больше материалов,
-в которых пишут о том, какой он классный, что он &lt;a href=&quot;https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62&quot;&gt;почти не тормозит&lt;/a&gt;,
+ в которых пишут о том, какой он классный, что он &lt;a href=&quot;https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62&quot;&gt;почти не тормозит&lt;/a&gt;,
 и вообще совместим с джавой просто на ура.
 Маркетинг и хайп - это хорошо, но давайте посмотрим на реальность.&lt;/p&gt;
 &lt;/div&gt;
