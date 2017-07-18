@@ -138,5 +138,5 @@ toJson(KotlinUser.klass.javaClass)
 новыми фишками и идеями и даже уже появился в https://search.maven.org/#artifactdetails%7Ccom.automation-remarks%7Ckirk%7C0.7.1%7Cjar[Maven Central].
 
 **P/S** Так на Котлине ж https://www.jetbrains.com/research/devecosystem-2017/[пишут всего 2%] разрабочиков?
-А, пофиг. Если что, пойдем гавнякать на джаваскрипте =))
+А, пофиг. Если что, пойдем формошлепить на джаваскрипте =))
 
