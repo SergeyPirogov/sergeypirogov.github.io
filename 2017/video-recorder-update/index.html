@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Как приручить Jenkins API</title>
+    <title>Video Recorder v1.6</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как приручить Jenkins API">
+    <meta property="og:title" content="Video Recorder v1.6">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Небольшой пост о том, как можно добраться до внутренностей Jenkins."/>
+        	<meta property="og:description" content="Вышел апдейт видео рекордера"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,52 +82,117 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                19/11/2014
+                                23/07/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как приручить Jenkins API</h1>
+                        <h1 class="post-title">Video Recorder v1.6</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Небольшой пост о том, как можно добраться до внутренностей <a href="https://jenkins.io/index.html">Jenkins</a>.
-Бывают ситуации, когда СI сервер установлен где-то на удаленной машине, доступ к которой осуществляется через VPN. В общем ситуация сложная, а информацию о джобах и письма от дженкинса получать хотелось бы.
-В таком случае в помощь приходит <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">Jenkins API</a>.
-API позволяет извлекать информацию в трех форматах XML, JSON и Python.
-Как это работает? Очень просто: все что нужно - вбить в браузере в строке адреса:</p>
+<p>Добрый день, уважаемые друзья айтишники. Очередная заметка с содержанием технческого
+харкора уже на вашем экране =)</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p>В этот раз хочу поделиться с вами новостями о <a href="http://automation-remarks.com/java-video-recorder-1-0-8/index.html">Java Video Recorder</a>.</p>
+</div>
+<div class="paragraph">
+<p>Судя по статистике которуб предоставляет Maven Central, c момента выхода в свет библиотека набрала определенную степень популярности:</p>
+</div>
+<div class="paragraph">
+<p>Общее число скачиваний в месяц</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;jenkins host&gt;/api/json</code></pre>
+<img src="/images/selection_006.png" alt="selection 006">
 </div>
 </div>
 <div class="paragraph">
-<p>Вуаля! Круто, не правда ли? Но текст не читабелен. Решается это просто: нужно добавить pretty формат:</p>
+<p>Общее число уникальных ip</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://9.21.103.66:8255/jenkins/api/json?pretty=true</code></pre>
+<img src="/images/selection_007.png" alt="selection 007">
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь на экране в <strong>JSON</strong> формате отображается информация обо всех джобах. Для того, чтобы опуститься на уровень одного <strong>Job</strong>, необходимо просто указать имя:</p>
+<p>Буквально пару дней назад я выпусил версии 1.6. Так как в этом апдейте есть изменения,
+которые поломают ваш старый код, я решил написать именно об этом.</p>
+</div>
+<div class="paragraph">
+<p>Что поменялось?</p>
+</div>
+<div class="paragraph">
+<p>В версии 1.6 была удалена возможность устанавливать кофигурацию в коде.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/api/json?pretty=true</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">VideoREcorder.conf().withRecorderType(RecorderType.FFMPEG)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>А чтобы получить информацию о какой-либо сборке, нужно всего лишь указать ее номер:</p>
+<p>Теперь конфигурация осуществляется через конфигурационный файл <strong>video.properties</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">http://&lt;JENKINS_HOST&gt;/job/&lt;JOB_NAME&gt;/&lt;BUILD_NUMBER&gt;/api/json?pretty=true</code></pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">video.folder= ${user home}/video
+video.enabled=false               // default true
+video.mode=ALL                    // default ANNOTATED
+recorder.type=FFMPEG              // default MONTE
+video.save.mode=ALL               // default FAILED_ONLY
+video.frame.rate=1                // default 24</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>После получения информации ее можно использовать в благих целях. Но об этом я расскажу в следующий раз&#8230;&#8203;</p>
+<p>Почему так?</p>
+</div>
+<div class="paragraph">
+<p>Конфигурация храниться в одном месте, не нужно бегать и искать не поменял
+ли кто в коде значение. Переопределить значения указанные в конфиг файле можно через System properties.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">System.setProperty("video.enabled","false")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Или через cmd:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">mvn test -Dvideo.enabled=false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Второе нововведение - поддержка Junit 5. Я уже <a href="http://automation-remarks.com/2017/video-recroder-junit5/index.html">писал</a> об этом еще в феврале,
+но теперь в Maven Central появился официальный модуль <strong>video-recorder-junit5</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Вам вообще не нужно заморачиваться просто подключаете его и можете писать</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Video
+void testIsFlaky(){
+   open(LoginPage.class)
+   element("#name") value "name"
+   element("#password") value "password"
+   element("#loginBtn").click()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В связи с переходом на новый формат конфигурации немного поменялась внутренняя реализация, но это
+не задевает уже существующие адаптеры для JUnit и TestNG. Надеюсь эти улучшения будут полезными
+для пользователей библиотеки.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong> Перед выходом версии 1.6 была еще версия 1.5, но она оказалась неудачной, так как я забыл исключить
+зависимость JUnit5-api из сборки, поэтому у всех обновившихся полезли проблемы. Извиняюсь, тупанул, с кем не бывает.</p>
+</div>
+<div class="paragraph">
+<p>BTW: С <a href="http://automation-remarks.com/2017/kotlin/index.html">Котлином</a> Video Recorder тоже работает =)</p>
 </div>
                     </section>
 
@@ -156,8 +221,8 @@ API позволяет извлекать информацию в трех фо�
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Jenkins.html">Jenkins</a>
-                                    <a href="/tags/CI.html">CI</a>
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Kotlin.html">Kotlin</a>
                             </div>
                     </footer>
 
@@ -166,7 +231,6 @@ API позволяет извлекать информацию в трех фо�
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/video-recorder-update/index.html">Video Recorder v1.6</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin-power/index.html">Используем супер силу Kotlin в тестах</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin/index.html">Все будет Kotlin</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/allure-gradle-without-plugin/index.html">Переходим на Allure2 без Gradle плагина</a></li>
@@ -206,8 +270,8 @@ API позволяет извлекать информацию в трех фо�
     </section>
 
     <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=593544852e01ff00121c6783&product=inline-share-buttons"></script>
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

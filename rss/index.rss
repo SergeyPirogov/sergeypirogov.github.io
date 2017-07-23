@@ -14,9 +14,126 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Jul 2017 19:03:00 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Jul 2017 19:03:00 +0000</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2017 11:09:08 +0000</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2017 11:09:08 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Video Recorder v1.6
+          </title>
+          <link>http://automation-remarks.com/2017/video-recorder-update/index.html</link>
+          <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/video-recorder-update/index.html</guid>
+          <description>
+                        Вышел апдейт видео рекордера
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Добрый день, уважаемые друзья айтишники. Очередная заметка с содержанием технческого
+харкора уже на вашем экране =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этот раз хочу поделиться с вами новостями о &lt;a href=&quot;http://automation-remarks.com/java-video-recorder-1-0-8/index.html&quot;&gt;Java Video Recorder&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Судя по статистике которуб предоставляет Maven Central, c момента выхода в свет библиотека набрала определенную степень популярности:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Общее число скачиваний в месяц&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/selection_006.png&quot; alt=&quot;selection 006&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Общее число уникальных ip&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/selection_007.png&quot; alt=&quot;selection 007&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Буквально пару дней назад я выпусил версии 1.6. Так как в этом апдейте есть изменения,
+которые поломают ваш старый код, я решил написать именно об этом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что поменялось?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В версии 1.6 была удалена возможность устанавливать кофигурацию в коде.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;VideoREcorder.conf().withRecorderType(RecorderType.FFMPEG)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь конфигурация осуществляется через конфигурационный файл &lt;strong&gt;video.properties&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;video.folder= ${user home}/video
+video.enabled=false               // default true
+video.mode=ALL                    // default ANNOTATED
+recorder.type=FFMPEG              // default MONTE
+video.save.mode=ALL               // default FAILED_ONLY
+video.frame.rate=1                // default 24&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Почему так?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Конфигурация храниться в одном месте, не нужно бегать и искать не поменял
+ли кто в коде значение. Переопределить значения указанные в конфиг файле можно через System properties.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;System.setProperty(&quot;video.enabled&quot;,&quot;false&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Или через cmd:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;mvn test -Dvideo.enabled=false&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Второе нововведение - поддержка Junit 5. Я уже &lt;a href=&quot;http://automation-remarks.com/2017/video-recroder-junit5/index.html&quot;&gt;писал&lt;/a&gt; об этом еще в феврале,
+но теперь в Maven Central появился официальный модуль &lt;strong&gt;video-recorder-junit5&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вам вообще не нужно заморачиваться просто подключаете его и можете писать&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Video
+void testIsFlaky(){
+   open(LoginPage.class)
+   element(&quot;#name&quot;) value &quot;name&quot;
+   element(&quot;#password&quot;) value &quot;password&quot;
+   element(&quot;#loginBtn&quot;).click()
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В связи с переходом на новый формат конфигурации немного поменялась внутренняя реализация, но это
+не задевает уже существующие адаптеры для JUnit и TestNG. Надеюсь эти улучшения будут полезными
+для пользователей библиотеки.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Перед выходом версии 1.6 была еще версия 1.5, но она оказалась неудачной, так как я забыл исключить
+зависимость JUnit5-api из сборки, поэтому у всех обновившихся полезли проблемы. Извиняюсь, тупанул, с кем не бывает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;BTW: С &lt;a href=&quot;http://automation-remarks.com/2017/kotlin/index.html&quot;&gt;Котлином&lt;/a&gt; Video Recorder тоже работает =)&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Используем супер силу Kotlin в тестах
@@ -36,12 +153,12 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Мнение: если вы начинающий тестировщик или совсем мало работаете с Java, вам будет
-сложно понять смысл котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
+сложно понять смысл Котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
 покажутся уже знакомыми.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Просто читать книги и статьи о котлине не достаточно. В интернете появляется все больше материалов,
- в которых пишут о том, какой он классный, что он &lt;a href=&quot;https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62&quot;&gt;почти не тормозит&lt;/a&gt;,
+в которых пишут о том, какой он классный, что он &lt;a href=&quot;https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62&quot;&gt;почти не тормозит&lt;/a&gt;,
 и вообще совместим с джавой просто на ура.
 Маркетинг и хайп - это хорошо, но давайте посмотрим на реальность.&lt;/p&gt;
 &lt;/div&gt;
