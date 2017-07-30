@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Selenium Camp 2017 call for papers</title>
+    <title>Kirk + chrome devtools</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Selenium Camp 2017 call for papers">
+    <meta property="og:title" content="Kirk + chrome devtools">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Selenium Camp 2017 Call for papers"/>
+        	<meta property="og:description" content="о возможности использовать devtools в тестах"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,105 +82,107 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                22/11/2016
+                                30/07/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Selenium Camp 2017 call for papers</h1>
+                        <h1 class="post-title">Kirk + chrome devtools</h1>
                     </header>
 
                     <section class="post-content">
-                        <div class="imageblock">
+                        <div class="paragraph">
+<p>Привет, друзья-айтишники. Сегодня хочу поделиться с вами очередной порцией полезной
+информации из мира автоматизации тестирования. Поговорим более детально о возможностях использования
+Сhrome developer tools во время прогонов автотестов.</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<img src="/images/sel_camp_logo.png" alt="sel camp logo">
+<img src="http://tutorialdock.altervista.org/wordpress/wp-content/uploads/2011/06/chrome-dev-tool.png" alt="chrome dev tool">
 </div>
 </div>
 <div class="paragraph">
-<p>Хорошая новость друзья - официально объявлен прием докладов на <a href="http://seleniumcamp.com/">Selenium Camp 2017</a>.</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Selenium Camp conference that will take place on February 24-25th in Kyiv, Ukraine.</p>
-</div>
-</blockquote>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>This year we decided to make some important changes:</p>
-</div>
-</blockquote>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="ulist">
-<ul>
-<li>
-<p>we made one more step forward to extend program with general test automation topics in addition to previously covered Selenium/WebDriver, so now we will have 3+ parallel tracks;</p>
-</li>
-</ul>
-</div>
-</blockquote>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="ulist">
-<ul>
-<li>
-<p>we finally changed the venue to make the conference more comfortable for participants, so now we are ready to grow up to 500 attendees;</p>
-</li>
-</ul>
-</div>
-</blockquote>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="ulist">
-<ul>
-<li>
-<p>we prepared good entertainment program for speakers including speakers dinner, city tour, comfortable speakers room for relax and work, whiskey party with attendees for better communication, etc.</p>
-</li>
-</ul>
-</div>
-</blockquote>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>We would like to remind you about our conference and let you know that CFP (call for papers) is open. We are looking for speakers who are interested in sharing their knowledge and experience with our community. If you are one of them and whould like to join us please submit your talk.</p>
-</div>
-</blockquote>
-</div>
-</blockquote>
+<p><a href="http://automation-remarks.com/2017/video-recorder-update/index.html">Записывать видео</a> мы уже давно научились,
+а вот использовать такой мощный инструмент, как devtools, пока еще нет.</p>
 </div>
 <div class="paragraph">
-<p>На <a href="http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html">прошлогодней</a> конференций было очень круто.</p>
+<p>Developer tools обладает обширным кругом возможностей. Мы с вами используем его каждый день: для поиска элеметов,
+для того, чтобы посмотреть в network, возможно, даже попытаться <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions">замедлить браузер</a>, чтобы посмотреть на поведение вашего сайта.</p>
 </div>
 <div class="paragraph">
-<p>Подавайте свои доклады используя <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSdULHas0IPN8D3arKmiKum-hmb7UQQJDn-1FgQ2y7e214Yw/viewform">форму</a> регистрации</p>
+<p>Использование devtools в тестах было невозможно, пока на одной из конференций не был
+показан инструмент <a href="https://github.com/bayandin/devtools-proxy">devtools proxy</a>.</p>
+</div>
+<div class="paragraph">
+<p>Сам прокси написан на Python, но это не ограничивает нас от использования его в Java проектах.</p>
+</div>
+<div class="paragraph">
+<p>Перед тем, как перейти к основной части, я поясню, чем вообще может помочь devtools именно во время прогона тестов.
+Во-первых, вы можете смотреть сорс HTML страницы прямо во время исполнения тестов. Во-вторых, можно
+смотреть табу network, все запросы и ответы. Это позволяет быстрее понять, что во время теста пошло не так и почему же он упал.
+Хочу отметить, что возможность записывать трафик общения между браузером и бекендом уже давно
+можно реализовать с помощью <a href="http://www.seleniumeasy.com/selenium-tutorials/browsermob-proxy-selenium-example">browsermob proxy</a>.
+Но proxy накладывает свои ограничения и вы не можете так прям в live режиме смотреть, что же там происходит.</p>
+</div>
+<div class="paragraph">
+<p>Я уже давно играюсь с DevTools proxy и буквально недавно сделал интеграцию devtools + <a href="https://github.com/SergeyPirogov/kirk">Kirk</a>.</p>
+</div>
+<div class="paragraph">
+<p>Выглядит это так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class DevToolsDemo {
+
+    @Test fun testCanAddTwoNumbersListener() {
+        val chrome = Browser(listener = DevTools())
+        chrome.to("http://juliemr.github.io/protractor-demo/") {
+            element("input[ng-model='first']") value "1"
+            element("input[ng-model='second']") value "2"
+            select("select[ng-model='operator']").selectOption("+")
+            element("#gobutton").click()
+            element("h2.ng-binding").shouldHave(text("3"))
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В Kirk класс <strong>Browser</strong> умеет принимать два параметра в конструкторе: <strong>WebDriver</strong> и реализацию интерфейса <strong>KirkListener</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Этим мы и воспользуемся:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class DevTools : AbstractEventListener() {
+    override fun onStart() {
+        openDevTools()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Результат смотрим на видео:</p>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CHW03-L_bI4" frameborder="0" allowfullscreen></iframe>
+<div class="paragraph">
+<p>На видео вы видели только один браузер потому, что тесты бежали в headless chrome. Эту возможность Kirk тоже поддерживает
+"из коробки".
+Я специально сделал пример с "безголовым хромом", чтобы более ярко продемонстрировать возможности. С наличием
+такой фичи мы можем дебажить тесты, которые бегут на другой машине или в CI (*).</p>
+</div>
+<div class="paragraph">
+<p>В целом я очень доволен появлением такой фичи: теперь команда может более эффективно дебажить тесты и анализировать
+результаты. Я уверен, что мы еще будем обкатывать эту функциональность и найдем много полезных фишек, о которых
+можно будет рассказать обществу автоматизаторов.</p>
+</div>
+<div class="paragraph">
+<p>BTW: Ближайшее событие, на котором можно будет услышать о тестах на Котлине Kirk + DevTools и получить еще
+кучу полезной информации - <a href="http://qafest.com/">QAFest</a>. Не пропустите! Всех посетителей ждет очень много интересного -
+это я могу гарантировать как член программного коммитета.</p>
+</div>
+<div class="paragraph">
+<p>(*) Для нормального подключения удаленно нужно делать <a href="https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device">port forwarding</a></p>
 </div>
                     </section>
 
@@ -209,7 +211,8 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Конференции.html">Конференции</a>
+                                    <a href="/tags/java.html">java</a>
+                                    <a href="/tags/kotlin.html">kotlin</a>
                             </div>
                     </footer>
 
@@ -218,7 +221,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/kirk-chrome-devtools/index.html">Kirk + chrome devtools</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/video-recorder-update/index.html">Video Recorder v1.6</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin-power/index.html">Используем супер силу Kotlin в тестах</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin/index.html">Все будет Kotlin</a></li>
