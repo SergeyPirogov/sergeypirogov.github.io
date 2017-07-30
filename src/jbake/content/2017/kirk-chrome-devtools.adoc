@@ -83,3 +83,5 @@ BTW: Ближайшее событие на котором можно будет
 кучу полезной информации - http://qafest.com/[QAFest]. Не пропустите всех посетителей ждем очень много интересного -
 это я могу гарантировать как член программного коммитета.
 
+(*) Для нормального подключения удаленно нужно делать https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device[port forwarding]
+
