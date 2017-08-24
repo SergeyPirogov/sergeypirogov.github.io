@@ -14,122 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 24 Aug 2017 14:53:51 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 14:53:51 +0000</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 15:56:31 +0000</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 15:56:31 +0000</lastBuildDate>
 
-        <item>
-          <title>
-              Kirk + chrome devtools
-          </title>
-          <link>http://automation-remarks.com/2017/kirk-chrome-devtools/index.html</link>
-          <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2017/kirk-chrome-devtools/index.html</guid>
-          <description>
-                        о возможности использовать devtools в тестах
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Привет, друзья-айтишники. Сегодня хочу поделиться с вами очередной порцией полезной
-информации из мира автоматизации тестирования. Поговорим более детально о возможностях использования
-Сhrome developer tools во время прогонов автотестов.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;http://tutorialdock.altervista.org/wordpress/wp-content/uploads/2011/06/chrome-dev-tool.png&quot; alt=&quot;chrome dev tool&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://automation-remarks.com/2017/video-recorder-update/index.html&quot;&gt;Записывать видео&lt;/a&gt; мы уже давно научились,
-а вот использовать такой мощный инструмент, как devtools, пока еще нет.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Developer tools обладает обширным кругом возможностей. Мы с вами используем его каждый день: для поиска элеметов,
-для того, чтобы посмотреть в network, возможно, даже попытаться &lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions&quot;&gt;замедлить браузер&lt;/a&gt;, чтобы посмотреть на поведение вашего сайта.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Использование devtools в тестах было невозможно, пока на одной из конференций не был
-показан инструмент &lt;a href=&quot;https://github.com/bayandin/devtools-proxy&quot;&gt;devtools proxy&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Сам прокси написан на Python, но это не ограничивает нас от использования его в Java проектах.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Перед тем, как перейти к основной части, я поясню, чем вообще может помочь devtools именно во время прогона тестов.
-Во-первых, вы можете смотреть сорс HTML страницы прямо во время исполнения тестов. Во-вторых, можно
-смотреть табу network, все запросы и ответы. Это позволяет быстрее понять, что во время теста пошло не так и почему же он упал.
-Хочу отметить, что возможность записывать трафик общения между браузером и бекендом уже давно
-можно реализовать с помощью &lt;a href=&quot;http://www.seleniumeasy.com/selenium-tutorials/browsermob-proxy-selenium-example&quot;&gt;browsermob proxy&lt;/a&gt;.
-Но proxy накладывает свои ограничения и вы не можете так прям в live режиме смотреть, что же там происходит.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Я уже давно играюсь с DevTools proxy и буквально недавно сделал интеграцию devtools + &lt;a href=&quot;https://github.com/SergeyPirogov/kirk&quot;&gt;Kirk&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Выглядит это так:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class DevToolsDemo {
-
-    @Test fun testCanAddTwoNumbersListener() {
-        val chrome = Browser(listener = DevTools())
-        chrome.to(&quot;http://juliemr.github.io/protractor-demo/&quot;) {
-            element(&quot;input[ng-model=&apos;first&apos;]&quot;) value &quot;1&quot;
-            element(&quot;input[ng-model=&apos;second&apos;]&quot;) value &quot;2&quot;
-            select(&quot;select[ng-model=&apos;operator&apos;]&quot;).selectOption(&quot;+&quot;)
-            element(&quot;#gobutton&quot;).click()
-            element(&quot;h2.ng-binding&quot;).shouldHave(text(&quot;3&quot;))
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В Kirk класс &lt;strong&gt;Browser&lt;/strong&gt; умеет принимать два параметра в конструкторе: &lt;strong&gt;WebDriver&lt;/strong&gt; и реализацию интерфейса &lt;strong&gt;KirkListener&lt;/strong&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Этим мы и воспользуемся:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class DevTools : AbstractEventListener() {
-    override fun onStart() {
-        openDevTools()
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Результат смотрим на видео:&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CHW03-L_bI4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;На видео вы видели только один браузер потому, что тесты бежали в headless chrome. Эту возможность Kirk тоже поддерживает
-&quot;из коробки&quot;.
-Я специально сделал пример с &quot;безголовым хромом&quot;, чтобы более ярко продемонстрировать возможности. С наличием
-такой фичи мы можем дебажить тесты, которые бегут на другой машине или в CI (*).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В целом я очень доволен появлением такой фичи: теперь команда может более эффективно дебажить тесты и анализировать
-результаты. Я уверен, что мы еще будем обкатывать эту функциональность и найдем много полезных фишек, о которых
-можно будет рассказать обществу автоматизаторов.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;BTW: Ближайшее событие, на котором можно будет услышать о тестах на Котлине Kirk + DevTools и получить еще
-кучу полезной информации - &lt;a href=&quot;http://qafest.com/&quot;&gt;QAFest&lt;/a&gt;. Не пропустите! Всех посетителей ждет очень много интересного -
-это я могу гарантировать как член программного коммитета.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;(*) Для нормального подключения удаленно нужно делать &lt;a href=&quot;https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device&quot;&gt;port forwarding&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
         <item>
           <title>
               Как мы перешли на Selenoid
           </title>
           <link>http://automation-remarks.com/2017/selenoid/index.html</link>
-          <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+          <pubDate>Thu, 24 Aug 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2017/selenoid/index.html</guid>
           <description>
                         История нашего перехода на Selenoid
@@ -235,6 +128,113 @@ $ ./cm selenoid-ui start&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Приятная новость: автор Selenoid будет выступать с докладом на конференции &lt;a href=&quot;http://qafest.com/&quot;&gt;QAFest&lt;/a&gt;, поэтому у всех посетителей
 будет возможность не только послушать доклад, но и познакомиться лично. Собственно, это я и собираюсь сделать. Тоже буду там
 выступать, но об этом уже в следующей заметке.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Kirk + chrome devtools
+          </title>
+          <link>http://automation-remarks.com/2017/kirk-chrome-devtools/index.html</link>
+          <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/kirk-chrome-devtools/index.html</guid>
+          <description>
+                        о возможности использовать devtools в тестах
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, друзья-айтишники. Сегодня хочу поделиться с вами очередной порцией полезной
+информации из мира автоматизации тестирования. Поговорим более детально о возможностях использования
+Сhrome developer tools во время прогонов автотестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;http://tutorialdock.altervista.org/wordpress/wp-content/uploads/2011/06/chrome-dev-tool.png&quot; alt=&quot;chrome dev tool&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://automation-remarks.com/2017/video-recorder-update/index.html&quot;&gt;Записывать видео&lt;/a&gt; мы уже давно научились,
+а вот использовать такой мощный инструмент, как devtools, пока еще нет.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Developer tools обладает обширным кругом возможностей. Мы с вами используем его каждый день: для поиска элеметов,
+для того, чтобы посмотреть в network, возможно, даже попытаться &lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions&quot;&gt;замедлить браузер&lt;/a&gt;, чтобы посмотреть на поведение вашего сайта.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Использование devtools в тестах было невозможно, пока на одной из конференций не был
+показан инструмент &lt;a href=&quot;https://github.com/bayandin/devtools-proxy&quot;&gt;devtools proxy&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сам прокси написан на Python, но это не ограничивает нас от использования его в Java проектах.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Перед тем, как перейти к основной части, я поясню, чем вообще может помочь devtools именно во время прогона тестов.
+Во-первых, вы можете смотреть сорс HTML страницы прямо во время исполнения тестов. Во-вторых, можно
+смотреть табу network, все запросы и ответы. Это позволяет быстрее понять, что во время теста пошло не так и почему же он упал.
+Хочу отметить, что возможность записывать трафик общения между браузером и бекендом уже давно
+можно реализовать с помощью &lt;a href=&quot;http://www.seleniumeasy.com/selenium-tutorials/browsermob-proxy-selenium-example&quot;&gt;browsermob proxy&lt;/a&gt;.
+Но proxy накладывает свои ограничения и вы не можете так прям в live режиме смотреть, что же там происходит.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже давно играюсь с DevTools proxy и буквально недавно сделал интеграцию devtools + &lt;a href=&quot;https://github.com/SergeyPirogov/kirk&quot;&gt;Kirk&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Выглядит это так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class DevToolsDemo {
+
+    @Test fun testCanAddTwoNumbersListener() {
+        val chrome = Browser(listener = DevTools())
+        chrome.to(&quot;http://juliemr.github.io/protractor-demo/&quot;) {
+            element(&quot;input[ng-model=&apos;first&apos;]&quot;) value &quot;1&quot;
+            element(&quot;input[ng-model=&apos;second&apos;]&quot;) value &quot;2&quot;
+            select(&quot;select[ng-model=&apos;operator&apos;]&quot;).selectOption(&quot;+&quot;)
+            element(&quot;#gobutton&quot;).click()
+            element(&quot;h2.ng-binding&quot;).shouldHave(text(&quot;3&quot;))
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В Kirk класс &lt;strong&gt;Browser&lt;/strong&gt; умеет принимать два параметра в конструкторе: &lt;strong&gt;WebDriver&lt;/strong&gt; и реализацию интерфейса &lt;strong&gt;KirkListener&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Этим мы и воспользуемся:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class DevTools : AbstractEventListener() {
+    override fun onStart() {
+        openDevTools()
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Результат смотрим на видео:&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CHW03-L_bI4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На видео вы видели только один браузер потому, что тесты бежали в headless chrome. Эту возможность Kirk тоже поддерживает
+&quot;из коробки&quot;.
+Я специально сделал пример с &quot;безголовым хромом&quot;, чтобы более ярко продемонстрировать возможности. С наличием
+такой фичи мы можем дебажить тесты, которые бегут на другой машине или в CI (*).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом я очень доволен появлением такой фичи: теперь команда может более эффективно дебажить тесты и анализировать
+результаты. Я уверен, что мы еще будем обкатывать эту функциональность и найдем много полезных фишек, о которых
+можно будет рассказать обществу автоматизаторов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;BTW: Ближайшее событие, на котором можно будет услышать о тестах на Котлине Kirk + DevTools и получить еще
+кучу полезной информации - &lt;a href=&quot;http://qafest.com/&quot;&gt;QAFest&lt;/a&gt;. Не пропустите! Всех посетителей ждет очень много интересного -
+это я могу гарантировать как член программного коммитета.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;(*) Для нормального подключения удаленно нужно делать &lt;a href=&quot;https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device&quot;&gt;port forwarding&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
