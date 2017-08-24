@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 24 Aug 2017 13:07:45 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 13:07:45 +0000</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 14:30:30 +0000</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 14:30:30 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -121,6 +121,120 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;(*) Для нормального подключения удаленно нужно делать &lt;a href=&quot;https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device&quot;&gt;port forwarding&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как мы перешли на Selenoid
+          </title>
+          <link>http://automation-remarks.com/2017/selenoid/index.html</link>
+          <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/selenoid/index.html</guid>
+          <description>
+                        История нашего перехода на Selenoid
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Наконец-то я добрался до написания заметки о &lt;a href=&quot;https://github.com/aerokube/selenoid&quot;&gt;Selenoid&lt;/a&gt;. Я расскажу о том как и зачем мы его внедрили и что это
+нам дало.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще со времен когда я только вошел в IT в целом и мир автоматизации в частности, мы знали таком инструменте как Selenium Grid. Достаточно полезная
+штука и по всей видимости очень популярная, так как заметка о &lt;a href=&quot;http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html&quot;&gt;настройке грида&lt;/a&gt;
+является одной из самых читаемых.
+Сам грид штука прикольная, но очень не стабильная. Многие проекты и компании научились танцевать с бубном и настривать грид так, чтобы он не падал.
+Скажем ребята из Яндекса наваяли свой &lt;a href=&quot;https://www.youtube.com/watch?v=ULcE3993cZg&quot;&gt;грид роутер&lt;/a&gt;, ребята из Альфа-лаборатории наваяли свой
+&lt;a href=&quot;https://habrahabr.ru/company/alfa/blog/331434/&quot;&gt;кластер&lt;/a&gt;. Когда же пришло наше время к настройке инфраструктуры для запуска UI тестов, мы решили не
+изобретать велосипед и взять готовое решение под названием &lt;strong&gt;Selenoid&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Почему именно Selenoid?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все достаточно просто - его очень просто настроить, там есть докер и хорошая производительность.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже давно играюсь с докером. На одном из проектов мы внедрили &lt;a href=&quot;http://automation-remarks.com/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html&quot;&gt;тест контенеры&lt;/a&gt;
+на другом просто запускали браузер в докере. На текущеп проекте мы изначально хотели запускать тесты в безголовом хроме, но в тот момент эта функциональность
+работала не так хорошо как бы нам хотелось, да и дебажить тесты в невидимом решиме не так уж и круто.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Selenoid же был решением, которое очень хотелось попробовать в реальной работе. Реальные плюс состоит в том, что настроить его очень просто  при
+помощи &lt;a href=&quot;http://aerokube.com/cm/latest/&quot;&gt;Configuration Manager&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Реально выполняете пару команд:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
+$ chmod +x ./cm
+$ ./cm selenoid start --vnc
+$ ./cm selenoid-ui start&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;и у вас уже все настроено и работает. Реально у нас это все заняло 10 минут (наша версия докера не подходила и нам его пришлось обновлять) =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Всего через неделю использования, мы забыли о том, что такое локальный запуск браузера. При наличии VNC можно абсолютно спокойно дебажить тесты прямо на удаленной
+машине. Огромным плюсом из-за которого я вообще посмотрел в сторону Selenoid является запуск контейнера по запросу и повторяемость окружения.
+У вас всегда известна версия браузера в котором буду бежать тесты. Всегда создается новый контенер под новую сессию. Больше нету неожиданных автообновлений
+хрома или файрфоркса. Более того мы полечили синдром &quot;А у меня локально работает!&quot;, так как все запускают тесты только удаленно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Минусы есть?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пока что у нас почему-то проскакивает ошибка &lt;code&gt;Could not create remote session&lt;/code&gt;. Случается она редко и лечится банальным перезапуском, но все же не приятно.
+Да и проблема скорее всего у нас в коде. Еще в контейнере не работает команда driver.manage.window.maximize(), поэтому приходиться ставить размер окна явно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мы используем Selenide (на Kirk мы пишем пока только один проект) и написали свой &lt;code&gt;SelenoidDriverProvider&lt;/code&gt;:
+Специально приведу пример кода, так как многи часто задают один и тот же вопрос, а как настроить. Так как у Selenide с документацией скажем откровенно
+&quot;проблемы&quot;, можете опираться на пример ниже:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;public class SelenoidWebDriverProvider implements WebDriverProvider {
+  @Override
+  public WebDriver createDriver(DesiredCapabilities capabilities) {
+    DesiredCapabilities browser = new DesiredCapabilities();
+    browser.setBrowserName(&quot;chrome&quot;);
+    browser.setVersion(&quot;59.0&quot;);
+    browser.setCapability(&quot;enableVNC&quot;, true);
+
+    try {
+      RemoteWebDriver driver = new RemoteWebDriver(
+              URI.create(&quot;http://172.28.28.217:4444/wd/hub&quot;).toURL(),
+              browser
+      );
+      driver.manage().window().setSize(new Dimension(1280, 1024));
+      return driver;
+    } catch (MalformedURLException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В коде это можно использовать так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;Configuration.browser = &quot;com.tests.utils.SelenoidWebDriverProvider&quot;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом я очень доволен и мы получаем реальный профит. Что мы еще не пробовали, так это обновляться. В новой версии Selenoid добавили возможность
+сетить имя для контейнера, чтобы можно было по имени легко определить нужную VNC сессию. Вот это мы пока не попробовали, так что, все еще гадаем на какой табке кино смотреть =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Приятная новость - автор Selenoid будет выступать с докладом на конференции &lt;a href=&quot;http://qafest.com/&quot;&gt;QAFest&lt;/a&gt;, поэтому у всех посетителей
+будет возможность не только послушать доклад, но и познакомиться лично. Собственно это я и собираюсь сделать. Я тоже буду там
+выступать, но об этом я напишу уже в следующей заметке.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
