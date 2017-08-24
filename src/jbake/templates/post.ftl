@@ -46,8 +46,6 @@
 
                    <!--End mc_embed_signup-->
 
-                    <div class="sharethis-inline-share-buttons"></div>
-
                     <footer class="post-footer">
                         <#if content.tags??>
                             <div class="post-tags">
