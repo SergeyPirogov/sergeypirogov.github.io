@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 24 Aug 2017 15:59:08 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 15:59:08 +0000</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 16:01:50 +0000</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 16:01:50 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -100,7 +100,7 @@ $ ./cm selenoid-ui start&lt;/code&gt;&lt;/pre&gt;
 
     try {
       RemoteWebDriver driver = new RemoteWebDriver(
-              URI.create(&quot;http://172.28.28.217:4444/wd/hub&quot;).toURL(),
+              URI.create(&quot;http://172.28.27.17:4444/wd/hub&quot;).toURL(),
               browser
       );
       driver.manage().window().setSize(new Dimension(1280, 1024));
