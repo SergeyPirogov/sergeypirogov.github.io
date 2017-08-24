@@ -1,6 +1,6 @@
 = Как мы перешли на Selenoid
 Sergey Pirogov
-2017-07-24
+2017-08-24
 :jbake-type: post
 :jbake-tags: Java
 :jbake-summary: История нашего перехода на Selenoid
