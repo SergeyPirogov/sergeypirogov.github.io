@@ -123,10 +123,10 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
+<pre class="prettyprint highlight"><code>$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
 $ chmod +x ./cm
 $ ./cm selenoid start --vnc
-$ ./cm selenoid-ui start</pre>
+$ ./cm selenoid-ui start</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -152,7 +152,7 @@ $ ./cm selenoid-ui start</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public class SelenoidWebDriverProvider implements WebDriverProvider {
+<pre class="prettyprint highlight"><code>public class SelenoidWebDriverProvider implements WebDriverProvider {
   @Override
   public WebDriver createDriver(DesiredCapabilities capabilities) {
     DesiredCapabilities browser = new DesiredCapabilities();
@@ -171,7 +171,7 @@ $ ./cm selenoid-ui start</pre>
       throw new RuntimeException(e);
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -179,7 +179,7 @@ $ ./cm selenoid-ui start</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Configuration.browser = "com.tests.utils.SelenoidWebDriverProvider"</pre>
+<pre class="prettyprint highlight"><code>Configuration.browser = "com.tests.utils.SelenoidWebDriverProvider"</code></pre>
 </div>
 </div>
 <div class="paragraph">

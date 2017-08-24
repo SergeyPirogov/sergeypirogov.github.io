@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 24 Aug 2017 15:56:31 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 15:56:31 +0000</lastBuildDate>
+    <pubDate>Thu, 24 Aug 2017 15:59:08 +0000</pubDate>
+    <lastBuildDate>Thu, 24 Aug 2017 15:59:08 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -61,10 +61,10 @@
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
 $ chmod +x ./cm
 $ ./cm selenoid start --vnc
-$ ./cm selenoid-ui start&lt;/pre&gt;
+$ ./cm selenoid-ui start&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -90,7 +90,7 @@ $ ./cm selenoid-ui start&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;public class SelenoidWebDriverProvider implements WebDriverProvider {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;public class SelenoidWebDriverProvider implements WebDriverProvider {
   @Override
   public WebDriver createDriver(DesiredCapabilities capabilities) {
     DesiredCapabilities browser = new DesiredCapabilities();
@@ -109,7 +109,7 @@ $ ./cm selenoid-ui start&lt;/pre&gt;
       throw new RuntimeException(e);
     }
   }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -117,7 +117,7 @@ $ ./cm selenoid-ui start&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;Configuration.browser = &quot;com.tests.utils.SelenoidWebDriverProvider&quot;&lt;/pre&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;Configuration.browser = &quot;com.tests.utils.SelenoidWebDriverProvider&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
