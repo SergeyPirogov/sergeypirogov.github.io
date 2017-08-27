@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Используем супер силу Kotlin в тестах</title>
+    <title>Как перестать писать @Step аннотации для Allure</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Используем супер силу Kotlin в тестах">
+    <meta property="og:title" content="Как перестать писать @Step аннотации для Allure">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="о применении котлин в деле"/>
+        	<meta property="og:description" content="Просто лайфхак"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,162 +82,165 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                18/07/2017
+                                27/08/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Используем супер силу Kotlin в тестах</h1>
+                        <h1 class="post-title">Как перестать писать @Step аннотации для Allure</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Продолжаем наше знакомство с миром kotlin. В <a href="http://automation-remarks.com/2017/kotlin/index.html">прошлый раз</a>
-я писал о первых впечатлениях. Все глубже изучая язык, на данный
-момент я успел прочитать 80% книги <a href="https://www.manning.com/books/kotlin-in-action">kotlin in action</a>
-и понять идиомы языка и основные, заложенные в него, идеи.</p>
+<p>Привет! В этой заметке хочу поделиться лайфхаком, который позволит перестать ставить аннотации <code>@Step</code> в коде тестов.</p>
 </div>
 <div class="paragraph">
-<p>Мнение: если вы начинающий тестировщик или совсем мало работаете с Java, вам будет
-сложно понять смысл Котлина. Если вы пробовали С#, Groovy и Python, то многие вещи
-покажутся уже знакомыми.</p>
+<p>Давайте сначала обрисуем суть проблемы. При построении проектов автоматизции нам зачастую приходится прикручивать какие-то логеры или репортеры.
+Для меня репортером по умолчанию является <a href="https://github.com/allure-framework">Allure</a>. С его помощью можно генерировать достаточно информативные
+и понятные отчеты. Но есть у него один небольшой недостаток - если мы хотим логировать шаги теста, то над методами нужно ставить аннотацию <strong>@Step</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Просто читать книги и статьи о котлине не достаточно. В интернете появляется все больше материалов,
-в которых пишут о том, какой он классный, что он <a href="https://medium.com/@bladecoder/exploring-kotlins-hidden-costs-part-1-fbb9935d9b62">почти не тормозит</a>,
-и вообще совместим с джавой просто на ура.
-Маркетинг и хайп - это хорошо, но давайте посмотрим на реальность.</p>
-</div>
-<div class="paragraph">
-<p>ИМХО самой крутой фишкой являются <a href="https://kotlinlang.org/docs/reference/extensions.html">extension</a> методы.
-С их помощью можно легко нафигачить дополнительных методов в любой java класс.</p>
+<p>Пример:</p>
 </div>
 <div class="listingblock">
-<div class="title">ext.kt</div>
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">fun webdriver.open(url: string, autoclose: boolean? = true) {
-    autoclose(autoclose)
-    get(url)
-}
+<pre class="prettyprint highlight"><code>class LoginPage{
 
-fun webdriver.autoclose(enabled: boolean? = true) {
-    if (enabled!!) {
-        runtime.getruntime().addshutdownhook(object : thread() {
-            override fun run() = quit()
-        })
-    }
-}
+    private SelenideElement email = $("#email");
+    private SelenideElement password = $("#password")
+    private SelenideElement submitBtn = $(".btnLogin")
 
-fun webdriver.find(cssselector: string): webelement {
-    return findelement(by.cssselector(cssselector))
-}
-
-fun webelement.setvalue(value: any) {
-    clear()
-    sendkeys(value.tostring())
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>И потом использовать все это в своем коде:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">val driver = chromedriver()
-driver.open("http://juliemr.github.io/protractor-demo/")
-driver.apply {
-    find("input[ng-model='first']").set(1)
-    find("input[ng-model='second']").set(2)
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Мегакруто! В джаве такого можно добиться с помощью <a href="http://automation-remarks.com/2017/lombok/index.html">lombok</a>,
-но для этого нужно понаставить плагинов в idea.</p>
-</div>
-<div class="paragraph">
-<p>А как этот код можно вызвать в джава классе? Смотрим:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.driver.extkt;
-
-webdriver driver = new chromedriver();
-extkt.open(driver, "http://juliemr.github.io/protractor-demo/", true);
-extkt.find(driver,"input[ng-model='first']").sendkeys("1");
-extkt.find(driver,"input[ng-model='second']").sendkeys("2");</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Красота, не правда ли? =)) Такова уж природа джавы.</p>
-</div>
-<div class="paragraph">
-<p>Давайте глянем еще на один пример c лямбдами. В котлине их реализовали схожим образом с Groovу.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">val userlist = listof(user("ivan", 26),user("dima", 12))
-assert userlist.filter { it.name == "ivan" }.first().age == 26</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Намного лучше и удобнее джавы. Но как на счет такого кода? Скажем, мы пишем такой DSL</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">browser.drive {
-    to(::calculatorpage) {
-        first.setvalue(10)
-        second.setvalue(2)
-        command.set("/")
-        gobtn.click()
-        result.shouldbe(5)
+    @Step
+    public void loginAs(String name, String password){
+        email.setValue(name)
+        password.setValue(password)
+        submitBtn.click()
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Джава эквивалент будет таким:</p>
+<p>Теперь метод <code>loginAs</code> будет отображаться в отчете, так как мы указали над ним аннотацию <code>@Step</code>. Все бы ничего, да вот когда в классе страницы
+не один метод, а 5 или 10, уже становится не так радостно расставлять эти аннотации. К тому же, бывает, пишешь тест, описываешь поведение
+страниц, запускаешь тесты, а потом "Аx, я же забыл поставить аннотации для аллюра". А когда в команде 2-3 человека, приходится следить за этими аннотациями
+в PR, что никак не радует. В один прекрасный день я подумал: можно ведь как-то сделать без аннотаций?..</p>
+</div>
+<div class="paragraph">
+<p>Оказалось, что можно. Allure в своей работе использует <a href="http://www.baeldung.com/aspectj">Aspectj</a>, который мы и можем попробовать хакнуть и использовать для своих целей.</p>
+</div>
+<div class="paragraph">
+<p>Пробуем написать свой класс аспектов:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">Browser.Companion.drive(browser -&gt; {
-      browser.to(Calculator::new, calculator -&gt; {
-      calculator.getFirst().setValue("10");
-      calculator.getSecond().setValue("2");
-      сalculator.getSelect().deselectByVisibleText("/");
-      calculator.getGoBtn().click();
-      calculator.getResult().should(new Have().text("5"));
-      return Unit.INSTANCE;
-   });
-   return Unit.INSTANCE;
-});</code></pre>
+<pre class="prettyprint highlight"><code>/**
+ * Created by sergey on 05.06.17.
+ */
+@SuppressWarnings("unused")
+@Aspect
+public class CustomAspect {
+
+  private static Allure ALLURE = Allure.LIFECYCLE;
+
+  @Pointcut("execution(* com.automation.remarks.video.service.pages.*.*(..))")
+  public void anyMethod() {
+    //pointcut body, should be empty
+  }
+
+  @Pointcut("execution(* com.codeborne.selenide.SelenideElement.should*(..))")
+  public void selenide() {
+    //pointcut body, should be empty
+  }
+
+  @Before("anyMethod() || selenide()")
+  public void stepStart(JoinPoint joinPoint) {
+    String stepTitle = createTitle(joinPoint);
+
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    StepStartedEvent startedEvent = new StepStartedEvent(
+        getName(methodSignature.getName(), joinPoint.getArgs())
+    );
+
+    if (!stepTitle.isEmpty()) {
+      startedEvent.setTitle(stepTitle);
+    }
+
+    ALLURE.fire(startedEvent);
+  }
+
+  @AfterThrowing(pointcut = "anyMethod() || selenide()", throwing = "e")
+  public void stepFailed(JoinPoint joinPoint, Throwable e) {
+    ALLURE.fire(new StepFailureEvent().withThrowable(e));
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  @AfterReturning(pointcut = "anyMethod() || selenide()", returning = "result")
+  public void stepStop(JoinPoint joinPoint, Object result) {
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  public String createTitle(JoinPoint joinPoint) {
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    Step step = methodSignature.getMethod().getAnnotation(Step.class);
+    return step == null ? "" : getTitle(step.value(), methodSignature.getName(), joinPoint.getThis(), joinPoint.getArgs());
+  }
+
+
+  /**
+   * For tests only
+   */
+  static void setAllure(Allure allure) {
+    CustomAspect.ALLURE = allure;
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Неплохая попытка. Я считаю, это - следующий убийца <strong>Selenide</strong> =)</p>
-</div>
-<div class="paragraph">
-<p>На самом деле (без шуток) это все - часть моих безумных экспериментов. Чтобы понять язык, нужно с ним поиграться
-и попробовать разные идеи. Конечно же, максимальная совместимость Котлин и Джава задумывалась для более простой
-миграции на этот самый Котлин, а не наоборот.</p>
-</div>
-<div class="paragraph">
-<p>На деле язык оставляет хорошее впечатление и облегчает решение повседневных задач. Да, есть проблемы
-с идиоматичными Котлин библиотеками, так как местами приходится строить костыли, делая вызовы в стиле</p>
+<p>Наверное, для неподготовленного читателя выглядит очень "вырвиглазно". Что я вообще написал? AspectJ оперирует понятиями <strong>Pointcut</strong>,
+которые я и объявил в самом начале класса.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">toJson(KotlinUser.klass.javaClass)</code></pre>
+<pre class="prettyprint highlight"><code>@Pointcut("execution(* public com.automation.remarks.video.service.pages.*.*(..))")
+public void anyMethod() {
+    //pointcut body, should be empty
+}
+
+@Pointcut("execution(* public com.codeborne.selenide.SelenideElement.should*(..))")
+public void selenide() {
+    //pointcut body, should be empty
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Но взамен вы получаете лаконичный синтаксис и ежедневный фан при работе с языком в Idea.
-Продолжаем погружение в яркий мир Котлин! Проект <a href="http://automation-remarks.com/kirk/">Kirk</a> обрастает
-новыми фишками и идеями и даже появился в <a href="https://search.maven.org/#artifactdetails%7Ccom.automation-remarks%7Ckirk%7C0.7.1%7Cjar">Maven Central</a>.</p>
+<p>Говоря проще, я написал селекторы, с помощью которых указал AspectJ учитывать только публичные методы из пакета <code>public com.automation.remarks.video.service.pages</code> и
+методы Selenide, которые начинаются со слова <code>should</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>P/S</strong> Так на Котлине ж <a href="https://www.jetbrains.com/research/devecosystem-2017/">пишут всего 2%</a> разрабочиков?
-А, пофиг. Если что, пойдем формошлепить на джаваскрипте =))</p>
+<p>Далее я объявил условия @Before, @After, @AfterThrowing и @AfterReturning. В @Before мы извлекаем имя метода и его параметры, а в @After либо завершаем
+шаг успешно, либо маркаем, как неуспешный, и прикрепляем к нему текст ошибки. Все достаточно просто.</p>
+</div>
+<div class="paragraph">
+<p>Далее, чтобы это все заработало, нам нужно в папке <strong>src/main/resources/META-INF</strong> создать файлик под названием <strong>aop-ajc.xml</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>&lt;aspectj&gt;
+    &lt;aspects&gt;
+        &lt;aspect name="com.automation.remarks.video.service.pages.utils.CustomAspect"/&gt;
+    &lt;/aspects&gt;
+&lt;/aspectj&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>По факту мы в этом файле просто подключаем наш новый аспект. Теперь можно просто запускать тесты и смотреть на результат точно так же, как мы делали
+это раньше. Таким образом мы избавились от аннотаций в Page объектах и значительно упростили себе жизнь. В целом эта идея работает и имеет право на жизнь.
+Вы можете ее либо переиспользовать, либо развить и поделиться решением со всем миром автоматизации.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong> Конечно, в таком подходе есть ряд недостатков. Первый: мы жестко завязались на жизненный цикл аллюра. Код, приведенный выше, работает только
+с первой версией, для второй версии нужно будет переписать вызовы <code>ALLURE.fire(new StepFailureEvent().withThrowable(e));</code>.
+Второе: дебажить аспекты практически невозможно (по крайней мере, я не нашел толковых примеров). Есть только упоминания, что вот в Eclipse как-то можно.
+Из-за этого код приходится писать почти вслепую. И третье: с Котлином эта тема не работает, так как сам AspectJ нормально не поддерживает Котлин.</p>
 </div>
                     </section>
 
@@ -265,7 +268,7 @@ assert userlist.filter { it.name == "ivan" }.first().age == 26</code></pre>
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Kotlin.html">Kotlin</a>
+                                    <a href="/tags/Allure.html">Allure</a>
                             </div>
                     </footer>
 
@@ -274,10 +277,10 @@ assert userlist.filter { it.name == "ivan" }.first().age == 26</code></pre>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/allure-without-annotations/index.html">Как перестать писать @Step аннотации для Allure</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/selenoid/index.html">Как мы перешли на Selenoid</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kirk-chrome-devtools/index.html">Kirk + chrome devtools</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/video-recorder-update/index.html">Video Recorder v1.6</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/kotlin-power/index.html">Используем супер силу Kotlin в тестах</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin/index.html">Все будет Kotlin</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/allure-gradle-without-plugin/index.html">Переходим на Allure2 без Gradle плагина</a></li>
                                      </ul>

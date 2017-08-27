@@ -16,11 +16,11 @@
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
 	
-	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
+	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -36,7 +36,7 @@
 
 <body>
     <section id="wrapper">
-        <div id="ajax-container">
+        <div id="ajax-container">	
 <nav id="nav" class="nav">
         <div class="nav-panel">
           <a class="main_link" href="/">
@@ -70,10 +70,12 @@
         </div>
 </nav>
 	<header id="header" class="header">
+		<img id='blog-logo' src="images/blog-logo.png" alt="Blog logo">
 		<div class="inner">
-		    <span class="header-title">
-		        <h1 class="header-name">Allure</h1>
-		    </span>
+			<a class="header-title" href="/">
+				<h1 class="header-name">Заметки Автоматизатора</h1>
+				<span class="header-description">Автоматизация рутины приоритетнее давления массой</span>
+			</a>
 		</div>
 	</header>
 
@@ -84,39 +86,42 @@
 
 				<article class="post ">
 				<div class="inner">
+                        <figure class="post-image">
+                            <a href="first-post/index.html"><img src="http://thestart.fm/themes/thestart/img/the-start.png" alt=""/></a>
+                        </figure>
 
 					<span class="post-meta">
-						<span class="post-date">27 August 2017</span>
+						<span class="post-date">16 November 2014</span>
 					</span>
 
-					<h2 class="post-title"><a href="/2017/allure-without-annotations/index.html">Как перестать писать @Step аннотации для Allure</a></h2>
+					<h2 class="post-title"><a href="/first-post/index.html">Welcome!</a></h2>
 
 					<p class="post-excerpt">
-                            Просто лайфхак
+                            Начало...
 					</p>
 
-					<span class="post-more"><a href="/2017/allure-without-annotations/index.html">Читать <i class="fa fa-chevron-right"></i></a></span>
-				</div>
-			</article>			<article class="post ">
-				<div class="inner">
-
-					<span class="post-meta">
-						<span class="post-date">18 June 2017</span>
-					</span>
-
-					<h2 class="post-title"><a href="/2017/allure-gradle-without-plugin/index.html">Переходим на Allure2 без Gradle плагина</a></h2>
-
-					<p class="post-excerpt">
-                            Способ интеграции Allure2 и Gradle
-					</p>
-
-					<span class="post-more"><a href="/2017/allure-gradle-without-plugin/index.html">Читать <i class="fa fa-chevron-right"></i></a></span>
+					<span class="post-more"><a href="/first-post/index.html">Читать <i class="fa fa-chevron-right"></i></a></span>
 				</div>
 			</article>
 	</div>
 </div>		</main>
 	</div>
-	
+
+	<nav id="pagination" class="pagination" role="pagination">
+    	<div class="inner">
+    	    <a class="pagination-item pagination-prev" href="/archive.html"><span>Архив</span> <i class="fa fa-chevron-right"></i></a>
+    	    <div class="clear"></div>
+    	</div>
+    </nav>
+
+	<div id="body-class" style="display: none;" class=""></div>
+	<div class='metrics'>
+		<a class='sftru' href="http://software-testing.ru/about/blogs" target="_blank">
+			<img src="http://software-testing.ru/images/stru_blog_banner.gif" border="0" width="88" height="60" alt="Software-Testing.Ru" />
+		</a>
+		<span class='readers'>Нас читает <span class='users'>74070</span></span>
+	</div>
+
             <footer id="footer">
               <section class="credits">
                 <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
@@ -125,8 +130,8 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

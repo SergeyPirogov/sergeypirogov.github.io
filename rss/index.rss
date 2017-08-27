@@ -14,9 +14,174 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 24 Aug 2017 16:01:50 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Aug 2017 16:01:50 +0000</lastBuildDate>
+    <pubDate>Sun, 27 Aug 2017 14:35:12 +0000</pubDate>
+    <lastBuildDate>Sun, 27 Aug 2017 14:35:12 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Как перестать писать @Step аннотации для Allure
+          </title>
+          <link>http://automation-remarks.com/2017/allure-without-annotations/index.html</link>
+          <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/allure-without-annotations/index.html</guid>
+          <description>
+                        Просто лайфхак
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! В этой заметке хочу поделиться лайфхаком, который позволит перестать ставить аннотации &lt;code&gt;@Step&lt;/code&gt; в коде тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте сначала обрисуем суть проблемы. При построении проектов автоматизции нам зачастую приходится прикручивать какие-то логеры или репортеры.
+Для меня репортером по умолчанию является &lt;a href=&quot;https://github.com/allure-framework&quot;&gt;Allure&lt;/a&gt;. С его помощью можно генерировать достаточно информативные
+и понятные отчеты. Но есть у него один небольшой недостаток - если мы хотим логировать шаги теста, то над методами нужно ставить аннотацию &lt;strong&gt;@Step&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;class LoginPage{
+
+    private SelenideElement email = $(&quot;#email&quot;);
+    private SelenideElement password = $(&quot;#password&quot;)
+    private SelenideElement submitBtn = $(&quot;.btnLogin&quot;)
+
+    @Step
+    public void loginAs(String name, String password){
+        email.setValue(name)
+        password.setValue(password)
+        submitBtn.click()
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь метод &lt;code&gt;loginAs&lt;/code&gt; будет отображаться в отчете, так как мы указали над ним аннотацию &lt;code&gt;@Step&lt;/code&gt;. Все бы ничего, да вот когда в классе страницы
+не один метод, а 5 или 10, уже становится не так радостно расставлять эти аннотации. К тому же, бывает, пишешь тест, описываешь поведение
+страниц, запускаешь тесты, а потом &quot;Аx, я же забыл поставить аннотации для аллюра&quot;. А когда в команде 2-3 человека, приходится следить за этими аннотациями
+в PR, что никак не радует. В один прекрасный день я подумал: можно ведь как-то сделать без аннотаций?..&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Оказалось, что можно. Allure в своей работе использует &lt;a href=&quot;http://www.baeldung.com/aspectj&quot;&gt;Aspectj&lt;/a&gt;, который мы и можем попробовать хакнуть и использовать для своих целей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пробуем написать свой класс аспектов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;/**
+ * Created by sergey on 05.06.17.
+ */
+@SuppressWarnings(&quot;unused&quot;)
+@Aspect
+public class CustomAspect {
+
+  private static Allure ALLURE = Allure.LIFECYCLE;
+
+  @Pointcut(&quot;execution(* com.automation.remarks.video.service.pages.*.*(..))&quot;)
+  public void anyMethod() {
+    //pointcut body, should be empty
+  }
+
+  @Pointcut(&quot;execution(* com.codeborne.selenide.SelenideElement.should*(..))&quot;)
+  public void selenide() {
+    //pointcut body, should be empty
+  }
+
+  @Before(&quot;anyMethod() || selenide()&quot;)
+  public void stepStart(JoinPoint joinPoint) {
+    String stepTitle = createTitle(joinPoint);
+
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    StepStartedEvent startedEvent = new StepStartedEvent(
+        getName(methodSignature.getName(), joinPoint.getArgs())
+    );
+
+    if (!stepTitle.isEmpty()) {
+      startedEvent.setTitle(stepTitle);
+    }
+
+    ALLURE.fire(startedEvent);
+  }
+
+  @AfterThrowing(pointcut = &quot;anyMethod() || selenide()&quot;, throwing = &quot;e&quot;)
+  public void stepFailed(JoinPoint joinPoint, Throwable e) {
+    ALLURE.fire(new StepFailureEvent().withThrowable(e));
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  @AfterReturning(pointcut = &quot;anyMethod() || selenide()&quot;, returning = &quot;result&quot;)
+  public void stepStop(JoinPoint joinPoint, Object result) {
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  public String createTitle(JoinPoint joinPoint) {
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    Step step = methodSignature.getMethod().getAnnotation(Step.class);
+    return step == null ? &quot;&quot; : getTitle(step.value(), methodSignature.getName(), joinPoint.getThis(), joinPoint.getArgs());
+  }
+
+
+  /**
+   * For tests only
+   */
+  static void setAllure(Allure allure) {
+    CustomAspect.ALLURE = allure;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Наверное, для неподготовленного читателя выглядит очень &quot;вырвиглазно&quot;. Что я вообще написал? AspectJ оперирует понятиями &lt;strong&gt;Pointcut&lt;/strong&gt;,
+которые я и объявил в самом начале класса.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Pointcut(&quot;execution(* public com.automation.remarks.video.service.pages.*.*(..))&quot;)
+public void anyMethod() {
+    //pointcut body, should be empty
+}
+
+@Pointcut(&quot;execution(* public com.codeborne.selenide.SelenideElement.should*(..))&quot;)
+public void selenide() {
+    //pointcut body, should be empty
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Говоря проще, я написал селекторы, с помощью которых указал AspectJ учитывать только публичные методы из пакета &lt;code&gt;public com.automation.remarks.video.service.pages&lt;/code&gt; и
+методы Selenide, которые начинаются со слова &lt;code&gt;should&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее я объявил условия @Before, @After, @AfterThrowing и @AfterReturning. В @Before мы извлекаем имя метода и его параметры, а в @After либо завершаем
+шаг успешно, либо маркаем, как неуспешный, и прикрепляем к нему текст ошибки. Все достаточно просто.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее, чтобы это все заработало, нам нужно в папке &lt;strong&gt;src/main/resources/META-INF&lt;/strong&gt; создать файлик под названием &lt;strong&gt;aop-ajc.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;&amp;lt;aspectj&amp;gt;
+    &amp;lt;aspects&amp;gt;
+        &amp;lt;aspect name=&quot;com.automation.remarks.video.service.pages.utils.CustomAspect&quot;/&amp;gt;
+    &amp;lt;/aspects&amp;gt;
+&amp;lt;/aspectj&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По факту мы в этом файле просто подключаем наш новый аспект. Теперь можно просто запускать тесты и смотреть на результат точно так же, как мы делали
+это раньше. Таким образом мы избавились от аннотаций в Page объектах и значительно упростили себе жизнь. В целом эта идея работает и имеет право на жизнь.
+Вы можете ее либо переиспользовать, либо развить и поделиться решением со всем миром автоматизации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Конечно, в таком подходе есть ряд недостатков. Первый: мы жестко завязались на жизненный цикл аллюра. Код, приведенный выше, работает только
+с первой версией, для второй версии нужно будет переписать вызовы &lt;code&gt;ALLURE.fire(new StepFailureEvent().withThrowable(e));&lt;/code&gt;.
+Второе: дебажить аспекты практически невозможно (по крайней мере, я не нашел толковых примеров). Есть только упоминания, что вот в Eclipse как-то можно.
+Из-за этого код приходится писать почти вслепую. И третье: с Котлином эта тема не работает, так как сам AspectJ нормально не поддерживает Котлин.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как мы перешли на Selenoid
