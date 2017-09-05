@@ -14,9 +14,162 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 5 Sep 2017 07:53:08 +0000</pubDate>
-    <lastBuildDate>Tue, 5 Sep 2017 07:53:08 +0000</lastBuildDate>
+    <pubDate>Tue, 5 Sep 2017 17:07:58 +0000</pubDate>
+    <lastBuildDate>Tue, 5 Sep 2017 17:07:58 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Kotlin и базы данных
+          </title>
+          <link>http://automation-remarks.com/2017/kotlin-db/index.html</link>
+          <pubDate>Tue, 5 Sep 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/kotlin-db/index.html</guid>
+          <description>
+                        Работаем с базами данных
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Продолжаем серфить на волнах хайпа вокруг Kotlin. В этот раз я покажу пример
+работы с базами данных.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На одном из проектов мы пишем автотесты для ETL сервисов, которые перегоняют данные из
+одной MSSQL базы в другую. Для работы с базой данных мы используем ванильную Java 8 и Apache DBUtils.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С применением DBUtils все получается достаточно неплохо. Мы создаем доменные объекты
+и потом с помощью &lt;strong&gt;BeanHandler&lt;/strong&gt; можем конвертировать ответы в JavaPojo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;@Data
+class User{
+    String firstName;
+    String lastName;
+    int age;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для более приятной работы мы написали парочку полезных методов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;private &amp;lt;T&amp;gt; T execute(String query, ResultSetHandler&amp;lt;T&amp;gt; handler, Object... params) {
+   try {
+     return queryRunner.query(query, handler, params);
+   } catch (SQLException e) {
+     throw new RuntimeException(e);
+   }
+}
+
+private &amp;lt;T&amp;gt; T findOne(Class&amp;lt;T&amp;gt; tClass, String query, Object... params) {
+   return execute(query, new BeanHandler&amp;lt;&amp;gt;(tClass), params);
+}
+
+private &amp;lt;T&amp;gt; List&amp;lt;T&amp;gt; findAll(Class&amp;lt;T&amp;gt; tClass, String query, Object... params) {
+   return execute(query, new BeanListHandler&amp;lt;&amp;gt;(tClass), params);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В итоге код обращения к базе выходит таким:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;final String query = &quot;SELECT * &quot;+
+                     &quot;FROM users &quot;+
+                     &quot;WHERE userId = 1;&quot;
+
+User user = database.findOne(User.class,query)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вроде бы, достаточно неплохо и лаконично, если это все завернуть еще в какой-то UserService,
+то будет прям:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;User user = userService.findById(1);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все в этом коде хорошо, но мне лично не нравится, как выглядит SQL запрос. Объединения и переносы строк.
+Запрос нельзя просто так взять, скопировать и выполнить в каком-то менеджере для баз данных.
+Увы, в Java нету поддержки форматированных строк, как в Groovy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ну да ладно с Java, а давайте попробуем реализовать то же самое на Kotlin. У них и
+форматирование строк есть, и еще пара фишек, которые могут упростить код.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пробуем:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;data class User(var id: Long, var firstName: String, var lastName:String) {
+    constructor() : this(0, &quot;&quot;,&quot;&quot;)
+}
+
+val sql = &quot;&quot;&quot;
+    SELECT *
+    FROM users
+    WHERE userId = 1;&quot;
+&quot;&quot;&quot;
+
+val handler = BeanHandler(User::class.java)
+val user = runner.query(sql, handler)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пока, естественно, мы можем все завернуть так же, как и в Java варинте, но можно сделать намного
+лучше.
+Пишем extension метод для класса QueryRunner:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;inline fun &amp;lt;reified T&amp;gt; QueryRunner.findOne(sql: String): T {
+    return BeanHandler(T::class.java).run { query(sql, this) }
+}
+
+inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableList&amp;lt;T&amp;gt; {
+    return BeanListHandler(T::class.java).run { query(sql, this) }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С помощью этих методов мы теперь можем писать так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;val sql = &quot;&quot;&quot;
+    SELECT *
+    FROM users
+    WHERE userId = 1;&quot;
+&quot;&quot;&quot;
+
+
+val user = runner.findOne&amp;lt;User&amp;gt;(sql)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;или так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;val user:User = runner.findOne(sql)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для того, чтобы понять, как это все работает, рекомендую почитать вот этот &lt;a href=&quot;https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters&quot;&gt;раздел документации&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Получается достаточно удобно и лаконично. Думаю, в следующий раз, используя полученный опыт,
+будем уже экспериментировать с конвертацией в Json. Об этом всем я буду
+рассказывать на конференции &lt;a href=&quot;http://qafest.com/&quot;&gt;QAFest 2017&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как перестать писать @Step аннотации для Allure
