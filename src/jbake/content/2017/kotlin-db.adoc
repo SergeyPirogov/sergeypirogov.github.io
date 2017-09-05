@@ -1,0 +1,125 @@
+= Kotlin и базы данных
+Sergey Pirogov
+2017-09-05
+:jbake-type: post
+:jbake-tags: Java, Kotlin
+:jbake-summary: Работаем с базами данных
+:jbake-status: published
+
+Продолжаем серфить морями и океанами на волнах хайпа вокруг Котлин. В этот раз я покажу пример
+работы с базами данных.
+
+На одном из проектов мы пишем автотесты для ETL сервисов, которые переганяют данные из
+одной MSSQL базы в другую. Для работы с базой данных мы используем ванильную Java 8 и Apache DBUtils.
+
+С применением DBUtils все получается достаточно не плохо. Мы создаем доменные объекты
+и потом с помощью **BeanHandler** можем конвертировать ответы в JavaPojo.
+
+```
+@Data
+class User{
+    String firstName;
+    String lastName;
+    int age;
+}
+```
+
+Для более приятной работы мы написали парочку полезных методов:
+
+```
+private <T> T execute(String query, ResultSetHandler<T> handler, Object... params) {
+   try {
+     return queryRunner.query(query, handler, params);
+   } catch (SQLException e) {
+     throw new RuntimeException(e);
+   }
+}
+
+private <T> T findOne(Class<T> tClass, String query, Object... params) {
+   return execute(query, new BeanHandler<>(tClass), params);
+}
+
+private <T> List<T> findAll(Class<T> tClass, String query, Object... params) {
+   return execute(query, new BeanListHandler<>(tClass), params);
+}
+```
+
+В итоге код обращения к базе выходит таким:
+
+```
+final String query = "SELECT * "+
+                     "FROM users "+
+                     "WHERE userId = 1;"
+
+User user = database.findOne(User.class,query)
+```
+
+Ну вроде как достаточно не плохо и лаконично, если это все завернуть еще в какой-то UserService,
+то будет прям:
+
+```
+User user = userService.findById(1);
+```
+
+Все в этом коде хорошо, но вот мне лично не нравиться как выглядит SQL запрос. Конкетенации и переносы строк,
+его нельзя просто так взять, скопировать и выполнить в каком-то менеджере для баз данных.
+Увы в джаве нету поддерки форматированных строк как в груви.
+
+Ну да ладно с Джавой, а давайте попробуем реализовать тоже самое но на Котлине, у них и
+форматирование строк есть и еще пара фишек которые могут упростить код.
+
+Пробуем:
+
+```
+data class User(var id: Long, var firstName: String, var lastName:String) {
+    constructor() : this(0, "","")
+}
+
+val sql = """
+    SELECT *
+    FROM users
+    WHERE userId = 1;"
+"""
+
+val handler = BeanHandler(User::class.java)
+val user = runner.query(sql, handler)
+```
+
+Пока, естественно мы можем все завернуть так же как и в джава варинте, но можно сделать намного
+лучше.
+Пишем extension метод для класса QueryRunner:
+
+```
+inline fun <reified T> QueryRunner.findOne(sql: String): T {
+    return BeanHandler(T::class.java).run { query(sql, this) }
+}
+
+inline fun <reified T> QueryRunner.findAll(sql: String): MutableList<T> {
+    return BeanListHandler(T::class.java).run { query(sql, this) }
+}
+```
+
+С помощью этих методов, мы теперь можем писать так:
+
+```
+val sql = """
+    SELECT *
+    FROM users
+    WHERE userId = 1;"
+"""
+
+
+val user = runner.findOne<User>(sql)
+```
+
+или так:
+
+```
+val user:User = runner.findOne(sql)
+```
+
+Для того, чтобы понять как это все работает рекомендую почитать вот этот https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[раздел документации].
+
+Получается достаточно удобно и лаконично. Думаю в следующий раз исполузяю полученный опыт
+будем уже экспериментировать с конвертацией в Json. Ну и конечно об этом всем я буду
+рассказывать на конференции http://qafest.com/[QAFest 2017].
