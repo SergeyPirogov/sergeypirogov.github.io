@@ -14,9 +14,79 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 24 Sep 2017 17:56:02 +0000</pubDate>
-    <lastBuildDate>Sun, 24 Sep 2017 17:56:02 +0000</lastBuildDate>
+    <pubDate>Sat, 14 Oct 2017 17:33:13 +0000</pubDate>
+    <lastBuildDate>Sat, 14 Oct 2017 17:33:13 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Гейзенбаг Москва 2017. Что нас ждет?
+          </title>
+          <link>http://automation-remarks.com/2017/heisenbug-moscow-2017/index.html</link>
+          <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/heisenbug-moscow-2017/index.html</guid>
+          <description>
+                        Анонс конференции &quot;Гейзенбаг Москва 2017&quot;
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, друзья! Наконец-то я добрался до анонса конференции по тестированию
+&quot;Гейзенбаг&quot;, которая состоится 8-9 декабря в Москве.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://pp.userapi.com/c841534/v841534593/5fe9/SNqQ08RnhUw.jpg&quot; alt=&quot;SNqQ08RnhUw&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Предыдущую конференцию в Питере я смотрел онлайн. &lt;a href=&quot;http://automation-remarks.com/2017/heisenbug-2017-piter-retro/index.html&quot;&gt;Отзыв можно почитать здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом году будет два полноценных дня, что подразумевает еще больше годноты, общения и
+полезной информации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В Москву приедут ведущие российские и мировые эксперты по тестированию и подходам к разработке:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Николай Алименков&lt;/strong&gt; - завсегдатай различных конференций, эксперт в подходах и паттернах;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Simon Stewart&lt;/strong&gt;, который расскажет о масштабировании Selenium;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ilari Henrik Aegerter&lt;/strong&gt;, уже выступавший на двух Гейзенбагах. На этот раз Илари приготовит что-то новое;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Артем Ерошенко&lt;/strong&gt;, доклад которого стал первым в рейтинге среди докладов предыдущего Гейзенбага;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Владимир Ситников&lt;/strong&gt;, хардкорный перфоманс-инженер, коммитил в JMeter (Java-инструмент для нагрузки веб-серверов);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Алексей Лавренюк&lt;/strong&gt;, известный по Яндекс.Танку и нагрузочному тестированию;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Антон Архипов&lt;/strong&gt; выступит с докладом про TestContainers;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Программа уже опубликована на сайте &lt;a href=&quot;https://heisenbug-moscow.ru&quot; class=&quot;bare&quot;&gt;https://heisenbug-moscow.ru&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лично я очень жду &lt;strong&gt;Selenide Puzzlers&lt;/strong&gt; и доклада о &lt;strong&gt;Flaky tests&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Чтобы узнать подробности и зарегистрироваться уже сейчас по низкой цене, переходите на сайт: &lt;a href=&quot;https://heisenbug-moscow.ru/tickets/#tickets&quot; class=&quot;bare&quot;&gt;https://heisenbug-moscow.ru/tickets/#tickets&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;P/S. Для всех читателей блога у меня есть приятная новость - скидочный купон на покупку билетов.
+Чтобы применить скидку, просто используйте &lt;strong&gt;QARemarksPromo&lt;/strong&gt;. Рекомендую поспешить, так как билетов становится все меньше и меньше.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA Fest 2017: ретроспектива
