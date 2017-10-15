@@ -4,7 +4,7 @@ Sergey Pirogov
 :jbake-type: post
 :jbake-tags: Конференции
 :jbake-summary: О том, как я ездил в Польшу
-:jbake-status: published
+:jbake-status: draft
 
 Привет, хочу поделиться своими впечатлениями и мыслями после посещения первой для
 себя европейской конференции http://aadays.pl/[Agile and Automation days], которая проходила 9-10 октября в польском городе Краков.
