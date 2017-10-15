@@ -14,9 +14,80 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 15 Oct 2017 16:00:30 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Oct 2017 16:00:30 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Oct 2017 16:38:58 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Oct 2017 16:38:58 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Отзыв об Agile and Automation days
+          </title>
+          <link>http://automation-remarks.com/2017/aadays-feedback/index.html</link>
+          <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/aadays-feedback/index.html</guid>
+          <description>
+                        О том, как я ездил в Польшу
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! Хочу поделиться своими впечатлениями и мыслями после посещения первой для
+меня европейской конференции &lt;a href=&quot;http://aadays.pl/&quot;&gt;Agile and Automation days&lt;/a&gt;, которая проходила 9-10 октября в Кракове.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://pbs.twimg.com/media/DHV55q9XcAAqRb-.png&quot; alt=&quot;DHV55q9XcAAqRb &quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Об этой конференции узнал случайно на просторах интернета. Я уже давно хотел поехать
+в европейскую страну, чтобы посмотреть, как там делают конференции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В один прекрасный день я подал заявку на участие в качестве спикера и был принят в число избранных. Это был
+примерно июнь. Да-да, хорошие конференции ищут спикеров задолго до начала.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;8го октября я оказался в Кракове и после прогулки по городу и поселения в отель вечером отправился на ужин
+со спикерами. Для тех, кто не часто бывает на таких тусовках, поясню: это вечер перед конференцией, когда всех спикеров
+собирают вместе для знакомства в неформальной обстановке. У нас такие мероприятия тоже практикуются.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Первый день конференции. Открытие было стандартным: с благодарностями и речами
+от организаторов. В первый день нас ждало два трека с докладами на английском и на польском языках. Перед началом
+я делал &lt;a href=&quot;https://www.facebook.com/spirogov/videos/1643411595689719/&quot;&gt;стрим&lt;/a&gt; на своей странице facebook.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Открывал конференцию кейноут от &lt;a href=&quot;https://github.com/cheezy&quot;&gt;Jeff Morgan&lt;/a&gt;. В своем докладе он рассказал о тестировании и Continuous Delivery.
+По сути, обычный кейноут без каких-либо новинок.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее следовали доклады от обычных пацанов. В первый день мне больше всего понравился доклад от &lt;strong&gt;David Piper&lt;/strong&gt;, в котором
+он рассказал, как они в Atlasian тестируют UI без использования Selenium Webdriver. Достаточно интересный подход с использованием JS и Pact.
+Об остальных докладах ничего впечатляющего сказать не могу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом первый день прошел очень живо. Весь день я подытожил &lt;a href=&quot;https://www.facebook.com/spirogov/videos/1643720315658847/&quot;&gt;стримом&lt;/a&gt;.
+Вечером все 300 участников отправились в паб на неформальную часть. Много об этом говорить не буду, но пьянка удалась на славу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Второй день начался уже не так бодро, как первый (не удивительно, ведь большинство участников вернулось с пати в отель около 2 часов ночи).
+Второй день отличался тем, что помимо докладов участники могли посетить ряд воркшопов. Я проводил воркшоп
+по &lt;a href=&quot;http://automation-remarks.com/2017/python-training/index.html&quot;&gt;построению системы автоматизации на Python&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Своим выступлением я доволен. Понятно, что с первого раза в другой стране выдать 110% сложно, но я получил
+хорошие отзывы и среднюю оценку 4.5. Кстати, относительно оценок. У конференции есть свое официальное приложение для
+мобильных телефонов. Вы можете его скачать и посмотреть. Сделано прикольно и вполне удобно. На наших конференциях аналог я видел только на &lt;a href=&quot;http://automation-remarks.com/2017/testing-stage-retro/index.html&quot;&gt;Testing Stage&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По окончании спикерам подарили книги (на польском :)). Тут уж все стали прощаться с обещаниями вернуться в следующем году.
+Напоследок я снял еще один &lt;a href=&quot;https://www.facebook.com/spirogov/videos/1644776268886585/&quot;&gt;видосик&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По итогу у меня остались очень хорошие впечатления. Если в следующем году будет возможность, я обязательно поеду снова. Теперь-то там у меня
+есть связи :).&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Гейзенбаг Москва 2017. Что нас ждет?
