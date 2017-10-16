@@ -35,9 +35,12 @@ Worked with Unix and Windows operating systems.
 - Kharkiv QA Club
 - EPAM IT Week
 - http://qafest.com/qafest2015/[QAFest 2015]
-- http://www.qafest.com/[QAFest 2016]
+- http://qafest.com/qafest2016/[QAFest 2016]
+- http://qafest.com/[QAFest 2017]
 - QA Meetup
 - SQA days
+- http://aadays.pl[AADAYS]
+- http://seleniumcamp.com/[SelenimCamp 2017]
 
 [.technical-skills]
 == Technical Skills
@@ -52,14 +55,30 @@ Worked with Unix and Windows operating systems.
 - **Operating Systems:** Windows, Unix, Mac OS
 - **Databases:** Oracle, MySQl, PostgreSQL, SQL Server
 
+== Public projects contributor
+
+- https://github.com/SergeyPirogov/video-recorder-java[Java Video Recorder]
+- https://github.com/SergeyPirogov/python-testcontainers[Python Testcontainers]
+- https://github.com/SergeyPirogov/python-video-service[Python Video Service]
+- https://github.com/SergeyPirogov/video_recorder_python[Video Recorder Python]
+- https://github.com/SergeyPirogov/webdriver_manager[Webdriver Manager]
+- https://github.com/SergeyPirogov/selene[Selene]
+- https://github.com/codeborne/selenide[Selenide]
+
 [.work-experience]
 == Work Experience
 
 [.job-list]
 - **Company:** Ciklum
-- **Period:** July 2016 — present
+- **Period:** August 2017 — present
+- **Position:** Lead QA Automation
+- **Description:** Testing Center of Excellence
+
+[.job-list]
+- **Company:** Ciklum
+- **Period:** July 2016 — August 2017
 - **Position:** Senior QA Automation
-- **Description:** Work on one of the project in Testing Center of Excellence.
+- **Description:** Testing Center of Excellence
 
 [.job-list]
 - **Company:** EPAM Systems
@@ -72,13 +91,6 @@ Worked with Unix and Windows operating systems.
 - **Period:** June 2014 — Dec 2015
 - **Position:** Software Test Automation Engineer
 - **Description:** Trading platform for banks and retailers
-
-== Public projects
-
-- https://github.com/SergeyPirogov/video-recorder-java[Java Video Recorder]
-- https://github.com/SergeyPirogov/python-testcontainers[Python Testcontainers]
-- https://github.com/SergeyPirogov/python-video-service[Python Video Service]
-- https://github.com/SergeyPirogov/video_recorder_python[Video Recorder Python]
 
 [.user-photos]
 == Photos
