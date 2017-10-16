@@ -32,6 +32,10 @@
       {
           title: 'SQA Days 20',
           href: '/images/sqa_days_20.jpg'
+      },
+      {
+          title: 'QAFest 2017',
+          href: '/images/cource.jpg'
       }
   ],
   {
