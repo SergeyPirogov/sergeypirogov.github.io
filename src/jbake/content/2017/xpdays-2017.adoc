@@ -5,6 +5,7 @@ Sergey Pirogov
 :jbake-tags: Конференции
 :jbake-summary: Отзыв о конференции XP Days 2017
 :jbake-status: published
+:jbake-featured: true
 
 Привет! Сегодня делюсь своими впечатлениями от посещения конференции http://xpdays.com.ua[XP Days 2017].
 
