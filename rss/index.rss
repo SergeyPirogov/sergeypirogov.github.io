@@ -14,9 +14,89 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 16 Oct 2017 10:30:12 +0000</pubDate>
-    <lastBuildDate>Mon, 16 Oct 2017 10:30:12 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Nov 2017 17:20:52 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Nov 2017 17:20:52 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              XP Days 2017: впечатления
+          </title>
+          <link>http://automation-remarks.com/2017/xpdays-2017/index.html</link>
+          <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/xpdays-2017/index.html</guid>
+          <description>
+                        Отзыв о конференции XP Days 2017
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! Сегодня делюсь своими впечатлениями от посещения конференции &lt;a href=&quot;http://xpdays.com.ua&quot;&gt;XP Days 2017&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://pbs.twimg.com/profile_images/636481850190467072/b_qnPt2X.png&quot; alt=&quot;b qnPt2X&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Конференция проводится уже не первый год, я постоянно смотрел записи выступлений, но ни разу не присутствовал
+лично. В этот же раз решил исправить эту ошибку и сходил. Хочу отметить, что эта конференция отличается
+от типичных QA конференций типа &lt;a href=&quot;http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/index.html&quot;&gt;SeleniumCamp&lt;/a&gt;,
+либо &lt;a href=&quot;http://automation-remarks.com/2017/qafest2017/index.html&quot;&gt;QAFest&lt;/a&gt;. Здесь в основном говорят о процессной
+стороне разработки ПО и о каких-то инфраструктурных вещах. В этом году было очень много докладов про хайповый
+DevOps и облака.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;По организации никаких вопросо не возникло. Еды хватало всем, атмосферка способствовала общению и нетворкингу.
+Три потока с кучей полезных докладов, часть из которых я прокомментирую ниже.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я ходил на конференцию не просто послушать и повтыкать, а выступить с докладом, основанным на реальном опыте построения и тестирования
+инфраструктуры. Достаточно полезный опыт и интересные подходы, основанные на Ansible, Docker и Testinfra.
+Все, кому эта тема интересна, смогут узнать более подробную информацию на предстоящем &lt;a href=&quot;https://www.facebook.com/events/309093552900074/&quot;&gt;мастер-классе в Харькове&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если говорить о самых интересных докладах, которые я посетил, то рейтинг будет таким:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;1) Transformation practices&lt;/strong&gt; (Dmitriy Yefimenko)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сложно было выделить самый классный доклад, но именно этот мне понравился больше всего. Дима рассказал о том, каким должен
+быть человек-трансформатор. Очень живо. Когда выйдет видео, обязательно посмотрите.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;2) Bots on guard of SDLC&lt;/strong&gt; (Alexey Tokar)
+В этом докладе Алексей рассказал о чат-боте, который они написали в своей компании с целью автоматизации некоторых бизнесс
+процессов в компании. Очень познавательно и наталкивает на интересные мысли и идеи.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;3) Teaching Elephants to Dance&lt;/strong&gt; (Burr Sutter)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вдохновляющий кейноут на тему DevOps, процессов и трансформаций. Очень крутая форма подачи и оформления слайдов. Для
+меня это яркий пример того, как нужно выступать на публике.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;4) Funny stories and anti-patterns from DevOps landscape&lt;/strong&gt; (Mikalai Alimenkou)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Коля в свойственной ему манере рассказал о DevOps и проблемах, которые есть в головах людей и на рынке Украины. В докладе приведены
+типичные ошибки из мира DevOps и возможные пути их решения. Легкий доклад для просмотра в один из зимних вечеров =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;5) A better approach for testing microservices: introducing test kits in practice &lt;/strong&gt; (Maxim Novak)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В докладе Максим показал интересный подход к тестированию микросервисной архитектуры на основе Test Kits. Для меня эта идея была
+нова и очень познавательна. Не уверен, что мы ее сможем применить, но, как минимум, теперь есть идея и понимание, как это работает
+в Wix. Дальше ее можно развивать и пробовать делать что-то у себя.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот так выглядит мой топ-5. На самом деле интересных докладов было намного больше. Я уверен, что посетители не пожалели о
+потраченном времени и деньгах, посетив это мероприятие. Конференция будет проходить и в следюущем году. Если у меня будет возможность,
+я постараюсь обязательно ее посетить. Спасибо организаторам и коллегам-докладчикам. Увидимся ;)&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Отзыв об Agile and Automation days
