@@ -14,9 +14,56 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 13 Nov 2017 17:21:39 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Nov 2017 17:21:39 +0000</lastBuildDate>
+    <pubDate>Wed, 15 Nov 2017 19:21:01 +0000</pubDate>
+    <lastBuildDate>Wed, 15 Nov 2017 19:21:01 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Мастер-класс: Automation in Action. Kharkov
+          </title>
+          <link>http://automation-remarks.com/2017/master-class/index.html</link>
+          <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/master-class/index.html</guid>
+          <description>
+                        Анонс мастер-класса
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;3 декабря&lt;/strong&gt; 2017 года в 12.00 буду проводить мастер-класс в Харькове - Automation in Action.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/22090090_1587838701266856_1363163954399701490_n.jpg?oh=473223b1cac17f8f6a2bd6ec436366e5&amp;oe=5A9148DA&quot; alt=&quot;22090090 1587838701266856 1363163954399701490 n&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Последний в 2017 году мастер-класс из серии Automation in Action.
+В этот раз мы посмотрим на автоматизацию тестирования в разрезе DevOps и разберемся, когда же начать автоматизировать,
+с помощью каких инструментов это делать и как же все-таки встроить автоматизацию в Delivery pipeline.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тренyинг будет полезен всем, кто работает на текущих проектах, но не имеет опыта
+старта проекта с нуля.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из технических аспектов мы рассмотрим настройку CI, попрактикуемся автоматизировать
+разворачивание инфраструктуры для автоматизации. Уделим время теме автоматического
+тестирования инфрастуктуры, посмотрим на современные инструменты: Selenoid, Selenide и Report Portal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я всегда открыт к общению, поэтому помимо основной программы, вы сможете задать
+интересующие вас вопросы и получить на них ответы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Длительность &lt;strong&gt;4 часа&lt;/strong&gt;.
+Стоимость посещения - &lt;strong&gt;80$&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для регистрации заполните форму ниже:&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSekGtRxvAQvfvI3kXeZbJeBpjnBfp_Fv8tnaIPvxKEGB8JMpw/viewform?embedded=true&quot; width=&quot;760&quot; height=&quot;1000&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;&gt;Загрузка...&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               XP Days 2017: впечатления

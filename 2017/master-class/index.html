@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Что такое Flaky тест?</title>
+    <title>Мастер-класс: Automation in Action. Kharkov</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Что такое Flaky тест?">
+    <meta property="og:title" content="Мастер-класс: Automation in Action. Kharkov">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Если у вас нету Flacky тестов - значит вы занимаетесь чем-то нереальным :). Flacky тесты - это зло!"/>
+        	<meta property="og:description" content="Анонс мастер-класса"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,36 +82,48 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                02/12/2014
+                                15/11/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Что такое Flaky тест?</h1>
+                        <h1 class="post-title">Мастер-класс: Automation in Action. Kharkov</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>image::http://cdn.meme.am/instances/500x/52587305.jpg</p>
+<p><strong>3 декабря</strong> 2017 года в 12.00 буду проводить мастер-класс в Харькове - Automation in Action.</p>
 </div>
-<div class="paragraph">
-<p>Если у вас нету <strong>Flacky</strong> тестов - значит вы занимаетесь чем-то нереальным :). <strong>Flacky</strong> тесты - это зло! Это то, с чем приходится бороться днями, а бывает - и неделями.
-Жизненный пример: написали вы свой <strong>Selenium</strong> тест, прогнали его, отладили, закомитили - все прекрасно! Приходите на следующий день, ну или через пару-тройку дней, смотрите: он зеленый. "Ну прекрасно", - думаете, смотрите еще через время - он упал (по никому не понятной причине), ведь код не менялся и приложение работает нормально. Перезапускаете тест - он проходит, все хорошо. Видимо, планеты в небе так встали, и он свалился :). Спустя несколько билдов вы замечаете, что этот тест ведет себя, как лампочка на новогодней елке - мигает: <strong>FAIL, PASS,FAIL,PASS</strong>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Как с этим бороться? Ответ как всегда очень прост - нужно разбираться. Как говорится, у любой проблемы есть имя, фамилия и отчество. Большинство Flaky тестов случается из-за банальной невнимательности. Некоторые из них найти легко, над некоторыми же нужно пораскинуть мозгами. Приведу пример: был у меня тест, который должен был открыть модальный диалог и в нем продолжить работу.
-Задача достаточно простая, решается за 5 (нет, 10 минут) :). Я написал метод:</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">private void switchToRiskFactorDialog(String title) {
-            String targetWindow = waitForWindowTitle(title);
-            switchTo().window(targetWindow);
-}</code></pre>
+<img src="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/22090090_1587838701266856_1363163954399701490_n.jpg?oh=473223b1cac17f8f6a2bd6ec436366e5&oe=5A9148DA" alt="22090090 1587838701266856 1363163954399701490 n">
 </div>
 </div>
 <div class="paragraph">
-<p>Все просто: метод ждал, пока появится окно с нужным title и затем делал switch в новое окно. Все работало прекрасно, пока я не заметил, что у меня тест два раза проходит, а один раз валится с <em>NullPointerException</em>. Оказалось, что подставил меня метод waitForWindowTitle. Один раз он дожидался, пока окно появится, а в другой принимал решение, что окно появилось, хотя на самом деле его еще не было. Вот и все, таким образом я избавился от <strong>Flaky</strong> теста.</p>
+<p>Последний в 2017 году мастер-класс из серии Automation in Action.
+В этот раз мы посмотрим на автоматизацию тестирования в разрезе DevOps и разберемся, когда же начать автоматизировать,
+с помощью каких инструментов это делать и как же все-таки встроить автоматизацию в Delivery pipeline.</p>
 </div>
+<div class="paragraph">
+<p>Тренyинг будет полезен всем, кто работает на текущих проектах, но не имеет опыта
+старта проекта с нуля.</p>
+</div>
+<div class="paragraph">
+<p>Из технических аспектов мы рассмотрим настройку CI, попрактикуемся автоматизировать
+разворачивание инфраструктуры для автоматизации. Уделим время теме автоматического
+тестирования инфрастуктуры, посмотрим на современные инструменты: Selenoid, Selenide и Report Portal.</p>
+</div>
+<div class="paragraph">
+<p>Я всегда открыт к общению, поэтому помимо основной программы, вы сможете задать
+интересующие вас вопросы и получить на них ответы.</p>
+</div>
+<div class="paragraph">
+<p>Длительность <strong>4 часа</strong>.
+Стоимость посещения - <strong>80$</strong></p>
+</div>
+<div class="paragraph">
+<p>Для регистрации заполните форму ниже:</p>
+</div>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekGtRxvAQvfvI3kXeZbJeBpjnBfp_Fv8tnaIPvxKEGB8JMpw/viewform?embedded=true" width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0">Загрузка...</iframe>
                     </section>
 
                     <div class="post_ads" style="
@@ -129,8 +141,7 @@
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                                    <a href="/tags/Треннинги.html">Треннинги</a>
                             </div>
                     </footer>
 
@@ -139,7 +150,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/master-class/index.html">Мастер-класс: Automation in Action. Kharkov</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/xpdays-2017/index.html">XP Days 2017: впечатления</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/aadays-feedback/index.html">Отзыв об Agile and Automation days</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/heisenbug-moscow-2017/index.html">Гейзенбаг Москва 2017. Что нас ждет?</a></li>
@@ -200,8 +210,8 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
