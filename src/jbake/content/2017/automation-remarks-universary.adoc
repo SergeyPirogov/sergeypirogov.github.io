@@ -57,6 +57,10 @@ image::../images/old-logo.jpg[]
 
 Самая читаемая заметка - http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html[про настройку Selenium Grid]
 
+На написание одной заметки уходить 1-2 часа
+
+У меня есть замечательный редактор (невидимый боец), который делает текст сносным для чтения
+
 На официальной странице блога в https://www.facebook.com/automationremarks/[facebook] - **636 подписчиков**
 
 Блог является инфорпартнером конференций:  **QAFest**, **SQA days**, **SeleniumCamp**, **Гейзенбаг**.
