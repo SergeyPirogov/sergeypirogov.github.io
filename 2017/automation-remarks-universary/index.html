@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Как перестать писать @Step аннотации для Allure</title>
+    <title>Заметки автоматизатора: три года спустя</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как перестать писать @Step аннотации для Allure">
+    <meta property="og:title" content="Заметки автоматизатора: три года спустя">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Просто лайфхак"/>
+        	<meta property="og:description" content="История создания блога"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,165 +82,107 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                27/08/2017
+                                18/11/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как перестать писать @Step аннотации для Allure</h1>
+                        <h1 class="post-title">Заметки автоматизатора: три года спустя</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Привет! В этой заметке хочу поделиться лайфхаком, который позволит перестать ставить аннотации <code>@Step</code> в коде тестов.</p>
+<p>16 ноября 2014 года я написал этот <a href="http://automation-remarks.com/first-post/index.html">пост</a>.
+Да-да, три года назад, сидя в своей квартире в Харькове, я задумался над созданием личного блога. Зачем?
+В тот момент я не мог дать четкий ответ. Мне было интересно, как это все работает. А сегодня
+ я готов поделиться со своими читателями историей создания Automation Remarks и дальнейшими планами.</p>
 </div>
-<div class="paragraph">
-<p>Давайте сначала обрисуем суть проблемы. При построении проектов автоматизции нам зачастую приходится прикручивать какие-то логеры или репортеры.
-Для меня репортером по умолчанию является <a href="https://github.com/allure-framework">Allure</a>. С его помощью можно генерировать достаточно информативные
-и понятные отчеты. Но есть у него один небольшой недостаток - если мы хотим логировать шаги теста, то над методами нужно ставить аннотацию <strong>@Step</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Пример:</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre class="prettyprint highlight"><code>class LoginPage{
-
-    private SelenideElement email = $("#email");
-    private SelenideElement password = $("#password")
-    private SelenideElement submitBtn = $(".btnLogin")
-
-    @Step
-    public void loginAs(String name, String password){
-        email.setValue(name)
-        password.setValue(password)
-        submitBtn.click()
-    }
-}</code></pre>
+<img src="/images/old-logo.jpg" alt="old logo">
 </div>
 </div>
 <div class="paragraph">
-<p>Теперь метод <code>loginAs</code> будет отображаться в отчете, так как мы указали над ним аннотацию <code>@Step</code>. Все бы ничего, да вот когда в классе страницы
-не один метод, а 5 или 10, уже становится не так радостно расставлять эти аннотации. К тому же, бывает, пишешь тест, описываешь поведение
-страниц, запускаешь тесты, а потом "Аx, я же забыл поставить аннотации для аллюра". А когда в команде 2-3 человека, приходится следить за этими аннотациями
-в PR, что никак не радует. В один прекрасный день я подумал: можно ведь как-то сделать без аннотаций?..</p>
+<p>В далеком 2014-ом, когда я уже работал джуниором в ЕПАМе, мне стало любопытно, как работает мир IT-блогерства:
+как люди покупают доменное имя, как развернуть сайт, где, на чем и как его создать и т.д. Большое желание
+и время - все, что у меня было на тот момент.</p>
 </div>
 <div class="paragraph">
-<p>Оказалось, что можно. Allure в своей работе использует <a href="http://www.baeldung.com/aspectj">Aspectj</a>, который мы и можем попробовать хакнуть и использовать для своих целей.</p>
+<p>Однажды, листая ленту в Твиттер, я наткнулся на статью о движке <a href="https://ghost.org/ru/">Ghost</a>.
+ Собственно, на нем и была создана первая версия блога,
+ которая до сих пор еще <a href="http://spirogov.github.io/">жива</a>. В самом начале там был ужасный самописный темплейт,
+который я писал долгими ночами.</p>
 </div>
 <div class="paragraph">
-<p>Пробуем написать свой класс аспектов:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>/**
- * Created by sergey on 05.06.17.
- */
-@SuppressWarnings("unused")
-@Aspect
-public class CustomAspect {
-
-  private static Allure ALLURE = Allure.LIFECYCLE;
-
-  @Pointcut("execution(* com.automation.remarks.video.service.pages.*.*(..))")
-  public void anyMethod() {
-    //pointcut body, should be empty
-  }
-
-  @Pointcut("execution(* com.codeborne.selenide.SelenideElement.should*(..))")
-  public void selenide() {
-    //pointcut body, should be empty
-  }
-
-  @Before("anyMethod() || selenide()")
-  public void stepStart(JoinPoint joinPoint) {
-    String stepTitle = createTitle(joinPoint);
-
-    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-    StepStartedEvent startedEvent = new StepStartedEvent(
-        getName(methodSignature.getName(), joinPoint.getArgs())
-    );
-
-    if (!stepTitle.isEmpty()) {
-      startedEvent.setTitle(stepTitle);
-    }
-
-    ALLURE.fire(startedEvent);
-  }
-
-  @AfterThrowing(pointcut = "anyMethod() || selenide()", throwing = "e")
-  public void stepFailed(JoinPoint joinPoint, Throwable e) {
-    ALLURE.fire(new StepFailureEvent().withThrowable(e));
-    ALLURE.fire(new StepFinishedEvent());
-  }
-
-  @AfterReturning(pointcut = "anyMethod() || selenide()", returning = "result")
-  public void stepStop(JoinPoint joinPoint, Object result) {
-    ALLURE.fire(new StepFinishedEvent());
-  }
-
-  public String createTitle(JoinPoint joinPoint) {
-    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-    Step step = methodSignature.getMethod().getAnnotation(Step.class);
-    return step == null ? "" : getTitle(step.value(), methodSignature.getName(), joinPoint.getThis(), joinPoint.getArgs());
-  }
-
-
-  /**
-   * For tests only
-   */
-  static void setAllure(Allure allure) {
-    CustomAspect.ALLURE = allure;
-  }
-}</code></pre>
-</div>
+<p>Купив доменное имя <strong><a href="http://automation-remarks.com" class="bare">http://automation-remarks.com</a></strong>, я вывел блог в лайв и был бесконечно рад тому, что теперь
+в интернете есть что-то лично мое. Толку от него было мало, но все же. В течение недели после запуска я опубликовал еще парочку
+заметок.</p>
 </div>
 <div class="paragraph">
-<p>Наверное, для неподготовленного читателя выглядит очень "вырвиглазно". Что я вообще написал? AspectJ оперирует понятиями <strong>Pointcut</strong>,
-которые я и объявил в самом начале класса.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>@Pointcut("execution(* public com.automation.remarks.video.service.pages.*.*(..))")
-public void anyMethod() {
-    //pointcut body, should be empty
-}
-
-@Pointcut("execution(* public com.codeborne.selenide.SelenideElement.should*(..))")
-public void selenide() {
-    //pointcut body, should be empty
-}</code></pre>
-</div>
+<p>Откуда я знал, что писать и как?</p>
 </div>
 <div class="paragraph">
-<p>Говоря проще, я написал селекторы, с помощью которых указал AspectJ учитывать только публичные методы из пакета <code>public com.automation.remarks.video.service.pages</code> и
-методы Selenide, которые начинаются со слова <code>should</code>.</p>
+<p>Естественно, я не знал и не умел этого делать. Я просто описывал свои мысли и наработки, которые использовал на тот
+момент на проекте. По факту и название "Заметки автоматизатора" пошло от того, что я делился какими-то мелкими
+идеями и полезностями.</p>
 </div>
 <div class="paragraph">
-<p>Далее я объявил условия @Before, @After, @AfterThrowing и @AfterReturning. В @Before мы извлекаем имя метода и его параметры, а в @After либо завершаем
-шаг успешно, либо маркаем, как неуспешный, и прикрепляем к нему текст ошибки. Все достаточно просто.</p>
+<p>Так я и жил до момента, пока мне в руки не попалась книга <a href="https://pragprog.com/cart/add/skus?sku_id=460_461">Technical bloging</a>,
+в которой рассказывалось, как создать блог и заработать на нем денег. Тогда мной двигала идея монетизации, но
+сейчас я понимаю - это была худшая стратегия. В принципе, она очень быстро провалилась после того, как
+я повесил баннер от Google ads и спустя пару месяцев понял, что там не накопилось и <strong>10$</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Далее, чтобы это все заработало, нам нужно в папке <strong>src/main/resources/META-INF</strong> создать файлик под названием <strong>aop-ajc.xml</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>&lt;aspectj&gt;
-    &lt;aspects&gt;
-        &lt;aspect name="com.automation.remarks.video.service.pages.utils.CustomAspect"/&gt;
-    &lt;/aspects&gt;
-&lt;/aspectj&gt;</code></pre>
-</div>
+<p>После этого я пересмотрел свою позицию, убрал всю рекламу и сфокусировался на читателях. Я решил, что блог будет
+местом, куда я могу без цензуры и модерации писать то, что я хочу и считаю нужным. Кто хочет - читает, кто не хочет или не
+согласен - проходит мимо.</p>
 </div>
 <div class="paragraph">
-<p>По факту мы в этом файле просто подключаем наш новый аспект. Теперь можно просто запускать тесты и смотреть на результат точно так же, как мы делали
-это раньше. Таким образом мы избавились от аннотаций в Page объектах и значительно упростили себе жизнь. В целом эта идея работает и имеет право на жизнь.
-Вы можете ее либо переиспользовать, либо развить и поделиться решением со всем миром автоматизации.</p>
+<p>С таким настроением я продолжал писать новые статьи. Реальную пользу я почувствовал, когда вместо объяснений чего-то
+своим знакомым скидывал ссылку на статью, в которой уже все было расписано. Они и были моими первыми читателями.
+ В цифрах это примерно 10 хостов в неделю.</p>
 </div>
 <div class="paragraph">
-<p><strong>P/S</strong> Конечно, в таком подходе есть ряд недостатков. Первый: мы жестко завязались на жизненный цикл аллюра. Код, приведенный выше, работает только
-с первой версией, для второй версии нужно будет переписать вызовы <code>ALLURE.fire(new StepFailureEvent().withThrowable(e));</code>.
-Второе: дебажить аспекты практически невозможно (по крайней мере, я не нашел толковых примеров). Есть только упоминания, что вот в Eclipse как-то можно.
-Из-за этого код приходится писать почти вслепую. И третье: с Котлином эта тема не работает, так как сам AspectJ нормально не поддерживает Котлин.</p>
+<p>Первый реальный наплыв читателей был вызван тем, что одну из моих заметок разместили в <a href="https://dou.ua/lenta/digests/qa-digest-5/">QA дайджесте на dou.ua</a>.
+У меня был шок. Как так? Моя статья на DOU? Не может быть! Это меня мотивировало продолжать писать.</p>
+</div>
+<div class="paragraph">
+<p>С того момента прошло 2 года&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Сейчас блог читает <strong>6000 человек</strong> в месяц.</p>
+</div>
+<div class="paragraph">
+<p>Опубликовано <strong>105 заметок</strong>, включая эту =)</p>
+</div>
+<div class="paragraph">
+<p>Ссылки на заметки были включены в <strong>19 из 31</strong> qa дайджестов на DOU.</p>
+</div>
+<div class="paragraph">
+<p>Самая читаемая заметка - <a href="http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html">о настройке Selenium Grid</a>.</p>
+</div>
+<div class="paragraph">
+<p>На написание одной заметки трачу в среднем 1-2 часа.</p>
+</div>
+<div class="paragraph">
+<p>У меня есть замечательный редактор (боец невидимого фронта), который делает тексты сносными для чтения.</p>
+</div>
+<div class="paragraph">
+<p>На официальной странице блога в <a href="https://www.facebook.com/automationremarks/">facebook</a> - <strong>637 подписчиков</strong></p>
+</div>
+<div class="paragraph">
+<p>Блог является инфопартнером конференций  <strong>QAFest</strong>, <strong>SQA days</strong>, <strong>SeleniumCamp</strong>, <strong>Гейзенбаг</strong>.</p>
+</div>
+<div class="paragraph">
+<p>В завершение.</p>
+</div>
+<div class="paragraph">
+<p>На страницах блога и в заметках никогда не было и не будет рекламных или проплаченных статей. В этом году я начал
+заниматься <a href="http://automation-remarks.com/course/">индивидуальными консультациями</a> и планирую развивать это дело. Знаю, что у многих ребят,
+которые хотят заниматься автоматизацией, нету менторов и они не знают, у кого просить о помощи.</p>
+</div>
+<div class="paragraph">
+<p>Надеюсь, что у меня по-прежнему будет достаточно времени, чтобы продолжать писать заметки и приносить пользу
+всему комьюнити тестировщиков. Спасибо всем, что читаете! До новых встреч на страницах блога и конференциях =)</p>
 </div>
                     </section>
 
@@ -259,8 +201,7 @@ public void selenide() {
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Allure.html">Allure</a>
+                                    <a href="/tags/Блог.html">Блог</a>
                             </div>
                     </footer>
 
@@ -269,7 +210,6 @@ public void selenide() {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/automation-remarks-universary/index.html">Заметки автоматизатора: три года спустя</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/master-class/index.html">Мастер-класс: Automation in Action. Kharkov</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/xpdays-2017/index.html">XP Days 2017: впечатления</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/aadays-feedback/index.html">Отзыв об Agile and Automation days</a></li>

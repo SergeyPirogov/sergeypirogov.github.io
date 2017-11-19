@@ -14,9 +14,116 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 15 Nov 2017 19:21:01 +0000</pubDate>
-    <lastBuildDate>Wed, 15 Nov 2017 19:21:01 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Nov 2017 08:08:58 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Nov 2017 08:08:58 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Заметки автоматизатора: три года спустя
+          </title>
+          <link>http://automation-remarks.com/2017/automation-remarks-universary/index.html</link>
+          <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/automation-remarks-universary/index.html</guid>
+          <description>
+                        История создания блога
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;16 ноября 2014 года я написал этот &lt;a href=&quot;http://automation-remarks.com/first-post/index.html&quot;&gt;пост&lt;/a&gt;.
+Да-да, три года назад, сидя в своей квартире в Харькове, я задумался над созданием личного блога. Зачем?
+В тот момент я не мог дать четкий ответ. Мне было интересно, как это все работает. А сегодня
+ я готов поделиться со своими читателями историей создания Automation Remarks и дальнейшими планами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/old-logo.jpg&quot; alt=&quot;old logo&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В далеком 2014-ом, когда я уже работал джуниором в ЕПАМе, мне стало любопытно, как работает мир IT-блогерства:
+как люди покупают доменное имя, как развернуть сайт, где, на чем и как его создать и т.д. Большое желание
+и время - все, что у меня было на тот момент.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Однажды, листая ленту в Твиттер, я наткнулся на статью о движке &lt;a href=&quot;https://ghost.org/ru/&quot;&gt;Ghost&lt;/a&gt;.
+ Собственно, на нем и была создана первая версия блога,
+ которая до сих пор еще &lt;a href=&quot;http://spirogov.github.io/&quot;&gt;жива&lt;/a&gt;. В самом начале там был ужасный самописный темплейт,
+который я писал долгими ночами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Купив доменное имя &lt;strong&gt;&lt;a href=&quot;http://automation-remarks.com&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com&lt;/a&gt;&lt;/strong&gt;, я вывел блог в лайв и был бесконечно рад тому, что теперь
+в интернете есть что-то лично мое. Толку от него было мало, но все же. В течение недели после запуска я опубликовал еще парочку
+заметок.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Откуда я знал, что писать и как?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Естественно, я не знал и не умел этого делать. Я просто описывал свои мысли и наработки, которые использовал на тот
+момент на проекте. По факту и название &quot;Заметки автоматизатора&quot; пошло от того, что я делился какими-то мелкими
+идеями и полезностями.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Так я и жил до момента, пока мне в руки не попалась книга &lt;a href=&quot;https://pragprog.com/cart/add/skus?sku_id=460_461&quot;&gt;Technical bloging&lt;/a&gt;,
+в которой рассказывалось, как создать блог и заработать на нем денег. Тогда мной двигала идея монетизации, но
+сейчас я понимаю - это была худшая стратегия. В принципе, она очень быстро провалилась после того, как
+я повесил баннер от Google ads и спустя пару месяцев понял, что там не накопилось и &lt;strong&gt;10$&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После этого я пересмотрел свою позицию, убрал всю рекламу и сфокусировался на читателях. Я решил, что блог будет
+местом, куда я могу без цензуры и модерации писать то, что я хочу и считаю нужным. Кто хочет - читает, кто не хочет или не
+согласен - проходит мимо.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С таким настроением я продолжал писать новые статьи. Реальную пользу я почувствовал, когда вместо объяснений чего-то
+своим знакомым скидывал ссылку на статью, в которой уже все было расписано. Они и были моими первыми читателями.
+ В цифрах это примерно 10 хостов в неделю.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Первый реальный наплыв читателей был вызван тем, что одну из моих заметок разместили в &lt;a href=&quot;https://dou.ua/lenta/digests/qa-digest-5/&quot;&gt;QA дайджесте на dou.ua&lt;/a&gt;.
+У меня был шок. Как так? Моя статья на DOU? Не может быть! Это меня мотивировало продолжать писать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;С того момента прошло 2 года&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сейчас блог читает &lt;strong&gt;6000 человек&lt;/strong&gt; в месяц.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Опубликовано &lt;strong&gt;105 заметок&lt;/strong&gt;, включая эту =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ссылки на заметки были включены в &lt;strong&gt;19 из 31&lt;/strong&gt; qa дайджестов на DOU.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Самая читаемая заметка - &lt;a href=&quot;http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html&quot;&gt;о настройке Selenium Grid&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На написание одной заметки трачу в среднем 1-2 часа.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;У меня есть замечательный редактор (боец невидимого фронта), который делает тексты сносными для чтения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На официальной странице блога в &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;facebook&lt;/a&gt; - &lt;strong&gt;637 подписчиков&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Блог является инфопартнером конференций  &lt;strong&gt;QAFest&lt;/strong&gt;, &lt;strong&gt;SQA days&lt;/strong&gt;, &lt;strong&gt;SeleniumCamp&lt;/strong&gt;, &lt;strong&gt;Гейзенбаг&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В завершение.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На страницах блога и в заметках никогда не было и не будет рекламных или проплаченных статей. В этом году я начал
+заниматься &lt;a href=&quot;http://automation-remarks.com/course/&quot;&gt;индивидуальными консультациями&lt;/a&gt; и планирую развивать это дело. Знаю, что у многих ребят,
+которые хотят заниматься автоматизацией, нету менторов и они не знают, у кого просить о помощи.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Надеюсь, что у меня по-прежнему будет достаточно времени, чтобы продолжать писать заметки и приносить пользу
+всему комьюнити тестировщиков. Спасибо всем, что читаете! До новых встреч на страницах блога и конференциях =)&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Мастер-класс: Automation in Action. Kharkov
