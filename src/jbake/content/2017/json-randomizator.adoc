@@ -76,7 +76,7 @@ public void testCanEditUser(){
 
 Можно сделать так - рандомизируем поле имейл:
 
-[source, json]
+[source, java]
 ----
 UserDto userDto = JsonUtils.getUser("user.json",UserDto.class);
 userDto.setEmails(Arrays.asList(EmailDto().withEmail(RandomUtils.nextEmail())));
@@ -88,6 +88,7 @@ UserApi.addNewUser(userDto);
 
 Упершись в эту проблему, я начал искать решение. Мне хотелось сделать так:
 
+[source, json]
 ----
 {
   "emails": [
@@ -131,6 +132,7 @@ UserDto userdto = getEntity(json, User.class);
 
 Темплейты теперь можно писать так. Пример:
 
+[source, json]
 ----
 {
   "name": "{{ faker.name().firstName() }}",
@@ -150,11 +152,13 @@ UserDto userdto = getEntity(json, User.class);
 **P/S** Описанный способ отлично работает на моем проекте. К сожалению jTwig не умеет:
 вызывать java методы с параметрами:
 
+[source, json]
 ----
 {
     "id": "{{ randomIntBetween(7, 10) }}"
 }
 ----
+
 В такиз случаях мы велосипедируем, но я знаю что эту проблему можно решить использовать вместо jTwig
 какой-то другой template engine. К примеру **Freemarker**, **Thymeleaf** или **Pebble**.
 
