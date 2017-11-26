@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Запись воркшопа Automation in Action</title>
+    <title>JSON рандомизатор</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Запись воркшопа Automation in Action">
+    <meta property="og:title" content="JSON рандомизатор">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Запись воркшопа"/>
+        	<meta property="og:description" content="История о рандомизации JSON"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,22 +82,194 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                18/05/2017
+                                26/11/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Запись воркшопа Automation in Action</h1>
+                        <h1 class="post-title">JSON рандомизатор</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
-можно <a href="http://automation-remarks.us10.list-manage.com/subscribe?u=d24f95005c1b66c13389aceb9&amp;id=ce47ec0c3f">подписавшись на email рассылку</a></p>
+<p>Привет! Подоспела очередная порция годноты. В этот раз
+расскажу о проблеме рандомизации JSON и способе ее решения.
+Сразу спойлер: описанный способ подходит не только для JSON, поэтому можно дочитывать заметку до конца.</p>
 </div>
-<div class="videoblock">
+<div class="imageblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/QYA2V4gVGk4?rel=0" frameborder="0" allowfullscreen></iframe>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9yXDTICCdyVcv--Xdule6W_utrnacgseImIMaasrXqo4sqKfD" alt="images?q=tbn:ANd9GcR9yXDTICCdyVcv  Xdule6W utrnacgseImIMaasrXqo4sqKfD">
 </div>
+</div>
+<div class="paragraph">
+<p>Давайте для начала определимся с проблемой, которую я буду решать. Представим проект, у которого есть
+фронтенд, который общается с бекендом посредством REST API. На таком проекте REST API мы используем для прекондишинов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+public void testCanEditUser(){
+    String userEmail = UserApi.createUserForTest()
+
+    User newUserData = User()
+        .withName("Ivan")
+        .withEmail("test@gmail.com")
+        .withPhone("+456789453")
+
+    open(EditUserPage.class)
+        .findUser(userEmail)
+        .toEditMode()
+        .setData(newUserData)
+        .save()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>На первый взгляд, все достаточно удобно и просто. Суть проблемы кроется именно в прекондишине <code>UserApi.createUserForTest()</code>.
+В моем случае для создания юзера на эндпоинт нужен запрос с таким  <strong>body</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+  "emails": [
+    {
+      "emailTypeId": 82,
+      "email": "test_person@email.com",
+      "comment": "",
+      "isDefault": true
+    }
+  ],
+  "addresses": [
+    {
+      "isShippingDefault": true,
+      "isBillingDefault": true,
+      "addressTypeId": 80,
+      "countryId": 3,
+      "cityId": 2,
+      "isGeneralInfo": true
+    }
+  ],
+  "confidenceId": 120,
+  "income": 0,
+  "languageCode": "en",
+  "lastName": "Ivanov",
+  "name": "Test",
+  "netWorth": 0,
+  "nickName": "Ivan",
+  "sexId": 130,
+  "liquidAssets": 0,
+  "employeeId": 1
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Достаточно сложная структура с кучей полей. Наверное, на многих проектах можно встретить такую ситуацию.
+Для того, чтобы сделать тест, описанный выше, перезапускаемым, нам нужно некоторые значения полей, например, email, делать
+уникальными, иначе мы получим ошибку валидации.</p>
+</div>
+<div class="paragraph">
+<p>Можно рандомизировать поле имейл:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">UserDto userDto = JsonUtils.getUser("user.json",UserDto.class);
+userDto.setEmails(Arrays.asList(EmailDto().withEmail(RandomUtils.nextEmail())));
+
+UserApi.addNewUser(userDto);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Такой подход работает, если нам нужно рандомизировать одно поле. Если мы хотим делать все рандомно, то тут - дрова.</p>
+</div>
+<div class="paragraph">
+<p>Упершись в эту проблему, я начал искать решение. Мне хотелось сделать так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+  "emails": [
+    {
+      "emailTypeId": 82,
+      "email": "{{ email }}",
+      "comment": "",
+      "isDefault": true
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Просто ставить плейсхолдер, а при диссериализции получать JAVA-объект с уже рандомизованным email.
+Конечно, можно было это легко сделать: <strong>.replaceAll("{{ email }}",RandomUtils.nextEmail())</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Приколько, но недостаточно гибко. А если я захочу рандомизиовать поле phone? Мне что теперь идти и дописывать код?</p>
+</div>
+<div class="paragraph">
+<p>Гуглеж натолкнул меня на один интересный сайт <a href="https://www.json-generator.com/">https://www.json-generator.com/</a>.
+Отличная идея и реализация, но у него нету API, а подобное я нашел только для NodeJS. Мне же нужно для Java.</p>
+</div>
+<div class="paragraph">
+<p>Присмотревшись к своей хотелке, я подумал: блин, так можно же взять template engine и дело в шляпе.</p>
+</div>
+<div class="paragraph">
+<p>Покумекав еще пару дней, я нашел отличный инструмент <a href="http://jtwig.org/">jTwig</a>. Очень простой и легковесный
+template engine для Java.</p>
+</div>
+<div class="paragraph">
+<p>Пример работы с ним выглядит так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">JtwigTemplate template = JtwigTemplate.classpathTemplate("templates/user.json");
+JtwigModel model = JtwigModel.newModel()
+            .with("faker", new Faker());
+
+String json = template.render(model);
+
+UserDto userdto = getEntity(json, User.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Во второй строке я применил библиотеку <a href="https://github.com/DiUS/java-faker">java-faker</a>.</p>
+</div>
+<div class="paragraph">
+<p>Темплейты теперь можно писать так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+  "name": "{{ faker.name().firstName() }}",
+  "lastName": "{{ faker.name().lastName() }}",
+  "addresses": [
+    "{{ faker.address().streetAddress() }}",
+    "{{ faker.address().streetAddress() }}"
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Да-да, jTwig умеет вызывать Java методы - мегафича.</p>
+</div>
+<div class="paragraph">
+<p>Теперь, имея такую функциональность, те поля, которые нужно, мы параметризуем и после диссериализации
+получаем готовые Java-объекты.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong> Описанный способ отлично работает на моем проекте. К сожалению, jTwig не умеет вызывать java-методы с параметрами:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+    "id": "{{ randomIntBetween(7, 10) }}"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В таких случаях мы велосипедируем, но я знаю, что эту проблему можно решить, используя вместо jTwig
+какой-то другой template engine. К примеру, <strong>Freemarker</strong>, <strong>Thymeleaf</strong> или <strong>Pebble</strong>.</p>
+</div>
+<div class="paragraph">
+<p>На этом у меня все. Оставайтесь на связи, подписывайтесь на мою группу в <a href="https://www.facebook.com/automationremarks/">Facebook</a>.</p>
 </div>
                     </section>
 
@@ -118,7 +290,6 @@
                             <div class="post-tags">
                                     <a href="/tags/Java.html">Java</a>
                                     <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
-                                    <a href="/tags/Видео.html">Видео</a>
                             </div>
                     </footer>
 
@@ -127,7 +298,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/json-randomizator/index.html">JSON рандомизатор</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/automation-remarks-universary/index.html">Заметки автоматизатора: три года спустя</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/master-class/index.html">Мастер-класс: Automation in Action. Kharkov</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/xpdays-2017/index.html">XP Days 2017: впечатления</a></li>

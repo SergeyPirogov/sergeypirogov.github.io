@@ -14,9 +14,203 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 19 Nov 2017 08:08:58 +0000</pubDate>
-    <lastBuildDate>Sun, 19 Nov 2017 08:08:58 +0000</lastBuildDate>
+    <pubDate>Sun, 26 Nov 2017 12:22:19 +0000</pubDate>
+    <lastBuildDate>Sun, 26 Nov 2017 12:22:19 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              JSON рандомизатор
+          </title>
+          <link>http://automation-remarks.com/2017/json-randomizator/index.html</link>
+          <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/json-randomizator/index.html</guid>
+          <description>
+                        История о рандомизации JSON
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! Подоспела очередная порция годноты. В этот раз
+расскажу о проблеме рандомизации JSON и способе ее решения.
+Сразу спойлер: описанный способ подходит не только для JSON, поэтому можно дочитывать заметку до конца.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9yXDTICCdyVcv--Xdule6W_utrnacgseImIMaasrXqo4sqKfD&quot; alt=&quot;images?q=tbn:ANd9GcR9yXDTICCdyVcv  Xdule6W utrnacgseImIMaasrXqo4sqKfD&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте для начала определимся с проблемой, которую я буду решать. Представим проект, у которого есть
+фронтенд, который общается с бекендом посредством REST API. На таком проекте REST API мы используем для прекондишинов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+public void testCanEditUser(){
+    String userEmail = UserApi.createUserForTest()
+
+    User newUserData = User()
+        .withName(&quot;Ivan&quot;)
+        .withEmail(&quot;test@gmail.com&quot;)
+        .withPhone(&quot;+456789453&quot;)
+
+    open(EditUserPage.class)
+        .findUser(userEmail)
+        .toEditMode()
+        .setData(newUserData)
+        .save()
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На первый взгляд, все достаточно удобно и просто. Суть проблемы кроется именно в прекондишине &lt;code&gt;UserApi.createUserForTest()&lt;/code&gt;.
+В моем случае для создания юзера на эндпоинт нужен запрос с таким  &lt;strong&gt;body&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &quot;emails&quot;: [
+    {
+      &quot;emailTypeId&quot;: 82,
+      &quot;email&quot;: &quot;test_person@email.com&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;isDefault&quot;: true
+    }
+  ],
+  &quot;addresses&quot;: [
+    {
+      &quot;isShippingDefault&quot;: true,
+      &quot;isBillingDefault&quot;: true,
+      &quot;addressTypeId&quot;: 80,
+      &quot;countryId&quot;: 3,
+      &quot;cityId&quot;: 2,
+      &quot;isGeneralInfo&quot;: true
+    }
+  ],
+  &quot;confidenceId&quot;: 120,
+  &quot;income&quot;: 0,
+  &quot;languageCode&quot;: &quot;en&quot;,
+  &quot;lastName&quot;: &quot;Ivanov&quot;,
+  &quot;name&quot;: &quot;Test&quot;,
+  &quot;netWorth&quot;: 0,
+  &quot;nickName&quot;: &quot;Ivan&quot;,
+  &quot;sexId&quot;: 130,
+  &quot;liquidAssets&quot;: 0,
+  &quot;employeeId&quot;: 1
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Достаточно сложная структура с кучей полей. Наверное, на многих проектах можно встретить такую ситуацию.
+Для того, чтобы сделать тест, описанный выше, перезапускаемым, нам нужно некоторые значения полей, например, email, делать
+уникальными, иначе мы получим ошибку валидации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Можно рандомизировать поле имейл:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;UserDto userDto = JsonUtils.getUser(&quot;user.json&quot;,UserDto.class);
+userDto.setEmails(Arrays.asList(EmailDto().withEmail(RandomUtils.nextEmail())));
+
+UserApi.addNewUser(userDto);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Такой подход работает, если нам нужно рандомизировать одно поле. Если мы хотим делать все рандомно, то тут - дрова.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Упершись в эту проблему, я начал искать решение. Мне хотелось сделать так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &quot;emails&quot;: [
+    {
+      &quot;emailTypeId&quot;: 82,
+      &quot;email&quot;: &quot;{{ email }}&quot;,
+      &quot;comment&quot;: &quot;&quot;,
+      &quot;isDefault&quot;: true
+    }
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Просто ставить плейсхолдер, а при диссериализции получать JAVA-объект с уже рандомизованным email.
+Конечно, можно было это легко сделать: &lt;strong&gt;.replaceAll(&quot;{{ email }}&quot;,RandomUtils.nextEmail())&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Приколько, но недостаточно гибко. А если я захочу рандомизиовать поле phone? Мне что теперь идти и дописывать код?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гуглеж натолкнул меня на один интересный сайт &lt;a href=&quot;https://www.json-generator.com/&quot;&gt;https://www.json-generator.com/&lt;/a&gt;.
+Отличная идея и реализация, но у него нету API, а подобное я нашел только для NodeJS. Мне же нужно для Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Присмотревшись к своей хотелке, я подумал: блин, так можно же взять template engine и дело в шляпе.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Покумекав еще пару дней, я нашел отличный инструмент &lt;a href=&quot;http://jtwig.org/&quot;&gt;jTwig&lt;/a&gt;. Очень простой и легковесный
+template engine для Java.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пример работы с ним выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;JtwigTemplate template = JtwigTemplate.classpathTemplate(&quot;templates/user.json&quot;);
+JtwigModel model = JtwigModel.newModel()
+            .with(&quot;faker&quot;, new Faker());
+
+String json = template.render(model);
+
+UserDto userdto = getEntity(json, User.class);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Во второй строке я применил библиотеку &lt;a href=&quot;https://github.com/DiUS/java-faker&quot;&gt;java-faker&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темплейты теперь можно писать так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &quot;name&quot;: &quot;{{ faker.name().firstName() }}&quot;,
+  &quot;lastName&quot;: &quot;{{ faker.name().lastName() }}&quot;,
+  &quot;addresses&quot;: [
+    &quot;{{ faker.address().streetAddress() }}&quot;,
+    &quot;{{ faker.address().streetAddress() }}&quot;
+  ]
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Да-да, jTwig умеет вызывать Java методы - мегафича.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь, имея такую функциональность, те поля, которые нужно, мы параметризуем и после диссериализации
+получаем готовые Java-объекты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt; Описанный способ отлично работает на моем проекте. К сожалению, jTwig не умеет вызывать java-методы с параметрами:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+    &quot;id&quot;: &quot;{{ randomIntBetween(7, 10) }}&quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В таких случаях мы велосипедируем, но я знаю, что эту проблему можно решить, используя вместо jTwig
+какой-то другой template engine. К примеру, &lt;strong&gt;Freemarker&lt;/strong&gt;, &lt;strong&gt;Thymeleaf&lt;/strong&gt; или &lt;strong&gt;Pebble&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом у меня все. Оставайтесь на связи, подписывайтесь на мою группу в &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Заметки автоматизатора: три года спустя
