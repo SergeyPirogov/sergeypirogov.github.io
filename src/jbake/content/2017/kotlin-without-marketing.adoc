@@ -1,0 +1,14 @@
+= Kotlin без маркетинга
+Sergey Pirogov
+2017-12-17
+:jbake-type: post
+:jbake-tags: Конференции, Видео
+:jbake-summary: Видео моего выступления с QAFest 2017
+
+Запись моего доклада:
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2For6QVZqsg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+++++
+
+_P/S_ Если видео не отображается просто перезагрузите страницу
