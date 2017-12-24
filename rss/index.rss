@@ -14,9 +14,269 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 23 Dec 2017 08:46:31 +0000</pubDate>
-    <lastBuildDate>Sat, 23 Dec 2017 08:46:31 +0000</lastBuildDate>
+    <pubDate>Sun, 24 Dec 2017 12:03:53 +0000</pubDate>
+    <lastBuildDate>Sun, 24 Dec 2017 12:03:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Allure2: убираем аннотации @Step и интерграция с Selenide
+          </title>
+          <link>http://automation-remarks.com/2017/selenide-allure-2/index.html</link>
+          <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/selenide-allure-2/index.html</guid>
+          <description>
+                        Просто крутой лайфхак
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, друзья! В преддверии Нового года решил поделиться еще одним замечательным советом,
+который поможет вам в повседневной работе. В этот раз речь пойдет об интеграции &lt;strong&gt;Allure2&lt;/strong&gt; и &lt;strong&gt;Selenide&lt;/strong&gt;,
+а также я покажу, как можно отказаться от аннотаций &lt;strong&gt;@Step&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В августе я уже писал статью о том, как можно убрать аннотации &lt;strong&gt;@Step&lt;/strong&gt; для &lt;strong&gt;Allure1&lt;/strong&gt;.
+О мотивации и подходе можете почитать в &lt;a href=&quot;http://automation-remarks.com/2017/allure-without-annotations/index.html&quot;&gt;архивной заметке&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После той статьи многие просили показать пример для Allure2. На своих проектах я давно им пользуюсь,
+но количество наших тестов было настолько мало (до 100), что кастомизации нам были просто не нужны.
+Теперь наш тест-сьют вырос до больших размеров и без информативного отчета жизнь стала грустной.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пришло время разбираться, как же там это все сделать для второй версии отчета. Ниже вы можете наблюдать работающий код примеров.
+Как и для первой версии пишем кастомный AspectJ класс:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StepResult;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+
+import java.util.Objects;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static io.qameta.allure.Allure.getLifecycle;
+import static io.qameta.allure.util.ResultsUtils.getStatus;
+import static io.qameta.allure.util.ResultsUtils.getStatusDetails;
+
+@SuppressWarnings(&quot;unused&quot;)
+@Aspect
+public class CustomAspect {
+
+    private static AllureLifecycle lifecycle;
+
+    @Pointcut(&quot;execution(* com.pages.*.*(..))&quot;)  // -&amp;gt; &lt;b class=&quot;conum&quot;&gt;(2)&lt;/b&gt;
+    public void anyMethod() {
+        //pointcut body, should be empty
+    }
+
+    @Around(&quot;anyMethod()&quot;)
+    public Object step(ProceedingJoinPoint joinPoint) throws Throwable {
+        final MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        final String name = joinPoint.getArgs().length &amp;gt; 0
+                ? String.format(&quot;%s (%s)&quot;, methodSignature.getName(), arrayToString(joinPoint.getArgs())) // -&amp;gt; &lt;b class=&quot;conum&quot;&gt;(1)&lt;/b&gt;
+                : methodSignature.getName();
+        final String uuid = UUID.randomUUID().toString();
+        final StepResult result = new StepResult()
+                .withName(name);
+        getLifecycle().startStep(uuid, result);
+        try {
+            final Object proceed = joinPoint.proceed();
+            getLifecycle().updateStep(uuid, s -&amp;gt; s.withStatus(Status.PASSED));
+            return proceed;
+        } catch (Throwable e) {
+            getLifecycle().updateStep(uuid, s -&amp;gt; s
+                    .withStatus(getStatus(e).orElse(Status.BROKEN))
+                    .withStatusDetails(getStatusDetails(e).orElse(null)));
+            throw e;
+        } finally {
+            getLifecycle().stopStep(uuid);
+        }
+
+    }
+
+    public static AllureLifecycle getLifecycle() {
+        if (Objects.isNull(lifecycle)) {
+            lifecycle = Allure.getLifecycle();
+        }
+        return lifecycle;
+    }
+
+    private static String arrayToString(final Object... array) {
+        return Stream.of(array)
+                .map(object -&amp;gt; {
+                    if (object.getClass().isArray()) {
+                        return arrayToString((Object[]) object);
+                    }
+                    return Objects.toString(object);
+                })
+                .collect(Collectors.joining(&quot;, &quot;));
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;colist arabic&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Строчка, в которой происходит форматирование имени метода и параметров&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Место, в котором нужно указать имя пакета с классами PageObject&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Далее, как и в первой версии отчета, в папке &lt;strong&gt;src/main/resources/META-INF&lt;/strong&gt; создаем файл &lt;strong&gt;aop-ajc.xml&lt;/strong&gt; c содержанием:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&amp;lt;aspectj&amp;gt;
+    &amp;lt;aspects&amp;gt;
+        &amp;lt;aspect name=&quot;com.aspect.CustomAspect&quot;/&amp;gt;
+    &amp;lt;/aspects&amp;gt;
+&amp;lt;/aspectj&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все, теперь можно запускать тесты и наслаждаться отчетом. Достаточно просто, нужно еще что-то подкрутить! Крутые пацаны не останавливаются на
+достигнутом. Хотим, чтобы методы Selenide логировались в Allure отчет.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Благо, что такую фичу тоже достаточно легко сделать. В репозитории &lt;a href=&quot;https://github.com/allure-framework/allure-java/blob/master/allure-selenide/src/main/java/io/qameta/allure/selenide/AllureSelenide.java&quot;&gt;allure-java&lt;/a&gt; уже есть
+пример. Все, что вам нужно, - это в своем проекте создать такой класс:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.LogEvent;
+import com.codeborne.selenide.logevents.LogEventListener;
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StatusDetails;
+import io.qameta.allure.model.StepResult;
+import io.qameta.allure.util.ResultsUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
+
+public class AllureSelenide implements LogEventListener {
+
+    private final AllureLifecycle lifecycle;
+
+    public AllureSelenide() {
+        this(Allure.getLifecycle());
+    }
+
+    public AllureSelenide(final AllureLifecycle lifecycle) {
+        this.lifecycle = lifecycle;
+    }
+
+    @Override
+    public void onEvent(final LogEvent event) {
+        lifecycle.getCurrentTestCase().ifPresent(uuid -&amp;gt; {
+            final String stepUUID = UUID.randomUUID().toString();
+            lifecycle.startStep(stepUUID, new StepResult()
+                    .withName(event.toString())
+                    .withStatus(Status.PASSED));
+
+            lifecycle.updateStep(stepResult -&amp;gt; stepResult.setStart(stepResult.getStart() - event.getDuration()));
+
+            if (LogEvent.EventStatus.FAIL.equals(event.getStatus())) {
+                lifecycle.addAttachment(&quot;Screenshot&quot;, &quot;image/png&quot;, &quot;png&quot;, getScreenshotBytes());
+                lifecycle.addAttachment(&quot;Page source&quot;, &quot;text/html&quot;, &quot;html&quot;, getPageSourceBytes());
+                lifecycle.updateStep(stepResult -&amp;gt; {
+                    final StatusDetails details = ResultsUtils.getStatusDetails(event.getError())
+                            .orElse(new StatusDetails());
+                    stepResult.setStatus(Status.FAILED);
+                    stepResult.setStatusDetails(details);
+                });
+            }
+            lifecycle.stopStep(stepUUID);
+        });
+    }
+
+
+    private static byte[] getScreenshotBytes() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    private static byte[] getPageSourceBytes() {
+        return WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Затем этот класс нужно зарегистрировать в Selenide:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@BeforeClass
+public void setUp() throws Exception {
+   SelenideLogger.addListener(&quot;allure&quot;, new AllureSelenide());
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь смотрим на все в куче. Пишем класс страницы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Calculator&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class Calulator {
+
+    public Calulator open() {
+        Selenide.open(&quot;http://juliemr.github.io/protractor-demo/&quot;);
+        return this;
+    }
+
+    public void add(String one, String two) {
+        $(&quot;input[ng-model=&apos;first&apos;]&quot;).setValue(one);
+        $(&quot;input[ng-model=&apos;second&apos;]&quot;).setValue(two);
+        $(&quot;#gobutton&quot;).click();
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пишем тест:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;TestCalculator&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class TestCalculator extends BaseTest {
+
+    @org.testng.annotations.Test
+    public void testName() throws Exception {
+        new Calulator()
+                .open()
+                .add(&quot;1&quot;, &quot;2&quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запускаем тест и тешимся результатами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На этом на сегодня все. Оставайтесь на связи, подписывайтесь на группу &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;в фейсбуке&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Kotlin без маркетинга

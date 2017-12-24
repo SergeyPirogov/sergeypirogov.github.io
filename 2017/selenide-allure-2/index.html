@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Allure2: убираем аннотации @Step и интерграция с Selenide</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Allure2: убираем аннотации @Step и интерграция с Selenide">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="Просто крутой лайфхак"/>
+	
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
+
+    <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-57010828-1', 'auto');
+       ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">
+	<script>var disqus="httpspirogovgithubio";</script>
+
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/tags/Видео.html" style="
+              width: 5em;
+          ">
+                      <span class="name">Видео</span>
+                    </a>
+          <a class="author_link" href="/archive.html" style="
+              width: 5em;
+          ">
+                      <span class="name">Архив</span>
+                    </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+          <a class="course_link" href="/course" style="
+              width: 7em;
+          ">
+                      <span class="name">Обучение</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="http://130.211.118.229"><i class="fa fa-slack"></i></a>
+        </div>
+</nav>	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                24/12/2017
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Allure2: убираем аннотации @Step и интерграция с Selenide</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Привет, друзья! В преддверии Нового года решил поделиться еще одним замечательным советом,
+который поможет вам в повседневной работе. В этот раз речь пойдет об интеграции <strong>Allure2</strong> и <strong>Selenide</strong>,
+а также я покажу, как можно отказаться от аннотаций <strong>@Step</strong>.</p>
+</div>
+<div class="paragraph">
+<p>В августе я уже писал статью о том, как можно убрать аннотации <strong>@Step</strong> для <strong>Allure1</strong>.
+О мотивации и подходе можете почитать в <a href="http://automation-remarks.com/2017/allure-without-annotations/index.html">архивной заметке</a>.</p>
+</div>
+<div class="paragraph">
+<p>После той статьи многие просили показать пример для Allure2. На своих проектах я давно им пользуюсь,
+но количество наших тестов было настолько мало (до 100), что кастомизации нам были просто не нужны.
+Теперь наш тест-сьют вырос до больших размеров и без информативного отчета жизнь стала грустной.</p>
+</div>
+<div class="paragraph">
+<p>Пришло время разбираться, как же там это все сделать для второй версии отчета. Ниже вы можете наблюдать работающий код примеров.
+Как и для первой версии пишем кастомный AspectJ класс:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StepResult;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+
+import java.util.Objects;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static io.qameta.allure.Allure.getLifecycle;
+import static io.qameta.allure.util.ResultsUtils.getStatus;
+import static io.qameta.allure.util.ResultsUtils.getStatusDetails;
+
+@SuppressWarnings("unused")
+@Aspect
+public class CustomAspect {
+
+    private static AllureLifecycle lifecycle;
+
+    @Pointcut("execution(* com.pages.*.*(..))")  // -&gt; <b class="conum">(2)</b>
+    public void anyMethod() {
+        //pointcut body, should be empty
+    }
+
+    @Around("anyMethod()")
+    public Object step(ProceedingJoinPoint joinPoint) throws Throwable {
+        final MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        final String name = joinPoint.getArgs().length &gt; 0
+                ? String.format("%s (%s)", methodSignature.getName(), arrayToString(joinPoint.getArgs())) // -&gt; <b class="conum">(1)</b>
+                : methodSignature.getName();
+        final String uuid = UUID.randomUUID().toString();
+        final StepResult result = new StepResult()
+                .withName(name);
+        getLifecycle().startStep(uuid, result);
+        try {
+            final Object proceed = joinPoint.proceed();
+            getLifecycle().updateStep(uuid, s -&gt; s.withStatus(Status.PASSED));
+            return proceed;
+        } catch (Throwable e) {
+            getLifecycle().updateStep(uuid, s -&gt; s
+                    .withStatus(getStatus(e).orElse(Status.BROKEN))
+                    .withStatusDetails(getStatusDetails(e).orElse(null)));
+            throw e;
+        } finally {
+            getLifecycle().stopStep(uuid);
+        }
+
+    }
+
+    public static AllureLifecycle getLifecycle() {
+        if (Objects.isNull(lifecycle)) {
+            lifecycle = Allure.getLifecycle();
+        }
+        return lifecycle;
+    }
+
+    private static String arrayToString(final Object... array) {
+        return Stream.of(array)
+                .map(object -&gt; {
+                    if (object.getClass().isArray()) {
+                        return arrayToString((Object[]) object);
+                    }
+                    return Objects.toString(object);
+                })
+                .collect(Collectors.joining(", "));
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Строчка, в которой происходит форматирование имени метода и параметров</p>
+</li>
+<li>
+<p>Место, в котором нужно указать имя пакета с классами PageObject</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Далее, как и в первой версии отчета, в папке <strong>src/main/resources/META-INF</strong> создаем файл <strong>aop-ajc.xml</strong> c содержанием:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">&lt;aspectj&gt;
+    &lt;aspects&gt;
+        &lt;aspect name="com.aspect.CustomAspect"/&gt;
+    &lt;/aspects&gt;
+&lt;/aspectj&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все, теперь можно запускать тесты и наслаждаться отчетом. Достаточно просто, нужно еще что-то подкрутить! Крутые пацаны не останавливаются на
+достигнутом. Хотим, чтобы методы Selenide логировались в Allure отчет.</p>
+</div>
+<div class="paragraph">
+<p>Благо, что такую фичу тоже достаточно легко сделать. В репозитории <a href="https://github.com/allure-framework/allure-java/blob/master/allure-selenide/src/main/java/io/qameta/allure/selenide/AllureSelenide.java">allure-java</a> уже есть
+пример. Все, что вам нужно, - это в своем проекте создать такой класс:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.LogEvent;
+import com.codeborne.selenide.logevents.LogEventListener;
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StatusDetails;
+import io.qameta.allure.model.StepResult;
+import io.qameta.allure.util.ResultsUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
+
+public class AllureSelenide implements LogEventListener {
+
+    private final AllureLifecycle lifecycle;
+
+    public AllureSelenide() {
+        this(Allure.getLifecycle());
+    }
+
+    public AllureSelenide(final AllureLifecycle lifecycle) {
+        this.lifecycle = lifecycle;
+    }
+
+    @Override
+    public void onEvent(final LogEvent event) {
+        lifecycle.getCurrentTestCase().ifPresent(uuid -&gt; {
+            final String stepUUID = UUID.randomUUID().toString();
+            lifecycle.startStep(stepUUID, new StepResult()
+                    .withName(event.toString())
+                    .withStatus(Status.PASSED));
+
+            lifecycle.updateStep(stepResult -&gt; stepResult.setStart(stepResult.getStart() - event.getDuration()));
+
+            if (LogEvent.EventStatus.FAIL.equals(event.getStatus())) {
+                lifecycle.addAttachment("Screenshot", "image/png", "png", getScreenshotBytes());
+                lifecycle.addAttachment("Page source", "text/html", "html", getPageSourceBytes());
+                lifecycle.updateStep(stepResult -&gt; {
+                    final StatusDetails details = ResultsUtils.getStatusDetails(event.getError())
+                            .orElse(new StatusDetails());
+                    stepResult.setStatus(Status.FAILED);
+                    stepResult.setStatusDetails(details);
+                });
+            }
+            lifecycle.stopStep(stepUUID);
+        });
+    }
+
+
+    private static byte[] getScreenshotBytes() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    private static byte[] getPageSourceBytes() {
+        return WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Затем этот класс нужно зарегистрировать в Selenide:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@BeforeClass
+public void setUp() throws Exception {
+   SelenideLogger.addListener("allure", new AllureSelenide());
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь смотрим на все в куче. Пишем класс страницы:</p>
+</div>
+<div class="listingblock">
+<div class="title">Calculator</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Calulator {
+
+    public Calulator open() {
+        Selenide.open("http://juliemr.github.io/protractor-demo/");
+        return this;
+    }
+
+    public void add(String one, String two) {
+        $("input[ng-model='first']").setValue(one);
+        $("input[ng-model='second']").setValue(two);
+        $("#gobutton").click();
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Пишем тест:</p>
+</div>
+<div class="listingblock">
+<div class="title">TestCalculator</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class TestCalculator extends BaseTest {
+
+    @org.testng.annotations.Test
+    public void testName() throws Exception {
+        new Calulator()
+                .open()
+                .add("1", "2");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Запускаем тест и тешимся результатами.</p>
+</div>
+<div class="paragraph">
+<p>На этом на сегодня все. Оставайтесь на связи, подписывайтесь на группу <a href="https://www.facebook.com/automationremarks/">в фейсбуке</a>.</p>
+</div>
+                    </section>
+
+                    <div class="post_ads" style="
+                                              text-align: center;
+                                              padding-bottom: 40px;
+                                          ">
+                        <a class="course_link" href="/course" style="
+                            color: blue;
+                            text-decoration: underline;
+                            font-size: x-large;
+                        ">
+                        Частные консультации и обучение
+                        </a>
+                    </div>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a href="/tags/Java.html">Java</a>
+                                    <a href="/tags/Allure.html">Allure</a>
+                            </div>
+                    </footer>
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2017/kotlin-without-marketing/index.html">Kotlin без маркетинга</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/json-randomizator/index.html">JSON рандомизатор</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/automation-remarks-universary/index.html">Заметки автоматизатора: три года спустя</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/master-class/index.html">Мастер-класс: Automation in Action. Kharkov</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/xpdays-2017/index.html">XP Days 2017: впечатления</a></li>
+                                                <li><a class='js-ajax-link' href="/2017/aadays-feedback/index.html">Отзыв об Agile and Automation days</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+
+				 <!-- Begin MailChimp Signup Form -->
+                                   <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                                   <style type="text/css">
+                                   	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                                   	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                                   	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                                   </style>
+                                   <div id="mc_embed_signup">
+                                   <form action="//automation-remarks.us10.list-manage.com/subscribe/post?u=d24f95005c1b66c13389aceb9&amp;id=ce47ec0c3f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                       <div id="mc_embed_signup_scroll">
+                                   	<label for="mce-EMAIL">Подписывайтесь на email рассылку</label>
+                                   	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                                       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                       <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d24f95005c1b66c13389aceb9_ce47ec0c3f" tabindex="-1" value=""></div>
+                                       <div class="clear"><input type="submit" value="Подписаться" name="subscribe" id="mc-embedded-subscribe" class="button" style="background: black;"></div>
+                                       </div>
+                                   </form>
+                                   </div>
+
+                                   <!--End mc_embed_signup-->
+
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
