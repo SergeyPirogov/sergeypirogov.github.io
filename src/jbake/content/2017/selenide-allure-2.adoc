@@ -1,0 +1,233 @@
+= Allure2: убираем аннотации @Step и интерграция с Selenide
+Sergey Pirogov
+2017-12-24
+:jbake-type: post
+:jbake-tags: Java, Allure
+:jbake-summary: Просто крутой лайфхак
+:jbake-status: published
+
+Привет друзья! В предверии Нового года решил поделиться с вами еще одним замечательным советом,
+который поможет вам в повседевной работе. В этот раз речь пойдет об интеграции *Allure2* и *Selenide*,
+а также я покажу способ при использовании которого можно будет оказаться от аннотаций *@Step*.
+
+В августе я уже писал статью о том как можно убрать аннотации *@Step* для *Allure1*.
+О мотивации и подходе можете почитать в http://automation-remarks.com/2017/allure-without-annotations/index.html[архивной заметке].
+
+После той статьи многие просии показать пример для Allure2. На своих проектах я давно им пользуюсь,
+но количество наших тестов было настолько мало (до 100), что кастомизации нам просто не нужны были.
+Вот наконец наш тест сьют вырос до больших размеров и без информативного отчета жизнь стала грустной.
+
+Пришло время разбираться как же там это все сделать для второй версии отчета. Ниже вы можете наблюдать работающий код примеров.
+Как и для первой версии пишем кастомный AspectJ класс:
+
+[source, java]
+----
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StepResult;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+
+import java.util.Objects;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static io.qameta.allure.Allure.getLifecycle;
+import static io.qameta.allure.util.ResultsUtils.getStatus;
+import static io.qameta.allure.util.ResultsUtils.getStatusDetails;
+
+@SuppressWarnings("unused")
+@Aspect
+public class CustomAspect {
+
+    private static AllureLifecycle lifecycle;
+
+    @Pointcut("execution(* com.pages.*.*(..))")  // -> <2>
+    public void anyMethod() {
+        //pointcut body, should be empty
+    }
+
+    @Around("anyMethod()")
+    public Object step(ProceedingJoinPoint joinPoint) throws Throwable {
+        final MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        final String name = joinPoint.getArgs().length > 0
+                ? String.format("%s (%s)", methodSignature.getName(), arrayToString(joinPoint.getArgs())) // -> <1>
+                : methodSignature.getName();
+        final String uuid = UUID.randomUUID().toString();
+        final StepResult result = new StepResult()
+                .withName(name);
+        getLifecycle().startStep(uuid, result);
+        try {
+            final Object proceed = joinPoint.proceed();
+            getLifecycle().updateStep(uuid, s -> s.withStatus(Status.PASSED));
+            return proceed;
+        } catch (Throwable e) {
+            getLifecycle().updateStep(uuid, s -> s
+                    .withStatus(getStatus(e).orElse(Status.BROKEN))
+                    .withStatusDetails(getStatusDetails(e).orElse(null)));
+            throw e;
+        } finally {
+            getLifecycle().stopStep(uuid);
+        }
+
+    }
+
+    public static AllureLifecycle getLifecycle() {
+        if (Objects.isNull(lifecycle)) {
+            lifecycle = Allure.getLifecycle();
+        }
+        return lifecycle;
+    }
+
+    private static String arrayToString(final Object... array) {
+        return Stream.of(array)
+                .map(object -> {
+                    if (object.getClass().isArray()) {
+                        return arrayToString((Object[]) object);
+                    }
+                    return Objects.toString(object);
+                })
+                .collect(Collectors.joining(", "));
+    }
+
+}
+----
+<1> Строчка в которой происходит форматирование имени метода и параметров
+<2> Место в котором нужно указать имя пакета с классами PageObject
+
+Теперь как и в первой версии отчета в папке *src/main/resources/META-INF* создаем файл *aop-ajc.xml* c содержанием:
+
+----
+<aspectj>
+    <aspects>
+        <aspect name="com.aspect.CustomAspect"/>
+    </aspects>
+</aspectj>
+----
+
+Все, теперь можно запускать тесты и наслаждаться отчетом. Достаточно просто, нужно еще что-то подкрутить! Такие крутые пацаны не останавливаются на
+достигнутом. Хотим чтобы методы Selenide логировались в Allure отчет.
+
+Благо что такую фичу тоже достаточно легко сделать. В репозитории https://github.com/allure-framework/allure-java/blob/master/allure-selenide/src/main/java/io/qameta/allure/selenide/AllureSelenide.java[allure-java] уже есть
+пример. Все что вам нужно - это просто в своем проекте создать такой класс:
+
+[source, java]
+----
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.LogEvent;
+import com.codeborne.selenide.logevents.LogEventListener;
+import io.qameta.allure.Allure;
+import io.qameta.allure.AllureLifecycle;
+import io.qameta.allure.model.Status;
+import io.qameta.allure.model.StatusDetails;
+import io.qameta.allure.model.StepResult;
+import io.qameta.allure.util.ResultsUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
+
+public class AllureSelenide implements LogEventListener {
+
+    private final AllureLifecycle lifecycle;
+
+    public AllureSelenide() {
+        this(Allure.getLifecycle());
+    }
+
+    public AllureSelenide(final AllureLifecycle lifecycle) {
+        this.lifecycle = lifecycle;
+    }
+
+    @Override
+    public void onEvent(final LogEvent event) {
+        lifecycle.getCurrentTestCase().ifPresent(uuid -> {
+            final String stepUUID = UUID.randomUUID().toString();
+            lifecycle.startStep(stepUUID, new StepResult()
+                    .withName(event.toString())
+                    .withStatus(Status.PASSED));
+
+            lifecycle.updateStep(stepResult -> stepResult.setStart(stepResult.getStart() - event.getDuration()));
+
+            if (LogEvent.EventStatus.FAIL.equals(event.getStatus())) {
+                lifecycle.addAttachment("Screenshot", "image/png", "png", getScreenshotBytes());
+                lifecycle.addAttachment("Page source", "text/html", "html", getPageSourceBytes());
+                lifecycle.updateStep(stepResult -> {
+                    final StatusDetails details = ResultsUtils.getStatusDetails(event.getError())
+                            .orElse(new StatusDetails());
+                    stepResult.setStatus(Status.FAILED);
+                    stepResult.setStatusDetails(details);
+                });
+            }
+            lifecycle.stopStep(stepUUID);
+        });
+    }
+
+
+    private static byte[] getScreenshotBytes() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    private static byte[] getPageSourceBytes() {
+        return WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+    }
+
+}
+----
+
+Затем этот класс нужно зарегистрировать в Selenide:
+
+[source, java]
+----
+@BeforeClass
+public void setUp() throws Exception {
+   SelenideLogger.addListener("allure", new AllureSelenide());
+}
+----
+
+Теперь смотрим на все в куче. Пишем класс станицы:
+
+.Calculator
+[source, java]
+----
+public class Calulator {
+
+    public Calulator open() {
+        Selenide.open("http://juliemr.github.io/protractor-demo/");
+        return this;
+    }
+
+    public void add(String one, String two) {
+        $("input[ng-model='first']").setValue(one);
+        $("input[ng-model='second']").setValue(two);
+        $("#gobutton").click();
+    }
+
+}
+----
+
+Пишем тест:
+
+.TestCalculator
+[source, java]
+----
+public class TestCalculator extends BaseTest {
+
+    @org.testng.annotations.Test
+    public void testName() throws Exception {
+        new Calulator()
+                .open()
+                .add("1", "2");
+    }
+}
+----
+Запускаем тест и наслаждаемся результатами.
+
+На этом моя писанина в 2017 года закончилась! Поздравляю всех с наступающим Новым годом и рождеством! Оставайтесь на связи,
+подписывайтесь на группу https://www.facebook.com/automationremarks/[в фейсбуке].
