@@ -1,4 +1,4 @@
-= Allure2: убираем аннотации @Step и интерграция с Selenide
+= Allure2: убираем аннотации @Step и интеграция с Selenide
 Sergey Pirogov
 2017-12-24
 :jbake-type: post
