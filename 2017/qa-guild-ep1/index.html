@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Аттачим RestAssured логи к Allure</title>
+    <title>QA Guild Podcast EP-1: Тестирование микросервисов</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Аттачим RestAssured логи к Allure">
+    <meta property="og:title" content="QA Guild Podcast EP-1: Тестирование микросервисов">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="О том, как прикрепить логи к отчету"/>
+        	<meta property="og:description" content="QA Guild Podcast"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -82,124 +82,73 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                05/05/2017
+                                30/12/2017
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Аттачим RestAssured логи к Allure</h1>
+                        <h1 class="post-title">QA Guild Podcast EP-1: Тестирование микросервисов</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>История о том, как прикрепить логи к отчету и сделать всех счастливыми. Эта заметка является
-продолжением серии о <a href="http://automation-remarks.com/2017/code-generation/index.html">быстром написании тестов</a>
-и <a href="http://automation-remarks.com/2017/assert-generation/index.html">проверок</a>.</p>
+<p>Доступен первый выпуск подкаста о тестировании микросервисов</p>
+</div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/374269157&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+<div class="paragraph">
+<p>В этом выпуске обсуждались подходы и инструменты которые применяются
+для тестирования приложений на основе микросервисной архитектуры.</p>
 </div>
 <div class="paragraph">
-<p>В свободное от работы время я занимаюсь <a href="http://automation-remarks.com/course/">консультациями</a> по вопросам
-построения автоматизации тестирования. Однажды ко мне обратились с вопросом о возможности
-прикреплять к Allure отчетам логи от RestAssured. Так как на просторах интернета сложно
-найти качественный пример реализации, я решил поделиться решением данной задачи.</p>
+<p>Гости:</p>
 </div>
 <div class="paragraph">
-<p>По умолчанию RestAssured выводит логи в консоль, но существует механизм перехвата с помощью фильтров.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, printStream),
-        new RequestLoggingFilter(LogDetail.ALL, printStream));</code></pre>
-</div>
+<p><strong>Дмитрий Гуменюк</strong> - владыка репорт портала</p>
 </div>
 <div class="paragraph">
-<p>Именно этот механизм мы и можем использовать для своих целей.
-Для того, чтобы прикреплять логи к отчетам, нам нужно написать TestNG лисенер:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>public class LogListener implements ITestListener {
-  private ByteArrayOutputStream request = new ByteArrayOutputStream();
-  private ByteArrayOutputStream response = new ByteArrayOutputStream();
-
-  private PrintStream requestVar = new PrintStream(request, true);
-  private PrintStream responseVar = new PrintStream(response, true);
-
-
-  public void onStart(ITestContext iTestContext) {
-    RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, responseVar),
-            new RequestLoggingFilter(LogDetail.ALL, requestVar));
-  }
-
-  public void onTestSuccess(ITestResult iTestResult) {
-    logRequest(request);
-    logResponse(response);
-  }
-
-  public void onTestFailure(ITestResult iTestResult) {
-      onTestSuccess(iTestResult)
-  }
-
-  @Attachment(value = "request")
-  public byte[] logRequest(ByteArrayOutputStream stream) {
-    return attach(stream);
-  }
-
-  @Attachment(value = "response")
-  public byte[] logResponse(ByteArrayOutputStream stream) {
-    return attach(stream);
-  }
-
-  public byte[] attach(ByteArrayOutputStream log) {
-    byte[] array = log.toByteArray();
-    log.reset();
-    return array;
-  }
-
-  public void onTestStart(ITestResult iTestResult) {
-  }
-
-  public void onTestSkipped(ITestResult iTestResult) {
-
-  }
-
-  public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
-  }
-
-  public void onFinish(ITestContext iTestContext) {
-
-  }
-}</code></pre>
-</div>
+<p><strong>Николай Алименков</strong> - знает все о микросервисах</p>
 </div>
 <div class="paragraph">
-<p>Теперь нужно просто использовать этот лисенер в своих тестах:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>@Listeners(LogListener.class)
-class SignInTest {
-
-   @Test
-   public void testCanSignIn(){
-       CredentialsForResetPass credentialsRes = new CredentialsForResetPass("test@mail.com");
-       given()
-               .contentType("application/json")
-               .body(credentialsRes)
-               .when()
-               .post("http://localhost:8085/auth/reset")
-               .then()
-               .assertThat()
-               .statusCode(200)
-               .and()
-               .assertThat().body("code", equalTo("OK"));
-   }
-}</code></pre>
-</div>
+<p><strong>Ярослав Пернеровский</strong> - обладает диванной экпертизой в области тестирования
+микросервисов</p>
 </div>
 <div class="paragraph">
-<p>Теперь ваши логи будут отображаться в виде аттачментов к тестам. Я на своем проекте
-тоже использую такой подход. Это позволяет значительно упростить жизнь, так как в случае
-ошибки вся команда знает, что нужная информация хранится в отчете.</p>
+<p><strong>Александр Романов</strong> - об микросервисах знает не понаслышке</p>
+</div>
+<div class="paragraph">
+<p><strong>Сергей Пирогов</strong> - видел микросервисы еще до того как это стало мейнстримом</p>
+</div>
+<div class="paragraph">
+<p>Полезные ссылки:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://martinfowler.com/articles/microservice-testing/">Статья Мартина Фаулера</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://swagger.io/">Swagger</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.getpostman.com/">Postman</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/gaia-adm/pumba">Pumba</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey">Chaos-Monkey</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.pact.io/">PACT</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.spring.io/spring-cloud-contract/">Spring cloud contract</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/swagger-api/swagger-codegen">Swagger codegen</a></p>
+</div>
+<div class="paragraph">
+<p>Мы получили достаточно много положительных отзывов, поэтому первым выпуском все не ограничится.</p>
+</div>
+<div class="paragraph">
+<p>Вступайте в свободную <a href="https://qaguild-slack.herokuapp.com/">QA гильдию в Slack</a> и следите за новостями.</p>
 </div>
                     </section>
 
@@ -218,8 +167,7 @@ class SignInTest {
 
                     <footer class="post-footer">
                             <div class="post-tags">
-                                    <a href="/tags/Java.html">Java</a>
-                                    <a href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
+                                    <a href="/tags/Podcast.html">Podcast</a>
                             </div>
                     </footer>
 
@@ -228,7 +176,6 @@ class SignInTest {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2017/qa-guild-ep1/index.html">QA Guild Podcast EP-1: Тестирование микросервисов</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/selenide-allure-2/index.html">Allure2: убираем аннотации @Step и интеграция с Selenide</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/kotlin-without-marketing/index.html">Kotlin без маркетинга</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/json-randomizator/index.html">JSON рандомизатор</a></li>

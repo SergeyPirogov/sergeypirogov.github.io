@@ -14,9 +14,82 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 25 Dec 2017 13:06:10 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Dec 2017 13:06:10 +0000</lastBuildDate>
+    <pubDate>Sat, 30 Dec 2017 18:04:49 +0000</pubDate>
+    <lastBuildDate>Sat, 30 Dec 2017 18:04:49 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA Guild Podcast EP-1: Тестирование микросервисов
+          </title>
+          <link>http://automation-remarks.com/2017/qa-guild-ep1/index.html</link>
+          <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/qa-guild-ep1/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Доступен первый выпуск подкаста о тестировании микросервисов&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/374269157&amp;amp;color=%23ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске обсуждались подходы и инструменты которые применяются
+для тестирования приложений на основе микросервисной архитектуры.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Дмитрий Гуменюк&lt;/strong&gt; - владыка репорт портала&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Николай Алименков&lt;/strong&gt; - знает все о микросервисах&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Ярослав Пернеровский&lt;/strong&gt; - обладает диванной экпертизой в области тестирования
+микросервисов&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Александр Романов&lt;/strong&gt; - об микросервисах знает не понаслышке&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Сергей Пирогов&lt;/strong&gt; - видел микросервисы еще до того как это стало мейнстримом&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Полезные ссылки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://martinfowler.com/articles/microservice-testing/&quot;&gt;Статья Мартина Фаулера&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://swagger.io/&quot;&gt;Swagger&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/gaia-adm/pumba&quot;&gt;Pumba&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey&quot;&gt;Chaos-Monkey&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.pact.io/&quot;&gt;PACT&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://cloud.spring.io/spring-cloud-contract/&quot;&gt;Spring cloud contract&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-codegen&quot;&gt;Swagger codegen&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мы получили достаточно много положительных отзывов, поэтому первым выпуском все не ограничится.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вступайте в свободную &lt;a href=&quot;https://qaguild-slack.herokuapp.com/&quot;&gt;QA гильдию в Slack&lt;/a&gt; и следите за новостями.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Allure2: убираем аннотации @Step и интеграция с Selenide
