@@ -1,0 +1,52 @@
+= QA Guild Podcast EP-1: Тестирование микросервисов
+Sergey Pirogov
+2017-12-30
+:jbake-type: post
+:jbake-tags: Podcast
+:jbake-summary: QA Guild Podcast
+:jbake-status: published
+:jbake-featured: false
+
+Доступен первый выпуск подкаста о тестировании микросервисов
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/374269157&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+++++
+
+В этом выпуске обсуждались подходы и инструменты которые применяются
+для тестирования приложений на основе микросервисной архитектуры.
+
+Гости:
+
+*Дмитрий Гуменюк* - владыка репорт портала
+
+*Николай Алименков* - знает все о микросервисах
+
+*Ярослав Пернеровский* - обладает диванной экпертизой в области тестирования
+микросервисов
+
+*Александр Романов* - об микросервисах знает не понаслышке
+
+*Сергей Пирогов* - видел микросервисы еще до того как это стало мейнстримом
+
+Полезные ссылки:
+
+https://martinfowler.com/articles/microservice-testing/[Статья Мартина Фаулера]
+
+https://swagger.io/[Swagger]
+
+https://www.getpostman.com/[Postman]
+
+https://github.com/gaia-adm/pumba[Pumba]
+
+https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey[Chaos-Monkey]
+
+https://docs.pact.io/[PACT]
+
+https://cloud.spring.io/spring-cloud-contract/[Spring cloud contract]
+
+https://github.com/swagger-api/swagger-codegen[Swagger codegen]
+
+Мы получили достаточно много положительных отзывов, поэтому первым выпуском все не ограничится.
+
+Вступайте в свободную https://qaguild-slack.herokuapp.com/[QA гильдию в Slack] и следите за новостями.
