@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 7 Jan 2018 11:16:19 +0000</pubDate>
-    <lastBuildDate>Sun, 7 Jan 2018 11:16:19 +0000</lastBuildDate>
+    <pubDate>Sun, 7 Jan 2018 12:35:28 +0000</pubDate>
+    <lastBuildDate>Sun, 7 Jan 2018 12:35:28 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -83,6 +83,9 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Я буду выступать с докладом. Приглашаю всех на DelEx Conference 2018, уверен - будет круто.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Хорошая новость для читателей блога - у вас есть возможность купить билет со скидкой 15% используя промокод &lt;strong&gt;automation-remarks-rulez&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
