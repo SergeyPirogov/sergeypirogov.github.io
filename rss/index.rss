@@ -14,9 +14,78 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 30 Dec 2017 18:04:49 +0000</pubDate>
-    <lastBuildDate>Sat, 30 Dec 2017 18:04:49 +0000</lastBuildDate>
+    <pubDate>Sun, 7 Jan 2018 11:09:44 +0000</pubDate>
+    <lastBuildDate>Sun, 7 Jan 2018 11:09:44 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              DelEx - первая конференция про DevOps в Минске
+          </title>
+          <link>http://automation-remarks.com/2017/delex-conferece/index.html</link>
+          <pubDate>Sun, 7 Jan 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2017/delex-conferece/index.html</guid>
+          <description>
+                        Анонс конференции DelEx
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;DelEx Conference 2018 - самая ожидаемая конференция этой зимы по DevOps и Test Automation, которая пройдет в Минске
+17 февраля.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/delex.png&quot; alt=&quot;delex&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;DevOps и автоматизация тестирования, на первый взгляд, покрывают вопросы разных областей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Культура DevOps позволяет сокращать время поставки билдов, однако не следует забывать и о качестве.
+Чем быстрее мы хотим деливерить продукт, тем больший уровень автоматизации нам требуется внедрять. В таком случае
+возрастает ценность автоматизированного тестирования.
+Эти практики неотъемлемо связаны в ближайшем будущем.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Основной целью конференции DelEx  является развитие площадки для обмена опытом в DevOps и автоматизации тестирования с привлечением практики зарубежных коллег.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Это конференция advanced уровня, собирающая лучших экспертов из разных стран мира.
+Наполняющуюся программу можно найти на официальном сайте мероприятия &lt;a href=&quot;http://delex-conf.com/&quot; class=&quot;bare&quot;&gt;http://delex-conf.com/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что ждет участников помимо полезного контента?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Зона &quot;Спроси эксперта&quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Это уголок, где спикеры будут отвечать на вопросы слушателей, которые не обязательно должны касаться доклада. Программа этой зоны скоро появится на сайте мероприятия.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Стенды партнеров&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Представители партнеров конференции будут работать на своих стендах, где вы сможете принять участие в различных играх, а также задать интересующие вас вопросы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Активности&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Во время конференции оргтим DelEx Confrence и партнеры будут разыгрывать различные призы - не пропустите!
+Весь день будет работать фото-зона и зона отдыха.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Питание&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В течение всего дня будут организованы кофе-паузы и полноценный обед. А по завершении конференции все участники и спикеры приглашены на afterparty.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я буду выступать с докладом. Приглашаю всех на DelEx Conference 2018, уверен - будет круто.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA Guild Podcast EP-1: Тестирование микросервисов
