@@ -27,22 +27,25 @@
 
                     <div class="post_ads" style="
                                               text-align: center;
-                                              padding-bottom: 40px;
                                           ">
                         <a class="course_link" href="/course" style="
-                            color: blue;
-                            text-decoration: underline;
-                            font-size: x-large;
-                        ">
-                        Нужна помощь? Закажи частную консультацию
-                        </a>
+                                                    color: red;
+                                                    text-decoration: underline;
+                                                    font-size: larger;
+                                                    background-color:  lightgoldenrodyellow;
+                                                    padding: 15px;
+                                                    border-radius: 10px;
+                                                ">
+                                                Нужна помощь? Закажи частную консультацию
+                                                </a>
                     </div>
 
                     <footer class="post-footer">
                         <#if content.tags??>
                             <div class="post-tags">
                                 <#list content.tags as tag>
-                                    <a href="/tags/${tag?trim?replace(' ','-')}.html">${tag}</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/${tag?trim?replace(' ','-')}.html">${tag}</a>
                                 </#list>
                             </div>
                         </#if>
