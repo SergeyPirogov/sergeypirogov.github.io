@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 10 Jan 2018 09:41:00 +0000</pubDate>
-    <lastBuildDate>Wed, 10 Jan 2018 09:41:00 +0000</lastBuildDate>
+    <pubDate>Sun, 14 Jan 2018 20:39:50 +0000</pubDate>
+    <lastBuildDate>Sun, 14 Jan 2018 20:39:50 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -103,7 +103,7 @@
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Доступен первый выпуск подкаста о тестировании микросервисов&lt;/p&gt;
 &lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/374269157&amp;amp;color=%23ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fyrg7QlNR9Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этом выпуске обсуждались подходы и инструменты которые применяются
 для тестирования приложений на основе микросервисной архитектуры.&lt;/p&gt;
