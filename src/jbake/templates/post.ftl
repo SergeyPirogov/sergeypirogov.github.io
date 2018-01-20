@@ -27,6 +27,7 @@
 
                     <div class="post_ads" style="
                                               text-align: center;
+                                              margin-bottom: 25px;
                                           ">
                         <a class="course_link" href="/course" style="
                                                     color: red;

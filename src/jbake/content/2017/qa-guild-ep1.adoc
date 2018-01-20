@@ -2,7 +2,7 @@
 Sergey Pirogov
 2017-12-30
 :jbake-type: post
-:jbake-tags: Podcast
+:jbake-tags: QAGuild, Podcast
 :jbake-summary: QA Guild Podcast
 :jbake-status: published
 :jbake-featured: false
@@ -12,6 +12,10 @@ Sergey Pirogov
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fyrg7QlNR9Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ++++
+
+Подписывайтесь на каналы:
+
+https://t.me/automation_remarks[#telegram] https://www.facebook.com/automationremarks/[#facebook]
 
 В этом выпуске обсуждались подходы и инструменты которые применяются
 для тестирования приложений на основе микросервисной архитектуры.
