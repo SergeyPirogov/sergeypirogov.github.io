@@ -14,9 +14,85 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 14 Jan 2018 20:39:50 +0000</pubDate>
-    <lastBuildDate>Sun, 14 Jan 2018 20:39:50 +0000</lastBuildDate>
+    <pubDate>Sat, 20 Jan 2018 14:26:16 +0000</pubDate>
+    <lastBuildDate>Sat, 20 Jan 2018 14:26:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA Guild Podcast EP-2: Автоматизация мобильных приложений
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep2/index.html</link>
+          <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep2/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Доступен второй выпуск подкаста от свободной QA гильдии.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о подходах и инструментах, которые применяются
+для тестирования мобильных приложений.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/a9U4yzs26HU&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подписывайтесь на каналы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;#telegram&lt;/a&gt; &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;#facebook&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Сергей Пирогов&lt;/strong&gt; - 0 без палочки в автоматизации мобильников&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Ярослав Пернеровский&lt;/strong&gt; - получил детскую травму после работы с Appium&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Артем Никитин&lt;/strong&gt; - обмазывался Robotium и Espresso и настраивает CI для Android/IOS&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Алексей Панащенко&lt;/strong&gt; - работает с Appium IOS/Android,  делал CI и пытается бороться со скоростью IOS тестов&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Евгения Гнатюк&lt;/strong&gt; - работала с Appium Android/IOS +/- Cucumber.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Денис Яременко&lt;/strong&gt; - работает с мобильниками почти с пеленок&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Дмитрий Лемешко&lt;/strong&gt; - знает, как писать нормальные тесты под Appium&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Андрей Яременко&lt;/strong&gt; - Appium+Cucumber Android/IOS, тот еще краб и нуб.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Полезные ссылки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://appium.io/docs/en/about-appium/intro/&quot; class=&quot;bare&quot;&gt;http://appium.io/docs/en/about-appium/intro/&lt;/a&gt;  - самая основная дока по Appium&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://appiumconf.com/speakers&quot; class=&quot;bare&quot;&gt;https://appiumconf.com/speakers&lt;/a&gt; - конференция про Appium&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://mobiletestingblog.com/2018/01/07/continuous-testing-principals-for-cross-browser-testing-and-mobile-apps&quot; class=&quot;bare&quot;&gt;https://mobiletestingblog.com/2018/01/07/continuous-testing-principals-for-cross-browser-testing-and-mobile-apps&lt;/a&gt; -
+DevOps для мобильников&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?time_continue=5&amp;amp;v=MS7GN2Lgdas&quot; class=&quot;bare&quot;&gt;https://www.youtube.com/watch?time_continue=5&amp;amp;v=MS7GN2Lgdas&lt;/a&gt; - познавательная лекция от Яндекс&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Предыдущий выпуск можно послушать &lt;a href=&quot;http://automation-remarks.com/2017/qa-guild-ep1/index.html&quot;&gt;здесь&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вступайте в свободную &lt;a href=&quot;https://qaguild-slack.herokuapp.com/&quot;&gt;QA гильдию в Slack&lt;/a&gt; и следите за новостями.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               DelEx - первая конференция про DevOps в Минске
@@ -104,6 +180,12 @@
 &lt;p&gt;Доступен первый выпуск подкаста о тестировании микросервисов&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fyrg7QlNR9Y&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подписывайтесь на каналы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;#telegram&lt;/a&gt; &lt;a href=&quot;https://www.facebook.com/automationremarks/&quot;&gt;#facebook&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В этом выпуске обсуждались подходы и инструменты которые применяются
 для тестирования приложений на основе микросервисной архитектуры.&lt;/p&gt;
