@@ -11,7 +11,7 @@ status=published
 ">
 <!-- Any HTML here will be styled with Bootstrap CSS -->
 <form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">
-    <input type="hidden" name="_subject" value="New training registration!" />
+    <input type="hidden" name="_subject" value="CI training registration!" />
     <input type="text" name="_gotcha" style="display:none" />
     <input type="hidden" name="_language" value="ru" />
     <input type="hidden" name="_format" value="plain" />
