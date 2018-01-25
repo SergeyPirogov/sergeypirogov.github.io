@@ -1,45 +1,50 @@
-title=Консультации
+title=Регистрация на тренинг
 type=page
 status=published
 ~~~~~~
-Консультация c опытным специалистом - это самый быстрый и простой способ решить свои проблемы.
-
-**Какого вида консультацию я могу вам предложить:**
-
-[.job-list]
-- Автоматизация тестирования
-- Continuous Integration
-- Инструменты автоматизации из мира Java или Python
-- Индивидуальный план развития
-- Индивидуальное обучение и менторинг
-
-**Примеры консультаций:**
-
-- Вы работаете мануальным тестировщиком, но хотите развиваться и не знаете, куда и как двигаться. Какие курсы выбрать или как учиться самому?
-
-- Вы хотите попробовать пройти интервью, но боитесь, так как не уверены в своих знаниях.
-
-- Вы хотите найти ментора.
-
-**Почему нужно попробовать?**
-
-Это быстрее, чем рыскать в Google и дешевле, чем идти на курсы ради одной конкретной проблемы!
-
-**Как получить консультацию?**
-
-Просто опишите мне суть проблемы, используя форму ниже, и мы вместе во всем разберемся!
 
 ++++
-<script type="text/javascript" src="https://odamae.io/form/js/light.js"></script>
-<form id="odamae-contact-form" method="post" style="display: none">
-    <div class="odamae-row">
-		<input type="text" class="odamae-input" name="name" id="name" value="" placeholder="Name" />
-		<input type="text" class="odamae-input" name="contact" id="contact" value="" placeholder="Email" />
-		<textarea class="odamae-textarea" name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    width: 90%;
+    padding-left: 15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">
+    <input type="hidden" name="_subject" value="New training registration!" />
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="_language" value="ru" />
+    <input type="hidden" name="_format" value="plain" />
+    <input type="hidden" name="_next" value="http://automation-remarks.com" />
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="_replyto" placeholder="Ваш email" style="width: 320px;">
+        </div>
     </div>
-    <div class="odamae-row visual-captcha"></div>
-    <div class="odamae-row actions">
-		<input type="submit" class="odamae-button odamae-submit" value="Send Message" onclick="odamaeSubmit(this)" data-apikey="odamae.io_8159ee6e4c98eacc1db6f4d6986f625e_0103" />
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;">
+            </div>
+    </div>
+     <div class="form-group">
+
+                <div class="col-sm-10">
+                   <input class="form-control" id="inputName4" name="city" placeholder="Город проживания" style="width: 320px;">
+                </div>
+        </div>
+
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
     </div>
 </form>
+</div>
 ++++
