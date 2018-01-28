@@ -15,7 +15,7 @@ Sergey Pirogov
 
 Подписывайтесь на каналы:
 
-https://t.me/automation_remarks[#telegram] https://www.facebook.com/automationremarks/[#facebook]
+https://t.me/automation_remarks[#telegram] https://www.facebook.com/automationremarks/[#facebook] https://www.patreon.com/automation_remarks[#стать патроном]
 
 В этом выпуске обсуждались подходы и инструменты которые применяются
 для тестирования приложений на основе микросервисной архитектуры.
