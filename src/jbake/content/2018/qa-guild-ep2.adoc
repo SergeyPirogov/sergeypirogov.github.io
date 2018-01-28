@@ -15,38 +15,31 @@ Sergey Pirogov
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a9U4yzs26HU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ++++
 
-Подписывайтесь на каналы:
+- https://t.me/automation_remarks[Telegram]
+- https://www.facebook.com/automationremarks/[Facebook]
+- https://www.patreon.com/automation_remarks[Поддержите подкаст]
 
-https://t.me/automation_remarks[#telegram] https://www.facebook.com/automationremarks/[#facebook] https://www.patreon.com/automation_remarks[#стать патроном]
+*Гости*:
 
-Гости:
+- *Сергей Пирогов* - 0 без палочки в автоматизации мобильников
+- *Ярослав Пернеровский* - получил детскую травму после работы с Appium
+- *Артем Никитин* - обмазывался Robotium и Espresso и настраивает CI для Android/IOS
+- *Алексей Панащенко* - работает с Appium IOS/Android,  делал CI и пытается бороться со скоростью IOS тестов
+- *Евгения Гнатюк* - работала с Appium Android/IOS +/- Cucumber.
+- *Денис Яременко* - работает с мобильниками почти с пеленок
+- *Дмитрий Лемешко* - знает, как писать нормальные тесты под Appium
+- *Андрей Яременко* - Appium+Cucumber Android/IOS, тот еще краб и нуб.
 
-*Сергей Пирогов* - 0 без палочки в автоматизации мобильников
+*Полезные ссылки*:
 
-*Ярослав Пернеровский* - получил детскую травму после работы с Appium
+- http://appium.io/docs/en/about-appium/intro/[Cамая основная дока по Appium]
 
-*Артем Никитин* - обмазывался Robotium и Espresso и настраивает CI для Android/IOS
+- https://appiumconf.com/speakers[Конференция про Appium]
 
-*Алексей Панащенко* - работает с Appium IOS/Android,  делал CI и пытается бороться со скоростью IOS тестов
+- https://mobiletestingblog.com/2018/01/07/continuous-testing-principals-for-cross-browser-testing-and-mobile-apps[
+DevOps для мобильников]
 
-*Евгения Гнатюк* - работала с Appium Android/IOS +/- Cucumber.
-
-*Денис Яременко* - работает с мобильниками почти с пеленок
-
-*Дмитрий Лемешко* - знает, как писать нормальные тесты под Appium
-
-*Андрей Яременко* - Appium+Cucumber Android/IOS, тот еще краб и нуб.
-
-Полезные ссылки:
-
-http://appium.io/docs/en/about-appium/intro/  - самая основная дока по Appium
-
-https://appiumconf.com/speakers - конференция про Appium
-
-https://mobiletestingblog.com/2018/01/07/continuous-testing-principals-for-cross-browser-testing-and-mobile-apps -
-DevOps для мобильников
-
-https://www.youtube.com/watch?time_continue=5&v=MS7GN2Lgdas - познавательная лекция от Яндекс
+- https://www.youtube.com/watch?time_continue=5&v=MS7GN2Lgdas[Познавательная лекция от Яндекс]
 
 Предыдущий выпуск можно послушать http://automation-remarks.com/2017/qa-guild-ep1/index.html[здесь]
 
