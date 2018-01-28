@@ -14,9 +14,33 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 25 Jan 2018 09:34:20 +0000</pubDate>
-    <lastBuildDate>Thu, 25 Jan 2018 09:34:20 +0000</lastBuildDate>
+    <pubDate>Sun, 28 Jan 2018 08:20:18 +0000</pubDate>
+    <lastBuildDate>Sun, 28 Jan 2018 08:20:18 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Видео с XPDays 2017
+          </title>
+          <link>http://automation-remarks.com/2018/xpdays-2017/index.html</link>
+          <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/xpdays-2017/index.html</guid>
+          <description>
+                        Видео моего выступления с XPDays 2017
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Новый год еще только начался и сразу хорошая новость - стали доступны записи всех
+докладов XPDays 2017.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я уже &lt;a href=&quot;http://automation-remarks.com/2017/xpdays-2017/index.html&quot;&gt;писал о своих впечатлениях&lt;/a&gt; от посещения этой конференции.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись моего доклада:&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/8hFq1UErNJA&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA Guild Podcast EP-2: Автоматизация мобильных приложений
