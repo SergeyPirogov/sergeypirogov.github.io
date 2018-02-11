@@ -14,9 +14,147 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 6 Feb 2018 08:53:40 +0000</pubDate>
-    <lastBuildDate>Tue, 6 Feb 2018 08:53:40 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Feb 2018 13:55:11 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Feb 2018 13:55:11 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Test Data Supplier - TestNG Dataprovider на стероидах
+          </title>
+          <link>http://automation-remarks.com/2018/test-data-supplier/index.html</link>
+          <pubDate>Sun, 11 Feb 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/test-data-supplier/index.html</guid>
+          <description>
+                        Об одной очень хорошей библиотеке для TestNG
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, друзья! Сегодня хочу поделиться рецептом, который поможет сделать тесты еще лучше.
+На большинстве своих проектов я сейчас использую связку инструментов Java/Kotlin + TestNG&lt;br&gt;
+Allure + Gradle. Ранее я уже писал о некоторых подходах, которые позволяют нам более
+удобно &lt;a href=&quot;http://automation-remarks.com/2017/json-randomizator/index.html&quot;&gt;готовить данные для тестов&lt;/a&gt;,
+&lt;a href=&quot;http://automation-remarks.com/2017/kotlin-db/index.html&quot;&gt;работать с базой данных&lt;/a&gt; и &lt;a href=&quot;http://automation-remarks.com/2017/selenide-allure-2/index.html&quot;&gt;писать меньше аннотаций для Allure&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой заметке хочу рассказать о том, как улучшить Dataprovider. Очень часто в тестах приходится
+оперировать различными наборами данных. В каких-то случаях данные проще захардкодить,
+в каких-то - тащить из внешних источников. В большинстве случаев для оптимизации кода и
+параметризации я использую TestNG Dataprovider.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давайте возьмем для примера простой тест - логин форма с тремя полями и валидацией.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test(dataProvider = &quot;Authentication&quot;)
+public void errorMessageOnLoginWithBadCredentials(String email, String password, String errMsg) {
+    User badUser = new User(email, password);
+
+    at(LoginPage.class)
+            .loginAs(badUser)
+            .errorMessage
+            .shouldHave(exactText(errMsg));
+}
+
+@DataProvider(name = &quot;Authentication&quot;)
+public static Object[][] credentials() {
+    return new Object[][]{
+            {&quot; &quot;, &quot; &quot;, &quot;Username is required&quot;},
+            {&quot;admin@gmail.com&quot;, &quot;UserTest@123&quot;, &quot;Login and / or password do not match&quot;},
+            {&quot;admin@gmail.com&quot;, &quot; &quot;, &quot;Password is required&quot;},
+            {&quot;ololo@ololo.com&quot;, &quot;admin&quot;, &quot;Login and / or password do not match&quot;}
+    };
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очень простой сценарий: в разных случаях пользователю будут показываться разные сообщения об ошибке.
+Здесь я применил Dataprovider, так как для каждой итерации у нас меняются лишь входные данные для теста.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вроде как все отлично и даже работает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Есть ли что-то, что можно улучшить? (люблю этот вопрос на собеседовании =))&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Конечно, стоит посмотреть на уродливый дата провайдер. Вот этот &lt;strong&gt;Object[][]&lt;/strong&gt; - то прям боль.
+Учитывая то, что мы живем в 2018 году, пишем на Java 8, которая поддерживает Stream API и имеет хороший Collection API.
+Двухмерный массив объектов - это несерьезно!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;И даже с помощью няшного Котлина нельзя особо улучшить ситуацию.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@DataProvider
+fun data(): Array&amp;lt;Array&amp;lt;String&amp;gt;&amp;gt; {
+   return arrayOf(
+              arrayOf(&quot; &quot;, &quot; &quot;, &quot;Username is required&quot;),
+              arrayOf(&quot;admin@gmail.com&quot;, &quot;UserTest@123&quot;, &quot;Login and / or password do not match&quot;),
+              arrayOf(&quot;admin@gmail.com&quot;, &quot; &quot;, &quot;Password is required&quot;)
+   )
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Остается смириться и писать такой вот говнокод. Но на самом деле ситуацию можно поправить с помощью библиотеки
+&lt;a href=&quot;https://github.com/sskorol/test-data-supplier&quot;&gt;Test Data Supplier&lt;/a&gt;. Ее автором является один мой друг - Сергей Король.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я о ней знал давно, но как-то попробовав ее еще на начальных этапах, не особо проникся идеей. Пока на днях не
+решил внедрить ее в один из новых проектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подключение выполняется достаточно &lt;a href=&quot;https://github.com/sskorol/test-data-supplier#usage&quot;&gt;просто&lt;/a&gt;. Однако там есть один нюанс:
+для корректной работы требуется подключение DataProviderTransformer лисенер. Так вот подключать
+этот лисенер стоит либо через Gradle, либо через TestNG xml. Подключение через аннотацию &lt;strong&gt;@Listeners&lt;/strong&gt;
+не даст желаемого результата. Учтите этот момент, я уже этот путь прострадал за вас=)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После подлючения вам станут доступны все плюшки этой библиотеки.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Можно легко переписать ваши унылые дейтапровайдеры на новый лад:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@DataSupplier
+fun data(): Array&amp;lt;Array&amp;lt;String&amp;gt;&amp;gt; {
+   return mapOf(
+              User(&quot; &quot;, &quot; &quot;) to &quot;Username is required&quot;),
+              User(&quot;admin@gmail.com&quot;, &quot;UserTest@123&quot;) to &quot;Login and / or password do not match&quot;),
+              User(&quot;admin@gmail.com&quot;, &quot; &quot;) to &quot;Password is required&quot;
+   )
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тест в таком случае трансформируется в такую штуку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test(dataProvider = &quot;data&quot;)
+fun errorMessageOnLoginWithBadCredentials(User user, String errMsg) {
+    at(::LoginPage)
+            .loginAs(user)
+            .errorMessage
+            .shouldHave(exactText(errMsg));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все становится прям огненно круто. Есть, правда, один досадный момент: для полной поддержки нужно
+установить Idea плагин - &lt;strong&gt;test-data-supplier-plugin&lt;/strong&gt;. Сама библиотека поддерживает разные навороты, о которых можно почитать в документации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В общем всем рекомендую как минимум посмотреть на эту библиотеку, как максимум - прикрутить ее к себе в проект и пробовать.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо, что читали. Надеюсь, многим эта заметка поможет вывести тесты на новый уровень.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Видео с XPDays 2017

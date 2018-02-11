@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Автоматизатор, который не умеет программировать. Кто он?</title>
+    <title>Test Data Supplier - TestNG Dataprovider на стероидах</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Автоматизатор, который не умеет программировать. Кто он?">
+    <meta property="og:title" content="Test Data Supplier - TestNG Dataprovider на стероидах">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Заметка, в которой попробуем разобраться в реалиях современности и попробуем дать ответ на вопрос: должен ли тестировщик, у которого на табличке написано "Software Test Automation Engineer" уметь программировать?"/>
+        	<meta property="og:description" content="Об одной очень хорошей библиотеке для TestNG"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,39 +83,138 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                11/10/2015
+                                11/02/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Автоматизатор, который не умеет программировать. Кто он?</h1>
+                        <h1 class="post-title">Test Data Supplier - TestNG Dataprovider на стероидах</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Заметка, в которой попробуем разобраться в реалиях современности и попробуем дать ответ на вопрос: должен ли тестировщик, у которого на табличке написано "Software Test Automation Engineer" уметь программировать?</p>
+<p>Привет, друзья! Сегодня хочу поделиться рецептом, который поможет сделать тесты еще лучше.
+На большинстве своих проектов я сейчас использую связку инструментов Java/Kotlin + TestNG<br>
+Allure + Gradle. Ранее я уже писал о некоторых подходах, которые позволяют нам более
+удобно <a href="http://automation-remarks.com/2017/json-randomizator/index.html">готовить данные для тестов</a>,
+<a href="http://automation-remarks.com/2017/kotlin-db/index.html">работать с базой данных</a> и <a href="http://automation-remarks.com/2017/selenide-allure-2/index.html">писать меньше аннотаций для Allure</a>.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>В этой заметке хочу рассказать о том, как улучшить Dataprovider. Очень часто в тестах приходится
+оперировать различными наборами данных. В каких-то случаях данные проще захардкодить,
+в каких-то - тащить из внешних источников. В большинстве случаев для оптимизации кода и
+параметризации я использую TestNG Dataprovider.</p>
+</div>
+<div class="paragraph">
+<p>Давайте возьмем для примера простой тест - логин форма с тремя полями и валидацией.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="http://www.towave.ru/sites/default/files/imagecache/250x200/_250developer.png" alt=" 250developer">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test(dataProvider = "Authentication")
+public void errorMessageOnLoginWithBadCredentials(String email, String password, String errMsg) {
+    User badUser = new User(email, password);
+
+    at(LoginPage.class)
+            .loginAs(badUser)
+            .errorMessage
+            .shouldHave(exactText(errMsg));
+}
+
+@DataProvider(name = "Authentication")
+public static Object[][] credentials() {
+    return new Object[][]{
+            {" ", " ", "Username is required"},
+            {"admin@gmail.com", "UserTest@123", "Login and / or password do not match"},
+            {"admin@gmail.com", " ", "Password is required"},
+            {"ololo@ololo.com", "admin", "Login and / or password do not match"}
+    };
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Существует достаточно много мнений, кто же такие эти люди - автоматизаторы. Достаточно крепко эта тема перетиралась на Radio QA. Но я, как человек идейный, попытаюсь обрисовать свою точку зрения. Итак, начну с того, что оговорка "все зависит от проекта" - не принимается. Если у тебя на табличке написано Test Automation, но в реальности 80% времени ты занимаешься мануальщиной, гоняешь регрессию и обновляешь тест кейсы, то, увы, друг мой, ты далек от автоматизации. Возьмем два кардинально разных примера: автоматизатор, работающий в команде только с мануальщиками, и автоматизатор, работающий в команде с программистами.</p>
+<p>Очень простой сценарий: в разных случаях пользователю будут показываться разные сообщения об ошибке.
+Здесь я применил Dataprovider, так как для каждой итерации у нас меняются лишь входные данные для теста.</p>
 </div>
 <div class="paragraph">
-<p>Так вот, в первом случае вы будете явно выделяться, так как вы технически подкованнее и команда не будет особо вдаваться в то, что вы там клепаете. Главное, чтобы отчеты о прогоне тестов приходили вовремя и руками проверять нужно было меньше. В общем те, кто работает в такой команде долго, могут почувствовать, что они достигли вершины и будут немного деградировать в техническом плане. Возможно даже, что сменить проект будет не так легко, так как у вас есть опыт, но технически вы уже староваты.</p>
+<p>Вроде как все отлично и даже работает.</p>
 </div>
 <div class="paragraph">
-<p>Во втором случае в команде на вас будут смотреть немного свысока, так как всея господа разработчики и кодопись - это ж типа неотъемлемые вещи. Но я бы сильно по этому поводу не расстраивался, ведь, чтобы вас зауважали, нужно показать, что вы действительно крутой парень. Тем более, если и учиться писать код, то у разработчиков. В такой команде вам нужно будет показать, что вы делаете вещи, без которых команде будет тяжело поддерживать качество продукта на должном уровне. Более того, если вы технически сильно подкованы, вам будет легче работать в команде, так как вы будете находить общий язык и понимать что Spring - это вовсе не то, о чем вы подумали =) В команде разрботчиков у вас больший шанс развиваться технически и следить за техническими новинками.</p>
+<p>Есть ли что-то, что можно улучшить? (люблю этот вопрос на собеседовании =))</p>
 </div>
 <div class="paragraph">
-<p>Итак, что мы имеем на выходе в обоих случаях - автоматизаторы занимаются техническими вещами. И там и там нужно уметь писать код. Умение писать код позволит вам приобрести уверенность в том, что вы можете решать сложные технические задачи. Это зачастую начнет ярко проявляться, когда вам нужно будет предлагать решения для Автоматизации. Выбор инструментов и подходов, что лучше выбрать - Junit или TestNG.</p>
+<p>Конечно, стоит посмотреть на уродливый дата провайдер. Вот этот <strong>Object[][]</strong> - то прям боль.
+Учитывая то, что мы живем в 2018 году, пишем на Java 8, которая поддерживает Stream API и имеет хороший Collection API.
+Двухмерный массив объектов - это несерьезно!</p>
 </div>
 <div class="paragraph">
-<p>В общем, по моему личному мнению, автоматизаторы - это больше программисты с уклоном на тестирование. Эти люди обязаны уметь писать код и быть технически подкованными в технологиях и языках программирования, с которыми они работают.</p>
+<p>И даже с помощью няшного Котлина нельзя особо улучшить ситуацию.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@DataProvider
+fun data(): Array&lt;Array&lt;String&gt;&gt; {
+   return arrayOf(
+              arrayOf(" ", " ", "Username is required"),
+              arrayOf("admin@gmail.com", "UserTest@123", "Login and / or password do not match"),
+              arrayOf("admin@gmail.com", " ", "Password is required")
+   )
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>А что касается автоматизатора, который не умеет программировать, - ну так он вовсе и не автоматизатор. Возможно, где-то в глубине души он и считает себя таким, но чтобы желаемое стало действительным, ему осталось сделать совсем небольшой шаг - научиться хорошо программировать ;)</p>
+<p>Остается смириться и писать такой вот говнокод. Но на самом деле ситуацию можно поправить с помощью библиотеки
+<a href="https://github.com/sskorol/test-data-supplier">Test Data Supplier</a>. Ее автором является один мой друг - Сергей Король.</p>
+</div>
+<div class="paragraph">
+<p>Я о ней знал давно, но как-то попробовав ее еще на начальных этапах, не особо проникся идеей. Пока на днях не
+решил внедрить ее в один из новых проектов.</p>
+</div>
+<div class="paragraph">
+<p>Подключение выполняется достаточно <a href="https://github.com/sskorol/test-data-supplier#usage">просто</a>. Однако там есть один нюанс:
+для корректной работы требуется подключение DataProviderTransformer лисенер. Так вот подключать
+этот лисенер стоит либо через Gradle, либо через TestNG xml. Подключение через аннотацию <strong>@Listeners</strong>
+не даст желаемого результата. Учтите этот момент, я уже этот путь прострадал за вас=)</p>
+</div>
+<div class="paragraph">
+<p>После подлючения вам станут доступны все плюшки этой библиотеки.</p>
+</div>
+<div class="paragraph">
+<p>Можно легко переписать ваши унылые дейтапровайдеры на новый лад:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@DataSupplier
+fun data(): Array&lt;Array&lt;String&gt;&gt; {
+   return mapOf(
+              User(" ", " ") to "Username is required"),
+              User("admin@gmail.com", "UserTest@123") to "Login and / or password do not match"),
+              User("admin@gmail.com", " ") to "Password is required"
+   )
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Тест в таком случае трансформируется в такую штуку:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test(dataProvider = "data")
+fun errorMessageOnLoginWithBadCredentials(User user, String errMsg) {
+    at(::LoginPage)
+            .loginAs(user)
+            .errorMessage
+            .shouldHave(exactText(errMsg));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все становится прям огненно круто. Есть, правда, один досадный момент: для полной поддержки нужно
+установить Idea плагин - <strong>test-data-supplier-plugin</strong>. Сама библиотека поддерживает разные навороты, о которых можно почитать в документации.</p>
+</div>
+<div class="paragraph">
+<p>В общем всем рекомендую как минимум посмотреть на эту библиотеку, как максимум - прикрутить ее к себе в проект и пробовать.</p>
+</div>
+<div class="paragraph">
+<p>Спасибо, что читали. Надеюсь, многим эта заметка поможет вывести тесты на новый уровень.</p>
 </div>
                     </section>
 
@@ -138,9 +237,11 @@
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a style="background: cornflowerblue;"
                                        href="/tags/Java.html">Java</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Kotlin.html">Kotlin</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/TestNG.html">TestNG</a>
                             </div>
                     </footer>
 
@@ -149,7 +250,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/test-data-supplier/index.html">Test Data Supplier - TestNG Dataprovider на стероидах</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/xpdays-2017/index.html">Видео с XPDays 2017</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep2/index.html">QA Guild Podcast EP-2: Автоматизация мобильных приложений</a></li>
                                                 <li><a class='js-ajax-link' href="/2017/delex-conferece/index.html">DelEx - первая конференция про DevOps в Минске</a></li>
@@ -210,8 +310,8 @@
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
