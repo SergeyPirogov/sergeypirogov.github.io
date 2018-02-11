@@ -3,7 +3,7 @@
           <a class="main_link" href="/">
             <span class="name">Главная</span>
           </a>
-          <a class="video_link" href="/qaguild" style="
+          <a class="video_link" href="/podcast" style="
               width: 5em;
           ">
                       <span class="name">Подкаст</span>
