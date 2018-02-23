@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Selenium Webdriver Manager</title>
+    <title>QA Guild Podcast - первый русскоязычнй подкаст об автоматизации</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Selenium Webdriver Manager">
+    <meta property="og:title" content="QA Guild Podcast - первый русскоязычнй подкаст об автоматизации">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Небольшая заметка об одной полезной библиотеке"/>
+        	<meta property="og:description" content="QA Guild Podcast официалочка"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,70 +83,46 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                18/10/2016
+                                23/02/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Selenium Webdriver Manager</h1>
+                        <h1 class="post-title">QA Guild Podcast - первый русскоязычнй подкаст об автоматизации</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хочу поделиться небольшой утилитой, которую я нарыл на просторах <strong>Github</strong>.</p>
+<p>Привет! Решил поделиться с вами новостью о запуске первого русскоязычного подкаста об автоматизации - <a href="http://automation-remarks.com/podcast">QAGuild podcast</a>.</p>
 </div>
 <div class="paragraph">
-<p>Называется она <a href="https://github.com/bonigarcia/webdrivermanager">WebDriverManager</a>.</p>
+<p>Идея создания такого формата зрела давно, но не хватало смелости взять и сделать. Так уж сложилось, что в сообществе
+автоматизаторов и тестировщиков, которые работают в Украине, России, Беларуси и других странах, нету источника получения
+новых знаний. Да, мы читаем одни и те же статьи и блоги, учимся на них, но большинство из них - англоязычные. И да, мы обсуждаем новости сферы на отраслевых конференциях.
+Но не все любят и имеют возможность ходить на конференции. Проблема также в том, что многие боятся выступать перед аудиторией. Это может быть вызвано страхом публичных выступлений либо недостаточным уровнем подготовки материала. Поэтому я вижу подкаст идеальной площадкой для обмена опытом.</p>
 </div>
 <div class="paragraph">
-<p>С помощью этой библиотеки вы можете решить достаточно банальную проблему управления драйверами для <strong>Chrome</strong>, <strong>Firefox</strong> или <strong>InternetExplorer</strong>.</p>
+<p>О чем это будет? Об автоматизации тестирования, трендах, TestOps, DevOps и о вот этом всем. Пилотные выпуски я публиковал
+здесь - <a href="http://automation-remarks.com/2017/qa-guild-ep1/index.html">раз</a> и <a href="http://automation-remarks.com/2018/qa-guild-ep2/index.html">два</a>.
+Сейчас у подкаста появился свой <a href="http://automation-remarks.com/podcast">официальный сайт</a>, на котором уже доступен
+третий выпуск, посвященный DevOps.</p>
 </div>
 <div class="paragraph">
-<p>Я думаю, многим автоматизаторам знакома "проблема":</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">org.openqa.selenium.WebDriverException:
-The path to the driver executable must be set by the webdriver.chrome.driver system property;
-for more information, see http://code.google.com/p/selenium/wiki/ChromeDriver.
-The latest version can be downloaded from http://code.google.com/p/chromedriver/downloads/list</code></pre>
-</div>
+<p>Для более удобного прослушивания мы добавили официальные каналы в <a href="https://soundcloud.com/qaguild">soundcloud</a> и <a href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2">itunes</a>.
+Впереди у нас запланировано много интересного и полезного.</p>
 </div>
 <div class="paragraph">
-<p>Да, все это не ново и решается достаточно просто:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");</code></pre>
-</div>
+<p>Вы можете задаться вопросом, чем этот подкаст отличается от других?</p>
 </div>
 <div class="paragraph">
-<p>При таком подходе обычно нужно скачивать и хранить этот самый <strong>chromedriver</strong> в папке <strong>resources</strong>, а что еще более неприятно, - если мы запускаем тесты на разных платформах, то нужно творить разные фабрики и писать кучу дополнительного кода.</p>
+<p>Здесь вы можете влиять на выпуски и темы. Присоединяйтесь к нашему свободному <a href="https://qaguild-slack.herokuapp.com/">Slack сообществу</a> и предлагайте темы.
+Особо стеснительные - пишите мне в личку :)</p>
 </div>
 <div class="paragraph">
-<p>Библиотека же решает это все следующим образом:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class ChromeTest {
-
-    protected WebDriver driver;
-
-    @BeforeClass
-    public static void setupClass() {
-        ChromeDriverManager.getInstance().setup();
-    }
-
-    @Test
-    public void test() {
-        // Using Selenide
-        open('http://automation-remarks.com');
-        $$('.post').shouldHave(size(10));
-    }
-}</code></pre>
-</div>
+<p>Надеюсь, подкаст принесет многим такую же пользу, как и этот блог. До встречи в эфире ;)</p>
 </div>
 <div class="paragraph">
-<p>В целом, эта находка меня очень порадовала и я уже ее прикрутил к своему проекту - рекомендую!!</p>
+<p><strong>P/S</strong> Делать подкаст в разы сложнее, чем писать в блог. Если вам нравится то, что я делаю,
+и вы хотели бы как-то поддержать эту инициативу, вы можете задонатить и <a href="https://www.patreon.com/automation_remarks">стать патроном</a>.</p>
 </div>
                     </section>
 
@@ -169,9 +145,9 @@ The latest version can be downloaded from http://code.google.com/p/chromedriver/
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                       href="/tags/Podcast.html">Podcast</a>
                             </div>
                     </footer>
 
@@ -180,7 +156,6 @@ The latest version can be downloaded from http://code.google.com/p/chromedriver/
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/qa-guild/index.html">QA Guild Podcast - первый русскоязычнй подкаст об автоматизации</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/test-data-supplier/index.html">Test Data Supplier - TestNG Dataprovider на стероидах</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/xpdays-2017/index.html">Видео с XPDays 2017</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep2/index.html">QA Guild Podcast EP-2: Автоматизация мобильных приложений</a></li>
@@ -241,8 +216,8 @@ The latest version can be downloaded from http://code.google.com/p/chromedriver/
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
