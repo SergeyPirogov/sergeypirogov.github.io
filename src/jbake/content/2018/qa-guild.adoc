@@ -6,7 +6,7 @@ Sergey Pirogov
 :jbake-summary: QA Guild Podcast официалочка
 :jbake-status: published
 
-Привет! Решил поделиться с вами новостью о запуске первого русскоязычного подкаста об автоматизации - http://automation-remarks.com/podcast/[QAGuild podcast].
+Привет! Решил поделиться с вами новостью о запуске первого русскоязычного подкаста об автоматизации - http://automation-remarks.com/podcast/index.html[QAGuild podcast].
 
 Идея создания такого формата зрела давно, но не хватало смелости взять и сделать. Так уж сложилось, что в сообществе
 автоматизаторов и тестировщиков, которые работают в Украине, России, Беларуси и других странах, нету источника получения
@@ -15,7 +15,7 @@ Sergey Pirogov
 
 О чем это будет? Об автоматизации тестирования, трендах, TestOps, DevOps и о вот этом всем. Пилотные выпуски я публиковал
 здесь - http://automation-remarks.com/2017/qa-guild-ep1/index.html[раз] и http://automation-remarks.com/2018/qa-guild-ep2/index.html[два].
-Сейчас у подкаста появился свой http://automation-remarks.com/podcast/[официальный сайт], на котором уже доступен
+Сейчас у подкаста появился свой http://automation-remarks.com/podcast/index.html[официальный сайт], на котором уже доступен
 третий выпуск, посвященный DevOps.
 
 Для более удобного прослушивания мы добавили официальные каналы в https://soundcloud.com/qaguild[soundcloud] и https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2[itunes].
