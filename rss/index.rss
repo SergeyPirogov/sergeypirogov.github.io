@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 24 Feb 2018 09:52:48 +0000</pubDate>
-    <lastBuildDate>Sat, 24 Feb 2018 09:52:48 +0000</lastBuildDate>
+    <pubDate>Sat, 24 Feb 2018 09:56:33 +0000</pubDate>
+    <lastBuildDate>Sat, 24 Feb 2018 09:56:33 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -29,7 +29,7 @@
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Привет! Решил поделиться с вами новостью о запуске первого русскоязычного подкаста об автоматизации - &lt;a href=&quot;http://automation-remarks.com/podcast/&quot;&gt;QAGuild podcast&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Привет! Решил поделиться с вами новостью о запуске первого русскоязычного подкаста об автоматизации - &lt;a href=&quot;http://automation-remarks.com/podcast/index.html&quot;&gt;QAGuild podcast&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Идея создания такого формата зрела давно, но не хватало смелости взять и сделать. Так уж сложилось, что в сообществе
@@ -40,7 +40,7 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;О чем это будет? Об автоматизации тестирования, трендах, TestOps, DevOps и о вот этом всем. Пилотные выпуски я публиковал
 здесь - &lt;a href=&quot;http://automation-remarks.com/2017/qa-guild-ep1/index.html&quot;&gt;раз&lt;/a&gt; и &lt;a href=&quot;http://automation-remarks.com/2018/qa-guild-ep2/index.html&quot;&gt;два&lt;/a&gt;.
-Сейчас у подкаста появился свой &lt;a href=&quot;http://automation-remarks.com/podcast/&quot;&gt;официальный сайт&lt;/a&gt;, на котором уже доступен
+Сейчас у подкаста появился свой &lt;a href=&quot;http://automation-remarks.com/podcast/index.html&quot;&gt;официальный сайт&lt;/a&gt;, на котором уже доступен
 третий выпуск, посвященный DevOps.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
