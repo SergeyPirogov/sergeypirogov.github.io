@@ -1,0 +1,17 @@
+= Видео: Test Automation Puzzlers
+Sergey Pirogov
+2018-02-25
+:jbake-type: post
+:jbake-tags: Конференции, Видео
+:jbake-summary: Видео выступления с QAFest 2017
+
+Недавно организаторы QAFest выложили в общий доступ записи
+всех выступлений с конференции 2017 года.
+
+Ранее я уже выкладывал http://automation-remarks.com/2017/kotlin-without-marketing/index.html[запись выступления] о Котлине.
+
+Теперь вы можете насладиться Automation пазлерами:
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zIzGRbEBqig" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+++++
