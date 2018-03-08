@@ -29,7 +29,7 @@
                                               text-align: center;
                                               margin-bottom: 25px;
                                           ">
-                        <a class="course_link" href="/course" style="
+                        <a class="course_link" href="https://www.patreon.com/automation_remarks" style="
                                                     color: red;
                                                     text-decoration: underline;
                                                     font-size: larger;
@@ -37,7 +37,7 @@
                                                     padding: 15px;
                                                     border-radius: 10px;
                                                 ">
-                                                Нужна помощь? Закажи частную консультацию
+                                                Нравится читать заметки? Поддержите блог
                                                 </a>
                     </div>
 
