@@ -14,9 +14,79 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 26 Feb 2018 19:24:35 +0000</pubDate>
-    <lastBuildDate>Mon, 26 Feb 2018 19:24:35 +0000</lastBuildDate>
+    <pubDate>Thu, 8 Mar 2018 08:58:53 +0000</pubDate>
+    <lastBuildDate>Thu, 8 Mar 2018 08:58:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              SeleniumCamp 2018: ретроспектива
+          </title>
+          <link>http://automation-remarks.com/2018/selenium-2018-retro/index.html</link>
+          <pubDate>Thu, 8 Mar 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/selenium-2018-retro/index.html</guid>
+          <description>
+                        Отзыв о конференции SeleniumCamp 2018
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, дружище! На прошлых выходных посетил конференцию SeleniumCamp 2018. Дальше опишу свои впечатления.
+Уже третий год я прихожу на конференцию в качестве докладчика и второй раз входил в состав программного комитета.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/images/se2018.jpg&quot; alt=&quot;se2018&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом году количество участников возросло до 650 человек. Несмотря на большее количество посетителей, уровень подготовки и организации
+не пострадал. Единственный момент, вызывающий удивление, - отсутствие спонсоров. Самая большая и качественная конференция
+по автоматизации тестирования, а спонсоров нет. Этот аспект повлиял на то, что участники вместо общения с рекрутерами на стендах компаний чаще ходили выпить чайку-кофейку и поесть. Поэтому пирожков хватало не всем.
+Но это все второстепенно. Конференция - это ж не про еду, а про нетворкинг. Во время перерывов я в основном общался с участниками и другими спикерами.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;О программе и докладах&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Имхо программа была составлена достаточно насыщенно и каждый мог найти для себя что-то полезное. Я выступал с двумя докладами:
+о построении инфраструктуры для тестов и с пазлерами. Оба доклада удались на достаточно хорошем уровне. Пока что официальных фидбеков нет,
+поэтому могу судить, опираясь на собственные ощущения. Что меня удивило - я почему-то нервничал. Но это, скорее, не потому, что
+я не знаю, что говорить и как - это страх не оправдать ожидания публики. Особенно переживательно было за пазлеры, которые
+мы с моим другом Ярославом Пернеровским тренировали буквально за 30 минут до выхода на сцену. Если вы верите в то, что можно
+сделать отличный доклад без прогона, вы ошибаетесь. Хотя нет, можно, но нужно быть очень крутым паблик спикером.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажу честно, я успел посетить не много докладов и большинство смотрел уже в записи. Из тех, которые мне понравились, могу отметить следующие:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Nikita Makarov&lt;/strong&gt; - Pandora&amp;#8217;s white box: полезный доклад с набором советов и подходов к тестированию. Этот доклад я видел
+в записи после Heisenbug 2017. Из него я узнал об инструменте &lt;a href=&quot;https://github.com/TNG/ArchUnit&quot;&gt;ArchUnit&lt;/a&gt;, который
+помогает следить за качеством архитектуры ваших тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Alex Khursevich&lt;/strong&gt; - Dockerization of real mobile device farm and scalable QA automation ecosystem: хороший доклад, в
+котором рассказано об опыте построения мобильной фермы, аппиуме на докерах и вот этом всем. Очень полезно
+для таких профанов в мобильной автоматизации как я.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Andrei Solntsev&lt;/strong&gt; - Flaky tests are a pain: история борьбы Андрея с нестабильными тестами. Несмотря на то, что я видел
+этот доклад в записи с Heisenbug, решил послушать еще раз в живую. Очень познавательно и полезно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Oleksandr Khotemskyi&lt;/strong&gt; - Scaling execution of ProtractorJS on AWS Lambda with Selenoid: доклад
+о возможностях применения AWS Lambda для прогона тестов. Говорят, что serverless станет очередным хайпом, поэтому
+полезно посмотреть, что оно и какими возможностями обладает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В завершение первого дня мы выпили немного виски и записали отличный выпуск подкаста &lt;a href=&quot;http://automation-remarks.com/podcast/blog/qa-guild-ep4.html&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/podcast/blog/qa-guild-ep4.html&lt;/a&gt;.
+Собственно, в нем вы можете услышать впечатления других спикеров и узнать некоторые недокументированные подробности
+из жизни тестерского комьюнити.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В связи с тем, что в моей семье ожидается пополнение, я до осени ухожу в тень. Постараюсь писать заметки и
+делать новые выпуски подкаста на регулярной основе. А в живую сможем увидеться уже осенью на конференции QAFest. До встречи!&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Видео: Test Automation Puzzlers
