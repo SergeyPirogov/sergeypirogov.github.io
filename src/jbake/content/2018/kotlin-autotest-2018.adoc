@@ -14,6 +14,7 @@ Sergey Pirogov
 Давай сначала поясню мотивацию писать на Котлине. Джава подутомила. Реально, когда ты пишешь тесты, то некоторые
 конструкции хотелось бы опустить. Для примера покажу типичный *PageObject* в моих проектах:
 
+[source, java]
 ----
 @PageUrl("/")
 class LoginPage {
@@ -34,6 +35,7 @@ class LoginPage {
 Простой класс с полями и методами. Можно холиварить, хорошо так писать или плохо, но я так пишу везде. Для целостности картины
 покажу тест:
 
+[source, java]
 ----
 class LoginTest {
 
@@ -63,6 +65,7 @@ Lombok]. С ним, вроде как, все хорошо, кроме плаг�
 
 Знак *$* является зарезервированным в Котлине, поэтому пришлось написать две обертки:
 
+[source, java]
 ----
 fun s(locator: String): SelenideElement {
     return Selenide.`$`(locator)
@@ -75,6 +78,7 @@ fun ss(locator: String): ElementsCollection {
 
 Теперь, значит, можно переписать наш *PageObject* на Котлине:
 
+[source, java]
 ----
 class LoginPage : Page() {
 
@@ -96,6 +100,7 @@ class LoginPage : Page() {
 
 Тест будет выглядеть так:
 
+[source, java]
 ----
 class LoginTest {
 
@@ -121,6 +126,7 @@ class LoginTest {
 
 Пишем метод расширения и реализацию ассертов:
 
+[source, java]
 ----
 val SelenideElement.should:ExpextElement get() {
     return ExpextElement(this)
@@ -151,6 +157,7 @@ class ExpextElement(private val actual: SelenideElement){
 
 Теперь проверки в Selenide можно писать как старым методом:
 
+[source, java]
 ----
 loginPage.siteLogo.shouldBe(visible)
 loginPage.errorMessage.shouldHave(text("Bad credentials"))
@@ -158,6 +165,7 @@ loginPage.errorMessage.shouldHave(text("Bad credentials"))
 
 ...так и более Котлин ориентированным:
 
+[source, java]
 ----
 loginPage.siteLogo.should.be.visible
 loginPage.errorMessage.should.have.text("Bad credentials")
@@ -180,6 +188,7 @@ loginPage.errorMessage.should.have.text("Bad credentials")
 
 Короче говоря, пришлось писать свой велосипед. За основу я взял *Apache DBUtils*.
 
+[source, java]
 ----
 fun QueryRunner.query(sql: String): List<Map<String, Any?>> {
 
@@ -214,6 +223,7 @@ inline fun <reified T> QueryRunner.findAll(sql: String): MutableList<T> {
 
 Создадим еще классы таблиц как пример:
 
+[source, java]
 ----
 data class Suppliers(var id: String? = null,
                      var company: String? = null,
@@ -222,6 +232,7 @@ data class Suppliers(var id: String? = null,
 
 Теперь можно работать с базой:
 
+[source, java]
 ----
 fun selectAllSuppliers(): MutableList<Suppliers> {
         val sql = """
@@ -235,6 +246,7 @@ fun selectAllSuppliers(): MutableList<Suppliers> {
 
 Добавив библиотеку https://github.com/winterbe/expekt[Expekt], тесты можно писать так:
 
+[source, java]
 ----
 class TestDB {
 
