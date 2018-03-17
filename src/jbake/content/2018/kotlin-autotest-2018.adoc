@@ -1,4 +1,4 @@
-= Kotlin для автотестов. Мой опыт
+= Kotlin для автотестов. Реальность без украшений
 Sergey Pirogov
 2018-03-17
 :jbake-type: post
