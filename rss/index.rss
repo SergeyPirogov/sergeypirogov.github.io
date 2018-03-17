@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 17 Mar 2018 18:29:21 +0000</pubDate>
-    <lastBuildDate>Sat, 17 Mar 2018 18:29:21 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Mar 2018 18:36:12 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Mar 2018 18:36:12 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -42,7 +42,7 @@
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;@PageUrl(&quot;/&quot;)
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@PageUrl(&quot;/&quot;)
 class LoginPage {
 
   SelenideElement userNameInput = $(&quot;#userName&quot;);
@@ -55,7 +55,7 @@ class LoginPage {
    passwordInput.setValue(user.getPassword());
    signInBtn.click();
   }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -64,7 +64,7 @@ class LoginPage {
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;class LoginTest {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class LoginTest {
 
   @Test
   public void testCanNotLoginWithWrongCredentials(){
@@ -75,7 +75,7 @@ class LoginPage {
      loginPage.loginAs(user);
      loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;));
   }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -99,13 +99,13 @@ Lombok&lt;/a&gt;. С ним, вроде как, все хорошо, кроме 
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;fun s(locator: String): SelenideElement {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;fun s(locator: String): SelenideElement {
     return Selenide.`$`(locator)
 }
 
 fun ss(locator: String): ElementsCollection {
     return Selenide.`$$`(locator)
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -113,7 +113,7 @@ fun ss(locator: String): ElementsCollection {
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;class LoginPage : Page() {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class LoginPage : Page() {
 
     override val url: String = &quot;/&quot;
 
@@ -128,7 +128,7 @@ fun ss(locator: String): ElementsCollection {
         sighInBtn.click()
         return MainPage()
     }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -136,7 +136,7 @@ fun ss(locator: String): ElementsCollection {
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;class LoginTest {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class LoginTest {
 
   @Test
   fun testCanNotLoginWithWrongCredentials() {
@@ -147,7 +147,7 @@ fun ss(locator: String): ElementsCollection {
      loginPage.loginAs(user)
      loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))
   }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -166,7 +166,7 @@ fun ss(locator: String): ElementsCollection {
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;val SelenideElement.should:ExpextElement get() {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;val SelenideElement.should:ExpextElement get() {
     return ExpextElement(this)
 }
 
@@ -190,7 +190,7 @@ class ExpextElement(private val actual: SelenideElement){
             actual.shouldBe(Condition.visible)
         }
     }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -198,8 +198,8 @@ class ExpextElement(private val actual: SelenideElement){
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;loginPage.siteLogo.shouldBe(visible)
-loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))&lt;/pre&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;loginPage.siteLogo.shouldBe(visible)
+loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -207,8 +207,8 @@ loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;loginPage.siteLogo.should.be.visible
-loginPage.errorMessage.should.have.text(&quot;Bad credentials&quot;)&lt;/pre&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;loginPage.siteLogo.should.be.visible
+loginPage.errorMessage.should.have.text(&quot;Bad credentials&quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -243,7 +243,7 @@ loginPage.errorMessage.should.have.text(&quot;Bad credentials&quot;)&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;fun QueryRunner.query(sql: String): List&amp;lt;Map&amp;lt;String, Any?&amp;gt;&amp;gt; {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;fun QueryRunner.query(sql: String): List&amp;lt;Map&amp;lt;String, Any?&amp;gt;&amp;gt; {
 
     val resultSetHandler = ResultSetHandler&amp;lt;List&amp;lt;Map&amp;lt;String, Any?&amp;gt;&amp;gt;&amp;gt; { rs -&amp;gt;
         val meta = rs.metaData
@@ -271,7 +271,7 @@ inline fun &amp;lt;reified T&amp;gt; QueryRunner.findOne(sql: String): T {
 
 inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableList&amp;lt;T&amp;gt; {
     return BeanListHandler(T::class.java).run { query(sql, this) }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -279,9 +279,9 @@ inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableLi
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;data class Suppliers(var id: String? = null,
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;data class Suppliers(var id: String? = null,
                      var company: String? = null,
-                     var currency: String? = null)&lt;/pre&gt;
+                     var currency: String? = null)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -289,14 +289,14 @@ inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableLi
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;fun selectAllSuppliers(): MutableList&amp;lt;Suppliers&amp;gt; {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;fun selectAllSuppliers(): MutableList&amp;lt;Suppliers&amp;gt; {
         val sql = &quot;&quot;&quot;
              SELECT *
              FROM Suppliers;
              &quot;&quot;&quot;
 
         return queryRunner.findAll(sql)
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -304,7 +304,7 @@ inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableLi
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;class TestDB {
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;class TestDB {
 
   val db = Database()
 
@@ -312,7 +312,7 @@ inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableLi
   fun testCanGetAllSuppliers(){
     db.selectAllSuppliers().should.have.size(3)
   }
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;

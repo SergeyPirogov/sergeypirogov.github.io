@@ -105,7 +105,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>@PageUrl("/")
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@PageUrl("/")
 class LoginPage {
 
   SelenideElement userNameInput = $("#userName");
@@ -118,7 +118,7 @@ class LoginPage {
    passwordInput.setValue(user.getPassword());
    signInBtn.click();
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -127,7 +127,7 @@ class LoginPage {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class LoginTest {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class LoginTest {
 
   @Test
   public void testCanNotLoginWithWrongCredentials(){
@@ -138,7 +138,7 @@ class LoginPage {
      loginPage.loginAs(user);
      loginPage.errorMessage.shouldHave(text("Bad credentials"));
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -162,13 +162,13 @@ Lombok</a>. С ним, вроде как, все хорошо, кроме пла
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>fun s(locator: String): SelenideElement {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">fun s(locator: String): SelenideElement {
     return Selenide.`$`(locator)
 }
 
 fun ss(locator: String): ElementsCollection {
     return Selenide.`$$`(locator)
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -176,7 +176,7 @@ fun ss(locator: String): ElementsCollection {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class LoginPage : Page() {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class LoginPage : Page() {
 
     override val url: String = "/"
 
@@ -191,7 +191,7 @@ fun ss(locator: String): ElementsCollection {
         sighInBtn.click()
         return MainPage()
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -199,7 +199,7 @@ fun ss(locator: String): ElementsCollection {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class LoginTest {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class LoginTest {
 
   @Test
   fun testCanNotLoginWithWrongCredentials() {
@@ -210,7 +210,7 @@ fun ss(locator: String): ElementsCollection {
      loginPage.loginAs(user)
      loginPage.errorMessage.shouldHave(text("Bad credentials"))
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -229,7 +229,7 @@ fun ss(locator: String): ElementsCollection {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>val SelenideElement.should:ExpextElement get() {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">val SelenideElement.should:ExpextElement get() {
     return ExpextElement(this)
 }
 
@@ -253,7 +253,7 @@ class ExpextElement(private val actual: SelenideElement){
             actual.shouldBe(Condition.visible)
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -261,8 +261,8 @@ class ExpextElement(private val actual: SelenideElement){
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>loginPage.siteLogo.shouldBe(visible)
-loginPage.errorMessage.shouldHave(text("Bad credentials"))</pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">loginPage.siteLogo.shouldBe(visible)
+loginPage.errorMessage.shouldHave(text("Bad credentials"))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -270,8 +270,8 @@ loginPage.errorMessage.shouldHave(text("Bad credentials"))</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>loginPage.siteLogo.should.be.visible
-loginPage.errorMessage.should.have.text("Bad credentials")</pre>
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">loginPage.siteLogo.should.be.visible
+loginPage.errorMessage.should.have.text("Bad credentials")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -306,7 +306,7 @@ loginPage.errorMessage.should.have.text("Bad credentials")</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>fun QueryRunner.query(sql: String): List&lt;Map&lt;String, Any?&gt;&gt; {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">fun QueryRunner.query(sql: String): List&lt;Map&lt;String, Any?&gt;&gt; {
 
     val resultSetHandler = ResultSetHandler&lt;List&lt;Map&lt;String, Any?&gt;&gt;&gt; { rs -&gt;
         val meta = rs.metaData
@@ -334,7 +334,7 @@ inline fun &lt;reified T&gt; QueryRunner.findOne(sql: String): T {
 
 inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&gt; {
     return BeanListHandler(T::class.java).run { query(sql, this) }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -342,9 +342,9 @@ inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>data class Suppliers(var id: String? = null,
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">data class Suppliers(var id: String? = null,
                      var company: String? = null,
-                     var currency: String? = null)</pre>
+                     var currency: String? = null)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -352,14 +352,14 @@ inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>fun selectAllSuppliers(): MutableList&lt;Suppliers&gt; {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">fun selectAllSuppliers(): MutableList&lt;Suppliers&gt; {
         val sql = """
              SELECT *
              FROM Suppliers;
              """
 
         return queryRunner.findAll(sql)
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -367,7 +367,7 @@ inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>class TestDB {
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class TestDB {
 
   val db = Database()
 
@@ -375,7 +375,7 @@ inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&
   fun testCanGetAllSuppliers(){
     db.selectAllSuppliers().should.have.size(3)
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
