@@ -14,9 +14,331 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 8 Mar 2018 08:58:53 +0000</pubDate>
-    <lastBuildDate>Thu, 8 Mar 2018 08:58:53 +0000</lastBuildDate>
+    <pubDate>Sat, 17 Mar 2018 18:29:21 +0000</pubDate>
+    <lastBuildDate>Sat, 17 Mar 2018 18:29:21 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Kotlin для автотестов: боевой опыт
+          </title>
+          <link>http://automation-remarks.com/2018/kotlin-autotest-2018/index.html</link>
+          <pubDate>Sat, 17 Mar 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/kotlin-autotest-2018/index.html</guid>
+          <description>
+                        Мой опыт написания автотестов на Котлине
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, друг! Меня часто просят рассказать о нашей практике написания тестов на Котлине.
+Наконец-то я нашел время и решил поделиться своим опытом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Начну с того, что еще в сентябре 2017 года я рассказывал &lt;a href=&quot;http://automation-remarks.com/2017/kotlin-without-marketing/index.html&quot;&gt;о Котлине на конференции QAFest&lt;/a&gt;.
+С того времени утекло много воды, кое-что я переосмыслил.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давай сначала поясню мотивацию писать на Котлине. Джава подутомила. Реально, когда ты пишешь тесты, то некоторые
+конструкции хотелось бы опустить. Для примера покажу типичный &lt;strong&gt;PageObject&lt;/strong&gt; в моих проектах:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;@PageUrl(&quot;/&quot;)
+class LoginPage {
+
+  SelenideElement userNameInput = $(&quot;#userName&quot;);
+  SelenideElement passwordInput = $(&quot;#password&quot;);
+  SelenideElement signInBtn = $(&quot;#loginBtn&quot;)
+  public SelenideElement errorMessage = s(&quot;#page__loginByEmail &amp;gt; div:nth-child(3) &amp;gt; div&quot;)
+
+  public logisAs(User user){
+   userNameInput.setValue(user.getName());
+   passwordInput.setValue(user.getPassword());
+   signInBtn.click();
+  }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Простой класс с полями и методами. Можно холиварить, хорошо так писать или плохо, но я так пишу везде. Для целостности картины
+покажу тест:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;class LoginTest {
+
+  @Test
+  public void testCanNotLoginWithWrongCredentials(){
+     User user = TestData.getUser();
+
+     LoginPage loginPage = open(LoginPage.class);
+
+     loginPage.loginAs(user);
+     loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;));
+  }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все достаточто просто и без лишнего. Чтобы упростить написание тестов и убрать некоторые излишества, я &lt;a href=&quot;http://automation-remarks.com/2017/lombok/index.html&quot;&gt;пробовал использовать
+Lombok&lt;/a&gt;. С ним, вроде как, все хорошо, кроме плагина для Idea. В общем, использовать можно, но будь готов к
+сюрпризам.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом Котлин еще был выбран из-за желания попробовать его в реальном проекте. Хайпа вокруг языка достаточно,
+да и опыт проб в домашних проектах показывал, что все будет хорошо.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для проекта я выбрал Kotlin + Selenide + Allure + Gradle. Имхо сейчас все инструменты, окромя Котлина, стандарт для
+Джава проектов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Костыль первый!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Знак &lt;strong&gt;$&lt;/strong&gt; является зарезервированным в Котлине, поэтому пришлось написать две обертки:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;fun s(locator: String): SelenideElement {
+    return Selenide.`$`(locator)
+}
+
+fun ss(locator: String): ElementsCollection {
+    return Selenide.`$$`(locator)
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь, значит, можно переписать наш &lt;strong&gt;PageObject&lt;/strong&gt; на Котлине:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;class LoginPage : Page() {
+
+    override val url: String = &quot;/&quot;
+
+    val userNameInput = s(&quot;#username&quot;)
+    val passwordInput = s(&quot;#password&quot;)
+    val sighInBtn = s(&quot;#loginBtn&quot;)
+    val errorMessage = s(&quot;#page__loginByEmail &amp;gt; div:nth-child(3) &amp;gt; div&quot;)
+
+    fun loginAs(user: User): MainPage {
+        userNameInput.value = user.name
+        passwordInput.value = user.password
+        sighInBtn.click()
+        return MainPage()
+    }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тест будет выглядеть так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;class LoginTest {
+
+  @Test
+  fun testCanNotLoginWithWrongCredentials() {
+     val user = TestData.getUser()
+
+     val loginPage = open(::LoginPage)
+
+     loginPage.loginAs(user)
+     loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))
+  }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ты можешь возразить, что ничего особенно не поменялось и будешь абсолютно прав. Для написания Web тестов
+особого профита нет. Да, код становится писать чуть-чуть проще, используя &lt;strong&gt;val&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что неудобно с переходом на Котлин - нужно много делать &lt;strong&gt;static import&lt;/strong&gt;. Особенно в случаях с &lt;strong&gt;Conditions.text()&lt;/strong&gt;.
+Пока что Idea не позволяет импортить это на лету, как в Джаве.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эту штуку в принципе можно легко поправить, добавив BDD style ассерты для Selenide.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пишем метод расширения и реализацию ассертов:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;val SelenideElement.should:ExpextElement get() {
+    return ExpextElement(this)
+}
+
+class ExpextElement(private val actual: SelenideElement){
+
+    val have: Have = Have()
+    val be: Be = Be()
+
+    inner class Have{
+        fun text(text:String){
+            actual.shouldHave(Condition.text(text))
+        }
+
+        fun exactText(text: String?) {
+            actual.shouldHave(Condition.exactText(text))
+        }
+    }
+
+    inner class Be{
+        val visible:Unit get() {
+            actual.shouldBe(Condition.visible)
+        }
+    }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь проверки в Selenide можно писать как старым методом:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;loginPage.siteLogo.shouldBe(visible)
+loginPage.errorMessage.shouldHave(text(&quot;Bad credentials&quot;))&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8230;&amp;#8203;так и более Котлин ориентированным:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;loginPage.siteLogo.should.be.visible
+loginPage.errorMessage.should.have.text(&quot;Bad credentials&quot;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Мне такой варинт нравится по нескольким причинам:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;не нужно постоянно делать static import;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;работает автокомлит в Idea;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;коллегам, которые слабо знают Selenide, не нужно объяснять разницу между should, shouldBe и shouldHave.
+Я встречал кейсы, где люди пишут &lt;code&gt;element.shouldHave(blank)&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Так, с Web тестами вроде как понятно. Еще покажу пример использования для работы с базой.
+Я уже писал &lt;a href=&quot;http://automation-remarks.com/2017/kotlin-db/index.html&quot;&gt;подобную заметку&lt;/a&gt;, но тогда это были первые шаги,
+теперь же - как ретроспективка.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Значит, нормальной ORM я для Котлина не нашел. Пробовал и &lt;a href=&quot;https://github.com/JetBrains/Exposed&quot;&gt;Exposed&lt;/a&gt;, и
+другие, которые можно найти на Github. Некоторые не поддерживают MS SQL Server, некоторые обладают каким-то
+упоротым API.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Короче говоря, пришлось писать свой велосипед. За основу я взял &lt;strong&gt;Apache DBUtils&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;fun QueryRunner.query(sql: String): List&amp;lt;Map&amp;lt;String, Any?&amp;gt;&amp;gt; {
+
+    val resultSetHandler = ResultSetHandler&amp;lt;List&amp;lt;Map&amp;lt;String, Any?&amp;gt;&amp;gt;&amp;gt; { rs -&amp;gt;
+        val meta = rs.metaData
+        val cols = meta.columnCount
+        val result = arrayListOf&amp;lt;Map&amp;lt;String,Any?&amp;gt;&amp;gt;()
+
+        while (rs.next()) {
+            val map = mutableMapOf&amp;lt;String, Any?&amp;gt;()
+            for (i in 0 until cols) {
+                val columnName = meta.getColumnName(i + 1)
+                map[columnName] = rs.getObject(i + 1)
+            }
+            result.add(map)
+        }
+
+        result
+    }
+
+    return query(sql,resultSetHandler)
+}
+
+inline fun &amp;lt;reified T&amp;gt; QueryRunner.findOne(sql: String): T {
+    return BeanHandler(T::class.java).run { query(sql, this) }
+}
+
+inline fun &amp;lt;reified T&amp;gt; QueryRunner.findAll(sql: String): MutableList&amp;lt;T&amp;gt; {
+    return BeanListHandler(T::class.java).run { query(sql, this) }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создадим еще классы таблиц как пример:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;data class Suppliers(var id: String? = null,
+                     var company: String? = null,
+                     var currency: String? = null)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь можно работать с базой:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;fun selectAllSuppliers(): MutableList&amp;lt;Suppliers&amp;gt; {
+        val sql = &quot;&quot;&quot;
+             SELECT *
+             FROM Suppliers;
+             &quot;&quot;&quot;
+
+        return queryRunner.findAll(sql)
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Добавив библиотеку &lt;a href=&quot;https://github.com/winterbe/expekt&quot;&gt;Expekt&lt;/a&gt;, тесты можно писать так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;class TestDB {
+
+  val db = Database()
+
+  @Test
+  fun testCanGetAllSuppliers(){
+    db.selectAllSuppliers().should.have.size(3)
+  }
+}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом аспекте все значительно проще. Мне понадобилось добавить пару Extension методов для класса QueryRunner
+и прикрутить готовую библиотеку для удобных ассертов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вывод: пока что впечатления о самом языке Котлин положительные. Интеграция с суровыми
+Java библиотеками иногда может вызвать панику. Пару раз у нас Котлин не желал компилироваться и падал со странными
+ошибками о том, что Gradle daemon умер. Оказалось, ему просто не хватало Heap памяти. По факту я нашел
+в баг трекере тикет на эту проблему и, вроде бы, починилось оно переходом на самую свежую версию Котлина
+и Грейдла. Сейчас такого не наблюдается. Тьфу-тьфу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как видишь, большого преимущества перехода с Джавы на Котлин не наблюдается. Некоторые
+вещи становится делать удобнее, но не намного. Буду ли я пробовать делать еще проекты на Котлине?
+Пока не могу ответить - все упирается в рынок труда. Найти хороших автоматизаторов, которые могут делать
+работу хорошо на Джаве, - сложно. Тех, кто хотя бы как-то видел Котлин, среди них еще меньше.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В целом я продолжаю следить за этим языком. Было бы полезно узнать опыт других ребят,
+которые пробовали что-то делать на Котлине. Если у тебя такой опыт есть, пиши в комментарии или в личку. Подписывайся на
+&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;телеграмм канал&lt;/a&gt;, чтобы получать самые свежие мысли и соображения на тему автоматизации тестирования.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               SeleniumCamp 2018: ретроспектива

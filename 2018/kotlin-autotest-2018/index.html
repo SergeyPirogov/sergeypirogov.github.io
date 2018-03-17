@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Kotlin для автотестов: боевой опыт</title>
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Kotlin для автотестов: боевой опыт">
+    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+
+        	<meta property="og:description" content="Мой опыт написания автотестов на Котлине"/>
+	
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
+
+    <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-57010828-1', 'auto');
+       ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+    <section id="wrapper">
+        <div id="ajax-container">
+	<script>var disqus="httpspirogovgithubio";</script>
+
+<nav id="nav" class="nav">
+        <div class="nav-panel">
+          <a class="main_link" href="/">
+            <span class="name">Главная</span>
+          </a>
+          <a class="video_link" href="/podcast" style="
+              width: 5em;
+          ">
+                      <span class="name">Подкаст</span>
+                    </a>
+          <a class="author_link" href="/archive.html" style="
+              width: 5em;
+          ">
+                      <span class="name">Архив</span>
+                    </a>
+          <a class="author_link" href="/author/">
+            <span class="name">Об Авторе</span>
+          </a>
+          <a class="course_link" href="/course" style="
+              width: 7em;
+          ">
+                      <span class="name">Обучение</span>
+          </a>
+        </div>
+
+        <div class="nav-menu">
+          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
+          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
+          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
+          <a class="rss" href="https://qaguild-slack.herokuapp.com/"><i class="fa fa-slack"></i></a>
+        </div>
+</nav>
+	
+	<main class="content" role="main">
+		<article class="post">
+			<div class="inner inner-post">
+				<div id="push">
+                    <header class="post-header">
+                        <span class="post-meta">
+                            <span class="post-author">
+                                <a href="/author/index.html">Сергей Пирогов</a>
+                            </span> |
+                            <span class="post-date">
+                                17/03/2018
+                            </span>
+                        </span>
+                        <div class="clear"></div>
+                        <h1 class="post-title">Kotlin для автотестов: боевой опыт</h1>
+                    </header>
+
+                    <section class="post-content">
+                        <div class="paragraph">
+<p>Привет, друг! Меня часто просят рассказать о нашей практике написания тестов на Котлине.
+Наконец-то я нашел время и решил поделиться своим опытом.</p>
+</div>
+<div class="paragraph">
+<p>Начну с того, что еще в сентябре 2017 года я рассказывал <a href="http://automation-remarks.com/2017/kotlin-without-marketing/index.html">о Котлине на конференции QAFest</a>.
+С того времени утекло много воды, кое-что я переосмыслил.</p>
+</div>
+<div class="paragraph">
+<p>Давай сначала поясню мотивацию писать на Котлине. Джава подутомила. Реально, когда ты пишешь тесты, то некоторые
+конструкции хотелось бы опустить. Для примера покажу типичный <strong>PageObject</strong> в моих проектах:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@PageUrl("/")
+class LoginPage {
+
+  SelenideElement userNameInput = $("#userName");
+  SelenideElement passwordInput = $("#password");
+  SelenideElement signInBtn = $("#loginBtn")
+  public SelenideElement errorMessage = s("#page__loginByEmail &gt; div:nth-child(3) &gt; div")
+
+  public logisAs(User user){
+   userNameInput.setValue(user.getName());
+   passwordInput.setValue(user.getPassword());
+   signInBtn.click();
+  }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Простой класс с полями и методами. Можно холиварить, хорошо так писать или плохо, но я так пишу везде. Для целостности картины
+покажу тест:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class LoginTest {
+
+  @Test
+  public void testCanNotLoginWithWrongCredentials(){
+     User user = TestData.getUser();
+
+     LoginPage loginPage = open(LoginPage.class);
+
+     loginPage.loginAs(user);
+     loginPage.errorMessage.shouldHave(text("Bad credentials"));
+  }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все достаточто просто и без лишнего. Чтобы упростить написание тестов и убрать некоторые излишества, я <a href="http://automation-remarks.com/2017/lombok/index.html">пробовал использовать
+Lombok</a>. С ним, вроде как, все хорошо, кроме плагина для Idea. В общем, использовать можно, но будь готов к
+сюрпризам.</p>
+</div>
+<div class="paragraph">
+<p>В целом Котлин еще был выбран из-за желания попробовать его в реальном проекте. Хайпа вокруг языка достаточно,
+да и опыт проб в домашних проектах показывал, что все будет хорошо.</p>
+</div>
+<div class="paragraph">
+<p>Для проекта я выбрал Kotlin + Selenide + Allure + Gradle. Имхо сейчас все инструменты, окромя Котлина, стандарт для
+Джава проектов.</p>
+</div>
+<div class="paragraph">
+<p>Костыль первый!</p>
+</div>
+<div class="paragraph">
+<p>Знак <strong>$</strong> является зарезервированным в Котлине, поэтому пришлось написать две обертки:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>fun s(locator: String): SelenideElement {
+    return Selenide.`$`(locator)
+}
+
+fun ss(locator: String): ElementsCollection {
+    return Selenide.`$$`(locator)
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь, значит, можно переписать наш <strong>PageObject</strong> на Котлине:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class LoginPage : Page() {
+
+    override val url: String = "/"
+
+    val userNameInput = s("#username")
+    val passwordInput = s("#password")
+    val sighInBtn = s("#loginBtn")
+    val errorMessage = s("#page__loginByEmail &gt; div:nth-child(3) &gt; div")
+
+    fun loginAs(user: User): MainPage {
+        userNameInput.value = user.name
+        passwordInput.value = user.password
+        sighInBtn.click()
+        return MainPage()
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Тест будет выглядеть так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class LoginTest {
+
+  @Test
+  fun testCanNotLoginWithWrongCredentials() {
+     val user = TestData.getUser()
+
+     val loginPage = open(::LoginPage)
+
+     loginPage.loginAs(user)
+     loginPage.errorMessage.shouldHave(text("Bad credentials"))
+  }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ты можешь возразить, что ничего особенно не поменялось и будешь абсолютно прав. Для написания Web тестов
+особого профита нет. Да, код становится писать чуть-чуть проще, используя <strong>val</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Что неудобно с переходом на Котлин - нужно много делать <strong>static import</strong>. Особенно в случаях с <strong>Conditions.text()</strong>.
+Пока что Idea не позволяет импортить это на лету, как в Джаве.</p>
+</div>
+<div class="paragraph">
+<p>Эту штуку в принципе можно легко поправить, добавив BDD style ассерты для Selenide.</p>
+</div>
+<div class="paragraph">
+<p>Пишем метод расширения и реализацию ассертов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>val SelenideElement.should:ExpextElement get() {
+    return ExpextElement(this)
+}
+
+class ExpextElement(private val actual: SelenideElement){
+
+    val have: Have = Have()
+    val be: Be = Be()
+
+    inner class Have{
+        fun text(text:String){
+            actual.shouldHave(Condition.text(text))
+        }
+
+        fun exactText(text: String?) {
+            actual.shouldHave(Condition.exactText(text))
+        }
+    }
+
+    inner class Be{
+        val visible:Unit get() {
+            actual.shouldBe(Condition.visible)
+        }
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь проверки в Selenide можно писать как старым методом:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>loginPage.siteLogo.shouldBe(visible)
+loginPage.errorMessage.shouldHave(text("Bad credentials"))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;так и более Котлин ориентированным:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>loginPage.siteLogo.should.be.visible
+loginPage.errorMessage.should.have.text("Bad credentials")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Мне такой варинт нравится по нескольким причинам:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>не нужно постоянно делать static import;</p>
+</li>
+<li>
+<p>работает автокомлит в Idea;</p>
+</li>
+<li>
+<p>коллегам, которые слабо знают Selenide, не нужно объяснять разницу между should, shouldBe и shouldHave.
+Я встречал кейсы, где люди пишут <code>element.shouldHave(blank)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Так, с Web тестами вроде как понятно. Еще покажу пример использования для работы с базой.
+Я уже писал <a href="http://automation-remarks.com/2017/kotlin-db/index.html">подобную заметку</a>, но тогда это были первые шаги,
+теперь же - как ретроспективка.</p>
+</div>
+<div class="paragraph">
+<p>Значит, нормальной ORM я для Котлина не нашел. Пробовал и <a href="https://github.com/JetBrains/Exposed">Exposed</a>, и
+другие, которые можно найти на Github. Некоторые не поддерживают MS SQL Server, некоторые обладают каким-то
+упоротым API.</p>
+</div>
+<div class="paragraph">
+<p>Короче говоря, пришлось писать свой велосипед. За основу я взял <strong>Apache DBUtils</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>fun QueryRunner.query(sql: String): List&lt;Map&lt;String, Any?&gt;&gt; {
+
+    val resultSetHandler = ResultSetHandler&lt;List&lt;Map&lt;String, Any?&gt;&gt;&gt; { rs -&gt;
+        val meta = rs.metaData
+        val cols = meta.columnCount
+        val result = arrayListOf&lt;Map&lt;String,Any?&gt;&gt;()
+
+        while (rs.next()) {
+            val map = mutableMapOf&lt;String, Any?&gt;()
+            for (i in 0 until cols) {
+                val columnName = meta.getColumnName(i + 1)
+                map[columnName] = rs.getObject(i + 1)
+            }
+            result.add(map)
+        }
+
+        result
+    }
+
+    return query(sql,resultSetHandler)
+}
+
+inline fun &lt;reified T&gt; QueryRunner.findOne(sql: String): T {
+    return BeanHandler(T::class.java).run { query(sql, this) }
+}
+
+inline fun &lt;reified T&gt; QueryRunner.findAll(sql: String): MutableList&lt;T&gt; {
+    return BeanListHandler(T::class.java).run { query(sql, this) }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Создадим еще классы таблиц как пример:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>data class Suppliers(var id: String? = null,
+                     var company: String? = null,
+                     var currency: String? = null)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь можно работать с базой:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>fun selectAllSuppliers(): MutableList&lt;Suppliers&gt; {
+        val sql = """
+             SELECT *
+             FROM Suppliers;
+             """
+
+        return queryRunner.findAll(sql)
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Добавив библиотеку <a href="https://github.com/winterbe/expekt">Expekt</a>, тесты можно писать так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>class TestDB {
+
+  val db = Database()
+
+  @Test
+  fun testCanGetAllSuppliers(){
+    db.selectAllSuppliers().should.have.size(3)
+  }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В этом аспекте все значительно проще. Мне понадобилось добавить пару Extension методов для класса QueryRunner
+и прикрутить готовую библиотеку для удобных ассертов.</p>
+</div>
+<div class="paragraph">
+<p>Вывод: пока что впечатления о самом языке Котлин положительные. Интеграция с суровыми
+Java библиотеками иногда может вызвать панику. Пару раз у нас Котлин не желал компилироваться и падал со странными
+ошибками о том, что Gradle daemon умер. Оказалось, ему просто не хватало Heap памяти. По факту я нашел
+в баг трекере тикет на эту проблему и, вроде бы, починилось оно переходом на самую свежую версию Котлина
+и Грейдла. Сейчас такого не наблюдается. Тьфу-тьфу.</p>
+</div>
+<div class="paragraph">
+<p>Как видишь, большого преимущества перехода с Джавы на Котлин не наблюдается. Некоторые
+вещи становится делать удобнее, но не намного. Буду ли я пробовать делать еще проекты на Котлине?
+Пока не могу ответить - все упирается в рынок труда. Найти хороших автоматизаторов, которые могут делать
+работу хорошо на Джаве, - сложно. Тех, кто хотя бы как-то видел Котлин, среди них еще меньше.</p>
+</div>
+<div class="paragraph">
+<p>В целом я продолжаю следить за этим языком. Было бы полезно узнать опыт других ребят,
+которые пробовали что-то делать на Котлине. Если у тебя такой опыт есть, пиши в комментарии или в личку. Подписывайся на
+<a href="https://t.me/automation_remarks">телеграмм канал</a>, чтобы получать самые свежие мысли и соображения на тему автоматизации тестирования.</p>
+</div>
+                    </section>
+
+                    <div class="post_ads" style="
+                                              text-align: center;
+                                              margin-bottom: 25px;
+                                          ">
+                        <a class="course_link" href="https://www.patreon.com/automation_remarks" style="
+                                                    color: red;
+                                                    text-decoration: underline;
+                                                    font-size: larger;
+                                                    background-color:  lightgoldenrodyellow;
+                                                    padding: 15px;
+                                                    border-radius: 10px;
+                                                ">
+                                                Нравится читать заметки? Поддержите блог
+                                                </a>
+                    </div>
+
+                    <footer class="post-footer">
+                            <div class="post-tags">
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Java.html">Java</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Kotlin.html">Kotlin</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/TestNG.html">TestNG</a>
+                            </div>
+                    </footer>
+
+                    <div class="row">
+                          <div class="col-md-6">
+                                <div class='related-posts-holder'>
+                                     <h2>Похожие заметки:</h2>
+                                     <ul class="related-posts">
+                                                <li><a class='js-ajax-link' href="/2018/selenium-2018-retro/index.html">SeleniumCamp 2018: ретроспектива</a></li>
+                                                <li><a class='js-ajax-link' href="/2018/qa-fest-automation-puzzlers/index.html">Видео: Test Automation Puzzlers</a></li>
+                                                <li><a class='js-ajax-link' href="/2018/qa-guild/index.html">QA Guild Podcast - первый русскоязычный подкаст об автоматизации</a></li>
+                                                <li><a class='js-ajax-link' href="/2018/test-data-supplier/index.html">Test Data Supplier - TestNG Dataprovider на стероидах</a></li>
+                                                <li><a class='js-ajax-link' href="/2018/xpdays-2017/index.html">Видео с XPDays 2017</a></li>
+                                                <li><a class='js-ajax-link' href="/2018/qa-guild-ep2/index.html">QA Guild Podcast EP-2: Автоматизация мобильных приложений</a></li>
+                                     </ul>
+                                 </div>
+                          </div>
+                          <div class="col-md-6">
+
+                          </div>
+                    </div>
+				</div>
+
+				 <!-- Begin MailChimp Signup Form -->
+                                   <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                                   <style type="text/css">
+                                   	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                                   	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                                   	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                                   </style>
+                                   <div id="mc_embed_signup">
+                                   <form action="//automation-remarks.us10.list-manage.com/subscribe/post?u=d24f95005c1b66c13389aceb9&amp;id=ce47ec0c3f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                       <div id="mc_embed_signup_scroll">
+                                   	<label for="mce-EMAIL">Подписывайтесь на email рассылку</label>
+                                   	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                                       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                       <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d24f95005c1b66c13389aceb9_ce47ec0c3f" tabindex="-1" value=""></div>
+                                       <div class="clear"><input type="submit" value="Подписаться" name="subscribe" id="mc-embedded-subscribe" class="button" style="background: black;"></div>
+                                       </div>
+                                   </form>
+                                   </div>
+
+                                   <!--End mc_embed_signup-->
+
+				<aside class="post-comments">
+                    <div id="disqus_thread">
+                        <script async="async">(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    </div>
+                </aside>
+			</div>
+		</article>
+	</main>
+
+            <footer id="footer">
+              <section class="credits">
+                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
+              </section>
+            </footer>
+         </div>
+    </section>
+
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
+    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
