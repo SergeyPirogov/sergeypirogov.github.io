@@ -14,9 +14,112 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 29 Mar 2018 11:51:32 +0000</pubDate>
-    <lastBuildDate>Thu, 29 Mar 2018 11:51:32 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Apr 2018 10:44:20 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Apr 2018 10:44:20 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA Guild Podcast: Многообещающий JavaScript
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep7/index.html</link>
+          <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep7/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Доступен очередной выпуск подкаста от свободной QA гильдии.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Какой стек сейчас в тренде? (относительно тестов)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ES 5,6,7 + Flow vs TypeScript&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Компонентное тестирование для Angular or React&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WebdriverJS vs WebdriverIO vs Protractor vs NightwatchJS vs others&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Что такое CodeseptJS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;В чем писать код? VSCode, Webstorm, Notepad+, Atom, VIM?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - нулячий JS SDET&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Рома Маринский - не сумел выучить JS за 3 часа&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Александр Хотемской - @xotabu4 JS ниндзя&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Никита Галкин  - JS архитектор&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Михаил Боднарчук - @davert opensource maker. Автор CodeceptJS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Полезные ссылки&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/hH39797J/javascript-videos-ru-2018&quot;&gt;Собрание видеозаписей докладов про JS за 2018 год&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLZ66c9_z3umNSrKSb5cmpxdXZcIPNvKGw&quot;&gt;Assert(js) Conf 2018&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/javascript-learning-landscape-2018&quot;&gt;The JavaScript Learning Landscape in 2018&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/spreadsheets/d/1A1daNePtWfk-GwD8BQ6LlscHxbp4lowIBpMWz5XQ5Ew/edit#gid=0&quot;&gt;Выбор фреймворка для тестирования фронтэнда 2018&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://node.green/&quot; class=&quot;bare&quot;&gt;https://node.green/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://speakerdeck.com/galkin/testing-in-frontend-world-at-frontend-fwdays-17-conference&quot; class=&quot;bare&quot;&gt;https://speakerdeck.com/galkin/testing-in-frontend-world-at-frontend-fwdays-17-conference&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/419490724&amp;color=%238cb092&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эрик Халимов, Виталий Закорчевный, Максим Денисов,
+Павел Скворцов, Борис Осипов, Дмитрий Панасюк, Евгения Гнатюк,
+Алексей Игнатюк, Илья Силантьев, Геннадий (без фамилии) ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отлельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вступайте в свободную &lt;a href=&quot;https://qaguild-slack.herokuapp.com/&quot;&gt;QA гильдию в Slack&lt;/a&gt; и следите за новостями.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Видео с SeleniumCamp 2018
