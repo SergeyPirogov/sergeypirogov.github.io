@@ -1,0 +1,155 @@
+= Учим Gradle менять потоки в TestNG
+Sergey Pirogov
+2018-04-22
+:jbake-type: post
+:jbake-tags: Java, TestNG
+:jbake-summary: Костыли вокруг Gradle и TestNG
+
+Привет, давно не постил какой-то технической годноты.
+С появлением детей найти время на написание статей становится сложно.
+В этой заметке я расскажу как я решал проблему параметризации TestNG xml и Gradle.
+
+В чем состоит решаемая проблема?
+
+Скажем у меня есть стандартный TestNG xml:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke.tests" thread-count="3" parallel="classes">
+    <listeners>
+        <listener class-name="com.tcoe.testrail.TestListener"/>
+        <listener class-name="com.jira.client.JiraTestListener"/>
+    </listeners>
+    <test name="Smoke tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.demo.tests.*"/>
+        </packages>
+    </test>
+</suite>
+----
+
+Вот в этом xml файле я хочу менять значение переменной `thread-count`, чтобы потом иметь возможность
+запускать тесты в CI с переменным количесвом потоков.
+
+Выглядит как простая задача. В мавене к примеру все работает http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html[прям из коробки].
+
+В Gradle чуваки почему-то не удосужились сделать хорошо, приходится городить костыли, которые я покажу ниже.
+
+Значит если мы берем xml то build.gradle файле нужно написать:
+
+[source, java]
+----
+test {
+    useTestNG() {
+        suites 'src/test/resources/smoke.xml'
+    }
+}
+----
+
+Ок, а как теперь менять переменную в файле?
+
+*Тупое, но рабочее решение:*
+
+Создаем файл темплейт `smoke_template.xml`
+
+В этой файле прописываем такую штуку:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke.tests" thread-count="${thread.count}" parallel="classes">
+    <listeners>
+        <listener class-name="com.tcoe.testrail.TestListener"/>
+        <listener class-name="com.jira.client.JiraTestListener"/>
+    </listeners>
+    <test name="Smoke tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.demo.tests.*"/>
+        </packages>
+    </test>
+</suite>
+----
+
+В нашем `build.gradle` создаем две таски:
+
+[source, java]
+----
+task generateXml << {
+    def threadNum = System.getProperty("threadCount", "2")
+
+    def text = file(Paths.get('src/test/resources', "smoke_template.xml"))
+            .text
+            .replace('${thread.count}', threadNum)
+
+    def file = file(Paths.get('src/test/resources', "smoke_ready.xml"))
+    file.text = text
+
+    print("Use " + file.text)
+}
+
+task smokeTest(type: Test, dependsOn: generateXml) {
+    useTestNG() {
+        suites 'src/test/resources/smoke_ready.xml'
+    }
+}
+----
+
+Здесь мы просто считали файл `smoke_template.xml` реплейснули плейсхолдер и записали в новый файл, который потом используем для запуска тестов.
+
+*Элегантное решение:*
+
+Внутри блока *useTestNG()* можно использовать XmlBuilder():
+
+[source, java]
+----
+task smokeTest(type: Test){
+    useTestNG(){
+        def threadCount = System.getProperty("threadCount", "2")
+
+        suiteXmlBuilder().suite(name: 'smoke.tests', parallel: 'classes', 'thread-count': threadCount) {
+            test (name : 'Smoke tests') {
+                groups {
+                     run{
+                       'include' (name:'smoke')
+                     }
+                }
+
+                packages {
+                    'package' (name: 'com.demo.tests.*')
+                }
+            }
+        }
+    }
+}
+----
+
+В этом подходе мы заменяем используем силу *Gradle build* файла и мощь *Groovy*. Все елементы здесь
+являются кодом, поэтому мы можем легко параметризовать любой параметр.
+
+Собственно все, теперь когда вы будете решать подобную задачу, у вас будет пример решения.
+
+*P/S*: Если вы давно читаете блог и контент вам нравится, вы можете поддержать выход новых заметок,
+став патроном https://www.patreon.com/automation_remarks
+
+
+
+
+
+
+
+
