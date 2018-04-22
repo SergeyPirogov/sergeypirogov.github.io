@@ -14,9 +14,181 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 17 Apr 2018 10:44:20 +0000</pubDate>
-    <lastBuildDate>Tue, 17 Apr 2018 10:44:20 +0000</lastBuildDate>
+    <pubDate>Sun, 22 Apr 2018 13:04:13 +0000</pubDate>
+    <lastBuildDate>Sun, 22 Apr 2018 13:04:13 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Учим Gradle менять потоки в TestNG
+          </title>
+          <link>http://automation-remarks.com/2018/gradle-testng/index.html</link>
+          <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/gradle-testng/index.html</guid>
+          <description>
+                        Костыли вокруг Gradle и TestNG
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, давно не постил какой-то технической годноты.
+С появлением детей найти время на написание статей становится сложно.
+В этой заметке я расскажу как я решал проблему параметризации TestNG xml и Gradle.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В чем состоит решаемая проблема?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Скажем у меня есть стандартный TestNG xml:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &amp;gt;
+&amp;lt;suite name=&quot;smoke.tests&quot; thread-count=&quot;3&quot; parallel=&quot;classes&quot;&amp;gt;
+    &amp;lt;listeners&amp;gt;
+        &amp;lt;listener class-name=&quot;com.tcoe.testrail.TestListener&quot;/&amp;gt;
+        &amp;lt;listener class-name=&quot;com.jira.client.JiraTestListener&quot;/&amp;gt;
+    &amp;lt;/listeners&amp;gt;
+    &amp;lt;test name=&quot;Smoke tests&quot;&amp;gt;
+        &amp;lt;groups&amp;gt;
+            &amp;lt;run&amp;gt;
+                &amp;lt;include name=&quot;smoke&quot;/&amp;gt;
+            &amp;lt;/run&amp;gt;
+        &amp;lt;/groups&amp;gt;
+
+        &amp;lt;packages&amp;gt;
+            &amp;lt;package name=&quot;com.demo.tests.*&quot;/&amp;gt;
+        &amp;lt;/packages&amp;gt;
+    &amp;lt;/test&amp;gt;
+&amp;lt;/suite&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот в этом xml файле я хочу менять значение переменной &lt;code&gt;thread-count&lt;/code&gt;, чтобы потом иметь возможность
+запускать тесты в CI с переменным количесвом потоков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Выглядит как простая задача. В мавене к примеру все работает &lt;a href=&quot;http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html&quot;&gt;прям из коробки&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В Gradle чуваки почему-то не удосужились сделать хорошо, приходится городить костыли, которые я покажу ниже.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Значит если мы берем xml то build.gradle файле нужно написать:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;test {
+    useTestNG() {
+        suites &apos;src/test/resources/smoke.xml&apos;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ок, а как теперь менять переменную в файле?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Тупое, но рабочее решение:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем файл темплейт &lt;code&gt;smoke_template.xml&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этой файле прописываем такую штуку:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &amp;gt;
+&amp;lt;suite name=&quot;smoke.tests&quot; thread-count=&quot;${thread.count}&quot; parallel=&quot;classes&quot;&amp;gt;
+    &amp;lt;listeners&amp;gt;
+        &amp;lt;listener class-name=&quot;com.tcoe.testrail.TestListener&quot;/&amp;gt;
+        &amp;lt;listener class-name=&quot;com.jira.client.JiraTestListener&quot;/&amp;gt;
+    &amp;lt;/listeners&amp;gt;
+    &amp;lt;test name=&quot;Smoke tests&quot;&amp;gt;
+        &amp;lt;groups&amp;gt;
+            &amp;lt;run&amp;gt;
+                &amp;lt;include name=&quot;smoke&quot;/&amp;gt;
+            &amp;lt;/run&amp;gt;
+        &amp;lt;/groups&amp;gt;
+
+        &amp;lt;packages&amp;gt;
+            &amp;lt;package name=&quot;com.demo.tests.*&quot;/&amp;gt;
+        &amp;lt;/packages&amp;gt;
+    &amp;lt;/test&amp;gt;
+&amp;lt;/suite&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В нашем &lt;code&gt;build.gradle&lt;/code&gt; создаем две таски:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;task generateXml &amp;lt;&amp;lt; {
+    def threadNum = System.getProperty(&quot;threadCount&quot;, &quot;2&quot;)
+
+    def text = file(Paths.get(&apos;src/test/resources&apos;, &quot;smoke_template.xml&quot;))
+            .text
+            .replace(&apos;${thread.count}&apos;, threadNum)
+
+    def file = file(Paths.get(&apos;src/test/resources&apos;, &quot;smoke_ready.xml&quot;))
+    file.text = text
+
+    print(&quot;Use &quot; + file.text)
+}
+
+task smokeTest(type: Test, dependsOn: generateXml) {
+    useTestNG() {
+        suites &apos;src/test/resources/smoke_ready.xml&apos;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Здесь мы просто считали файл &lt;code&gt;smoke_template.xml&lt;/code&gt; реплейснули плейсхолдер и записали в новый файл, который потом используем для запуска тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Элегантное решение:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Внутри блока &lt;strong&gt;useTestNG()&lt;/strong&gt; можно использовать XmlBuilder():&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;task smokeTest(type: Test){
+    useTestNG(){
+        def threadCount = System.getProperty(&quot;threadCount&quot;, &quot;2&quot;)
+
+        suiteXmlBuilder().suite(name: &apos;smoke.tests&apos;, parallel: &apos;classes&apos;, &apos;thread-count&apos;: threadCount) {
+            test (name : &apos;Smoke tests&apos;) {
+                groups {
+                     run{
+                       &apos;include&apos; (name:&apos;smoke&apos;)
+                     }
+                }
+
+                packages {
+                    &apos;package&apos; (name: &apos;com.demo.tests.*&apos;)
+                }
+            }
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом подходе мы заменяем используем силу &lt;strong&gt;Gradle build&lt;/strong&gt; файла и мощь &lt;strong&gt;Groovy&lt;/strong&gt;. Все елементы здесь
+являются кодом, поэтому мы можем легко параметризовать любой параметр.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Собственно все, теперь когда вы будете решать подобную задачу, у вас будет пример решения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;P/S&lt;/strong&gt;: Если вы давно читаете блог и контент вам нравится, вы можете поддержать выход новых заметок,
+став патроном &lt;a href=&quot;https://www.patreon.com/automation_remarks&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA Guild Podcast: Многообещающий JavaScript

@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-    <title>Запись воркшопа Automation in Action</title>
+    <title>Учим Gradle менять потоки в TestNG</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Запись воркшопа Automation in Action">
+    <meta property="og:title" content="Учим Gradle менять потоки в TestNG">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Запись воркшопа"/>
+        	<meta property="og:description" content="Костыли вокруг Gradle и TestNG"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -83,22 +83,172 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                18/05/2017
+                                22/04/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Запись воркшопа Automation in Action</h1>
+                        <h1 class="post-title">Учим Gradle менять потоки в TestNG</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
-можно <a href="http://automation-remarks.us10.list-manage.com/subscribe?u=d24f95005c1b66c13389aceb9&amp;id=ce47ec0c3f">подписавшись на email рассылку</a></p>
+<p>Привет, давно не постил какой-то технической годноты.
+С появлением детей найти время на написание статей становится сложно.
+В этой заметке я расскажу как я решал проблему параметризации TestNG xml и Gradle.</p>
 </div>
-<div class="videoblock">
+<div class="paragraph">
+<p>В чем состоит решаемая проблема?</p>
+</div>
+<div class="paragraph">
+<p>Скажем у меня есть стандартный TestNG xml:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<iframe src="https://www.youtube.com/embed/QYA2V4gVGk4?rel=0" frameborder="0" allowfullscreen></iframe>
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" &gt;
+&lt;suite name="smoke.tests" thread-count="3" parallel="classes"&gt;
+    &lt;listeners&gt;
+        &lt;listener class-name="com.tcoe.testrail.TestListener"/&gt;
+        &lt;listener class-name="com.jira.client.JiraTestListener"/&gt;
+    &lt;/listeners&gt;
+    &lt;test name="Smoke tests"&gt;
+        &lt;groups&gt;
+            &lt;run&gt;
+                &lt;include name="smoke"/&gt;
+            &lt;/run&gt;
+        &lt;/groups&gt;
+
+        &lt;packages&gt;
+            &lt;package name="com.demo.tests.*"/&gt;
+        &lt;/packages&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Вот в этом xml файле я хочу менять значение переменной <code>thread-count</code>, чтобы потом иметь возможность
+запускать тесты в CI с переменным количесвом потоков.</p>
+</div>
+<div class="paragraph">
+<p>Выглядит как простая задача. В мавене к примеру все работает <a href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html">прям из коробки</a>.</p>
+</div>
+<div class="paragraph">
+<p>В Gradle чуваки почему-то не удосужились сделать хорошо, приходится городить костыли, которые я покажу ниже.</p>
+</div>
+<div class="paragraph">
+<p>Значит если мы берем xml то build.gradle файле нужно написать:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">test {
+    useTestNG() {
+        suites 'src/test/resources/smoke.xml'
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ок, а как теперь менять переменную в файле?</p>
+</div>
+<div class="paragraph">
+<p><strong>Тупое, но рабочее решение:</strong></p>
+</div>
+<div class="paragraph">
+<p>Создаем файл темплейт <code>smoke_template.xml</code></p>
+</div>
+<div class="paragraph">
+<p>В этой файле прописываем такую штуку:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" &gt;
+&lt;suite name="smoke.tests" thread-count="${thread.count}" parallel="classes"&gt;
+    &lt;listeners&gt;
+        &lt;listener class-name="com.tcoe.testrail.TestListener"/&gt;
+        &lt;listener class-name="com.jira.client.JiraTestListener"/&gt;
+    &lt;/listeners&gt;
+    &lt;test name="Smoke tests"&gt;
+        &lt;groups&gt;
+            &lt;run&gt;
+                &lt;include name="smoke"/&gt;
+            &lt;/run&gt;
+        &lt;/groups&gt;
+
+        &lt;packages&gt;
+            &lt;package name="com.demo.tests.*"/&gt;
+        &lt;/packages&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В нашем <code>build.gradle</code> создаем две таски:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">task generateXml &lt;&lt; {
+    def threadNum = System.getProperty("threadCount", "2")
+
+    def text = file(Paths.get('src/test/resources', "smoke_template.xml"))
+            .text
+            .replace('${thread.count}', threadNum)
+
+    def file = file(Paths.get('src/test/resources', "smoke_ready.xml"))
+    file.text = text
+
+    print("Use " + file.text)
+}
+
+task smokeTest(type: Test, dependsOn: generateXml) {
+    useTestNG() {
+        suites 'src/test/resources/smoke_ready.xml'
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Здесь мы просто считали файл <code>smoke_template.xml</code> реплейснули плейсхолдер и записали в новый файл, который потом используем для запуска тестов.</p>
+</div>
+<div class="paragraph">
+<p><strong>Элегантное решение:</strong></p>
+</div>
+<div class="paragraph">
+<p>Внутри блока <strong>useTestNG()</strong> можно использовать XmlBuilder():</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">task smokeTest(type: Test){
+    useTestNG(){
+        def threadCount = System.getProperty("threadCount", "2")
+
+        suiteXmlBuilder().suite(name: 'smoke.tests', parallel: 'classes', 'thread-count': threadCount) {
+            test (name : 'Smoke tests') {
+                groups {
+                     run{
+                       'include' (name:'smoke')
+                     }
+                }
+
+                packages {
+                    'package' (name: 'com.demo.tests.*')
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>В этом подходе мы заменяем используем силу <strong>Gradle build</strong> файла и мощь <strong>Groovy</strong>. Все елементы здесь
+являются кодом, поэтому мы можем легко параметризовать любой параметр.</p>
+</div>
+<div class="paragraph">
+<p>Собственно все, теперь когда вы будете решать подобную задачу, у вас будет пример решения.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong>: Если вы давно читаете блог и контент вам нравится, вы можете поддержать выход новых заметок,
+став патроном <a href="https://www.patreon.com/automation_remarks" class="bare">https://www.patreon.com/automation_remarks</a></p>
 </div>
                     </section>
 
@@ -123,9 +273,7 @@
                                     <a style="background: cornflowerblue;"
                                        href="/tags/Java.html">Java</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
-                                    <a style="background: cornflowerblue;"
-                                       href="/tags/Видео.html">Видео</a>
+                                       href="/tags/TestNG.html">TestNG</a>
                             </div>
                     </footer>
 
@@ -134,7 +282,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/gradle-testng/index.html">Учим Gradle менять потоки в TestNG</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep7/index.html">QA Guild Podcast: Многообещающий JavaScript</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/se-2018-video/index.html">Видео с SeleniumCamp 2018</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/kotlin-autotest-2018/index.html">Kotlin для автотестов: боевой опыт</a></li>
