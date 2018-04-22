@@ -92,15 +92,15 @@
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Привет, давно не постил какой-то технической годноты.
-С появлением детей найти время на написание статей становится сложно.
-В этой заметке я расскажу как я решал проблему параметризации TestNG xml и Gradle.</p>
+<p>Привет! Lавно не постил какой-то технической годноты.
+С появлением ребенка найти время на написание заметок становится сложно.
+В этой заметке я расскажу, как я решал проблему параметризации TestNG xml и Gradle.</p>
 </div>
 <div class="paragraph">
-<p>В чем состоит решаемая проблема?</p>
+<p>В чем состоит проблема?</p>
 </div>
 <div class="paragraph">
-<p>Скажем у меня есть стандартный TestNG xml:</p>
+<p>Скажем, у меня есть стандартный TestNG xml:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -127,16 +127,16 @@
 </div>
 <div class="paragraph">
 <p>Вот в этом xml файле я хочу менять значение переменной <code>thread-count</code>, чтобы потом иметь возможность
-запускать тесты в CI с переменным количесвом потоков.</p>
+запускать тесты в CI с переменным количеством потоков.</p>
 </div>
 <div class="paragraph">
-<p>Выглядит как простая задача. В мавене к примеру все работает <a href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html">прям из коробки</a>.</p>
+<p>Выглядит как простая задача. В мавене, к примеру, все работает <a href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html">прям из коробки</a>.</p>
 </div>
 <div class="paragraph">
-<p>В Gradle чуваки почему-то не удосужились сделать хорошо, приходится городить костыли, которые я покажу ниже.</p>
+<p>В Gradle чуваки почему-то не удосужились сделать хорошо, потому приходится городить костыли, которые я покажу ниже.</p>
 </div>
 <div class="paragraph">
-<p>Значит если мы берем xml то build.gradle файле нужно написать:</p>
+<p>Значит, если мы берем xml, то в build.gradle файле нужно написать:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -157,7 +157,7 @@
 <p>Создаем файл темплейт <code>smoke_template.xml</code></p>
 </div>
 <div class="paragraph">
-<p>В этой файле прописываем такую штуку:</p>
+<p>В этом файле прописываем такую штуку:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -208,7 +208,7 @@ task smokeTest(type: Test, dependsOn: generateXml) {
 </div>
 </div>
 <div class="paragraph">
-<p>Здесь мы просто считали файл <code>smoke_template.xml</code> реплейснули плейсхолдер и записали в новый файл, который потом используем для запуска тестов.</p>
+<p>Здесь мы просто считали файл <code>smoke_template.xml</code>, реплейснули плейсхолдер и записали в новый файл, который потом используем для запуска тестов.</p>
 </div>
 <div class="paragraph">
 <p><strong>Элегантное решение:</strong></p>
@@ -240,11 +240,11 @@ task smokeTest(type: Test, dependsOn: generateXml) {
 </div>
 </div>
 <div class="paragraph">
-<p>В этом подходе мы заменяем используем силу <strong>Gradle build</strong> файла и мощь <strong>Groovy</strong>. Все елементы здесь
+<p>В этом подходе мы используем силу <strong>Gradle build</strong> файла и мощь <strong>Groovy</strong>. Все елементы здесь
 являются кодом, поэтому мы можем легко параметризовать любой параметр.</p>
 </div>
 <div class="paragraph">
-<p>Собственно все, теперь когда вы будете решать подобную задачу, у вас будет пример решения.</p>
+<p>На этом все, теперь, когда вы будете решать подобную задачу, у вас будет пример решения.</p>
 </div>
 <div class="paragraph">
 <p><strong>P/S</strong>: Если вы давно читаете блог и контент вам нравится, вы можете поддержать выход новых заметок,
