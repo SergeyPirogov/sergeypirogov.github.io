@@ -6,12 +6,12 @@ Sergey Pirogov
 :jbake-summary: Немного про Ansible и Selenoid
 
 Продолжаем наше путешествие по просторам мира автоматизации. В этот раз решил рассказать
-об управлении инфраструктурой. В один момент на проекте мы решили попробовать http://automation-remarks.com/2017/selenoid/index.html[настроить Selenoid].
-Время шло, количество тестов расло и стало понятно, что одного инстанса Selenoid уже не хватает. Первый инстанс я настроил ручками через
+об управлении инфраструктурой. Однажды на проекте мы решили попробовать http://automation-remarks.com/2017/selenoid/index.html[настроить Selenoid].
+Время шло, количество тестов росло и стало понятно, что одного инстанса Selenoid уже не хватает. Первый инстанс я настроил ручками через
 docker compose.
 
-Но с ростом количество машин, стало понятно, что настраивать все таким способом не очень удобно. Поэтому выбор пал на Ansible.
-С его помощью можно очень легко все развернуть. Ниже собственно и будет пример.
+Но с ростом количества машин выяснилось, что настраивать все таким способом не очень удобно. Поэтому выбор пал на Ansible.
+С его помощью можно очень легко все развернуть. Ниже смотрим пример.
 
 Устанавливаем ansible:
 
@@ -27,7 +27,7 @@ pip install ansible
 mkdir selenoid
 ----
 
-Внутри создаем файл hosts в котором надо прописать адреса машин:
+Внутри создаем файл hosts, в котором надо прописать адреса машин:
 
 [source, java]
 ----
@@ -46,7 +46,7 @@ ansible_user=ubuntu
 
 На 3х нодах у нас будет selenoid, а на четвертой ggr.
 
-Для того чтобы развернуть selenoid и ggr можно написать свои плейбуки, но лучше использовать готовые роли https://github.com/SergeyPirogov/gridrouter-docker[gridrouter-docker]
+Для того, чтобы развернуть selenoid и ggr, можно написать свои плейбуки, но лучше использовать готовые роли https://github.com/SergeyPirogov/gridrouter-docker[gridrouter-docker]
 и https://github.com/SergeyPirogov/selenoid-ansible[selenoid-ansible].
 
 Установить роли можно с помощью ansible-galaxy:
@@ -111,7 +111,7 @@ ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov
     - selenoid-ansible
 -----
 
-Этот плейбук развернет ggr и три инстанса selenoid. Для пущей красоты нужно еще поставить telegraf.
+Этот плейбук развернет ggr и три инстанса selenoid. Для большей красоты нужно еще поставить telegraf.
 Создаем *telegraf.conf* файл. Пример можно смотреть https://raw.githubusercontent.com/aerokube/selenoid-grafana-example/master/telegraf.conf[здесь]:
 Теперь создаем *telegraf.yml*:
 
@@ -150,6 +150,6 @@ ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov
           HOST_IP: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 ----
 
-Здесь мы берем указываем какой образ *telegraf* брать, а также, куда складывать. В данном примере указан *influx*.
-Дальше билдаем графану из этого https://github.com/aerokube/selenoid-grafana-example[репозитория].
+Здесь мы указываем, какой образ *telegraf* брать, а также куда складывать. В данном примере указан *influx*.
+Дальше билдаем Grafana из этого https://github.com/aerokube/selenoid-grafana-example[репозитория].
 Вжух и теперь вы можете легко развернуть *selenoid* кластер. Становится достаточно просто увеличить количество инстансов и поменять конфиг.
