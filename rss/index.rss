@@ -14,9 +14,182 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 22 Apr 2018 13:58:06 +0000</pubDate>
-    <lastBuildDate>Sun, 22 Apr 2018 13:58:06 +0000</lastBuildDate>
+    <pubDate>Thu, 26 Apr 2018 08:14:43 +0000</pubDate>
+    <lastBuildDate>Thu, 26 Apr 2018 08:14:43 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Ansible для лучшей автоматизации
+          </title>
+          <link>http://automation-remarks.com/2018/ansible/index.html</link>
+          <pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/ansible/index.html</guid>
+          <description>
+                        Немного про Ansible и Selenoid
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Продолжаем наше путешествие по просторам мира автоматизации. В этот раз решил рассказать
+об управлении инфраструктурой. Однажды на проекте мы решили попробовать &lt;a href=&quot;http://automation-remarks.com/2017/selenoid/index.html&quot;&gt;настроить Selenoid&lt;/a&gt;.
+Время шло, количество тестов росло и стало понятно, что одного инстанса Selenoid уже не хватает. Первый инстанс я настроил ручками через
+docker compose.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Но с ростом количества машин выяснилось, что настраивать все таким способом не очень удобно. Поэтому выбор пал на Ansible.
+С его помощью можно очень легко все развернуть. Ниже смотрим пример.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Устанавливаем ansible:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;pip install ansible&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Создаем папку с проектом:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;mkdir selenoid&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Внутри создаем файл hosts, в котором надо прописать адреса машин:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+
+[ggr]
+172.28.28.17
+
+[selenoid-nodes]
+172.28.27.12
+172.28.27.13
+172.28.27.56&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На 3х нодах у нас будет selenoid, а на четвертой ggr.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для того, чтобы развернуть selenoid и ggr, можно написать свои плейбуки, но лучше использовать готовые роли &lt;a href=&quot;https://github.com/SergeyPirogov/gridrouter-docker&quot;&gt;gridrouter-docker&lt;/a&gt;
+и &lt;a href=&quot;https://github.com/SergeyPirogov/selenoid-ansible&quot;&gt;selenoid-ansible&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Установить роли можно с помощью ansible-galaxy:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov/gridrouter-docker.git&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov/selenoid-ansible.git&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь можно использовать роли. Создаем &lt;strong&gt;cluster.yml&lt;/strong&gt; плейбук:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;---
+- hosts: ggr
+  vars:
+    grid_router_version: 1.5.0
+    grid_router_path: &quot;{{ ansible_env.HOME }}/grid-router&quot;
+    grid_router_qouta_path: &quot;{{ ansible_env.HOME }}/grid-router/quota&quot;
+    grid_router_port: 4445
+
+    grid_router_regions:
+        - name: &quot;cluster&quot;
+          hosts:
+          - name: 172.28.27.12
+            port: 4444
+            browser_count: 4
+          - name: 172.28.27.13
+            port: 4444
+            browser_count: 4
+          - name: 172.28.27.56
+            port: 4444
+            browser_count: 4
+
+    grid_router_browsers:
+        - name: &quot;chrome&quot;
+          defaultVersion: &quot;62.0&quot;
+          versions:
+            - &quot;62.0&quot;
+            - &quot;63.0&quot;
+  roles:
+    - gridrouter-docker
+
+- hosts: selenoid-nodes
+  vars:
+    selenoid_version: 1.5.2
+    selenoid_cm_version: 1.4.0
+    selenoid_docker_api_version: 1.35
+    selenoid_limit: 4
+    selenoid_tmpfs: 128
+    selenoid_config_dir: &quot;{{ ansible_env.HOME }}/selenoid&quot;
+    selenoid_listen_port: 4444
+    selenoid_browsers_last_versions: 3
+    selenoid_browsers:
+      - chrome
+  roles:
+    - selenoid-ansible&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Этот плейбук развернет ggr и три инстанса selenoid. Для большей красоты нужно еще поставить telegraf.
+Создаем &lt;strong&gt;telegraf.conf&lt;/strong&gt; файл. Пример можно смотреть &lt;a href=&quot;https://raw.githubusercontent.com/aerokube/selenoid-grafana-example/master/telegraf.conf&quot;&gt;здесь&lt;/a&gt;:
+Теперь создаем &lt;strong&gt;telegraf.yml&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;---
+- hosts: selenoid-nodes
+  tasks:
+    - name: Copy telegraf config
+      copy:
+        src: telegraf.conf
+        dest: &quot;{{ ansible_env.HOME }}/telegraf&quot;
+
+    - name: Selenoid | Check selenoid container exist
+      shell: &apos;docker ps -aq --filter &quot;name={{ item }}&quot;&apos;
+      with_items:
+        - &apos;telegraf&apos;
+      register: found_containers
+
+    - name: Selenoid | Remove selenoid container if exist
+      shell: &apos;docker stop {{ item.item }} &amp;amp;&amp;amp; docker rm -fv {{ item.item }}&apos;
+      with_items: &apos;{{ found_containers.results }}&apos;
+      when: item.stdout
+
+    - name: Start telegraf
+      docker_container:
+        image: telegraf:latest
+        name: telegraf
+        state: started
+        links:
+          - selenoid
+        volumes:
+          - &quot;{{ ansible_env.HOME }}/telegraf:/etc/telegraf/telegraf.conf:ro&quot;
+        env:
+          INFLUXDB_URI: &quot;http://172.28.28.17:8086&quot;
+          HOST_IP: &quot;{{ hostvars[inventory_hostname][&apos;ansible_default_ipv4&apos;][&apos;address&apos;] }}&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Здесь мы указываем, какой образ &lt;strong&gt;telegraf&lt;/strong&gt; брать, а также куда складывать. В данном примере указан &lt;strong&gt;influx&lt;/strong&gt;.
+Дальше билдаем Grafana из этого &lt;a href=&quot;https://github.com/aerokube/selenoid-grafana-example&quot;&gt;репозитория&lt;/a&gt;.
+Вжух и теперь вы можете легко развернуть &lt;strong&gt;selenoid&lt;/strong&gt; кластер. Становится достаточно просто увеличить количество инстансов и поменять конфиг.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Учим Gradle менять потоки в TestNG
@@ -29,7 +202,7 @@
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Привет! Lавно не постил какой-то технической годноты.
+&lt;p&gt;Привет! Давно не постил какой-то технической годноты.
 С появлением ребенка найти время на написание заметок становится сложно.
 В этой заметке я расскажу, как я решал проблему параметризации TestNG xml и Gradle.&lt;/p&gt;
 &lt;/div&gt;
