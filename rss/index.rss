@@ -14,9 +14,112 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 9 May 2018 11:52:02 +0000</pubDate>
-    <lastBuildDate>Wed, 9 May 2018 11:52:02 +0000</lastBuildDate>
+    <pubDate>Sat, 12 May 2018 10:36:53 +0000</pubDate>
+    <lastBuildDate>Sat, 12 May 2018 10:36:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA Guild Podcast: Святослав Логин о том как войти в секьюрити тестирование и защититься от веб-бандитов
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep10/index.html</link>
+          <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep10/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Записали выпуск про интро в секьюрити тестрование.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Про безопасность в prom.ua&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;С чего начать самоучке&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Интро в тулы для тестирования безопасности&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как понять что вас взламывают&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как писать код, чтобы вас не взломали&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Помогают ли &quot;белые хакеры&quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Про метасплойт&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Сколько можно косить бабла на тестировании безопасности&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - бог звука в подкасте&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Святослав Логин - QA лид в EVO company. Вошел в секьюрити сам&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Полезные ссылки&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://haveibeenpwned.com/&quot;&gt;Проверить были ли вы хакнуты&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://loginsvyat.wixsite.com/loginsvyat&quot;&gt;Блог святослава&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://defcon.ru/tag/owasp/&quot;&gt;Сайт с инфой по инструментам&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=XcLI4cdWOCs&amp;amp;list=PLrTb7qqxTtPFxl8ZcAICTVXkSB34gCnma&quot;&gt;Видосики про этичный хакинг&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Промокод для QAFest - &lt;strong&gt;QAGUILD&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/433437720&amp;color=%23e0e01a&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эрик Халимов, Виталий Закорчевный, Максим Денисов,
+Павел Скворцов, Борис Осипов, Дмитрий Панасюк, Евгения Гнатюк,
+Алексей Игнатюк, Илья Силантьев, Геннадий (без фамилии) ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отлельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вступайте в свободную &lt;a href=&quot;https://qaguild-slack.herokuapp.com/&quot;&gt;QA гильдию в Slack&lt;/a&gt; и следите за новостями.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Ansible для лучшей автоматизации
