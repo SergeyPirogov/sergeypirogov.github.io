@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 19 May 2018 07:58:04 +0000</pubDate>
-    <lastBuildDate>Sat, 19 May 2018 07:58:04 +0000</lastBuildDate>
+    <pubDate>Mon, 28 May 2018 06:26:02 +0000</pubDate>
+    <lastBuildDate>Mon, 28 May 2018 06:26:02 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -101,6 +101,103 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/433437720&amp;color=%23e0e01a&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Эрик Халимов, Виталий Закорчевный, Максим Денисов,
+Павел Скворцов, Борис Осипов, Дмитрий Панасюк, Евгения Гнатюк,
+Алексей Игнатюк, Илья Силантьев, Геннадий (без фамилии) ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отлельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вступайте в свободную &lt;a href=&quot;https://qaguild-slack.herokuapp.com/&quot;&gt;QA гильдию в Slack&lt;/a&gt; и следите за новостями.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QA Guild Podcast: Дария Бондарева о том, как тестировать AR
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep12/index.html</link>
+          <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep12/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очень интересный выпуск о тестировании AR приложений.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Какие реальности бывают и чем они отличаются&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как тестировать AR приложения&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Что такое хололенс, что он позволяет и какие приложения под него можно писать&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Интересные моменты и особенности при тестировании хололенс&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Кружится ли голова после тестов?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Можно ли автоматизировать тестирование AR приложений&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Какие проекты кроме порно, симуляторов и игр в топе&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как AR используют в IKEA&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дария Бондарева - работает в MobiDev. Смотрела в другой мир через линзы хололенс&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Полезные ссылки&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.microsoft.com/en-us/hololens&quot;&gt;Hololens&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://rb.ru/story/vsyo-o-vr-ar/&quot;&gt;Все, что нужно знать про VR/AR-технологии&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.htc-cs.ru/post/dopolnennaya-realnost-kak-ehto-testirovat&quot;&gt;Дополненная реальность: как тестировать?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.qasource.com/virtual-reality-qa-testing-what-to-test-and-why&quot;&gt;Virtual Reality QA Testing: What to Test and Why&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/436461330&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
