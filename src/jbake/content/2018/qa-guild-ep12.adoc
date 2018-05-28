@@ -5,7 +5,7 @@ Sergey Pirogov
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: QA Guild Podcast
 :jbake-status: published
-:jbake-featured: true
+:jbake-featured: false
 
 Очень интересный выпуск о тестировании AR приложений.
 
