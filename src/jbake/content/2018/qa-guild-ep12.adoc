@@ -1,6 +1,6 @@
 = QA Guild Podcast: Дария Бондарева о том, как тестировать AR
 Sergey Pirogov
-2018-05-12
+2018-05-28
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: QA Guild Podcast
