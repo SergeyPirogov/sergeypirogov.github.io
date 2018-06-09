@@ -16,7 +16,7 @@
           <a class="author_link" href="/author/">
             <span class="name">Об Авторе</span>
           </a>
-          <a class="course_link" href="/course" style="
+          <a class="course_link" href="https://spirogov.github.io" style="
               width: 7em;
           ">
                       <span class="name">Обучение</span>
