@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>О TestNG, Excel и DataProvider</title>
+    <title>Консультации для автоматизаторов</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="О TestNG, Excel и DataProvider">
+    <meta property="og:title" content="Консультации для автоматизаторов">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Велкам!Второй пост не задержался.Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед)."/>
+        	<meta property="og:description" content="Про консультации"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,145 +83,78 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                27/11/2014
+                                11/06/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">О TestNG, Excel и DataProvider</h1>
+                        <h1 class="post-title">Консультации для автоматизаторов</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Сегодня пост о том, как справиться с чтением Excel файлов, а именно - написать "умный DataReader".
-Excel файлы удобно использовать для храннения тестовых данных в тестовых фреймворках, что позволяет вынести данные из тестов. Так сказать: <strong>"Долой хардкод!"</strong>.
-Такой подход называют D<strong>ata-Driven Testing</strong>. Это очень удобно, потому что любой человек (даже не технарь) может изменить данные требуемые для теста: вам не нужно лезть в код и что-то там менять. В качестве тестового фреймворка будем использовать <strong>TestNG</strong>, потому что у него есть много преимуществ, среди которых - DataProvider. Для чтения Excel файлов я использую библиотеку - <strong>Apache POI</strong>.
-Задача состоит в том, чтобы написать ридер, который будет находить строку, соответствующую имени тестового метода, извлекать данные и передавать в тест. Итак, начнем по порядку: создаем класс <strong>ExcelReader</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="title">ExcelReader.class</div>
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class ExcelReader {
-
-private XSSFSheet excelWSheet;
-private XSSFWorkbook excelWBook;
-private XSSFCell cell;
-
-// This method is to set the File path and to open the Excel file
-public void setExcelFile(String Path, String SheetName) {
-    try {
-        // Open the Excel file
-        FileInputStream ExcelFile = new FileInputStream(Path);
-        // Access the required test data sheet
-        excelWBook = new XSSFWorkbook(ExcelFile);
-        excelWSheet = excelWBook.getSheet(SheetName);
-    } catch (Exception e) {
-        System.out.println("Exception " + e.getMessage());
-    }
-}
-    // Add all below described methods here
-}</code></pre>
-</div>
+<p>Привет! В этом посте решил рассказать о своем опыте консультирования по автоматизации тестирования.</p>
 </div>
 <div class="paragraph">
-<p>Теперь начинается самое интересное! Нам нужен метод, который будет в столбце искать строку с нужным нам именем.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public List getRowContains(String testCaseName, int colNum){
-     List list = new ArrayList&lt;&lt;&gt;&gt;();
-     int rowCount = getRowUsed();
-     for (int i = 0; i &lt;&lt;= rowCount; i++) {
-        String cellData = getCellData(i, colNum);
-        if (cellData.equalsIgnoreCase(testCaseName)) {
-                    list.add(i);
-            }
-        }
-        return list;
-}
-
-public int getRowUsed(){
-   return excelWSheet.getLastRowNum();
-}</code></pre>
-</div>
+<p>Осознание того, что в  мире автоматизации тестирования нету нормальных ресурсов для обучения
+и устранения проблем, которые сложно решить самому, ко мне пришло после сотрудничества с несколькими IT школами.</p>
 </div>
 <div class="paragraph">
-<p>Метод возвращает лист с номерами строк на случай, если у нас один тест нужно перезапустить несколько раз с разными данными.
-Напишем еще пару вспомогательных методов:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public String getCellData(int rowNum, int colNum) {
-    cell = excelWSheet.getRow(rowNum).getCell(colNum);
-    return Cell.getStringCellValue();
-}
-
-public List[] getRowData(int rowNo) {
-        List[] arr = new List[1];
-        List list = new ArrayList();
-        int startCol = 1;
-        int totalCols = excelWSheet.getRow(rowNo)
-        .getPhysicalNumberOfCells();
-        for (int i = startCol; i &lt; totalCols; i++) {
-           String cellData = getCellData(rowNo, i);
-           list.add(cellData);
-        }
-        arr[0] = list;
-        return arr;
-}</code></pre>
-</div>
+<p>Сейчас на рынке много предложений для тех, кто хочет войти в сферу IT. Но что делать тем, кто уже работает?
+Я сам сталкивался с этой проблемой, когда был джуниором. Ты что-то делаешь на работе, но, бывает, очень сложно понять,
+насколько это правильно. В больших компаниях у джуниоров и специалистов среднего уровня зачастую есть
+ментор, который может подсказать, что и как. Однако существует огромный пласт компаний, в которых ребята пытаются построить автоматизацию самостоятельно.
+Обычно - это самоучки, которые на собственном энтузиазме что-то изучали в интернете или ходили на курсы, а потом начали делать автоматизацию у себя на проекте.
+Сталкиваясь с такими кейсами в процессе консультирования, я заметил, что автоматизация тестирования, "построенная на энтузиазме",
+без присмотра опытных людей, либо не работает вообще, либо работает не так эффективно, как могла бы.</p>
 </div>
 <div class="paragraph">
-<p>Здесь следовало бы обратить внимание на метод getRowData, возвращающий массив листов. Звучит немного странно, но таким способом мы можем считывать данные из строк с различным количеством колонок. Ну и наконец последний метод:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public Object[][] getTableArray(List&lt;Integer&gt; rowsNo) {
-        Object[][] tabArray = new Object[rowsNo.size()][];
-        for (int i = 0; i &lt; rowsNo.size(); i++) {
-            tabArray[i] = getRowData(rowsNo.get(i));
-        }
-        return tabArray;
-}</code></pre>
-</div>
+<p>Именно таким ребятам я и решил помогать решать проблемы,так как имею определенный опыт и могу им поделиться.</p>
 </div>
 <div class="paragraph">
-<p>По требованию <strong>DataProvider</strong> должен возвращать двухмерный массив обджектов, что и делает <em>getTableArray</em>. Теперь мы легко можем создавать в тестовых классах метод и использовать его в качетве источника данных для тестов:</p>
-</div>
-<div class="listingblock">
-<div class="title">TestClass.class</div>
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class TestClass{
-
-   @DataProvider
-   public Object[][] testData(Method method,String sheet){
-        ExcelReader excelReader = new ExcelReader();
-        excelReader.setExcelFile(config.getProperty("TestData.xlsx"), sheet);
-        List rowsNo = excelReader.getRowContains(method.getName(), COL_NUM);
-        return excelReader.getTableArray(rowsNo);
-  }
-
-  @Test(dataProvider = "testData")
-  public void userLogin(List data) {
-        data.get(0);
-        data.get(1);
-        ...
-  }
-}</code></pre>
-</div>
+<p><strong>Менторинг:</strong></p>
 </div>
 <div class="paragraph">
-<p>Вот и вступил в силу наш массив листов: вместо того, чтобы передавать ОГРОМНОЕ количество параметров, мы передаем элегантный список, с которым легко и просто работать. Создаем Excel файл, заполняем данными, запускаем тесты и наслаждаемся, попивая чаек:)</p>
+<p><a href="https://spirogov.github.io/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/2018/06/08/mentor.html">Менторинг</a> - это отличный формат, с помощью которого человек может улучшить свои навыки.
+У вас в компании нету надлежащей экспертизы и вы сталкиваетесь с какой-то проблемой? Путей решения у вас два.
+Первый - неделями гуглить и лопатить книги. Второй - попросить опытного человека помочь.
+Часто на курсах, к примеру, решают проблемы группы. Все учат один инструмент с одинаковым подходом. В моем же случае
+менторинг предусматривает индивидуальный подход и, в первую очередь, направлен на решение проблемы конкретного человека.</p>
+</div>
+<div class="paragraph">
+<p><strong>Персональная консультация:</strong></p>
+</div>
+<div class="paragraph">
+<p>Следующий формат - <a href="https://spirogov.github.io/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/2016/06/08/consulting.html">персональная консультация</a>.
+Это удобно, если человеку нужно решить одну конкретную проблему.
+К примеру, настроить CI или создать каркас проекта для автоматизации. Такая штука отлично подходит для людей,
+которым просто нужно один раз дать толчок, а дальше они сами смогут разобраться. Мой кейс, когда Docker
+только начинал набирать популярность, я не мог понять вообще, что это такое и как оно работает. Я заплатил 100$ и пошел на платный
+мастер-класс, на котором мы подробно разобрали вопрос. Знания, полученные тогда, до сих пор помогают мне в моей работе и окупились уже неоднократно.</p>
+</div>
+<div class="paragraph">
+<p><strong>Мастер-классы:</strong></p>
+</div>
+<div class="paragraph">
+<p>Ну, и наконец я иногда провожу мастер-классы, на которых показываю некоторые практики и подходы, которые
+помогают ребятам на их основной работе. Такой формат требует значительных затрат по времени, поэтому мастер-классы случаются редко.
+Один из примеров - это мастер-класс по настройке <a href="https://www.patreon.com/posts/jenkins-master-18271646">Jenkins CI</a>.</p>
+</div>
+<div class="paragraph">
+<p>Хочу отметить, что проведение консультаций требует нового уровня знаний и опыта, так как проблему нужно
+решать быстро и давать результат. Если на обычной работе вы можете месяцами мудохать 5 тестов, то здесь такая тема не прокатит.
+Как плюс для личностного развития - это возможность видеть подходы, решения и инструменты, с которыми раньше не работал.
+Как пример <a href="http://dredd.org/en/latest/">Dredd</a> или appium.</p>
+</div>
+<div class="paragraph">
+<p>Если вам нужна помощь, смело обращайтесь через форму на <a href="https://spirogov.github.io/">сайте</a>.
+Пишите свои вопросы и я обязательно постараюсь вам помочь.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/TestNG.html">TestNG</a>
-                                    <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a style="background: cornflowerblue;"
-                                       href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                                       href="/tags/Обучение.html">Обучение</a>
                             </div>
                     </footer>
 
@@ -235,7 +168,6 @@ public List[] getRowData(int rowNo) {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/consulting/index.html">Консультации для автоматизаторов</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep12/index.html">QA Guild Podcast: Дария Бондарева о том, как тестировать AR</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep10/index.html">QA Guild Podcast: Святослав Логин о том как войти в секьюрити тестирование и защититься от веб-бандитов</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/ansible/index.html">Ansible для лучшей автоматизации</a></li>
@@ -296,8 +228,8 @@ public List[] getRowData(int rowNo) {
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
