@@ -14,9 +14,104 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 25 Jun 2018 10:31:58 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Jun 2018 10:31:58 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Jul 2018 09:27:04 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Jul 2018 09:27:04 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA Guild Podcast #15: Про тестатоны
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep15/index.html</link>
+          <pubDate>Sun, 1 Jul 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep15/index.html</guid>
+          <description>
+                        QA Guild Podcast
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Душевный разговор про тестатоны.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Что такое тестатон и что там делают?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Когда это вообще появилось в наших широтах?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Кто организовывает тестатоны и зачем это им это нужно?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Какая причина похода на тестатон, как участника?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Можно ли на тестатоне чему-то научиться новому?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как стать судьей?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Что дает проектам которые тестируют?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дает ли что-нибудь победа? Деньги, опыт, строчка в резюме&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Можно ли после победы сразу просить +300&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Хантят ли победителей тестатона прям там?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Почему мало тестатонов по автоматизации?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - вошел в IT через галеру&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - вошел в IT как нормальный человек&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Александр Ищенко - принимал участие в тастатонах в качестве участника и теперь является членом орг. коммитета тестатона для стартапов TestUAStartups.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Анна Чернышова - работает в Альфа-Банке, одна из создателей библиотеки akita и с ней же победила на тестатоне в Вильнюсе&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Евгений Клименко - неоднократно побеждал на тестатонах&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Бурдин - основатель Kyiv Testers Meetup, неоднократно судья на тестатонах&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/465880470%3Fsecret_token%3Ds-iC5op&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алиса Маркова, Алексей Игнатюк, Алексей Асанов, Дмитрий Панасюк, Борис Осипов,
+Павел Скворцов, Эрик Халимов, Геннадий Мирошниченко, Михаил Судья, Виталий Закорчевный, Максим Денисов
+Татьяна Грибок, Арина Аригри&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA Guild Podcast: О том, через какие курсы лучше &quot;Войти в АйТи&quot; (18+)

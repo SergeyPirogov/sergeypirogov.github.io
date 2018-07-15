@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Свое АОP в JDK</title>
+    <title>QA Guild Podcast #15: Про тестатоны</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Свое АОP в JDK">
+    <meta property="og:title" content="QA Guild Podcast #15: Про тестатоны">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Заметка о том, как можно реализовать AOP без Spring и AspectJ."/>
+        	<meta property="og:description" content="QA Guild Podcast"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,205 +83,104 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                29/03/2015
+                                01/07/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Свое АОP в JDK</h1>
+                        <h1 class="post-title">QA Guild Podcast #15: Про тестатоны</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Заметка о том, как можно реализовать <strong>AOP</strong> без <strong>Spring</strong> и <strong>AspectJ</strong>. Для тех, кто не особо в курсе, что такое AOP смотреть суда. Итак, приступим. Создадим нашу мини программу:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public interface Calculator {
-    public int calculate( int a , int b);
-}
-
-public class CalculatorImpl implements Calculator {
-    @Override
-    public int calculate(int a, int b) {
-        System.out.println("**********Actual Method Execution**********");
-        return a/b;
-    }
-}</code></pre>
-</div>
+<p>Душевный разговор про тестатоны.</p>
 </div>
 <div class="paragraph">
-<p>Класс <strong>Calculator</strong> будет имеенно тем классом, который мы будем проксировать. В java есть такой интересный интерфейс <strong>InvocationHandler</strong>, его мы и будем использовать для нашей реализации <strong>AOP</strong>. Создадим абстрактный <strong>Handler</strong>:</p>
+<p><strong>Темы:</strong></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class AbstractHandler implements InvocationHandler {
-
-    private Object targetObject;
-
-    public void setTargetObject(Object targetObject) {
-        this.targetObject = targetObject;
-    }
-
-    public Object getTargetObject() {
-        return targetObject;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Создадим <strong>ProxyFactory</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class ProxyFactory {
-
-public static Object getProxy(Object targetObject,
-        List&lt;AbstractHandler&gt; handlers) {
-    Object proxyObject = null;
-    if (handlers.size() &gt; 0) {
-        proxyObject = targetObject;
-        for (int i = 0; i &lt; handlers.size(); i++) {
-            handlers.get(i).setTargetObject(proxyObject);
-            proxyObject = Proxy.newProxyInstance(targetObject.getClass()
-                    .getClassLoader(), targetObject.getClass()
-                    .getInterfaces(), handlers.get(i));
-        }
-        return proxyObject;
-    } else {
-        return targetObject;
-    }
-}
-}</code></pre>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Что такое тестатон и что там делают?</p>
+</li>
+<li>
+<p>Когда это вообще появилось в наших широтах?</p>
+</li>
+<li>
+<p>Кто организовывает тестатоны и зачем это им это нужно?</p>
+</li>
+<li>
+<p>Какая причина похода на тестатон, как участника?</p>
+</li>
+<li>
+<p>Можно ли на тестатоне чему-то научиться новому?</p>
+</li>
+<li>
+<p>Как стать судьей?</p>
+</li>
+<li>
+<p>Что дает проектам которые тестируют?</p>
+</li>
+<li>
+<p>Дает ли что-нибудь победа? Деньги, опыт, строчка в резюме</p>
+</li>
+<li>
+<p>Можно ли после победы сразу просить +300</p>
+</li>
+<li>
+<p>Хантят ли победителей тестатона прям там?</p>
+</li>
+<li>
+<p>Почему мало тестатонов по автоматизации?</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>В AOP существует несколько срезов: <strong>Before</strong>, <strong>After</strong>, <strong>AfterThrowing</strong>, <strong>AfterReturning</strong> и <strong>Around</strong>.</p>
+<p><strong>Гости:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Сергей Пирогов - вошел в IT через галеру</p>
+</li>
+<li>
+<p>Ярослав Пернеровский - вошел в IT как нормальный человек</p>
+</li>
+<li>
+<p>Александр Ищенко - принимал участие в тастатонах в качестве участника и теперь является членом орг. коммитета тестатона для стартапов TestUAStartups.</p>
+</li>
+<li>
+<p>Анна Чернышова - работает в Альфа-Банке, одна из создателей библиотеки akita и с ней же победила на тестатоне в Вильнюсе</p>
+</li>
+<li>
+<p>Евгений Клименко - неоднократно побеждал на тестатонах</p>
+</li>
+<li>
+<p>Алексей Бурдин - основатель Kyiv Testers Meetup, неоднократно судья на тестатонах</p>
+</li>
+</ul>
+</div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/465880470%3Fsecret_token%3Ds-iC5op&color=%238c8c64&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+<div class="paragraph">
+<p><strong>Спасибо патронам</strong>:</p>
 </div>
 <div class="paragraph">
-<p>Так как реализации каждого среза могут быть разными, для разных случаев, создадим для них абстрактные классы:</p>
+<p>Алиса Маркова, Алексей Игнатюк, Алексей Асанов, Дмитрий Панасюк, Борис Осипов,
+Павел Скворцов, Эрик Халимов, Геннадий Мирошниченко, Михаил Судья, Виталий Закорчевный, Максим Денисов
+Татьяна Грибок, Арина Аригри</p>
 </div>
 <div class="paragraph">
-<p>Пример для <strong>AfterHandler</strong> и <strong>BeforeHandler</strong>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class AfterHandler extends AbstractHandler {
-
-    /**
-     * Handles after the execution of method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleAfter(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-        Object result = method.invoke(getTargetObject(), args);
-        handleAfter(proxy, method, args);
-        return result;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>AbstractBeforeHandler:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public abstract class BeforeHandler extends AbstractHandler {
-
-    /**
-     * Handles before execution of actual method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleBefore(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        handleBefore(proxy, method, args);
-        return method.invoke(getTargetObject(), args);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь нам нужно сделать конкретные реализации для каждого из срезов:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class AfterHandlerImpl extends AfterHandler {
-
-    @Override
-    public void handleAfter(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println(method.getName() + Arrays.toString(args));
-        System.out.println("Handling after actual method execution ........");
-    }
-}
-
-public class BeforeHandlerImpl extends BeforeHandler {
-
-    @Override
-    public void handleBefore(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println("Handling before actual method execution ........");
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь мы можем легко проксировать наш <strong>Calculator</strong> класс:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class TestAopInJDK {
-
-    public static void main(String[] args) {
-        CalculatorImpl calcImpl = new CalculatorImpl();
-        BeforeHandler before = new BeforeHandlerImpl();
-        AfterHandler after = new AfterHandlerImpl();
-        List&lt;AbstractHandler&gt; handlers = new ArrayList&lt;AbstractHandler&gt;();
-        handlers.add(before);
-        handlers.add(after);
-        Calculator proxy = (Calculator) ProxyFactory.getProxy(calcImpl,
-                handlers);
-        int result = proxy.calculate(20, 10);
-        System.out.println("FInal Result :::" + result);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>После запуска вывод в консоль оказывается таким:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Handling before actual method execution ........
-**********Actual Method Execution**********
-calculate[20, 10]
-Handling after actual method execution ........
-Final Result :::2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Как вы можете заметить срабатывает Before, затем идет работа метода и затем срабатывает After.
-<strong>P.S.</strong>
-Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.</p>
+<p>&#8203;<br>
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/Podcast.html">Podcast</a>
                             </div>
                     </footer>
 
@@ -295,7 +194,6 @@ Final Result :::2</code></pre>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/qa-guild-ep15/index.html">QA Guild Podcast #15: Про тестатоны</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep14/index.html">QA Guild Podcast: О том, через какие курсы лучше "Войти в АйТи" (18+)</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/consulting/index.html">Консультации для автоматизаторов</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep12/index.html">QA Guild Podcast: Дария Бондарева о том, как тестировать AR</a></li>
@@ -356,8 +254,8 @@ Final Result :::2</code></pre>
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>
