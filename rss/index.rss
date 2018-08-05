@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 22 Jul 2018 09:49:46 +0000</pubDate>
-    <lastBuildDate>Sun, 22 Jul 2018 09:49:46 +0000</lastBuildDate>
+    <pubDate>Sun, 5 Aug 2018 06:06:25 +0000</pubDate>
+    <lastBuildDate>Sun, 5 Aug 2018 06:06:25 +0000</lastBuildDate>
 
         <item>
           <title>
               Эпизод-17: Александр Венгер о том, как стать самым крутым и другие инсайды с тестатонов
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-ep17/index.html</link>
-          <pubDate>Sun, 22 Jul 2018 09:49:10 +0000</pubDate>
+          <pubDate>Sun, 5 Aug 2018 06:05:52 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-ep17/index.html</guid>
           <description>
                         Запись подкаста c победителем DevChallenge 12
@@ -107,6 +107,35 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Telegram канал - automation-remarks.com
+          </title>
+          <link>http://automation-remarks.com/2018/telegram/index.html</link>
+          <pubDate>Sun, 5 Aug 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/telegram/index.html</guid>
+          <description>
+                        Официальный телеграм канал
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, решил написать статью и пояснить ситуацию с блогом. Здесь уже достаточно давно
+не появляются новые заметки. Их заменили публикации выпусков подкаста.
+Увы но с появлением ребенка времени на создание заметок стало меньше. Подкаст забирает
+основное внимание и силы. Этот блог целых 4 года был источником знаний и полезной информации для многих.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Как альтернатива блогу у меня есть telegram канал &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;, в который перекочевала основная масса сообщений.
+Если вы хотите и дальше продолжать получать полезную информацию, советую подписаться.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Блог закроется?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Нет, блог продолжит жизнь, однако новые заметки будут выходить реже.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
