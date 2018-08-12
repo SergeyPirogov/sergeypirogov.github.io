@@ -1,5 +1,5 @@
 = Эпизод-18: Размышления на тему роста и развития QA специалистов
-2018-07-14
+2018-08-12
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast, Conference
 :jbake-summary: Размышления на тему роста и развития QA специалистов
