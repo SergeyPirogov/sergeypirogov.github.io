@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 12 Aug 2018 10:03:50 +0000</pubDate>
-    <lastBuildDate>Sun, 12 Aug 2018 10:03:50 +0000</lastBuildDate>
+    <pubDate>Wed, 22 Aug 2018 19:39:10 +0000</pubDate>
+    <lastBuildDate>Wed, 22 Aug 2018 19:39:10 +0000</lastBuildDate>
 
         <item>
           <title>
               Эпизод-18: Размышления на тему роста и развития QA специалистов
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-18/index.html</link>
-          <pubDate>Sun, 12 Aug 2018 10:03:18 +0000</pubDate>
+          <pubDate>Wed, 22 Aug 2018 19:37:25 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-18/index.html</guid>
           <description>
                         Размышления на тему роста и развития QA специалистов
@@ -88,7 +88,7 @@
               Эпизод-17: Александр Венгер о том, как стать самым крутым и другие инсайды с тестатонов
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-ep17/index.html</link>
-          <pubDate>Sun, 12 Aug 2018 10:03:18 +0000</pubDate>
+          <pubDate>Wed, 22 Aug 2018 19:37:25 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-ep17/index.html</guid>
           <description>
                         Запись подкаста c победителем DevChallenge 12
@@ -178,11 +178,11 @@
         </item>
         <item>
           <title>
-              Тренинг Automation in Action Java
+              Почему Rest Assured не так уж и хорош
           </title>
-          <link>http://automation-remarks.com/2018/java-training/index.html</link>
-          <pubDate>Mon, 6 Aug 2018 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2018/java-training/index.html</guid>
+          <link>http://automation-remarks.com/2018/rest-assured/index.html</link>
+          <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/rest-assured/index.html</guid>
           <description>
                         FreeMarker template error:
 The following has evaluated to null or missing:
