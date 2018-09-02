@@ -1,0 +1,41 @@
+= Эпизод-19: Новости, беседы, внезапный гость
+2018-09-02
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Conference
+:jbake-summary: Новостной выпуск
+:jbake-status: published
+
+*Темы:*
+
+- https://habr.com/company/skillbox/blog/418889/[Гид по ручному тестированию приложений: преимущества, этапы и методологии]
+- https://habr.com/company/ruvds/blog/418823/[Медленный питон из-за GIL. Надо Брать Cyton или PYPY]
+- https://dou.ua/lenta/articles/devops-culture-1/[Введение в культуру DevOps: выбираем стратегию тестирования]
+- https://www.performance-lab.ru/blog/sereznost[Priority vs Severity]
+- https://cloud.google.com/cloud-build/[Гугл сделал свой тревис СI с докером и шлюпками]
+- https://blogs.msdn.microsoft.com/typescript/2018/07/30/announcing-typescript-3-0/[Вышел TypeScript 3.0]
+- http://selenide.org/2018/07/17/selenide-4.12.3/[Selenide тесты перевели на JUnit 5 и еще улучшили скорость для колекций]
+- https://blog.viktoradam.net/2018/07/26/githooks-auto-install-hooks/[Git Hook для удобного управления хуками]
+- https://github.com/aerokube/selenoid/releases/tag/1.7.0[Selenoid 1.7.0 теперь умеет пихать логи и видео в S3]
+- https://www.jetbrains.com/idea/whatsnew/#v2018-2-gradle[Теперь можно дебажить Gradle билд скрипты в IDea]
+- https://www.youtube.com/playlist?list=PL9Z-JgiTsOYRckLp3pVtEQ7HYHaN-M_Zq[SeleniumConf 2018 INDIA videos]
+
+*Гости:*
+
+- Сергей Пирогов - заводила подкаста
+- Ярослав Пернеровский - бог звука в подкасте
+- Дмитрий Гуменюк - держатель рапорт портала
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/483189744&color=%238c8c64&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+*Спасибо патронам*:
+
+Алиса Маркова, Алексей Игнатюк, Алексей Асанов, Дмитрий Панасюк, Борис Осипов,
+Павел Скворцов, Эрик Халимов, Геннадий Мирошниченко, Михаил Судья, Виталий Закорчевный, Максим Денисов, Татьяна Грибок, Арина Аригри, Олег Ильицкий, Роман Поботин
+
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому
