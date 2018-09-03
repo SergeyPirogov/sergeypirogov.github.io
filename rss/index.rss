@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 2 Sep 2018 05:55:03 +0000</pubDate>
-    <lastBuildDate>Sun, 2 Sep 2018 05:55:03 +0000</lastBuildDate>
+    <pubDate>Mon, 3 Sep 2018 17:43:03 +0000</pubDate>
+    <lastBuildDate>Mon, 3 Sep 2018 17:43:03 +0000</lastBuildDate>
 
         <item>
           <title>
               Эпизод-18: Размышления на тему роста и развития QA специалистов
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-18/index.html</link>
-          <pubDate>Sun, 2 Sep 2018 05:54:30 +0000</pubDate>
+          <pubDate>Mon, 3 Sep 2018 17:42:27 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-18/index.html</guid>
           <description>
                         Размышления на тему роста и развития QA специалистов
@@ -88,7 +88,7 @@
               Эпизод-19: Новости, беседы, внезапный гость
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-19/index.html</link>
-          <pubDate>Sun, 2 Sep 2018 05:54:30 +0000</pubDate>
+          <pubDate>Mon, 3 Sep 2018 17:42:27 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-19/index.html</guid>
           <description>
                         Новостной выпуск
@@ -151,99 +151,6 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/483189744&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
-&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Алиса Маркова, Алексей Игнатюк, Алексей Асанов, Дмитрий Панасюк, Борис Осипов,
-Павел Скворцов, Эрик Халимов, Геннадий Мирошниченко, Михаил Судья, Виталий Закорчевный, Максим Денисов, Татьяна Грибок, Арина Аригри, Олег Ильицкий, Роман Поботин&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Эпизод-17: Александр Венгер о том, как стать самым крутым и другие инсайды с тестатонов
-          </title>
-          <link>http://automation-remarks.com/2018/qa-guild-ep17/index.html</link>
-          <pubDate>Sun, 2 Sep 2018 05:54:30 +0000</pubDate>
-          <guid isPermaLink="false">2018/qa-guild-ep17/index.html</guid>
-          <description>
-                        Запись подкаста c победителем DevChallenge 12
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Поймали чемпиона и заставили его рассказать всю правду.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Как пришел в IT? Где греб?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Немного о проекте &quot;Каратель&quot;?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Как из простого QA Automation перейти в перформанс QA?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Почему Саше не страшна утечка данных из ФБ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Зачем пошел на Dev Challenge?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Опция участие бесплатно и участие за бабло?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Про поездку в долину?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Инсайды есть, что понравилось?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Какая тактика оказалась выигрышной? Больше багов или круче доки?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Можно ли после победы идти опять?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Что дала победа? Научился ли чему-то новому?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Срыв покровов, что не понравилось в DevChallenge?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Дали ли +300 после победы?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Советы тем, кто хочет учавствовать и побеждать&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Ярослав Пернеровский - бог звука в подкасте&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Александр Венгер - абсолютный чемпион DevChallenge 12&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471599028%3Fsecret_token%3Ds-7D9lM&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
 &lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
