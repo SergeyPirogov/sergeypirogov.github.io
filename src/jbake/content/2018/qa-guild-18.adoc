@@ -1,4 +1,5 @@
 = Эпизод-18: Размышления на тему роста и развития QA специалистов
+Sergey Pirogov
 2018-08-12
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast, Conference
