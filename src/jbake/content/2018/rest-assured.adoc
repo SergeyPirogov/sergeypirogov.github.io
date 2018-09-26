@@ -2,6 +2,7 @@
 Sergey Pirogov
 2018-08-22
 :jbake-type: post
+:jbake-summary: Мысли о рест ашурде
 :jbake-tags: Тренинг
 :jbake-status: published
 
