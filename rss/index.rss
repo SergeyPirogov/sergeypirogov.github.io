@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 14 Sep 2018 18:17:09 +0000</pubDate>
-    <lastBuildDate>Fri, 14 Sep 2018 18:17:09 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Sep 2018 09:44:37 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Sep 2018 09:44:37 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -174,6 +174,153 @@
           <link>http://automation-remarks.com/2018/rest-assured/index.html</link>
           <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2018/rest-assured/index.html</guid>
+          <description>
+                        Мысли о рест ашурде
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Давно ничего не писал. Навалилось много дел, да и лето - не самая активная пора для работы. В этот раз
+решил поделиться своими мыслями по поводу Rest Assured и того, почему он не подходит для написания тестов в том
+виде, в котором его подают в официальных туториалах и доках.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Прошло уже почти три года с момента написания одной из самых популярных заметок в этом блоге с
+&lt;a href=&quot;http://automation-remarks.com/rest-clients/index.html&quot;&gt;подборкой рест клиентов&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Я использую Rest assured очень активно и все, что я напишу ниже, основано на моем практическом опыте. У
+вас может быть другое мнение и это отлично, так как блоги и выступления на конференциях
+- это в первую очередь обмен опытом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Официальная документация учит нас, что тесты на Rest Assured писать легко и просто с использованием
+BDD стиля:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;public class SwapiTest {
+
+    @Test
+    public void shouldGetLuke() {
+        get(&quot;http://swapi.co/api/people/1/&quot;)
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body(&quot;name&quot;, equalTo(&quot;Luke Skywalker&quot;));
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все это хорошо до момента, пока ваших тестов становится больше, чем пару штук. С ростом количества тестов начинаются
+проблемы. Большинство испытывает их из-за слабого знания языка программивания и умения внятно разбивать
+проект на компоненты. Правильная архитектура и разделение проекта на слои - это основное, что нужно
+продумывать в вашем проекте по автоматизации.
+Библиотека, на основе которой вы строите свое решение, - второстепенна.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы не правильно построите архитектуру и будете писать тесты в таком стиле, как предлагают официальные
+туториалы, то, несомненно, наткнетесь на проблемы с логированиеи и дублированием кода.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В дополнение ко всему, Rest assured медленный. Так как это обертка, состоящая из Java/Groovy кода, то и работает
+он значительно медленее, чем его конкуренты. Для тестов это может быть и не сильно критично,
+но вот проверку json схемы, которая встроена в Rest Assured, я рекомендую не делать: работать оно будет ооочень медленно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если вы решаетесь на использование рест ашурда в своем проекте, хорошо подумайте, как вы хотите видеть ваши тесты, отчеты и
+сколько времени хотите тратить на поддержку этих тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После того, как Allure добавил поддержку Rest Assured c отчетами по REST API тестам, ситуация значительно улучшилась.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Еще одной проблемой является отсутсвие вменяемых примеров кода и хороших практик работы с Rest Assured. Складывается впечатление,
+что все фигачат как попало и это всех устраивает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Дабы немного пролить свет на решение проблемы, я решил сделать &lt;a href=&quot;http://automation-remarks.com/2018/java-training/index.html&quot;&gt;тренинг&lt;/a&gt; по тому, как же все-таки можно правильно организовать работу
+и построение проекта на основе Rest Assured. Программа основана на практическом опыте. После тренинга слушатели могут
+сразу же применять полученный опыт на своих проектах, не тратя лишнее время на копание в документации Rest Assured и хождение по граблям.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Не упустите свой шанс сделать автоматизацию тестирования REST API на своем проекте действительно правильной.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Эпизод-18: Размышления на тему роста и развития QA специалистов
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-18/index.html</link>
+          <pubDate>Sun, 12 Aug 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-18/index.html</guid>
+          <description>
+                        Размышления на тему роста и развития QA специалистов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Зачем вообще рости?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Кто такой QA это процесс или человек?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Почему вдруг QA - это плохо и надо расти в какие-то AQA, SDET и прочую чепуху?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как развиваться?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ПДП формы и план на пол года. Работает оно вообще?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Платформа MTDV, чем она поможет?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - бог звука в подкасте&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Артем Задорожный - работает в германии, занимается развитием людей&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/475948443&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алиса Маркова, Алексей Игнатюк, Алексей Асанов, Дмитрий Панасюк, Борис Осипов,
+Павел Скворцов, Эрик Халимов, Геннадий Мирошниченко, Михаил Судья, Виталий Закорчевный, Максим Денисов, Татьяна Грибок, Арина Аригри, Олег Ильицкий, Роман Поботин&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Тренинг Automation in Action Java
+          </title>
+          <link>http://automation-remarks.com/2018/java-training/index.html</link>
+          <pubDate>Mon, 6 Aug 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/java-training/index.html</guid>
           <description>
                         FreeMarker template error:
 The following has evaluated to null or missing:
