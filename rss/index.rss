@@ -14,84 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 28 Sep 2018 09:02:41 +0000</pubDate>
-    <lastBuildDate>Fri, 28 Sep 2018 09:02:41 +0000</lastBuildDate>
+    <pubDate>Fri, 28 Sep 2018 09:10:04 +0000</pubDate>
+    <lastBuildDate>Fri, 28 Sep 2018 09:10:04 +0000</lastBuildDate>
 
-        <item>
-          <title>
-              Эпизод-21: Дно автоматизации и cypress.io
-          </title>
-          <link>http://automation-remarks.com/2018/qa-guild-ep21/index.html</link>
-          <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2018/qa-guild-ep21/index.html</guid>
-          <description>
-                        Выпуск о хайповом cypress.io
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Ярослав Пернеровский - бог звука в подкасте&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Павел Круглей - видел cypress еще в зародыше&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Дмитрий Арчи - автоматизировал IE под виндой&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Темы&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Почему вообще люди хотят отказаться от Selenium?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Cypress? Как вы к нему пришли?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Как разбирались?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Какие у него преимущества?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Какие недостатки?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Отчеты и репортинг&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/494488473&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
-&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Алиса Маркова, Олег Ильицкий, Игорь Перетятько, Алексей Асанов, Дмитрий Панасюк, Борис Осипов, Павел Скворцов, Эрик Халимов, Роман Поботин, Марина Колесник,
-Марат Реймерс, Татьяна Грибок, Михаил Судья, Виталий Закорчевный&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
         <item>
           <title>
               Эпизод-22: Новости ушедшего лета
           </title>
           <link>http://automation-remarks.com/2018/qa-guild-ep22/index.html</link>
-          <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+          <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2018/qa-guild-ep22/index.html</guid>
           <description>
                         Новостной выпуск
@@ -173,6 +104,75 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Подписывайтесь на официальный telegram канал &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Эпизод-21: Дно автоматизации и cypress.io
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep21/index.html</link>
+          <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep21/index.html</guid>
+          <description>
+                        Выпуск о хайповом cypress.io
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - бог звука в подкасте&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Павел Круглей - видел cypress еще в зародыше&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дмитрий Арчи - автоматизировал IE под виндой&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Темы&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Почему вообще люди хотят отказаться от Selenium?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cypress? Как вы к нему пришли?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Как разбирались?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Какие у него преимущества?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Какие недостатки?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Отчеты и репортинг&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/494488473&amp;color=%238c8c64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алиса Маркова, Олег Ильицкий, Игорь Перетятько, Алексей Асанов, Дмитрий Панасюк, Борис Осипов, Павел Скворцов, Эрик Халимов, Роман Поботин, Марина Колесник,
+Марат Реймерс, Татьяна Грибок, Михаил Судья, Виталий Закорчевный&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
