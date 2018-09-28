@@ -4,6 +4,7 @@ Sergey Pirogov
 :jbake-type: post
 :jbake-tags: Тренинг
 :jbake-status: published
+:jbake-summary: Тренинг для тестировщиков автоматизаторов
 
 Появилось время на обучение. Решил запустить обучающую программу.
 
