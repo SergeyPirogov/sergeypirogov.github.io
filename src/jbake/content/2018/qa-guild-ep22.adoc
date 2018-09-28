@@ -1,6 +1,6 @@
 = Эпизод-22: Новости ушедшего лета
 Сергей Пирогов
-2018-09-13
+2018-09-21
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast, Новости
 :jbake-summary: Новостной выпуск
