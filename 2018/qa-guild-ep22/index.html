@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Как мы перешли на Selenoid</title>
+    <title>Эпизод-22: Новости ушедшего лета</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как мы перешли на Selenoid">
+    <meta property="og:title" content="Эпизод-22: Новости ушедшего лета">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="История нашего перехода на Selenoid"/>
+        	<meta property="og:description" content="Новостной выпуск"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -83,121 +83,101 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                24/08/2017
+                                13/09/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как мы перешли на Selenoid</h1>
+                        <h1 class="post-title">Эпизод-22: Новости ушедшего лета</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Наконец-то я добрался до написания заметки о <a href="https://github.com/aerokube/selenoid">Selenoid</a>. Расскажу о том, как и зачем мы его внедрили и что это
-нам дало.</p>
+<p><strong>Гости</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Сергей Пирогов - заводила подкаста</p>
+</li>
+<li>
+<p>Ярослав Пернеровский - бог звука в подкасте</p>
+</li>
+<li>
+<p>Артем Никитин - балуется c GO</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Еще со времен, когда я только вошел в IT в целом и в мир автоматизации в частности, я знал о таком инструменте, как Selenium Grid. Достаточно полезная
-штука и, по всей видимости, очень популярная, так как заметка о <a href="http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/index.html">настройке грида</a>
-является одной из самых читаемых.
-Сам грид - штука прикольная, но очень нестабильная. Многие проекты и компании научились танцевать с бубном и настраивать грид так, чтобы он не падал.
-Скажем, ребята из Яндекса наваяли свой <a href="https://www.youtube.com/watch?v=ULcE3993cZg">грид роутер</a>, ребята из Альфа-лаборатории придумали свой
-<a href="https://habrahabr.ru/company/alfa/blog/331434/">кластер</a>. Когда же пришло наше время настроить инфраструктуру для запуска UI тестов, мы решили не
-изобретать велосипед и взять готовое решение - <strong>Selenoid</strong>.</p>
+<p><strong>Темы</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.cypress.io/blog/2018/09/05/Run-End-to-End-Tests-on-CI-Faster/#The-Dashboard">Parallel execution in Cypress</a></p>
+</li>
+<li>
+<p><a href="https://developer.paypal.com/developer/creditCardGenerator">Credit Card Generator for Testing</a></p>
+</li>
+<li>
+<p><a href="https://queue.acm.org/detail.cfm?id=3197520&amp;utm_source=twitter.com&amp;utm_medium=social&amp;utm_campaign=interesnaya-statya-ot-thomas-limoncelli-p">Manual Work is a Bug</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@aandryashin/selenium-back-to-the-moon-6ea73f1657cc">Moon - Selenoid for Kubernetes</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@BillyKorando/whats-new-in-junit-5-3-c276eb8507f1">Junit 5.3.0 Parallel execution</a></p>
+</li>
+<li>
+<p><a href="http://spockframework.org/spock/docs/1.2-RC2/all_in_one.html#_release_notes">Вышел новый спок</a></p>
+</li>
+<li>
+<p><a href="https://go.googlesource.com/proposal/+/master/design/go2draft.md">Спека GO 2</a></p>
+</li>
+<li>
+<p><a href="https://github.com/bonigarcia/webdrivermanager">Java Webdriver manager 3.0.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/checkly/puppeteer-recorder">Puppeteer recorder</a></p>
+</li>
+<li>
+<p><a href="https://dev.to/theoutlander/github-extensions-to-boost-your-productivity-4d02">Полезные плагины для Github</a></p>
+</li>
+<li>
+<p><a href="https://meduza.io/news/2018/09/12/iz-koda-python-uberut-slova-master-i-slave-po-soobrazheniyam-politkorrektnosti">Зашквар в мире Питона</a></p>
+</li>
+<li>
+<p><a href="http://www.satisfice.com/blog/archives/4947">Джеймс Бах о новой пирамиде тестирования</a></p>
+</li>
+<li>
+<p>Что нового будет в RP 4.3</p>
+</li>
+</ul>
+</div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/499206435&color=%23948c6c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+<div class="paragraph">
+<p><strong>Спасибо патронам</strong>:</p>
 </div>
 <div class="paragraph">
-<p>Почему именно Selenoid?</p>
+<p>Алиса Маркова, Олег Ильицкий, Игорь Перетятько, Алексей Асанов, Дмитрий Панасюк, Борис Осипов, Павел Скворцов, Эрик Халимов, Роман Поботин, Марина Колесник,
+Марат Реймерс, Татьяна Грибок, Михаил Судья, Виталий Закорчевный</p>
 </div>
 <div class="paragraph">
-<p>Все просто: его очень легко настроить, там есть докер и хорошая производительность.</p>
+<p>Отдельное спасибо за монтаж звука Ярославу Пернеровскому</p>
 </div>
 <div class="paragraph">
-<p>Я уже давно играюсь с докером. На одном из проектов мы внедрили <a href="http://automation-remarks.com/ganiaitie-tiesty-v-kontieinierie-s-testcontainers/index.html">тест контейнеры</a>,
-на другом просто запускали браузер в докере. На текущем проекте мы изначально планировали запускать тесты в безголовом хроме, но в тот момент эта функциональность
-работала не так хорошо, как бы нам хотелось, да и дебажить тесты в невидимом режиме не так уж и круто.</p>
-</div>
-<div class="paragraph">
-<p>Selenoid же был решением, которое очень хотелось попробовать в реальной работе. Его плюс в том, что настроить его очень просто  при
-помощи <a href="http://aerokube.com/cm/latest/">Configuration Manager</a>.</p>
-</div>
-<div class="paragraph">
-<p>Выполняете пару команд:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>$ curl -L -o cm https://github.com/aerokube/cm/releases/download/1.2.3/cm_linux_amd64
-$ chmod +x ./cm
-$ ./cm selenoid start --vnc
-$ ./cm selenoid-ui start</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>и у вас уже все настроено и работает. У нас это все заняло 10 минут (версия докера не подходила и нам его пришлось обновлять) =)</p>
-</div>
-<div class="paragraph">
-<p>Всего через неделю использования мы забыли о том, что такое локальный запуск браузера. При наличии VNC можно абсолютно спокойно дебажить тесты прямо на удаленной
-машине. Огромным преимуществом, из-за которого я вообще посмотрел в сторону Selenoid, является запуск контейнера по запросу и повторяемость окружения.
-У вас всегда известна версия браузера, в котором будут бежать тесты. Всегда создается новый контейнер под новую сессию. Больше нету неожиданных автообновлений
-хрома или файрфокса. Более того, мы полечили синдром "А у меня локально работает!", так как все запускают тесты только удаленно.</p>
-</div>
-<div class="paragraph">
-<p>Минусы есть?</p>
-</div>
-<div class="paragraph">
-<p>Пока что у нас почему-то проскакивает ошибка <code>Could not create remote session</code>. Случается она редко и лечится банальным перезапуском, но все же неприятно.
-Да и проблема, скорее всего, у нас в коде. Еще в контейнере не работает команда driver.manage.window.maximize(), поэтому приходится ставить размер окна явно.</p>
-</div>
-<div class="paragraph">
-<p>Мы используем Selenide (на Kirk мы пишем пока только один проект) и написали свой <code>SelenoidDriverProvider</code>.
-Специально приведу пример кода, так как многие часто задают один и тот же вопрос: а как настроить? Так как у Selenide с документацией, скажем откровенно,
-"проблемы", можете опираться на пример ниже:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>public class SelenoidWebDriverProvider implements WebDriverProvider {
-  @Override
-  public WebDriver createDriver(DesiredCapabilities capabilities) {
-    DesiredCapabilities browser = new DesiredCapabilities();
-    browser.setBrowserName("chrome");
-    browser.setVersion("59.0");
-    browser.setCapability("enableVNC", true);
-
-    try {
-      RemoteWebDriver driver = new RemoteWebDriver(
-              URI.create("http://172.28.27.17:4444/wd/hub").toURL(),
-              browser
-      );
-      driver.manage().window().setSize(new Dimension(1280, 1024));
-      return driver;
-    } catch (MalformedURLException e) {
-      throw new RuntimeException(e);
-    }
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В коде это можно использовать так:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>Configuration.browser = "com.tests.utils.SelenoidWebDriverProvider"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В целом я очень доволен и мы получаем реальный профит. Что мы еще не пробовали, так это обновляться. В новой версии Selenoid добавили возможность
-сетить имя для контейнера, чтобы можно было по имени легко определить нужную VNC сессию. Вот это мы пока не тестили, так что все еще гадаем, на какой табке кино смотреть =)</p>
-</div>
-<div class="paragraph">
-<p><strong>P/S</strong> Приятная новость: автор Selenoid будет выступать с докладом на конференции <a href="http://qafest.com/">QAFest</a>, поэтому у всех посетителей
-будет возможность не только послушать доклад, но и познакомиться лично. Собственно, это я и собираюсь сделать. Тоже буду там
-выступать, но об этом уже в следующей заметке.</p>
+<p>Подписывайтесь на официальный telegram канал <a href="https://t.me/automation_remarks" class="bare">https://t.me/automation_remarks</a></p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Podcast.html">Podcast</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Новости.html">Новости</a>
                             </div>
                     </footer>
 
@@ -212,7 +192,6 @@ $ ./cm selenoid-ui start</code></pre>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep21/index.html">Эпизод-21: Дно автоматизации и cypress.io</a></li>
-                                                <li><a class='js-ajax-link' href="/2018/qa-guild-ep22/index.html">Эпизод-22: Новости ушедшего лета</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-19/index.html">Эпизод-19: Новости, беседы, внезапный гость</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/rest-assured/index.html">Почему Rest Assured не так уж и хорош</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-18/index.html">Эпизод-18: Размышления на тему роста и развития QA специалистов</a></li>
