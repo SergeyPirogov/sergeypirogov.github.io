@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Гейзенбаг Питер 2017: ретроспектива</title>
+    <title>Тест кейсы как код</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Гейзенбаг Питер 2017: ретроспектива">
+    <meta property="og:title" content="Тест кейсы как код">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Мои впечатления от просмотра данной конференции"/>
+        	<meta property="og:description" content="О своем опыте использования тест кейсов как кода"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -83,117 +83,121 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                10/06/2017
+                                27/10/2018
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Гейзенбаг Питер 2017: ретроспектива</h1>
+                        <h1 class="post-title">Тест кейсы как код</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Делюсь впечатлениями от просмотра конференции <a href="https://heisenbug-piter.ru/">Гейзенбаг 2017 Питер</a>.</p>
+<p>Очень давно не писал заметок, так как блог в основном переехал в <a href="https://t.me/automation_remarks">телеграм</a>.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>Сегодня расскажу о подходе использования Test cases as a code. Я уже очень давно думал о такой штуке,
+но не хватало опыта ее внедрения.</p>
+</div>
+<div class="paragraph">
+<p>Что же такое тест кейсы как код? На старте проекта я задумался о том, как можно сократить время на
+написание тест кейсов. Плюс мне хотелось как-то контролировать создание тест кейсов и их правки.
+На проекте в качестве тест кейс менеджмент-системы используется Test Rail. С ним у меня опыта достаточно
+много, я писал интерграции для создания тест ранов и проставления статусов во время прогона тестов.</p>
+</div>
+<div class="paragraph">
+<p>Однако у Test Rail есть один фатальный недостаток - сложно контролировать создание тест кейсов. Там нет такого
+понятия, как ревью. Мне же хотелось управлять процессом.</p>
+</div>
+<div class="paragraph">
+<p>Решение оказалось достаточно простым. Вместо детальных тест кейсов было принято решение использовать чеклист.
+Пуктами чеклиста и есть наши методы автотестов.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="https://thetime4.net/static/images/events/logo_6w9q74lhp3sh9zk_Bg35NVDERRE.png" alt="logo 6w9q74lhp3sh9zk Bg35NVDERRE">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+void userCanLoginWithValidCredentails(){
+   LoginPage.open()
+        .enterPassword("admin")
+        .enterLogin("admin")
+        .pressLogin();
+
+   at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Я смотрел все выступления онлайн, поэтому комментировать организацию и место проведения не могу.
-Зачастую хорошая организация, вкусное печенье и бесплатный кофе затмевают слабые доклады. А так как я
-там не был и это все меня не отвлекало, говорить буду сугубо о контенте и крутости онлайн трансляции.</p>
+<p>Сюда мы прикручиваем интеграцию с Test Rail, которая <strong>не запуская тестов</strong> вытаскивает нужную информацию и записывает ее в виде пункта чеклиста.</p>
 </div>
 <div class="paragraph">
-<p><strong>Об онлайн трансляции:</strong></p>
+<p>Остается одна проблема - не всегда проверки можно автоматизировать. Следовательно нужно было как-то документировать ручные проверки.
+Эту проблему я решил через аннотации.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
+@Manual({
+   @Case(title = "Check user login is disabled after three incorrect login attempts ", ac = "1")
+})
+void userCanLoginWithValidCredentails(){
+   LoginPage.open()
+        .enterPassword("admin")
+        .enterLogin("admin")
+        .pressLogin();
+
+   at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Скажу честно, это была первая конференция, которую я смотрел онлайн. К трансляции
-у меня вопросов нет - высокое качество, ничего не сбоило и не зависало.
-Одно замечание: музыка в перерывах между докладами была немного депрессивная, но это вопрос вкуса.
-Для меня большим преимуществом также является то, что записи всех докладов доступны через пару дней.</p>
+<p>Теперь с помощью расширенного модуля интеграции с тест рейлом информация из этой аннотации вытаскивается и создается пункт чеклиста
+и помечается как ручной.</p>
 </div>
 <div class="paragraph">
-<p><strong>О программе:</strong></p>
+<p>После проверки теории и стадии PoC последовало развитие идеи и реализация боевого решения. Мы добавили аннотации для связи с Jira.
+В итоге решение выглядит так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Epic("Login")
+public class UserLoginTest {
+
+    @Test
+    @Manual({
+       @Case(title = "Check user login is disabled after three incorrect login attempts ", ac = "1")
+    })
+    @Jira(id="Jira-567", title="User is able to to the system login")
+    void userCanLoginWithValidCredentails(){
+       LoginPage.open()
+            .enterPassword("admin")
+            .enterLogin("admin")
+            .pressLogin();
+
+       at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
+    }
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>По сравнению с программой дебютной конференции доклады  были намного сильнее. До того, как писать отзыв,
-я просмотрел все доклады и мой личный топ 5 выглядит так:</p>
+<p>Для генерации тест кейсов была написана gradle задача. Генерация выполняется прямо из IDE с помощью вызова <strong>./gradlew syncTestRail</strong>.</p>
 </div>
 <div class="paragraph">
-<p>1) <strong>Паттерны проектирования в автоматизации тестирования</strong> (Николай Алименков)</p>
+<p><strong>Что мы получили в итоге?</strong></p>
 </div>
 <div class="paragraph">
-<p>Коля четко и без лишних поводов для холивара назвал проблемы и показал паттерны, которые потенциально
-могут помочь решить эти самые проблемы.</p>
-</div>
-<div class="paragraph">
-<p>NB: этот доклад с небольшими дополнениями был повтором <a href="https://www.youtube.com/watch?v=SEWa5_RW2BM&amp;index=4&amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy">доклада на Selenium Camp</a>.</p>
-</div>
-<div class="paragraph">
-<p>2) <strong>Тестирование в мире данных</strong> (Игорь Хрол)</p>
-</div>
-<div class="paragraph">
-<p>Настоящий хардкор и лайвкодинг. Игорь показал, как TopTal тестируют аналитику.</p>
-</div>
-<div class="paragraph">
-<p>NB: этот же доклад был прочитан на конференции <a href="https://www.youtube.com/watch?v=nFpZQOrZQfw">CAMAQA Spring 2017</a></p>
-</div>
-<div class="paragraph">
-<p>3) <strong>Allure 2</strong> (Артем Ерошенко)</p>
-</div>
-<div class="paragraph">
-<p>Лично я долго ждал релиза новой версии отчетов Allure, поэтому слушал этот доклад с особенным интересом.
-Несмотря на то, что все фичи и переработки уже давно были слиты, хотелось услышать официальную версию
-от разработчиков. Вышло достаточно информативно. Жду релиз Gradle плагина, так как сейчаc у меня все
-настроено через вызов кастомного Gradle exec таска.</p>
-</div>
-<div class="paragraph">
-<p>4) <strong>Учимся анализировать результаты нагрузочного тестирования</strong> (Алексей Лавренюк)</p>
-</div>
-<div class="paragraph">
-<p>Очень круто и полезно, особенно людям, которые делают перформанс. После доклада я прям поставил себе
-цель познакомиться с Яндекс Танком и возможно даже "пострелять" в наш бекенд. Так или иначе - очень советую.</p>
-</div>
-<div class="paragraph">
-<p>5) <strong>Кодогенерация как способ решения проблем автоматизатора</strong> (Кирилл Меркушев)</p>
-</div>
-<div class="paragraph">
-<p>В этом докладе сыграло и мастерство спикера, и материал, о котором он говорил. Много чего из рассказанного
-я использую на своих проектах. Например, генерацию <a href="http://automation-remarks.com/2017/code-generation/index.html">кода</a>
-и <a href="http://automation-remarks.com/2017/assert-generation/index.html">ассертов</a> для тестирования API.
-В докладе упоминалась еще пара полезных инструментов, которые стоит попробовать.</p>
-</div>
-<div class="paragraph">
-<p>NB: хоть и с некоторыми переработками, но этот доклад был <a href="https://www.youtube.com/watch?v=wDqZke0Iu7Q">повтором</a></p>
-</div>
-<div class="paragraph">
-<p>В 10ку я бы включил еще доклад о Котлине. Хайп и новости о том, что
-Гугл поддержал язык, делают свое грязное дело. Говорят, что на докладе яблоку негде было упасть.
-Но, увы, и он тоже был <a href="https://www.youtube.com/watch?v=DLXoEmw2lzQ&amp;index=40&amp;list=PLa7q-VITePQUz8H8_if3BcV4MCrYldYFy">повтором</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Итог</strong></p>
-</div>
-<div class="paragraph">
-<p>Можно смело утверждать, что Гейзенбаг потенциально очень достойная конференция. То, что ребята
-делают упор на автоматизацию, не может не радовать, так как размазывание соплей о тест-кейсах и ISTQB,
-менеджменте больших и маленьких команд уже немного подутомило. Слегка опечалило количество докладов,
-которые уже были засвечены в сети. Да, они были немного переделаны, но все же это не был совершенно уникальный контент.
-Также немного расстраивают заморские спикеры. В прошлом году Рекс Блек, в этом году Илари.
-Имхо в докладах много воды и очевидных фактов.</p>
-</div>
-<div class="paragraph">
-<p>Из финального интервью организаторов известно, что следующий Гейзенбаг пройдет в Москве уже в декабре этого года,
-и планируется расширение на 2 дня.
-Поживем-увидим, а пока у меня все. Сезон конференций по тестированию закончен. Новый сезон начнется в сентябре с конференции <a href="http://www.qafest.com/">QAFest 2017</a>.</p>
+<p>Все тест кейсы у нас хранятся в коде и проходят ревью точно так же, как и код. У всех аккаунтов в тест рейле есть право только на
+просмотр, таким образом никто не может внести изменения, кроме как через код. Единственной точкой правды является сорс код автоматизированных тестов.
+Модуль интеграции расширен и теперь во время прогона тестов есть возможность автоматически создавать тест ран на основе запускаемых тестов
+и проставлять статусы соотвествующим тестам. Мы сократили уровень ручной работы до нулевого, повысили прозрачность процесса.
+Надеюсь, мой опыт поможет вам сделать что-то подобное. Оставайтесь на связи, подписывайтесь на <a href="https://t.me/automation_remarks">телеграм канал</a>.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Конференции.html">Конференции</a>
+                                       href="/tags/Java.html">Java</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/TestNG.html">TestNG</a>
                             </div>
                     </footer>
 
@@ -207,7 +211,6 @@
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2018/test-cases-as-a-code/index.html">Тест кейсы как код</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep23/index.html">Эпизод-23: Про собеседования</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep22/index.html">Эпизод-22: Новости ушедшего лета</a></li>
                                                 <li><a class='js-ajax-link' href="/2018/qa-guild-ep21/index.html">Эпизод-21: Дно автоматизации и cypress.io</a></li>

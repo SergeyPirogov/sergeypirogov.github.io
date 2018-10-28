@@ -14,9 +14,121 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 20 Oct 2018 06:04:02 +0000</pubDate>
-    <lastBuildDate>Sat, 20 Oct 2018 06:04:02 +0000</lastBuildDate>
+    <pubDate>Sun, 28 Oct 2018 07:44:16 +0000</pubDate>
+    <lastBuildDate>Sun, 28 Oct 2018 07:44:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Тест кейсы как код
+          </title>
+          <link>http://automation-remarks.com/2018/test-cases-as-a-code/index.html</link>
+          <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/test-cases-as-a-code/index.html</guid>
+          <description>
+                        О своем опыте использования тест кейсов как кода
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очень давно не писал заметок, так как блог в основном переехал в &lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;телеграм&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сегодня расскажу о подходе использования Test cases as a code. Я уже очень давно думал о такой штуке,
+но не хватало опыта ее внедрения.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что же такое тест кейсы как код? На старте проекта я задумался о том, как можно сократить время на
+написание тест кейсов. Плюс мне хотелось как-то контролировать создание тест кейсов и их правки.
+На проекте в качестве тест кейс менеджмент-системы используется Test Rail. С ним у меня опыта достаточно
+много, я писал интерграции для создания тест ранов и проставления статусов во время прогона тестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Однако у Test Rail есть один фатальный недостаток - сложно контролировать создание тест кейсов. Там нет такого
+понятия, как ревью. Мне же хотелось управлять процессом.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Решение оказалось достаточно простым. Вместо детальных тест кейсов было принято решение использовать чеклист.
+Пуктами чеклиста и есть наши методы автотестов.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+void userCanLoginWithValidCredentails(){
+   LoginPage.open()
+        .enterPassword(&quot;admin&quot;)
+        .enterLogin(&quot;admin&quot;)
+        .pressLogin();
+
+   at(MainPage.class).userLoggedName.shouldHave(exactText(&quot;admin&quot;));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Сюда мы прикручиваем интеграцию с Test Rail, которая &lt;strong&gt;не запуская тестов&lt;/strong&gt; вытаскивает нужную информацию и записывает ее в виде пункта чеклиста.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Остается одна проблема - не всегда проверки можно автоматизировать. Следовательно нужно было как-то документировать ручные проверки.
+Эту проблему я решил через аннотации.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Test
+@Manual({
+   @Case(title = &quot;Check user login is disabled after three incorrect login attempts &quot;, ac = &quot;1&quot;)
+})
+void userCanLoginWithValidCredentails(){
+   LoginPage.open()
+        .enterPassword(&quot;admin&quot;)
+        .enterLogin(&quot;admin&quot;)
+        .pressLogin();
+
+   at(MainPage.class).userLoggedName.shouldHave(exactText(&quot;admin&quot;));
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теперь с помощью расширенного модуля интеграции с тест рейлом информация из этой аннотации вытаскивается и создается пункт чеклиста
+и помечается как ручной.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После проверки теории и стадии PoC последовало развитие идеи и реализация боевого решения. Мы добавили аннотации для связи с Jira.
+В итоге решение выглядит так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Epic(&quot;Login&quot;)
+public class UserLoginTest {
+
+    @Test
+    @Manual({
+       @Case(title = &quot;Check user login is disabled after three incorrect login attempts &quot;, ac = &quot;1&quot;)
+    })
+    @Jira(id=&quot;Jira-567&quot;, title=&quot;User is able to to the system login&quot;)
+    void userCanLoginWithValidCredentails(){
+       LoginPage.open()
+            .enterPassword(&quot;admin&quot;)
+            .enterLogin(&quot;admin&quot;)
+            .pressLogin();
+
+       at(MainPage.class).userLoggedName.shouldHave(exactText(&quot;admin&quot;));
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для генерации тест кейсов была написана gradle задача. Генерация выполняется прямо из IDE с помощью вызова &lt;strong&gt;./gradlew syncTestRail&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Что мы получили в итоге?&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все тест кейсы у нас хранятся в коде и проходят ревью точно так же, как и код. У всех аккаунтов в тест рейле есть право только на
+просмотр, таким образом никто не может внести изменения, кроме как через код. Единственной точкой правды является сорс код автоматизированных тестов.
+Модуль интеграции расширен и теперь во время прогона тестов есть возможность автоматически создавать тест ран на основе запускаемых тестов
+и проставлять статусы соотвествующим тестам. Мы сократили уровень ручной работы до нулевого, повысили прозрачность процесса.
+Надеюсь, мой опыт поможет вам сделать что-то подобное. Оставайтесь на связи, подписывайтесь на &lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;телеграм канал&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Эпизод-23: Про собеседования
