@@ -14,9 +14,107 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 26 Nov 2018 19:06:09 +0000</pubDate>
-    <lastBuildDate>Mon, 26 Nov 2018 19:06:09 +0000</lastBuildDate>
+    <pubDate>Tue, 11 Dec 2018 18:59:28 +0000</pubDate>
+    <lastBuildDate>Tue, 11 Dec 2018 18:59:28 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Эпизод-26: Новости осени и тренды на 2019 год
+          </title>
+          <link>http://automation-remarks.com/2018/qa-guild-ep26/index.html</link>
+          <pubDate>Sun, 9 Dec 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2018/qa-guild-ep26/index.html</guid>
+          <description>
+                        Новости и почему SDET получает больше
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.conventionalcommits.org/en/v1.0.0-beta.2&quot;&gt;Conventional Commits&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@sarahelson81/testing-trends-to-look-out-for-in-2019-df938a6eba49&quot;&gt;Тренды в тестировании 2019&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://jenkins.io/blog/2018/11/07/Validate-Jenkinsfile/?utm_source=feedburner&amp;amp;utm_medium=twitter&amp;amp;utm_campaign=Feed%3A+ContinuousBlog+%28Jenkins%29&quot;&gt;Validate your Jenkinsfile from within VS Code&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.mwtestconsultancy.co.uk/selenium-to-rest-assured-adapter&quot;&gt;Selenium to Rest-assured adapter&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/edenhill/kafkacat&quot;&gt;Kafkacat&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.joecolantonio.com/sdet/&quot;&gt;SDET vs Tester&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/olganovykova5/salary-survey-c-level2018-121346057?ref=https://indigo.co.ua/obzor-urovnya-zarabotnyih-plat-dlya-c-level-na-ryinke-ukrainskogo-it/?fbclid=IwAR0c7nyULwmT24zDRXFV8Z0o0yg92apgaoxTa-i7bX7IXH-aVcJR1tlsFTc&quot;&gt;Salary survay 2018 C-level&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Релизы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/allure-framework/allure-java/releases/tag/2.8.0&quot;&gt;allure 2.8.0&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://junit.org/junit5/docs/5.3.2/release-notes/&quot;&gt;junit 5.3.2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://ru.selenide.org/2018/11/07/selenide-5.0.1/&quot;&gt;selenide 5.0.1&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дмитрий Гуменюк - главный в Репорт портале&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Артем Никитин - видит забугорное IT&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Рома Маринский - львовский IT пан&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/542095626&amp;color=%23948c6c&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алиса Маркова, Дмитрий Панасюк, Дмитрий Рудаков, Эрик Халимов, Марина Колесник, Алексей Асанов, Рома Маринский,
+Сергей Солощенко, Игорь Перетятько, Максим Алферов, Марат Реймерс, Марина Колесник, Михаил Судья, Роман Поботин, Татьяна Грибок, Виталий Закорчевный&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подписывайтесь на телеграмм канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Эпизод-25: Про сертификации и ISTQB
