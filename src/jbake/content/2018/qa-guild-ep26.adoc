@@ -1,0 +1,52 @@
+= Эпизод-26: Новости осени и тренды на 2019 год
+Сергей Пирогов
+2018-12-09
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Новости, SDET
+:jbake-summary: Новости и почему SDET получает больше
+:jbake-status: published
+
+{zwsp} +
+*Темы:*
+
+- https://www.conventionalcommits.org/en/v1.0.0-beta.2[Conventional Commits]
+- https://medium.com/@sarahelson81/testing-trends-to-look-out-for-in-2019-df938a6eba49[Тренды в тестировании 2019]
+- https://jenkins.io/blog/2018/11/07/Validate-Jenkinsfile/?utm_source=feedburner&utm_medium=twitter&utm_campaign=Feed%3A+ContinuousBlog+%28Jenkins%29[Validate your Jenkinsfile from within VS Code]
+- https://www.mwtestconsultancy.co.uk/selenium-to-rest-assured-adapter[Selenium to Rest-assured adapter]
+- https://github.com/edenhill/kafkacat[Kafkacat]
+- https://www.joecolantonio.com/sdet/[SDET vs Tester]
+- https://www.slideshare.net/olganovykova5/salary-survey-c-level2018-121346057?ref=https://indigo.co.ua/obzor-urovnya-zarabotnyih-plat-dlya-c-level-na-ryinke-ukrainskogo-it/?fbclid=IwAR0c7nyULwmT24zDRXFV8Z0o0yg92apgaoxTa-i7bX7IXH-aVcJR1tlsFTc[Salary survay 2018 C-level]
+
+Релизы:
+
+- https://github.com/allure-framework/allure-java/releases/tag/2.8.0[allure 2.8.0]
+- https://junit.org/junit5/docs/5.3.2/release-notes/[junit 5.3.2]
+- https://ru.selenide.org/2018/11/07/selenide-5.0.1/[selenide 5.0.1]
+
+{zwsp} +
+*Гости*:
+
+- Сергей Пирогов - заводила подкаста
+- Дмитрий Гуменюк - главный в Репорт портале
+- Артем Никитин - видит забугорное IT
+- Рома Маринский - львовский IT пан
+
+{zwsp} +
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/542095626&color=%23948c6c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+{zwsp} +
+*Спасибо патронам*:
+
+Алиса Маркова, Дмитрий Панасюк, Дмитрий Рудаков, Эрик Халимов, Марина Колесник, Алексей Асанов, Рома Маринский,
+Сергей Солощенко, Игорь Перетятько, Максим Алферов, Марат Реймерс, Марина Колесник, Михаил Судья, Роман Поботин, Татьяна Грибок, Виталий Закорчевный
+
+{zwsp} +
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому
+
+Подписывайтесь на телеграмм канал - https://t.me/automation_remarks
