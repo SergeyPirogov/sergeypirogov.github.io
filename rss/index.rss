@@ -14,9 +14,96 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 11 Dec 2018 18:59:28 +0000</pubDate>
-    <lastBuildDate>Tue, 11 Dec 2018 18:59:28 +0000</lastBuildDate>
+    <pubDate>Sun, 13 Jan 2019 08:57:14 +0000</pubDate>
+    <lastBuildDate>Sun, 13 Jan 2019 08:57:14 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Эпизод-27: Юбилейный выпуск, завершение первого сезона
+          </title>
+          <link>http://automation-remarks.com/2019/qa-guild-ep27/index.html</link>
+          <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qa-guild-ep27/index.html</guid>
+          <description>
+                        Новости и почему SDET получает больше
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - главный по звуку&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дмитрий Гуменюк - главный в Репорт портале&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Рома Маринский - в этот раз, человек из поезда&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Буль - главный робототехик&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Панащенко - главный бородач Днепра&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Как мы прожили этот год&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Успехи&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Провалы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Что планируем сделать в следующем?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Самая крутая конференция этого года&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Технологии и тулы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Прорыв DevTestOps&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Чего ждать в 2019 ? шифт лефт, меньюал умрет?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Войти в айти, хайп на бабках?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/550937883&amp;color=%23948c6c&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алиса Маркова, Денис Козачок, Дмитрий Пазыков, Дмитрий Стеканов, Эрик Халимов,
+Иван Купцов, Marat Reymers, Maryna Kolesnik, Maxim Denisov, Miguel Suddya, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Valentin Buryakov, Vitalii, Vitaly Fedrunov, Арина Аригри, Ирина Юрчук, Перетятько Игорь&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Эпизод-26: Новости осени и тренды на 2019 год
