@@ -14,9 +14,96 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 13 Jan 2019 08:57:14 +0000</pubDate>
-    <lastBuildDate>Sun, 13 Jan 2019 08:57:14 +0000</lastBuildDate>
+    <pubDate>Fri, 1 Feb 2019 14:59:05 +0000</pubDate>
+    <lastBuildDate>Fri, 1 Feb 2019 14:59:05 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild s2e1: Долгая работа в одной компании
+          </title>
+          <link>http://automation-remarks.com/2019/qa-guild-s2e1/index.html</link>
+          <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qa-guild-s2e1/index.html</guid>
+          <description>
+                        Про усидчивых IT работников
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ярослав Пернеровский - саунд продюсер&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Дмитрий Гуменюк - главный в РП&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:30 - Как вошел в IT?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:09:07 - Про работу разработчиком?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:19:15 - Про работу и развитие в одной компании?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:27:35 - Почему в IT нету долгосидящих?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:35:39 - Была ли ломка при переходе от разработчика к менеджмент&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:44:44 - Когда и как появилась работа связанная с тестированием?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:55:12 - Когда стало понятно что РП - успех&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:52:05 - Про Репорт портал&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:00:35 - Про Delex?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:08:19 - Постоянная рубрика - топ три скила автоматизатора&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:09:30 - Про контр-офферы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:16:37 - Финал&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/563784393&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary mx-2&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;a class=&quot;btn btn-primary mx-2&quot; role=&quot;button&quot; href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Alisa Markova, Denys Kozachok, Kuptsov Ivan, Marat Reymers, Maryna Kolesnik, Miguel Suddya, Natalka Sokurenko, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Vitalii, Vitaly Fedrunov, Перетятько Игорь&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Эпизод-27: Юбилейный выпуск, завершение первого сезона
