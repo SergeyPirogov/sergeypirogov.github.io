@@ -1,6 +1,6 @@
 = Тренинг Automation in Action Java for Juniors
 Sergey Pirogov
-2018-03-03
+2019-03-03
 :jbake-type: post
 :jbake-tags: Тренинг
 :jbake-status: published
