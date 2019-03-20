@@ -1,0 +1,67 @@
+= s2e4: Никита Макаров про тестирование и конференции
+Сергей Пирогов
+2019-03-17
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Сезон2
+:jbake-summary: Разговоры о тестировании, конференциях и участии в программных комитетах
+:jbake-status: published
+
+{zwsp} +
+*Гости*:
+
+- Никита Макаров - head of test automation team в ok.ru
+
+{zwsp} +
+*Темы:*
+
+- 00:00:05 - Начало
+- 00:01:41 - Как вошел в IT?
+- 00:08:15 - Идельный путь становления тестировщика?
+- 00:10:47 - Разделение на Manual и Automation. Твое мнение?
+- 00:13:29 - Про тестирование в одноклассниках
+- 00:22:30 - Тест менеджер и отдел тестирования в Agile?
+- 00:31:58 - Cамый тупой пропущенный баг в карьере?
+- 00:35:17 - Если в России отрубят интернет, это как-то повлияет на ОК?
+- 00:36:34 - Количество посещений в день, уникальных ip и общее количество в день ?
+- 00:38:16 - Про опенсорс? Делаете?
+- 00:43:01 - На чем тесты пишут, какой стек технологий и библиотек ?
+- 00:44:49 - Про инфраструктуру для тестирования?
+- 00:48:20 - Про кукумбер
+- 00:50:25 - И чем testng не подошел ?
+- 00:50:30 - Почему не подошел TestnG?
+- 00:53:15 - Откуда взялось увлечение алкоголем?
+- 00:55:07 - [http://test-failed.blogspot.com/](Про блог Никиты)
+- 00:58:28 - Насколько сложно попасть на позицию тестировщика в ОК?
+- 01:02:39 - Были ли случаи взлома серверов?
+- 01:05:52 - Про гайзенбаг
+- 01:10:53 - Программный коммитет за деньги vs бесплатно
+- 01:12:34 - А спикеры ?
+- 01:21:35 - О программных комитетах. Сколько времени отнимает?
+- 01:24:01 - Повлияла ли политика на спикеров? Не пускают и вот это все
+- 01:25:40 - Про деньги за выступления?
+- 01:27:46 - Какая справедливая ЗП для Синьера по твоему мнению?
+- 01:30:13 - Патроны
+- 01:32:22 - Срыв покровов
+- 01:33:49 - Про цены
+- 01:37:22 - Автоматизация в крупном проекте, есть? Сколько времени тесты гоняются?
+- 01:42:11 - Финал
+
+{zwsp} +
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/591340719&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://www.patreon.com/automation_remarks">Стать патроном</a>
+++++
+
+{zwsp} +
+Telegram: https://t.me/automation_remarks
+
+{zwsp} +
+*Спасибо патронам*:
+Marat Reymers, Nikita Verbitsky, Oleksii Ihnatiuk, Ирина Юрчук, Valentin Buryakov, Roman Marinsky, Tetiana Hrybok, Перетятько Игорь, Kuptsov Ivan, Natalka Sokurenko, Dmytro Pazykov, Katya Kravchenka, Igor Gruziev, Maryna Kolesnik, Dmytro, Alisa Markova, Vitaly Fedrunov, Serge Soloshchenko, Roman Pobotin, Арина Аригри, Denys Kozachok, Miguel Suddya, Maxim Denisov, Evgenii Gritcai, Vitalii
