@@ -14,9 +14,149 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 3 Mar 2019 07:53:18 +0000</pubDate>
-    <lastBuildDate>Sun, 3 Mar 2019 07:53:18 +0000</lastBuildDate>
+    <pubDate>Wed, 20 Mar 2019 12:51:07 +0000</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2019 12:51:07 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              s2e4: Никита Макаров про тестирование и конференции
+          </title>
+          <link>http://automation-remarks.com/2019/qa-guild-s2e4/index.html</link>
+          <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qa-guild-s2e4/index.html</guid>
+          <description>
+                        Разговоры о тестировании, конференциях и участии в программных комитетах
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Никита Макаров - head of test automation team в ok.ru&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:00:05 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:41 - Как вошел в IT?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:08:15 - Идельный путь становления тестировщика?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:10:47 - Разделение на Manual и Automation. Твое мнение?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:13:29 - Про тестирование в одноклассниках&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:22:30 - Тест менеджер и отдел тестирования в Agile?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:31:58 - Cамый тупой пропущенный баг в карьере?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:35:17 - Если в России отрубят интернет, это как-то повлияет на ОК?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:36:34 - Количество посещений в день, уникальных ip и общее количество в день ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:38:16 - Про опенсорс? Делаете?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:43:01 - На чем тесты пишут, какой стек технологий и библиотек ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:44:49 - Про инфраструктуру для тестирования?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:48:20 - Про кукумбер&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:50:25 - И чем testng не подошел ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:50:30 - Почему не подошел TestnG?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:53:15 - Откуда взялось увлечение алкоголем?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:55:07 - [&lt;a href=&quot;http://test-failed.blogspot.com/&quot; class=&quot;bare&quot;&gt;http://test-failed.blogspot.com/&lt;/a&gt;](Про блог Никиты)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:58:28 - Насколько сложно попасть на позицию тестировщика в ОК?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:02:39 - Были ли случаи взлома серверов?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:05:52 - Про гайзенбаг&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:10:53 - Программный коммитет за деньги vs бесплатно&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:12:34 - А спикеры ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:21:35 - О программных комитетах. Сколько времени отнимает?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:24:01 - Повлияла ли политика на спикеров? Не пускают и вот это все&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:25:40 - Про деньги за выступления?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:27:46 - Какая справедливая ЗП для Синьера по твоему мнению?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:30:13 - Патроны&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:32:22 - Срыв покровов&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:33:49 - Про цены&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:37:22 - Автоматизация в крупном проекте, есть? Сколько времени тесты гоняются?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:42:11 - Финал&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/591340719&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;a class=&quot;btn btn-primary mx-2&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
+&lt;a class=&quot;btn btn-primary mx-2&quot; role=&quot;button&quot; href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+Telegram: &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8203;&lt;br&gt;
+&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:
+Marat Reymers, Nikita Verbitsky, Oleksii Ihnatiuk, Ирина Юрчук, Valentin Buryakov, Roman Marinsky, Tetiana Hrybok, Перетятько Игорь, Kuptsov Ivan, Natalka Sokurenko, Dmytro Pazykov, Katya Kravchenka, Igor Gruziev, Maryna Kolesnik, Dmytro, Alisa Markova, Vitaly Fedrunov, Serge Soloshchenko, Roman Pobotin, Арина Аригри, Denys Kozachok, Miguel Suddya, Maxim Denisov, Evgenii Gritcai, Vitalii&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Тренинг Automation in Action Java for Juniors
