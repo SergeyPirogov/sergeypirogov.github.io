@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Переходим на Allure2 без Gradle плагина</title>
+    <title>QAGuild youtube канал</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Переходим на Allure2 без Gradle плагина">
+    <meta property="og:title" content="QAGuild youtube канал">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Способ интеграции Allure2 и Gradle"/>
+        	<meta property="og:description" content="Первый youtube канал про автоматизацию тестирования"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -83,113 +83,29 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                18/06/2017
+                                31/03/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Переходим на Allure2 без Gradle плагина</h1>
+                        <h1 class="post-title">QAGuild youtube канал</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>После пары заметок о конференциях <a href="http://automation-remarks.com/2017/testing-stage-retro/index.html">Testing Stage</a> и <a href="http://automation-remarks.com/2017/heisenbug-2017-piter-retro/index.html">Гейзенбаг</a>
-пришла пора возвращаться к техническому хардкору. В этот раз я вам расскажу о способе интеграции Allure2 и Gradle.</p>
+<p>Почистил мусор на ютуб канале и попробовал сделать стрим.
+Работает лучше чем стримы в ФБ.
+Там и поселюсь.
+Подписывайтесь, пишите в комментариях вопросы, будем обсуждать</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="http://automated-testing.info/uploads/default/original/2X/3/3a722f96e5c6db7ef7a54773d73a81633ba2f828.png" alt="3a722f96e5c6db7ef7a54773d73a81633ba2f828">
-</div>
-</div>
-<div class="paragraph">
-<p>Скажу сразу, данный способ будет валиден до выхода в релиз официального плагина Allure2 для Gradle. Пока же работающего плагина нет, придется позаниматься извращением.</p>
-</div>
-<div class="paragraph">
-<p>Настраивать будем для Gradle 3 и TestNG. В принципе, все необходимое можно найти в <a href="https://docs.qameta.io/allure/2.0/">официальной документации</a> по Allure2.</p>
-</div>
-<div class="paragraph">
-<p>Добавляем настройки в build.gradle:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>apply plugin: 'java'
-
-configurations {
-    agent
-}
-
-dependencies {
-    agent "org.aspectj:aspectjweaver:1.8.10"
-    compile "io.qameta.allure:allure-testng:2.0-BETA10"
-}
-
-test.doFirst {
-    jvmArgs "-javaagent:${configurations.agent.singleFile}"
-}
-
-test {
-    useTestNG()
-    systemProperty 'allure.results.directory', 'build/allure-results'
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь при прогоне тестов через command line или CI c помощью команды:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>./gradlew clean test</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>У вас в папке <code>build/allure-results</code> будут создаваться *.json файлы, из которых потом и будет генерироваться отчет.</p>
-</div>
-<div class="paragraph">
-<p>Этого вполне достаточно, если вы запускаете тесты на CI и используете Allure2 плагин для генерации отчета. Увы, ставить плагины и обновлять
-не всегда выдается возможным, так как наш Jenkins содержат дяди с тайтлом "DevOps". Благо, уже давно есть HTML Publisher плагин, который позволяет рендерить
-сгенерированный отчет. Именно им мы и пользуемся.</p>
-</div>
-<div class="paragraph">
-<p>Для того, чтобы сгенерировать отчет, нужно использовать <a href="https://docs.qameta.io/allure/2.0/#_installing_a_commandline">allure command line</a>.</p>
-</div>
-<div class="paragraph">
-<p>Но я уже привык к тому, что вызываю <code>gradle clean test</code>, и у меня после прогона тестов всегда генерируется отчет. Чтобы такого добиться с Allure2,
-нужно самим пописать код.</p>
-</div>
-<div class="paragraph">
-<p>Идем, значит, в <a href="https://bintray.com/qameta/generic/allure2">bintray</a> и качаем allure command line binary архив.
-Распаковываем и ложим в корень нашего проекта.</p>
-</div>
-<div class="paragraph">
-<p>Дальше делаем свой таск в build.gradle:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>task generateAllure(type: Exec) {
-    workingDir "$projectDir/allure/bin"
-    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-        commandLine 'cmd', '/c', 'allure.bat', 'generate', '-c', '../../integration/build/allure-results'
-    } else {
-        commandLine 'bash', '-c', 'allure', 'generate', '-c',"$projectDir/integration/build/allure-results"
-    }
-}
-
-tasks.withType(Test)*.finalizedBy generateAllure</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Собственно, на этом и все. Теперь при выполнении <code>gradlew clean test</code> у нас будут прогоняться тесты и генерироваться отчет.</p>
-</div>
-<div class="paragraph">
-<p>Про Allure2 и Python вы сможете послушать на <a href="http://automation-remarks.com/2017/python-training/index.html">мастер-классе</a>, который назначен на 24.06.17.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r-ra_iFNio0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Allure.html">Allure</a>
+                                       href="/tags/Youtube.html">Youtube</a>
                             </div>
                     </footer>
 
@@ -203,7 +119,6 @@ tasks.withType(Test)*.finalizedBy generateAllure</code></pre>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2019/qaguild-youtube/index.html">QAGuild youtube канал</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qa-guild-s2e4/index.html">s2e4: Никита Макаров про тестирование и конференции</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/java-jun/index.html">Тренинг Automation in Action Java for Juniors</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-s2e2/index.html">s2e2: Производительность, нагрузка и вот это вот все</a></li>

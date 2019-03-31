@@ -14,9 +14,29 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 20 Mar 2019 12:54:54 +0000</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 12:54:54 +0000</lastBuildDate>
+    <pubDate>Sun, 31 Mar 2019 10:04:13 +0000</pubDate>
+    <lastBuildDate>Sun, 31 Mar 2019 10:04:13 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild youtube канал
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-youtube/index.html</link>
+          <pubDate>Sun, 31 Mar 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-youtube/index.html</guid>
+          <description>
+                        Первый youtube канал про автоматизацию тестирования
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Почистил мусор на ютуб канале и попробовал сделать стрим.
+Работает лучше чем стримы в ФБ.
+Там и поселюсь.
+Подписывайтесь, пишите в комментариях вопросы, будем обсуждать&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/r-ra_iFNio0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               s2e4: Никита Макаров про тестирование и конференции
