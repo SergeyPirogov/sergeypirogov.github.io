@@ -1,0 +1,16 @@
+= QAGuild youtube канал
+Сергей Пирогов
+2019-03-31
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Первый youtube канал про автоматизацию тестирования
+:jbake-status: published
+
+Почистил мусор на ютуб канале и попробовал сделать стрим.
+Работает лучше чем стримы в ФБ.
+Там и поселюсь.
+Подписывайтесь, пишите в комментариях вопросы, будем обсуждать
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r-ra_iFNio0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
