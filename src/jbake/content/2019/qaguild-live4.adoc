@@ -1,0 +1,14 @@
+= QAGuild live #4: Как начать учить Java для QA Automation?
+Сергей Пирогов
+2019-04-21
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Размышления на тему старта карьеры QA Automation
+:jbake-status: published
+
+Разговор о том, как начать учить язык программирования Java юному Automation QA.
+Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kRPU8gJ4s-w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
