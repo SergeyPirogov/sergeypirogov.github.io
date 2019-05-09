@@ -1,0 +1,14 @@
+= QAGuild live #5: Про собеседования на позицию QA инженера?
+Сергей Пирогов
+2019-05-09
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Размышления на тему собеседований для QA Automation
+:jbake-status: published
+
+Разговор о собеседованиях для тестировщиков.
+Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1FzxCP8QtyY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
