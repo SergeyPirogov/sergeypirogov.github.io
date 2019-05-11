@@ -1,6 +1,6 @@
 = QAGuild live #6: Какие soft skills важны для QA инженера?
 Сергей Пирогов
-2019-05-09
+2019-05-11
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: Размышления на тему собеседований для QA Automation
