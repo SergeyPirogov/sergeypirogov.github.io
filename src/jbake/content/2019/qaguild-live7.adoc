@@ -1,0 +1,14 @@
+= QAGuild live #7: Про фреймворк по автоматизации тестирования
+Сергей Пирогов
+2019-05-21
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор о фреймворках по автоматизации тестирования
+:jbake-status: published
+
+Разговор о фреймворках по автоматизации тестирования. Как и когда начинать его писать и нужно ли вообще это делать в наше время.
+Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TyolewvMsJU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
