@@ -14,9 +14,27 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 29 May 2019 18:43:49 +0000</pubDate>
-    <lastBuildDate>Wed, 29 May 2019 18:43:49 +0000</lastBuildDate>
+    <pubDate>Wed, 29 May 2019 18:51:03 +0000</pubDate>
+    <lastBuildDate>Wed, 29 May 2019 18:51:03 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild подкаст: Егор Бугаенко про роль тестировщика в команде
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-s2e7/index.html</link>
+          <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-s2e7/index.html</guid>
+          <description>
+                        Разговор о роли тестировщика в команде разработки ПО
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Разговор о роли тестировщика в команде разработки ПО. Обсудили вопросы надобности роли тестировщика на проекте и его зоны ответственности. Аспекты и способы вознаграждения тестировщиков за найденные баги.
+Ставьте лайки, пишите в комментариях свои вопросы.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zf0BpWj7fdc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #7: Про фреймворк по автоматизации тестирования
