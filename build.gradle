@@ -40,5 +40,5 @@ task publish(type: GradleBuild) {
 task run(dependsOn: ['clean', 'jbake', 'jettyRun'])
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2'
+    gradleVersion = '5.4.1'
 }
