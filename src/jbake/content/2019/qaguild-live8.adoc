@@ -1,0 +1,16 @@
+= QAGuild live #8: BDD подход с точки зрения тестирования
+Сергей Пирогов
+2019-06-03
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор о BDD тестировании
+:jbake-status: published
+
+BDD подход очень часто используется на проектах. Одни его хвалят и рекомендуют использовать, другие рассказывают о том, что это лишний слой и пользы от него нет.
+В этом эпизоде я расскажу о своем опыте работы с BDD.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zc6aqHwfS3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
