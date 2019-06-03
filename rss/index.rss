@@ -14,9 +14,29 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 29 May 2019 18:51:03 +0000</pubDate>
-    <lastBuildDate>Wed, 29 May 2019 18:51:03 +0000</lastBuildDate>
+    <pubDate>Mon, 3 Jun 2019 18:54:00 +0000</pubDate>
+    <lastBuildDate>Mon, 3 Jun 2019 18:54:00 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #8: BDD подход с точки зрения тестирования
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live8/index.html</link>
+          <pubDate>Mon, 3 Jun 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live8/index.html</guid>
+          <description>
+                        Разговор о BDD тестировании
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;BDD подход очень часто используется на проектах. Одни его хвалят и рекомендуют использовать, другие рассказывают о том, что это лишний слой и пользы от него нет.
+В этом эпизоде я расскажу о своем опыте работы с BDD.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Zc6aqHwfS3g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild подкаст: Егор Бугаенко про роль тестировщика в команде
