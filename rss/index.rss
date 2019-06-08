@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 6 Jun 2019 07:56:36 +0000</pubDate>
-    <lastBuildDate>Thu, 6 Jun 2019 07:56:36 +0000</lastBuildDate>
+    <pubDate>Sat, 8 Jun 2019 12:42:44 +0000</pubDate>
+    <lastBuildDate>Sat, 8 Jun 2019 12:42:44 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #9: Тестировщики ПО vs QC vs SDET в чем разница?
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live9/index.html</link>
+          <pubDate>Sat, 8 Jun 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live9/index.html</guid>
+          <description>
+                        Разговор о ролях в тестировании
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В сфере тестирования существует много различных абревиатур значение которых не всегда понятно. В этом выпуске порассуждаем о разнице между QA и QC. В завершении обсудим роль и ответвенности SDET.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/sf-G9r4FFno&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #8: BDD подход с точки зрения тестирования
