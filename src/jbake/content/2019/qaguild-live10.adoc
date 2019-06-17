@@ -1,0 +1,15 @@
+= QAGuild live #10: Ответы на вопросы тестировщиков
+Сергей Пирогов
+2019-06-17
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Ответы на вопросы зрителей стрима
+:jbake-status: published
+
+Юбилейный 10 cтрим решил посвятить ответам на вопросы зрителей. Из этого выпуска вы узнате про обучение, как определить свой уровень и какие форматы стримов я придумал на будущее.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cSVn1FoJ0W4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
