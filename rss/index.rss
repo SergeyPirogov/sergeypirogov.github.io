@@ -14,9 +14,53 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 17 Jun 2019 13:44:38 +0000</pubDate>
-    <lastBuildDate>Mon, 17 Jun 2019 13:44:38 +0000</lastBuildDate>
+    <pubDate>Fri, 21 Jun 2019 09:55:34 +0000</pubDate>
+    <lastBuildDate>Fri, 21 Jun 2019 09:55:34 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Тренинг по автоматизации тестирования API
+          </title>
+          <link>http://automation-remarks.com/2019/api-training/index.html</link>
+          <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/api-training/index.html</guid>
+          <description>
+                        Тренинг по автоматизации тестирования API
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Все желающие научиться автоматизировать API тесты с помощью Java могут получить доступ к тренингу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что ты сможешь узнать?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;создание проекта для тестирования REST API&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;как правильно построить архитектуру&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;управление тестовыми данными&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;работа со SWAGGER&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;способы сделать информативные отчеты&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;интеграция с CI&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Регистрация по ссылке &lt;a href=&quot;http://automation-remarks.com/consult/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/consult/&lt;/a&gt; либо в telegram @spirogov.&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #10: Ответы на вопросы тестировщиков

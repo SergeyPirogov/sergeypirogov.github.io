@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Как писать автотесты быстро</title>
+    <title>Тренинг по автоматизации тестирования API</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Как писать автотесты быстро">
+    <meta property="og:title" content="Тренинг по автоматизации тестирования API">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="О способах ускорить процесс написания автотестов"/>
+        	<meta property="og:description" content="Тренинг по автоматизации тестирования API"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -88,188 +88,51 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                26/03/2017
+                                21/06/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Как писать автотесты быстро</h1>
+                        <h1 class="post-title">Тренинг по автоматизации тестирования API</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Привет! Спешу поделиться очередной порцией полезностей. Сегодня хочу поговорить о подходах,
-которые позволяют экономить время создания автотестов. Задумывались ли вы когда-нибудь
-о скорости написания автотестов? Сколько времени вы тратите на их создание?
-Я для себя определил: автотесты - это такая штука, которую мы должны уметь
-быстро создать и быстро выбросить. Насчет выбрость - это понятно, а вот насчет создать?
-Есть ли способы ускорить процесс создания автотестов? О том, как я ускоряю процесс написания
-UI тестов, я уже писал в заметке о <a href="http://automation-remarks.com/2017/locators/index.html">хороших локаторах</a>.</p>
+<p>Все желающие научиться автоматизировать API тесты с помощью Java могут получить доступ к тренингу.</p>
 </div>
 <div class="paragraph">
-<p>В этой же заметке хочу поделиться секретами тестирования REST сервисов.</p>
+<p>Что ты сможешь узнать?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>создание проекта для тестирования REST API</p>
+</li>
+<li>
+<p>как правильно построить архитектуру</p>
+</li>
+<li>
+<p>управление тестовыми данными</p>
+</li>
+<li>
+<p>работа со SWAGGER</p>
+</li>
+<li>
+<p>способы сделать информативные отчеты</p>
+</li>
+<li>
+<p>интеграция с CI</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Я уже писал о <a href="http://automation-remarks.com/rest-clients/index.html">полезных библиотеках</a> для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
-могут вам пригодиться.</p>
-</div>
-<div class="paragraph">
-<p>Первый секрет: я использую <strong>Rest Assured</strong> и точка. Отличный инструмент, который полностью
-покрывает все потребности автоматизаторов. С <strong>Rest Assured</strong> писать тесты - одно удовольствие.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>@Test
-public void shouldGetLuke() {
-        when().get("http://swapi.co/api/people/1/")
-                .then().statusCode(200)
-                .and()
-                .assertThat()
-                .body("name", equalTo("Luke Skywalker"));
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Все вроде отлично, но мне лично больше нравится конвертировать json ответы от сервера в
-Java объекты. Но у такого подхода есть недостаток - нужно описывать json структуру в виде Java POJO.
-Достаточно тоскливое занятие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
-из примера выше будет выглядеть так:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>{
-    "name": "Luke Skywalker",
-    "height": "172",
-    "mass": "77",
-    "hair_color": "blond",
-    "skin_color": "fair",
-    "eye_color": "blue",
-    "birth_year": "19BBY",
-    "gender": "male",
-    "homeworld": "http://swapi.co/api/planets/1/",
-    "films": [
-        "http://swapi.co/api/films/6/",
-        "http://swapi.co/api/films/3/",
-        "http://swapi.co/api/films/2/",
-        "http://swapi.co/api/films/1/",
-        "http://swapi.co/api/films/7/"
-    ],
-    "species": [
-        "http://swapi.co/api/species/1/"
-    ],
-    "vehicles": [
-        "http://swapi.co/api/vehicles/14/",
-        "http://swapi.co/api/vehicles/30/"
-    ],
-    "starships": [
-        "http://swapi.co/api/starships/12/",
-        "http://swapi.co/api/starships/22/"
-    ],
-    "created": "2014-12-09T13:50:51.644000Z",
-    "edited": "2014-12-20T21:17:56.891000Z",
-    "url": "http://swapi.co/api/people/1/"
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Можно потратить какое-то время, чтобы описать такую структуру с помощью Java, но можно пойти
-более оптимальным путем и сгенерировать нужные нам классы.</p>
-</div>
-<div class="paragraph">
-<p>Секрет второй: Как? Все очень просто: есть отличный инструмент <a href="http://www.jsonschema2pojo.org/">json2pojo</a>.
-Берем свой json, вставляем в текстовое поле, жмем кнопку - вжууух! Классы сгенерировались. Копируем их
-себе в проект и наслаждаемся.</p>
-</div>
-<div class="paragraph">
-<p>Вы заметили недостатки? Слишком много ручной работы - копировать туда, потом обратно. Можно же это
-заавтоматизировать. Для этого есть отличнейший плагин для <a href="https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin">Gradle</a>.</p>
-</div>
-<div class="paragraph">
-<p>Подключаем его себе в проект:</p>
-</div>
-<div class="listingblock">
-<div class="title">build.gradle</div>
-<div class="content">
-<pre class="prettyprint highlight"><code>apply plugin: 'java'
-apply plugin: 'jsonschema2pojo'
-buildscript {
-  repositories {
-    jcenter()
-  }
-
-  dependencies {
-    classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:${js2p.version}'
-  }
-}
-
-repositories {
-  jcenter()
-}
-
-dependencies {
-  compile 'commons-lang:commons-lang:2.6'
-  compile 'javax.validation:validation-api:1.1.0.CR2'
-  compile 'com.fasterxml.jackson.core:jackson-databind:2.1.4'
-}
-
-jsonSchema2Pojo {
-  // Location of the JSON Schema file(s). This may refer to a single file or a directory of files.
-  source = files("${sourceSets.main.output.resourcesDir}/json")
-
-  // Target directory for generated Java source files. The plugin will add this directory to the
-  // java source set so the compiler will find and compile the newly generated source files.
-  targetDirectory = file("${project.buildDir}/generated-sources/js2p")
-
-  // Package name used for generated Java classes (for types where a fully qualified name has not
-  // been supplied in the schema using the 'javaType' property).
-  targetPackage = ''
-
-  // The type of input documents that will be read. Supported values:
-  //  - jsonschema (schema documents, containing formal rules that describe the structure of json data)
-  //  - json (documents that represent an example of the kind of json data that the generated Java types
-  //          will be mapped to)
-  sourceType = 'json'
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В папку <code>src/java/resources/json</code> складываем нужные нам json файлы. Открываем консольку
-и выполняем команду:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>./gradlew generateJsonSchema2Pojo</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В папке <code>build/generated-sources</code> появляются сгенерированные классы со всеми нужными нам атрибутами.</p>
-</div>
-<div class="paragraph">
-<p>Теперь мы можем спокойно перенести их в нужный нам пакет и использовать в тестах:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code>@Test
-public void shouldGetLuke() {
-        Person = when().get("http://swapi.co/api/people/1/")
-                .then().extract().body().as(Person.class)
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.</p>
-</div>
-<div class="paragraph">
-<p>Надеюсь, мои советы будут полезными для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.</p>
-</div>
-<div class="paragraph">
-<p>В следующий раз я покажу вам, как можно экономить время на написании assert`ов.</p>
+<p>Регистрация по ссылке <a href="http://automation-remarks.com/consult/" class="bare">http://automation-remarks.com/consult/</a> либо в telegram @spirogov.</p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/Тренинг.html">Тренинг</a>
                             </div>
                     </footer>
 
@@ -283,7 +146,6 @@ public void shouldGetLuke() {
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2019/api-training/index.html">Тренинг по автоматизации тестирования API</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live10/index.html">QAGuild live #10: Ответы на вопросы тестировщиков</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live9/index.html">QAGuild live #9: Тестировщики ПО vs QC vs SDET в чем разница?</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live8/index.html">QAGuild live #8: BDD подход с точки зрения тестирования</a></li>
