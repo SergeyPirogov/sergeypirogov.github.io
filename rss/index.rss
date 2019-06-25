@@ -14,12 +14,12 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 25 Jun 2019 07:57:55 +0000</pubDate>
-    <lastBuildDate>Tue, 25 Jun 2019 07:57:55 +0000</lastBuildDate>
+    <pubDate>Tue, 25 Jun 2019 08:22:43 +0000</pubDate>
+    <lastBuildDate>Tue, 25 Jun 2019 08:22:43 +0000</lastBuildDate>
 
         <item>
           <title>
-              Тренинг по автоматизации тестирования API
+              Тренинг по автоматизации тестирования API с Python
           </title>
           <link>http://automation-remarks.com/2019/python-api-training/index.html</link>
           <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
@@ -32,7 +32,7 @@
 &lt;p&gt;Тренинг по автоматизации тестирования API&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;13 июня в 18-00 готов провести онлайн тренинг по автоматизации тестирования API с помощью Python. Тренинг нацелен на практическую составляющую и даст понимание того, как можно построить хорошую структуру проекта.&lt;/p&gt;
+&lt;p&gt;13 июля в 18-00 готов провести онлайн тренинг по автоматизации тестирования API с помощью Python. Тренинг нацелен на практическую составляющую и даст понимание того, как можно построить хорошую структуру проекта.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Цена участия - 50$. Длительность 3 часа.&lt;/p&gt;
