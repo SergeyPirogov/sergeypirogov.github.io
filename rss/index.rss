@@ -14,9 +14,62 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 25 Jun 2019 07:43:36 +0000</pubDate>
-    <lastBuildDate>Tue, 25 Jun 2019 07:43:36 +0000</lastBuildDate>
+    <pubDate>Tue, 25 Jun 2019 07:57:55 +0000</pubDate>
+    <lastBuildDate>Tue, 25 Jun 2019 07:57:55 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Тренинг по автоматизации тестирования API
+          </title>
+          <link>http://automation-remarks.com/2019/python-api-training/index.html</link>
+          <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/python-api-training/index.html</guid>
+          <description>
+                        Тренинг по автоматизации тестирования API c Python
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Тренинг по автоматизации тестирования API&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;13 июня в 18-00 готов провести онлайн тренинг по автоматизации тестирования API с помощью Python. Тренинг нацелен на практическую составляющую и даст понимание того, как можно построить хорошую структуру проекта.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Цена участия - 50$. Длительность 3 часа.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Что ты сможешь узнать?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;создание проекта для тестирования REST API&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;как правильно построить архитектуру&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;управление тестовыми данными&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;способы сделать информативные отчеты&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;интеграция с CI&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;и другие особенности создания проекта.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Если есть вопросы пишите в личку @spirogov&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Регистрация по ссылке &lt;a href=&quot;http://automation-remarks.com/training/﻿&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/training/﻿&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Тренинг по автоматизации тестирования API
