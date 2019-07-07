@@ -1,0 +1,16 @@
+= QAGuild live #11: Про Python для тестировщика автоматизатора
+Сергей Пирогов
+2019-07-07
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор про python
+:jbake-status: published
+
+Тестировщики часто сталкиваются с проблемой выбора языка программирования. В этот раз мы поговорим про использование Python в автоматизации тестирования.
+
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3K5HbRbTIjk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
