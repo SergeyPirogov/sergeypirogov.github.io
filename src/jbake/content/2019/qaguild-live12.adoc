@@ -1,0 +1,16 @@
+= QAGuild live #12: Тестовое задание для тестировщика
+Сергей Пирогов
+2019-07-19
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор про тестовое задание для тестировщика
+:jbake-status: published
+
+На разных этапах устройства на работу тестировщики сталкиваются с тестовым заданием. В этом выпуске обсудим целесообразность такой активности.
+
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MV32scVMpxs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
