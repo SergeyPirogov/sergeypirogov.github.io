@@ -14,9 +14,30 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 7 Jul 2019 20:18:17 +0000</pubDate>
-    <lastBuildDate>Sun, 7 Jul 2019 20:18:17 +0000</lastBuildDate>
+    <pubDate>Fri, 19 Jul 2019 06:47:40 +0000</pubDate>
+    <lastBuildDate>Fri, 19 Jul 2019 06:47:40 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #12: Тестовое задание для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live12/index.html</link>
+          <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live12/index.html</guid>
+          <description>
+                        Разговор про тестовое задание для тестировщика
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;На разных этапах устройства на работу тестировщики сталкиваются с тестовым заданием. В этом выпуске обсудим целесообразность такой активности.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MV32scVMpxs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #11: Про Python для тестировщика автоматизатора
