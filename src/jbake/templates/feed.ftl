@@ -17,7 +17,7 @@
     <pubDate>${published_date?string("EEE, d MMM yyyy HH:mm:ss Z")}</pubDate>
     <lastBuildDate>${published_date?string("EEE, d MMM yyyy HH:mm:ss Z")}</lastBuildDate>
 
-    <#list published_posts as post>
+    <#list published_posts?chunk(20) as post>
         <item>
           <title>
               <#escape x as x?xml>${post.title}</#escape>
