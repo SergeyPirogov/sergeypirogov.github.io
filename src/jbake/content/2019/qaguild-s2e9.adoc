@@ -1,0 +1,37 @@
+= QAGuild подкаст s2e9: Разговоры про Python в тестировании
+Сергей Пирогов
+2019-08-01
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Разговор про Python
+:jbake-status: published
+
+Подготовили очередной выпуск подкаста. В этом выпуске поговорили о том, с чего начать учить Python, какие менеджеры пакетов использовать и покрыли API и UI автоматизацию.
+Приятного прослушивания.
+
+Гости:
+
+- Алексей Буль - крепко сидит на Python
+- Игорь Балагуров - делал на Python разное
+- Данил Бирюков-Романов - ходил в JS, но потом вернулся
+
+Темы:
+
+- 00:00:53 - Начало
+- 00:05:35 - С чего начать учить Python?
+- 00:11:44 - Чем Python лучше других языков?
+- 00:20:35 - Про пакетные менеджеры
+- 00:32:33 - Про либы для API тестирования
+- 00:44:00 - Про IDE
+- 00:45:11 - Про минусы Python
+- 00:59:07 - Про инструменты UI?
+- 01:05:00 - Почему именно выбрали python, а не Java, JS etc?
+- 01:19:03 - Python и IoT или embeded
+- 01:26:56 - Патроны
+- 01:28:01 - Финал
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/659414393&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+Подписывайтесь на наш telegram канал - https://t.me/automation_remarks
