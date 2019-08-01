@@ -14,9 +14,89 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 24 Jul 2019 06:17:51 +0000</pubDate>
-    <lastBuildDate>Wed, 24 Jul 2019 06:17:51 +0000</lastBuildDate>
+    <pubDate>Thu, 1 Aug 2019 19:56:11 +0000</pubDate>
+    <lastBuildDate>Thu, 1 Aug 2019 19:56:11 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild подкаст s2e9: Разговоры про Python в тестировании
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-s2e9/index.html</link>
+          <pubDate>Thu, 1 Aug 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-s2e9/index.html</guid>
+          <description>
+                        Разговор про Python
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подготовили очередной выпуск подкаста. В этом выпуске поговорили о том, с чего начать учить Python, какие менеджеры пакетов использовать и покрыли API и UI автоматизацию.
+Приятного прослушивания.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Буль - крепко сидит на Python&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Игорь Балагуров - делал на Python разное&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Данил Бирюков-Романов - ходил в JS, но потом вернулся&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:00:53 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:05:35 - С чего начать учить Python?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:11:44 - Чем Python лучше других языков?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:20:35 - Про пакетные менеджеры&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:32:33 - Про либы для API тестирования&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:44:00 - Про IDE&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:45:11 - Про минусы Python&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:59:07 - Про инструменты UI?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:05:00 - Почему именно выбрали python, а не Java, JS etc?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:19:03 - Python и IoT или embeded&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:26:56 - Патроны&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:28:01 - Финал&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/659414393&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подписывайтесь на наш telegram канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #12: Тестовое задание для тестировщика
@@ -831,93 +911,6 @@ Marat Reymers, Nikita Verbitsky, Oleksii Ihnatiuk, Ирина Юрчук, Valent
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Alisa Markova, Denys Kozachok, Kuptsov Ivan, Marat Reymers, Maryna Kolesnik, Miguel Suddya, Natalka Sokurenko, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Vitalii, Vitaly Fedrunov, Перетятько Игорь&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Эпизод-27: Юбилейный выпуск, завершение первого сезона
-          </title>
-          <link>http://automation-remarks.com/2019/qa-guild-ep27/index.html</link>
-          <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qa-guild-ep27/index.html</guid>
-          <description>
-                        Новости и почему SDET получает больше
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;#8203;&lt;br&gt;
-&lt;strong&gt;Гости&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Сергей Пирогов - заводила подкаста&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Ярослав Пернеровский - главный по звуку&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Дмитрий Гуменюк - главный в Репорт портале&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Рома Маринский - в этот раз, человек из поезда&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Алексей Буль - главный робототехик&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Алексей Панащенко - главный бородач Днепра&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;#8203;&lt;br&gt;
-&lt;strong&gt;Темы:&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Как мы прожили этот год&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Успехи&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Провалы&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Что планируем сделать в следующем?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Самая крутая конференция этого года&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Технологии и тулы&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Прорыв DevTestOps&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Чего ждать в 2019 ? шифт лефт, меньюал умрет?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Войти в айти, хайп на бабках?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;#8203;&lt;br&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/550937883&amp;color=%23948c6c&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
-&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot; href=&quot;https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&amp;mt=2&quot;&gt;Слушать в Itunes&lt;/a&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;#8203;&lt;br&gt;
-&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Алиса Маркова, Денис Козачок, Дмитрий Пазыков, Дмитрий Стеканов, Эрик Халимов,
-Иван Купцов, Marat Reymers, Maryna Kolesnik, Maxim Denisov, Miguel Suddya, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Valentin Buryakov, Vitalii, Vitaly Fedrunov, Арина Аригри, Ирина Юрчук, Перетятько Игорь&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
