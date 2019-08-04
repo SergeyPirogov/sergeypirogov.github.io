@@ -1,0 +1,16 @@
+= QAGuild live #13: Про локаторы в UI автоматизации тестирования
+Сергей Пирогов
+2019-08-04
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор про Xpath и CSS локаторы
+:jbake-status: published
+
+В этом выпуске поговорим про тему XPATH и CSS локаторов и их использовании в UI автоматизации. Что лучше использовать и в каких случаях, а также лучшие практики проверенные на проектах.
+
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uSVI6Hzu2JM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
