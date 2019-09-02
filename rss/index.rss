@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 19 Aug 2019 07:26:51 +0000</pubDate>
-    <lastBuildDate>Mon, 19 Aug 2019 07:26:51 +0000</lastBuildDate>
+    <pubDate>Mon, 2 Sep 2019 14:54:16 +0000</pubDate>
+    <lastBuildDate>Mon, 2 Sep 2019 14:54:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #15: Про обучение для тестировщиков
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live15/index.html</link>
+          <pubDate>Mon, 2 Sep 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live15/index.html</guid>
+          <description>
+                        Разговор про обучение и менторинг для тестировщиков
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Обучение - неотъемлемый процесс, который сопровождает тестировщика на протяжении всей карьеры. В этом видео дам советы по обучению. Как организовать процесс, найти ментора и сколько это может стоить.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/h94wnyRCdZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #14: Про облака для UI автоматизации
@@ -651,112 +670,6 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Спасибо патронам&lt;/strong&gt;:
 Marat Reymers, Nikita Verbitsky, Oleksii Ihnatiuk, Ирина Юрчук, Valentin Buryakov, Roman Marinsky, Tetiana Hrybok, Перетятько Игорь, Kuptsov Ivan, Natalka Sokurenko, Dmytro Pazykov, Katya Kravchenka, Igor Gruziev, Maryna Kolesnik, Dmytro, Alisa Markova, Vitaly Fedrunov, Serge Soloshchenko, Roman Pobotin, Арина Аригри, Denys Kozachok, Miguel Suddya, Maxim Denisov, Evgenii Gritcai, Vitalii&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Тренинг Automation in Action Java for Juniors
-          </title>
-          <link>http://automation-remarks.com/2019/java-jun/index.html</link>
-          <pubDate>Sun, 3 Mar 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/java-jun/index.html</guid>
-          <description>
-                        Тренинг для начинающих тестировщиков автоматизаторов
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Многие просили и я делаю. Я решил попробовать провести один курс треннига по автоматизации на java для тех, кто очень хочет научиться, но не знает как это сделать, либо пробовал и не получилось.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Формат обучения - онлайн лекции
-Дата начала - 30 марта 2019 года.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Программа:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Эта программа менторинга направлена на практическую составляющую. Этот курс расчитан для начинающих. Я ожидаю видеть ребят которые уже работают на проектах и смогут применять полученные знания у себя, не важно даже если вы сейчас работаете на позиции Manual QA, но хотите с чего-то начать.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Требования:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Опыт работы на позиции QA engineer&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Знание консольных утилит git, linux commands&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Чего не будет:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Основ операционных систем&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Основ тестирования&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Много теории&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Что будет:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Основы Java&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Много практики&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Создание проекта для тетирования REST API.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;подходы к автоматизации&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;структура проекта&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;управление тестовыми данными&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Создание проекта для тестирования UI
-- подходы к построению “фреймворка” на основе как проверенных инструментов, так и альтернативных типа HTMLElements 2
-- подходы к управлению тестовыми данными
-- репортинг&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Настройка CI&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Запуск тестов в Docker контейнерах - обзор существующих решений и работа с инструментами которые я использую каждый день
-Все это с реальным демо проектом построенным на микросервисной архитектуре.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;По длительности примерно 1.5 месяца. 1 лекция по выходным и 7 дней на выполнение домашнего задания.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Для записи на тренинг пишите на почту &lt;a href=&quot;mailto:automationremarks@gmail.com&quot;&gt;automationremarks@gmail.com&lt;/a&gt; либо в telegram @spirogov.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Не упустите свой шанс научиться писать автоматические тесты к началу лета.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
