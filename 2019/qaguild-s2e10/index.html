@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Тест кейсы как код</title>
+    <title>S2E10: Про Android автоматизацию на Espresso</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Тест кейсы как код">
+    <meta property="og:title" content="S2E10: Про Android автоматизацию на Espresso">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="О своем опыте использования тест кейсов как кода"/>
+        	<meta property="og:description" content="Разговор про нативные тесты под Android"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -88,121 +88,107 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                27/10/2018
+                                05/08/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Тест кейсы как код</h1>
+                        <h1 class="post-title">S2E10: Про Android автоматизацию на Espresso</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Очень давно не писал заметок, так как блог в основном переехал в <a href="https://t.me/automation_remarks">телеграм</a>.</p>
+<p>Подготовили очередной эпизод подкаста. В этом выпуске поговорили о нативных тестах под Android с помощью Espresso, инфраструктуре, ранерах и врапперах.
+Приятного прослушивания.</p>
 </div>
 <div class="paragraph">
-<p>Сегодня расскажу о подходе использования Test cases as a code. Я уже очень давно думал о такой штуке,
-но не хватало опыта ее внедрения.</p>
+<p>Гости:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Денис Зеленчук - автор книги по еспрессо</p>
+</li>
+<li>
+<p>Алексей Тюрин - главный по еспрессо в ВК</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Что же такое тест кейсы как код? На старте проекта я задумался о том, как можно сократить время на
-написание тест кейсов. Плюс мне хотелось как-то контролировать создание тест кейсов и их правки.
-На проекте в качестве тест кейс менеджмент-системы используется Test Rail. С ним у меня опыта достаточно
-много, я писал интерграции для создания тест ранов и проставления статусов во время прогона тестов.</p>
+<p>Темы:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>00:00:44 - Начало</p>
+</li>
+<li>
+<p>00:00:56 - Гости</p>
+</li>
+<li>
+<p>00:03:17 - Про нативные тесты</p>
+</li>
+<li>
+<p>00:08:13 - Про архитектуру экспрессо</p>
+</li>
+<li>
+<p>00:12:50 - Возможности</p>
+</li>
+<li>
+<p>00:18:47 - Когда лучше использовать?</p>
+</li>
+<li>
+<p>00:23:24 - Врапперы</p>
+</li>
+<li>
+<p>00:34:59 - Инфраструктура для запуска</p>
+</li>
+<li>
+<p>00:43:42 - Про эмуляторы</p>
+</li>
+<li>
+<p>00:46:39 - Про раннеры</p>
+</li>
+<li>
+<p>00:53:23 - Firebase Test Lab</p>
+</li>
+<li>
+<p>00:54:54 - Espresso Test Recorder</p>
+</li>
+<li>
+<p>00:57:18 - AndroidX Test</p>
+</li>
+<li>
+<p>01:01:02 - Недостатки</p>
+</li>
+<li>
+<p>01:10:03 - Про книгу</p>
+</li>
+<li>
+<p>01:15:33 - Что почитать кроме книги Дениса?</p>
+</li>
+<li>
+<p>01:19:25 - Инструментация и код кавередж</p>
+</li>
+<li>
+<p>01:21:31 - Патроны</p>
+</li>
+<li>
+<p>01:23:31 - Финал</p>
+</li>
+</ul>
+</div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/676568699&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 <div class="paragraph">
-<p>Однако у Test Rail есть один фатальный недостаток - сложно контролировать создание тест кейсов. Там нет такого
-понятия, как ревью. Мне же хотелось управлять процессом.</p>
-</div>
-<div class="paragraph">
-<p>Решение оказалось достаточно простым. Вместо детальных тест кейсов было принято решение использовать чеклист.
-Пуктами чеклиста и есть наши методы автотестов.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
-void userCanLoginWithValidCredentails(){
-   LoginPage.open()
-        .enterPassword("admin")
-        .enterLogin("admin")
-        .pressLogin();
-
-   at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Сюда мы прикручиваем интеграцию с Test Rail, которая <strong>не запуская тестов</strong> вытаскивает нужную информацию и записывает ее в виде пункта чеклиста.</p>
-</div>
-<div class="paragraph">
-<p>Остается одна проблема - не всегда проверки можно автоматизировать. Следовательно нужно было как-то документировать ручные проверки.
-Эту проблему я решил через аннотации.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
-@Manual({
-   @Case(title = "Check user login is disabled after three incorrect login attempts ", ac = "1")
-})
-void userCanLoginWithValidCredentails(){
-   LoginPage.open()
-        .enterPassword("admin")
-        .enterLogin("admin")
-        .pressLogin();
-
-   at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь с помощью расширенного модуля интеграции с тест рейлом информация из этой аннотации вытаскивается и создается пункт чеклиста
-и помечается как ручной.</p>
-</div>
-<div class="paragraph">
-<p>После проверки теории и стадии PoC последовало развитие идеи и реализация боевого решения. Мы добавили аннотации для связи с Jira.
-В итоге решение выглядит так:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Epic("Login")
-public class UserLoginTest {
-
-    @Test
-    @Manual({
-       @Case(title = "Check user login is disabled after three incorrect login attempts ", ac = "1")
-    })
-    @Jira(id="Jira-567", title="User is able to to the system login")
-    void userCanLoginWithValidCredentails(){
-       LoginPage.open()
-            .enterPassword("admin")
-            .enterLogin("admin")
-            .pressLogin();
-
-       at(MainPage.class).userLoggedName.shouldHave(exactText("admin"));
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Для генерации тест кейсов была написана gradle задача. Генерация выполняется прямо из IDE с помощью вызова <strong>./gradlew syncTestRail</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Что мы получили в итоге?</strong></p>
-</div>
-<div class="paragraph">
-<p>Все тест кейсы у нас хранятся в коде и проходят ревью точно так же, как и код. У всех аккаунтов в тест рейле есть право только на
-просмотр, таким образом никто не может внести изменения, кроме как через код. Единственной точкой правды является сорс код автоматизированных тестов.
-Модуль интеграции расширен и теперь во время прогона тестов есть возможность автоматически создавать тест ран на основе запускаемых тестов
-и проставлять статусы соотвествующим тестам. Мы сократили уровень ручной работы до нулевого, повысили прозрачность процесса.
-Надеюсь, мой опыт поможет вам сделать что-то подобное. Оставайтесь на связи, подписывайтесь на <a href="https://t.me/automation_remarks">телеграм канал</a>.</p>
+<p>Подписывайтесь на наш telegram канал - <a href="https://t.me/automation_remarks" class="bare">https://t.me/automation_remarks</a></p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/TestNG.html">TestNG</a>
+                                       href="/tags/Podcast.html">Podcast</a>
                             </div>
                     </footer>
 
@@ -218,7 +204,6 @@ public class UserLoginTest {
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live15/index.html">QAGuild live #15: Про обучение для тестировщиков</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live14/index.html">QAGuild live #14: Про облака для UI автоматизации</a></li>
-                                                <li><a class='js-ajax-link' href="/2019/qaguild-s2e10/index.html">S2E10: Про Android автоматизацию на Espresso</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live13/index.html">QAGuild live #13: Про локаторы в UI автоматизации тестирования</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-s2e9/index.html">QAGuild подкаст s2e9: Разговоры про Python в тестировании</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live12/index.html">QAGuild live #12: Тестовое задание для тестировщика</a></li>

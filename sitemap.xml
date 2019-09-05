@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>http://automation-remarks.com//consult/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//course/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//thank-you/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//training/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//workshop-online/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//workshop/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//2019/qaguild-live15/index.html</loc>
@@ -31,6 +31,10 @@
     <url>
         <loc>http://automation-remarks.com//2019/qaguild-live14/index.html</loc>
         <lastmod>2019-08-19</lastmod>
+    </url>
+    <url>
+        <loc>http://automation-remarks.com//2019/qaguild-s2e10/index.html</loc>
+        <lastmod>2019-08-05</lastmod>
     </url>
     <url>
         <loc>http://automation-remarks.com//2019/qaguild-live13/index.html</loc>
@@ -686,6 +690,6 @@
     </url>
     <url>
         <loc>http://automation-remarks.com//author/index.html</loc>
-        <lastmod>2019-09-02</lastmod>
+        <lastmod>2019-09-05</lastmod>
     </url>
 </urlset>
