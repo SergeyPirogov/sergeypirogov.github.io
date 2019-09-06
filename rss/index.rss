@@ -14,55 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 5 Sep 2019 19:08:55 +0000</pubDate>
-    <lastBuildDate>Thu, 5 Sep 2019 19:08:55 +0000</lastBuildDate>
+    <pubDate>Fri, 6 Sep 2019 07:36:38 +0000</pubDate>
+    <lastBuildDate>Fri, 6 Sep 2019 07:36:38 +0000</lastBuildDate>
 
-        <item>
-          <title>
-              QAGuild live #15: Про обучение для тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live15/index.html</link>
-          <pubDate>Mon, 2 Sep 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live15/index.html</guid>
-          <description>
-                        Разговор про обучение и менторинг для тестировщиков
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Обучение - неотъемлемый процесс, который сопровождает тестировщика на протяжении всей карьеры. В этом видео дам советы по обучению. Как организовать процесс, найти ментора и сколько это может стоить.
-Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/h94wnyRCdZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #14: Про облака для UI автоматизации
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live14/index.html</link>
-          <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live14/index.html</guid>
-          <description>
-                        Разговор про Sauce labs и Selenoid browsers
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этот раз решил поэкспериментировать и добавил к разговору еще и live demo со сравнением Sauce labs против Selenoid browsers. Мне очень важно получить обратную свять по поводу такого формата.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cq2KNFnr2W8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
         <item>
           <title>
               S2E10: Про Android автоматизацию на Espresso
           </title>
           <link>http://automation-remarks.com/2019/qaguild-s2e10/index.html</link>
-          <pubDate>Mon, 5 Aug 2019 00:00:00 +0000</pubDate>
+          <pubDate>Thu, 5 Sep 2019 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2019/qaguild-s2e10/index.html</guid>
           <description>
                         Разговор про нативные тесты под Android
@@ -153,6 +113,46 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Подписывайтесь на наш telegram канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #15: Про обучение для тестировщиков
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live15/index.html</link>
+          <pubDate>Mon, 2 Sep 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live15/index.html</guid>
+          <description>
+                        Разговор про обучение и менторинг для тестировщиков
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Обучение - неотъемлемый процесс, который сопровождает тестировщика на протяжении всей карьеры. В этом видео дам советы по обучению. Как организовать процесс, найти ментора и сколько это может стоить.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/h94wnyRCdZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #14: Про облака для UI автоматизации
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live14/index.html</link>
+          <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live14/index.html</guid>
+          <description>
+                        Разговор про Sauce labs и Selenoid browsers
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этот раз решил поэкспериментировать и добавил к разговору еще и live demo со сравнением Sauce labs против Selenoid browsers. Мне очень важно получить обратную свять по поводу такого формата.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cq2KNFnr2W8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
         <item>
