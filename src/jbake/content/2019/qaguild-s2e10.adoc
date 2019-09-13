@@ -1,6 +1,6 @@
 = S2E10: Про Android автоматизацию на Espresso
 Сергей Пирогов
-2019-08-05
+2019-09-05
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: Разговор про нативные тесты под Android
