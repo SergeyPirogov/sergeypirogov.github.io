@@ -14,9 +14,49 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 6 Sep 2019 07:36:38 +0000</pubDate>
-    <lastBuildDate>Fri, 6 Sep 2019 07:36:38 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Sep 2019 11:05:13 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Sep 2019 11:05:13 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              PhotoHack Odessa
+          </title>
+          <link>http://automation-remarks.com/2019/hackaton/index.html</link>
+          <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/hackaton/index.html</guid>
+          <description>
+                        PhotoHack Odessa — хакатон по созданию решения для креативной визуализации сообщений в мессенджерах.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;PhotoHack Odessa — хакатон по созданию решения для креативной визуализации сообщений в мессенджерах.
+Призовой фонд 200 000 гривен!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Новый хакатон от создателей популярного приложения Photo Lab. Участникам предстоит разработать креативное решение для визуализации текста, которое будет использовано в клавиатуре для мессенджеров. На входе программа получает текст и селфи пользователя, а возвращает изображение, которое можно использовать в дополнение к тексту или вместо него.
+PhotoHack Odessa — это полная свобода творчества для разработчиков, дизайнеров, и просто креативных людей, которые не боятся экспериментов и готовы создавать новые форматы общения в мессенджерах.
+Кого мы ждём: студентов технических и художественных вузов и креативных людей.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;А теперь о призах:
+1-е место 100 000 гривен
+2-е место 65 000 гривен
+3-е место 35 000 гривен&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Помимо этого:
+— Победители получат возможность сотрудничать с Photo Lab.
+— Лучшие команды могут получить контракт на разработку от Photo Lab на сумму до 700 000 гривен
+Прием заявок до 27 сентября
+Спешите! Количество мест ограничено.
+Регистрация:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;telegram: &lt;a href=&quot;http://bit.ly/2lV48G6&quot; class=&quot;bare&quot;&gt;http://bit.ly/2lV48G6&lt;/a&gt;
+blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;http://bit.ly/2m1PRYn&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               S2E10: Про Android автоматизацию на Espresso
@@ -616,26 +656,6 @@
 Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/bIjzIldCUpI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild youtube канал
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-youtube/index.html</link>
-          <pubDate>Sun, 31 Mar 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-youtube/index.html</guid>
-          <description>
-                        Первый youtube канал про автоматизацию тестирования
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Почистил мусор на ютуб канале и попробовал сделать стрим.
-Работает лучше чем стримы в ФБ.
-Там и поселюсь.
-Подписывайтесь, пишите в комментариях вопросы, будем обсуждать&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/r-ra_iFNio0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
