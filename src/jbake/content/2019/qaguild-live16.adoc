@@ -1,0 +1,18 @@
+= QAGuild live #16: Про войти в IT через тестирование
+Сергей Пирогов
+2019-09-22
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом выпуске рассказал о том, какие позитивные и негативные моменты ожидают тестировщиков на пути в IT через тестирование
+:jbake-status: published
+
+Часто слышу вопросы о том, как начать свой путь в тестировании. В этом выпуске рассказал о том, какие позитивные и негативные моменты ожидают тестировщиков на пути в IT через тестирование
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9NDkARp_yn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
