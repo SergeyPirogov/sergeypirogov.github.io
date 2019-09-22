@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 13 Sep 2019 11:05:13 +0000</pubDate>
-    <lastBuildDate>Fri, 13 Sep 2019 11:05:13 +0000</lastBuildDate>
+    <pubDate>Sun, 22 Sep 2019 12:28:14 +0000</pubDate>
+    <lastBuildDate>Sun, 22 Sep 2019 12:28:14 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #16: Про войти в IT через тестирование
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live16/index.html</link>
+          <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live16/index.html</guid>
+          <description>
+                        В этом выпуске рассказал о том, какие позитивные и негативные моменты ожидают тестировщиков на пути в IT через тестирование
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Часто слышу вопросы о том, как начать свой путь в тестировании. В этом выпуске рассказал о том, какие позитивные и негативные моменты ожидают тестировщиков на пути в IT через тестирование&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9NDkARp_yn0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               PhotoHack Odessa
@@ -638,24 +671,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/kRPU8gJ4s-w&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #3: С чего начинать автоматизатору?
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live3/index.html</link>
-          <pubDate>Sun, 31 Mar 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live3/index.html</guid>
-          <description>
-                        Размышления на тему старта карьеры QA Automation
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Размышления о том, как начать изучение автоматического тестирования и начать свой путь как QA Automation.
-Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/bIjzIldCUpI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
