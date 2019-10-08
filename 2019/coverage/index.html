@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Тренинг по автоматизации тестирования API</title>
+    <title>Test impact analysis или как наколхозить кавередж</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Тренинг по автоматизации тестирования API">
+    <meta property="og:title" content="Test impact analysis или как наколхозить кавередж">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Тренинг по автоматизации тестирования API"/>
+        	<meta property="og:description" content="Мысли про тест кавередж"/>
 	
 	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
     <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
@@ -88,51 +88,106 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                21/06/2019
+                                06/10/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Тренинг по автоматизации тестирования API</h1>
+                        <h1 class="post-title">Test impact analysis или как наколхозить кавередж</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Все желающие научиться автоматизировать API тесты с помощью Java могут получить доступ к тренингу.</p>
+<p>Здарова. Давненько я ничего не писал на страницах этого блога.
+Решил тряхнуть стариной и написать о некоторых наработках, которые я делал по части
+test impact анализа и измерения кавереджа.</p>
 </div>
 <div class="paragraph">
-<p>Что ты сможешь узнать?</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>создание проекта для тестирования REST API</p>
-</li>
-<li>
-<p>как правильно построить архитектуру</p>
-</li>
-<li>
-<p>управление тестовыми данными</p>
-</li>
-<li>
-<p>работа со SWAGGER</p>
-</li>
-<li>
-<p>способы сделать информативные отчеты</p>
-</li>
-<li>
-<p>интеграция с CI</p>
-</li>
-</ul>
+<p>В один прекрасный момент на одном из проектов которые мы тестировали я начал чувствовать,
+что чего не хватает. Тесты у нас покрывают аксептанс критерии, багов критических нет, но
+как-то внятного понимания что и насколько хорошо мы тестируем не было.
+Хотелось иметь возможность запустить автотесты и посмотреть что и как мы там на бекенде зацепили.
+Я начал копать в эту сторону. Для джавы есть такая библиотека - Jacoco. С помощью нее можно измерить кавередж вашего кода.</p>
 </div>
 <div class="paragraph">
-<p>Регистрация по ссылке <a href="http://automation-remarks.com/consult/" class="bare">http://automation-remarks.com/consult/</a> либо в telegram @spirogov.</p>
+<p>Качаем jacocoagent.jar и подключаем к вашему проекту. Сделать это можно через переменную JAVA_TOOL_OPTIONS:</p>
+</div>
+<div class="paragraph">
+<p>Пример для докера:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>JAVA_TOOL_OPTIONS='-javaagent:/jacoco/jacocoagent.jar=port=36321,output=tcpserver,address=0.0.0.0'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Здесь важно задать порт и указать address=0.0.0.0 иначе в докере оно работать не будет.
+В момент старта контейнера не забудьте открыть порт 36321.</p>
+</div>
+<div class="paragraph">
+<p>Теперь после запуска вышего приложения с подключенным агентом, вы можете запускать свои автотесты, либо же тестировать руками.</p>
+</div>
+<div class="paragraph">
+<p>В момент когда вам стало скучно или вы решили закончить тестировать, вы можете легко сдампать результат кавереджа.</p>
+</div>
+<div class="paragraph">
+<p>Для этого вам понадобится jacococli.jar. Скачиваем его и выполняем команду:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>java -jar jacoco/jacococli.jar dump --port=36322 --address=localhost --destfile=cov/result.exec</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь вы можете взять файл result.exec и посмотреть кавередж в Idea.
+Открываем код сервиса, который вы тестировали и в идеа идем в меню Analyze &#8594; Show coverage data.
+Вуаля, вы получаете подсвеченными строчки которые вы потрогали своими тестами.</p>
+</div>
+<div class="paragraph">
+<p>Вы можете легко дампать каверед после каждого автотеста, и смотреть результаты в гранулярном масштабе.
+Уважаемые SDET специалисты могут попробовать наколхозить вокруг этого какую-то интересную аналитику.
+Я в своем проекте для подкаста делал так, чтобы рядом с моими контейнерами бежал сайдкар, который умеет дампить кавередж:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gateway:
+    image: gateway:latest
+    container_name: timecoder-gateway
+    depends_on:
+      - mysql
+    ports:
+      - 8086:5000
+    links:
+      - timecoder-api
+  inspector:
+    image: spirogov/inspector:latest
+    container_name: inspector
+    ports:
+      - 8088:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - HOSTS=timecoder-api:36321, timecoder-gateway:36321
+      - DEST_FOLDER=coverage
+    volumes:
+      - "/gateway/coverage:/coverage"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Инспектор в моем случае позволял сдампить каверед со всех сервером при помощи одного REST запроса.</p>
+</div>
+<div class="paragraph">
+<p>Вот так достаточно просто вы можете понять, качество ваших тестов. Дерзайте.</p>
+</div>
+<div class="paragraph">
+<p>Подписывайтесь на телеграмм канал, чтобы получать самые свежие новости <a href="https://t.me/automation_remarks" class="bare">https://t.me/automation_remarks</a></p>
 </div>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тренинг.html">Тренинг</a>
+                                       href="/tags/Java.html">Java</a>
+                                    <a style="background: cornflowerblue;"
+                                       href="/tags/Тестовый-фреймворк.html">Тестовый фреймворк</a>
                             </div>
                     </footer>
 
@@ -147,7 +202,6 @@
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live17/index.html">QAGuild live #17: Про умение объяснять для тестировщика</a></li>
-                                                <li><a class='js-ajax-link' href="/2019/coverage/index.html">Test impact analysis или как наколхозить кавередж</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live16/index.html">QAGuild live #16: Про войти в IT через тестирование</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/hackaton/index.html">PhotoHack Odessa</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-s2e10/index.html">S2E10: Про Android автоматизацию на Espresso</a></li>
