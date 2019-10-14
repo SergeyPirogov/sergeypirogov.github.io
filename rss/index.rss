@@ -14,9 +14,80 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 8 Oct 2019 16:01:39 +0000</pubDate>
-    <lastBuildDate>Tue, 8 Oct 2019 16:01:39 +0000</lastBuildDate>
+    <pubDate>Mon, 14 Oct 2019 07:20:59 +0000</pubDate>
+    <lastBuildDate>Mon, 14 Oct 2019 07:20:59 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              S2E11: Про тестирование контрактов
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-s2e11/index.html</link>
+          <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-s2e11/index.html</guid>
+          <description>
+                        Разговор про тестирование контрактов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подготовили очередной эпизод подкаста. В этом выпуске поговорили о тестировании контрактов с помощью PACT и Spring Cloud contracts.
+Приятного прослушивания.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Александр Романов - главный SDET&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Андрей Закордонец - заморский SDET&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:00:39 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:51 - Про подход в целом&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:34:15 - Про тулы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:42:17 - Контракты в GraphQL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:47:43 - Про плюсы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:57:02 - Про сложности внедрения&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:00:32 - Про минусы&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:22:23 - Патроны&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:24:57 - Прощание&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Telegram: t.me/automation_remarks&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Стать патроном: www.patreon.com/automation_remarks&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/694390522&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #17: Про умение объяснять для тестировщика
@@ -748,24 +819,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/TyolewvMsJU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #6: Какие soft skills важны для QA инженера?
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live6/index.html</link>
-          <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live6/index.html</guid>
-          <description>
-                        Размышления на тему собеседований для QA Automation
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Разговор про soft skills для тестировщиков.
-Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Ju642sm655U&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
