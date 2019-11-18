@@ -14,9 +14,55 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 14 Oct 2019 07:20:59 +0000</pubDate>
-    <lastBuildDate>Mon, 14 Oct 2019 07:20:59 +0000</lastBuildDate>
+    <pubDate>Mon, 18 Nov 2019 07:23:59 +0000</pubDate>
+    <lastBuildDate>Mon, 18 Nov 2019 07:23:59 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Черная пятница от automation-remarks.com
+          </title>
+          <link>http://automation-remarks.com/2019/black-friday-2019/index.html</link>
+          <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/black-friday-2019/index.html</guid>
+          <description>
+                        Черная пятница
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, я решил устроить черную пятницу для подписчиков канала. Я часто сталкиваюсь с вопросами о том, как начать автоматизацию, как построить проект и какие технологии выбрать. Я решил помочь людям и готов устроить праздник скидок на тренинги, которые я проводил в этом году:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;API automation Java&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UI automation Java&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;API automation Python&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Специальная цена будет действовать до 30 ноября 2019:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;📍- Один тренинг-30$&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;📍
+- За два будет-50$&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;📍- За три будет-70$&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В них я показывал как построить проект, с чего начать и как довести все до CI сервера. Отличная возможность посмотреть на идеи и подходы и сделать автоматизацию на своем проекте лучше.
+По всем вопросам пишите в ТГ в личку @qa_automation_bot или через форму &lt;a href=&quot;http://automation-remarks.com/training/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/training/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               S2E11: Про тестирование контрактов
@@ -801,24 +847,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Ставьте лайки, пишите в комментариях свои вопросы.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zf0BpWj7fdc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #7: Про фреймворк по автоматизации тестирования
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live7/index.html</link>
-          <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live7/index.html</guid>
-          <description>
-                        Разговор о фреймворках по автоматизации тестирования
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Разговор о фреймворках по автоматизации тестирования. Как и когда начинать его писать и нужно ли вообще это делать в наше время.
-Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/TyolewvMsJU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
