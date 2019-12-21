@@ -1,0 +1,18 @@
+= QAGuild live #19: Чемпионат по автоматизации тестирования на Java
+Сергей Пирогов
+2019-12-21
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом выпуске писали автотесты
+:jbake-status: published
+
+В этом видео показан пример построения проекта по автоматизации тестирования на Java
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6-OPMvywjUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
