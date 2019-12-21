@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Lettuce Python</title>
+    <title>QAGuild live #19: Чемпионат по автоматизации тестирования на Java</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Lettuce Python">
+    <meta property="og:title" content="QAGuild live #19: Чемпионат по автоматизации тестирования на Java">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="О BDD для Python"/>
+        	<meta property="og:description" content="В этом выпуске писали автотесты"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -88,139 +88,42 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                21/03/2015
+                                21/12/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Lettuce Python</h1>
+                        <h1 class="post-title">QAGuild live #19: Чемпионат по автоматизации тестирования на Java</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Готовился я как-то к презентации по Behaviour Driven Development, готовил практические примеры по различным тулам и решил показать пример того как можно реализовать BDD с помощью Python. Посмотрел на Behave и на Lettuce см тут. Мой выбор пал на второй инструмент, не знаю почему, видимо потому что тесты писать проще и быстрее. Дабы не быть голословным приведу пример. Начнем с установки. Ставим Python <strong>2.7 (Это ВАЖНО - на Python 3 работать не будет)</strong>. Ставим lettuce и selenium:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">pip install lettuce
-pip install selenium
-pip install PyHumcrest</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Создадим иерархию папок:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">lettuce_demo
-    | features</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В корневом каталоге создадим файлик <strong>terrain.py</strong>, он будет содержать команды, которые будут выполнять на разных стадиях исполнения тестов, в данном случае файл имеет такое содержание:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import before, after, world
-from selenium import webdriver
-from mapping import site_mapping
-
-
-@before.each_feature
-def setup(server):
-    world.browser = webdriver.Firefox()
-    world.mapping = site_mapping
-
-
-@after.all
-def tear_down(total):
-    world.browser.close()</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Затем, в корне,создаем файл <strong>mapping.py</strong>. Этой файл содержит локаторы элементов, такой себе <strong>PageObject</strong>, только необычный:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">host_url = "http://pn.com.ua"
-
-site_mapping = {
-    "pc_search": {
-        "url": host_url,
-        "computers": ".//*[@id='page-content-wrap']/div/div[1]/div/h1[1]/a",
-        "notebook": ".//*[@id='page-content-wrap']/div[3]/div[1]/div/div[2]/a",
-        "model_number": ".//*[@id='page-content-wrap']/div[3]/div[1]/div[1]/div/div[2]/div[1]/b"
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В локаторых можно использовать как <strong>XPath</strong> так и СSS Selectors.
-В папке features создаем <strong>pc.feature</strong> - этот файл содержит описание теста.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">Feature: search
-  Scenario: Search pc
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "2703" in "model_number"
-
-  Scenario: Search pc fail
-    Open "pc_search" page
-    Click "computers"
-    Click "notebook"
-    See "27012" in "model_number"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В создаем <strong>features/steps.py</strong> - файл содержит описания шагов, используемых в <strong>*.feature</strong> файлах</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-python" data-lang="python">from lettuce import step, world
-from hamcrest import *
-
-@step(r'Open "(.*)" page')
-def should_open_main_page(step, page):
-    world.current_page = world.mapping[page]
-    world.browser.get(world.current_page['url'])
-
-@step(u'Click "([^"]*)"')
-def click_group1(step, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    el.click()
-
-@step(u'See "([^"]*)" in "([^"]*)"')
-def see_group1_in_group2(step, text, element):
-    el = world.browser.find_element_by_xpath(world.current_page[element])
-    assert_that(el.text, equal_to(text))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Вот и все. В консоли в корне проекта пишем: <strong>lettuce</strong> - вуаля видим как запускается браузер и проходят тесты.</p>
-</div>
-<div class="paragraph">
-<p><strong>Вывод:</strong></p>
+<p>В этом видео показан пример построения проекта по автоматизации тестирования на Java</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Lettuce могут использовать как тестировщики так и разработчики.</p>
+<p>Подписывайтесь в telegram - <a href="http://bit.ly/qaguild-telegram" class="bare">http://bit.ly/qaguild-telegram</a></p>
 </li>
 <li>
-<p>Высокая устойчивость к изменениям в верстке и структуре сайта в целом благодоря mapping.py</p>
+<p>Слушайте наш подкаст - <a href="http://bit.ly/qaguild-podcast" class="bare">http://bit.ly/qaguild-podcast</a></p>
+</li>
+<li>
+<p>Заходите в наш Slack канал - <a href="http://bit.ly/qaguild-slack" class="bare">http://bit.ly/qaguild-slack</a></p>
+</li>
+<li>
+<p>Становитесь патроном - <a href="http://bit.ly/qaguild-patreon" class="bare">http://bit.ly/qaguild-patreon</a></p>
 </li>
 </ul>
 </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6-OPMvywjUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Python.html">Python</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                       href="/tags/Youtube.html">Youtube</a>
                             </div>
                     </footer>
 
@@ -234,7 +137,6 @@ def see_group1_in_group2(step, text, element):
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2019/qaguild-live19/index.html">QAGuild live #19: Чемпионат по автоматизации тестирования на Java</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/black-friday-2019/index.html">Черная пятница от automation-remarks.com</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-s2e11/index.html">S2E11: Про тестирование контрактов</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live17/index.html">QAGuild live #17: Про умение объяснять для тестировщика</a></li>
@@ -295,8 +197,8 @@ def see_group1_in_group2(step, text, element):
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 18 Nov 2019 07:23:59 +0000</pubDate>
-    <lastBuildDate>Mon, 18 Nov 2019 07:23:59 +0000</lastBuildDate>
+    <pubDate>Sat, 21 Dec 2019 12:31:47 +0000</pubDate>
+    <lastBuildDate>Sat, 21 Dec 2019 12:31:47 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #19: Чемпионат по автоматизации тестирования на Java
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live19/index.html</link>
+          <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live19/index.html</guid>
+          <description>
+                        В этом выпуске писали автотесты
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео показан пример построения проекта по автоматизации тестирования на Java&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6-OPMvywjUk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Черная пятница от automation-remarks.com
@@ -829,24 +862,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Zc6aqHwfS3g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild подкаст: Егор Бугаенко про роль тестировщика в команде
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-s2e7/index.html</link>
-          <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-s2e7/index.html</guid>
-          <description>
-                        Разговор о роли тестировщика в команде разработки ПО
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Разговор о роли тестировщика в команде разработки ПО. Обсудили вопросы надобности роли тестировщика на проекте и его зоны ответственности. Аспекты и способы вознаграждения тестировщиков за найденные баги.
-Ставьте лайки, пишите в комментариях свои вопросы.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zf0BpWj7fdc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
