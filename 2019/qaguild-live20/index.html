@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Делаем тесты читабельнее. Кастомный Matcher</title>
+    <title>QAGuild live #20: Что ждет тестировщика в 2020 году</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Делаем тесты читабельнее. Кастомный Matcher">
+    <meta property="og:title" content="QAGuild live #20: Что ждет тестировщика в 2020 году">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Новая заметка о том, как сделать тесты читабельнее."/>
+        	<meta property="og:description" content="Новогодний стрим"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -88,118 +88,42 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                02/08/2015
+                                26/12/2019
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Делаем тесты читабельнее. Кастомный Matcher</h1>
+                        <h1 class="post-title">QAGuild live #20: Что ждет тестировщика в 2020 году</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Новая заметка о том, как сделать тесты читабельнее. Я уже писал <a href="http://automation-remarks.com/davaitie-poghovorim-pro-asserty/">заметку</a> про библиотеки, которые помогают писать простые ассерты. Зачастую функциональности, которую предоставляют эти библиотеки, хватает для написания читабельных тестов. Но мы же идем путем улучшения. Бывают случаи, когда нужно написать свой собственный матчер, чтобы упростить ассерт или сделать его читабельнее.</p>
+<p>В этом эпизоде подвели итоги 2019 года и обсудили тренды в мире тестирования на 2020 год.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="http://automation-remarks.com/content/images/2015/08/debrief.gif" alt="debrief">
+<div class="ulist">
+<ul>
+<li>
+<p>Подписывайтесь в telegram - <a href="http://bit.ly/qaguild-telegram" class="bare">http://bit.ly/qaguild-telegram</a></p>
+</li>
+<li>
+<p>Слушайте наш подкаст - <a href="http://bit.ly/qaguild-podcast" class="bare">http://bit.ly/qaguild-podcast</a></p>
+</li>
+<li>
+<p>Заходите в наш Slack канал - <a href="http://bit.ly/qaguild-slack" class="bare">http://bit.ly/qaguild-slack</a></p>
+</li>
+<li>
+<p>Становитесь патроном - <a href="http://bit.ly/qaguild-patreon" class="bare">http://bit.ly/qaguild-patreon</a></p>
+</li>
+</ul>
 </div>
-</div>
-<div class="paragraph">
-<p>Зачем вообще это нужно? Скажем, у вас есть инстанс HttpResponse и вам нужно проверить его параметры.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
-public void testSpeller() throws Exception {
-        ResponseEntity&lt;String&gt; response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
-
-//typical
-assertThat(response.getStatusCode(),equalTo(HttpStatus.OK));
-
-//custom
-assertThat(response,code(OK));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Этот пример наглядно показывает, что с применением кастомных матчеров код становится читабельнее. Нужно отметить, что существует определенное количество библиотек, которые позволяют использовать готовые матчеры. К примеру, набор матчеров от <strong>Yandex</strong>. Брать чужое и пользоваться - это хорошо, но еще лучше уметь написать свой матчер. Приступим к написанию <strong>hamcrest</strong> матчера.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
-/**
- * Created by sergey on 02.08.15.
- */
-public class HttpResponseCodeMatcher extends TypeSafeMatcher&lt;ResponseEntity&lt;String&gt;&gt; {
-
-     private HttpStatus status;
-
-    public HttpResponseCodeMatcher(HttpStatus status) {
-        this.status = status;
-    }
-
-    @Override
-    protected boolean matchesSafely(ResponseEntity&lt;String&gt; response) {
-        return response.getStatusCode().equals(status);
-    }
-
-    @Override
-    public void describeTo(Description description) {
-        description.appendText("status code: ").appendValue(status);
-    }
-
-    @Override
-    protected void describeMismatchSafely(ResponseEntity&lt;String&gt; item, Description mismatchDescription) {
-        mismatchDescription.appendText("was: ").appendValue(item.getStatusCode());
-    }
-
-    public static Matcher&lt;ResponseEntity&lt;String&gt;&gt; code(HttpStatus status) {
-        return new HttpResponseCodeMatcher(status);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Все, что нам нужно, - это просто наследовать класс <strong>TypeSafeMatcher</strong> и реализовать три метода. Нужно быть внимательным: третий метод <strong>describeMismatchSafely</strong> не является абстрактным, по умолчанию он будет выводить результат, просто вызывая на объекте <strong>toString()</strong>. Мы же переопределили этот метод и в результате у нас получается такой вот код:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Test
-public void testSpeller() throws Exception {
-   ResponseEntity&lt;String&gt; response = restTemplate.getForEntity("http://speller.yandex.net/services/spellservice.json/checkText?text=синхрафазатрон+в+дубне", String.class);
-   assertThat(response, code(ACCEPTED));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>И такое сообщение об ошибке:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-java" data-lang="java">java.lang.AssertionError:
-Expected: status code: <b class="conum">(202)</b>
-     but: was: <b class="conum">(200)</b>
-    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-    at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-    at com.matcher.MatcherTest.testSpeller(MatcherTest.java:62)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Ну вот, очень легко и просто мы написали свой матчер и улучшили читабельность наших тестов. Более того, кастомные матчеры очень хороши при использовании <strong>Spock Framework</strong> в качестве тест ранера. Но это уже история следующей заметки. Подписывайтесь, чтобы получать заметки первыми. До встреч&#8230;&#8203;</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DcqaEsvDPWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/Youtube.html">Youtube</a>
                             </div>
                     </footer>
 
@@ -213,7 +137,6 @@ Expected: status code: <b class="conum">(202)</b>
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2019/qaguild-live20/index.html">QAGuild live #20: Что ждет тестировщика в 2020 году</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live19/index.html">QAGuild live #19: Чемпионат по автоматизации тестирования на Java</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/qaguild-live18/index.html">QAGuild live #18: Про GitHub в резюме тестировщика</a></li>
                                                 <li><a class='js-ajax-link' href="/2019/black-friday-2019/index.html">Черная пятница от automation-remarks.com</a></li>
@@ -274,8 +197,8 @@ Expected: status code: <b class="conum">(202)</b>
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

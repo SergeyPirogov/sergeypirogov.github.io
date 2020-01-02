@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 2 Jan 2020 07:56:38 +0000</pubDate>
-    <lastBuildDate>Thu, 2 Jan 2020 07:56:38 +0000</lastBuildDate>
+    <pubDate>Thu, 2 Jan 2020 07:58:21 +0000</pubDate>
+    <lastBuildDate>Thu, 2 Jan 2020 07:58:21 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #20: Что ждет тестировщика в 2020 году
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live20/index.html</link>
+          <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live20/index.html</guid>
+          <description>
+                        Новогодний стрим
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде подвели итоги 2019 года и обсудили тренды в мире тестирования на 2020 год.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/DcqaEsvDPWo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #19: Чемпионат по автоматизации тестирования на Java
@@ -856,25 +889,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cSVn1FoJ0W4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #9: Тестировщики ПО vs QC vs SDET в чем разница?
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live9/index.html</link>
-          <pubDate>Sat, 8 Jun 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live9/index.html</guid>
-          <description>
-                        Разговор о ролях в тестировании
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В сфере тестирования существует много различных абревиатур значение которых не всегда понятно. В этом выпуске порассуждаем о разнице между QA и QC. В завершении обсудим роль и ответвенности SDET.
-Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/sf-G9r4FFno&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
