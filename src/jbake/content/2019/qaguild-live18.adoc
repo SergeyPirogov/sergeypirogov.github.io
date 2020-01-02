@@ -1,0 +1,18 @@
+= QAGuild live #18: Про GitHub в резюме тестировщика
+Сергей Пирогов
+2019-11-21
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про Github в резюме
+:jbake-status: published
+
+Github - основная платформа для open-source разработки проектов. В этом видео поговорили о том, нужно ли хранить там проекты и прикладывать ссылку на них в своем резюме.
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yaC3ndr2C30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
