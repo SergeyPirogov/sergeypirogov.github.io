@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 21 Dec 2019 12:31:47 +0000</pubDate>
-    <lastBuildDate>Sat, 21 Dec 2019 12:31:47 +0000</lastBuildDate>
+    <pubDate>Thu, 2 Jan 2020 07:56:38 +0000</pubDate>
+    <lastBuildDate>Thu, 2 Jan 2020 07:56:38 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -48,6 +48,39 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6-OPMvywjUk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #18: Про GitHub в резюме тестировщика
+          </title>
+          <link>http://automation-remarks.com/2019/qaguild-live18/index.html</link>
+          <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2019/qaguild-live18/index.html</guid>
+          <description>
+                        Про Github в резюме
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Github - основная платформа для open-source разработки проектов. В этом видео поговорили о том, нужно ли хранить там проекты и прикладывать ссылку на них в своем резюме.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/yaC3ndr2C30&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
         <item>
@@ -842,26 +875,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/sf-G9r4FFno&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #8: BDD подход с точки зрения тестирования
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live8/index.html</link>
-          <pubDate>Mon, 3 Jun 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live8/index.html</guid>
-          <description>
-                        Разговор о BDD тестировании
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;BDD подход очень часто используется на проектах. Одни его хвалят и рекомендуют использовать, другие рассказывают о том, что это лишний слой и пользы от него нет.
-В этом эпизоде я расскажу о своем опыте работы с BDD.
-Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Zc6aqHwfS3g&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
