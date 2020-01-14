@@ -1,0 +1,18 @@
+= QAGuild live #21: Про отчеты в автотестах
+Сергей Пирогов
+2019-12-26
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про отчеты
+:jbake-status: published
+
+В этом эпизоде поговорим об отчетах в автоматизации тестирования. Сравним популярные решения RP vs Allure.
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P4Z67QNejgw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
