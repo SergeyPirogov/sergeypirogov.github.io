@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 14 Jan 2020 07:15:48 +0000</pubDate>
-    <lastBuildDate>Tue, 14 Jan 2020 07:15:48 +0000</lastBuildDate>
+    <pubDate>Tue, 14 Jan 2020 07:24:21 +0000</pubDate>
+    <lastBuildDate>Tue, 14 Jan 2020 07:24:21 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #21: Про отчеты в автотестах
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live21/index.html</link>
+          <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live21/index.html</guid>
+          <description>
+                        Про отчеты
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорим об отчетах в автоматизации тестирования. Сравним популярные решения RP vs Allure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/P4Z67QNejgw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #20: Что ждет тестировщика в 2020 году
@@ -870,25 +903,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Регистрация по ссылке &lt;a href=&quot;http://automation-remarks.com/consult/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/consult/&lt;/a&gt; либо в telegram @spirogov.&lt;/p&gt;
 &lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #10: Ответы на вопросы тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live10/index.html</link>
-          <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live10/index.html</guid>
-          <description>
-                        Ответы на вопросы зрителей стрима
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Юбилейный 10 cтрим решил посвятить ответам на вопросы зрителей. Из этого выпуска вы узнате про обучение, как определить свой уровень и какие форматы стримов я придумал на будущее.
-Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cSVn1FoJ0W4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
