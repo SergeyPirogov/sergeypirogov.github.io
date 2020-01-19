@@ -14,9 +14,32 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 15 Jan 2020 07:43:49 +0000</pubDate>
-    <lastBuildDate>Wed, 15 Jan 2020 07:43:49 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jan 2020 08:42:27 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jan 2020 08:42:27 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Помощь для начинающих и опытных тестировщиков
+          </title>
+          <link>http://automation-remarks.com/2020/ask-question/index.html</link>
+          <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/ask-question/index.html</guid>
+          <description>
+                        Про ответы не вопросы в telegram канале
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет👋
+На новогодних каникулах читал книги и думал о новых форматах общения для &lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;telegram канала&lt;/a&gt;.
+Очень часто у тебя может возникнуть вопрос и рядом нет человека, к которому можно обратиться за помощью.
+Задавайте свой вопросы через &lt;a href=&quot;https://t.me/qa_automation_bot&quot;&gt;@qa_automation_bot&lt;/a&gt; в telegram. Ответы на самые интересные и часто задаваемые вопросы будут появляться в канале.
+Надеюсь, эта инициатива поможет многим из вас найти  ответ на волнующие вас вопросы🤞.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ссылка на &lt;a href=&quot;https://t.me/automation_remarks/720&quot;&gt;оригинальный пост&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #21: Про отчеты в автотестах
@@ -858,50 +881,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Регистрация по ссылке &lt;a href=&quot;http://automation-remarks.com/training&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/training&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Тренинг по автоматизации тестирования API
-          </title>
-          <link>http://automation-remarks.com/2019/api-training/index.html</link>
-          <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/api-training/index.html</guid>
-          <description>
-                        Тренинг по автоматизации тестирования API
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Все желающие научиться автоматизировать API тесты с помощью Java могут получить доступ к тренингу.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Что ты сможешь узнать?&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;создание проекта для тестирования REST API&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;как правильно построить архитектуру&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;управление тестовыми данными&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;работа со SWAGGER&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;способы сделать информативные отчеты&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;интеграция с CI&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Регистрация по ссылке &lt;a href=&quot;http://automation-remarks.com/consult/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/consult/&lt;/a&gt; либо в telegram @spirogov.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
