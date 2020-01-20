@@ -3,7 +3,7 @@
 2020-01-19
 :jbake-type: post
 :jbake-tags: Telegram
-:jbake-summary: Про ответы не вопросы в telegram канале
+:jbake-summary: Про ответы на вопросы в telegram канале
 :jbake-status: published
 
 Привет👋
