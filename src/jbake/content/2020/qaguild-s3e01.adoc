@@ -1,6 +1,6 @@
 = QAGuild S3E01: Про релокацию в США
 Сергей Пирогов
-2019-02-03
+2020-02-03
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: Разговор о переезде на работу в США
