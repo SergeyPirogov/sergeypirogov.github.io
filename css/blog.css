@@ -29,10 +29,10 @@ nav#nav{
     text-align: center;
     position: fixed;
     z-index: 60;
+    padding-top: 4em;
 }
 
 #telegram-link{
-    padding-top: 3.5em;
         padding-bottom: 0.5em;
         font-family: 'Play', sans-serif;
         font-size: 20px;
@@ -42,7 +42,14 @@ nav#nav{
         z-index: 60;
         margin: 0 auto;
         display: inline-block;
-        border-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        transition: all ease-out;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        opacity: 1;
 }
 
 #telegram_link_text:hover {
