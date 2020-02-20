@@ -24,22 +24,33 @@ nav#nav{
 	display: none;
 }
 
+#outer_telegram{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 60;
+}
+
 #telegram-link{
     padding-top: 3.5em;
-    padding-bottom: 0.5em;
-    font-family: 'Play', sans-serif;
-    font-size: 20px;
-    background-color: #002c58;
-    text-align: center;
-    color: burlywood;
+        padding-bottom: 0.5em;
+        font-family: 'Play', sans-serif;
+        font-size: 20px;
+        background-color: #2db77e;
+        color: #f2f3f5;
+        width: 30%;
+        z-index: 60;
+        margin: 0 auto;
+        display: inline-block;
+        border-radius: 20px;
 }
 
 #telegram_link_text:hover {
-    color: white;
+    color: bisque;
 }
 
 #arrow-telegram{
-    color: burlywood;
+    color: bisque;
 }
 
 #telegram-link a{
@@ -47,7 +58,7 @@ nav#nav{
 }
 
 #header{
-	padding-top: 2em;
+	padding-top: 6em;
 	padding-bottom: 3em;
 }
 
@@ -66,6 +77,7 @@ article div.inner {
 	background-color: white;
     border-radius: 10px;
     padding-bottom: 10px;
+    padding-top: 7em;
 }
 
 #about-header{
