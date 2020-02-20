@@ -14,6 +14,9 @@
 
 	<div id="post-index" class="container">
 		<main class="content" role="main">
+		    <div id="pre-post">
+            </div>
+
 			<#include "loop-posts.ftl">
 		</main>
 	</div>
