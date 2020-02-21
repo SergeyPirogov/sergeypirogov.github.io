@@ -1,0 +1,18 @@
+= QAGuild live #21: Как я попал в тестирование
+Сергей Пирогов
+2020-02-21
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про вход в сферу qa
+:jbake-status: published
+
+В этом эпизоде расскажу историю своего попадания в индустрию тестирования
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
+- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RSkj6CICXig" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
