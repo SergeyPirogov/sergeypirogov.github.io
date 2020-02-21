@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="verify-admitad" content="b4f109c5f4" />
 
-    <title>Настраиваем Selenium Grid за 5 минут</title>
+    <title>QAGuild live #21: Как я попал в тестирование</title>
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Настраиваем Selenium Grid за 5 минут">
+    <meta property="og:title" content="QAGuild live #21: Как я попал в тестирование">
     <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Заметка о том, как правильно настроить Selenium-Grid."/>
+        	<meta property="og:description" content="Про вход в сферу qa"/>
 	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+	<link rel="stylesheet" href="../../css/blueimp-gallery.min.css">	
+    <link rel="stylesheet" type="text/css" href="../../css/dependencies.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -91,192 +91,42 @@
                                 <a href="/author/index.html">Сергей Пирогов</a>
                             </span> |
                             <span class="post-date">
-                                15/06/2015
+                                21/02/2020
                             </span>
                         </span>
                         <div class="clear"></div>
-                        <h1 class="post-title">Настраиваем Selenium Grid за 5 минут</h1>
+                        <h1 class="post-title">QAGuild live #21: Как я попал в тестирование</h1>
                     </header>
 
                     <section class="post-content">
                         <div class="paragraph">
-<p>Заметка о том, как правильно настроить <strong>Selenium-Grid</strong>. Многие делали это неоднократно, а некоторые даже не знают, что это такое. Ориентируюсь на обе части аудитории: если у вас есть опыт, заметка будет служить такой себе справкой - вдруг чего забыли; если вы не пробовали, но очень хотели - это прекрасный шанс начать.</p>
+<p>В этом эпизоде расскажу историю своего попадания в индустрию тестирования</p>
 </div>
-<div class="paragraph">
-<p>Итак <strong>Selenium-Grid</strong> позволяет запускать тесты на разных машинах в разных браузерах параллельно.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://bit.ly/qaguild-telegram">Подписывайтесь в telegram</a></p>
+</li>
+<li>
+<p><a href="http://bit.ly/qaguild-podcast">Слушайте наш подкаст</a></p>
+</li>
+<li>
+<p><a href="http://bit.ly/qaguild-slack">Заходите в наш Slack канал</a></p>
+</li>
+<li>
+<p><a href="http://bit.ly/qaguild-patreon">Становитесь патроном</a></p>
+</li>
+</ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="http://cdn.guru99.com/images/hub_and_nodes.jpg" alt="hub and nodes">
-</div>
-</div>
-<div class="paragraph">
-<p>В основном Selenium Grid используют по нескольким причинам:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Для распараллеливания запуска тестов на различных операционных системах, в различных браузерах;
-Для того, чтобы уменьшить общее время прогона тестов.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Selenium Grid оперирует такими составляющими, как Hub и Node.</p>
-</div>
-<div class="paragraph">
-<p>Что такое Hub?</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Hub - центральная точка, которая принимает запросы и направляет их к Node. Такой себе командный пункт.
-В гриде может быть только один Hub.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Что такое Node?</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Node - Selenium инстанс, который будет запускать команды, загружаемые в Hub.
-Node может быть много в гриде.
-Node - может запускаться на разных операционных системах с разными браузерами.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Начало настройки:</p>
-</div>
-<div class="paragraph">
-<p>Скачать <strong>Selenium Server Standalone</strong> <a href="http://docs.seleniumhq.org/download/">здесь</a>.</p>
-</div>
-<div class="paragraph">
-<p>Создайте папку <strong>seleniumgrid</strong> и скопируйте в нее скачанный <strong>selenium_server_x.xx.x.jar</strong> файл.</p>
-</div>
-<div class="paragraph">
-<p><strong>Стартуем Hub.</strong></p>
-</div>
-<div class="paragraph">
-<p>Открываем окно команд и выполняем:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -jar selenium_server_standalone_2.46.0.jar -role hub</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Должно появиться что-то подобное этому:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="http://cdn.guru99.com/images/launch_hub.jpg" alt="launch hub">
-</div>
-</div>
-<div class="paragraph">
-<p>Для того, чтобы проверить, что все стартовало правильно, нужно набрать в браузере</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">http://localhost:4444/grid/console</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Стартуем Node.</strong></p>
-</div>
-<div class="paragraph">
-<p>В моем случае и <strong>Hub</strong> и <strong>Node</strong> расположены на одном компьютере, но это не сильно меняет ситуацию.</p>
-</div>
-<div class="paragraph">
-<p>Открываем консоль и пишем:</p>
-</div>
-<div class="paragraph">
-<p>Node для браузера <strong>FireFox</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5556 -browser browserName=firefox</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Для браузеров Chrome и Internet Explorer настройка немного отличается. Нужно дописать путь к драйверам соответствующих браузеров -Dwebdriver.ie.driver=IEDriverServer.exe и -Dwebdriver.chrome.driver=chromedriver.exe. Скачать драйверы можно на сайте selenium.org</p>
-</div>
-<div class="paragraph">
-<p>Полные команды выглядят так:</p>
-</div>
-<div class="listingblock">
-<div class="title"><strong>Internet Explorer</strong></div>
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
-http://localhost:4444/grid/register -port 5558 -browser browserName=iexplorer</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Для Internet explorer я уже описывал, как можно использовать драйвер, написанный самим Майкрософт.</p>
-</div>
-<div class="listingblock">
-<div class="title"><strong>Chrome</strong></div>
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-2.46.0.jar -role webdriver -hub
-http://localhost:4444/grid/register -port 5558 -browser browserName=chrome</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Для того, чтобы проверить, что все настроено корректно, нужно открыть все тот же <a href="http://localhost:4444/grid/console" class="bare">http://localhost:4444/grid/console</a> и убедиться, что там отображается один истанс IE и один Chrome.</p>
-</div>
-<div class="paragraph">
-<p>Следует добавить, конфигурировать Hub и Node можно с помощью JSON файлов.</p>
-</div>
-<div class="paragraph">
-<p>Пример для <strong>Hub</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -jar selenium-server-standalone.jar -role hub -hubConfig hubconfig.json</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Пример для <strong>Node</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">java -jar selenium-server-standalone.jar -role node -nodeConfig nodeconfig.json</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Ну вот и все, в следующих заметках я покажу, как пользоваться настроенным гридом и запускать тесты. Если вам интересно, подписывайтесь,чтобы получать обновления первым.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RSkj6CICXig" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </section>
 
                     <footer class="post-footer">
                             <div class="post-tags">
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                       href="/tags/QAGuild.html">QAGuild</a>
                                     <a style="background: cornflowerblue;"
-                                       href="/tags/Java.html">Java</a>
+                                       href="/tags/Youtube.html">Youtube</a>
                             </div>
                     </footer>
 
@@ -290,7 +140,6 @@ http://localhost:4444/grid/register -port 5558 -browser browserName=chrome</code
                                 <div class='related-posts-holder'>
                                      <h2>Похожие заметки:</h2>
                                      <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-live22/index.html">QAGuild live #21: Как я попал в тестирование</a></li>
                                                 <li><a class='js-ajax-link' href="/2020/vacancies/index.html">Размещение вакансий для тестировщиков</a></li>
                                                 <li><a class='js-ajax-link' href="/2020/qaguild-s3e01/index.html">QAGuild S3E01: Про релокацию в США</a></li>
                                                 <li><a class='js-ajax-link' href="/2020/ask-question/index.html">Помощь для начинающих и опытных тестировщиков</a></li>
@@ -351,8 +200,8 @@ http://localhost:4444/grid/register -port 5558 -browser browserName=chrome</code
          </div>
     </section>
 
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
+    <script type="text/javascript" src="../../js/dependencies.min.js"></script>
+    <script type="text/javascript" src="../../js/script.js" async="async"></script>
     <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

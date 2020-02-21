@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 20 Feb 2020 15:21:28 +0000</pubDate>
-    <lastBuildDate>Thu, 20 Feb 2020 15:21:28 +0000</lastBuildDate>
+    <pubDate>Fri, 21 Feb 2020 07:43:07 +0000</pubDate>
+    <lastBuildDate>Fri, 21 Feb 2020 07:43:07 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #21: Как я попал в тестирование
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live22/index.html</link>
+          <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live22/index.html</guid>
+          <description>
+                        Про вход в сферу qa
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде расскажу историю своего попадания в индустрию тестирования&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-podcast&quot;&gt;Слушайте наш подкаст&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-slack&quot;&gt;Заходите в наш Slack канал&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/RSkj6CICXig&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Размещение вакансий для тестировщиков
@@ -879,27 +912,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MV32scVMpxs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #11: Про Python для тестировщика автоматизатора
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live11/index.html</link>
-          <pubDate>Sun, 7 Jul 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live11/index.html</guid>
-          <description>
-                        Разговор про python
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Тестировщики часто сталкиваются с проблемой выбора языка программирования. В этот раз мы поговорим про использование Python в автоматизации тестирования.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/3K5HbRbTIjk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
