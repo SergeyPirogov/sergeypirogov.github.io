@@ -14,9 +14,105 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 24 Feb 2020 15:54:28 +0000</pubDate>
-    <lastBuildDate>Mon, 24 Feb 2020 15:54:28 +0000</lastBuildDate>
+    <pubDate>Thu, 5 Mar 2020 07:28:03 +0000</pubDate>
+    <lastBuildDate>Thu, 5 Mar 2020 07:28:03 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E02: Тестируем Kotlin
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e02/index.html</link>
+          <pubDate>Thu, 5 Mar 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e02/index.html</guid>
+          <description>
+                        Подкаст о том, как тестируют язык программирования
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Лилия Абдулина - 2,5 года тестирует Котлин&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:05 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:48 - Гость&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:02:50 - Как ты оказалась в команде?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:04:39 - Про интервью&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:07:43 - Особенности тестирования IDE?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:09:00 - Как выглядит твой рабочий день?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:12:31 - Тестовые данные?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:13:31 - Есть ли там автоматизация?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:14:42 - Тест Кейсы на идею?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:17:23 - Скрам или не скрам?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:20:51 - Инструменты&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:31:00 - Баги с продакшена&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:37:04 - Kotlin native&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:43:08 - Сколько людей в команде?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:50:52 - Про откладывание релизов&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:56:46 - Сколько платят в ДжетБрейнс&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:57:58 - Какие скилы нужно качать?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:09:52 - Насколько сильно отличается от &quot;классического&quot; тестирования?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:12:52 - Как тестируют IDEA?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:19:10 - Любимая фича в Котлине&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:23:51 - Про мобилки и Котлин&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/766723891&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #21: Как я попал в тестирование
@@ -891,27 +987,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Подписывайтесь на наш telegram канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #12: Тестовое задание для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live12/index.html</link>
-          <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live12/index.html</guid>
-          <description>
-                        Разговор про тестовое задание для тестировщика
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;На разных этапах устройства на работу тестировщики сталкиваются с тестовым заданием. В этом выпуске обсудим целесообразность такой активности.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MV32scVMpxs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
