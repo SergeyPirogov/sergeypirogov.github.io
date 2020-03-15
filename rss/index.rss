@@ -14,9 +14,111 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 5 Mar 2020 07:28:03 +0000</pubDate>
-    <lastBuildDate>Thu, 5 Mar 2020 07:28:03 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2020 08:15:27 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2020 08:15:27 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E03: Про мобильные фермы
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e03/index.html</link>
+          <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e03/index.html</guid>
+          <description>
+                        Подкаст о том, как и зачем создавать мобильные фермы
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Алексей Хурсевич - главный специалист по созданию мобильных ферм&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:00:09 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:41 - Гость&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:04:15 - Кому нужны мобильные фермы?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:12:36 - Какие периферийные устройства используются при построении фермы?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:16:40 - Сколько устройств я могу подключить к одному серверу?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:19:11 - Как вы подбираете мобильные устройства для ферм?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:21:08 - Какие преимущества и недостатки перед cloud провайдерами: Browserstack и Saucelabs?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:23:58 - В чем основные ограничения ферм и cloud провайдеров в сравнении с устройствами на руках?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:24:49 - Сколько стоит содержать мобильную ферму?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:28:01 - С каким проблемами приходится сталкиваться в процессе эксплуатации?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:31:15 - Как сделать стабильными беспроводной доступ к интернету для сотни девайсов?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:33:51 - Где хранятся все устройства и как обеспечивается безопасность?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:41:41 - Что из себя представляет конфигурация сервера: Ubuntu, MacOS?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:48:27 - Может вспомните негативные случаи из опыта?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:53:40 - В чем ваш интерес?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:54:25 - Бекапы, дублирование надежность&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:59:36 - Возможно ли работать с устройствами удаленно, кому это может быть полезно в команде?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:02:37 - Возможно ли полностью перевести мобильную автоматизацию в облако под управлением Kubernetes?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:06:05 - Отчеты&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:09:45 - Appium vs Espresso ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:12:49 - Нужен ли паяльник?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:16:32 - Патроны&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:24:55 - Финал&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/775022251&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true&quot;&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E02: Тестируем Kotlin
@@ -907,86 +1009,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uSVI6Hzu2JM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild подкаст s2e9: Разговоры про Python в тестировании
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-s2e9/index.html</link>
-          <pubDate>Thu, 1 Aug 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-s2e9/index.html</guid>
-          <description>
-                        Разговор про Python
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Подготовили очередной выпуск подкаста. В этом выпуске поговорили о том, с чего начать учить Python, какие менеджеры пакетов использовать и покрыли API и UI автоматизацию.
-Приятного прослушивания.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Алексей Буль - крепко сидит на Python&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Игорь Балагуров - делал на Python разное&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Данил Бирюков-Романов - ходил в JS, но потом вернулся&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;00:00:53 - Начало&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:05:35 - С чего начать учить Python?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:11:44 - Чем Python лучше других языков?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:20:35 - Про пакетные менеджеры&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:32:33 - Про либы для API тестирования&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:44:00 - Про IDE&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:45:11 - Про минусы Python&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:59:07 - Про инструменты UI?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:05:00 - Почему именно выбрали python, а не Java, JS etc?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:19:03 - Python и IoT или embeded&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:26:56 - Патроны&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:28:01 - Финал&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/659414393&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Подписывайтесь на наш telegram канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
           </content:encoded>
         </item>
 
