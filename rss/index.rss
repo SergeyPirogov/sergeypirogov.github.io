@@ -14,9 +14,100 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 15 Mar 2020 08:15:27 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Mar 2020 08:15:27 +0000</lastBuildDate>
+    <pubDate>Thu, 26 Mar 2020 07:51:45 +0000</pubDate>
+    <lastBuildDate>Thu, 26 Mar 2020 07:51:45 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E04: Снова про Cypress от разработчиков
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e04/index.html</link>
+          <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e04/index.html</guid>
+          <description>
+                        Подкаст про Cypress от разработчиков
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Дмитрий Коваленко - JS программист&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;00:00:59 - Начало&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:02 - Гости&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:01:49 - Как попал в айти?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:06:30 - Про то как попасть в опенсорс компанию&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:09:53 - Чем занимался в Cypress.io&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:20:34 - Про Coffee Script&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:27:04 - Про офис и удаленку&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:34:21 - FireFox support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:38:55 - Про дашборд&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:46:36 - Про Sorry-Cypress&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:49:36 - Что если все начнут юзать бесплатный дашборд ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;00:54:52 - Почему не нравится?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:02:16 - Про TDD&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:12:21 - Что изменилось в проекте за год?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:14:09 - Про JS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:20:02 - Про сайпресс&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:24:47 - Патроны&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;01:26:32 - про деньги?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/780125491&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E03: Про мобильные фермы
@@ -988,27 +1079,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cq2KNFnr2W8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #13: Про локаторы в UI автоматизации тестирования
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live13/index.html</link>
-          <pubDate>Sun, 4 Aug 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live13/index.html</guid>
-          <description>
-                        Разговор про Xpath и CSS локаторы
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске поговорим про тему XPATH и CSS локаторов и их использовании в UI автоматизации. Что лучше использовать и в каких случаях, а также лучшие практики проверенные на проектах.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uSVI6Hzu2JM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
