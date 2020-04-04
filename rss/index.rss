@@ -14,9 +14,42 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 29 Mar 2020 12:21:45 +0000</pubDate>
-    <lastBuildDate>Sun, 29 Mar 2020 12:21:45 +0000</lastBuildDate>
+    <pubDate>Sat, 4 Apr 2020 06:57:55 +0000</pubDate>
+    <lastBuildDate>Sat, 4 Apr 2020 06:57:55 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #25: Java 14 для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live25/index.html</link>
+          <pubDate>Fri, 3 Apr 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live25/index.html</guid>
+          <description>
+                        Пишем автотесты на Java 14
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде попробуем написать автотесты на Java 14.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-podcast&quot;&gt;Слушайте наш подкаст&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-slack&quot;&gt;Заходите в наш Slack канал&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/9kaHs4wCKFc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #24: Про обучение тестировщиков дома
@@ -1072,25 +1105,6 @@ blog: &lt;a href=&quot;http://bit.ly/2m1PRYn&quot; class=&quot;bare&quot;&gt;htt
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Подписывайтесь на наш telegram канал - &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #15: Про обучение для тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live15/index.html</link>
-          <pubDate>Mon, 2 Sep 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live15/index.html</guid>
-          <description>
-                        Разговор про обучение и менторинг для тестировщиков
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Обучение - неотъемлемый процесс, который сопровождает тестировщика на протяжении всей карьеры. В этом видео дам советы по обучению. Как организовать процесс, найти ментора и сколько это может стоить.
-Пишите свои вопросы и пожелания в комментариях.
-Подписывайтесь, чтобы не пропустить следующие выпуски.&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/h94wnyRCdZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
