@@ -1,0 +1,18 @@
+= QAGuild live #25: Java 14 для тестировщика
+Сергей Пирогов
+2020-04-03
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Пишем автотесты на Java 14
+:jbake-status: published
+
+В этом эпизоде попробуем написать автотесты на Java 14.
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
+- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9kaHs4wCKFc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
