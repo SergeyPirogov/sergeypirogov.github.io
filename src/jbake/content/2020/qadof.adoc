@@ -1,0 +1,18 @@
+= Online QA BOF
+Сергей Пирогов
+2020-04-10
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: QA BOF
+:jbake-status: published
+
+В этом эпизоде ответили на вопросы участников трансляции.
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
+- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i2VgEWXIMyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
