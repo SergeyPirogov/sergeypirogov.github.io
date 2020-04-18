@@ -14,22 +14,22 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 12 Apr 2020 07:52:39 +0000</pubDate>
-    <lastBuildDate>Sun, 12 Apr 2020 07:52:39 +0000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2020 13:33:36 +0000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2020 13:33:36 +0000</lastBuildDate>
 
         <item>
           <title>
-              QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика
+              QAGuild live #27: Selenide на Kotlin для тестирования UI
           </title>
           <link>http://automation-remarks.com/2020/qaguild-live26/index.html</link>
-          <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+          <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2020/qaguild-live26/index.html</guid>
           <description>
-                        Смотрим на Selenium plugin в Idea
+                        Selenide на Kotlin для тестирования UI
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде попробуем написать автотесты на Java 14 с помощью Selenium Idea plugin.&lt;/p&gt;
+&lt;p&gt;В этом эпизоде попробуем написать Selenide на Kotlin для тестирования UI&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
@@ -47,7 +47,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/PqCr0hDF7JU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gm3lcdcNvMs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
         <item>
