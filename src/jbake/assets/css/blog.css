@@ -66,7 +66,7 @@ nav#nav{
 
 #header{
 	padding-top: 6em;
-	padding-bottom: 3em;
+	padding-bottom: 2em;
 }
 
 #header .header-name{
@@ -331,9 +331,23 @@ div.imageblock.user-photo > div > img{
     text-align: center;
 }
 
+.main_banner {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+
 .training_banner a{
     color: brown;
 }
+
+.training_banner a:hover{
+    text-decoration: underline;
+}
+
+
 
 @media screen and (min-width: 1660px){
 .inner {
@@ -352,23 +366,32 @@ input.st-default-search-input{
 }
 }
 
-@media screen and (max-width: 800px){
-.nav-menu,a.author_link{
-    display: none;
-}
-.nav-panel{
-	display: inline-table;
-	padding-left: 10px;
-}
+@media screen and (max-width: 900px){
+    #telegram-link{
+      display: none;
+    }
 }
 
 @media screen and (max-width: 600px){
-a.video_link,a.author_link,a.course_link{
-    display: none;
+    a.video_link,a.author_link,a.course_link{
+        display: none;
+    }
+    .nav-panel{
+        padding-left: 10px;
+    }
 }
-.nav-panel{
-	padding-left: 10px;
-}
+
+@media screen and (max-width: 600px){
+    a.video_link,a.author_link,a.course_link{
+        display: none;
+    }
+    .nav-panel{
+        padding-left: 10px;
+    }
+
+    #telegram-link{
+      display: none;
+    }
 }
 
 @media screen and (max-width: 400px){
