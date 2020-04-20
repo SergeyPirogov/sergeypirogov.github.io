@@ -1,0 +1,73 @@
+title=Доступные тренинги по автоматизации тестирования
+type=page
+status=published
+~~~~~~
+
+Тренинги в которых показано как построить проект, с чего начать и как довести все до CI сервера.
+Отличная возможность посмотреть на идеи и подходы и сделать автоматизацию на своем проекте лучше.
+
+* API automation Java:
+** Технологии: Java 8, Rest Assured, Gradle, Allure, Jenkins CI
+* UI automation Java:
+** Технологии: Java 8, Selenide, Gradle, Allure, Jenkins CI
+* API automation Python:
+** Технологии: Python 3, Allure, pytest, Jenkins
+
+Стоимость:
+
+- Один тренинг - 30$
+- За два будет - 50$
+- За три будет -70$
+
+По всем вопросам пишите в личку telegram http://t.me/qa_automation_bot[@qa_automation_bot] или через форму ниже
+
+Способ оплаты зависит от страны проживания. Если у вас остались вопросы, используйте форму для связи.
+
+++++
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    width: 90%;
+    padding-left: 15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">
+    <input type="hidden" name="_subject" value="Training registration!" />
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="_language" value="ru" />
+    <input type="hidden" name="_format" value="plain" />
+    <input type="hidden" name="_next" value="http://automation-remarks.com/thank-you/" />
+
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="_replyto" placeholder="Ваш email" style="width: 320px;" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;" required>
+            </div>
+    </div>
+
+    <div class="form-group">
+
+                <div class="col-sm-10">
+                   <input class="form-control" id="inputName4" name="city" placeholder="Город проживания" style="width: 320px;" required>
+                </div>
+    </div>
+
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Название тренинга:"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
+</form>
+</div>
+++++

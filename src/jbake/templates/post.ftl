@@ -20,7 +20,9 @@
                         <div class="clear"></div>
                         <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
                     </header>
-
+                    <div class="training_banner">
+                                       <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                    </div>
                     <section class="post-content">
                         ${content.body}
                     </section>
