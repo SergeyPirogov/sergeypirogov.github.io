@@ -1,6 +1,6 @@
 = QAGuild S03E06: Про работу тестировщиков из дома
 Сергей Пирогов
-2020-03-26
+2020-04-21
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: Подкаст про работу из дома
