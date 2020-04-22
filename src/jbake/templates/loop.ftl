@@ -4,7 +4,11 @@
             <span class="post-meta">
             	<span class="post-date">${post.date?string("dd MMMM yyyy")}</span>
             </span>
-            <h2 class="post-title"><a href="/${post.uri}"><#escape x as x?xml>${post.title}</#escape></a></h2>
+            <h2 class="post-title">
+                <a href="/${post.uri}"><#escape x as x?xml>${post.title}</#escape></a>
+            </h2>
+
+            <hr>
 
             <p class="post-excerpt">
                   <#if post.summary??>
