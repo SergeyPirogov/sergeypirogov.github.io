@@ -14,9 +14,45 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 21 Apr 2020 06:59:04 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Apr 2020 06:59:04 +0000</lastBuildDate>
+    <pubDate>Wed, 22 Apr 2020 07:51:04 +0000</pubDate>
+    <lastBuildDate>Wed, 22 Apr 2020 07:51:04 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live26/index.html</link>
+          <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live26/index.html</guid>
+          <description>
+                        Обзор на Selenium UI Automation плагин в Idea
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде смотрим и пробуем новый плагин в Idea для тестировщиков&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-podcast&quot;&gt;Слушайте наш подкаст&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-slack&quot;&gt;Заходите в наш Slack канал&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Заносите донат&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/PqCr0hDF7JU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E06: Про работу тестировщиков из дома
@@ -124,9 +160,9 @@
           <title>
               QAGuild live #27: Selenide на Kotlin для тестирования UI
           </title>
-          <link>http://automation-remarks.com/2020/qaguild-live26/index.html</link>
+          <link>http://automation-remarks.com/2020/qaguild-live27/index.html</link>
           <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live26/index.html</guid>
+          <guid isPermaLink="false">2020/qaguild-live27/index.html</guid>
           <description>
                         Selenide на Kotlin для тестирования UI
           </description>
@@ -147,6 +183,9 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Заносите донат&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1006,103 +1045,6 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/wujfydLDsRg&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Test impact analysis или как наколхозить кавередж
-          </title>
-          <link>http://automation-remarks.com/2019/coverage/index.html</link>
-          <pubDate>Sun, 6 Oct 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/coverage/index.html</guid>
-          <description>
-                        Мысли про тест кавередж
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Здарова. Давненько я ничего не писал на страницах этого блога.
-Решил тряхнуть стариной и написать о некоторых своих наработках по части
-test impact анализа и измерения кавереджа.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В один прекрасный момент на одном из проектов, которые мы тестировали, я начал чувствовать,
-что чего-то не хватает. Тесты у нас покрывают аксептанс критерии, багов критических нет, но
-как-то внятного понимания, что и насколько хорошо мы тестируем, не было.
-Хотелось иметь возможность запустить автотесты и посмотреть, что и как мы там, на бекенде, зацепили.
-Я начал копать в эту сторону. Для джавы есть такая библиотека - Jacoco. С помощью нее можно измерить кавередж вашего кода.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Качаем jacocoagent.jar и подключаем к вашему проекту. Сделать это можно через переменную JAVA_TOOL_OPTIONS:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пример для докера:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;JAVA_TOOL_OPTIONS=&apos;-javaagent:/jacoco/jacocoagent.jar=port=36321,output=tcpserver,address=0.0.0.0&apos;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Здесь важно задать порт и указать address=0.0.0.0, иначе в докере оно работать не будет.
-В момент старта контейнера не забудьте открыть порт 36321.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Теперь после запуска вышего приложения с подключенным агентом вы можете запускать свои автотесты либо же тестировать руками.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В момент, когда вам стало скучно или вы решили закончить тестировать, вы можете легко сдампать результат кавереджа.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Для этого вам понадобится jacococli.jar. Скачиваем его и выполняем команду:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;java -jar jacoco/jacococli.jar dump --port=36322 --address=localhost --destfile=cov/result.exec&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Теперь вы можете взять файл result.exec и посмотреть кавередж в Idea.
-Открываем код сервиса, который вы тестировали, и в идеа идем в меню Analyze &amp;#8594; Show coverage data.
-Вуаля - вы получаете подсвеченными строки, которые вы потрогали своими тестами.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Вы можете легко дампать кавередж после каждого автотеста и смотреть результаты в гранулярном масштабе.
-Уважаемые SDET специалисты могут попробовать наколхозить вокруг этого какую-то интересную аналитику.
-Я в своем проекте для подкаста делал так, чтобы рядом с моими контейнерами бежал сайдкар, который умеет дампить кавередж:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;gateway:
-    image: gateway:latest
-    container_name: timecoder-gateway
-    depends_on:
-      - mysql
-    ports:
-      - 8086:5000
-    links:
-      - timecoder-api
-  inspector:
-    image: spirogov/inspector:latest
-    container_name: inspector
-    ports:
-      - 8088:8080
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
-      - HOSTS=timecoder-api:36321, timecoder-gateway:36321
-      - DEST_FOLDER=coverage
-    volumes:
-      - &quot;/gateway/coverage:/coverage&quot;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Инспектор в моем случае позволял сдампить кавередж со всех серверов при помощи одного REST запроса.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Вот так достаточно просто вы можете понять качество ваших тестов. Дерзайте!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Подписывайтесь на телеграмм канал, чтобы получать самые свежие новости &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
           </content:encoded>
         </item>
 
