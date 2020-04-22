@@ -1,0 +1,19 @@
+= QAGuild live #27: Selenide на Kotlin для тестирования UI
+Сергей Пирогов
+2020-04-18
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Selenide на Kotlin для тестирования UI
+:jbake-status: published
+
+В этом эпизоде попробуем написать Selenide на Kotlin для тестирования UI
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
+- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+- https://donatesystem.io/donate/automation_remarks[Заносите донат]
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gm3lcdcNvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
