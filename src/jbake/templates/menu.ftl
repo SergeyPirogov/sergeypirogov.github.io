@@ -1,40 +1,28 @@
-<nav id="nav" class="nav">
-        <div class="nav-panel">
-          <a class="main_link" href="/">
-            <span class="name">Главная</span>
-          </a>
-          <a class="video_link" href="https://soundcloud.com/qaguild" style="
-              width: 5em;
-          ">
-                      <span class="name">Подкаст</span>
-                    </a>
-          <a class="author_link" href="/archive.html" style="
-              width: 5em;
-          ">
-                      <span class="name">Архив</span>
-                    </a>
-          <a class="author_link" href="/author/">
-            <span class="name">Об Авторе</span>
-          </a>
-          <a class="course_link" href="https://spirogov.github.io" style="
-              width: 7em;
-          ">
-                      <span class="name">Обучение</span>
-          </a>
-        </div>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
 
-        <div class="nav-menu">
-          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
-          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
-          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
-          <a class="rss" href="https://qaguild-slack.herokuapp.com/"><i class="fa fa-slack"></i></a>
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
         </div>
-</nav>
-
-<div id="outer_telegram">
-       <div id="telegram-link">
-            <a id="telegram_link_text" href="https://t.me/automation_remarks">Telegram канал
-                <i id="arrow-telegram" class="fa fa-arrow-circle-right"></i> t.me/automation_remarks
-            </a>
-       </div>
-</div>
+        </div>
+      </nav>
+</header>

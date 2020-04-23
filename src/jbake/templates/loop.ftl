@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card index-card">
     <#if post.image??>
         <img class="card-img-top" src="images/risovach_ru.jpg" alt="Card image cap">
     </#if>
