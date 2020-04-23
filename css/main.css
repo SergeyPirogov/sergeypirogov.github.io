@@ -128,3 +128,7 @@ a.tag {
 iframe {
     margin-bottom: 10px;
 }
+
+.embed-responsive {
+    margin-bottom: 20px;
+}
