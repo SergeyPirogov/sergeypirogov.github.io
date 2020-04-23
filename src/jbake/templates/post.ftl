@@ -26,15 +26,43 @@
                             </section>
 
                             <footer class="post-footer">
-                                <#if content.tags??>
-                                    <div class="post-tags">
-                                        <#list content.tags as tag>
-                                            <a class="btn btn-sm btn-outline-dark tag" href="/tags/${tag?trim?replace(' ','-')}.html">${tag}</a>
-                                        </#list>
-                                    </div>
-                                </#if>
+                                 <#if content.tags??>
+                                   <div class="post-tags">
+                                       <#list content.tags as tag>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/${tag?trim?replace(' ','-')}.html">${tag}</a>
+                                       </#list>
+                                   </div>
+                                  </#if>
 
                             </footer>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" title="Telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" title="Podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" title="Youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+                            </div>
+
+
+
 
                             <div class="row">
                                   <div class="col-md-12">

@@ -13,9 +13,3 @@
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gm3lcdcNvMs" allowfullscreen></iframe>
 </div>
 ++++
-
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
-- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-- https://donatesystem.io/donate/automation_remarks[Заносите донат]
