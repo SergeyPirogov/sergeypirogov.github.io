@@ -124,3 +124,7 @@ article div.inner {
 a.tag {
     color: #36D995;
 }
+
+iframe {
+    margin-bottom: 10px;
+}

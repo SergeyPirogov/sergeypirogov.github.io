@@ -8,7 +8,7 @@
 
 Гости:
 
-Катерина Кравченко - живет в центре всего IT мира
+- Катерина Кравченко - живет в центре всего IT мира
 
 Темы:
 
@@ -38,12 +38,10 @@
 - 01:54:56 - Патроны
 - 01:55:35 - Финал
 
-Канал Кати в youtube - www.youtube.com/channel/UCmiv7ZiPmP98mr2Lrfxg8lA
-
-Telegram: t.me/automation_remarks
-
-Стать патроном: www.patreon.com/automation_remarks
-
 ++++
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/754154095&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 ++++
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+- https://www.youtube.com/channel/UCmiv7ZiPmP98mr2Lrfxg8lA[Канал Кати в youtube]
