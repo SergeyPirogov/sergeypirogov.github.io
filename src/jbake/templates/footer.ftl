@@ -14,6 +14,7 @@
     <script src="${content.rootpath}../js/holder.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="${content.rootpath}../js/script.js"></script>
     </body>
 </html>

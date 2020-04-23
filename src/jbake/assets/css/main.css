@@ -136,3 +136,15 @@ iframe {
 .ulist p {
   margin-bottom: 5px;
 }
+
+ul.timecoder li {
+   margin-bottom: 5px;
+}
+
+ul.timecoder a:hover {
+    cursor: pointer;
+}
+
+a.timecode:hover {
+    cursor: pointer;
+}
