@@ -32,6 +32,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
             </li>
+
           </ul>
           <ul class="navbar-nav">
              <li class="nav-item">
@@ -39,6 +40,9 @@
              </li>
              <li class="nav-item">
                <a class="nav-link" href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
              </li>
           </ul>
         </div>
