@@ -1,38 +1,58 @@
+.album {
+    padding-bottom: 75px!important;
+}
+
 .jumbotron {
-    padding-top: 1em;
+    padding-top: 4em;
     padding-bottom: 3em;
 }
 
-.post .post-meta {
-    display: block;
-    font-size: .75em;
-    line-height: 1.334em;
-    font-weight: 400;
-    margin-bottom: 1.334em;
+.jumbotron-heading {
+    font-weight: 500;
 }
 
-post .post-title {
-    position: relative;
-    color: #000;
-    font-size: 2em;
-    line-height: 1.375em;
-    font-weight: 800;
-    text-indent: -1px;
-    margin: .25em 0 .75em;
-}
-
-.post .post-title a {
+.card-title a, .card-link {
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
 }
 
-.post-list .post .post-title {
-    font-size: 1.5em;
-    line-height: 1.167em;
+.card-link:hover, .archive-btn:hover {
+    color: #2DB77E;
 }
 
 .card {
     border: none;
     border-radius: .5rem;
+}
+
+.card:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.05), 0 8px 48px rgba(0, 0, 0, 0.1)
+}
+
+.card-link i, .archive-btn i {
+    color: #2DB77E;
+}
+
+.card-body hr {
+    width: 2em;
+    margin-left: 0px;
+    border-bottom: 3px solid #36D995;
+}
+
+footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #343a40!important;
+}
+
+.archive-btn{
+    height: 3em;
+    line-height: 3em;
+    padding: 0 1em;
+    text-decoration: none;
+    font-weight: 700;
+    color: #363740;
+    border: 1px solid #36D995;
+    border-radius: 4em;
 }

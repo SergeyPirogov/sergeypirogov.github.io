@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="${content.rootpath}../css/bootstrap.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="${content.rootpath}../css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="${content.rootpath}../css/album.css" rel="stylesheet">
     <link href="${content.rootpath}../css/main.css" rel="stylesheet">
@@ -22,37 +22,28 @@
   <body>
 
     <header>
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">About</h4>
-              <p class="text-muted">Add some information about the album
- below, the author, or any other background context. Make it a few
-sentences long so folks can pick up some informative tidbits. Then, link
- them off to some social networking sites or contact information.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
-            </div>
-          </div>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+          </ul>
         </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <strong></strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
         </div>
-      </div>
+      </nav>
     </header>
 
     <main role="main">
@@ -69,26 +60,26 @@ sentences long so folks can pick up some informative tidbits. Then, link
         <div class="container">
 
           <div id="push" class="row post-list">
-
+            <div class="card-columns">
             <#list posts as post>
                 <#if (post.status == "published")>
                      <#include "loop.ftl">
                 </#if>
             </#list>
-
+            </div>
           </div>
+        <a href="" type="button" class="archive-btn float-right">Архив
+            <i class="fa fa-chevron-right ml-1"></i>
+        </a>
         </div>
+
       </div>
 
     </main>
 
     <footer class="text-muted">
       <div class="container">
-        <p class="float-right">
-          <a href="#"></a>
-        </p>
-        <p></p>
-        <p></p>
+
       </div>
     </footer>
 
@@ -100,10 +91,6 @@ sentences long so folks can pick up some informative tidbits. Then, link
     <script src="${content.rootpath}../js/popper.js"></script>
     <script src="${content.rootpath}../js/bootstrap.js"></script>
     <script src="${content.rootpath}../js/holder.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="${content.rootpath}../js/script.js"></script>
 
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body></html>
     </body>
 </html>
