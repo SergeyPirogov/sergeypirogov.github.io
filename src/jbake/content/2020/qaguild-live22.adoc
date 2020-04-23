@@ -8,13 +8,14 @@
 
 В этом эпизоде расскажу историю своего попадания в индустрию тестирования
 
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
-- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-
 ++++
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RSkj6CICXig" allowfullscreen></iframe>
 </div>
 ++++
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
+- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]
+

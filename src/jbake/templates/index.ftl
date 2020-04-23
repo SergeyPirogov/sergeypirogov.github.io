@@ -14,21 +14,19 @@
 
       <div class="album py-5 bg-light ">
         <div class="container">
-
-          <div id="push" class="row post-list">
-            <div class="card-columns">
-            <#list posts as post>
-                <#if (post.status == "published")>
-                     <#include "loop.ftl">
-                </#if>
-            </#list>
-            </div>
+          <div id="push" class="row post-list row-cols-1 row-cols-md-2">
+            <!-- <div class="card-deck"> -->
+                <#list posts as post>
+                    <#if (post.status == "published")>
+                         <#include "loop.ftl">
+                    </#if>
+                </#list>
+            <!-- </div> -->
           </div>
-        <a href="/archive.html" type="button" class="archive-btn float-right">Архив
+          <a href="/archive.html" type="button" class="archive-btn float-right">Архив
             <i class="fa fa-chevron-right ml-1"></i>
-        </a>
+          </a>
         </div>
-
       </div>
 
     </main>
