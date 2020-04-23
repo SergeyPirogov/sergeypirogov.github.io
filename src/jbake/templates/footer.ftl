@@ -16,5 +16,6 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="${content.rootpath}../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     </body>
 </html>
