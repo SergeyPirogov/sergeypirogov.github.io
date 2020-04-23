@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 23 Apr 2020 08:46:34 +0000</pubDate>
-    <lastBuildDate>Thu, 23 Apr 2020 08:46:34 +0000</lastBuildDate>
+    <pubDate>Thu, 23 Apr 2020 08:51:27 +0000</pubDate>
+    <lastBuildDate>Thu, 23 Apr 2020 08:51:27 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -224,7 +224,9 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i2VgEWXIMyM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/i2VgEWXIMyM&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
           </content:encoded>
         </item>
         <item>
@@ -616,7 +618,9 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/RSkj6CICXig&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/RSkj6CICXig&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
           </content:encoded>
         </item>
         <item>
