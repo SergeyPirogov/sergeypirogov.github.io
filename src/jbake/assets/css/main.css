@@ -132,3 +132,7 @@ iframe {
 .embed-responsive {
     margin-bottom: 20px;
 }
+
+.ulist p {
+  margin-bottom: 5px;
+}
