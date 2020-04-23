@@ -14,8 +14,3 @@
 </div>
 ++++
 
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
-- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-
