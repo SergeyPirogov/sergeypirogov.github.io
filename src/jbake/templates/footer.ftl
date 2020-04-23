@@ -12,6 +12,8 @@
     <script src="${content.rootpath}../js/popper.js"></script>
     <script src="${content.rootpath}../js/bootstrap.js"></script>
     <script src="${content.rootpath}../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     </body>
 </html>
