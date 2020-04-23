@@ -61,7 +61,7 @@
                                 </li>
 
                                 <li>
-                                   <a href="https://donatesystem.io/donate/automation_remarks" title="Поддержать" target="_blank" rel="nofollow">
+                                   <a href="https://donatesystem.io/donate/automation_remarks" title="Поддержать" target="_blank" rel="9nofollow">
                                    <i class="fa fa-money" aria-hidden="true"></i>
                                       <span>Поддержать</span>
                                    </a>
