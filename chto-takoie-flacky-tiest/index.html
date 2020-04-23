@@ -1,107 +1,90 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="verify-admitad" content="b4f109c5f4" />
-
-    <title>Что такое Flaky тест?</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
     <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Что такое Flaky тест?">
-    <meta property="og:image" content="http://automation-remarks.com/images/blog-logo.png"/>
+    <meta property="og:image" content="../images/blog-logo.png"/>
 
-        	<meta property="og:description" content="Если у вас нету Flacky тестов - значит вы занимаетесь чем-то нереальным :). Flacky тесты - это зло!"/>
-	
-	<link rel="stylesheet" href="../css/blueimp-gallery.min.css">	
-    <link rel="stylesheet" type="text/css" href="../css/dependencies.min.css"/>
+       <meta property="og:description" content="Если у вас нету Flacky тестов - значит вы занимаетесь чем-то нереальным :). Flacky тесты - это зло!"/>
+
+    <title>Заметки Автоматизатора</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
 
     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-57010828-1', 'auto');
-       ga('send', 'pageview');
-
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
     </script>
-</head>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
 
-<body>
-    <section id="wrapper">
-        <div id="ajax-container">
-	<script>var disqus="httpspirogovgithubio";</script>
-
-<nav id="nav" class="nav">
-        <div class="nav-panel">
-          <a class="main_link" href="/">
-            <span class="name">Главная</span>
-          </a>
-          <a class="video_link" href="https://soundcloud.com/qaguild" style="
-              width: 5em;
-          ">
-                      <span class="name">Подкаст</span>
-                    </a>
-          <a class="author_link" href="/archive.html" style="
-              width: 5em;
-          ">
-                      <span class="name">Архив</span>
-                    </a>
-          <a class="author_link" href="/author/">
-            <span class="name">Об Авторе</span>
-          </a>
-          <a class="course_link" href="https://spirogov.github.io" style="
-              width: 7em;
-          ">
-                      <span class="name">Обучение</span>
-          </a>
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
         </div>
-
-        <div class="nav-menu">
-          <a class="rss" href="https://www.facebook.com/automationremarks"><i class="fa fa-facebook"></i></a>
-          <a class="rss" href="https://vk.com/qaremarks"><i class="fa fa-vk"></i></a>
-          <a class="rss" href="https://twitter.com/s_pirogov"><i class="fa fa-twitter"></i></a>
-          <a class="rss" href="https://qaguild-slack.herokuapp.com/"><i class="fa fa-slack"></i></a>
         </div>
-</nav>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        02/12/2014
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Что такое Flaky тест?</h1>
+                            </header>
 
-<div id="outer_telegram">
-       <div id="telegram-link">
-            <a id="telegram_link_text" href="https://t.me/automation_remarks">Telegram канал
-                <i id="arrow-telegram" class="fa fa-arrow-circle-right"></i> t.me/automation_remarks
-            </a>
-       </div>
-</div>
-	
-	<main class="content" role="main">
-		<article class="post">
-			<div class="inner inner-post">
-				<div id="push">
-                    <header class="post-header">
-                        <span class="post-meta">
-                            <span class="post-author">
-                                <a href="/author/index.html">Сергей Пирогов</a>
-                            </span> |
-                            <span class="post-date">
-                                02/12/2014
-                            </span>
-                        </span>
-                        <div class="clear"></div>
-                        <h1 class="post-title">Что такое Flaky тест?</h1>
-                    </header>
-                    <div class="training_banner">
-                                       <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
-                    </div>
-                    <section class="post-content">
-                        <div class="paragraph">
+                            <section class="post-content">
+                                <div class="paragraph">
 <p>image::http://cdn.meme.am/instances/500x/52587305.jpg</p>
 </div>
 <div class="paragraph">
@@ -123,73 +106,121 @@
 <div class="paragraph">
 <p>Все просто: метод ждал, пока появится окно с нужным title и затем делал switch в новое окно. Все работало прекрасно, пока я не заметил, что у меня тест два раза проходит, а один раз валится с <em>NullPointerException</em>. Оказалось, что подставил меня метод waitForWindowTitle. Один раз он дожидался, пока окно появится, а в другой принимал решение, что окно появилось, хотя на самом деле его еще не было. Вот и все, таким образом я избавился от <strong>Flaky</strong> теста.</p>
 </div>
-                    </section>
+                            </section>
 
-                    <footer class="post-footer">
-                            <div class="post-tags">
-                                    <a style="background: cornflowerblue;"
-                                       href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                    <a style="background: cornflowerblue;"
-                                       href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                            <footer class="post-footer">
+                                    <div class="post-tags">
+                                            <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                            <a class="btn btn-sm btn-outline-dark tag" href="/tags/Автоматизация-тестирования.html">Автоматизация тестирования</a>
+                                    </div>
+
+                            </footer>
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+
+                                                 <div class="card-deck">
+                                                        <div class="card bg-light mb-3">
+                                                            <div class="card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">22 April 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title"><a href="/2020/qaguild-live26/index.html">QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика</a></h5>
+
+                                                              <hr>
+
+                                                              <p class="card-text">
+                                                                   Обзор на Selenium UI Automation плагин в Idea
+                                                              </p>
+
+                                                              <a href="/2020/qaguild-live26/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card bg-light mb-3">
+                                                            <div class="card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">21 April 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title"><a href="/2020/qaguild-s03e06/index.html">QAGuild S03E06: Про работу тестировщиков из дома</a></h5>
+
+                                                              <hr>
+
+                                                              <p class="card-text">
+                                                                   Подкаст про работу из дома
+                                                              </p>
+
+                                                              <a href="/2020/qaguild-s03e06/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card bg-light mb-3">
+                                                            <div class="card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 April 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title"><a href="/2020/qaguild-live27/index.html">QAGuild live #27: Selenide на Kotlin для тестирования UI</a></h5>
+
+                                                              <hr>
+
+                                                              <p class="card-text">
+                                                                   Selenide на Kotlin для тестирования UI
+                                                              </p>
+
+                                                              <a href="/2020/qaguild-live27/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card bg-light mb-3">
+                                                            <div class="card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">10 April 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title"><a href="/2020/qadof/index.html">Online QA BOF</a></h5>
+
+                                                              <hr>
+
+                                                              <p class="card-text">
+                                                                   QA BOF
+                                                              </p>
+
+                                                              <a href="/2020/qadof/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a>
+                                                            </div>
+                                                        </div>
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
                             </div>
-
-                    </footer>
-
-                    <!-- <div class="row">
-                        <h2 style="margin-top: 20px;">Слушайте QAGuild подкаст</h2>
-                        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/692858805&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                        </div>
                     </div>
-                    -->
-                    <div class="row">
-                          <div class="col-md-6">
-                                <div class='related-posts-holder'>
-                                     <h2>Похожие заметки:</h2>
-                                     <ul class="related-posts">
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-live26/index.html">QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-s03e06/index.html">QAGuild S03E06: Про работу тестировщиков из дома</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-live27/index.html">QAGuild live #27: Selenide на Kotlin для тестирования UI</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qadof/index.html">Online QA BOF</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-live25/index.html">QAGuild live #25: Java 14 для тестировщика</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-live24/index.html">QAGuild live #24: Про обучение тестировщиков дома</a></li>
-                                                <li><a class='js-ajax-link' href="/2020/qaguild-s03e04/index.html">QAGuild S03E04: Снова про Cypress от разработчиков</a></li>
-                                     </ul>
-                                 </div>
-                          </div>
-                          <div class="col-md-6">
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer">
+      <div class="container">
 
-                          </div>
-                    </div>
-				</div>
+      </div>
+    </footer>
 
-				<!--
-				<aside class="post-comments">
-                    <div id="disqus_thread">
-                        <script async="async">(function(d, s, id) {
-                                  var js, fjs = d.getElementsByTagName(s)[0];
-                                  if (d.getElementById(id)) return;
-                                  js = d.createElement(s); js.id = id;
-                                  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=344312565764603";
-                                  fjs.parentNode.insertBefore(js, fjs);
-                                }(document, 'script', 'facebook-jssdk'));
-                        </script>
-                    </div>
-                </aside>
-                -->
-			</div>
-		</article>
-	</main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
 
-            <footer id="footer">
-              <section class="credits">
-                <span class="credits-software">Published with <a href="http://jbake.org/">JBake</a></span>
-              </section>
-            </footer>
-         </div>
-    </section>
-
-    <script type="text/javascript" src="../js/dependencies.min.js"></script>
-    <script type="text/javascript" src="../js/script.js" async="async"></script>
-    <script type="text/javascript" src="../js/main.js" async="async"></script>
-    <script src="//my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
-</body>
+    </body>
 </html>
