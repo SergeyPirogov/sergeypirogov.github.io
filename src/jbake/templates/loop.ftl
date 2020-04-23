@@ -1,5 +1,5 @@
-<div class="col-4 mb-3 d-flex">
-    <div class="card index-card">
+<div class="col mb-3 d-flex">
+    <div class="card index-card" style="min-width: 18rem;">
         <#if post.image??>
             <img class="card-img-top" src="images/risovach_ru.jpg" alt="Card image cap">
         </#if>

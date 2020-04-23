@@ -14,7 +14,7 @@
 
       <div class="album py-5 bg-light ">
         <div class="container">
-          <div id="push" class="row post-list row-cols-1 row-cols-md-2">
+          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
             <!-- <div class="card-deck"> -->
                 <#list posts as post>
                     <#if (post.status == "published")>
