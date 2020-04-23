@@ -24,7 +24,7 @@
             </#list>
             </div>
           </div>
-        <a href="" type="button" class="archive-btn float-right">Архив
+        <a href="/archive.html" type="button" class="archive-btn float-right">Архив
             <i class="fa fa-chevron-right ml-1"></i>
         </a>
         </div>
