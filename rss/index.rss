@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 23 Apr 2020 12:05:46 +0000</pubDate>
-    <lastBuildDate>Thu, 23 Apr 2020 12:05:46 +0000</lastBuildDate>
+    <pubDate>Thu, 23 Apr 2020 12:36:50 +0000</pubDate>
+    <lastBuildDate>Thu, 23 Apr 2020 12:36:50 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -86,76 +86,27 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Темы:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;00:02:24 - Начало&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:03:21 - Настройка рабочего места&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:09:51 - Организация пространства на компьютере&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:16:19 - Расписание&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:22:22 - Продуктивность выросла или скатилась&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:24:36 - Включать или не включать камеру&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:33:20 - Как не прокастинировать&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:41:06 - Нужна ли одежда при удаленной работе&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:45:25 - Микс рабочих и не рабочих активностей&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:53:21 - Дети, коты, собаки, жены, мужья, родители&amp;#8230;&amp;#8203; как не сойти с ума&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:59:47 - Как перестать работать&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:07:17 - Обеды&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:14:07 - Алкоголь во время карантина, как не уйти в запой&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:15:05 - Нехватка офисного шума, шутеек в коллективе и посиделок с пицой и пивом&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:24:21 - А что если карантин не закончится&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:25:19 - Про бабло&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:33:00 - Физические упражнения&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:39:41 - Патроны&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:46:15 - Конец&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-telegram&quot;&gt;Подписывайтесь в telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://bit.ly/qaguild-patreon&quot;&gt;Становитесь патроном&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Заносите донат&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:24&lt;/a&gt; - Начало&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:03:21&lt;/a&gt; - Настройка рабочего места&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:09:51&lt;/a&gt; - Организация пространства на компьютере&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:16:19&lt;/a&gt; - Расписание&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:22:22&lt;/a&gt; - Продуктивность выросла или скатилась&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:24:36&lt;/a&gt; - Включать или не включать камеру&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:33:20&lt;/a&gt; - Как не прокастинировать&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:41:06&lt;/a&gt; - Нужна ли одежда при удаленной работе&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:45:25&lt;/a&gt; - Микс рабочих и не рабочих активностей&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:53:21&lt;/a&gt; - Дети, коты, собаки, жены, мужья, родители... как не сойти с ума&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:59:47&lt;/a&gt; - Как перестать работать&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:07:17&lt;/a&gt; - Обеды&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:14:07&lt;/a&gt; - Алкоголь во время карантина, как не уйти в запой&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:15:05&lt;/a&gt; - Нехватка офисного шума, шутеек в коллективе и посиделок с пицой и пивом&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:24:21&lt;/a&gt; - А что если карантин не закончится&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:25:19&lt;/a&gt; - Про бабло&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:33:00&lt;/a&gt; - Физические упражнения&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:39:41&lt;/a&gt; - Патроны&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:46:15&lt;/a&gt; - Конец&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
           </content:encoded>
         </item>
         <item>

@@ -1,7 +1,19 @@
-//$('.post-list').masonry({
-//   itemSelector: ".post",
-//   isAnimated: !1,
-//   gutter: 0,
-//   columnWidth: 1,
-//   transitionDuration: 0
-//});
+$(function() {
+    var scWidget = window['SC'].Widget(document.querySelector('iframe'));
+    scWidget.bind(window['SC'].Widget.Events.READY, () => {});
+
+    const seekToTime = (timeCode) => {
+        let a = timeCode.split(':');
+        let seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+        let ms = seconds * 1000;
+        scWidget.seekTo(ms);
+        scWidget.play();
+    }
+
+    $("a.timecode").click((e) => {
+       seekToTime($(event.target).text())
+    })
+
+});
+
+
