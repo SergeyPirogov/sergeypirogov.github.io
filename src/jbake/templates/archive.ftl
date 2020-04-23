@@ -2,10 +2,13 @@
 
 	<#include "menu.ftl">
 	
-	<main class="content" role="main">
-    		<article class="post">
-    			<div class="inner inner-post">
-    				<div id="push">
+	<div class="album py-5 bg-light">
+           <div class="post-container container">
+                <main class="content" role="main">
+                    <article class="post">
+                        <div class="inner inner-post">
+                            <div id="push">
+
     				    <header class="post-header">
                         	<h1 class="post-title">Архив заметок</h1>
                         </header>
@@ -38,7 +41,8 @@
     			</div>
     		</article>
     </main>
-
+       </div>
+    </div>
 
 	
 <#include "footer.ftl">
