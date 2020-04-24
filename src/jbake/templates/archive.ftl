@@ -1,48 +1,32 @@
 <#include "header.ftl">
 
-	<#include "menu.ftl">
-	
-	<div class="album py-5 bg-light">
-           <div class="post-container container">
-                <main class="content" role="main">
-                    <article class="post">
-                        <div class="inner inner-post">
-                            <div id="push">
+    <#include "menu.ftl">
 
-    				    <header class="post-header">
-                        	<h1 class="post-title">Архив заметок</h1>
-                        </header>
-                        <section class="post-content">
+    <main role="main">
 
-                            <#list published_posts as post>
-                                        <#if (last_month)??>
-                                            <#if post.date?string("MMMM yyyy") != last_month>
-                                                </ul>
-                                                <h4>${post.date?string("MMMM yyyy")}</h4>
-                                                <ul>
-                                            </#if>
+      <section class="jumbotron archive text-center">
+        <div class="container">
 
-                                        <#else>
-                                            <h4>${post.date?string("MMMM yyyy")}</h4>
-                                            <ul>
-                                        </#if>
+          <h1 class="jumbotron-heading">Архив заметок</h1>
+          <div class="gcse-search">
+        </div>
+      </section>
 
-                            		    <li>
-                            		        ${post.date?string("dd")} -
-                            		        <a href="${content.rootpath}${post.uri}">
-                            		            <#escape x as x?xml>${post.title}</#escape>
-                            		        </a>
-                            		    </li>
-                            		    <#assign last_month = post.date?string("MMMM yyyy")>
-                            </#list>
-                            </ul>
-                        </section>
-    				</div>
-    			</div>
-    		</article>
+      <div class="album py-5 bg-light ">
+        <div class="container">
+          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+                <#list posts as post>
+                    <#if (post.status == "published")>
+                         <#include "loop.ftl">
+                    </#if>
+                </#list>
+          </div>
+          <a href="/archive.html" type="button" class="archive-btn float-right">Архив
+            <i class="fa fa-chevron-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+
     </main>
-       </div>
-    </div>
 
-	
 <#include "footer.ftl">

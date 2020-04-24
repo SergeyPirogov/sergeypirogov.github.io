@@ -216,3 +216,8 @@ a.tg-post-icon {
 .sidebar-social a:hover i.fa-500px { color:#00ABE3 }
 .sidebar-social a:hover i.fa-youtube { color:#FF1F25 }
 .sidebar-social a:hover i.fa-behance { color:#FF57AE }
+
+.jumbotron.archive {
+    padding-top: 4.5em;
+    padding-bottom: 1em;
+}
