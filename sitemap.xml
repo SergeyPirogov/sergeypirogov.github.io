@@ -17,10 +17,6 @@
         <lastmod>2020-04-24</lastmod>
     </url>
     <url>
-        <loc>http://automation-remarks.com//trainings/index.html</loc>
-        <lastmod>2020-04-24</lastmod>
-    </url>
-    <url>
         <loc>http://automation-remarks.com//workshop-online/index.html</loc>
         <lastmod>2020-04-24</lastmod>
     </url>
@@ -786,6 +782,14 @@
     </url>
     <url>
         <loc>http://automation-remarks.com//author/index.html</loc>
+        <lastmod>2020-04-24</lastmod>
+    </url>
+    <url>
+        <loc>http://automation-remarks.com//trainings/index.html</loc>
+        <lastmod>2020-04-24</lastmod>
+    </url>
+    <url>
+        <loc>http://automation-remarks.com//java-api/index.html</loc>
         <lastmod>2020-04-24</lastmod>
     </url>
 </urlset>
