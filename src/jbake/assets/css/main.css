@@ -225,3 +225,85 @@ a.tg-post-icon {
 img.bio-photo {
     width: 250px;
 }
+
+.page {
+    padding-top: 1.2em;
+}
+
+.training-card {
+    border-radius: .5rem;
+}
+
+.jumbotron .container.trainings {
+    max-width: 70rem;
+}
+
+form .half.first {
+    width: calc(50% - 1em) !important;
+    padding-left: 0;
+}
+
+form .half {
+    width: calc(50% + 1em) !important;
+    padding-left: 2em;
+}
+form .field {
+    position: relative;
+    float: left;
+    margin: 0 0 1.3em 0;
+    vertical-align: top;
+    width: 100%;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select {
+    height: 3em;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #c9c9c9;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+form .actions {
+    position: relative;
+    clear: both;
+    padding-top: 1em;
+}
+
+ul.actions {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.actions li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+    vertical-align: middle;
+}
+
+.training-form {
+    width: 69%;
+    margin-top: 2em;
+    padding-left: 5px;
+}
+
+.payment-sub-header {
+    font-weight: 400;
+}
+
+.album.training {
+    padding-bottom: 200px!important
+}

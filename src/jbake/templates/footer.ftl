@@ -1,4 +1,4 @@
-    <footer class="text-muted page-footer">
+    <footer class="text-muted page-footer fixed-bottom">
       <div class="container">
 
       </div>
