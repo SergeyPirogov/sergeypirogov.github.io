@@ -221,3 +221,7 @@ a.tg-post-icon {
     padding-top: 4.5em;
     padding-bottom: 1em;
 }
+
+img.bio-photo {
+    width: 250px;
+}
