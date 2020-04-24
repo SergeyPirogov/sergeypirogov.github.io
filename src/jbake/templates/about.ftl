@@ -1,34 +1,29 @@
 <#include "header.ftl">
 
-	<#include "menu.ftl">
+    <#include "menu.ftl">
 
-    <main class="content" role="main">
-    		<article class="post">
-    			<div class="inner inner-about">
-    				<div id="push">
-    				    <header id='about-header' class="post-header">
-                        	<h1 class="post-title">${content.title}</h1>
-                        </header>
-                        <section class="post-content">
-                            ${content.body}
-                        </section>
-    				</div>
+    <main role="main">
 
-    			<!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
-                <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
-                                                    <div class="slides"></div>
-                                                    <h3 class="title"></h3>
-                                                    <a class="prev">‹</a>
-                                                    <a class="next">›</a>
-                </div>
+      <section class="jumbotron archive text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Автор</h1>
+        </div>
+      </section>
 
-    			</div>
-    		</article>
+      <div class="album py-5 bg-light ">
+        <div class="container">
+          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+            <div class="text-justify">
+                <img src="${content.rootpath}../images/about_me.jpg" class="rounded bio-photo float-left mr-3 mb-3" alt="photo">
+
+
+            Победитель Ukraine IT Award 2018 “Quality Assurance”. Эксперт в области автоматизации тестирования. Веду свой подкаст и пишу блог, в котором делюсь
+            опытом. Люблю Java, но не смущаюсь поработать с другими языками и экосистемами.
+
+            Если у вас есть вопрос или предложение смело пишите на почту sergio_89@ukr.net.
+
+            </div>
+        </div>
+      </div>
+
     </main>
-    <script
-      src="https://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-      crossorigin="anonymous"></script>
-    <script src="${content.rootpath}../js/blueimp-gallery.min.js"></script>
-    <script src="${content.rootpath}../js/carousel.js"></script>
-	<#include "footer.ftl">

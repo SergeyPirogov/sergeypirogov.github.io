@@ -3,19 +3,10 @@
 	<#include "menu.ftl">
 
 	<main class="content" role="main">
-		<article class="post">
-			<div class="inner inner-post">
-				<div id="push">
+		<div class="album py-5 bg-light ">
+                <div class="container">
+                  <div id="push" class="row post-list row-cols-1 row-cols-md-4 page">
 				    <header class="post-header">
-                        <span class="post-meta">
-                          <span class="post-author">
-                              <a href="/author/index.html">Сергей Пирогов</a>
-                          </span> |
-                          <span class="post-date">
-                              ${content.date?string("dd/MM/yyyy")}
-                          </span>
-                        </span>
-                        <div class="clear"></div>
                         <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
                     </header>
                     <section class="post-content">
@@ -23,7 +14,5 @@
                     </section>
 				</div>
 			</div>
-		</article>
+		</div>
 	</main>
-
-<#include "footer.ftl">

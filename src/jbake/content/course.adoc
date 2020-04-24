@@ -32,8 +32,7 @@ image::../images/cource.jpg[]
 ++++
 <link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
 <div class="bootstrap-iso" style="
-    width: 90%;
-    padding-left: 15px;
+    margin-left: -15px;
 ">
 <!-- Any HTML here will be styled with Bootstrap CSS -->
 <form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">

@@ -1,4 +1,4 @@
-= Online QA BOF
+= Online QA BOF для тестировщиков
 Сергей Пирогов
 2020-04-10
 :jbake-type: post
@@ -8,11 +8,8 @@
 
 В этом эпизоде ответили на вопросы участников трансляции.
 
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
-- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-
 ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i2VgEWXIMyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bsnezWSjbKo" allowfullscreen></iframe>
+</div>
 ++++

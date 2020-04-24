@@ -8,12 +8,8 @@
 
 В этом эпизоде смотрим и пробуем новый плагин в Idea для тестировщиков
 
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-podcast[Слушайте наш подкаст]
-- http://bit.ly/qaguild-slack[Заходите в наш Slack канал]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-- https://donatesystem.io/donate/automation_remarks[Заносите донат]
-
 ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PqCr0hDF7JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PqCr0hDF7JU?rel=0" allowfullscreen></iframe>
+</div>
 ++++

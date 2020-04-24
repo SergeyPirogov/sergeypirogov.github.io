@@ -1,39 +1,37 @@
 <#include "header.ftl">
-	
-	<#include "menu.ftl">
 
-	<header id="header" class="header">
-		<img id='blog-logo' src="images/blog-logo.png" alt="Blog logo">
-		<div class="inner">
-			<a class="header-title" href="/">
-				<h1 class="header-name">Заметки Автоматизатора</h1>
-				<span class="header-description">Автоматизация рутины приоритетнее давления массой</span>
-			</a>
-		</div>
-	</header>
+    <#include "menu.ftl">
 
+    <main role="main">
 
+      <section class="jumbotron text-center">
+        <div class="container">
+          <img id="blog-logo" src="images/blog-logo.png" alt="Blog logo">
+          <h1 class="jumbotron-heading">Заметки Автоматизатора</h1>
+          <p class="lead text-muted">Автоматизация рутины приоритетнее давления массой</p>
+        </div>
+      </section>
 
-	<div id="post-index" class="container">
-		<main class="content" role="main">
-			<#include "loop-posts.ftl">
-		</main>
-	</div>
+      <div class="album py-3 bg-light ">
+        <div class="container">
+          <div class="row pl-3 pr-3 training-banner-container">
+            <div class="col text-center pb-3 pt-2 training-banner">
+                <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+            </div>
+          </div>
+          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+                <#list posts as post>
+                    <#if (post.status == "published")>
+                         <#include "loop.ftl">
+                    </#if>
+                </#list>
+          </div>
+          <a href="/archive.html" type="button" class="archive-btn float-right">Архив
+            <i class="fa fa-chevron-right ml-1"></i>
+          </a>
+        </div>
+      </div>
 
-	<nav id="pagination" class="pagination" role="pagination">
-    	<div class="inner">
-    	    <#if (nextFileName)??>
-    	        <a class="pagination-item pagination-next" href="${nextFileName}"><i class="icon-arrow-left"></i> <span>Newer Posts</span></a>
-    	    </#if>
-    	    <#-- <span class="pagination-info">Page {{page}} of {{pages}}</span> -->
-    	    <#if (previousFileName)??>
-    	        <a class="pagination-item pagination-prev" href="${previousFileName}"><span>Older Posts</span> <i class="icon-arrow-right"></i></a>
-    	    </#if>
-    	    <a class="pagination-item pagination-prev" href="/archive.html"><span>Архив</span> <i class="fa fa-chevron-right"></i></a>
-    	    <div class="clear"></div>
-    	</div>
-    </nav>
-
-	<div id="body-class" style="display: none;" class=""></div>
+    </main>
 
 <#include "footer.ftl">

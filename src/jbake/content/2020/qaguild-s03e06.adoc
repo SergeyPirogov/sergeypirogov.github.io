@@ -6,6 +6,10 @@
 :jbake-summary: Подкаст про работу из дома
 :jbake-status: published
 
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/786572992&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
 Гости:
 
 - Роман Маринский - 4 месяца дома
@@ -14,30 +18,26 @@
 
 Темы:
 
-- 00:02:24 - Начало
-- 00:03:21 - Настройка рабочего места
-- 00:09:51 - Организация пространства на компьютере
-- 00:16:19 - Расписание
-- 00:22:22 - Продуктивность выросла или скатилась
-- 00:24:36 - Включать или не включать камеру
-- 00:33:20 - Как не прокастинировать
-- 00:41:06 - Нужна ли одежда при удаленной работе
-- 00:45:25 - Микс рабочих и не рабочих активностей
-- 00:53:21 - Дети, коты, собаки, жены, мужья, родители... как не сойти с ума
-- 00:59:47 - Как перестать работать
-- 01:07:17 - Обеды
-- 01:14:07 - Алкоголь во время карантина, как не уйти в запой
-- 01:15:05 - Нехватка офисного шума, шутеек в коллективе и посиделок с пицой и пивом
-- 01:24:21 - А что если карантин не закончится
-- 01:25:19 - Про бабло
-- 01:33:00 - Физические упражнения
-- 01:39:41 - Патроны
-- 01:46:15 - Конец
-
-- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
-- http://bit.ly/qaguild-patreon[Становитесь патроном]
-- https://donatesystem.io/donate/automation_remarks[Заносите донат]
-
 ++++
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/786572992&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+<ul class="timecoder">
+    <li><a class="timecode">00:02:24</a> - Начало</li>
+    <li><a class="timecode">00:03:21</a> - Настройка рабочего места</li>
+    <li><a class="timecode"> 00:09:51</a> - Организация пространства на компьютере</li>
+    <li><a class="timecode"> 00:16:19</a> - Расписание</li>
+    <li><a class="timecode"> 00:22:22</a> - Продуктивность выросла или скатилась</li>
+    <li><a class="timecode"> 00:24:36</a> - Включать или не включать камеру</li>
+    <li><a class="timecode"> 00:33:20</a> - Как не прокастинировать</li>
+    <li><a class="timecode"> 00:41:06</a> - Нужна ли одежда при удаленной работе</li>
+    <li><a class="timecode"> 00:45:25</a> - Микс рабочих и не рабочих активностей</li>
+    <li><a class="timecode"> 00:53:21</a> - Дети, коты, собаки, жены, мужья, родители... как не сойти с ума</li>
+    <li><a class="timecode"> 00:59:47</a> - Как перестать работать</li>
+    <li><a class="timecode"> 01:07:17</a> - Обеды</li>
+    <li><a class="timecode"> 01:14:07</a> - Алкоголь во время карантина, как не уйти в запой</li>
+    <li><a class="timecode"> 01:15:05</a> - Нехватка офисного шума, шутеек в коллективе и посиделок с пицой и пивом</li>
+    <li><a class="timecode"> 01:24:21</a> - А что если карантин не закончится</li>
+    <li><a class="timecode"> 01:25:19</a> - Про бабло</li>
+    <li><a class="timecode"> 01:33:00</a> - Физические упражнения</li>
+    <li><a class="timecode"> 01:39:41</a> - Патроны</li>
+    <li><a class="timecode"> 01:46:15</a> - Конец</li>
+</ul>
 ++++

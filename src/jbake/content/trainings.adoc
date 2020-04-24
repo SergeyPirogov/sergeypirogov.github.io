@@ -1,5 +1,5 @@
 title=Доступные тренинги по автоматизации тестирования
-type=page
+type=trainings
 status=published
 ~~~~~~
 
