@@ -307,3 +307,20 @@ ul.actions li {
 .album.training {
     padding-bottom: 200px!important
 }
+
+.training-banner-container {
+    background-color: bisque;
+    margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 10px;
+}
+
+.training-banner a{
+    color: brown;
+}
+
+.training-banner a:hover{
+    text-decoration: underline;
+}
