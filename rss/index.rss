@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 23 Apr 2020 16:54:45 +0000</pubDate>
-    <lastBuildDate>Thu, 23 Apr 2020 16:54:45 +0000</lastBuildDate>
+    <pubDate>Fri, 24 Apr 2020 05:56:13 +0000</pubDate>
+    <lastBuildDate>Fri, 24 Apr 2020 05:56:13 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -282,79 +282,31 @@
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Темы:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;00:00:09 - Начало&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:01:41 - Гость&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:04:15 - Кому нужны мобильные фермы?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:12:36 - Какие периферийные устройства используются при построении фермы?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:16:40 - Сколько устройств я могу подключить к одному серверу?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:19:11 - Как вы подбираете мобильные устройства для ферм?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:21:08 - Какие преимущества и недостатки перед cloud провайдерами: Browserstack и Saucelabs?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:23:58 - В чем основные ограничения ферм и cloud провайдеров в сравнении с устройствами на руках?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:24:49 - Сколько стоит содержать мобильную ферму?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:28:01 - С каким проблемами приходится сталкиваться в процессе эксплуатации?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:31:15 - Как сделать стабильными беспроводной доступ к интернету для сотни девайсов?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:33:51 - Где хранятся все устройства и как обеспечивается безопасность?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:41:41 - Что из себя представляет конфигурация сервера: Ubuntu, MacOS?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:48:27 - Может вспомните негативные случаи из опыта?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:53:40 - В чем ваш интерес?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:54:25 - Бекапы, дублирование надежность&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:59:36 - Возможно ли работать с устройствами удаленно, кому это может быть полезно в команде?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:02:37 - Возможно ли полностью перевести мобильную автоматизацию в облако под управлением Kubernetes?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:06:05 - Отчеты&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:09:45 - Appium vs Espresso ?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:12:49 - Нужен ли паяльник?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:16:32 - Патроны&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:24:55 - Финал&lt;/p&gt;
-&lt;/li&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:09&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:41&lt;/a&gt; - Гость&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:15&lt;/a&gt; - Кому нужны мобильные фермы?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:12:36&lt;/a&gt; - Какие периферийные устройства используются при построении фермы?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:16:40&lt;/a&gt; - Сколько устройств я могу подключить к одному серверу?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:19:11&lt;/a&gt; - Как вы подбираете мобильные устройства для ферм?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:21:08&lt;/a&gt; - Какие преимущества и недостатки перед cloud провайдерами: Browserstack и Saucelabs?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:23:58&lt;/a&gt; - В чем основные ограничения ферм и cloud провайдеров в сравнении с устройствами на руках?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:24:49&lt;/a&gt; - Сколько стоит содержать мобильную ферму?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:28:01&lt;/a&gt; - С каким проблемами приходится сталкиваться в процессе эксплуатации?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:31:15&lt;/a&gt; - Как сделать стабильными беспроводной доступ к интернету для сотни девайсов?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:33:51&lt;/a&gt; - Где хранятся все устройства и как обеспечивается безопасность?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:41:41&lt;/a&gt; - Что из себя представляет конфигурация сервера: Ubuntu, MacOS?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:48:27&lt;/a&gt; - Может вспомните негативные случаи из опыта?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:53:40&lt;/a&gt; - В чем ваш интерес?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:54:25&lt;/a&gt; - Бекапы, дублирование надежность&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:59:36&lt;/a&gt; - Возможно ли работать с устройствами удаленно, кому это может быть полезно в команде?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:02:37&lt;/a&gt; - Возможно ли полностью перевести мобильную автоматизацию в облако под управлением Kubernetes?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:06:05&lt;/a&gt; - Отчеты&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:09:45&lt;/a&gt; - Appium vs Espresso ?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:12:49&lt;/a&gt; - Нужен ли паяльник?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:16:32&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:24:55&lt;/a&gt; - Финал&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
           </content:encoded>
         </item>
         <item>
