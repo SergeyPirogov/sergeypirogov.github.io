@@ -14,6 +14,9 @@
 
                                <section class="post-content">
                                    ${content.body}
+                                   <div class="paragraph">
+                                    <p>Цена: ${content.price}</p>
+                                   </div>
                                </section>
 
                            </div>
