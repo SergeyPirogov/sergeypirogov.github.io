@@ -1,5 +1,5 @@
 <div class="col mb-3 d-flex">
-    <div class="card index-card" style="min-width: 18rem;">
+    <div class="card index-card">
         <#if post.image??>
             <a href="${post.uri}"><img src="${post.image}" alt=""/></a>
         </#if>

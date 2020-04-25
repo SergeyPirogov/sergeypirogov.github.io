@@ -1,6 +1,8 @@
 title=Тренинг по автоматизации тестированя UI с помощью Java
 type=trainingPage
 status=published
+summary=Технологии: Java 8, Selenide, Gradle, Allure, Jenkins CI
+price=30$
 ~~~~~~
 
 Тренинг в котором показано как построить проект для тестирования UI с помощью языка программирования Java,
@@ -15,5 +17,3 @@ status=published
 * Jenkins CI
 
 Длительность 3 часа.
-
-Цена: 50$
