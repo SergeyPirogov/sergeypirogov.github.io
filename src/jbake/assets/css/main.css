@@ -24,6 +24,8 @@
 .card.index-card, .card.related-card {
     border: none;
     border-radius: .5rem;
+    min-width: 18rem;
+    width: 100%;
 }
 
 .card.related-card {
@@ -232,6 +234,8 @@ img.bio-photo {
 
 .training-card {
     border-radius: .5rem;
+    min-width: 18rem;
+    width: 100%;
 }
 
 .jumbotron .container.trainings {
@@ -306,6 +310,10 @@ ul.actions li {
 
 .album.training {
     padding-bottom: 200px!important
+}
+
+.album.index {
+    padding-bottom: 95px!important
 }
 
 .training-banner-container {

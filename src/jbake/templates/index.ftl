@@ -12,7 +12,7 @@
         </div>
       </section>
 
-      <div class="album py-3 bg-light ">
+      <div class="album py-3 bg-light index">
         <div class="container">
           <div class="row pl-3 pr-3 training-banner-container">
             <div class="col text-center pb-3 pt-2 training-banner">
