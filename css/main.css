@@ -11,7 +11,7 @@
     font-weight: 500;
 }
 
-.card-title a, .card-link {
+.card-title a, .card-link, .linked-card {
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
@@ -21,11 +21,21 @@
     color: #2DB77E;
 }
 
+.linked-card {
+    display: inherit;
+}
+
+.linked-card:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .card.index-card, .card.related-card {
     border: none;
     border-radius: .5rem;
     min-width: 18rem;
     width: 100%;
+    max-width: 22rem;
 }
 
 .card.related-card {
@@ -236,6 +246,11 @@ img.bio-photo {
     border-radius: .5rem;
     min-width: 18rem;
     width: 100%;
+    max-width: 22rem;
+}
+
+.training-card:hover, .index-card:hover {
+    background-color: antiquewhite;
 }
 
 .jumbotron .container.trainings {
