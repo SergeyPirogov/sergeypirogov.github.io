@@ -22,7 +22,6 @@
 
     <title>Заметки Автоматизатора</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
     <link href="${content.rootpath}../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="${content.rootpath}../css/bootstrap.css" rel="stylesheet">
