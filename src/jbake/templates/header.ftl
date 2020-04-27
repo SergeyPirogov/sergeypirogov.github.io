@@ -16,6 +16,7 @@
     <#if content?? && content.summary??>
        <meta property="og:description" content="${content.summary}"/>
     </#if>
+    <link rel="canonical" href="http://automation-remarks.com"/>
     <link rel="shortcut icon" href="${content.rootpath}../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="${content.rootpath}../images/favicon.ico" type="image/x-icon">
 
