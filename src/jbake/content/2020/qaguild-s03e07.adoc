@@ -1,0 +1,37 @@
+= QAGuild S03E07: Про DevSecOps с Барухом Садогурским
+Сергей Пирогов
+2020-04-27
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про DevSecOps
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/805903141&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+
+</iframe>
+++++
+
+Гости:
+
+- Барух Садогурский - может все рассказать про DevOps
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:01:45</a> - Зачем пошел в айти?</li>
+  <li><a class="timecode">00:07:32</a> - Как следует правильно понимать DevOps (это же не только докер)</li>
+  <li><a class="timecode">00:16:01</a> - Что за зверь такой - DevSecOps</li>
+  <li><a class="timecode">00:32:23</a> - Кто отвечает за DEvSecOps? Чья головная боль?</li>
+  <li><a class="timecode">00:36:58</a> - Что в этом процессе делают Security чуваки? Когда тестировать руками?</li>
+  <li><a class="timecode">00:45:28</a> - Где учат тру девопосов?</li>
+  <li><a class="timecode">00:49:13</a> - Есть ли годные книги про DevOps и DevSecOps?</li>
+  <li><a class="timecode">01:01:48</a> - Разбор Полетов, что с ним?</li>
+</ul>
+++++
+
+https://donatesystem.io/donate/automation_remarks[Ccылка для доната]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich
