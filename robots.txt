@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow: 
 
-Sitemap: /sitemap.xml
+Sitemap: http://automation-remarks.com/sitemap.xml
