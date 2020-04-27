@@ -27,7 +27,7 @@ $(function() {
               ajax(form.method, form.action, data, success, error);
             });
         } catch(error){
-            console.error(error);
+            console.warn(error);
         }
           // helper function for sending an AJAX request
 
@@ -62,7 +62,7 @@ $(function() {
            seekToTime($(event.target).text())
         })
     } catch(error){
-                console.error(error);
+        console.warn(error);
     }
 });
 
