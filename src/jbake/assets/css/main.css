@@ -347,3 +347,11 @@ ul.actions li {
 .training-banner a:hover{
     text-decoration: underline;
 }
+
+a.telegram, a.podcast, a.support, a.youtube {
+    transition: all .2s ease-in-out;
+}
+
+a.telegram:hover, a.podcast:hover, a.support:hover, a.youtube:hover {
+    transform: scale(1.1);
+}
