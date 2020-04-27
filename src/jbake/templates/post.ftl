@@ -83,34 +83,37 @@
                                   <div class="col-md-12">
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Похожие заметки:</h2>
-
                                                  <#assign related_posts = published_posts[0..3]>
                                                  <div class="card-deck">
                                                  <#list  related_posts as post>
                                                     <#if (content.title != post.title)>
+
                                                         <div class="card bg-light mb-3">
-                                                            <#if post.image??>
-                                                                <img class="card-img-top" src="images/risovach_ru.jpg" alt="Card image cap">
-                                                            </#if>
-                                                            <div class="card-body d-flex flex-column">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/${content.uri}">
+                                                            <div class="related-card card-body d-flex flex-column">
                                                               <p class="card-text">
                                                                       <small class="text-muted"><span class="post-date">${post.date?string("dd MMMM yyyy")}</span></small>
                                                               </p>
-                                                              <h5 class="card-title"><a href="/${post.uri}"><#escape x as x?xml>${post.title}</#escape></a></h5>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/${post.uri}"> -->
+                                                                    <#escape x as x?xml>${post.title}</#escape>
+                                                                  <!-- </a> -->
+                                                              </h5>
 
-                                                              <hr>
-
+                                                              <!--
                                                               <p class="card-text">
                                                                 <#if post.summary??>
                                                                    <#escape x as x?xml>${post.summary}</#escape>
                                                                 </#if>
                                                               </p>
-
-                                                              <a href="/${post.uri}" class="mt-auto card-link">
+                                                              -->
+                                                              <!-- <a href="/${post.uri}" class="mt-auto card-link">
                                                                 Читать<i class="fa fa-chevron-right ml-1"></i>
-                                                              </a>
+                                                              </a> -->
                                                             </div>
+                                                            </a>
                                                         </div>
+
                                                     </#if>
                                                  </#list>
                                                  </div>

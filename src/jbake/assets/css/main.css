@@ -249,7 +249,7 @@ img.bio-photo {
     max-width: 22rem;
 }
 
-.training-card:hover, .index-card:hover {
+.training-card:hover, .index-card:hover, .rel-card:hover {
     background-color: antiquewhite;
 }
 
