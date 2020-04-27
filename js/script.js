@@ -20,12 +20,15 @@ $(function() {
 
             // handle the form submission event
 
+        try {
             form.addEventListener("submit", function(ev) {
               ev.preventDefault();
               var data = new FormData(form);
               ajax(form.method, form.action, data, success, error);
             });
-
+        } catch(error){
+            console.error(error);
+        }
           // helper function for sending an AJAX request
 
           function ajax(method, url, data, success, error) {
