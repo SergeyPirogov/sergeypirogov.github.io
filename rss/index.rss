@@ -14,9 +14,34 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 27 Apr 2020 12:05:55 +0000</pubDate>
-    <lastBuildDate>Mon, 27 Apr 2020 12:05:55 +0000</lastBuildDate>
+    <pubDate>Tue, 28 Apr 2020 07:50:33 +0000</pubDate>
+    <lastBuildDate>Tue, 28 Apr 2020 07:50:33 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #27: Про DevOps скилы для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live28/index.html</link>
+          <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live28/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks/799&quot;&gt;Тренинг по Jenkins&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда &lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/p8WTpk0MLC4&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E07: Про DevSecOps с Барухом Садогурским
@@ -772,77 +797,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;p&gt;В них я показывал как построить проект, с чего начать и как довести все до CI сервера. Отличная возможность посмотреть на идеи и подходы и сделать автоматизацию на своем проекте лучше.
 По всем вопросам пишите в ТГ в личку @qa_automation_bot или через форму &lt;a href=&quot;http://automation-remarks.com/training/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/training/&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              S2E11: Про тестирование контрактов
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-s2e11/index.html</link>
-          <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-s2e11/index.html</guid>
-          <description>
-                        Разговор про тестирование контрактов
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Подготовили очередной эпизод подкаста. В этом выпуске поговорили о тестировании контрактов с помощью PACT и Spring Cloud contracts.
-Приятного прослушивания.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Александр Романов - главный SDET&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Андрей Закордонец - заморский SDET&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;00:00:39 - Начало&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:01:51 - Про подход в целом&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:34:15 - Про тулы&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:42:17 - Контракты в GraphQL&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:47:43 - Про плюсы&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;00:57:02 - Про сложности внедрения&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:00:32 - Про минусы&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:22:23 - Патроны&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;01:24:57 - Прощание&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Telegram: t.me/automation_remarks&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Стать патроном: www.patreon.com/automation_remarks&lt;/p&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/694390522&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
