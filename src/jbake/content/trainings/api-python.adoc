@@ -10,9 +10,9 @@ price=30$
 
 Технологии c которыми познакомитесь:
 
-* Java 8
-* Rest Assured
-* Gradle
+* Python
+* requests
+* pytest
 * Allure
 * Jenkins CI
 
