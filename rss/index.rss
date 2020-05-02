@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 2 May 2020 08:11:51 +0000</pubDate>
-    <lastBuildDate>Sat, 2 May 2020 08:11:51 +0000</lastBuildDate>
+    <pubDate>Sat, 2 May 2020 14:46:53 +0000</pubDate>
+    <lastBuildDate>Sat, 2 May 2020 14:46:53 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -78,6 +78,64 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Как я делал тихий компьютер дома
+          </title>
+          <link>http://automation-remarks.com/2020/quiet-home-pc/index.html</link>
+          <pubDate>Sat, 2 May 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/quiet-home-pc/index.html</guid>
+          <description>
+                        История создания тихого компьютера дома
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет. Давненько я не писал заметок. В условиях карантина появилось время и решил рассказать историю создания тихого компьютера дома.
+О рабочем месте я уже писал в своем &lt;a href=&quot;https://t.me/automation_remarks/772&quot;&gt;telegram канале&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Проблема заключалась в следующем. Сейчас я работаю из дома и у меня в качестве основного компьютера - системник и два монитора.
+Наличие стационарного компьютера вместо ноутбука - это осознанный выбор: мощей больше, миников можно натыкать больше, стоит дешевле и система устаревает не так быстро.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Саму сборку компьютера я заказал в магазине, дабы особо не париться. Мне надо было иметь минмум 32GB RAM с нормальным процессором и возможностью при надобности
+насыпать HDD/SSD. Обошлось это все в 800$. Сильно меньше, чем ноутбук подобных параметров.
+В целом все работало как надо и радовало душу, до момента, как я начал проводить за этой системой больше пары часов на выходных.
+Когда в доме было тихо, я заметил, что мой ящик сильно громко работает. На тот момент на вдув и на выдув у меня стояли
+кулеры 120мм Be Quiet silent wings 3 в количестве 2х штук. Башенный кулер ноунейм  Vinga и Vinga блок питания на 500 Вт. Еще присутствовала видеокарта
+Geforce 1050TI. Работало оно вот так:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/eY2tLSRUxlA&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Из видео слышно, что шумит кулер видеокарты. Я копался в настройках, твиках и прочей требухе и оказалось, что именно в этой
+серии видеокарты нельзя сбросить обороты кулера меньше 30%, больше можно, ниже нет. Ну вот такой нюанс.
+Я решил поменять карту и поставил Nvidia geforce GTX 1650. Она поддерживает пассивный режим (кулеры не крутятся, если температура нагрева карты ниже 60 градусов).
+Стало получше, но как только я убрал шумный элемент, вскрылись новые шумные части. На этот раз - башенный кулер процессора.
+Я долго читал форумы, советовался с диванными экспертами и решил заменить кулер Vinga что-то там на Noctua. Я пересмотрел кучу обзоров
+и остановился на &lt;a href=&quot;https://hotline.ua/computer-kulery-i-radiatory/noctua_nf-p12/&quot;&gt;NOCTUA NF-P12&lt;/a&gt; PWM для башни процессора и 2х &lt;a href=&quot;https://hotline.ua/computer-kulery-i-radiatory/noctua-nf-s12b-redux-1200/&quot;&gt;NOCTUA NF-S12B redux-1200&lt;/a&gt; для корпуса.
+После этих манипуляций системный блок стал работать намного тише, но на фоне тишины оставался достаточно неприятный шелест
+блока питания. Полечить проблемы простой заменой кулера не получилось, из-за того, что там была китайщина на 2pin(сейчас такой даже не найти).
+Я долго сопротивлялся, но все же купил новый блок питания &lt;a href=&quot;https://hotline.ua/computer-bloki-pitaniya/be-quiet-pure-power-11-600w-cm-bn298&quot;&gt;be quiet! Pure Power 11 600W CM&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;После всех манипуляций система начала работать очень тихо:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/c0lOVSh5GGw&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В процессе переделки я продавал старые железки, поэтому заменил еще и корпус Vinga Smart 500W на &lt;a href=&quot;https://www.fractal-design.com/ru/products/cases/define/define-mini-c/black&quot;&gt;Fractal Design DEFINE MINI C&lt;/a&gt;.
+У него стенки покрыты шумопоглощающим материалом, что улучшает общую картинку. В целом этих проблем можно было избежать
+еще на этапе сборки, но шум системника меня особо и не тревожил, пока я работал за ним пару часов в неделю.
+В целом с учетом продажи старого железа и покупки нового я доплатил примерно 200$.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вот такая история. Если у вас есть интересные истории создания комфортного рабочего места, заходите в наш чатик[&lt;a href=&quot;https://t.me/automation_remarks_flood&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks_flood&lt;/a&gt;] - интересно будет обсудить.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -782,39 +840,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6-OPMvywjUk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #18: Про GitHub в резюме тестировщика
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live18/index.html</link>
-          <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live18/index.html</guid>
-          <description>
-                        Про Github в резюме
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Github - основная платформа для open-source разработки проектов. В этом видео поговорили о том, нужно ли хранить там проекты и прикладывать ссылку на них в своем резюме.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/yaC3ndr2C30&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
