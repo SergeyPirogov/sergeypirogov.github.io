@@ -14,9 +14,73 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 2 May 2020 06:14:14 +0000</pubDate>
-    <lastBuildDate>Sat, 2 May 2020 06:14:14 +0000</lastBuildDate>
+    <pubDate>Sat, 2 May 2020 06:33:48 +0000</pubDate>
+    <lastBuildDate>Sat, 2 May 2020 06:33:48 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E08: Про DevOps и немного про релокацию в США
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e08/index.html</link>
+          <pubDate>Sat, 2 May 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e08/index.html</guid>
+          <description>
+                        Подкаст про особенности работы DevOps инжинера и релокацию в США
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/809517310&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Олег Миколайченко - культурный DevOps&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:08&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:19&lt;/a&gt; - О себе и как поапл в айти&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:06:11&lt;/a&gt; - С чего начинать DevOps в команде&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:14:35&lt;/a&gt; - Откуда брать ДевОпс&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:23:14&lt;/a&gt; - Как пройти собесы на девопса&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:37:31&lt;/a&gt; - Как выстроить карьеру&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:53&lt;/a&gt; - 5000 для девопса&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:57:32&lt;/a&gt; - Чего нам ждать в будущем&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:04:20&lt;/a&gt; - Как изменился девопс ландшафт в Украине за последние пару лет&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:07:58&lt;/a&gt; - Про калифорнию.&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:13:12&lt;/a&gt; - Про визы и релокацию как это сейчас&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:28:22&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:42&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Ccылка для доната&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Доп матералы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://ain.ua/2020/03/09/infrastruktura-za-20-doll/&quot;&gt;Как сделать инфраструктуру для стартапа, если в кармане $20&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://mc.today/pochemu-ukrainskie-devops-inzhenery-zarabatyvayut-5000-zachem-oni-nuzhny-biznesu-i-kak-imi-stat/&quot;&gt;Почему украинские DevOps-инженеры зарабатывают $5000, зачем они нужны бизнесу и как ими стать&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #27: Про DevOps скилы для тестировщика
@@ -751,52 +815,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/yaC3ndr2C30&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Черная пятница от automation-remarks.com
-          </title>
-          <link>http://automation-remarks.com/2019/black-friday-2019/index.html</link>
-          <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/black-friday-2019/index.html</guid>
-          <description>
-                        Черная пятница
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Привет, я решил устроить черную пятницу для подписчиков канала. Я часто сталкиваюсь с вопросами о том, как начать автоматизацию, как построить проект и какие технологии выбрать. Я решил помочь людям и готов устроить праздник скидок на тренинги, которые я проводил в этом году:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;API automation Java&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;UI automation Java&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;API automation Python&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Специальная цена будет действовать до 30 ноября 2019:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;📍- Один тренинг-30$&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;📍
-- За два будет-50$&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;📍- За три будет-70$&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В них я показывал как построить проект, с чего начать и как довести все до CI сервера. Отличная возможность посмотреть на идеи и подходы и сделать автоматизацию на своем проекте лучше.
-По всем вопросам пишите в ТГ в личку @qa_automation_bot или через форму &lt;a href=&quot;http://automation-remarks.com/training/&quot; class=&quot;bare&quot;&gt;http://automation-remarks.com/training/&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
           </content:encoded>
         </item>
 
