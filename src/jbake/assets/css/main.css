@@ -149,8 +149,13 @@ iframe {
   margin-bottom: 5px;
 }
 
+div.ulist {
+   text-align: left;
+}
+
 ul.timecoder li {
    margin-bottom: 5px;
+   text-align: left;
 }
 
 ul.timecoder a:hover {
