@@ -12,6 +12,7 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="<#if (content.title)??><#escape x as x?xml>${content.title}</#escape></#if>">
     <meta property="og:image" content="${content.rootpath}../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
 
     <#if content?? && content.summary??>
        <meta property="og:description" content="${content.summary}"/>
