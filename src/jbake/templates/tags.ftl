@@ -1,19 +1,25 @@
 <#include "header.ftl">
 
 	<#include "menu.ftl">
+    <main role="main">
 
-	<header id="header" class="header">
-		<div class="inner">
-		    <span class="header-title">
-		        <h1 class="header-name">${tag}</h1>
-		    </span>
-		</div>
-	</header>
+        <section class="jumbotron text-center tag-header">
+                <div class="container">
+                  <h1 class="jumbotron-heading">${tag}</h1>
+                </div>
+              </section>
 
-	<div id="post-index" class="container">
-		<main class="content" role="main">
-			<#include "loop-tags.ftl">
-		</main>
-	</div>
-	
+        <div class="album py-3 bg-light index">
+	         <div class="container">
+	            <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+			        <#list tag_posts as post>
+                    		<#if (post.status == "published")>
+                    			<#include "loop.ftl">
+                    		</#if>
+                    </#list>
+			    </div>
+	        </div>
+	    </div>
+
+	</main>
 <#include "footer.ftl">
