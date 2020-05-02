@@ -355,3 +355,7 @@ a.telegram, a.podcast, a.support, a.youtube {
 a.telegram:hover, a.podcast:hover, a.support:hover, a.youtube:hover {
     transform: scale(1.1);
 }
+
+.tag-header {
+    padding-bottom: 0px;
+}
