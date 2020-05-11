@@ -1,0 +1,50 @@
+= QAGuild S03E09: Что общего между SRE и QA
+Сергей Пирогов
+2020-05-11
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про работу SRE
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/809517310&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+
+</iframe>
+++++
+
+Гости:
+
+- Антон Ригида - SRE в букинге
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:47</a> - Как попал в айти?</li>
+  <li><a class="timecode">00:07:34</a> - Что такое SRE?</li>
+  <li><a class="timecode">00:13:36</a> - Чем занимается SRE?</li>
+  <li><a class="timecode">00:19:27</a> - Как в современном мире обеспечиваются высокие показатели доступности?</li>
+  <li><a class="timecode">00:25:04</a> - SRE vs DevOps друг или враг?</li>
+  <li><a class="timecode">00:36:40</a> - Какие скилы нужны и важны?</li>
+  <li><a class="timecode">00:43:30</a> - Есть ли сертификаты?</li>
+  <li><a class="timecode">00:45:37</a> - Про собеседование</li>
+  <li><a class="timecode">00:54:47</a> - SRE на облаках и в собственном датацентре</li>
+  <li><a class="timecode">01:06:33</a> - Про хаос инжиниринг</li>
+  <li><a class="timecode">01:21:12</a> - Как мерять reliability?</li>
+  <li><a class="timecode">01:27:20</a> - Патроны</li>
+  <li><a class="timecode">01:30:16</a> - Про нагрузку</li>
+  <li><a class="timecode">01:31:07</a> - Финалочка</li>
+  <li><a class="timecode">01:31:57</a> - Где учиться?</li>
+</ul>
+++++
+
+https://donatesystem.io/donate/automation_remarks[Ccылка для доната]
+
+Доп матералы:
+
+- https://www.amazon.com/Release-Production-Ready-Software-Pragmatic-Programmers/dp/0978739213[Release It]
+- http://shop.oreilly.com/product/0636920063964.do[Seeking SRE]
+- https://github.com/dastergon/awesome-sre[Awesome SRE]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich
