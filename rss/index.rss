@@ -14,9 +14,78 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 2 May 2020 17:51:59 +0000</pubDate>
-    <lastBuildDate>Sat, 2 May 2020 17:51:59 +0000</lastBuildDate>
+    <pubDate>Mon, 11 May 2020 06:04:22 +0000</pubDate>
+    <lastBuildDate>Mon, 11 May 2020 06:04:22 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E09: Что общего между SRE и QA
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e09/index.html</link>
+          <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e09/index.html</guid>
+          <description>
+                        Подкаст про работу SRE
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/809517310&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Антон Ригида - SRE в букинге&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:47&lt;/a&gt; - Как попал в айти?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:34&lt;/a&gt; - Что такое SRE?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:36&lt;/a&gt; - Чем занимается SRE?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:19:27&lt;/a&gt; - Как в современном мире обеспечиваются высокие показатели доступности?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:25:04&lt;/a&gt; - SRE vs DevOps друг или враг?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:36:40&lt;/a&gt; - Какие скилы нужны и важны?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:43:30&lt;/a&gt; - Есть ли сертификаты?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:45:37&lt;/a&gt; - Про собеседование&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:54:47&lt;/a&gt; - SRE на облаках и в собственном датацентре&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:06:33&lt;/a&gt; - Про хаос инжиниринг&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:21:12&lt;/a&gt; - Как мерять reliability?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:27:20&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:16&lt;/a&gt; - Про нагрузку&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:07&lt;/a&gt; - Финалочка&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:57&lt;/a&gt; - Где учиться?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Ccылка для доната&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Доп матералы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.amazon.com/Release-Production-Ready-Software-Pragmatic-Programmers/dp/0978739213&quot;&gt;Release It&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://shop.oreilly.com/product/0636920063964.do&quot;&gt;Seeking SRE&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dastergon/awesome-sre&quot;&gt;Awesome SRE&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как я делал тихий компьютер дома
@@ -807,39 +876,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/DcqaEsvDPWo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #19: Чемпионат по автоматизации тестирования на Java
-          </title>
-          <link>http://automation-remarks.com/2019/qaguild-live19/index.html</link>
-          <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2019/qaguild-live19/index.html</guid>
-          <description>
-                        В этом выпуске писали автотесты
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом видео показан пример построения проекта по автоматизации тестирования на Java&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Подписывайтесь в telegram - &lt;a href=&quot;http://bit.ly/qaguild-telegram&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Слушайте наш подкаст - &lt;a href=&quot;http://bit.ly/qaguild-podcast&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-podcast&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Заходите в наш Slack канал - &lt;a href=&quot;http://bit.ly/qaguild-slack&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-slack&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Становитесь патроном - &lt;a href=&quot;http://bit.ly/qaguild-patreon&quot; class=&quot;bare&quot;&gt;http://bit.ly/qaguild-patreon&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6-OPMvywjUk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
           </content:encoded>
         </item>
 
