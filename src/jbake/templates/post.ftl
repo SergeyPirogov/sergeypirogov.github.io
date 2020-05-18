@@ -89,7 +89,7 @@
                                                     <#if (content.title != post.title)>
 
                                                         <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/${content.uri}">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/${post.uri}">
                                                             <div class="related-card card-body d-flex flex-column">
                                                               <p class="card-text">
                                                                       <small class="text-muted"><span class="post-date">${post.date?string("dd MMMM yyyy")}</span></small>
