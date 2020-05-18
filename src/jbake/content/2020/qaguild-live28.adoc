@@ -1,4 +1,4 @@
-= QAGuild live #27: Про DevOps скилы для тестировщика
+= QAGuild live #28: Про DevOps скилы для тестировщика
 Сергей Пирогов
 2020-04-28
 :jbake-type: post
