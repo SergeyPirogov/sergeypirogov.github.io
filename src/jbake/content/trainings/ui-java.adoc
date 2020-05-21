@@ -1,4 +1,4 @@
-title=Тренинг по автоматизации тестированя UI с помощью Java
+title=Тренинг по автоматизации тестирования UI с помощью Java
 type=trainingPage
 status=published
 summary=Технологии: Java 8, Selenide, Gradle, Allure, Jenkins CI

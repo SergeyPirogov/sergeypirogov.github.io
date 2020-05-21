@@ -1,4 +1,4 @@
-title=Тренинг по автоматизации тестированя API с помощью Java
+title=Тренинг по автоматизации тестирования API с помощью Java
 type=trainingPage
 status=published
 summary=Технологии: Java 8, Rest Assured, Gradle, Allure, Jenkins CI

@@ -1,4 +1,4 @@
-title=Тренинг по автоматизации тестированя API с помощью Python
+title=Тренинг по автоматизации тестирования API с помощью Python
 type=trainingPage
 status=published
 summary=Технологии: Python 3, Allure, pytest, requests, Jenkins
