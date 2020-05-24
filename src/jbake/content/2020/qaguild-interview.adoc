@@ -1,0 +1,13 @@
+= QAGuild: Мок интервью тестировщика на позицию трейни
+Сергей Пирогов
+2020-05-24
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Пробный собес в трех лицах
+:jbake-status: published
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RbxRoQ3yS-k" allowfullscreen></iframe>
+</div>
+++++
