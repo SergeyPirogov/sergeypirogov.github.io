@@ -40,10 +40,4 @@ src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/82
 
 https://donatesystem.io/donate/automation_remarks[Ccылка для доната]
 
-Доп матералы:
-
-- https://www.amazon.com/Release-Production-Ready-Software-Pragmatic-Programmers/dp/0978739213[Release It]
-- http://shop.oreilly.com/product/0636920063964.do[Seeking SRE]
-- https://github.com/dastergon/awesome-sre[Awesome SRE]
-
 Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich
