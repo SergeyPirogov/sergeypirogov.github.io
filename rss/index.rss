@@ -14,9 +14,41 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 25 May 2020 06:49:07 +0000</pubDate>
-    <lastBuildDate>Mon, 25 May 2020 06:49:07 +0000</lastBuildDate>
+    <pubDate>Wed, 3 Jun 2020 14:17:06 +0000</pubDate>
+    <lastBuildDate>Wed, 3 Jun 2020 14:17:06 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild: Мок интервью тестировщика на позицию Middle
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-interview-middle/index.html</link>
+          <pubDate>Wed, 3 Jun 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-interview-middle/index.html</guid>
+          <description>
+                        Собеседование на позицию Middle QA
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/893iOnzQXMs&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild: Мок интервью тестировщика на позицию Senior QA Automation
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-interview-senior/index.html</link>
+          <pubDate>Wed, 3 Jun 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-interview-senior/index.html</guid>
+          <description>
+                        Собеседование на позицию Senior QA Automation
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/KqslEN0tiMM&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild: Мок интервью тестировщика на позицию трейни
@@ -816,48 +848,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;p&gt;01:55:35 - Финал&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Помощь для начинающих и опытных тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2020/ask-question/index.html</link>
-          <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/ask-question/index.html</guid>
-          <description>
-                        Про ответы на вопросы в telegram канале
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Привет👋
-На новогодних каникулах читал книги и думал о новых форматах общения для &lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;telegram канала&lt;/a&gt;.
-Очень часто у тебя может возникнуть вопрос и рядом нет человека, к которому можно обратиться за помощью.
-Задавайте свой вопросы через &lt;a href=&quot;https://t.me/qa_automation_bot&quot;&gt;@qa_automation_bot&lt;/a&gt; в telegram. Ответы на самые интересные и часто задаваемые вопросы будут появляться в канале.
-Надеюсь, эта инициатива поможет многим из вас найти  ответ на волнующие вас вопросы🤞.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ссылка на &lt;a href=&quot;https://t.me/automation_remarks/720&quot;&gt;оригинальный пост&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #21: Про отчеты в автотестах
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live21/index.html</link>
-          <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live21/index.html</guid>
-          <description>
-                        Про отчеты
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде поговорим об отчетах в автоматизации тестирования. Сравним популярные решения RP vs Allure.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/P4Z67QNejgw&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
