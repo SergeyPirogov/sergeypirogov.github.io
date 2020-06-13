@@ -14,9 +14,38 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 3 Jun 2020 15:00:00 +0000</pubDate>
-    <lastBuildDate>Wed, 3 Jun 2020 15:00:00 +0000</lastBuildDate>
+    <pubDate>Sat, 13 Jun 2020 06:33:58 +0000</pubDate>
+    <lastBuildDate>Sat, 13 Jun 2020 06:33:58 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Бесплатный тренинг Python + Selene +Allure 2
+          </title>
+          <link>http://automation-remarks.com/2020/python-selene-workshop/index.html</link>
+          <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/python-selene-workshop/index.html</guid>
+          <description>
+                        Бесплатный тренинг
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет, наступил день халявных курсов. Пошел я в свой [ютуб канал](&lt;a href=&quot;https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber&quot; class=&quot;bare&quot;&gt;https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber&lt;/a&gt;) и среди старых записей нашел воркшоп по Python + Selene.
+Открываю доступ всем читателям канала, пускай приносит добро и пользу.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Часть 1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/roSAbyKLrkk&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Часть 2:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/B535G6n5yJY&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E10: Путь QA в BA и в Amazon
@@ -777,23 +806,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/RSkj6CICXig&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Размещение вакансий для тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2020/vacancies/index.html</link>
-          <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/vacancies/index.html</guid>
-          <description>
-                        Про вакансии в telegram
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ищете в свою команду толкового QA? У вас есть возможность разместить свою вакансию в телеграмм канале &lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;
-и ее увидит 6300+ QA инженеров.&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
