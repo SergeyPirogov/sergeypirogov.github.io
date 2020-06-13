@@ -1,0 +1,24 @@
+= Бесплатный тренинг Python + Selene +Allure 2
+Сергей Пирогов
+2020-06-13
+:jbake-type: post
+:jbake-tags: Тренинг
+:jbake-summary: Бесплатный тренинг
+:jbake-status: published
+
+Привет, наступил день халявных курсов. Пошел я в свой [ютуб канал](https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber) и среди старых записей нашел воркшоп по Python + Selene.
+Открываю доступ всем читателям канала, пускай приносит добро и пользу.
+
+Часть 1:
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/roSAbyKLrkk" allowfullscreen></iframe>
+</div>
+++++
+
+Часть 2:
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/B535G6n5yJY" allowfullscreen></iframe>
+</div>
+++++
