@@ -6,7 +6,7 @@
 :jbake-summary: Бесплатный тренинг
 :jbake-status: published
 
-Привет, наступил день халявных курсов. Пошел я в свой [ютуб канал](https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber) и среди старых записей нашел воркшоп по Python + Selene.
+Привет, наступил день халявных курсов. Пошел я в свой https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg[ютуб канал] и среди старых записей нашел воркшоп по Python + Selene.
 Открываю доступ всем читателям канала, пускай приносит добро и пользу.
 
 Часть 1:
