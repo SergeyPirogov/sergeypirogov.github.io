@@ -1,6 +1,6 @@
 = QAGuild live #30: Менторинг для тестировщика
 Сергей Пирогов
-2020-04-28
+2020-06-22
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика
