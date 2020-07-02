@@ -16,23 +16,10 @@
 
       <div class="album py-5 bg-light ">
         <div class="container">
-          <!-- <div class="row pb-3">
-                      <div class="col">
-                             <div class="pb-2">На все тренинги распросраняется правило скидок:</div>
-                             <div class="ml-3">- Один тренинг - 30$</div>
-                             <div class="ml-3">- За два будет - 50$</div>
-                             <div class="ml-3">- За три будет - 70$</div>
-                      </div>
-          </div> -->
-
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
-
-            <#list published_content as content>
-                    <#if (content.type == "trainingPage")>
-                         <#include "training-card.ftl">
-                    </#if>
+            <#list trainingPages as content>
+                <#include "training-card.ftl">
             </#list>
-
           </div>
 
         </div>

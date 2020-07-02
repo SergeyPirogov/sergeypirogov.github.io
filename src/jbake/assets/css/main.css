@@ -364,3 +364,7 @@ a.telegram:hover, a.podcast:hover, a.support:hover, a.youtube:hover {
 .tag-header {
     padding-bottom: 0px;
 }
+
+a.linked-card.inactive {
+    display: none
+}

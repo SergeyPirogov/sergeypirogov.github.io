@@ -3,6 +3,7 @@ type=trainingPage
 status=published
 summary=Тренинг в котором можно посмотреть на устройство Jenkins CI
 price=15$
+state=active
 ~~~~~~
 
 Тренинг в котором можно посмотреть на устройство Jenkins CI, показаны способы устрановки, настройки и подключения тестов.
