@@ -9,7 +9,9 @@
 В этом эпизоде поговорим про Java + SQL для тестировщика
 
 https://automation-remarks.com/trainings/api-python/index.html[Тренинг по автоматизации тестирования API с помощью Python]
+
 https://automation-remarks.com/trainings/java-sql/index.html[Тренинг по работе с базами данных Java + SQL]
+
 https://donatesystem.io/donate/automation_remarks[Донат заносить сюда]
 
 ++++
