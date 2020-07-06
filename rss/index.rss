@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 6 Jul 2020 06:25:27 +0000</pubDate>
-    <lastBuildDate>Mon, 6 Jul 2020 06:25:27 +0000</lastBuildDate>
+    <pubDate>Mon, 6 Jul 2020 06:40:10 +0000</pubDate>
+    <lastBuildDate>Mon, 6 Jul 2020 06:40:10 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -32,9 +32,13 @@
 &lt;p&gt;В этом эпизоде поговорим про Java + SQL для тестировщика&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;
-&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;
-&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/skx83odlMv4&quot; allowfullscreen&gt;&lt;/iframe&gt;
