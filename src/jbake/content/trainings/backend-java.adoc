@@ -1,0 +1,21 @@
+title=Тренинг по автоматизации тестирования бенеда с помощью Java
+type=trainingPage
+status=published
+summary=Технологии: Java 8/14, Rest Assured, Gradle, Kafka, Postgres
+price=30$
+state=active
+~~~~~~
+
+Тренинг в котором показано как построить проект для тестирования сервисов бекенда с помощью языка программирования Java,
+с чего начать и как довести все до CI сервера.
+
+Технологии c которыми познакомитесь:
+
+* Java 8
+* Rest Assured
+* Gradle
+* Allure
+* Kafka
+* Postgres
+
+Длительность 3 часа.
