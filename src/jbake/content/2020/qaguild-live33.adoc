@@ -1,0 +1,23 @@
+= QAGuild live #33: Юбилейный стрим для тестировщиков
+Сергей Пирогов
+2020-07-20
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом эпизоде поговорим про работу с Java + SQL
+:jbake-status: published
+
+Прошел 1 год с гаком с момента зарождения этого канала. Обсудим новости, как это было, челенджи и новые форматы выпусков.
+
+https://automation-remarks.com/trainings/api-python/index.html[Тренинг по автоматизации тестирования API с помощью Python]
+
+https://automation-remarks.com/trainings/java-sql/index.html[Тренинг по работе с базами данных Java + SQL]
+
+https://automation-remarks.com/trainings/backend-java/index.html[Тренинг по автоматизации тестирования бекенда с помощью Java]
+
+https://donatesystem.io/donate/automation_remarks[Донат заносить сюда]
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/aMjDbttJff0" allowfullscreen></iframe>
+</div>
+++++
