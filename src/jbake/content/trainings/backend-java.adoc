@@ -1,4 +1,4 @@
-title=Тренинг по автоматизации тестирования бенеда с помощью Java
+title=Тренинг по автоматизации тестирования бекенда с помощью Java
 type=trainingPage
 status=published
 summary=Технологии: Java 8/14, Rest Assured, Gradle, Kafka, Postgres
