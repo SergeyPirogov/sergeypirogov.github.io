@@ -14,9 +14,37 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 20 Jul 2020 06:56:12 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 06:56:12 +0000</lastBuildDate>
+    <pubDate>Mon, 3 Aug 2020 06:09:35 +0000</pubDate>
+    <lastBuildDate>Mon, 3 Aug 2020 06:09:35 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #34: Каким должно быть тестовое задание для QA Automation?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live34/index.html</link>
+          <pubDate>Mon, 3 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live34/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, каким же должно быть тестовое задание для QA Automation специалиста
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/qgmFhVyJ2oE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #33: Юбилейный стрим для тестировщиков
@@ -644,25 +672,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/9kaHs4wCKFc&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #24: Про обучение тестировщиков дома
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live24/index.html</link>
-          <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live24/index.html</guid>
-          <description>
-                        Про обучение тестировщиков дома
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде расскажу про подходы к обучению дома. Многим тестировщикам на период карантина советую попробовать.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/sCbrR2lnMAM&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
