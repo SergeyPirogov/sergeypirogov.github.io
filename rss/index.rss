@@ -14,9 +14,37 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 3 Aug 2020 06:09:35 +0000</pubDate>
-    <lastBuildDate>Mon, 3 Aug 2020 06:09:35 +0000</lastBuildDate>
+    <pubDate>Thu, 13 Aug 2020 08:50:22 +0000</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2020 08:50:22 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #35: Как нужно делать ревью тестового задания для QA Automation?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live35/index.html</link>
+          <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live35/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, как делать ревью тестового задания для QA Automation специалиста
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/lWhvKId7IYY&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #34: Каким должно быть тестовое задание для QA Automation?
@@ -653,25 +681,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/bsnezWSjbKo&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #25: Java 14 для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live25/index.html</link>
-          <pubDate>Fri, 3 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live25/index.html</guid>
-          <description>
-                        Пишем автотесты на Java 14
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде попробуем написать автотесты на Java 14.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/9kaHs4wCKFc&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
