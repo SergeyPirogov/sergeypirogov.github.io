@@ -1,0 +1,21 @@
+= QAGuild live #36: Как использовать Moon для запуска Playwright тестов
+Сергей Пирогов
+2020-08-18
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом эпизоде поговорим про то, как настроить инфраструктуру для запуска Playwright и Selenium тестов
+:jbake-status: published
+
+https://automation-remarks.com/trainings/api-python/index.html[Тренинг по автоматизации тестирования API с помощью Python]
+
+https://automation-remarks.com/trainings/java-sql/index.html[Тренинг по работе с базами данных Java + SQL]
+
+https://automation-remarks.com/trainings/backend-java/index.html[Тренинг по автоматизации тестирования бекенда с помощью Java]
+
+https://donatesystem.io/donate/automation_remarks[Донат заносить сюда]
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/IbTlHhI_UVk" allowfullscreen></iframe>
+</div>
+++++
