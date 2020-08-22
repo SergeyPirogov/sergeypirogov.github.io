@@ -14,9 +14,170 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 18 Aug 2020 05:52:58 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Aug 2020 05:52:58 +0000</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2020 06:33:53 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2020 06:33:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E12: Про Тест планы и тест стратегии в 2020 году
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e13/index.html</link>
+          <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e13/index.html</guid>
+          <description>
+                        Подкаст про Тест планы и тест стратегии в 2020 году
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/874365418&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Лупан - эксперт по тестированию и стратегиям&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Антон Мужайло - лучший QA 2019&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:15&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:17&lt;/a&gt; - Гости&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:15&lt;/a&gt; - Тест план и тест стратегия&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:28:02&lt;/a&gt; - Что сейчас со стандартами (ISO-29119, IEEE-829, TMMI, ISTQB)&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:37:02&lt;/a&gt; - Как планировать оптимально и с пользой&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:48:49&lt;/a&gt; - Как можно планировать в мире аджайла&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:04&lt;/a&gt; - Как держать планы в актуальном состоянии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:58:02&lt;/a&gt; - Приводит ли планирование к успеху или это просто лишнее время&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:04:42&lt;/a&gt; - Как быстро сколхозить стратегию&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:11:21&lt;/a&gt; - Где брать примеры или какие книги читать про это все?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:17:15&lt;/a&gt; - Тест менеджмент в эпоху удаленки&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:29:22&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:11&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E11: Про релокацию в Эстонию
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e11/index.html</link>
+          <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e11/index.html</guid>
+          <description>
+                        Подкаст про релокацию в Эстонию
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/853785262&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Юлия Ёлкин - IT Recruiter, owner of www.ittalent.ee, live in Tallinn, Estonia&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:06&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:53&lt;/a&gt; - Как попала в IT рекрутмент&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:29&lt;/a&gt; - Чем привлекательна Эстония для работодателей и кандидатов?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:08:06&lt;/a&gt; - Зарплатные вилки для тестировщиков и автоматизаторов?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:12:49&lt;/a&gt; - Самые востребованные навыки и умения&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:22:13&lt;/a&gt; - Каких компаний больше на рынке, продукт или аутсорс?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:24:49&lt;/a&gt; - Особенности рекрутмента в условиях карантина&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:29:03&lt;/a&gt; - А если без знания английского?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:30:12&lt;/a&gt; - Знание эстонского даст бонусы?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:30:40&lt;/a&gt; - Что нужно для получения гражданства?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:33:23&lt;/a&gt; - А если просто переехать, продолжая работать удаленно на текущего работодателя?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:34:38&lt;/a&gt; - Переезд, время затраты, визы&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:40:34&lt;/a&gt; - Цена жизни в Эстонии для семьи с ребенком?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:45:54&lt;/a&gt; - Трудовое законодательство&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:49:16&lt;/a&gt; - Про Эстонию, климат, культура, отношение к мигрантам...&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:06:05&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:11:35&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E12: Про релокацию в Эстонию
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e12/index.html</link>
+          <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e12/index.html</guid>
+          <description>
+                        Подкаст про работу в Швейцарии
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/874365418&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Олексей Чаплиц - вошел в IT в Швейцарии в 48 лет&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:55&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:01&lt;/a&gt; - Как попал в IT&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:09:56&lt;/a&gt; - Как переехать&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:17&lt;/a&gt; - Как найти работу&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:24:22&lt;/a&gt; - Учеба в Швейцарии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:36:15&lt;/a&gt; - Как жить в Швейцарии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:53:16&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:55:55&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #36: Как использовать Moon для запуска Playwright тестов
@@ -598,98 +759,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live26/index.html</link>
-          <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live26/index.html</guid>
-          <description>
-                        Обзор на Selenium UI Automation плагин в Idea
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде смотрим и пробуем новый плагин в Idea для тестировщиков&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/PqCr0hDF7JU?rel=0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E06: Про работу тестировщиков из дома
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e06/index.html</link>
-          <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e06/index.html</guid>
-          <description>
-                        Подкаст про работу из дома
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/786572992&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Роман Маринский - 4 месяца дома&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Александр Хотемской - работал из дома задолго до хайпа&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Сергей Король - 80/20 работает дома&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:24&lt;/a&gt; - Начало&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:03:21&lt;/a&gt; - Настройка рабочего места&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:09:51&lt;/a&gt; - Организация пространства на компьютере&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:16:19&lt;/a&gt; - Расписание&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:22:22&lt;/a&gt; - Продуктивность выросла или скатилась&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:24:36&lt;/a&gt; - Включать или не включать камеру&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:33:20&lt;/a&gt; - Как не прокастинировать&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:41:06&lt;/a&gt; - Нужна ли одежда при удаленной работе&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:45:25&lt;/a&gt; - Микс рабочих и не рабочих активностей&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:53:21&lt;/a&gt; - Дети, коты, собаки, жены, мужья, родители... как не сойти с ума&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 00:59:47&lt;/a&gt; - Как перестать работать&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:07:17&lt;/a&gt; - Обеды&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:14:07&lt;/a&gt; - Алкоголь во время карантина, как не уйти в запой&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:15:05&lt;/a&gt; - Нехватка офисного шума, шутеек в коллективе и посиделок с пицой и пивом&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:24:21&lt;/a&gt; - А что если карантин не закончится&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:25:19&lt;/a&gt; - Про бабло&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:33:00&lt;/a&gt; - Физические упражнения&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:39:41&lt;/a&gt; - Патроны&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt; 01:46:15&lt;/a&gt; - Конец&lt;/li&gt;
-&lt;/ul&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #27: Selenide на Kotlin для тестирования UI
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live27/index.html</link>
-          <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live27/index.html</guid>
-          <description>
-                        Selenide на Kotlin для тестирования UI
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде попробуем написать Selenide на Kotlin для тестирования UI&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/gm3lcdcNvMs&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
