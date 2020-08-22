@@ -1,0 +1,44 @@
+= QAGuild S03E12: Про Тест планы и тест стратегии в 2020 году
+Сергей Пирогов
+2020-08-22
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про Тест планы и тест стратегии в 2020 году
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/874365418&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+</iframe>
+++++
+
+Гости:
+
+- Алексей Лупан - эксперт по тестированию и стратегиям
+- Антон Мужайло - лучший QA 2019
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:01:15</a> - Начало</li>
+  <li><a class="timecode">00:01:17</a> - Гости</li>
+  <li><a class="timecode">00:02:15</a> - Тест план и тест стратегия</li>
+  <li><a class="timecode">00:28:02</a> - Что сейчас со стандартами (ISO-29119, IEEE-829, TMMI, ISTQB)</li>
+  <li><a class="timecode">00:37:02</a> - Как планировать оптимально и с пользой</li>
+  <li><a class="timecode">00:48:49</a> - Как можно планировать в мире аджайла</li>
+  <li><a class="timecode">00:51:04</a> - Как держать планы в актуальном состоянии</li>
+  <li><a class="timecode">00:58:02</a> - Приводит ли планирование к успеху или это просто лишнее время</li>
+  <li><a class="timecode">01:04:42</a> - Как быстро сколхозить стратегию</li>
+  <li><a class="timecode">01:11:21</a> - Где брать примеры или какие книги читать про это все?</li>
+  <li><a class="timecode">01:17:15</a> - Тест менеджмент в эпоху удаленки</li>
+  <li><a class="timecode">01:29:22</a> - Патроны</li>
+  <li><a class="timecode">01:31:11</a> - Конец</li>
+</ul>
+++++
+
+https://t.me/automation_remarks[Telegram]
+
+https://www.patreon.com/automation_remarks[Стать патроном]
+
+Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich

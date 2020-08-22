@@ -1,0 +1,38 @@
+= QAGuild S03E12: Про релокацию в Эстонию
+Сергей Пирогов
+2020-08-21
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про работу в Швейцарии
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/874365418&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+</iframe>
+++++
+
+Гости:
+
+- Олексей Чаплиц - вошел в IT в Швейцарии в 48 лет
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:55</a> - Начало</li>
+  <li><a class="timecode">00:04:01</a> - Как попал в IT</li>
+  <li><a class="timecode">00:09:56</a> - Как переехать</li>
+  <li><a class="timecode">00:13:17</a> - Как найти работу</li>
+  <li><a class="timecode">00:24:22</a> - Учеба в Швейцарии</li>
+  <li><a class="timecode">00:36:15</a> - Как жить в Швейцарии</li>
+  <li><a class="timecode">00:53:16</a> - Патроны</li>
+  <li><a class="timecode">00:55:55</a> - Конец</li>
+</ul>
+++++
+
+https://t.me/automation_remarks[Telegram]
+
+https://www.patreon.com/automation_remarks[Стать патроном]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich
