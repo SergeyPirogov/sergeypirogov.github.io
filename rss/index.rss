@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 22 Aug 2020 06:33:53 +0000</pubDate>
-    <lastBuildDate>Sat, 22 Aug 2020 06:33:53 +0000</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2020 08:07:42 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2020 08:07:42 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -132,7 +132,7 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
         </item>
         <item>
           <title>
-              QAGuild S03E12: Про релокацию в Эстонию
+              QAGuild S03E12: Про швейцарское IT
           </title>
           <link>http://automation-remarks.com/2020/qaguild-s03e12/index.html</link>
           <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
