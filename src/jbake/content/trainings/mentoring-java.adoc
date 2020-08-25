@@ -2,7 +2,7 @@ title=Менторинг по автоматизации тестировани�
 type=trainingPage
 status=published
 summary=Технологии: Java 8/14, Rest Assured, Gradle, Allure, Jenkins CI
-price=200$
+price=300$
 state=active
 ~~~~~~
 
