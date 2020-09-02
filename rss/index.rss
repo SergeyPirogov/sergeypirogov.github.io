@@ -14,9 +14,50 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 Aug 2020 06:06:20 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Aug 2020 06:06:20 +0000</lastBuildDate>
+    <pubDate>Wed, 2 Sep 2020 09:58:20 +0000</pubDate>
+    <lastBuildDate>Wed, 2 Sep 2020 09:58:20 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #37: C чего нужно начинать автоматизацию на проекте?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live37/index.html</link>
+          <pubDate>Wed, 2 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live37/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, с чего нужно начинать автоматизацию тестирования на проекте
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/fBTQ3v0i9ic&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild S03E13: Про Тест планы и тест стратегии в 2020 году
@@ -713,52 +754,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/p8WTpk0MLC4&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E07: Про DevSecOps с Барухом Садогурским
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e07/index.html</link>
-          <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e07/index.html</guid>
-          <description>
-                        Подкаст про DevSecOps
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/805903141&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Барух Садогурский - может все рассказать про DevOps&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:45&lt;/a&gt; - Зачем пошел в айти?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:32&lt;/a&gt; - Как следует правильно понимать DevOps (это же не только докер)&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:16:01&lt;/a&gt; - Что за зверь такой - DevSecOps&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:32:23&lt;/a&gt; - Кто отвечает за DEvSecOps? Чья головная боль?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:36:58&lt;/a&gt; - Что в этом процессе делают Security чуваки? Когда тестировать руками?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:45:28&lt;/a&gt; - Где учат тру девопосов?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:49:13&lt;/a&gt; - Есть ли годные книги про DevOps и DevSecOps?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:01:48&lt;/a&gt; - Разбор Полетов, что с ним?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Ccылка для доната&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
