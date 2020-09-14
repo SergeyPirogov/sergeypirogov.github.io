@@ -14,9 +14,50 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 7 Sep 2020 06:07:40 +0000</pubDate>
-    <lastBuildDate>Mon, 7 Sep 2020 06:07:40 +0000</lastBuildDate>
+    <pubDate>Mon, 14 Sep 2020 14:26:51 +0000</pubDate>
+    <lastBuildDate>Mon, 14 Sep 2020 14:26:51 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #39: Что такое Moon Cloud и зачем он для ваших тестов?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live39/index.html</link>
+          <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live39/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про Selenium тесты в облаке на примере проекта Moon Cloud
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XRukn7_E9zs&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #38: Что лучше взять для автоматизации тестирования, Selenium или Selenide?
@@ -706,70 +747,6 @@ Geforce 1050TI. Работало оно вот так:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Вот такая история. Если у вас есть интересные истории создания комфортного рабочего места, заходите в наш &lt;a href=&quot;https://t.me/automation_remarks_flood&quot;&gt;чатик&lt;/a&gt; - интересно будет обсудить.&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E08: Про DevOps и немного про релокацию в США
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e08/index.html</link>
-          <pubDate>Sat, 2 May 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e08/index.html</guid>
-          <description>
-                        Подкаст про особенности работы DevOps инжинера и релокацию в США
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/809517310&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Олег Миколайченко - культурный DevOps&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:08&lt;/a&gt; - Начало&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:19&lt;/a&gt; - О себе и как поапл в айти&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:06:11&lt;/a&gt; - С чего начинать DevOps в команде&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:14:35&lt;/a&gt; - Откуда брать ДевОпс&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:23:14&lt;/a&gt; - Как пройти собесы на девопса&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:37:31&lt;/a&gt; - Как выстроить карьеру&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:53&lt;/a&gt; - 5000 для девопса&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:57:32&lt;/a&gt; - Чего нам ждать в будущем&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:04:20&lt;/a&gt; - Как изменился девопс ландшафт в Украине за последние пару лет&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:07:58&lt;/a&gt; - Про калифорнию.&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:13:12&lt;/a&gt; - Про визы и релокацию как это сейчас&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:28:22&lt;/a&gt; - Патроны&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:42&lt;/a&gt; - Конец&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Ccылка для доната&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Доп матералы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://ain.ua/2020/03/09/infrastruktura-za-20-doll/&quot;&gt;Как сделать инфраструктуру для стартапа, если в кармане $20&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://mc.today/pochemu-ukrainskie-devops-inzhenery-zarabatyvayut-5000-zachem-oni-nuzhny-biznesu-i-kak-imi-stat/&quot;&gt;Почему украинские DevOps-инженеры зарабатывают $5000, зачем они нужны бизнесу и как ими стать&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
