@@ -1,0 +1,21 @@
+title=Тренинг по автоматизации контрактного тестирования
+type=trainingPage
+status=published
+summary=Технологии: Spring boot, Spring cloud contracts, Swagger, Docker, Jenkins CI
+price=30$
+state=active
+~~~~~~
+
+Тренинг по контрактному тестированию на основе Java + Spring cloud contracts + Swagger.
+В этом тренинге, показано как организовать подход с технической и процессной стороны.
+Будет полезно тем, кто давно хотел разобраться в теме и внедрить контрактные тесты у себя на проекте.
+
+Технологии c которыми познакомитесь:
+
+* Spring boot
+* Spring cloud contracts
+* Docker
+* Swagger
+* Jenkins CI
+
+Длительность 3 часа.
