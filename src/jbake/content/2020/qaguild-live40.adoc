@@ -1,6 +1,6 @@
 = QAGuild live #40: Что лучше Selenium IDE или Playwright CLI для тестирования?
 Сергей Пирогов
-2020-09-14
+2020-09-15
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: В этом эпизоде поговорим про Playwright CLI и сравним его с Selenium IDE. Кто победит в это битве взглядов?
