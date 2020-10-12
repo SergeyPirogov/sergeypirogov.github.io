@@ -14,9 +14,155 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 21 Sep 2020 05:39:36 +0000</pubDate>
-    <lastBuildDate>Mon, 21 Sep 2020 05:39:36 +0000</lastBuildDate>
+    <pubDate>Mon, 12 Oct 2020 06:44:04 +0000</pubDate>
+    <lastBuildDate>Mon, 12 Oct 2020 06:44:04 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild S03E15: Visual Testing из Open Source
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e15/index.html</link>
+          <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e15/index.html</guid>
+          <description>
+                        Подкаст про Visual Testing
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/906020350&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Павел Стрункин - автор Visual Regression Tracker&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:05&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:53&lt;/a&gt; - Как попал в айти&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:32&lt;/a&gt; - Зачем нужен вижуал тестинг&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:38&lt;/a&gt; - Что под капотом, селениум?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:13&lt;/a&gt; - Как это работает&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:35:16&lt;/a&gt; - Как настроить эту балалайку&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:02&lt;/a&gt; - Сколько нужно вложить времени в создание сценариев&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:40:10&lt;/a&gt; - Какие проблемы&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:42:28&lt;/a&gt; - Стоит ли за это платить деньги&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:35&lt;/a&gt; - ML и AI зачем&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:26:52&lt;/a&gt; - Патронs&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:29&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E14: SecOps - второе пришествие
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e14/index.html</link>
+          <pubDate>Mon, 5 Oct 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e14/index.html</guid>
+          <description>
+                        Подкаст про DevSecOps
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/902593087&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Денис Якимов - специалист по безопасности&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:50&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:54&lt;/a&gt; - Как попал в айти?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:57&lt;/a&gt; - Зачем нужен SecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:43&lt;/a&gt; - Моделирование угроз&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:10:50&lt;/a&gt; - Как сделать что бы секьюрити не замедляла ваше приложение&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:16:26&lt;/a&gt; - С чего начать внедрение&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:26:03&lt;/a&gt; - Кто этим может заниматься&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:29:28&lt;/a&gt; - Где можно научиться&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:36&lt;/a&gt; - В какое место пайплайна встраивать SecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:43:38&lt;/a&gt; - Чем сканировать Docker&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:49&lt;/a&gt; - Как продать DevSecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:40&lt;/a&gt; - Про деньги&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:05:55&lt;/a&gt; - Патроны&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #40: Что лучше Selenium IDE или Playwright CLI для тестирования?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live40/index.html</link>
+          <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live40/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про Playwright CLI и сравним его с Selenium IDE. Кто победит в это битве взглядов?
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/r6nlNrE-ARE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #39: Что такое Moon Cloud и зачем он для ваших тестов?
@@ -55,47 +201,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XRukn7_E9zs&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #40: Что лучше Selenium IDE или Playwright CLI для тестирования?
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live40/index.html</link>
-          <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live40/index.html</guid>
-          <description>
-                        В этом эпизоде поговорим про Playwright CLI и сравним его с Selenium IDE. Кто победит в это битве взглядов?
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/r6nlNrE-ARE&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -645,91 +750,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
           <content:encoded>
                         &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/KqslEN0tiMM&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild: Мок интервью тестировщика на позицию трейни
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-interview/index.html</link>
-          <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-interview/index.html</guid>
-          <description>
-                        Пробный собес в трех лицах
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/RbxRoQ3yS-k&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E09: Что общего между SRE и QA
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e09/index.html</link>
-          <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e09/index.html</guid>
-          <description>
-                        Подкаст про работу SRE
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/816752464&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Антон Регеда - SRE в букинге&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:47&lt;/a&gt; - Как попал в айти?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:34&lt;/a&gt; - Что такое SRE?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:36&lt;/a&gt; - Чем занимается SRE?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:19:27&lt;/a&gt; - Как в современном мире обеспечиваются высокие показатели доступности?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:25:04&lt;/a&gt; - SRE vs DevOps друг или враг?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:36:40&lt;/a&gt; - Какие скилы нужны и важны?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:43:30&lt;/a&gt; - Есть ли сертификаты?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:45:37&lt;/a&gt; - Про собеседование&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:54:47&lt;/a&gt; - SRE на облаках и в собственном датацентре&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:06:33&lt;/a&gt; - Про хаос инжиниринг&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:21:12&lt;/a&gt; - Как мерять reliability?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:27:20&lt;/a&gt; - Патроны&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:16&lt;/a&gt; - Про нагрузку&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:07&lt;/a&gt; - Финалочка&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:57&lt;/a&gt; - Где учиться?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Ccылка для доната&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Доп матералы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.amazon.com/Release-Production-Ready-Software-Pragmatic-Programmers/dp/0978739213&quot;&gt;Release It&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://shop.oreilly.com/product/0636920063964.do&quot;&gt;Seeking SRE&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/dastergon/awesome-sre&quot;&gt;Awesome SRE&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
