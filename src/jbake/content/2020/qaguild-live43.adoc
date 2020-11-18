@@ -1,6 +1,6 @@
 = QAGuild live #43: Пробуем Cypress для автотестов
 Сергей Пирогов
-2020-11-09
+2020-11-18
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: В этом эпизоде попробуем написать тесты на Cypress
