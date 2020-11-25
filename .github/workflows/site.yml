@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Git info
         run:  |
           - git --version
           - git config user.name
@@ -20,12 +19,13 @@ jobs:
           java-version: 1.8
       - name: Build the site
         run:  ./gradlew clean jbake
+      - uses: actions/checkout@v2
       - name: Commit files
         run: |
-#            - git config user.name SergeyPirogov
-#            - git config user.email sergio_89@ukr.net
-#            - git add -A .
-#            - git status
+            - git config user.name SergeyPirogov
+            - git config user.email sergio_89@ukr.net
+            - git add -A ./build/jbake/*
+            - git status
 #            - git commit -m "Deploy to GitHub Pages"
       - name: Push changes
         uses: ad-m/github-push-action@master
