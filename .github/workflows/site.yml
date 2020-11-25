@@ -20,7 +20,7 @@ jobs:
         run:  ./gradlew clean jbake
       - name: Commit files
         run: |
-            - git comfig. user.name
+            - git config user.name
 #            - git config user.name SergeyPirogov
 #            - git config user.email sergio_89@ukr.net
 #            - git add -A .
