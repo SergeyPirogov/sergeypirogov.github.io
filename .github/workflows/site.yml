@@ -18,9 +18,11 @@ jobs:
           java-version: 1.8
       - name: Build the site
         run:  ./gradlew clean jbake
+      - name: Git version
+        run: git -v
       - name: Commit files
         run: |
-            - git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
+            - git clone https://${{ secrets.GH_TOKEN }}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
             - cp -R build/jbake/* ../sergeypirogov.github.io.master
             - cd ../sergeypirogov.github.io.master
             - ls -la
