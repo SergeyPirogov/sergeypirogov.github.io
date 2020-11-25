@@ -19,7 +19,7 @@ jobs:
       - name: Build the site
         run:  ./gradlew clean jbake
       - name: Git version
-        run: git -v
+        run: git --version
       - name: Commit files
         run: |
             - git clone https://${{ secrets.GH_TOKEN }}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
