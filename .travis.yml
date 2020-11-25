@@ -12,7 +12,6 @@ script:
 after_success:
     #clone `master' branch of the repository using encrypted GH_TOKEN for authentification
   - git clone https://${GH_TOKEN}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
-
     # copy generated HTML site to `master' branch
   - cp -R build/jbake/* ../sergeypirogov.github.io.master
     # commit and push generated content to `master' branch
