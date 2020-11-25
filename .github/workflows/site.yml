@@ -23,7 +23,7 @@ jobs:
             - git add -A .
             - git commit -m "Deploy to GitHub Pages ${TRAVIS_BUILD_NUMBER}"
       - name: Push changes
-          uses: ad-m/github-push-action@master
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: ${{ github.ref }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
