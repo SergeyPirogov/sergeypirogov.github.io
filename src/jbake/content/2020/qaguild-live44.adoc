@@ -1,6 +1,6 @@
 = QAGuild live #44: Как IT специалисту правильно составить резюме?
 Сергей Пирогов
-2020-11-18
+2020-11-26
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: В этом эпизоде попробуем написать тесты на Cypress
