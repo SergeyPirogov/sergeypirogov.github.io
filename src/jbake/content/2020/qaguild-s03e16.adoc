@@ -1,6 +1,6 @@
 = QAGuild S03E16: Про тестирование игр: от танчиков до казино
 Сергей Пирогов
-2020-12-25
+2020-11-25
 :jbake-type: post
 :jbake-tags: QAGuild, Podcast
 :jbake-summary: Подкаст про тестирование игр
