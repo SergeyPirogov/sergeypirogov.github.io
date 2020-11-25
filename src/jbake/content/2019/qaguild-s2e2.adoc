@@ -1,0 +1,55 @@
+= s2e2: Производительность, нагрузка и вот это вот все
+Сергей Пирогов
+2019-02-27
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Сезон2
+:jbake-summary: О нагрузочном тестировании
+:jbake-status: published
+
+{zwsp} +
+*Гости*:
+
+- Анатолий Пласковский - эксперт по нагрузке
+- Ярослав Пернеровский - бог звука
+- Сергей Пирогов - заводила подкаста
+
+{zwsp} +
+*Темы:*
+
+- Интро - 00:00:09
+- Как вошел в IT? - 00:02:17
+- Как начал заниматься нагрузкой? - 00:03:15
+- А что за перформанс тесты делаешь - 00:07:38
+- Кто такой перформанс инженер? - 00:10:39
+- Каким набором скилов должен обладать? - 00:10:44
+- Как планировать и сколько занимает времени ран? - 00:16:46
+- Про приемку - 00:21:58
+- Как начать? - 00:24:22
+- Перформанс тесты на проде - 00:29:38
+- Как прийти к тестам на проде? - 00:32:48
+- Про максимальную нагрузку - 00:40:24
+- Cравнение gatling и jmeter - 00:42:40
+- А шо за яндекс танк? - 00:46:56
+- Место нагрузочника в команде? Аутсорс команда для нагрузки лучше? - 00:55:40
+- Чем лучше тестировать просадки перфоманса на UI и не дичь ли это? - 01:01:18
+- Какие инструменты используются для отчетов и аналитики? - 01:06:12
+- Где нужно тереться чтобы быть в комьюнити? - 01:14:19
+- Про деньги - 01:16:43
+- Финал - 01:19:15
+
+{zwsp} +
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/578855586&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://www.patreon.com/automation_remarks">Стать патроном</a>
+++++
+
+{zwsp} +
+*Спасибо патронам*:
+Marat Reymers, Nikita Verbitsky, Oleksii Ihnatiuk, Ирина Юрчук, Valentin Buryakov, Roman Marinsky, Tetiana Hrybok, Перетятько Игорь, Kuptsov Ivan, Natalka Sokurenko, Dmytro Pazykov, Katya Kravchenka, Igor Gruziev, Maryna Kolesnik, Dmytro, Alisa Markova, Vitaly Fedrunov, Serge Soloshchenko, Roman Pobotin, Арина Аригри, Denys Kozachok, Miguel Suddya, Maxim Denisov, Evgenii Gritcai, Vitalii

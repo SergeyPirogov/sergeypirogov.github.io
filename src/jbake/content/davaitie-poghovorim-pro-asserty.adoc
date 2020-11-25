@@ -1,0 +1,262 @@
+title=4 библиотеки, о которых должен знать каждый Автоматизатор
+date=2015-05-05
+type=post
+status=published
+summary=Самая выразительная часть хорошо написанного теста - хорошо написанный Assert.
+tags=Java, Тест фреймворк
+~~~~~~
+Самая выразительная часть хорошо написанного теста - хорошо написанный assert (acсершин, ассерт далее). Assert подтверждает поведение системы, которое вы ожидаете. Хороший assert должен с первого взгляда показывать, что делает тест. Ни в коем случае в ваших тестах не должно быть циклов, в недрах которых будет спрятан assert, и вам нужно будет потратить уйму времени, чтобы разобраться с тем, что происходит. Более того, любая не тривиальная логика в тест кейсе повышает риск того, что тест сам по себе неправильный.
+
+image::http://www.itshouldjustworktm.com/wp-content/uploads/2012/03/assert-sign-photoshopped.jpg[]
+
+В последние годы значительно увеличилось количество подходов, инструментов и библиотек, которые позволяют просто и быстро писать легко читаемый код. Это касается как кода программы, так и кода тестов.
+
+В области написания тестов существует много библиотек, которые поддерживают понятные ассершины на любом языке. Вы можете спросить: "А зачем оно нужно?". Легко читаемые ассершины - это самый простой путь написания утверждений в более естественной, более доступной и более экспрессивной манере.
+
+Существует два подхода для написания ассертов. Первый - используя ключевое слово "assert", второй же - используя такие слова как **"should"** или **"expect"**. Первый берет свое начало из более традиционного стиля написания юнит тестов и фокусируется на тестировании и верификации. Второй - более BDD - ориентирован - слова "should" и "expect" описывают поведение, которое вы ожидаете от системы. В этой заметке я предлагаю рассмотреть несколько библиотек, которые помогут в написании понятных ассертов.
+
+**Аssertions in JavaScript.**
+
+JavaScript обладает большим количеством библиотек, которые помогают делать ассерты более выразительными. Jasmine имеет встроенную функцию ``expect()``. Такие библиотеки как **Should.js** и **Chai** поддерживают схожие функции.
+Я покажу пару примеров из библиотеки **Chai**, так как она является самой гибкой и поддерживает оба формата: как ``expect()`` и ``should()``, так и старый формат - assert. **Chai** фокусируется на использовании цепочек для того, чтобы сделать утверждения более читабельными и выразительными.
+
+[source, javascript]
+----
+var expect = require('chai').expect
+
+var medal = "Bronze";
+...
+expect(medal).to.equal('Bronze');
+----
+
+Chai поддерживает богатый набор ассертов для коллекций:
+
+[source, javascript]
+----
+var obtainableStatuses = ['Silver','Gold','Platinum']
+...
+expect(obtainableStatuses).to.have.length(3).and.to.include('Gold')
+----
+
+Ну и наконец assert в стиле BDD:
+
+[source, javascript]
+----
+var expect = require('chai').should();
+
+medal.should.equal('Bronze');
+obtainableStatuses.should.have.length(3).and.include('Silver');
+----
+
+Следует отметить, что оба подхода одинаково выразительны. Таким образом выбор стиля написания зависит от персональных предпочтений. Лично мой выбор в пользу **should**.
+
+**Assertions in Java.**
+
+Буду немного Капитаном Очевидностью и скажу, что библиотеки для написания внятных утверждений существуют и в Java. Они менее выразительны, чем их динамический эквивалент. В Java существуют стандартные утверждения, которые можно получить, используя такие всем известные библиотеки, как **JUnit** и **TestNG**. Но ассершины, которые они предоставляют, как по мне, бедноваты и слишком просты по сравнению с теми, о которых далее пойдет речь.
+
+Я приведу пример нескольких библиотек, которые, по моему мнению, могут быть полезными.
+
+**1. Hamcrest**
+
+Пожалуй, самая известная библиотека из этой области. Основной метод, который в ней используется, называется **assertThat()**.
+
+[source, java]
+----
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+import junit.framework.TestCase;
+
+public class BiscuitTest extends TestCase {
+  public void testEquals() {
+    Biscuit theBiscuit = new Biscuit("Ginger");
+    Biscuit myBiscuit = new Biscuit("Ginger");
+    assertThat(theBiscuit, equalTo(myBiscuit));
+  }
+}
+----
+
+Самое приятное, что она предоставляет большой выбор матчеров:
+
+[source, xml]
+----
+Core
+    anything - always matches, useful if you don't care what the object under test is
+    describedAs - decorator to adding custom failure description
+    is - decorator to improve readability - see "Sugar", below
+Logical
+    allOf - matches if all matchers match, short circuits (like Java &&)
+    anyOf - matches if any matchers match, short circuits (like Java ||)
+    not - matches if the wrapped matcher doesn't match and vice versa
+Object
+    equalTo - test object equality using Object.equals
+    hasToString - test Object.toString
+    instanceOf, isCompatibleType - test type
+    notNullValue, nullValue - test for null
+    sameInstance - test object identity
+Beans
+    hasProperty - test JavaBeans properties
+Collections
+    array - test an array's elements against an array of matchers
+    hasEntry, hasKey, hasValue - test a map contains an entry, key or value
+    hasItem, hasItems - test a collection contains elements
+    hasItemInArray - test an array contains an element
+Number
+    closeTo - test floating point values are close to a given value
+    greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo - test ordering
+Text
+    equalToIgnoringCase - test string equality ignoring case
+    equalToIgnoringWhiteSpace - test string equality ignoring differences in runs of whitespace
+    containsString, endsWith, startsWith - test string matching
+----
+
+Более подробно можно посмотреть на их https://code.google.com/p/hamcrest/wiki/Tutorial[сайте].
+
+Лично я пользуюсь этой библиотекой.
+
+**2. FestAssert**
+
+Как утрверждают сами разработчики:
+
+NOTE: FEST Assertions 2.0 is a Java library that provides a fluent interface for writing assertions. Its main goal is to improve test code readability and make maintenance of tests easier.
+
+Парочка примеров использования:
+
+[source, java]
+----
+import static org.fest.assertions.api.Assertions.*;
+
+// common assertions
+assertThat(yoda).isInstanceOf(Jedi.class);
+assertThat(frodo.getName()).isEqualTo("Frodo");
+assertThat(frodo).isNotEqualTo(sauron);
+assertThat(frodo).isIn(fellowshipOfTheRing);
+assertThat(sauron).isNotIn(fellowshipOfTheRing);
+
+// String specific assertions
+assertThat(frodo.getName()).startsWith("Fro").endsWith("do")
+                           .isEqualToIgnoringCase("frodo");
+
+// collection specific assertions
+assertThat(fellowshipOfTheRing).hasSize(9)
+                               .contains(frodo, sam)
+                               .excludes(sauron);
+// throwable specific assertions
+try {
+  fellowshipOfTheRing.get(9); // argggl !
+} catch (Exception e) {
+  assertThat(e).isInstanceOf(IndexOutOfBoundsException.class)
+               .hasMessage("Index: 9, Size: 9")
+               .hasNoCause();
+}
+
+// map specific assertions (One ring and elves ring bearers initialized before)
+assertThat(ringBearers).hasSize(4)
+                       .includes(entry(oneRing, frodo), entry(nenya, galadriel))
+                       .excludes(entry(oneRing, aragorn));
+----
+
+Лично я на проектах активно не использовал эту библиотеку, но меня она привлекла тем, что есть готовые ассершины для **Joda Time**, **Guava**. Также есть возможность использования компараттора для утверждений.
+
+[source, java]
+----
+// frodo and sam are instances of Character with Hobbit race (obviously :), they are not equal ...
+assertThat(frodo).isNotEqualTo(sam);
+// ... but if we compare race only, they are (raceComparator implements Comparator<Character>)
+assertThat(frodo).usingComparator(raceComparator).isEqualTo(sam);
+----
+
+Более подробно можно посмотреть и скачать https://github.com/alexruiz/fest-assert-2.x[здесь]
+
+Обе эти библиотеки очень похожи, они предлагают большой набор матчеров. Например для того, чтобы проверить, что список содержит элементы. В хамкресте это делается так:
+
+[source, java]
+----
+assertThat(member.getUnachievedStatuses(), hasItems(GOLD,PLATINUM));
+----
+
+В **FestAssert** это будет выглядеть так:
+
+[source, java]
+----
+assertThat(member.getUnachievedStatuses()).contains(GOLD,PLATINUM);
+----
+
+К сожалению, FestAssert больше не активен, поэтому взамен этой библиотеки предлагаю посмотреть на следующую в списке.
+
+**3. AssertJ**
+
+**AssertJ** - форк библиотеки Fest Assert, предоставляет большой набор утверждений, сообщений об ошибках и позволяет улучшить читабельность тестового кода.
+
+[source, java]
+----
+// unique entry point to get access to all assertThat methods and utility methods (e.g. entry)
+import static org.assertj.core.api.Assertions.*;
+
+// common assertions
+assertThat(frodo.getName()).isEqualTo("Frodo");
+assertThat(frodo).isNotEqualTo(sauron)
+                 .isIn(fellowshipOfTheRing);
+
+// String specific assertions
+assertThat(frodo.getName()).startsWith("Fro")
+                           .endsWith("do")
+                           .isEqualToIgnoringCase("frodo");
+
+// collection specific assertions
+assertThat(fellowshipOfTheRing).hasSize(9)
+                               .contains(frodo, sam)
+                               .doesNotContain(sauron);
+
+// using extracting magical feature to check fellowshipOfTheRing characters name :)
+assertThat(fellowshipOfTheRing).extracting("name").contains("Boromir", "Gandalf", "Frodo", "Legolas")
+                                                  .doesNotContain("Sauron", "Elrond");
+
+// map specific assertions, ringBearers initialized with the elves rings and the one ring bearers.
+assertThat(ringBearers).hasSize(4)
+                       .contains(entry(oneRing, frodo), entry(nenya, galadriel))
+                       .doesNotContainEntry(oneRing, aragorn);
+----
+
+Больше примеров и документации можно найти на их http://joel-costigliola.github.io/assertj/[сайте]. Лично я в своем следующем проекте обязательно буду использовать **AssertJ**, так как он, по моему личному мнению, лучше и проще, чем **Hamcrest**.
+
+**4.Google Truth**
+
+Еще одна библиотечка от одноименной компании с очень приятным именем.
+
+[source, java]
+----
+Set<Foo> foo = ...;
+assertTrue(foo.isEmpty()); // or, shudder, foo.size() == 0
+----
+
+Дает непонятное и нечитабельное исключение:
+
+[source, xml]
+----
+java.lang.AssertionError
+    at org.junit.Assert.fail(Assert.java:92)
+    at org.junit.Assert.assertTrue(Assert.java:43)
+----
+
+С применением Truth читабельность и понятность гораздо выше:
+
+[source, java]
+----
+Set<Foo> foo = ...;
+assertThat(foo).isEmpty()
+
+
+org.truth0.FailureStrategy$ThrowableAssertionError: Not true that  is empty
+    at org.truth0.FailureStrategy.fail(FailureStrategy.java:33)
+----
+
+Хотите узнать больше и попробовать, смотрите здесь http://google.github.io/truth/[cайт].
+
+Ну вот собственно и все.
+
+Небольшой итог об этих монстрах:
+
+**Hamcrest** и **FestAssert** играют подобные роли в Java-based BDD. Hamcrest более гибкий и легко расширяемый, но FestAssert обладает более простым синтаксисом и более прост в использовании. **AssertJ** - улучшенная версия **FestAssert**, которая обладает уймой полезных фишек.
+
+В целом все библиотеки предназначены для того, чтобы сделать юнит тесты проще и понятнее. Хороших вам assertов =)

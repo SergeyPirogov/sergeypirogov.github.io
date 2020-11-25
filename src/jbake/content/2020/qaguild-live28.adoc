@@ -1,0 +1,19 @@
+= QAGuild live #28: Про DevOps скилы для тестировщика
+Сергей Пирогов
+2020-04-28
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика
+:jbake-status: published
+
+В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика
+
+https://t.me/automation_remarks/799[Тренинг по Jenkins]
+
+https://donatesystem.io/donate/automation_remarks[Донат заносить сюда ]
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/p8WTpk0MLC4" allowfullscreen></iframe>
+</div>
+++++

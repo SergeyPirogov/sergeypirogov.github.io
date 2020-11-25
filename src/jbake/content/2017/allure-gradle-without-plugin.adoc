@@ -1,0 +1,79 @@
+= Переходим на Allure2 без Gradle плагина
+Sergey Pirogov
+2017-06-18
+:jbake-type: post
+:jbake-tags: Java, Allure
+:jbake-summary: Способ интеграции Allure2 и Gradle
+:jbake-status: published
+
+После пары заметок о конференциях http://automation-remarks.com/2017/testing-stage-retro/index.html[Testing Stage] и http://automation-remarks.com/2017/heisenbug-2017-piter-retro/index.html[Гейзенбаг]
+пришла пора возвращаться к техническому хардкору. В этот раз я вам расскажу о способе интеграции Allure2 и Gradle.
+
+image::http://automated-testing.info/uploads/default/original/2X/3/3a722f96e5c6db7ef7a54773d73a81633ba2f828.png[]
+
+Скажу сразу, данный способ будет валиден до выхода в релиз официального плагина Allure2 для Gradle. Пока же работающего плагина нет, придется позаниматься извращением.
+
+Настраивать будем для Gradle 3 и TestNG. В принципе, все необходимое можно найти в https://docs.qameta.io/allure/2.0/[официальной документации] по Allure2.
+
+Добавляем настройки в build.gradle:
+
+```
+apply plugin: 'java'
+
+configurations {
+    agent
+}
+
+dependencies {
+    agent "org.aspectj:aspectjweaver:1.8.10"
+    compile "io.qameta.allure:allure-testng:2.0-BETA10"
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+test {
+    useTestNG()
+    systemProperty 'allure.results.directory', 'build/allure-results'
+}
+```
+
+Теперь при прогоне тестов через command line или CI c помощью команды:
+
+```
+./gradlew clean test
+```
+
+У вас в папке `build/allure-results` будут создаваться *.json файлы, из которых потом и будет генерироваться отчет.
+
+Этого вполне достаточно, если вы запускаете тесты на CI и используете Allure2 плагин для генерации отчета. Увы, ставить плагины и обновлять
+не всегда выдается возможным, так как наш Jenkins содержат дяди с тайтлом "DevOps". Благо, уже давно есть HTML Publisher плагин, который позволяет рендерить
+сгенерированный отчет. Именно им мы и пользуемся.
+
+Для того, чтобы сгенерировать отчет, нужно использовать https://docs.qameta.io/allure/2.0/#_installing_a_commandline[allure command line].
+
+Но я уже привык к тому, что вызываю `gradle clean test`, и у меня после прогона тестов всегда генерируется отчет. Чтобы такого добиться с Allure2,
+нужно самим пописать код.
+
+Идем, значит, в https://bintray.com/qameta/generic/allure2[bintray] и качаем allure command line binary архив.
+Распаковываем и ложим в корень нашего проекта.
+
+Дальше делаем свой таск в build.gradle:
+
+```
+task generateAllure(type: Exec) {
+    workingDir "$projectDir/allure/bin"
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine 'cmd', '/c', 'allure.bat', 'generate', '-c', '../../integration/build/allure-results'
+    } else {
+        commandLine 'bash', '-c', 'allure', 'generate', '-c',"$projectDir/integration/build/allure-results"
+    }
+}
+
+tasks.withType(Test)*.finalizedBy generateAllure
+```
+
+Собственно, на этом и все. Теперь при выполнении `gradlew clean test` у нас будут прогоняться тесты и генерироваться отчет.
+
+Про Allure2 и Python вы сможете послушать на http://automation-remarks.com/2017/python-training/index.html[мастер-классе], который назначен на 24.06.17.

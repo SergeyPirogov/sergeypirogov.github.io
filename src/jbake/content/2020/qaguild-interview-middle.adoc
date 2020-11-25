@@ -1,0 +1,13 @@
+= QAGuild: Мок интервью тестировщика на позицию Middle
+Сергей Пирогов
+2020-06-03
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Собеседование на позицию Middle QA
+:jbake-status: published
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/893iOnzQXMs" allowfullscreen></iframe>
+</div>
+++++

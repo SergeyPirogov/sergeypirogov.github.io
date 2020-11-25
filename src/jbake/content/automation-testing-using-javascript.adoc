@@ -1,0 +1,10 @@
+title=Automation testing using JavaScript
+date=2015-11-21
+type=post
+status=published
+summary=Лекция, в которой показаны инструменты для автоматизации тестирования с использованием языка JavaScript.
+tags=Тест фреймворк, Видео
+~~~~~~
+Лекция, в которой показаны инструменты для автоматизации тестирования с использованием языка JavaScript. Показаны примеры с Jasmine, Protractor, PhantomJS и NightwatchJS.
+
+video::ZDC4aEHwWkU[youtube]

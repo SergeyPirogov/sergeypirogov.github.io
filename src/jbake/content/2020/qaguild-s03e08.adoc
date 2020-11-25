@@ -1,0 +1,47 @@
+= QAGuild S03E08: Про DevOps и немного про релокацию в США
+Сергей Пирогов
+2020-05-02
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про особенности работы DevOps инжинера и релокацию в США
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/809517310&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+
+</iframe>
+++++
+
+Гости:
+
+- Олег Миколайченко - культурный DevOps
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:08</a> - Начало</li>
+  <li><a class="timecode">00:01:19</a> - О себе и как поапл в айти</li>
+  <li><a class="timecode">00:06:11</a> - С чего начинать DevOps в команде</li>
+  <li><a class="timecode">00:14:35</a> - Откуда брать ДевОпс</li>
+  <li><a class="timecode">00:23:14</a> - Как пройти собесы на девопса</li>
+  <li><a class="timecode">00:37:31</a> - Как выстроить карьеру</li>
+  <li><a class="timecode">00:51:53</a> - 5000 для девопса</li>
+  <li><a class="timecode">00:57:32</a> - Чего нам ждать в будущем</li>
+  <li><a class="timecode">01:04:20</a> - Как изменился девопс ландшафт в Украине за последние пару лет</li>
+  <li><a class="timecode">01:07:58</a> - Про калифорнию.</li>
+  <li><a class="timecode">01:13:12</a> - Про визы и релокацию как это сейчас</li>
+  <li><a class="timecode">01:28:22</a> - Патроны</li>
+  <li><a class="timecode">01:30:42</a> - Конец</li>
+</ul>
+++++
+
+https://donatesystem.io/donate/automation_remarks[Ccылка для доната]
+
+Доп матералы:
+
+- https://ain.ua/2020/03/09/infrastruktura-za-20-doll/[Как сделать инфраструктуру для стартапа, если в кармане $20]
+- https://mc.today/pochemu-ukrainskie-devops-inzhenery-zarabatyvayut-5000-zachem-oni-nuzhny-biznesu-i-kak-imi-stat/[Почему украинские DevOps-инженеры зарабатывают $5000, зачем они нужны бизнесу и как ими стать]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich

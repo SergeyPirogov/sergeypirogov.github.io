@@ -1,0 +1,45 @@
+= Эпизод-27: Юбилейный выпуск, завершение первого сезона
+Сергей Пирогов
+2019-01-12
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Новости, SDET
+:jbake-summary: Новости и почему SDET получает больше
+:jbake-status: published
+
+{zwsp} +
+*Гости*:
+
+- Сергей Пирогов - заводила подкаста
+- Ярослав Пернеровский - главный по звуку
+- Дмитрий Гуменюк - главный в Репорт портале
+- Рома Маринский - в этот раз, человек из поезда
+- Алексей Буль - главный робототехик
+- Алексей Панащенко - главный бородач Днепра
+
+{zwsp} +
+*Темы:*
+
+- Как мы прожили этот год
+- Успехи
+- Провалы
+- Что планируем сделать в следующем?
+- Самая крутая конференция этого года
+- Технологии и тулы
+- Прорыв DevTestOps
+- Чего ждать в 2019 ? шифт лефт, меньюал умрет?
+- Войти в айти, хайп на бабках?
+
+{zwsp} +
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/550937883&color=%23948c6c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+{zwsp} +
+*Спасибо патронам*:
+
+Алиса Маркова, Денис Козачок, Дмитрий Пазыков, Дмитрий Стеканов, Эрик Халимов,
+Иван Купцов, Marat Reymers, Maryna Kolesnik, Maxim Denisov, Miguel Suddya, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Valentin Buryakov, Vitalii, Vitaly Fedrunov, Арина Аригри, Ирина Юрчук, Перетятько Игорь

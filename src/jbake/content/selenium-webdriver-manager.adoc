@@ -1,0 +1,55 @@
+= Selenium Webdriver Manager
+Sergey Pirogov
+2016-10-18
+:jbake-type: post
+:jbake-tags: Java, Тест фреймворк
+:jbake-summary: Небольшая заметка об одной полезной библиотеке
+
+Хочу поделиться небольшой утилитой, которую я нарыл на просторах **Github**.
+
+Называется она https://github.com/bonigarcia/webdrivermanager[WebDriverManager].
+
+С помощью этой библиотеки вы можете решить достаточно банальную проблему управления драйверами для **Chrome**, **Firefox** или **InternetExplorer**.
+
+Я думаю, многим автоматизаторам знакома "проблема":
+
+[source, xml]
+----
+org.openqa.selenium.WebDriverException:
+The path to the driver executable must be set by the webdriver.chrome.driver system property;
+for more information, see http://code.google.com/p/selenium/wiki/ChromeDriver.
+The latest version can be downloaded from http://code.google.com/p/chromedriver/downloads/list
+----
+
+Да, все это не ново и решается достаточно просто:
+
+[source, java]
+----
+System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+----
+
+При таком подходе обычно нужно скачивать и хранить этот самый **chromedriver** в папке **resources**, а что еще более неприятно, - если мы запускаем тесты на разных платформах, то нужно творить разные фабрики и писать кучу дополнительного кода.
+
+Библиотека же решает это все следующим образом:
+
+[source, java]
+----
+public class ChromeTest {
+
+    protected WebDriver driver;
+
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+    }
+
+    @Test
+    public void test() {
+        // Using Selenide
+        open('http://automation-remarks.com');
+        $$('.post').shouldHave(size(10));
+    }
+}
+----
+
+В целом, эта находка меня очень порадовала и я уже ее прикрутил к своему проекту - рекомендую!!

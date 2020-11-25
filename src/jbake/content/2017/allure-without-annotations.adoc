@@ -1,0 +1,144 @@
+= Как перестать писать @Step аннотации для Allure
+Sergey Pirogov
+2017-08-27
+:jbake-type: post
+:jbake-tags: Java, Allure
+:jbake-summary: Просто лайфхак
+:jbake-status: published
+
+Привет! В этой заметке хочу поделиться лайфхаком, который позволит перестать ставить аннотации `@Step` в коде тестов.
+
+Давайте сначала обрисуем суть проблемы. При построении проектов автоматизции нам зачастую приходится прикручивать какие-то логеры или репортеры.
+Для меня репортером по умолчанию является https://github.com/allure-framework[Allure]. С его помощью можно генерировать достаточно информативные
+и понятные отчеты. Но есть у него один небольшой недостаток - если мы хотим логировать шаги теста, то над методами нужно ставить аннотацию **@Step**.
+
+Пример:
+
+```
+class LoginPage{
+
+    private SelenideElement email = $("#email");
+    private SelenideElement password = $("#password")
+    private SelenideElement submitBtn = $(".btnLogin")
+
+    @Step
+    public void loginAs(String name, String password){
+        email.setValue(name)
+        password.setValue(password)
+        submitBtn.click()
+    }
+}
+
+```
+
+Теперь метод `loginAs` будет отображаться в отчете, так как мы указали над ним аннотацию `@Step`. Все бы ничего, да вот когда в классе страницы
+не один метод, а 5 или 10, уже становится не так радостно расставлять эти аннотации. К тому же, бывает, пишешь тест, описываешь поведение
+страниц, запускаешь тесты, а потом "Аx, я же забыл поставить аннотации для аллюра". А когда в команде 2-3 человека, приходится следить за этими аннотациями
+в PR, что никак не радует. В один прекрасный день я подумал: можно ведь как-то сделать без аннотаций?..
+
+Оказалось, что можно. Allure в своей работе использует http://www.baeldung.com/aspectj[Aspectj], который мы и можем попробовать хакнуть и использовать для своих целей.
+
+Пробуем написать свой класс аспектов:
+
+```
+/**
+ * Created by sergey on 05.06.17.
+ */
+@SuppressWarnings("unused")
+@Aspect
+public class CustomAspect {
+
+  private static Allure ALLURE = Allure.LIFECYCLE;
+
+  @Pointcut("execution(* com.automation.remarks.video.service.pages.*.*(..))")
+  public void anyMethod() {
+    //pointcut body, should be empty
+  }
+
+  @Pointcut("execution(* com.codeborne.selenide.SelenideElement.should*(..))")
+  public void selenide() {
+    //pointcut body, should be empty
+  }
+
+  @Before("anyMethod() || selenide()")
+  public void stepStart(JoinPoint joinPoint) {
+    String stepTitle = createTitle(joinPoint);
+
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    StepStartedEvent startedEvent = new StepStartedEvent(
+        getName(methodSignature.getName(), joinPoint.getArgs())
+    );
+
+    if (!stepTitle.isEmpty()) {
+      startedEvent.setTitle(stepTitle);
+    }
+
+    ALLURE.fire(startedEvent);
+  }
+
+  @AfterThrowing(pointcut = "anyMethod() || selenide()", throwing = "e")
+  public void stepFailed(JoinPoint joinPoint, Throwable e) {
+    ALLURE.fire(new StepFailureEvent().withThrowable(e));
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  @AfterReturning(pointcut = "anyMethod() || selenide()", returning = "result")
+  public void stepStop(JoinPoint joinPoint, Object result) {
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  public String createTitle(JoinPoint joinPoint) {
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    Step step = methodSignature.getMethod().getAnnotation(Step.class);
+    return step == null ? "" : getTitle(step.value(), methodSignature.getName(), joinPoint.getThis(), joinPoint.getArgs());
+  }
+
+
+  /**
+   * For tests only
+   */
+  static void setAllure(Allure allure) {
+    CustomAspect.ALLURE = allure;
+  }
+}
+```
+
+Наверное, для неподготовленного читателя выглядит очень "вырвиглазно". Что я вообще написал? AspectJ оперирует понятиями **Pointcut**,
+которые я и объявил в самом начале класса.
+
+```
+@Pointcut("execution(* public com.automation.remarks.video.service.pages.*.*(..))")
+public void anyMethod() {
+    //pointcut body, should be empty
+}
+
+@Pointcut("execution(* public com.codeborne.selenide.SelenideElement.should*(..))")
+public void selenide() {
+    //pointcut body, should be empty
+}
+```
+
+Говоря проще, я написал селекторы, с помощью которых указал AspectJ учитывать только публичные методы из пакета `public com.automation.remarks.video.service.pages` и
+методы Selenide, которые начинаются со слова `should`.
+
+Далее я объявил условия @Before, @After, @AfterThrowing и @AfterReturning. В @Before мы извлекаем имя метода и его параметры, а в @After либо завершаем
+шаг успешно, либо маркаем, как неуспешный, и прикрепляем к нему текст ошибки. Все достаточно просто.
+
+Далее, чтобы это все заработало, нам нужно в папке **src/main/resources/META-INF** создать файлик под названием **aop-ajc.xml**:
+
+```
+<aspectj>
+    <aspects>
+        <aspect name="com.automation.remarks.video.service.pages.utils.CustomAspect"/>
+    </aspects>
+</aspectj>
+```
+
+По факту мы в этом файле просто подключаем наш новый аспект. Теперь можно просто запускать тесты и смотреть на результат точно так же, как мы делали
+это раньше. Таким образом мы избавились от аннотаций в Page объектах и значительно упростили себе жизнь. В целом эта идея работает и имеет право на жизнь.
+Вы можете ее либо переиспользовать, либо развить и поделиться решением со всем миром автоматизации.
+
+**P/S** Конечно, в таком подходе есть ряд недостатков. Первый: мы жестко завязались на жизненный цикл аллюра. Код, приведенный выше, работает только
+с первой версией, для второй версии нужно будет переписать вызовы `ALLURE.fire(new StepFailureEvent().withThrowable(e));`.
+Второе: дебажить аспекты практически невозможно (по крайней мере, я не нашел толковых примеров). Есть только упоминания, что вот в Eclipse как-то можно.
+Из-за этого код приходится писать почти вслепую. И третье: с Котлином эта тема не работает, так как сам AspectJ нормально не поддерживает Котлин.

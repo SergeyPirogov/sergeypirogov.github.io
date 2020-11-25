@@ -1,0 +1,43 @@
+= Пишем Allure Jbehave адаптер
+Sergey Pirogov
+2015-07-19
+:jbake-summary: Заметка о том, как я писал свой адаптер для интеграции Allure Yandex и JBehave.
+:jbake-type: post
+:jbake-tags: Java, Тест фреймворк
+
+Заметка о том, как я писал свой адаптер для интеграции **Allure Yandex** и **JBehave**.
+
+image::https://hsto.org/getpro/habr/post_images/c43/a4d/cf7/c43a4dcf7aa2837e5136db9abd9b919a.jpg[]
+
+Для начала определим суть проблемы. Allure позволяет интегрироваться практически со всеми известными тест-ранерами. Примеры можно найти здесь. **Jbehave** в качестве тест-ранера использует **JUnit**. Вы можете без особых проблем использовать Allure и JBehave, ничего не изобретая. Но есть пару неудобств. Allure отображает в отчете текст шагов или имена методов, отмеченных аннотацией **@Step**. Меньше слов - пример:
+
+[source, java]
+----
+@When("I perform some action")
+@Step
+public void shouldPerformSomeAction(){
+//some code
+}
+
+@Then("I check that action completed")
+@Step("I check that action completed")
+public void shouldBeComplitedAction(){
+//some code
+}
+----
+
+Как вы можете заметить, в первом случае имя метода не совсем совпадает со Step definition, а во втором присутствует дублирование, что еще хуже. Конечно, можно использовать первый подход, но имя метода писать **whenIperformSomeAction**, но, как по мне, можно попробовать сделать лучше.
+
+Идем на страничку Wiki сюда и пытаемся понять, как написать свой адаптер. Далее, как специалисты высоко полета, понимаем, что все реализуется через листенеры (так реализоваы практически все адаптеры, если посмотреть их сорс коды). Ищем такой листенер для JBehave. Он называется **org.jbehave.core.reporters.StoryReporter**. Если мы реализуем этот интерфейс, то получим кучу методов, см пример здесь. Вот собственно здесь мы и зацепимся. Подключаем **allure-java-adaptor-api** и реализовываем методы. Важно помнить: чтобы **Allure** сгенерировал **xml** файлы, из которых будет собираться отчет, нужно обязательно в методе, который отвечает за окончание тестового прогона, указать TestSuiteFinishedEvent. Мой листенер называется **AllureReporter**. Для того, чтобы подключить его к JBehave и начать получать отчеты, нужно просто пойти в класс-раннер (пример того, как выглядит, см здесь) и прописать там одну простую строку:
+
+[source, java]
+----
+  @Override
+  public Configuration configuration() {
+    return new MostUsefulConfiguration()
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new AllureReporter())
+   ...
+  }
+----
+
+Вот и все, после запуска тестов в папке target/allure-results будут находиться сгенерированные xml файлы. Затем нужно просто собрать отчет.

@@ -1,0 +1,43 @@
+= QAGuild S03E10: Путь QA в BA и в Amazon
+Сергей Пирогов
+2020-06-04
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про путь QA в BA и в Amazon
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/828141928&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+</iframe>
+++++
+
+Гости:
+
+- Олег Гончарук - работает BA в Amazon
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:20</a> - Начало</li>
+  <li><a class="timecode">00:00:59</a> - Гость</li>
+  <li><a class="timecode">00:01:20</a> - Как попал в IT</li>
+  <li><a class="timecode">00:02:15</a> - Чем занимается бизнес аналитик</li>
+  <li><a class="timecode">00:11:54</a> - Почему ушел в аналитики из тестирования?</li>
+  <li><a class="timecode">00:14:53</a> - А где можно обучится?</li>
+  <li><a class="timecode">00:20:02</a> - С чего начинается анализ</li>
+  <li><a class="timecode">00:25:17</a> - А какие бывают аналитики?</li>
+  <li><a class="timecode">00:31:20</a> - Персональные качества хорошего аналитика</li>
+  <li><a class="timecode">00:35:11</a> - А что спрашивают на собеседованиях</li>
+  <li><a class="timecode">00:44:55</a> - Про роли</li>
+  <li><a class="timecode">00:51:11</a> - Пару слов про перезд в США</li>
+  <li><a class="timecode">01:02:06</a> - Про деньги</li>
+  <li><a class="timecode">01:13:00</a> - Патроны</li>
+  <li><a class="timecode">01:14:05</a> - Конец</li>
+</ul>
+++++
+
+https://donatesystem.io/donate/automation_remarks[Ccылка для доната]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich

@@ -1,0 +1,20 @@
+title=Тренинг по Gitlab CI vs Travis CI vs Github actions
+type=trainingPage
+status=published
+summary=Технологии: Java 8, Gradle, Allure, Gitlab CI, Travis CI, Github actions
+price=15$
+state=active
+~~~~~~
+
+Тренинг в котором показано как ипользовать Gitlab CI, Travis CI, Github actions для запуска тестов.
+
+Технологии c которыми познакомитесь:
+
+* Java 8
+* Rest Assured
+* Gitlab CI
+* Allure
+* Travis CI
+* Github actions
+
+Длительность 2.5 часа.

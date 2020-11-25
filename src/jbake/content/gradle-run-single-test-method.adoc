@@ -1,0 +1,58 @@
+title=Gradle run single TestNG method
+date=2015-02-27
+type=post
+status=published
+featured=true
+summary=This is the shortest remark ever. Just a few word and a few lines of code.
+tags=TestNG, Java
+~~~~~~
+image::http://kaczanowscy.pl/tomek/sites/default/files/2012_04_uncle_sam_170.png[]
+
+This is the shortest remark ever. Just a few word and a few lines of code. So to run single test with **Gradle** and **TestNG** you can use one of this approaches:
+
+Run someSpecificFeature method from **SomeTest** in specific **arg.gradle** package:
+
+[source, java]
+----
+gradle test --tests org.gradle.SomeTest.someSpecificFeature
+----
+
+Run **someSpecificFeature** method from **SomeTest** in any package:
+
+[source, java]
+----
+gradle test --tests *SomeTest.someSpecificFeature
+----
+
+Run all methods in SomeSpecificTest class:
+
+[source, java]
+----
+gradle test --tests *SomeSpecificTest
+----
+
+Run all in specific package:
+
+[source, java]
+----
+gradle test --tests all.in.specific.package*
+----
+
+Run all in classes which name starts with IntegTest:
+
+[source, java]
+----
+gradle test --tests *IntegTest
+
+gradle test --tests *IntegTest*ui*
+----
+
+Run **someTestTask** from any **UiTest** and **someTestTask** from any **WebTest*ui**:
+
+[source, java]
+----
+gradle someTestTask --tests *UiTest someOtherTestTask --tests *WebTest*ui
+----
+
+Cheers! Thats all;)
+

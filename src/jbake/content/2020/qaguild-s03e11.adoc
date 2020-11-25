@@ -1,0 +1,48 @@
+= QAGuild S03E11: Про релокацию в Эстонию
+Сергей Пирогов
+2020-08-21
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про релокацию в Эстонию
+:jbake-status: published
+
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/853785262&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+</iframe>
+++++
+
+Гости:
+
+- Юлия Ёлкин - IT Recruiter, owner of www.ittalent.ee, live in Tallinn, Estonia
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:06</a> - Начало</li>
+  <li><a class="timecode">00:00:53</a> - Как попала в IT рекрутмент</li>
+  <li><a class="timecode">00:02:29</a> - Чем привлекательна Эстония для работодателей и кандидатов?</li>
+  <li><a class="timecode">00:08:06</a> - Зарплатные вилки для тестировщиков и автоматизаторов?</li>
+  <li><a class="timecode">00:12:49</a> - Самые востребованные навыки и умения</li>
+  <li><a class="timecode">00:22:13</a> - Каких компаний больше на рынке, продукт или аутсорс?</li>
+  <li><a class="timecode">00:24:49</a> - Особенности рекрутмента в условиях карантина</li>
+  <li><a class="timecode">00:29:03</a> - А если без знания английского?</li>
+  <li><a class="timecode">00:30:12</a> - Знание эстонского даст бонусы?</li>
+  <li><a class="timecode">00:30:40</a> - Что нужно для получения гражданства?</li>
+  <li><a class="timecode">00:33:23</a> - А если просто переехать, продолжая работать удаленно на текущего работодателя?</li>
+  <li><a class="timecode">00:34:38</a> - Переезд, время затраты, визы</li>
+  <li><a class="timecode">00:40:34</a> - Цена жизни в Эстонии для семьи с ребенком?</li>
+  <li><a class="timecode">00:45:54</a> - Трудовое законодательство</li>
+  <li><a class="timecode">00:49:16</a> - Про Эстонию, климат, культура, отношение к мигрантам...</li>
+  <li><a class="timecode">01:06:05</a> - Патроны</li>
+  <li><a class="timecode">01:11:35</a> - Конец</li>
+</ul>
+++++
+
+https://t.me/automation_remarks[Telegram]
+
+https://www.patreon.com/automation_remarks[Стать патроном]
+
+Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich

@@ -1,0 +1,213 @@
+= pipenv или замена pip + virtualenv
+Sergey Pirogov
+2017-03-11
+:jbake-type: post
+:jbake-tags: Python
+:jbake-summary: Заметка об интересной Python библиотеке
+
+Занесло меня в питонячий мир. Эта заметка посвящена небольшой, но очень полезной утилите,
+которая значительно упрощает управление виртуальными средами и менеджмент зависимостями.
+
+Ранее я уже писал заметку http://automation-remarks.com/2017/python-world-after-java/index.html[о том, как выжить в Python мире после Java].
+
+Стандартный сценарий создания пайтон проекта:
+
+```
+mkdir python_project
+cd python_project
+virtualenv .venv
+source .venv/bin/activate
+pip install webdriver_mamanger selenium requests
+```
+На первый взгляд, все достаточно просто и понятно. Но на самом деле есть несколько неудобств,
+которые поначалу не вызывают особого дискомфорта, но с течением времени начинают надоедать.
+
+Зависимости, которые вы установили с помощью `pip`, не записываются в `requirements.txt`
+
+В пайтон проектах принято хранить все необходимые зависимости в файле `requirements.txt`.
+Записывать их туда можно руками, а потом сделать `pip install -r requirements.txt`.
+В целом вроде бы не плохо, но бывает, что поставил зависимость с помощью `pip install`, но забыл
+прописать его в `requirements.txt` и на CI все попадало.
+
+Можно сначала наставить зависимостей с помощью `pip`, а потом сделать `pip freeze > requirements.txt`.
+В таком случае в файл `requirements.txt` записываются все пакеты, которые установлены, и их версия жестко фиксируется.
+В общем удобно, но, если мы хотим всегда скачивать и устанавливать последнюю версию
+`selenium`, нам нужно идти и ручками править файл.
+
+Еще одним неудобством является выполнение команды активации **virtualenv**:
+
+```
+source .venv/bin/activate
+```
+
+Особенно если вам нужно переходить из одного проекта в другой. К счастью, эту проблему можно
+частично решить, используя магический bash скрипт:
+
+[.virtualenv-auto-activate.sh]
+```
+#!/bin/bash
+# virtualenv-auto-activate.sh
+#
+# Installation:
+#   Add this line to your .bashrc or .bash-profile:
+#
+#       source /path/to/virtualenv-auto-activate.sh
+#
+#   Go to your project folder, run "virtualenv .venv", so your project folder
+#   has a .venv folder at the top level, next to your version control directory.
+#   For example:
+#   .
+#   ├── .git
+#   │   ├── HEAD
+#   │   ├── config
+#   │   ├── description
+#   │   ├── hooks
+#   │   ├── info
+#   │   ├── objects
+#   │   └── refs
+#   └── .venv
+#       ├── bin
+#       ├── include
+#       └── lib
+#
+#   The virtualenv will be activated automatically when you enter the directory.
+
+# Check for virtualenvwrapper
+if type workon >/dev/null 2>&1; then
+  VENV_WRAPPER=true
+else
+  VENV_WRAPPER=false
+fi
+
+function _virtualenv_auto_activate() {
+    if [ -e ".venv" ]; then
+        # Check for symlink pointing to virtualenv
+        if [ -L ".venv" ]; then
+          _VENV_PATH=$(readlink .venv)
+          _VENV_WRAPPER_ACTIVATE=false
+        # Check for directory containing virtualenv
+        elif [ -d ".venv" ]; then
+          _VENV_PATH=$(pwd -P)/.venv
+          _VENV_WRAPPER_ACTIVATE=false
+        # Check for file containing name of virtualenv
+        elif [ -f ".venv" -a $VENV_WRAPPER = "true" ]; then
+          _VENV_PATH=$WORKON_HOME/$(cat .venv)
+          _VENV_WRAPPER_ACTIVATE=true
+        else
+          return
+        fi
+
+        # Check to see if already activated to avoid redundant activating
+        if [ "$VIRTUAL_ENV" != $_VENV_PATH ]; then
+            if $_VENV_WRAPPER_ACTIVATE; then
+              _VENV_NAME=$(basename $_VENV_PATH)
+              workon $_VENV_NAME
+            else
+              _VENV_NAME=$(basename `pwd`)
+              VIRTUAL_ENV_DISABLE_PROMPT=1
+              source .venv/bin/activate
+              _OLD_VIRTUAL_PS1="$PS1"
+              PS1="($_VENV_NAME)$PS1"
+              export PS1
+            fi
+            echo Activated virtualenv \"$_VENV_NAME\".
+        fi
+    fi
+}
+
+export PROMPT_COMMAND=_virtualenv_auto_activate
+if [ -n "$ZSH_VERSION" ]; then
+  function chpwd() {
+    _virtualenv_auto_activate
+  }
+fi
+```
+
+Эту всю радость нужно сохранить в файл **.virtualenv-auto-activate.sh**. Я использую http://ohmyz.sh/[ohmyzsh],
+поэтому в файл .zshrc я должен добавить такую строчку:
+
+```
+source .virtualenv-auto-activate.sh
+```
+
+После этого `virtualenv` будет автоматически активироваться при переходе в папку с проектом.
+
+Вот как-то так я и жил, пока не увидел в https://twitter.com/s_pirogov[Twitter] ссылку на
+проект http://docs.pipenv.org/en/latest/[pipenv].
+
+Pipenv - это обертка над `pip virtualenv и  Pipfile`. Он значительно упрощает работу с проектом.
+С его помощью мы можем создавать виртуальные среды и устанавливать зависимости. Но при этом
+будет создаваться `Pipfile`, в который все установленные зависимости будут заноситься автоматически:
+
+```
+pipenv --three
+pipenv shell
+pipenv install webdriver_mamanger selenium requests
+```
+
+Pipfile:
+
+```
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+requests = "*"
+webdriver_manager = "*"
+selenium = "*"
+```
+Это очень удобно! Правда, чтобы научиться им пользоваться, мне потребовалось задать пару-тройку
+вопросов разработчикам. Увы, в документации некоторые вещи не совсем очевидны. Итак:
+
+1) Если вы хотите, чтобы `pipenv` создавал папку `.venv` непосредственно в корне вашего
+проекта, нужно в файл `.zshrc` прописать такую строчку:
+
+```
+export PIPENV_VENV_IN_PROJECT=1
+```
+
+2) Чтобы подключить автодополнение в консоли, нужно в .zshrc написать
+
+```
+eval "$(env _PIPENV_COMPLETE=source-zsh pipenv)"
+```
+
+3) Я долго не мог скрестить `pipenv` и `tox`. Оказалось, что обязательно нужно прописывать
+переменную `HOME` через `passenv` https://github.com/kennethreitz/pipenv/issues/256[Github issue]:
+
+.tox.ini
+```
+[tox]
+envlist=py27,py34
+
+[testenv]
+passenv = HOME
+deps =
+    pipenv
+commands=
+    pipenv lock
+    pipenv install --dev
+    pipenv run py.test
+```
+
+4) pipenv не мог установить некоторые зависимости https://github.com/kennethreitz/pipenv/issues/261[Github issue].
+
+5) При запуске тестов через tox в Travis CI я получал ошибку
+`In --require-hashes mode, all requirements must have their versions pinned with ==.`
+
+Оказалось, что нужно сначала выполнить команду `pipenv lock` и закомитить файл `Pipfile.lock`
+в репозиторий.
+
+Решив все эти проблемы, я успешно перевел проект https://github.com/SergeyPirogov/webdriver_manager[webdriver_manager] на `pipenv`.
+Штука классная - сам использую и вам рекомендую на нее посмотреть.
+
+
+
+
+
+
+
+
+
+

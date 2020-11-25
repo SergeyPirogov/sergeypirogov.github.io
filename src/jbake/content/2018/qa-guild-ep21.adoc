@@ -1,0 +1,38 @@
+= Эпизод-21: Дно автоматизации и cypress.io
+Sergey Pirogov
+2018-09-14
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Микросервисы
+:jbake-summary: Выпуск о хайповом cypress.io
+:jbake-status: published
+
+*Гости*:
+
+- Сергей Пирогов - заводила подкаста
+- Ярослав Пернеровский - бог звука в подкасте
+- Павел Круглей - видел cypress еще в зародыше
+- Дмитрий Арчи - автоматизировал IE под виндой
+
+*Темы*:
+
+- Почему вообще люди хотят отказаться от Selenium?
+- Cypress? Как вы к нему пришли?
+- Как разбирались?
+- Какие у него преимущества?
+- Какие недостатки?
+- Отчеты и репортинг
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/494488473&color=%238c8c64&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+*Спасибо патронам*:
+
+Алиса Маркова, Олег Ильицкий, Игорь Перетятько, Алексей Асанов, Дмитрий Панасюк, Борис Осипов, Павел Скворцов, Эрик Халимов, Роман Поботин, Марина Колесник,
+Марат Реймерс, Татьяна Грибок, Михаил Судья, Виталий Закорчевный
+
+Отдельное спасибо за монтаж звука Ярославу Пернеровскому

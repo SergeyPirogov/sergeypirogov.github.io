@@ -1,0 +1,20 @@
+title=Тренинг по автоматизации тестирования API с помощью Java
+type=trainingPage
+status=published
+summary=Технологии: Java 8, Rest Assured, Gradle, Allure, Jenkins CI
+price=30$
+state=active
+~~~~~~
+
+Тренинг в котором показано как построить проект для тестирования REST API с помощью языка программирования Java,
+с чего начать и как довести все до CI сервера.
+
+Технологии c которыми познакомитесь:
+
+* Java 8
+* Rest Assured
+* Gradle
+* Allure
+* Jenkins CI
+
+Длительность 3 часа.

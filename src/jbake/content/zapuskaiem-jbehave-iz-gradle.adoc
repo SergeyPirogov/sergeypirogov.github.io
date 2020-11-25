@@ -1,0 +1,167 @@
+title=Запускаем JBehave из Gradle
+date=2015-09-20
+type=post
+status=published
+summary=Как запустить JBahve из Gradle
+tags=Тест фреймворк, Java
+~~~~~~
+Я уже достаточно прилично заметок написал про **JBehave**.
+
+В принципе существует много мнений относительно BDD: кто-то вражески настроен против него, кому-то он кажется слишком сложным; но я с ним работаю уже больше 2х лет и мне он нравится. В частности, тесты, написанные для REST сервисов, упрощают понимание того, что они вообще тестируют.
+
+Но вот есть определеннного рода трудность - настройка **JBehave** и **Gradle**. Именно этот момент я и попытаюсь прояснить в данной заметке.
+
+Итак, при настройке **Jbehave** самое сложное - конфигурация тест раннера. Почему? Потому что кода много:
+
+[source, java]
+----
+package com.copyright.rup.ecom.tests.runner;
+
+import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
+import static org.jbehave.core.reporters.Format.CONSOLE;
+import static org.jbehave.core.reporters.Format.HTML;
+import static org.jbehave.core.reporters.Format.XML;
+
+import com.copyright.rup.ecom.tests.custom.CustomStoryReporter;
+
+import org.jbehave.core.ConfigurableEmbedder;
+import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.configuration.MostUsefulConfiguration;
+import org.jbehave.core.embedder.Embedder;
+import org.jbehave.core.embedder.StoryControls;
+import org.jbehave.core.failures.FailingUponPendingStep;
+import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.StoryFinder;
+import org.jbehave.core.reporters.CrossReference;
+import org.jbehave.core.reporters.StoryReporterBuilder;
+import org.jbehave.core.steps.InjectableStepsFactory;
+import org.jbehave.core.steps.ParameterConverters;
+import org.jbehave.core.steps.ParameterConverters.EnumConverter;
+import org.jbehave.core.steps.spring.SpringStepsFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by Serhii_Pirohov on 07.07.2015.
+ */
+public class StoryRunnerConfig extends ConfigurableEmbedder {
+
+    private static final String CLASSPATH_APPLICATION_XML = "classpath:application.xml";
+    private static final int STORY_TIMEOUT_IN_SECS = 12000000;
+
+    private CrossReference crossReference = new CrossReference().withJsonOnly()
+        .withOutputAfterEachStory(true);
+
+    @Override
+    public void run() {
+        Embedder embedder = configuredEmbedder();
+        embedder.useMetaFilters(getMetaFilters());
+        embedder.embedderControls().doIgnoreFailureInStories(true)
+            .doIgnoreFailureInView(false)
+            .useStoryTimeoutInSecs(STORY_TIMEOUT_IN_SECS);
+        try {
+            embedder.runStoriesAsPaths(storyPaths());
+        } finally {
+            embedder.generateCrossReference();
+        }
+    }
+
+    private List<String> getMetaFilters() {
+        String metaFiltersProperty = System.getProperty("metaFilters", "");
+        String[] split = metaFiltersProperty.split(",");
+        return Arrays.asList(split);
+    }
+
+    @Override
+    public Configuration configuration() {
+
+        ParameterConverters parameterConverters = new ParameterConverters();
+        // factory to allow parameter conversion and loading from external
+        // resources (used by StoryParser too)
+        parameterConverters.addConverters(new EnumConverter());
+        return new MostUsefulConfiguration()
+            .useStoryControls(
+                new StoryControls().doSkipScenariosAfterFailure(false))
+            .usePendingStepStrategy(new FailingUponPendingStep())
+            .useStoryLoader(new LoadFromClasspath(getClass()))
+            .useStoryReporterBuilder(new StoryReporterBuilder().withReporters(new CustomStoryReporter())
+                    .withFormats(CONSOLE, HTML, XML).withCrossReference(crossReference)
+                    .withRelativeDirectory("../build/jbehave")
+            )
+            .useParameterConverters(parameterConverters)
+            .useStepMonitor(crossReference.getStepMonitor());
+    }
+
+    @Override
+    public InjectableStepsFactory stepsFactory() {
+        ApplicationContext ctx = new GenericXmlApplicationContext(
+            CLASSPATH_APPLICATION_XML);
+        return new SpringStepsFactory(configuration(), ctx);
+    }
+
+    /**
+     * Story paths.
+     *
+     * @return the list
+     */
+    protected List<String> storyPaths() {
+        String storyToInclude = "**/" + System.getProperty("story", "*")
+            + "*.story";
+        return new StoryFinder().findPaths(codeLocationFromClass(getClass()).getFile(), storyToInclude, null);
+    }
+
+}
+----
+
+Но при настройке с **Gradle** загвоздка заключается в правильном написании task в **build.gradle** файле.
+
+Итак, идем в **build.gradle** файл, создаем там task для запуска **BDD** тестов.
+
+[source, java]
+----
+task(type: Test, 'bddTest') {
+    description 'Runs the BDD tests'
+
+    // Use properties for filtering stories
+    systemProperty "metaFilters", System.getProperty("filter", "")
+    systemProperty "story", System.getProperty("story", "*")
+
+    /*
+     * JBehave requires the Maven's "target" folder in order
+     * to obtain the absolute path from relative path.
+     */
+    doFirst {
+        file('target').mkdirs();
+
+        copy {
+            from(zipTree(jarPath("jbehave-core"))) {
+                include "style/*"
+            }
+            into("build/jbehave/view")
+
+        }
+        copy {
+            from(zipTree(jarPath("jbehave-site-resources"))) {
+                include "js/**/*"
+                include "style/**/*"
+                include "images/*"
+            }
+            into("build/jbehave/view")
+        }
+
+    }
+
+    doLast {
+        file('target').delete();
+    }
+}
+
+def jarPath(String jarName) {
+    configurations.testCompile.find({ it.name.startsWith(jarName) }).absolutePath
+}
+----
+
+Вот, собственно, на этом и все =)

@@ -1,0 +1,22 @@
+= QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+Сергей Пирогов
+2020-11-09
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+:jbake-status: published
+
+Список тренингов, которые вы можете пройти онлайн:
+
+- https://bit.ly/3joWD2G[Автоматизация тестирования API с помощью Java]
+- https://bit.ly/32JtqIW[Автоматизация тестирования API с помощью Python]
+- https://bit.ly/39gMcub[Автоматизация тестирования бекенда с помощью Java]
+- https://bit.ly/31JzbHB[Aвтоматизация тестирования UI с помощью Java]
+- https://bit.ly/34Qz1QK[Тренинг по настройке Jenkins CI для тестировщика]
+- https://bit.ly/2EPN6mi[Тренинг по работе с базами данных Java + SQL]
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ysrioQ1ZyI4" allowfullscreen></iframe>
+</div>
+++++

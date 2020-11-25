@@ -1,0 +1,215 @@
+= Темная сторона Selenide
+Sergey Pirogov
+2016-12-17
+:jbake-type: post
+:jbake-tags: Java, Тест фреймворк
+:jbake-summary: Скромная заметка о станностях Selenide
+:jbake-image: /images/darth_vader.png
+Привет! Решил написать заметку об одной странности Selenide, на которую натолкнулся буквально пару дней назад.
+
+Disclaimer: все написанное ниже является моим видением и призвано помочь людям, которые могут столкуться с такой же проблемой.
+
+image::https://s-media-cache-ak0.pinimg.com/564x/fd/4a/4f/fd4a4f968c90335ce886f1fb3d106f5f.jpg[]
+
+Проводя лекцию для сотрудников своей компании и пытаясь показать разницу между тестами на "ванильном" Selenium и Selenide,
+я поймал очень неприятную ошибку, починить которую мне помогли только в Slack чатике тестировщиков.
+
+Я рассказывал о паттерне PageObject и его реализациях с использованием все того же Selenide.
+
+Буквально пару недель назад я уже писал подобную заметку о http://automation-remarks.com/2016/pages-objects-history/index.html[PageObject].
+
+Итак, мы можем описывать наши страницы в таком виде:
+
+[source, java]
+----
+public class MainPage {
+
+    public void enter_keywords(String keyword) {
+        $(name("search")).type(keyword);
+    }
+
+    public void lookup_terms() {
+        $(".lookupButton").click();
+    }
+}
+----
+
+Все будет работать отлично, но не всем нравится такой формат. Ок, мы можем написать немного по-другому:
+
+[source, java]
+----
+public class MainPage {
+
+    private SelenideElement searchInput =  $("#search"));
+    private SelenideElement lookupButton = $(".lookupButton");
+
+    public void enterKeywords(String keyword) {
+        searchInput.val(keyword);
+        return this;
+    }
+
+    public void lookupTerms() {
+        lookupButton.click();
+    }
+}
+----
+
+Из-за того, что метод `$()` возвращает lazy proxy, мы можем писать такой код и он будет отлично работать. Ну, по крайней мере, я так думал =)
+
+Давайте напишем тест:
+
+[source, java]
+----
+class Test{
+
+    @Test
+    void testLookup(){
+        Selenide.open("http://site.com",MainPage.class)
+                .enterKeywords("hello")
+                .lookupTerms()
+        // assertion here
+    }
+}
+----
+
+Вроде как все лаконично и красиво. Запускаем тест и получаем такую ошибку:
+
+[source, java]
+----
+INFO: Close webdriver: 1 -> FirefoxDriver: firefox on MAC (f966a581-ec80-784d-b57f-ac10a336544f)
+
+Element not found {by id or name "searchInput"}
+Expected: exist
+
+Screenshot: file:/Users/sepi/Github/test/build/reports/tests/1481817473566.0.png
+Timeout: 4 s.
+----
+
+Опа! Обратите внимание, тест падает из-за того, что не может найти элемент с именем `searchInput`. Но у меня нету такого локатора, у меня есть поле класса с именем `searchInput`.
+
+В результате выяснения причин такого поведения выяснилось, что при написании подобного кода (см. ниже) нельзя использовать `PageFactory` от `Selenide` !!!
+
+[source, java]
+----
+public class MainPage {
+
+    public SelenideElement searchInput = $("#twotabsearchtextbox");
+}
+----
+
+То бишь нельзя этот класс передавать в методы **Selenide.open()** и **Selenide.page()**.
+
+**Что же делать в таком случае?**
+
+Нужно инициализировать страницы, как простые обекты, то есть через **new MainPage()**, тогда все будет работать нормально.
+
+**P/S** Имхо немного неприятное поведение, которое сначала приводит к мысли о багах в библиотеке, но на самом деле
+причиной такого поведения является Selenium PageFactory. Именно в этом классе есть метод `initElements`, который и обрабатывает
+поля класса. Если вы c использованием Selenium напишите так:
+
+[source, java]
+----
+class Page{
+
+    WebElement header;
+
+}
+
+PageFactory.initElements(driver, Page.class)
+----
+
+В таком случае Selenium попытается найти элемент **header** или по **name**, или по **id**. Не верите? Посмотрите на реализацию метода
+**org.openqa.selenium.support.pagefactory.Annotations.buildBy**. Там еще есть один метод - **buildByFromDefault**.
+Именно здесь и происходит магия.
+
+**Что нужно, чтобы поправить такое поведение Selenide?**
+
+**Вариант 1: (Самый простой)**
+
+Не использовать методы **open()** и **page()** для инициализации классов PageObject, написанных без исползования аннотации **@FindBy**:
+
+**Вариант 2: (Варварский)**
+
+Наследоваться от класса `org.openqa.selenium.support.pagefactory.Annotations` и переопределить поведение метода `buildByFromDefault`.
+Звучит неплохо, но на самом деле все, что мы можем, - это вызвать исключание c сообщением `"You are using page factory to initialize element without @FindBy annotation"`.
+В таком случае конечный юзер хоть будет понимать, что он сделал неправильно.
+
+**Вариант 3: (Имхо правильный)**
+
+Нужно просто написать `SelenidePageFactory`, переопределить там метод **initElements** и подправить метод **proxyFields**.
+
+Пример:
+
+[source, java]
+----
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.FieldDecorator;
+
+import java.lang.reflect.Field;
+
+/**
+ * Created by sergey on 17.12.16.
+ */
+public class SelenidePageFactory extends PageFactory {
+
+    public static void initElements(FieldDecorator decorator, Object page) {
+        Class<?> proxyIn = page.getClass();
+        while (proxyIn != Object.class) {
+            proxyFields(decorator, page, proxyIn);
+            proxyIn = proxyIn.getSuperclass();
+        }
+    }
+
+    private static void proxyFields(FieldDecorator decorator, Object page, Class<?> proxyIn) {
+        Field[] fields = proxyIn.getDeclaredFields();
+        for (Field field : fields) {
+            if(isInitialized(page, field)){
+                continue;
+            }
+            Object value = decorator.decorate(page.getClass().getClassLoader(), field);
+            if (value != null) {
+                try {
+                    field.setAccessible(true);
+                    field.set(page, value);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private static boolean isInitialized(Object page, Field field){
+        try {
+            field.setAccessible(true);
+            return field.get(page) != null;
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+----
+
+Почему я считаю такой вариант самым удачным?
+
+Потому что все начнет работать, как должно:
+
+[source, java]
+----
+class Page {
+
+    public ElementsCollection posts = $$(".post");
+
+    public SelenideElement userCounter = $(".users");
+
+    public SelenideElement headerElement;
+
+    @FindBy(css = ".button")
+    public SelenideElement button;
+}
+----
+
+Теперь мы может без опаски использовать методы **open()** и **page()**.
+
+Если сообщество поддержит, я превращу свое исследование в **pull request**.
+
+Спасибо, что читали! До новых заметок ;)

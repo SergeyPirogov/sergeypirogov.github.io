@@ -1,0 +1,84 @@
+title=Automation in Action
+type=page
+status=published
+~~~~~~
+
+image::http://ivl-net.eu/wp-content/uploads/2015/04/workshops-chalkboard.jpg[]
+
+Ребят, планирую воркшоп, на котором поделюсь опытом, как писать автотесты
+с помощью Java, Gradle, Selenide, Rest Assured, Allure, Travis CI, Docker,
+которые на сегодня являются самыми востребованными на рынке.
+
+__Почему именно воркшоп?__
+
+Как показала практика, формат воркшопа максимально продуктивен для всех его учасников.
+Тем более, что разбор реальных примеров в IDE гораздо полезнее скучных лекций и ярких слайдов.
+
+__Кому?__
+
+Всем, кто делает первые шаги в автоматизации тестрования, а также тем,
+кто еще не знаком с указанным стеком технологий. Я жду тех, кто
+идет не просто послушать очередную интересную лекцию, а готов учиться и на практике
+применять новые знания у себя на проекте.
+
+__О чем?__
+
+[.skills-list]
+- Автоматизация тестирования Web UI и Backend
+- Построение тестового фреймворка
+- Интеграция с CI
+- Создание тестовых окружений с помощью Docker
+- Отчеты и репортинг
+
+__Где и когда?__
+
+Встречаемся 25 марта в Киеве. Точное время и место проведения сообщу позже.
+
+__Что по чем?__
+
+1500 грн за 4 часа хардкорного кодинга и массы полезных советов, разбавленных инсайдами из
+жизни QA Automation community. Количество мест ограничено.
+
+__Как присоединиться?__
+
+Оставьте заявку, используя форму ниже.
+
+++++
+ <link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    width: 90%;
+    padding-left: 15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/sergio_89@ukr.net">
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Ваш email" style="width: 320px;">
+        </div>
+    </div>
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;">
+            </div>
+    </div>
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:" style="resize: none;"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
+</form>
+</div>
+++++
+
+
+
+
+
+

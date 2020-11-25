@@ -1,0 +1,39 @@
+= QAGuild S03E04: Снова про Cypress от разработчиков
+Сергей Пирогов
+2020-03-26
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про Cypress от разработчиков
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/780125491&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+Гости:
+
+- Дмитрий Коваленко - JS программист
+
+Темы:
+
+- 00:00:59 - Начало
+- 00:01:02 - Гости
+- 00:01:49 - Как попал в айти?
+- 00:06:30 - Про то как попасть в опенсорс компанию
+- 00:09:53 - Чем занимался в Cypress.io
+- 00:20:34 - Про Coffee Script
+- 00:27:04 - Про офис и удаленку
+- 00:34:21 - FireFox support
+- 00:38:55 - Про дашборд
+- 00:46:36 - Про Sorry-Cypress
+- 00:49:36 - Что если все начнут юзать бесплатный дашборд ?
+- 00:54:52 - Почему не нравится?
+- 01:02:16 - Про TDD
+- 01:12:21 - Что изменилось в проекте за год?
+- 01:14:09 - Про JS
+- 01:20:02 - Про сайпресс
+- 01:24:47 - Патроны
+- 01:26:32 - про деньги?
+
+- http://bit.ly/qaguild-telegram[Подписывайтесь в telegram]
+- http://bit.ly/qaguild-patreon[Становитесь патроном]

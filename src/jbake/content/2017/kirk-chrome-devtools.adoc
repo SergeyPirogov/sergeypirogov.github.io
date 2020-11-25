@@ -1,0 +1,88 @@
+= Kirk + chrome devtools
+sergey pirogov
+2017-07-30
+:jbake-type: post
+:jbake-tags: java, kotlin
+:jbake-summary: о возможности использовать devtools в тестах
+:jbake-status: published
+:jbake-featured: true
+
+Привет, друзья-айтишники. Сегодня хочу поделиться с вами очередной порцией полезной
+информации из мира автоматизации тестирования. Поговорим более детально о возможностях использования
+Сhrome developer tools во время прогонов автотестов.
+
+image::http://tutorialdock.altervista.org/wordpress/wp-content/uploads/2011/06/chrome-dev-tool.png[]
+
+http://automation-remarks.com/2017/video-recorder-update/index.html[Записывать видео] мы уже давно научились,
+а вот использовать такой мощный инструмент, как devtools, пока еще нет.
+
+Developer tools обладает обширным кругом возможностей. Мы с вами используем его каждый день: для поиска элеметов,
+для того, чтобы посмотреть в network, возможно, даже попытаться https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions[замедлить браузер], чтобы посмотреть на поведение вашего сайта.
+
+Использование devtools в тестах было невозможно, пока на одной из конференций не был
+показан инструмент https://github.com/bayandin/devtools-proxy[devtools proxy].
+
+Сам прокси написан на Python, но это не ограничивает нас от использования его в Java проектах.
+
+Перед тем, как перейти к основной части, я поясню, чем вообще может помочь devtools именно во время прогона тестов.
+Во-первых, вы можете смотреть сорс HTML страницы прямо во время исполнения тестов. Во-вторых, можно
+смотреть табу network, все запросы и ответы. Это позволяет быстрее понять, что во время теста пошло не так и почему же он упал.
+Хочу отметить, что возможность записывать трафик общения между браузером и бекендом уже давно
+можно реализовать с помощью http://www.seleniumeasy.com/selenium-tutorials/browsermob-proxy-selenium-example[browsermob proxy].
+Но proxy накладывает свои ограничения и вы не можете так прям в live режиме смотреть, что же там происходит.
+
+Я уже давно играюсь с DevTools proxy и буквально недавно сделал интеграцию devtools + https://github.com/SergeyPirogov/kirk[Kirk].
+
+Выглядит это так:
+
+[source, java]
+----
+class DevToolsDemo {
+
+    @Test fun testCanAddTwoNumbersListener() {
+        val chrome = Browser(listener = DevTools())
+        chrome.to("http://juliemr.github.io/protractor-demo/") {
+            element("input[ng-model='first']") value "1"
+            element("input[ng-model='second']") value "2"
+            select("select[ng-model='operator']").selectOption("+")
+            element("#gobutton").click()
+            element("h2.ng-binding").shouldHave(text("3"))
+        }
+    }
+}
+----
+
+В Kirk класс **Browser** умеет принимать два параметра в конструкторе: **WebDriver** и реализацию интерфейса **KirkListener**.
+
+Этим мы и воспользуемся:
+
+[source, java]
+----
+class DevTools : AbstractEventListener() {
+    override fun onStart() {
+        openDevTools()
+    }
+}
+----
+
+Результат смотрим на видео:
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CHW03-L_bI4" frameborder="0" allowfullscreen></iframe>
+++++
+
+На видео вы видели только один браузер потому, что тесты бежали в headless chrome. Эту возможность Kirk тоже поддерживает
+"из коробки".
+Я специально сделал пример с "безголовым хромом", чтобы более ярко продемонстрировать возможности. С наличием
+такой фичи мы можем дебажить тесты, которые бегут на другой машине или в CI (*).
+
+В целом я очень доволен появлением такой фичи: теперь команда может более эффективно дебажить тесты и анализировать
+результаты. Я уверен, что мы еще будем обкатывать эту функциональность и найдем много полезных фишек, о которых
+можно будет рассказать обществу автоматизаторов.
+
+BTW: Ближайшее событие, на котором можно будет услышать о тестах на Котлине Kirk + DevTools и получить еще
+кучу полезной информации - http://qafest.com/[QAFest]. Не пропустите! Всех посетителей ждет очень много интересного -
+это я могу гарантировать как член программного коммитета.
+
+(*) Для нормального подключения удаленно нужно делать https://stackoverflow.com/questions/18506233/using-chromium-remote-debugging-from-external-device[port forwarding]
+

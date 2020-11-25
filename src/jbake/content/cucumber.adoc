@@ -1,0 +1,240 @@
+title=Cucumber плюс Spring и Selenium или жирное BDD
+date=2015-06-24
+type=post
+status=published
+summary=Заметка с громким названием на достаточно спорную тему - BDD.
+tags=Тест фреймворк, Java
+~~~~~~
+Заметка с громким названием на достаточно спорную тему - BDD. Многие используют Behavior-Driven Development у себя на проектах, многие его ругают. Но, я уверен, есть люди, которые не видели и не пробовали, как это работает. О том, что такое BDD, в чем его основной смысл, вы можете посмотреть http://automation-remarks.com/bdd-in-test-automation-lecture/[здесь].
+
+Дальше я покажу, как настроить проект, показанный на видео по ссылке выше, с использованием **Cucumber**, **Spring Framework** и **Selenium**. Традиционно пример будет реализован на Java.
+
+Итак начнем. Создаем простой Maven проект и добавляем зависимости в **pom.xml**:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>CucumberDemo</groupId>
+    <artifactId>CucumberDemo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <cucumber-core.version>1.1.8</cucumber-core.version>
+        <cucumber-html.version>0.2.3</cucumber-html.version>
+        <cucumber-java.version>1.1.8</cucumber-java.version>
+        <cucumber-junit.version>1.1.8</cucumber-junit.version>
+        <cucumber-jvm-deps.version>1.0.3</cucumber-jvm-deps.version>
+        <cucumber-spring.version>1.1.8</cucumber-spring.version>
+        <gherkin.version>2.12.2</gherkin.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <junit.version>4.11</junit.version>
+        <selenium-server.version>2.46.0</selenium-server.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>${cucumber-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-html</artifactId>
+            <version>${cucumber-html.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber-junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-jvm-deps</artifactId>
+            <version>${cucumber-jvm-deps.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber-spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>${gherkin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${hamcrest-all.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium-server.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.5.RELEASE</version>
+        </dependency>
+    </dependencies>
+</project>
+----
+
+Далее нам нужно создать класс CucumberRunner, который будет запускать наши сценарии. Сейчас вы удивитесь краткости настроек:
+
+[source, java]
+----
+@RunWith(Cucumber.class)
+@CucumberOptions(tags = {},format = {"pretty", "json:target/cucumber.json","html:target/cucumber.html"}, features = {"src/main/java/com/features/"})
+public class CucumberRunner {
+
+}
+----
+
+Здесь мы указали формат вывода результатов, формат отчета и путь к папке, где лежат наши **feature** файлы.
+
+Теперь создадим непосредственно сам feature файл **pc.feature**:
+
+[source, xml]
+----
+Feature: PC Feature
+
+  @1
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category "Компьютеры"
+    Then I should see page url "http://pn.com.ua/computers/"
+
+  @2
+  Scenario: Verify that user can open PC page
+    Given I open pn.com.ua
+    When I select category "Компьютеры"
+    Then verify that has sub-column:
+    |name|
+    |Ноутбуки, планшеты|
+----
+
+Теги **@1** и **@2** - это аннотации, с помощью которых мы можем фильтровать сценарии при запуске, указав параметр в CucumberRunner, к примеру **tags{"@2"}**. Ну вот, с настройкой **Cucumber** мы справились, теперь приступим к настройке **Spring**, который будет управлять зависимостями в нашем фреймворке. Создаем в папке **src/java/resources** файл **cucumber.xml**:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.cucumber"/>
+
+    <import resource="classpath*:/applicationContext.xml"/>
+    <bean id="driver" class="org.openqa.selenium.firefox.FirefoxDriver" destroy-method="quit"/>
+</beans>
+----
+
+Теперь приступим к ComponentObject. Создаем класс Page, от которого будем наследовать все наши классы-компоненты.
+
+[source, java]
+----
+public class Page {
+
+    @Autowired
+    WebDriver driver;
+
+    @PostConstruct
+    public void setUp() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    protected void open(String url) {
+        driver.get(url);
+    }
+
+
+    protected WebElement $(String xpath, String... args) {
+        return driver.findElement(By.xpath(String.format(xpath, args)));
+    }
+
+
+    protected List<WebElement> $$(By by) {
+        return driver.findElements(by);
+    }
+
+    protected WebElement $(By by) {
+        return driver.findElement(by);
+    }
+}
+----
+
+Создаем класс-компонент **Home**:
+
+[source, java]
+----
+@Component
+public class Home extends Page{
+
+    private static final String URl = "http://pn.com.ua/";
+
+    public void open(){
+        open(URl);
+    }
+
+    public WebElement getCategoty(String name){
+        return $("//a[contains(.,'%s')]",name);
+    }
+}
+----
+
+Аннотация **@Component** говорит **Spring** о том, что нужно создать инстанс этого класса.
+
+Создаем класс **HomeSteps**:
+
+[source, java]
+----
+public class HomeSteps {
+
+    @Autowired
+    Home home;
+
+    @Given("^I open pn\\.com\\.ua$")
+    public void shouldOpenMainPage() throws Throwable {
+        home.open();
+    }
+
+    @When("^I select category \"(.*?)\"$")
+    public void shoulSelectCategory(String cat) throws Throwable {
+        home.getCategoty(cat).click();
+    }
+
+}
+----
+
+Вот она магия **Spring** - не нужно никаких конструкторов и прочей лишней чепухи, ставим аннотацию @**Autowired** и все. На этом, собственно, вся настройка заканчивается. Остается создать оставшиеся классы-компоненты, реализовать шаги и запустить тесты. В конце получается красивенький HTML - отчет о результатах прохождения тестов, смотреть его в папке **\target\cucumber.html**.
+
+Полный код примера вы можете посмотреть в репозитории https://bitbucket.org/Semen4ik20/cucmberspringdemo/src[bitbucket].
+
+Качайте, пробуйте, подписывайтесь на email рассылку, чтобы получать свежие заметки первыми. Спасибо

@@ -1,0 +1,239 @@
+title=Используем Selenium Grid
+date=2015-06-23
+type=post
+status=published
+summary=Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке.
+tags=Тест фреймворк, Java
+~~~~~~
+Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке. О том, как настроить grid, я писал в предыдущей http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/[заметке].
+
+image::http://www.guru99.com/images/AdvanceSelenium/071514_0700_CrossBrowse1.png[]
+
+Начнем с самого простого. Создаем **Maven** проект, подключаем две зависимости **TestNG** и **Selenium-java**:
+
+[source, xml]
+----
+<dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.46.0</version>
+        </dependency>
+</dependencies>
+----
+
+**TestNG** приведен не случайно: именно его проще всего использовать для распараллеливания тестов. Почему? Попробуйте - и вы поймете сами =)
+
+В этом примере показан тест для страницы поиска Google. Но это не столь важно, следуя примеру, можно создать инфраструктуру для тестирования любого web-приложения.
+
+Создаем общий класс, от которого будут наследоваться все классы тестов. В него помещаем методы фикстуры и другие методы, общие для всех классов тестов:
+
+[source, java]
+----
+import com.grid.shedule.core.WebDriverInstansiator;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+public class BaseTestGrid {
+
+    @Parameters({"browserName", "browserVersion"})
+    @BeforeClass
+    public void setUp(@Optional String browserName, String browserVersion){
+        WebDriverInstansiator.setDriver(browserName, browserVersion);
+    }
+
+    @AfterClass
+    public void tearDown() throws Exception{
+        WebDriverInstansiator.getDriver().quit();
+    }
+
+}
+----
+
+Самое важное в коде, приведенном выше - класс **WebDriverInstantiator**. Этот класс будет служить менеджером веб-драйверов для наших тестов. Самое важное в этом классе - ThreadLocal переменная webdriver. Она вводится для того, чтобы на каждый новый поток создавать свой веб-драйвер.
+
+[source, java]
+----
+import org.openqa.selenium.WebDriver;
+
+public class WebDriverInstansiator {
+
+    private static InheritableThreadLocal<WebDriver> webDriver = new InheritableThreadLocal<WebDriver>();
+    private static WebDriverFactory factory;
+
+    public static void setDriver(String browserName, String browserVersion){
+        factory = new WebDriverFactory();
+        webDriver.set(factory.getWebDriver(browserName, browserVersion));
+    }
+
+    public static WebDriver getDriver(){
+        return webDriver.get();
+    }
+}
+----
+
+Внутри класса **WebDriverInstansiator** находится **PageFactory**, его цель - упростить создание новых инстансов веб-драйверов.
+
+Создаем **Page object** и класс тестов.
+
+[source, java]
+----
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class GooglePage extends Page{
+
+    private static final String URL = "http://google.com/";
+
+    private static final By SEARCH_INPUT = By.name("q");
+    private static final By SEARCH_BTN = By.name("btnK");
+
+
+    public GooglePage(WebDriver driver) {
+       super(driver);
+    }
+
+    public void search(String name){
+        $(SEARCH_INPUT).sendKeys(name);
+        $(SEARCH_BTN).click();
+    }
+
+    public void open() {
+        toPage(URL);
+    }
+}
+----
+
+Класс тестов:
+
+[source, java]
+----
+import com.grid.shedule.core.WebDriverInstansiator;
+import com.grid.shedule.pages.GooglePage;
+import org.testng.annotations.*;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class TestGoogleSearch extends BaseTestGrid {
+
+    GooglePage googlePage;
+
+    @BeforeMethod
+    public void setUp() {
+        googlePage = new GooglePage(WebDriverInstansiator.getDriver());
+    }
+
+    @Test
+    public void shouldBeBlogTitle() {
+        googlePage.open();
+        googlePage.search("automation remarks");
+    }
+}
+----
+
+И самая последняя часть: нужно настроить **TestNG** xml, в котором указать, какие тесты и в каких браузерах нужно запускать.
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ScheduleBusTest" parallel="tests" thread-count="5">
+    <test name="ChromeTest" verbose="1" parallel="true">
+        <parameter name="browserName" value="chrome" />
+        <parameter name="browserVersion" value="" />
+        <classes>
+            <class name="com.grid.shedule.test.TestGoogleSearch" />
+        </classes>
+    </test>
+    <test name="InternetExplorerTest" verbose="1" parallel="true">
+        <parameter name="browserName" value="internet explorer" />
+        <parameter name="browserVersion" value="8" />
+        <classes>
+            <class name="com.grid.shedule.test.TestGoogleSearch" />
+        </classes>
+    </test>
+</suite>
+----
+
+Ну вот, на этом настройка закончена. Для того, чтобы запустить тесты, нужно сначала стартовать наш Grid Hub с подключенными Node. Приведу пример скрипта с json файлом конфигурации:
+
+**NodeConfig.json**
+
+[source, json]
+----
+{
+  "capabilities":
+      [
+        {
+            "browserName": "chrome",
+            "platform": "WINDOWS",
+            "maxInstances": 13,
+            "seleniumProtocol": "WebDriver",
+            "nodeName": "simpleNode"
+        },
+        {
+            "seleniumProtocol": "WebDriver",
+            "browserName": "internet explorer",
+            "version": "8",
+            "maxInstances": 13,
+            "platform" : "WINDOWS",
+            "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "22",
+          "platform": "WINDOWS",
+          "firefox_binary":"FirefoxExe/ff22/firefox.exe",
+          "maxInstances": 25,
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "24",
+          "platform": "WINDOWS",
+          "maxInstances": 25,
+          "firefox_binary":"FirefoxExe/ff24/firefox.exe",
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        }
+      ],
+  "configuration":
+    {
+        "nodeTimeout":120,
+        "nodePolling":2000,
+        "registerCycle":10000,
+        "register":true,
+        "cleanUpCycle":2000,
+        "timeout":30000,
+        "maxSession":25,
+        "nodeStatusCheckTimeout":10000,
+        "downPollingLimit":360000
+    }
+}
+----
+
+Код самого **.bat** или **.sh** файла, который я использую для запуска сервера:
+
+**StartGrid.bat(.sh)**
+
+[source, xml]
+----
+cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role hub -port 4445 -timeout 300 -browserTimeout 360
+cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role node -port 5599 -hub http://localhost:4445/grid/register -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=Drivers\chromedriver.exe -Dwebdriver.ie.driver=Drivers\IEDriverServer.exe
+----
+
+Ну вот, теперь можно запускать тест. Должны открыться два браузера IE и Chrome, в которых параллельно будет выполняться наш единственный тест.
+
+Надеюсь, вам понравилась заметка и вы нашли в ней что-то полезное. Подписывайтесь на мой блог, присылайте идеи, делитесь опытом. До новых встреч!..

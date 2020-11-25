@@ -1,0 +1,48 @@
+= QA Guild Podcast: Дария Бондарева о том, как тестировать AR
+Sergey Pirogov
+2018-05-28
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: QA Guild Podcast
+:jbake-status: published
+:jbake-featured: false
+
+Очень интересный выпуск о тестировании AR приложений.
+
+*Темы:*
+
+- Какие реальности бывают и чем они отличаются
+- Как тестировать AR приложения
+- Что такое хололенс, что он позволяет и какие приложения под него можно писать
+- Интересные моменты и особенности при тестировании хололенс
+- Кружится ли голова после тестов?
+- Можно ли автоматизировать тестирование AR приложений
+- Какие проекты кроме порно, симуляторов и игр в топе
+- Как AR используют в IKEA
+
+*Гости:*
+
+- Сергей Пирогов - заводила подкаста
+- Дария Бондарева - работает в MobiDev. Смотрела в другой мир через линзы хололенс
+
+*Полезные ссылки*:
+
+- https://www.microsoft.com/en-us/hololens[Hololens]
+- https://rb.ru/story/vsyo-o-vr-ar/[Все, что нужно знать про VR/AR-технологии]
+- http://blog.htc-cs.ru/post/dopolnennaya-realnost-kak-ehto-testirovat[Дополненная реальность: как тестировать?]
+- https://blog.qasource.com/virtual-reality-qa-testing-what-to-test-and-why[Virtual Reality QA Testing: What to Test and Why]
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/436461330&color=%238c8c64&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2[Слушать в Itunes]
+
+*Спасибо патронам*:
+
+Эрик Халимов, Виталий Закорчевный, Максим Денисов,
+Павел Скворцов, Борис Осипов, Дмитрий Панасюк, Евгения Гнатюк,
+Алексей Игнатюк, Илья Силантьев, Геннадий (без фамилии) ;)
+
+Отлельное спасибо за монтаж звука Ярославу Пернеровскому
+
+Вступайте в свободную https://qaguild-slack.herokuapp.com/[QA гильдию в Slack] и следите за новостями.

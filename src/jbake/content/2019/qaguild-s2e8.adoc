@@ -1,0 +1,36 @@
+= QAGuild подкаст s2e8: ПиSDET - не мешки ворочать
+Сергей Пирогов
+2019-06-27
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Разговор о позиции SDET
+:jbake-status: published
+
+Доступен очередной выпуск подкаста под кодовый названием пиSDET- не мешки ворочать. В этот раз мы попатились прояснить роль и ответственность SDET vs QA automation. Итоги вас удивят. Приятного прослушивания
+
+Гости:
+
+- Александр Романов - паленый SDET
+- Максим Колотилкин - просто SDET
+
+Темы:
+
+00:00:22 - Интро
+
+00:02:07 - О гостях
+
+00:04:38 - Кто такой Automation QA
+
+00:13:48 - Кто такой SDET
+
+01:28:59 - Как стать Сдедтом
+
+01:39:52 - Патроны
+
+01:41:47 - Финал
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/640779879&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+Подписывайтесь на наш telegram канал - https://t.me/automation_remarks

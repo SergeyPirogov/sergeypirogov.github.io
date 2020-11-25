@@ -1,0 +1,16 @@
+= QAGuild live #24: Про обучение тестировщиков дома
+Сергей Пирогов
+2020-03-29
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про обучение тестировщиков дома
+:jbake-status: published
+
+В этом эпизоде расскажу про подходы к обучению дома. Многим тестировщикам на период карантина советую попробовать.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/sCbrR2lnMAM" allowfullscreen></iframe>
+</div>
+++++
+

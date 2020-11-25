@@ -1,0 +1,43 @@
+= S2E10: Про Android автоматизацию на Espresso
+Сергей Пирогов
+2019-09-05
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Разговор про нативные тесты под Android
+:jbake-status: published
+
+Подготовили очередной эпизод подкаста. В этом выпуске поговорили о нативных тестах под Android с помощью Espresso, инфраструктуре, ранерах и врапперах.
+Приятного прослушивания.
+
+Гости:
+
+- Денис Зеленчук - автор книги по еспрессо
+- Алексей Тюрин - главный по еспрессо в ВК
+
+Темы:
+
+- 00:00:44 - Начало
+- 00:00:56 - Гости
+- 00:03:17 - Про нативные тесты
+- 00:08:13 - Про архитектуру экспрессо
+- 00:12:50 - Возможности
+- 00:18:47 - Когда лучше использовать?
+- 00:23:24 - Врапперы
+- 00:34:59 - Инфраструктура для запуска
+- 00:43:42 - Про эмуляторы
+- 00:46:39 - Про раннеры
+- 00:53:23 - Firebase Test Lab
+- 00:54:54 - Espresso Test Recorder
+- 00:57:18 - AndroidX Test
+- 01:01:02 - Недостатки
+- 01:10:03 - Про книгу
+- 01:15:33 - Что почитать кроме книги Дениса?
+- 01:19:25 - Инструментация и код кавередж
+- 01:21:31 - Патроны
+- 01:23:31 - Финал
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/676568699&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+Подписывайтесь на наш telegram канал - https://t.me/automation_remarks

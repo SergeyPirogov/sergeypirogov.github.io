@@ -1,0 +1,11 @@
+= Размещение вакансий для тестировщиков
+Сергей Пирогов
+2020-02-11
+:jbake-type: post
+:jbake-tags: Telegram
+:jbake-summary: Про вакансии в telegram
+:jbake-status: published
+:featured: true
+
+Ищете в свою команду толкового QA? У вас есть возможность разместить свою вакансию в телеграмм канале https://t.me/automation_remarks
+и ее увидит 6300+ QA инженеров.

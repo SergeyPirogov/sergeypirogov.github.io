@@ -1,0 +1,14 @@
+= Запись воркшопа Automation in Action
+Sergey Pirogov
+2017-05-18
+:jbake-type: post
+:jbake-tags: Java, Тестовый фреймворк, Видео
+:jbake-summary: Запись воркшопа
+:jbake-status: published
+
+Хорошая новость - доступны видеозаписи воркшопа Automation in Action. Почти 10 часов видео c примерами написания тестов на Selenide и Rest Assured, отчетами Allure и Report Portal. Вы можете получить доступ ко всем частям,
+можно http://automation-remarks.us10.list-manage.com/subscribe?u=d24f95005c1b66c13389aceb9&id=ce47ec0c3f[подписавшись на email рассылку]
+
+Ищете работу QA Automation? https://ru.jooble.org/[Агрегатор вакансий Jooble]
+
+video::QYA2V4gVGk4[youtube]

@@ -1,0 +1,120 @@
+title=WebDriver factory без IF-ELSE
+date=2015-03-07
+type=post
+status=published
+summary=В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
+tags=Java, Тест фреймворк
+~~~~~~
+В этой заметке покажу, как можно написать WebDriver factory без применения IF-ELSE.
+Зачастую во фреймворках в случае кросс-браузерного тестирования приходится писать драйвер фэктори. Большинство реализаций, которые мне приходилось видеть, выглядели так:
+
+BrowserFactory.class
+[source, java]
+----
+class BrowserFactory{
+    public static final WebDriver DEFAULT_FF = new FirefoxDriver();
+
+ public static WebDriver getDriver(String name){
+     WebDriver driver = null;
+     if("FIREFOX".equalsIgnoreCase(name)){
+        driver= new FirefoxDriver();
+     }else if("CHROME".equalsIgnoreCase(name)){
+         driver = new ChromeDriver();
+     }else if("IE".equalsIgnoreCase(name)){
+         driver = new InternetExplorerDriver();
+     }else {
+         driver = DEFAULT_FF;
+     }
+     return driver;
+ }
+----
+
+Но такая реализация, скажем так, не самая хорошая: читабельность кода страдает, человеку приходится гадать, как же правильно задать имя браузера, ну и самое неприятное - куча if-else. Давайте посмотрим, как можно улучшить ситуацию.
+Объектно-ориентированные языки программирования обладают мощнейщим принципом - полиморфизмом. Его мы и будем использовать, чтобы удалить if-else в коде. В результате читабельность кода значительно повысится.
+
+**Рефлексия**
+
+Первое "топорное" решение (я назвал бы его "решением для реальных пацанов"):
+
+[source, java]
+----
+public class Browsers{
+    public static WebDriver newBrowser(String name){
+        return Class.forName(name).newInstance();
+    }
+}
+----
+
+Смотрится очень просто, НО сложность заключается в том, что человек должен помнить полное имя класса. К тому же, использование рефлексии повышает степень брутальности в пару раз. Поэтому таких решений следует избегать.
+
+**Map**
+
+Второе решение более приемлемое - использование Map.
+
+[source, java]
+----
+public class Browsers{
+    private static Map<String,WebDriver> drivers = new HashMap<>(){
+        put("CHROME",new ChromeDriver());
+        put("FIREFOX",new FirefoxDriver());
+        put("IE",new InternetExplorerDriver());
+    }
+
+    public static WebDriver newDriver(String name){
+        return drivers.get(name);
+    }
+}
+----
+
+Это решение обладает недостатком: нужно знать правильное имя драйвера, которое задано в Map.
+
+**Switch**
+
+[source, java]
+----
+switch (name) {
+    case "FIREFOX": return new FirefoxDriver();
+    case "CHROME": return new ChromeDriver();
+    case "IE": return new InternetExplorerDriver();
+    default: return DEFAULT_FF;
+}
+----
+
+**Enum**
+
+Самое элегантное решение:
+
+[source, java]
+----
+public enum Browsers {
+    CHROME {
+        public WebDriver create(){
+            return new ChromeDriver();
+        }
+    },
+    IE {
+        public WebDriver create(){
+            return new InternetExplorerDriver();
+        }
+    },
+    FIREFOX {
+        public WebDriver create() {
+            return new FirefoxDriver();
+        }
+    };
+
+    public WebDriver create(){
+        return null;
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+       WebDriver driver = Browsers.FIREFOX.create();
+    }
+}
+----
+
+Классно, не правда ли? Нету надоедливых if-else, нету строк, которые нужно помнить - просто вызываем нужный нам тип драйвера и все. Лично я предпочитаю этот метод.
+
+P.S. Конструкция if-else делает код сложным для чтения, поэтому нужно стараться избегать их использования.

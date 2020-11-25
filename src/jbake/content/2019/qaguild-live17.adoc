@@ -1,0 +1,19 @@
+= QAGuild live #17: Про умение объяснять для тестировщика
+Сергей Пирогов
+2019-10-08
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом выпуске рассказал о том, почему важно уметь говорить
+:jbake-status: published
+
+Soft skills и умение обьяснять - один из самых важных навыков для тестировщика.
+В этом эпизоде поговорили о том, как можно эти навыки использовать и как их прокачать.
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wujfydLDsRg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++

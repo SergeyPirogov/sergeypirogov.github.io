@@ -1,0 +1,12 @@
+= JUnit 5 vs TestNG battle video
+Sergey Pirogov
+2017-04-29
+:jbake-type: post
+:jbake-tags: Конференции, Видео
+:jbake-summary: Видео моего выступления с SeleniumCamp 2017
+
+Запись моего доклада:
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vRmVZV0fjK8" frameborder="0" allowfullscreen></iframe>
+++++

@@ -1,0 +1,117 @@
+title=Как я изобрел свой Jenkins Emailer
+date=2014-11-22
+type=post
+status=published
+tags=Jenkin, CI
+summary=Велкам!Второй пост не задержался.Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
+~~~~~~
+
+Велкам!
+Второй пост не задержался. Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
+Применив хитрость с **Jenkins API**, как было показано в предыдущем посте, я не только добыл нужную мне информацию из недр этого чУдного инструмента, но и заставил ее приносить пользу проекту.
+Итак, по порядку. Если Jenkins предоставляет возможность получать данные в формате **JSON** - значит мы можем легко и просто обрабатывать эти данные.
+Я буду приводить в пример некоторые куски кода, которые являются ключевыми.
+Так вот! Вернемся к нашим баранам. Имея URL к **JSON** файлу, скачать его можно так (осторожно: **Java** code detected :)) :
+
+[source, java]
+----
+public static String callURL(URL url) {
+        StringBuilder sb = new StringBuilder();
+        URLConnection urlConn = null;
+        InputStreamReader in = null;
+        try {
+            urlConn = url.openConnection();
+            if (urlConn != null)
+                urlConn.setReadTimeout(60 * 1000);
+            if (urlConn != null && urlConn.getInputStream() != null) {
+                in = new InputStreamReader(urlConn.getInputStream(),
+                        Charset.defaultCharset());
+                BufferedReader bufferedReader = new BufferedReader(in);
+                if (bufferedReader != null) {
+                    int cp;
+                    while ((cp = bufferedReader.read()) != -1) {
+                        sb.append((char) cp);
+                    }
+                    bufferedReader.close();
+                }
+            }
+            in.close();
+        } catch (Exception e) {
+            LOG.error("Exception while calling URL:"
+                    + url.toString());
+        }
+        return sb.toString();
+    }
+----
+
+Метод принимает адрес (URL), а возвращает непосредственно содержание JSON файла в строковом представлении.
+Далее нам нужно дессериализовать **JSON** в объект **JobObject**. Это очень просто сделать с помощью библиотеки **Google GSON**.
+
+[source, java]
+----
+public static Object jsonToObject(String json, Class c) {
+        Gson gson = new Gson();
+        Object obj = gson.fromJson(json, c);
+        return obj;
+}
+----
+
+В данном случае был создал класс JobObject, в котором я сохранял интересующую меня информацию:
+
+[source, java]
+----
+public class JobObject {
+    private long duration;
+    private long estimatedDuration;
+    private String fullDisplayName;
+    private int number;
+    private String result;
+    private long timestamp;
+    private String url;
+    private String builtOn;
+    private String RUNNING_STATUS = "RUNNING";
+    private BuildInfo buildInfo;
+    private ArrayList actions;
+    // Getters  and setters
+
+    public String getStatus() {
+        if (result == null) {
+            return RUNNING_STATUS;
+        }
+        return result;
+    }
+
+    public boolean finished() {
+        return !getStatus().equals(RUNNING_STATUS);
+    }
+}
+----
+
+Таким образом, имея набор **JsonObject**, я написал еще пару классов хелперов и обработчиков, с помощью которых отбирал для себя только те **JobObject**, которые имели статус **finished**:
+
+[source, java]
+----
+public static List getFinishedJobs(List jobs) {
+        List finishedJobs = new ArrayList();
+        for (JobObject job : jobs) {
+            if (job.finished()) {
+                finishedJobs.add(job);
+            }
+        }
+        return finishedJobs;
+}
+----
+
+Имея на руках все козыри, я преобразовал (переопределил метод toString) JobObject в тесктовое представление.
+
+[source, xml]
+----
+Job 4.9.1.1_Tests #91 is FINISHED.
+Job Status - SUCCESS.
+Build info: PRE-RELEASE BUILD 12dev.0228.zip
+You can find detailed information by the following link:
+http://host:port/job/4.9.1.1_Branch_Tests/91/
+Failed: 24 Total: 480
+----
+
+В итоге: использовав http://commons.apache.org/proper/commons-email/[Apache Commons Email], я отправляю данные на почтовые ящики, тем самым оповещая всех о результатах наших тестов. Хотите и вам одно сброшу ;)

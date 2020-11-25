@@ -1,0 +1,113 @@
+= Аттачим RestAssured логи к Allure
+Sergey Pirogov
+2017-05-05
+:jbake-type: post
+:jbake-tags: Java, Тестовый фреймворк
+:jbake-summary: О том, как прикрепить логи к отчету
+:jbake-status: published
+
+История о том, как прикрепить логи к отчету и сделать всех счастливыми. Эта заметка является
+продолжением серии о http://automation-remarks.com/2017/code-generation/index.html[быстром написании тестов]
+и http://automation-remarks.com/2017/assert-generation/index.html[проверок].
+
+В свободное от работы время я занимаюсь http://automation-remarks.com/course/[консультациями] по вопросам
+построения автоматизации тестирования. Однажды ко мне обратились с вопросом о возможности
+прикреплять к Allure отчетам логи от RestAssured. Так как на просторах интернета сложно
+найти качественный пример реализации, я решил поделиться решением данной задачи.
+
+По умолчанию RestAssured выводит логи в консоль, но существует механизм перехвата с помощью фильтров.
+
+[source, java]
+```
+RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, printStream),
+        new RequestLoggingFilter(LogDetail.ALL, printStream));
+```
+
+Именно этот механизм мы и можем использовать для своих целей.
+Для того, чтобы прикреплять логи к отчетам, нам нужно написать TestNG лисенер:
+
+```
+public class LogListener implements ITestListener {
+  private ByteArrayOutputStream request = new ByteArrayOutputStream();
+  private ByteArrayOutputStream response = new ByteArrayOutputStream();
+
+  private PrintStream requestVar = new PrintStream(request, true);
+  private PrintStream responseVar = new PrintStream(response, true);
+
+
+  public void onStart(ITestContext iTestContext) {
+    RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, responseVar),
+            new RequestLoggingFilter(LogDetail.ALL, requestVar));
+  }
+
+  public void onTestSuccess(ITestResult iTestResult) {
+    logRequest(request);
+    logResponse(response);
+  }
+
+  public void onTestFailure(ITestResult iTestResult) {
+      onTestSuccess(iTestResult)
+  }
+
+  @Attachment(value = "request")
+  public byte[] logRequest(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  @Attachment(value = "response")
+  public byte[] logResponse(ByteArrayOutputStream stream) {
+    return attach(stream);
+  }
+
+  public byte[] attach(ByteArrayOutputStream log) {
+    byte[] array = log.toByteArray();
+    log.reset();
+    return array;
+  }
+
+  public void onTestStart(ITestResult iTestResult) {
+  }
+
+  public void onTestSkipped(ITestResult iTestResult) {
+
+  }
+
+  public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+
+  }
+
+  public void onFinish(ITestContext iTestContext) {
+
+  }
+}
+```
+
+Теперь нужно просто использовать этот лисенер в своих тестах:
+
+```
+@Listeners(LogListener.class)
+class SignInTest {
+
+   @Test
+   public void testCanSignIn(){
+       CredentialsForResetPass credentialsRes = new CredentialsForResetPass("test@mail.com");
+       given()
+               .contentType("application/json")
+               .body(credentialsRes)
+               .when()
+               .post("http://localhost:8085/auth/reset")
+               .then()
+               .assertThat()
+               .statusCode(200)
+               .and()
+               .assertThat().body("code", equalTo("OK"));
+   }
+}
+```
+
+Теперь ваши логи будут отображаться в виде аттачментов к тестам. Я на своем проекте
+тоже использую такой подход. Это позволяет значительно упростить жизнь, так как в случае
+ошибки вся команда знает, что нужная информация хранится в отчете.
+
+
+

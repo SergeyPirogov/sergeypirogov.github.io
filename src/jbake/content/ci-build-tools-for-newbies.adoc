@@ -1,0 +1,15 @@
+title=CI & Build tools for newbies
+date=2015-05-01
+type=post
+status=published
+summary=Привет! Новый пост - лекция про билд тулы и континиус интегрейшин.
+tags=Видео, Jenkins, CI
+~~~~~~
+
+Привет! Новый пост - лекция про билд тулы и континиус интегрейшин.
+
+video::XpVNDRRjtsw[youtube]
+
+video::dacqCkdFbP8[youtube]
+
+video::CVItdJV_cqM[youtube]

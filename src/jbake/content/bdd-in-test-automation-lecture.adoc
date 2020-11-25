@@ -1,0 +1,16 @@
+title=BDD In Test Automation lecture
+date=2015-03-21
+type=post
+status=published
+summary=Моя лекция, которую я проводил в компании, для студентов.
+tags=Видео, Тест фреймворк
+~~~~~~
+Моя лекция, которую я проводил в компании, для студентов. В лекции попытался доступным языком рассказать о том, что такое BDD и как его имплеменитровать в жизнь. Сделал небольше овервью таких иснтрументов как **Cucumber**, **JBehave**, **Spock**, **Lettuce**.
+
+video::9_Ij3ux7l0Y[youtube]
+
+video::tL9Yavmv0nM[youtube]
+
+video::PtGkytbbS2o[youtube]
+
+video::GJFvMQ_IW1Y[youtube]

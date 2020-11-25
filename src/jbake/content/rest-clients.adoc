@@ -1,0 +1,121 @@
+title=Подборка Rest клиентов на любой случай жизни
+date=2015-11-15
+type=post
+status=published
+summary=Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.
+tags=Тест фреймворк, Java, Groovy
+~~~~~~
+Заметка, в которой я решил собрать все самые достойные, по моему мнению, библиотеки или инструменты для работы с REST сервисами.
+
+image::http://anton.shevchuk.name/wp-content/uploads/2013/09/restful-api-460x307.jpg[]
+
+Я уже писал подобную http://automation-remarks.com/java-rest-client/[заметку], еще когда блог только зарождался. Тогда я упоминал о двух библиотеках, сейчас же хочу расширить список. Для всех примеров я буду использовать ресурс https://swapi.co/.
+
+**1. Groovy URL**
+
+Самый простой способ сделать запрос из кода - использовать Groovy URL.
+
+[source, java]
+----
+def endpoint = 'http://swapi.co/api/planets/1/'
+
+def content = endpoint.toURL().getText(requestProperties: ['User-agent':'firefox',Accept: 'application/json','Content-Type': 'application/json'])
+
+def json = new JsonSlurper().parseText(content)
+
+assert json.name == 'Luke Skywalker'
+assert json.films[0] == 'http://swapi.co/api/films/7/'
+----
+
+Здесь мы выполнили запрос, а затем с помощью **JsonSlurper** распарсили его в json. В Groovy мы можем работать с json объектом как с Map.
+
+**2. Groovy wslite**
+
+Еще одна библиотека семейства Groovy. Здесь у вас будет полноценный rest client, с помощью которого можно будет достать все параметры ответа:
+
+[source, java]
+----
+def endpoint = 'http://swapi.co/api/'
+
+def client = new RESTClient(endpoint)
+
+def response = client.get(path:'people/1/',accept: ContentType.JSON,headers:['User-agent':'firefox'])
+
+assert 200 == response.statusCode
+assert 'Luke Skywalker' == response.json.name
+----
+
+Вы наверное заметили, что с применением wslite не нужно преобразовывать ответ в json, так как объект ответа содержит в себе свойство json. Логика работы с json в этом случае аналогична случаю с URL. Вы можете использовать wslite и для работы с SOAP сервисами, примеры можно посмотреть https://github.com/jwagenleitner/groovy-wslite[здесь].
+
+**3. Rest Assured**
+
+**Rest Assured** - java библиотека, которая делает тестирование Rest с использованием java похожим на подход с использованием groovy. Мощнейшая библиотека, с помощью которой можно создавать тесты, которые будут понятными и легко поддерживаемыми.
+
+[source, java]
+----
+import org.junit.Test;
+
+import static com.jayway.restassured.RestAssured.get;
+import static org.hamcrest.core.IsEqual.equalTo;
+
+/**
+ * Created by sergey on 15.11.15.
+ */
+public class SwapiTest {
+
+    @Test
+    public void shouldGetLuke() {
+        get("http://swapi.co/api/people/1/")
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body("name", equalTo("Luke Skywalker"));
+    }
+}
+----
+
+Смотрится неплохо, внутри body можно использовать **JsonPath**.
+
+**4. Spring RestTemplate**
+
+Те, кто плотно работает с Java и знает, что такое Spring framework, наверняка пользовались данной библиотекой. Не хочу особо растекаться мыслями по древу, но Spring - это мощнейший фреймворк, а RestTemplate - отличнейшая библиотека, с помощью которой вы можете создавать рест клиент. Лично я на своем проекте пользуюсь именно ней.
+
+[source, java]
+----
+    @Test
+    public void shouldGetLuke2() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add("User-Agent", "firefox");
+
+        HttpEntity payload = new HttpEntity(headers);
+
+        ResponseEntity<String> response = restTemplate.exchange("http://swapi.co/api/people/1/", GET, payload, String.class);
+
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+    }
+----
+
+Настроив маршалеры и маперы, вы можете легко оперировать сущностями https://spring.io/guides/gs/consuming-rest/[пример].
+
+**5. Restlet**
+
+http://restlet.com/[Restlet framework] лично не пробовал, но по документации выглядит прикольно, правда очень запутано;) У него есть куча расширений, которые позволяют интегрироваться с множеством существующих фреймворков, но именно запутанность и отсутствие яркого примера на сайте меня лично отпугнули.
+
+**6. RetroFit**
+
+http://square.github.io/retrofit/[RetroFit] смотрится достаточно симпатично, в документации очень часто проскакивает слово Android, соответственно смело могу предположить, что он ориентирован на создание легковесных rest клиентов для Android. Среди ярких отличий - возможность выполнять как синхронные, так и асинхронные вызовы.
+
+Примеры кода можно найти на сайте либо же https://futurestud.io/blog/retrofit-getting-started-and-android-client/[здесь].
+
+**7. Postman**
+
+Postman - это не фреймворк и не библиотка, а простой плагин к Chrome браузеру. Достаточно простой и удобный клиент, с помощью которого можно делать запросы прямо из браузера.
+
+**8. httpie**
+
+https://github.com/jkbrzt/httpie[Httpie] - простая утилита, написанная на Python. Эту утилиту должны оценить любители консоли. Httpie может стать полноценным заменителем curl или wget в повседневной работе. Сильно много вы из нее не выжмите, но сделать запрос или скачать файлик, при этом не запоминая кучи ключевых значений, как это нужно делать с использованием culr, вы сможете легко.
+
+Ну вот, собственно, и все, о чем я хотел поговорить в данной заметке. Пару мыслей от себя: для java существует большое количество библиотек, на моем проекте используется Spring и все, что с ним связано, но если бы мне нужно было писать клиент вот прямо сейчас, я бы выбирал что-то из Groovy, так как там все просто, легко и быстро. До встреч...

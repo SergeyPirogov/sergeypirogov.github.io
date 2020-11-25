@@ -1,0 +1,159 @@
+= Как писать автотесты быстро
+Sergey Pirogov
+2017-03-26
+:jbake-type: post
+:jbake-tags: Java
+:jbake-summary: О способах ускорить процесс написания автотестов
+
+Привет! Спешу поделиться очередной порцией полезностей. Сегодня хочу поговорить о подходах,
+которые позволяют экономить время создания автотестов. Задумывались ли вы когда-нибудь
+о скорости написания автотестов? Сколько времени вы тратите на их создание?
+Я для себя определил: автотесты - это такая штука, которую мы должны уметь
+быстро создать и быстро выбросить. Насчет выбрость - это понятно, а вот насчет создать?
+Есть ли способы ускорить процесс создания автотестов? О том, как я ускоряю процесс написания
+UI тестов, я уже писал в заметке о http://automation-remarks.com/2017/locators/index.html[хороших локаторах].
+
+В этой же заметке хочу поделиться секретами тестирования REST сервисов.
+
+Я уже писал о http://automation-remarks.com/rest-clients/index.html[полезных библиотеках] для тестирования REST и, тем не менее, у меня есть еще парочка советов, которые
+могут вам пригодиться.
+
+Первый секрет: я использую **Rest Assured** и точка. Отличный инструмент, который полностью
+покрывает все потребности автоматизаторов. С **Rest Assured** писать тесты - одно удовольствие.
+
+[source, java]
+```
+@Test
+public void shouldGetLuke() {
+        when().get("http://swapi.co/api/people/1/")
+                .then().statusCode(200)
+                .and()
+                .assertThat()
+                .body("name", equalTo("Luke Skywalker"));
+    }
+```
+
+Все вроде отлично, но мне лично больше нравится конвертировать json ответы от сервера в
+Java объекты. Но у такого подхода есть недостаток - нужно описывать json структуру в виде Java POJO.
+Достаточно тоскливое занятие, особенно если нужно обрабатывать большие ответы. Скажем, ответ от сервера
+из примера выше будет выглядеть так:
+
+```
+{
+    "name": "Luke Skywalker",
+    "height": "172",
+    "mass": "77",
+    "hair_color": "blond",
+    "skin_color": "fair",
+    "eye_color": "blue",
+    "birth_year": "19BBY",
+    "gender": "male",
+    "homeworld": "http://swapi.co/api/planets/1/",
+    "films": [
+        "http://swapi.co/api/films/6/",
+        "http://swapi.co/api/films/3/",
+        "http://swapi.co/api/films/2/",
+        "http://swapi.co/api/films/1/",
+        "http://swapi.co/api/films/7/"
+    ],
+    "species": [
+        "http://swapi.co/api/species/1/"
+    ],
+    "vehicles": [
+        "http://swapi.co/api/vehicles/14/",
+        "http://swapi.co/api/vehicles/30/"
+    ],
+    "starships": [
+        "http://swapi.co/api/starships/12/",
+        "http://swapi.co/api/starships/22/"
+    ],
+    "created": "2014-12-09T13:50:51.644000Z",
+    "edited": "2014-12-20T21:17:56.891000Z",
+    "url": "http://swapi.co/api/people/1/"
+}
+```
+
+Можно потратить какое-то время, чтобы описать такую структуру с помощью Java, но можно пойти
+более оптимальным путем и сгенерировать нужные нам классы.
+
+Секрет второй: Как? Все очень просто: есть отличный инструмент http://www.jsonschema2pojo.org/[json2pojo].
+Берем свой json, вставляем в текстовое поле, жмем кнопку - вжууух! Классы сгенерировались. Копируем их
+себе в проект и наслаждаемся.
+
+Вы заметили недостатки? Слишком много ручной работы - копировать туда, потом обратно. Можно же это
+заавтоматизировать. Для этого есть отличнейший плагин для https://github.com/joelittlejohn/jsonschema2pojo/tree/master/jsonschema2pojo-gradle-plugin[Gradle].
+
+Подключаем его себе в проект:
+
+.build.gradle
+```
+apply plugin: 'java'
+apply plugin: 'jsonschema2pojo'
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:${js2p.version}'
+  }
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile 'commons-lang:commons-lang:2.6'
+  compile 'javax.validation:validation-api:1.1.0.CR2'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.1.4'
+}
+
+jsonSchema2Pojo {
+  // Location of the JSON Schema file(s). This may refer to a single file or a directory of files.
+  source = files("${sourceSets.main.output.resourcesDir}/json")
+
+  // Target directory for generated Java source files. The plugin will add this directory to the
+  // java source set so the compiler will find and compile the newly generated source files.
+  targetDirectory = file("${project.buildDir}/generated-sources/js2p")
+
+  // Package name used for generated Java classes (for types where a fully qualified name has not
+  // been supplied in the schema using the 'javaType' property).
+  targetPackage = ''
+
+  // The type of input documents that will be read. Supported values:
+  //  - jsonschema (schema documents, containing formal rules that describe the structure of json data)
+  //  - json (documents that represent an example of the kind of json data that the generated Java types
+  //          will be mapped to)
+  sourceType = 'json'
+}
+
+```
+В папку `src/java/resources/json` складываем нужные нам json файлы. Открываем консольку
+и выполняем команду:
+
+```
+./gradlew generateJsonSchema2Pojo
+```
+В папке `build/generated-sources` появляются сгенерированные классы со всеми нужными нам атрибутами.
+
+Теперь мы можем спокойно перенести их в нужный нам пакет и использовать в тестах:
+
+[source, java]
+```
+@Test
+public void shouldGetLuke() {
+        Person = when().get("http://swapi.co/api/people/1/")
+                .then().extract().body().as(Person.class)
+    }
+```
+
+Получаем полноценнный Java объект, заполненный данными, с которым мы вольны делать все что угодно.
+
+Надеюсь, мои советы будут полезными для вас и вы, как и я, будете тратить сэкономленное время на написание тестов.
+
+В следующий раз я покажу вам, как можно экономить время на написании assert`ов.
+
+
+
+

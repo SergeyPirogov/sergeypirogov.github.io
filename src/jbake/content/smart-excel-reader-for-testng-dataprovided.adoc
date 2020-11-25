@@ -1,0 +1,121 @@
+title=О TestNG, Excel и DataProvider
+date=2014-11-27
+type=post
+status=published
+tags=TestNG, Тест фреймворк, Автоматизация тестирования
+summary=Велкам!Второй пост не задержался.Как и обещал, расскажу о том, как мне удалось, казалось бы, из невозможного сделать возможное (изобрести свой велосипед).
+~~~~~~
+Сегодня пост о том, как справиться с чтением Excel файлов, а именно - написать "умный DataReader".
+Excel файлы удобно использовать для храннения тестовых данных в тестовых фреймворках, что позволяет вынести данные из тестов. Так сказать: **"Долой хардкод!"**.
+Такой подход называют D**ata-Driven Testing**. Это очень удобно, потому что любой человек (даже не технарь) может изменить данные требуемые для теста: вам не нужно лезть в код и что-то там менять. В качестве тестового фреймворка будем использовать **TestNG**, потому что у него есть много преимуществ, среди которых - DataProvider. Для чтения Excel файлов я использую библиотеку - **Apache POI**.
+Задача состоит в том, чтобы написать ридер, который будет находить строку, соответствующую имени тестового метода, извлекать данные и передавать в тест. Итак, начнем по порядку: создаем класс **ExcelReader**:
+
+.ExcelReader.class
+[source, java]
+----
+public class ExcelReader {
+
+private XSSFSheet excelWSheet;
+private XSSFWorkbook excelWBook;
+private XSSFCell cell;
+
+// This method is to set the File path and to open the Excel file
+public void setExcelFile(String Path, String SheetName) {
+    try {
+        // Open the Excel file
+        FileInputStream ExcelFile = new FileInputStream(Path);
+        // Access the required test data sheet
+        excelWBook = new XSSFWorkbook(ExcelFile);
+        excelWSheet = excelWBook.getSheet(SheetName);
+    } catch (Exception e) {
+        System.out.println("Exception " + e.getMessage());
+    }
+}
+    // Add all below described methods here
+}
+----
+
+Теперь начинается самое интересное! Нам нужен метод, который будет в столбце искать строку с нужным нам именем.
+
+[source, java]
+----
+public List getRowContains(String testCaseName, int colNum){
+     List list = new ArrayList<<>>();
+     int rowCount = getRowUsed();
+     for (int i = 0; i <<= rowCount; i++) {
+        String cellData = getCellData(i, colNum);
+        if (cellData.equalsIgnoreCase(testCaseName)) {
+                    list.add(i);
+            }
+        }
+        return list;
+}
+
+public int getRowUsed(){
+   return excelWSheet.getLastRowNum();
+}
+----
+
+Метод возвращает лист с номерами строк на случай, если у нас один тест нужно перезапустить несколько раз с разными данными.
+Напишем еще пару вспомогательных методов:
+
+[source, java]
+----
+public String getCellData(int rowNum, int colNum) {
+    cell = excelWSheet.getRow(rowNum).getCell(colNum);
+    return Cell.getStringCellValue();
+}
+
+public List[] getRowData(int rowNo) {
+        List[] arr = new List[1];
+        List list = new ArrayList();
+        int startCol = 1;
+        int totalCols = excelWSheet.getRow(rowNo)
+        .getPhysicalNumberOfCells();
+        for (int i = startCol; i < totalCols; i++) {
+           String cellData = getCellData(rowNo, i);
+           list.add(cellData);
+        }
+        arr[0] = list;
+        return arr;
+}
+----
+
+Здесь следовало бы обратить внимание на метод getRowData, возвращающий массив листов. Звучит немного странно, но таким способом мы можем считывать данные из строк с различным количеством колонок. Ну и наконец последний метод:
+
+[source, java]
+----
+public Object[][] getTableArray(List<Integer> rowsNo) {
+        Object[][] tabArray = new Object[rowsNo.size()][];
+        for (int i = 0; i < rowsNo.size(); i++) {
+            tabArray[i] = getRowData(rowsNo.get(i));
+        }
+        return tabArray;
+}
+----
+
+По требованию **DataProvider** должен возвращать двухмерный массив обджектов, что и делает __getTableArray__. Теперь мы легко можем создавать в тестовых классах метод и использовать его в качетве источника данных для тестов:
+
+.TestClass.class
+[source, java]
+----
+public class TestClass{
+
+   @DataProvider
+   public Object[][] testData(Method method,String sheet){
+        ExcelReader excelReader = new ExcelReader();
+        excelReader.setExcelFile(config.getProperty("TestData.xlsx"), sheet);
+        List rowsNo = excelReader.getRowContains(method.getName(), COL_NUM);
+        return excelReader.getTableArray(rowsNo);
+  }
+
+  @Test(dataProvider = "testData")
+  public void userLogin(List data) {
+        data.get(0);
+        data.get(1);
+        ...
+  }
+}
+----
+
+Вот и вступил в силу наш массив листов: вместо того, чтобы передавать ОГРОМНОЕ количество параметров, мы передаем элегантный список, с которым легко и просто работать. Создаем Excel файл, заполняем данными, запускаем тесты и наслаждаемся, попивая чаек:)

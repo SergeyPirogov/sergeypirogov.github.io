@@ -1,0 +1,149 @@
+title=Лаконичный PageObject с GroovyPage + Selenide
+date=2016-01-16
+type=post
+status=published
+summary=Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.
+tags=Тест фреймворк, Java, Groovy
+~~~~~~
+Не буду писать много вступительных речей, скажу сразу: если вы давно задумывались над оптимизацией ваших page объектов или хотели бы видеть, как это делают другие, то вам сюда.
+
+Если вы не знакомы с паттерном page object, то вот http://www.protesting.ru/automation/practice/pageobject_selenium.html[ссылка] напочитать.
+
+Если же вы знакомы с этим паттерном, то вы его пишете примерно так, как показано в этих http://internetka.in.ua/selenium-page-object/[примерах].
+
+Не имею ничего против этого паттерна, сам такое же писал. Более того, применение page объектов, я считаю обязательным, при том в самом начале проекта. Привыкайте делать все правильно с самого начала.
+
+Но достаточно ли стандартного page оbject в суровой реальности? Беру на себя смелость сказать "нет", так как web приложения стали компонентными, страницы и их контент становится все динамичнее и динамичнее, а наши фреймворки все так же статичны.
+
+Перед тем, как перейти к самому главному, стоит отметить, что самый крутой на нынешний момент фреймворк для написания UI тестов Selenide поддерживает работу с page объектами.
+
+Казалось бы, все есть и очередной блогер решил "закапитанить" о всем давно известном паттерне. Нет! На самом деле я хочу поделиться с вами своей реализацией этого паттерна.
+
+image::http://risovach.ru/upload/2013/05/mem/nu-davay-taya-rasskazhi-kak-ty-men_19565671_big_.jpeg[]
+
+Еще очень давно я узнал о таком фреймворке для написания UI тестов как Geb. Отличный инструмент, написанный на Groovy и предназаченый для написания тестов на нем же. Если вы окунетесь в документацию, то можете заметить, что Geb - это тот же Selenide, с той лишь только разницей, что Geb не умеет так "умно" ждать состояний элементов. Плюс ко всему, в репозиторий Geb последний раз коммитили 5 лет назад, в отличие от Selenide, который активно развивается.
+
+И тем не менее есть у Geb одна классная штука - page object.
+
+Внимание!!! Все знаки $ в куске кода, показанного ниже, никакого отношения к Selenide не имеют - это все чистый Geb. Да, у него тоже поиск элементов через знак доллара.
+
+[source, java]
+----
+import geb.Page
+
+class LoginPage extends Page {
+    static url = "http://myapp.com/login"
+    static at = { heading.text() == "Please Login" }
+    static content = {
+        heading { $("h1") }
+        loginForm { $("form.login") }
+        loginButton(to: AdminPage) { loginForm.login() }
+    }
+}
+----
+
+Лаконичный и читабельный page object. НО! Как всегда есть один недостаток - эта штука работает только с нативными методами Geb, нельзя так просто взять его и использовать с тем же Selenide или чистым WebDriver. Вот такая пИчалька, можно было бы ставить точку и закрывать лавочку.
+
+Но нет, я потратил достаточное количество времени и сил,чтобы разобраться в том, как работает Geb и сделал свою реализацию geb page object, которую можно использовать как с Selenide, так и с WebDriver. Я решил назвать эту штуку GroovyPage.
+
+Весь код ниже теперь уже будет использовать **Selenide**!!!
+
+[source, java]
+----
+import static com.codeborne.selenide.Selenide.$
+
+class MainPage extends Page{
+
+    static url = "http://ukr.net"
+
+    static content = {
+        login {$ '.login input'}
+        password {$ '.password input'}
+        submitBtn {$ '.submit button'}
+    }
+}
+----
+
+Тесты в таком исполнении будут выглядеть так:
+
+[source, java]
+----
+    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login.val "test"
+        mainPage.password.val "test"
+        mainPage.submitBtn.click()
+    }
+----
+
+Заметили разницу? Обращение к элементам идет как к свойствам объекта. Все поля, объявленные внутри блока 'content', являются **SelenideElement**. Но и это еще не все приятности на данный момент. Используя силу **Groovy**, есть возможность писать тесты так:
+
+[source, java]
+----
+    @Test
+    public void shouldLogin(){
+        MainPage mainPage = go MainPage
+        mainPage.login << "test"
+        mainPage.password << "test"
+        mainPage.submitBtn.click()
+    }
+----
+
+В этом случае метод leftShift переопределен и выполняет те же действия, что и метод val.
+
+Ну и самая последняя фича, доступная на данный момент - Page компоненты. Перепишем нашу **MainPage** c использованием компонента **LoginForm**:
+
+[source, java]
+----
+class LoginForm extends Page{
+
+    static content = {
+        login {$ '.login input'}
+        password {$ '.password input'}
+        submitBtn {$ '.submit button'}
+    }
+}
+
+class MainPageWithComponent {
+
+    static url = "http://ukr.net"
+
+    @Component
+    LoginForm loginForm
+}
+----
+
+Тест в таком случае будет выглядеть так:
+
+[source, java]
+----
+    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.login << "test"
+        mainPage.loginForm.password << "test"
+        mainPage.loginForm.submitBtn.click()
+    }
+----
+
+Применяя магию, тест будет выглядеть так:
+
+[source, java]
+----
+    @Test
+    public void shouldLogin(){
+        MainPageWithComponent mainPage = go MainPageWithComponent
+        mainPage.loginForm.with{
+                 login << "test"
+                 password << "test"
+                 submitBtn.click()
+        }
+    }
+----
+
+Какие недостатки? Недостаток один - такой код можно писать только используя динамику Groovy, строгий компилятор Java такие выкрутасы не пропустит. И да, Intelij Idea весь этот синтаксис понимает и везде работает автодополнение.
+
+На этом у меня все, если у вас буду вопросы или пожелания, пишите - будем развивать отрасль вместе.
+
+Оставайтесь на связи, подписывайтесь на группы в Facebook и https://github.com/SergeyPirogov/GroovyPage[Вконтакте].

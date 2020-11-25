@@ -1,0 +1,17 @@
+= Видео с XPDays 2017
+Sergey Pirogov
+2018-01-28
+:jbake-type: post
+:jbake-tags: Конференции, Видео
+:jbake-summary: Видео моего выступления с XPDays 2017
+
+Новый год еще только начался и сразу хорошая новость - стали доступны записи всех
+докладов XPDays 2017.
+
+Я уже http://automation-remarks.com/2017/xpdays-2017/index.html[писал о своих впечатлениях] от посещения этой конференции.
+
+Запись моего доклада:
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8hFq1UErNJA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+++++

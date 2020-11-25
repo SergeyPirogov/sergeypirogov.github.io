@@ -1,0 +1,11 @@
+title=Небольшой видосик про Jenkins
+date=2015-02-14
+type=post
+status=published
+tags=Конференции, События, Видео
+summary=Решил поделиться одним из первых своих выступлений! Enjoy;)
+~~~~~~
+
+Решил поделиться одним из первых своих выступлений! Enjoy;)
+
+video::tXFENp-RFWs[youtube]

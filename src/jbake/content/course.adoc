@@ -1,0 +1,67 @@
+title=Обучение и консультации
+type=page
+status=published
+~~~~~~
+Консультация c опытным специалистом - это самый быстрый и простой способ решить свои проблемы.
+
+image::../images/cource.jpg[]
+
+
+*Примеры консультаций:*
+
+- Хочу научиться строить комплексные решения по автоматизации тестирования
+
+- У меня на проекте используют REST Assured, но мне сложно самому разобраться.
+
+- Хочу узнать как настроить CI (Jenkins, Travis).
+
+- Изучаю автоматизацию самостоятельно. Хочу чтобы кто-то ревьюил мой код.
+
+- Я работаю мануальным тестировщиком, но хочу развиваться и не знаю, куда и как двигаться. Какие курсы выбрать или как учиться самому?
+
+- Работаю в компании один. Хочу найти ментора.
+
+*Почему нужно попробовать?*
+
+Это быстрее, чем рыскать в Google и дешевле, чем идти на курсы ради одной конкретной проблемы!
+
+*Как получить консультацию?*
+
+Просто опишите мне суть проблемы, используя форму ниже, и мы вместе во всем разберемся!
+
+++++
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-iso.css" />
+<div class="bootstrap-iso" style="
+    margin-left: -15px;
+">
+<!-- Any HTML here will be styled with Bootstrap CSS -->
+<form class="form-horizontal" method="POST" action="http://formspree.io/automationremarks@gmail.com">
+    <input type="hidden" name="_subject" value="New submission!" />
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="_language" value="ru" />
+    <input type="hidden" name="_next" value="http://automation-remarks.com" />
+    <div class="form-group">
+
+        <div class="col-sm-10">
+           <input type="email" class="form-control" id="inputEmail3" name="_replyto" placeholder="Ваш email" style="width: 320px;">
+        </div>
+    </div>
+    <div class="form-group">
+
+            <div class="col-sm-10">
+               <input class="form-control" id="inputName3" name="name" placeholder="Ваше имя" style="width: 320px;">
+            </div>
+    </div>
+    <div class="form-group">
+                <div class="col-sm-10">
+                   <textarea class="form-control" rows="3" name="message" placeholder="Сообщение:"></textarea>
+                </div>
+    </div>
+    <div class="form-group">
+         <div class="col-sm-10">
+            <button type="submit" class="btn btn-default">Отправить</button>
+         </div>
+    </div>
+</form>
+</div>
+++++

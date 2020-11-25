@@ -1,0 +1,15 @@
+= QAGuild live #26: Selenium UI Automation плагин в Idea для тестировщика
+Сергей Пирогов
+2020-04-22
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Обзор на Selenium UI Automation плагин в Idea
+:jbake-status: published
+
+В этом эпизоде смотрим и пробуем новый плагин в Idea для тестировщиков
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PqCr0hDF7JU?rel=0" allowfullscreen></iframe>
+</div>
+++++

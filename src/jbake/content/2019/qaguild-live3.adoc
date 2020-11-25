@@ -1,0 +1,14 @@
+= QAGuild live #3: С чего начинать автоматизатору?
+Сергей Пирогов
+2019-03-31
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Размышления на тему старта карьеры QA Automation
+:jbake-status: published
+
+Размышления о том, как начать изучение автоматического тестирования и начать свой путь как QA Automation.
+Пишите свои вопросы и пожелания в комментариях. Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bIjzIldCUpI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++

@@ -1,0 +1,155 @@
+= Ansible для лучшей автоматизации
+Sergey Pirogov
+2018-04-26
+:jbake-type: post
+:jbake-tags: Ansible,
+:jbake-summary: Немного про Ansible и Selenoid
+
+Продолжаем наше путешествие по просторам мира автоматизации. В этот раз решил рассказать
+об управлении инфраструктурой. Однажды на проекте мы решили попробовать http://automation-remarks.com/2017/selenoid/index.html[настроить Selenoid].
+Время шло, количество тестов росло и стало понятно, что одного инстанса Selenoid уже не хватает. Первый инстанс я настроил ручками через
+docker compose.
+
+Но с ростом количества машин выяснилось, что настраивать все таким способом не очень удобно. Поэтому выбор пал на Ansible.
+С его помощью можно очень легко все развернуть. Ниже смотрим пример.
+
+Устанавливаем ansible:
+
+[source, java]
+----
+pip install ansible
+----
+
+Создаем папку с проектом:
+
+[source, java]
+----
+mkdir selenoid
+----
+
+Внутри создаем файл hosts, в котором надо прописать адреса машин:
+
+[source, java]
+----
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+
+[ggr]
+172.28.28.17
+
+[selenoid-nodes]
+172.28.27.12
+172.28.27.13
+172.28.27.56
+----
+
+На 3х нодах у нас будет selenoid, а на четвертой ggr.
+
+Для того, чтобы развернуть selenoid и ggr, можно написать свои плейбуки, но лучше использовать готовые роли https://github.com/SergeyPirogov/gridrouter-docker[gridrouter-docker]
+и https://github.com/SergeyPirogov/selenoid-ansible[selenoid-ansible].
+
+Установить роли можно с помощью ansible-galaxy:
+
+[source, java]
+----
+ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov/gridrouter-docker.git
+----
+
+[source, java]
+----
+ansible-galaxy install --roles-path ./roles git+https://github.com/SergeyPirogov/selenoid-ansible.git
+----
+
+Теперь можно использовать роли. Создаем *cluster.yml* плейбук:
+
+[source, java]
+-----
+---
+- hosts: ggr
+  vars:
+    grid_router_version: 1.5.0
+    grid_router_path: "{{ ansible_env.HOME }}/grid-router"
+    grid_router_qouta_path: "{{ ansible_env.HOME }}/grid-router/quota"
+    grid_router_port: 4445
+
+    grid_router_regions:
+        - name: "cluster"
+          hosts:
+          - name: 172.28.27.12
+            port: 4444
+            browser_count: 4
+          - name: 172.28.27.13
+            port: 4444
+            browser_count: 4
+          - name: 172.28.27.56
+            port: 4444
+            browser_count: 4
+
+    grid_router_browsers:
+        - name: "chrome"
+          defaultVersion: "62.0"
+          versions:
+            - "62.0"
+            - "63.0"
+  roles:
+    - gridrouter-docker
+
+- hosts: selenoid-nodes
+  vars:
+    selenoid_version: 1.5.2
+    selenoid_cm_version: 1.4.0
+    selenoid_docker_api_version: 1.35
+    selenoid_limit: 4
+    selenoid_tmpfs: 128
+    selenoid_config_dir: "{{ ansible_env.HOME }}/selenoid"
+    selenoid_listen_port: 4444
+    selenoid_browsers_last_versions: 3
+    selenoid_browsers:
+      - chrome
+  roles:
+    - selenoid-ansible
+-----
+
+Этот плейбук развернет ggr и три инстанса selenoid. Для большей красоты нужно еще поставить telegraf.
+Создаем *telegraf.conf* файл. Пример можно смотреть https://raw.githubusercontent.com/aerokube/selenoid-grafana-example/master/telegraf.conf[здесь]:
+Теперь создаем *telegraf.yml*:
+
+[source, java]
+----
+---
+- hosts: selenoid-nodes
+  tasks:
+    - name: Copy telegraf config
+      copy:
+        src: telegraf.conf
+        dest: "{{ ansible_env.HOME }}/telegraf"
+
+    - name: Selenoid | Check selenoid container exist
+      shell: 'docker ps -aq --filter "name={{ item }}"'
+      with_items:
+        - 'telegraf'
+      register: found_containers
+
+    - name: Selenoid | Remove selenoid container if exist
+      shell: 'docker stop {{ item.item }} && docker rm -fv {{ item.item }}'
+      with_items: '{{ found_containers.results }}'
+      when: item.stdout
+
+    - name: Start telegraf
+      docker_container:
+        image: telegraf:latest
+        name: telegraf
+        state: started
+        links:
+          - selenoid
+        volumes:
+          - "{{ ansible_env.HOME }}/telegraf:/etc/telegraf/telegraf.conf:ro"
+        env:
+          INFLUXDB_URI: "http://172.28.28.17:8086"
+          HOST_IP: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+----
+
+Здесь мы указываем, какой образ *telegraf* брать, а также куда складывать. В данном примере указан *influx*.
+Дальше билдаем Grafana из этого https://github.com/aerokube/selenoid-grafana-example[репозитория].
+Вжух и теперь вы можете легко развернуть *selenoid* кластер. Становится достаточно просто увеличить количество инстансов и поменять конфиг.

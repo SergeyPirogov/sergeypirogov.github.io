@@ -1,0 +1,50 @@
+= QA Guild Podcast: Многообещающий JavaScript
+Sergey Pirogov
+2018-04-17
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: QA Guild Podcast
+:jbake-status: published
+:jbake-featured: true
+
+Доступен очередной выпуск подкаста от свободной QA гильдии.
+
+*Темы:*
+
+- Какой стек сейчас в тренде? (относительно тестов)
+- ES 5,6,7 + Flow vs TypeScript
+- Компонентное тестирование для Angular or React
+- WebdriverJS vs WebdriverIO vs Protractor vs NightwatchJS vs others
+- Что такое CodeseptJS
+- В чем писать код? VSCode, Webstorm, Notepad+, Atom, VIM?
+
+*Гости:*
+
+- Сергей Пирогов - нулячий JS SDET
+- Рома Маринский - не сумел выучить JS за 3 часа
+- Александр Хотемской - @xotabu4 JS ниндзя
+- Никита Галкин  - JS архитектор
+- Михаил Боднарчук - @davert opensource maker. Автор CodeceptJS
+
+*Полезные ссылки*:
+
+- https://github.com/hH39797J/javascript-videos-ru-2018[Собрание видеозаписей докладов про JS за 2018 год]
+- https://www.youtube.com/playlist?list=PLZ66c9_z3umNSrKSb5cmpxdXZcIPNvKGw[Assert(js) Conf 2018]
+- https://css-tricks.com/javascript-learning-landscape-2018[The JavaScript Learning Landscape in 2018]
+- https://docs.google.com/spreadsheets/d/1A1daNePtWfk-GwD8BQ6LlscHxbp4lowIBpMWz5XQ5Ew/edit#gid=0[Выбор фреймворка для тестирования фронтэнда 2018]
+- https://node.green/
+- https://speakerdeck.com/galkin/testing-in-frontend-world-at-frontend-fwdays-17-conference
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/419490724&color=%238cb092&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+*Спасибо патронам*:
+
+Эрик Халимов, Виталий Закорчевный, Максим Денисов,
+Павел Скворцов, Борис Осипов, Дмитрий Панасюк, Евгения Гнатюк,
+Алексей Игнатюк, Илья Силантьев, Геннадий (без фамилии) ;)
+
+Отлельное спасибо за монтаж звука Ярославу Пернеровскому
+
+Вступайте в свободную https://qaguild-slack.herokuapp.com/[QA гильдию в Slack] и следите за новостями.

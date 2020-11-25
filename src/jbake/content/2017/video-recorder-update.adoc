@@ -1,0 +1,88 @@
+= Video Recorder v1.6
+Sergey Pirogov
+2017-07-23
+:jbake-type: post
+:jbake-tags: Java, Kotlin
+:jbake-summary: Вышел апдейт видеорекордера
+:jbake-status: published
+
+Добрый день, уважаемые друзья-айтишники. Очередная заметка с техническим
+хардкором уже на вашем экране =)
+
+В этот раз хочу поделиться с вами новостями о http://automation-remarks.com/java-video-recorder-1-0-8/index.html[Java Video Recorder].
+
+Судя по статистике, которую предоставляет Maven Central, c момента выхода в свет библиотека обрела определенную популярность:
+
+Общее число скачиваний в месяц
+
+image::../images/selection_006.png[]
+
+Общее число уникальных ip
+
+image::../images/selection_007.png[]
+
+Буквально пару дней назад я выпустил версию 1.6. Так как в этом апдейте есть изменения,
+которые поломают ваш старый код, я решил написать именно об этом.
+
+Что поменялось?
+
+В версии 1.6 была удалена возможность устанавливать конфигурацию в коде.
+
+[source, java]
+----
+VideoREcorder.conf().withRecorderType(RecorderType.FFMPEG)
+----
+
+Теперь конфигурация осуществляется через конфигурационный файл **video.properties**
+
+[source, java]
+----
+video.folder= ${user home}/video
+video.enabled=false               // default true
+video.mode=ALL                    // default ANNOTATED
+recorder.type=FFMPEG              // default MONTE
+video.save.mode=ALL               // default FAILED_ONLY
+video.frame.rate=1                // default 24
+----
+
+Почему так?
+
+Конфигурация хранится в одном месте, поэтому не нужно бегать и искать, не поменял
+ли кто в коде значение. Переопределить значения, указанные в конфиг-файле, можно через System properties.
+
+[source, java]
+----
+System.setProperty("video.enabled","false")
+----
+
+Или через cmd:
+
+[source, java]
+----
+mvn test -Dvideo.enabled=false
+----
+
+Второе нововведение - поддержка Junit 5. Я http://automation-remarks.com/2017/video-recroder-junit5/index.html[писал] об этом еще в феврале,
+но теперь в Maven Central появился официальный модуль **video-recorder-junit5**.
+
+Вам вообще не нужно заморачиваться - просто подключаете его и можете писать
+
+[source, java]
+----
+@Video
+void testIsFlaky(){
+   open(LoginPage.class)
+   element("#name") value "name"
+   element("#password") value "password"
+   element("#loginBtn").click()
+}
+----
+
+В связи с переходом на новый формат конфигурации немного поменялась внутренняя реализация, но это
+не задевает уже существующие адаптеры для JUnit и TestNG. Надеюсь, эти улучшения будут полезными
+для пользователей библиотеки.
+
+**P/S** Перед выходом версии 1.6 была еще версия 1.5, но она оказалась неудачной, так как я забыл исключить
+зависимость JUnit5-api из сборки, поэтому у всех обновившихся полезли проблемы. Извините, натупил, с кем не бывает?
+
+BTW: С http://automation-remarks.com/2017/kotlin/index.html[Котлином] Video Recorder тоже работает =)

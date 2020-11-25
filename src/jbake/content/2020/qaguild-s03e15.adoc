@@ -1,0 +1,42 @@
+= QAGuild S03E15: Visual Testing из Open Source
+Сергей Пирогов
+2020-10-12
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast
+:jbake-summary: Подкаст про Visual Testing
+:jbake-status: published
+
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/906020350&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+</iframe>
+++++
+
+Гости:
+
+- Павел Стрункин - автор Visual Regression Tracker
+
+Темы:
+
+++++
+<ul class="timecoder">
+  <li><a class="timecode">00:00:05</a> - Начало</li>
+  <li><a class="timecode">00:00:53</a> - Как попал в айти</li>
+  <li><a class="timecode">00:02:32</a> - Зачем нужен вижуал тестинг</li>
+  <li><a class="timecode">00:04:38</a> - Что под капотом, селениум?</li>
+  <li><a class="timecode">00:13:13</a> - Как это работает</li>
+  <li><a class="timecode">00:35:16</a> - Как настроить эту балалайку</li>
+  <li><a class="timecode">00:38:02</a> - Сколько нужно вложить времени в создание сценариев</li>
+  <li><a class="timecode">00:40:10</a> - Какие проблемы</li>
+  <li><a class="timecode">00:42:28</a> - Стоит ли за это платить деньги</li>
+  <li><a class="timecode">00:47:35</a> - ML и AI зачем</li>
+  <li><a class="timecode">01:26:52</a> - Патронs</li>
+  <li><a class="timecode">01:30:29</a> - Конец</li>
+</ul>
+++++
+
+https://t.me/automation_remarks[Telegram]
+
+https://www.patreon.com/automation_remarks[Стать патроном]
+
+Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich

@@ -1,0 +1,18 @@
+= QAGuild live #20: Что ждет тестировщика в 2020 году
+Сергей Пирогов
+2019-12-26
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Новогодний стрим
+:jbake-status: published
+
+В этом эпизоде подвели итоги 2019 года и обсудили тренды в мире тестирования на 2020 год.
+
+- Подписывайтесь в telegram - http://bit.ly/qaguild-telegram
+- Слушайте наш подкаст - http://bit.ly/qaguild-podcast
+- Заходите в наш Slack канал - http://bit.ly/qaguild-slack
+- Становитесь патроном - http://bit.ly/qaguild-patreon
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DcqaEsvDPWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++

@@ -1,0 +1,95 @@
+title=Автоматизация в контейнере с TestContainers
+date=2016-03-13
+type=post
+status=published
+summary=Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов.
+tags=Тест фреймворк, Java
+~~~~~~
+Воу-воу. Как обычно ранним утром в воскресенье хочу поделиться новой порцией полезностей с многочисленной армией автоматизаторов. Вчера хорошо посидели на **Radio QA**, но так как из-за проблем со Skype я ушел из эфира раньше всех и не успел рассказать об одной интересной библиотеке, которую нарыл на просторах интернета, а точнее на Github, решил написать статью. Называется она **TestContainers**. Что она позволяет делать? Она умеет по требованию поднимать **Docker** контейнер и использовать его для ваших нужд.
+
+image::https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/1026/large/1396373089/docker.png[]
+
+Проблема создания окружения для запуска тестов существует давно, зачастую для прогона UI тестов создают виртуальные машины с помощью **VirtualBox** либо каких-то других систем виртуализации. Я уже писал о http://automation-remarks.com/vagrant/[Vagrant], который упрощает создание виртуалок и позволяет создавать **stateless** окружение. Но все же с этим всем существует достаточно много проблем, так как виртуалка отъедает приличное количество ресурсов хост машины, да и запуск этой самой виртуалки занимает приличное количество времени. Вы можете возразить: **"Используй AWS, дурень"** :
+
+Возможно, но за **AWS** нужно платить деньги, а это может значительно ударить по бюджету проекта.
+
+Нам нужно что-то альтернативное. И здесь на помощь приходит **Docker** и библиотека **TestContainers**. Я уже писал про настройку **Jenkins** в контейнере.
+
+Эта же библиотека позволяет вам поднимать контейнер из Java кода, использовать его и потом убивать контейнер по завершении вашего процесса.
+
+Есть несколько типов контейнеров, которые она умеет обрабатывать:
+
+- **Temporary database containers** - specialized MySQL, PostgreSQL, Oracle XE and Virtuoso container support
+- **Webdriver containers** - run a Dockerized Chrome or Firefox browser ready for Selenium/Webdriver operations - complete with automatic video recording
+- **Generic containers** - run any Docker container as a test dependency
+- **Docker compose** - reuse services defined in a Docker Compose YAML file
+
+Я конкретно игрался с модулем для **Selenium** тестов.
+
+Работает эта штука через **JUnit** рулы:
+
+[source, java]
+----
+@Rule
+public BrowserWebDriverContainer chrome =
+       new BrowserWebDriverContainer()
+        .withDesiredCapabilities(DesiredCapabilities.chrome());
+----
+
+Вот такой вот простой командой у вас поднимется docker контейнер, в котором вы сможете запускать ваши тесты.
+
+Самая приятная вещь - эта штука умеет записывать видео. По умолчанию она будет писать видео для всех тестов, но вы можете указать ключ **VncRecordingMode.RECORD_FAILING** и запись будет вестись только для упавших тестов.
+
+[source, java]
+----
+new BrowserWebDriverContainer()
+         .withDesiredCapabilities(DesiredCapabilities.chrome())
+         .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("./target/"))
+----
+
+Давайте посмотрим на конкретный пример:
+
+[source, java]
+----
+public class TestTestContainers {
+
+ public static BrowserWebDriverContainer chrome =
+           new BrowserWebDriverContainer()
+.withDesiredCapabilities(DesiredCapabilities.chrome())
+.withRecordingMode(RECORD_ALL, new File("./target/"));
+
+    @BeforeClass
+    public static void setUp(){
+        chrome.start();
+        RemoteWebDriver driver = chrome.getWebDriver();
+        WebDriverRunner.setWebDriver(driver);
+    }
+
+    @Test
+    public void test() throws InterruptedException {
+        Selenide.open("http://ukr.net");
+        $(".login > input").val("Hello");
+        $(".password > input").val("test");
+        $(".submit > button").click();
+    }
+
+    @Test
+    public void test2() throws InterruptedException {
+        Selenide.open("http://ukr.net");
+        $(".login > input").val("Word");
+        $(".password > input").val("Hello");
+        $(".submit > button").click();
+    }
+
+    @AfterClass
+    public static void tearDown() throws Exception {
+        chrome.stop();
+    }
+}
+----
+
+В целом вещь очень крутая. Как вы могли заметить, мне не составило труда использовать Selenide для моих тестов, а это означает, что у вас есть все плюшки. Вы можете ваши существующие тесты прогонять в контейнере уже прям завтра. Так как это Java, вы можете писать все на Groovy с использованием **Groovy PageObject**,**SoftAssert** и **Spock Framework**. В общем, я больше чем доволен этой штукой.
+
+**PS.**
+
+Но без горечи не обойтись. Первый раз эта штука стартует очень долго, так как Docker должен спулить образ контейнера из репозитория. Возможность использовать с JUnit Rule есть, но мне это показалось глупой идеей, так как после каждого теста мы пересоздаем контейнер, а это занимает приличное количество времени. Именно поэтому в примере я показал альтернативный метод запуска контейнера, к тому же, таким образом вы можете использовать эту библиотреку с TestNG или любым другим фреймворком.

@@ -1,0 +1,82 @@
+title=Пишем видео во время прогона тестов
+date=2015-07-14
+summary=В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.
+type=post
+tags=Java, Тест фреймворк
+status=published
+~~~~~~
+В этой заметке показан пример того, как можно реализовать запись видео во время прогона Selenium тестов.
+
+image::http://it-112.ru/olderfiles/1/videofail.jpg[]
+
+Да-да, вы не ошиблись, будем рассматривать именно запись видео. Зачем? Бывают ситуации, когда скриншотов не достаточно. К тому же, скриншоты есть у всех, а вот видео - это уже интересно. Реализовать такую киллер-фичу в вашем фреймворке можно разными способами. Я покажу пример с использованием библиотеки **Monte Screen Recorder**.
+
+Информацию об этой библиотеке можно почитать на сайте. На главной странице, в разделе **Downloads**, скачиваем http://www.randelshofer.ch/monte/files/demos/MonteScreenRecorder.jar[MonteScreenRecorder.jar] Этой библиотеки нету в центральном **Maven** репозитории, поэтому, если у вас Maven проект, придётся добавить библиотеку самостоятельно. Пример команды, которая в этом поможет, приведен ниже. Просто нужно открыть консоль и там набрать команду:
+
+[source, xml]
+----
+mvn install:install-file -Dfile=MonteScreenRecorder.jar -DgroupId=org.monte -DartifactId=monte-screen-recorder -Dversion=0.7.7 -Dpackaging=jar
+----
+
+Теперь можно подключить **monte-screen-recorder** как простую зависимость. Идем в **pom.xml** и прописываем там следующие строки:
+
+[source, xml]
+----
+<dependency>
+   <groupId>org.monte</groupId>
+   <artifactId>monte-screen-recorder</artifactId>
+   <version>0.7.7</version>
+</dependency>
+----
+
+Создадим класс **VideoRecord**:
+
+[source, java]
+----
+package com.pages.recorder;
+
+import java.awt.*;
+import org.monte.screenrecorder.ScreenRecorder;
+
+public class VideoRecord {
+    private static ScreenRecorder screenRecorder;
+
+    public static void startRecording() throws Exception {
+        GraphicsConfiguration gc = GraphicsEnvironment
+                .getLocalGraphicsEnvironment().getDefaultScreenDevice()
+                .getDefaultConfiguration();
+
+        screenRecorder = new ScreenRecorder(gc);
+        screenRecorder.start();
+    }
+
+    public static void stopRecording() throws Exception {
+        screenRecorder.stop();
+    }
+}
+----
+
+В этом классе у нас есть два метода **startRecording** и **stopRecording**. Их-то мы и будем использовать для управления записью видео.
+
+[source, java]
+----
+    @Before
+    public void setUpMethod() throws Exception {
+        VideoRecord.startRecording();
+    }
+
+    @Test
+    public void shouldBeErrorMessage() {
+        mainPage.open();
+        mainPage.login("adasd", "asdasd");
+        String err = mainPage.getErrorMsg();
+        assertThat(err, equalTo("Не вірний логін або пароль. Спробуйте знову."));
+    }
+
+    @After
+    public void stop() throws Exception {
+        VideoRecord.stopRecording();
+    }
+----
+
+По умолчанию записи будут сохраняться в папку **${user.dir}/Movies(Мои Видеозаписи)**. Собственно, на этом все. Хороших вам роликов и до встреч =)

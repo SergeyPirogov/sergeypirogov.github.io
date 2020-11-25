@@ -1,0 +1,282 @@
+= Kotlin для автотестов: боевой опыт
+Sergey Pirogov
+2018-03-17
+:jbake-type: post
+:jbake-tags: Java, Kotlin, TestNG
+:jbake-summary: Мой опыт написания автотестов на Котлине
+
+Привет, друг! Меня часто просят рассказать о нашей практике написания тестов на Котлине.
+Наконец-то я нашел время и решил поделиться своим опытом.
+
+Начну с того, что еще в сентябре 2017 года я рассказывал http://automation-remarks.com/2017/kotlin-without-marketing/index.html[о Котлине на конференции QAFest].
+С того времени утекло много воды, кое-что я переосмыслил.
+
+Давай сначала поясню мотивацию писать на Котлине. Джава подутомила. Реально, когда ты пишешь тесты, то некоторые
+конструкции хотелось бы опустить. Для примера покажу типичный *PageObject* в моих проектах:
+
+[source, java]
+----
+@PageUrl("/")
+class LoginPage {
+
+  SelenideElement userNameInput = $("#userName");
+  SelenideElement passwordInput = $("#password");
+  SelenideElement signInBtn = $("#loginBtn")
+  public SelenideElement errorMessage = s("#page__loginByEmail > div:nth-child(3) > div")
+
+  public logisAs(User user){
+   userNameInput.setValue(user.getName());
+   passwordInput.setValue(user.getPassword());
+   signInBtn.click();
+  }
+}
+----
+
+Простой класс с полями и методами. Можно холиварить, хорошо так писать или плохо, но я так пишу везде. Для целостности картины
+покажу тест:
+
+[source, java]
+----
+class LoginTest {
+
+  @Test
+  public void testCanNotLoginWithWrongCredentials(){
+     User user = TestData.getUser();
+
+     LoginPage loginPage = open(LoginPage.class);
+
+     loginPage.loginAs(user);
+     loginPage.errorMessage.shouldHave(text("Bad credentials"));
+  }
+}
+----
+
+Все достаточто просто и без лишнего. Чтобы упростить написание тестов и убрать некоторые излишества, я http://automation-remarks.com/2017/lombok/index.html[пробовал использовать
+Lombok]. С ним, вроде как, все хорошо, кроме плагина для Idea. В общем, использовать можно, но будь готов к
+сюрпризам.
+
+В целом Котлин еще был выбран из-за желания попробовать его в реальном проекте. Хайпа вокруг языка достаточно,
+да и опыт проб в домашних проектах показывал, что все будет хорошо.
+
+Для проекта я выбрал Kotlin + Selenide + Allure + Gradle. Имхо сейчас все инструменты, окромя Котлина, стандарт для
+Джава проектов.
+
+Костыль первый!
+
+Знак *$* является зарезервированным в Котлине, поэтому пришлось написать две обертки:
+
+[source, java]
+----
+fun s(locator: String): SelenideElement {
+    return Selenide.`$`(locator)
+}
+
+fun ss(locator: String): ElementsCollection {
+    return Selenide.`$$`(locator)
+}
+----
+
+Теперь, значит, можно переписать наш *PageObject* на Котлине:
+
+[source, java]
+----
+class LoginPage : Page() {
+
+    override val url: String = "/"
+
+    val userNameInput = s("#username")
+    val passwordInput = s("#password")
+    val sighInBtn = s("#loginBtn")
+    val errorMessage = s("#page__loginByEmail > div:nth-child(3) > div")
+
+    fun loginAs(user: User): MainPage {
+        userNameInput.value = user.name
+        passwordInput.value = user.password
+        sighInBtn.click()
+        return MainPage()
+    }
+}
+----
+
+Тест будет выглядеть так:
+
+[source, java]
+----
+class LoginTest {
+
+  @Test
+  fun testCanNotLoginWithWrongCredentials() {
+     val user = TestData.getUser()
+
+     val loginPage = open(::LoginPage)
+
+     loginPage.loginAs(user)
+     loginPage.errorMessage.shouldHave(text("Bad credentials"))
+  }
+}
+----
+
+Ты можешь возразить, что ничего особенно не поменялось и будешь абсолютно прав. Для написания Web тестов
+особого профита нет. Да, код становится писать чуть-чуть проще, используя *val*.
+
+Что неудобно с переходом на Котлин - нужно много делать *static import*. Особенно в случаях с *Conditions.text()*.
+Пока что Idea не позволяет импортить это на лету, как в Джаве.
+
+Эту штуку в принципе можно легко поправить, добавив BDD style ассерты для Selenide.
+
+Пишем метод расширения и реализацию ассертов:
+
+[source, java]
+----
+val SelenideElement.should:ExpextElement get() {
+    return ExpextElement(this)
+}
+
+class ExpextElement(private val actual: SelenideElement){
+
+    val have: Have = Have()
+    val be: Be = Be()
+
+    inner class Have{
+        fun text(text:String){
+            actual.shouldHave(Condition.text(text))
+        }
+
+        fun exactText(text: String?) {
+            actual.shouldHave(Condition.exactText(text))
+        }
+    }
+
+    inner class Be{
+        val visible:Unit get() {
+            actual.shouldBe(Condition.visible)
+        }
+    }
+}
+----
+
+Теперь проверки в Selenide можно писать как старым методом:
+
+[source, java]
+----
+loginPage.siteLogo.shouldBe(visible)
+loginPage.errorMessage.shouldHave(text("Bad credentials"))
+----
+
+...так и более Котлин ориентированным:
+
+[source, java]
+----
+loginPage.siteLogo.should.be.visible
+loginPage.errorMessage.should.have.text("Bad credentials")
+----
+
+Мне такой варинт нравится по нескольким причинам:
+
+- не нужно постоянно делать static import;
+- работает автокомлит в Idea;
+- коллегам, которые слабо знают Selenide, не нужно объяснять разницу между should, shouldBe и shouldHave.
+Я встречал кейсы, где люди пишут `element.shouldHave(blank)`.
+
+Так, с Web тестами вроде как понятно. Еще покажу пример использования для работы с базой.
+Я уже писал http://automation-remarks.com/2017/kotlin-db/index.html[подобную заметку], но тогда это были первые шаги,
+теперь же - как ретроспективка.
+
+Значит, нормальной ORM я для Котлина не нашел. Пробовал и https://github.com/JetBrains/Exposed[Exposed], и
+другие, которые можно найти на Github. Некоторые не поддерживают MS SQL Server, некоторые обладают каким-то
+упоротым API.
+
+Короче говоря, пришлось писать свой велосипед. За основу я взял *Apache DBUtils*.
+
+[source, java]
+----
+fun QueryRunner.query(sql: String): List<Map<String, Any?>> {
+
+    val resultSetHandler = ResultSetHandler<List<Map<String, Any?>>> { rs ->
+        val meta = rs.metaData
+        val cols = meta.columnCount
+        val result = arrayListOf<Map<String,Any?>>()
+
+        while (rs.next()) {
+            val map = mutableMapOf<String, Any?>()
+            for (i in 0 until cols) {
+                val columnName = meta.getColumnName(i + 1)
+                map[columnName] = rs.getObject(i + 1)
+            }
+            result.add(map)
+        }
+
+        result
+    }
+
+    return query(sql,resultSetHandler)
+}
+
+inline fun <reified T> QueryRunner.findOne(sql: String): T {
+    return BeanHandler(T::class.java).run { query(sql, this) }
+}
+
+inline fun <reified T> QueryRunner.findAll(sql: String): MutableList<T> {
+    return BeanListHandler(T::class.java).run { query(sql, this) }
+}
+----
+
+Создадим еще классы таблиц как пример:
+
+[source, java]
+----
+data class Suppliers(var id: String? = null,
+                     var company: String? = null,
+                     var currency: String? = null)
+----
+
+Теперь можно работать с базой:
+
+[source, java]
+----
+fun selectAllSuppliers(): MutableList<Suppliers> {
+        val sql = """
+             SELECT *
+             FROM Suppliers;
+             """
+
+        return queryRunner.findAll(sql)
+}
+----
+
+Добавив библиотеку https://github.com/winterbe/expekt[Expekt], тесты можно писать так:
+
+[source, java]
+----
+class TestDB {
+
+  val db = Database()
+
+  @Test
+  fun testCanGetAllSuppliers(){
+    db.selectAllSuppliers().should.have.size(3)
+  }
+}
+----
+
+В этом аспекте все значительно проще. Мне понадобилось добавить пару Extension методов для класса QueryRunner
+и прикрутить готовую библиотеку для удобных ассертов.
+
+Вывод: пока что впечатления о самом языке Котлин положительные. Интеграция с суровыми
+Java библиотеками иногда может вызвать панику. Пару раз у нас Котлин не желал компилироваться и падал со странными
+ошибками о том, что Gradle daemon умер. Оказалось, ему просто не хватало Heap памяти. По факту я нашел
+в баг трекере тикет на эту проблему и, вроде бы, починилось оно переходом на самую свежую версию Котлина
+и Грейдла. Сейчас такого не наблюдается. Тьфу-тьфу.
+
+Как видишь, большого преимущества перехода с Джавы на Котлин не наблюдается. Некоторые
+вещи становится делать удобнее, но не намного. Буду ли я пробовать делать еще проекты на Котлине?
+Пока не могу ответить - все упирается в рынок труда. Найти хороших автоматизаторов, которые могут делать
+работу хорошо на Джаве, - сложно. Тех, кто хотя бы как-то видел Котлин, среди них еще меньше.
+
+В целом я продолжаю следить за этим языком. Было бы полезно узнать опыт других ребят,
+которые пробовали что-то делать на Котлине. Если у тебя такой опыт есть, пиши в комментарии или в личку. Подписывайся на
+https://t.me/automation_remarks[телеграмм канал], чтобы получать самые свежие мысли и соображения на тему автоматизации тестирования.
+
+
+
+

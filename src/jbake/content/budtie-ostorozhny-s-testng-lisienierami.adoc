@@ -1,0 +1,174 @@
+= Будьте осторожны с TestNG лисенерами
+Sergey Pirogov
+2016-10-08
+:jbake-type: post
+:jbake-summary: Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
+:jbake-tags: TestNG, Тест фреймворк
+
+Решил написать такую вот, на мой взгляд, интересную и, наверное, для многих познавательную заметку. Сегодня поговорим о скрытых угрозах, которые несут в себе TestNG лисенеры.
+
+image::http://learn-automation.com/wp-content/uploads/2015/03/testng.jpg[]
+
+Среди автоматизаторов, использующих Java, издавна бушует холивар, что же лучше, TestNg или JUnit. Увы, но дальше банальных переписок в Slack чате или разговоров в холле конференций дело не заходит.
+
+Проведя небольшой экспериментальный опрос на прошедшем http://automation-remarks.com/qafest-2016-rietrospiektiva/[QAFest 2016], я был немного удивлен, что подавляющее большинство на проектах использует именно TestNG. Многим очень нравится TestNG, некоторые считают его намного более удобным, чем, скажем, тот же JUnit. Осмелюсь предположить, что большинство просто никогда не пробовало использовать JUnit чисто из исторических соображений. Пришел на проект, а там уже был TestNg, освоил его - и теперь на любом другом проекте используем то, что нам так привычно.
+
+Мой http://automation-remarks.com/java-video-recorder-1-0-8/[VideoRecoder] имеет интеграцию и с TestNG. Я реализовал такую интеграцию с помощью лисенеров, так как это самый простой и гибкий способ. НО, как оказалось, эти лисенеры влекут за собой кучу подводных камней, о которых многие, скорее всего, даже не знали.
+
+Я опишу всего лишь два случая, которые лично меня очень сильно удивили и имели серьезное влияние на работу Java VideoRecorder.
+
+**Факт 1: Аннотация @Listener применяет лисенер ко всем классам**
+
+Вот такая вот подлость номер один. Скажем, вы написали класс и захотели применить к нему какой-то свой лисенер:
+
+[source, java]
+----
+@Listeners({VideoListener.class})
+class MyAwesomeTests{
+
+}
+----
+
+Ну, вроде как отлично, запускаем - все работает, радуемся, пишем в резюме, что мы умеем делать такую классную штуку.
+
+НО радуемся недолго. Стоит нам написать еще пару-тройку классов с тестами, как мы заметим, что наш лисенер срабатывает и для них, хотя мы их никакими аннотациями не маркали. Вот это подарок!!
+
+Вроде бы, ничего страшного, ну, применяется - и что?
+
+В случае с рекордером это потенциально могло привести к плохим последствиям. Скажем, у вас есть Test Suite, в котором есть 200-300 тестов. Вы подключаете запись видео и настраиваете его писать все тесты, независимо от того, отмечены они аннотацией **@Video** или нет.
+
+[source, java]
+----
+@Listeners({VideoListener.class})
+public class TestNgVideoExampleTest {
+
+    @BeforeClass
+    public void setUp() {
+        VideoRecorder.conf().
+                .withRecordMode(RecordingMode.All)
+                .withVideoSaveMode(VideoSaveMode.All)
+----
+
+Или так:
+
+[source, java]
+----
+./gradlew test -Dvideo.mode=ALL -Dvideo.save.mode=ALL
+----
+
+Запускаете свои тесты и получаете 200-300 видеороликов. Хотя вы рассчитывали записать только один класс, в котором значительно меньшее количество тестов.
+
+Естественно, когда я нашел такой баг в своей библиотеке, то начал думать, как это исправить. Решение оказалось таким: нам нужно написать свой метод проверки аннотации для класса, который в данный момент "прослушивается":
+
+[source, java]
+----
+public boolean shouldIntercept(ITestResult result) {
+        List<String> listeners = result.getTestContext().getCurrentXmlTest().getSuite().getListeners();
+        return listeners.contains(this.getClass().getName()) || shouldIntercept(result.getTestClass().getRealClass(), this.getClass());
+    }
+
+public boolean shouldIntercept(Class testClass, Class annotation) {
+        Listeners listenersAnnotation = getListenersAnnotation(testClass);
+        return listenersAnnotation != null && asList(listenersAnnotation.value()).contains(annotation);
+    }
+
+    private Listeners getListenersAnnotation(Class testClass) {
+        Annotation annotation = testClass.getAnnotation(Listeners.class);
+        return annotation != null ? (Listeners) annotation :
+                testClass.getSuperclass() != null ? getListenersAnnotation(testClass.getSuperclass()) : null;
+    }
+----
+
+ну, и затем нужно просто использовать этот метод в методах лисенера:
+
+[source, java]
+----
+public class VideoListener extends TestNgListener {
+
+    @Override
+    public void onTestStart(ITestResult result) {
+        if (shouldIntercept(result)) {
+            // code here
+        }
+    }
+
+    .... another methods
+----
+
+Теперь ваш лисенер будет срабатывать только для тех классов, у которых аннотация **@Listener** содержит **VideoListener.class**.
+
+Стоит отметить, что в случае подключения лисенера через **testng.xml**, он таки будет применен ко всему сьюту:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+    <listeners>
+        <listener class-name="com.automation.remarks.testng.VideoListener" />
+    </listeners>
+
+    <test name="Test">
+        <classes>
+            <class name="com.testng.TestClass" />
+        </classes>
+    </test>
+</suite>
+----
+
+Это выглядит логично, так как блок **<listeners>** находится внутри тега **<suite>**.
+
+**Факт 2: Порядок выполнения лисенеров не гарантируется**
+
+Второй интересный момент, который принес мне много головной боли.
+
+Скажем, вам нужно подключить два лисенера. В моем случае - один, который пишет видео, а второй, который аттачит это самое видео к <mark>Allure</mark> отчету.
+
+Ок, берем и пишем:
+
+[source, java]
+----
+@Listeners({VideoListener.class, AllureListener.class})
+class TestClass{
+ // tests here
+}
+----
+
+Кажется, все отлично: один пишет видео, другой по окончании теста аттачит его в отчет. Но выяснилось, что в некоторые моменты происходила непонятная фигня: видео записывалось, но не отображалось в отчете.
+
+Оказалось, что это случалось потому, что методы из **AllureListener** вызывались первее. Ну вообще подарок!!!
+
+Начав копаться внутри TestNG, я определил, что все лисенеры складываются в Set и потом вызываются. Естественно, что о какой-то очередности речи и быть не может.
+
+Как же все-таки гарантировать очередность вызова? Ответ: иметь один лисенер!
+
+[source, java]
+----
+class AllureVideoListener extends VideoListener{
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        super.onTestFailure(result);
+        attachment(VideoRecorder.getLastRecording())
+    }
+
+    @Attachment(value = "video", type = "video/mp4")
+    private byte[] attachment(File video) {
+        try {
+            return Files.readAllBytes(Paths.get(video.getAbsolutePath()));
+        } catch (IOException e) {
+            log.warning("Allure listener exception" + e);
+            return new byte[0];
+        }
+    }
+}
+----
+
+Вот так. Да, я мог вызывать метод attachment не в лисенере, а, скажем, в after method и тогда бы не натолкнулся на это. Но, если вдруг окажется так, что порядок выполнения лисенеров для вас будет важен, я вас предупредил =)
+
+Такая вот история моей битвы с **TestNG** и его лисенерами. Естественно, что этот кейс может быть слишком узок и вы в своих проектах никогда не натолкнетесь на это. Но это один из тех моментов, когда можно научиться на ошибках других, и весомый пункт в пользу несовершенности TestNg.
+
+Субъективное мнение по поводу **TestNG** vs **JUnit**.
+
+Лично я очень жду **JUnit 5**, который уже попробовал, но в реальный проект его брать еще рано. Имхо он заткнет TestNG за пояс, нужно лишь немного подождать.
+
+Успехов и до новых заметок..

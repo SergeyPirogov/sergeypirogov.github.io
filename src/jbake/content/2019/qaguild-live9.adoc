@@ -1,0 +1,15 @@
+= QAGuild live #9: Тестировщики ПО vs QC vs SDET в чем разница?
+Сергей Пирогов
+2019-06-08
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор о ролях в тестировании
+:jbake-status: published
+
+В сфере тестирования существует много различных абревиатур значение которых не всегда понятно. В этом выпуске порассуждаем о разнице между QA и QC. В завершении обсудим роль и ответвенности SDET.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sf-G9r4FFno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++

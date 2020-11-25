@@ -1,0 +1,15 @@
+= QAGuild live #15: Про обучение для тестировщиков
+Сергей Пирогов
+2019-09-02
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Разговор про обучение и менторинг для тестировщиков
+:jbake-status: published
+
+Обучение - неотъемлемый процесс, который сопровождает тестировщика на протяжении всей карьеры. В этом видео дам советы по обучению. Как организовать процесс, найти ментора и сколько это может стоить.
+Пишите свои вопросы и пожелания в комментариях.
+Подписывайтесь, чтобы не пропустить следующие выпуски.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/h94wnyRCdZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++

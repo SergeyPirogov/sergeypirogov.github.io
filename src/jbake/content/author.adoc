@@ -1,0 +1,69 @@
+title=Sergey Pirogov
+type=about
+status=published
+~~~~~~
+
+[.user-contact]
+== General info
+
+[.user-photo]
+image::/images/about_me.jpg[]
+
+[.general-description]
+Senior Software Test Automation Engineer with technical Master Degree in sphere of Information Security.
+
+My main specialization is functional automation testing of web applications.
+Also I have experience in performance testing.
+
+Like to contribute to and work with open-source tools.
+Experienced in starting Test Automation for project from scratch.
+Lead the team of three people.
+Have strong expertise of building CI process for test automation.
+Productive in both team-based and self-managed tasks.
+Passionate about **Java/Groovy** language, also have experience work with Python. Good knowledge of relational databases.
+Worked with Unix and Windows operating systems.
+
+
+== Conference Speaker
+
+[.conference-list]
+- http://seleniumcamp.com/[SeleniumCamp 2016]
+- http://qaconf.ru/[QA Conference Moscow]
+- QA Expert day Odessa
+- BAQ Conference Lviv
+- Ciklum Speakers corner
+- Kharkiv QA Club
+- EPAM IT Week
+- http://qafest.com/qafest2015/[QAFest 2015]
+- http://qafest.com/qafest2016/[QAFest 2016]
+- http://qafest.com/[QAFest 2017]
+- QA Meetup
+- SQA days
+- http://aadays.pl[AADAYS]
+- http://seleniumcamp.com/[SelenimCamp 2017]
+
+[.technical-skills]
+== Technical Skills
+
+[.skills-list]
+- **Languages:** Java/Groovy, Python
+- **Tools:** Selenium WebDriver(Selenide, Geb, Selene), JBehave, Docker
+- **Build Tools:** Maven, Gradle
+- **VCS:** SVN, Perforce, Git
+- **CI Tool:** Jenkins CI
+- **Testing Frameworks:** JUnit, TestNG, Spock, py.test
+- **Operating Systems:** Windows, Unix, Mac OS
+- **Databases:** Oracle, MySQl, PostgreSQL, SQL Server
+
+== Public projects contributor
+
+- https://github.com/SergeyPirogov/video-recorder-java[Java Video Recorder]
+- https://github.com/SergeyPirogov/python-testcontainers[Python Testcontainers]
+- https://github.com/SergeyPirogov/python-video-service[Python Video Service]
+- https://github.com/SergeyPirogov/video_recorder_python[Video Recorder Python]
+- https://github.com/SergeyPirogov/webdriver_manager[Webdriver Manager]
+- https://github.com/SergeyPirogov/selene[Selene]
+- https://github.com/codeborne/selenide[Selenide]
+
+[.user-photos]
+== Photos

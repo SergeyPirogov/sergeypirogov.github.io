@@ -1,0 +1,186 @@
+title=Делаем матчеры веселее с Groovy
+date=2015-12-22
+type=post
+status=published
+summary=Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy.
+tags=Java, Groovy
+image=https://i.ytimg.com/vi/juHgQBB2tLU/hqdefault.jpg
+~~~~~~
+Последняя заметка в этом году. Я думаю, что активные читатели давно заметили мою склонность к Groovy. Я уже писал ряд заметок как о Groovy, так и о создании матчеров для Hamcrest. Теперь опишу свою борьбу с написанием такого же матчера только в Groovy style.
+
+image::https://i.ytimg.com/vi/juHgQBB2tLU/hqdefault.jpg[]
+
+Перед началом написания кода и шевеления извилинами, покажу интересный инструмент от Yandex, который позволяет генерировать метчеры для ваших доменных объектов - смотреть https://github.com/yandex-qatools/hamcrest-pojo-matcher-generator[здесь]. Единственный недостаток этой штуки: если у вас нету возможности натыкать аннотаций в объектах, то придется писать самим.
+
+Если у вас нету возможности воспользоваться инструментом, описанным выше, велкам кодить матчеры самостоятельно.
+
+Итак, сначала напишем наш доменный класс:
+
+[source, groovy]
+----
+@ToString
+class Person {
+    String name, phone
+}
+----
+
+После написания метчеров у нас будет такая вот штука:
+
+[source, groovy]
+----
+Person p = new Person(name: "Ivan", phone: "0661234567")
+
+assertThat(p, hasName("Ivan"))
+assertThat(p, withPhone("0661234567"))
+----
+
+Ну и в случае ошибки ожидаем увидеть сообщение:
+
+[source, xml]
+----
+Exception in thread "main" java.lang.AssertionError:
+Expected: person with phone 1235678
+     but: was 0661234567
+----
+
+Начнем реализовывать метод **hasName**. Стандартная реализация будет выглядеть так:
+
+[source, groovy]
+----
+def hasName(String name) {
+    new TypeSafeMatcher<Person>() {
+        @Override
+        protected boolean matchesSafely(Person p) {
+            name == p.name
+        }
+
+        @Override
+        void describeTo(Description description) {
+            description.appendText("a Person with name ").appendValue(name)
+        }
+
+        @Override
+        protected void describeMismatchSafely(Person person, Description mismatchDescription) {
+            mismatchDescription.appendText("was ").appendValue(person.name)
+        }
+    }
+}
+----
+
+Ничего особо военного, анонимный метод и реализация трех методов - не слишком в стиле Groovy.
+
+Давайте же поправим это все. Groovy крут из-за такой его возможности, как metaprogramming. Прибегая к чудесам метапрограммирования, мы можем в классе **Description** переопределить метод leftShift:
+
+[source, groovy]
+----
+Description.metaClass.leftShift = { text ->
+    delegate.appendText(text.toString())
+}
+----
+
+Теперь, используя полученный метод <<, напишем наш матчер:
+
+[source, groovy]
+----
+static hasName(String name) {
+    [
+       matchesSafely: { name == it.name },
+       describeTo: { it << "a person with name" + name },
+       describeMismatchSafely: { item, descr -> descr << "was " + item.name }
+    ] as TypeSafeMatcher<Person>
+}
+----
+Оба-на! кода стало в разы меньше и его читаемость улучшилась. Правда ухудшилась степень понимания, особенно если вы не знаете таких слов, как Closure.
+
+От себя хочу добавить, что подход с реализацией интерфейса через Map в случае с тремя методами не очень удачен, вот если бы у нас был один метод, тогда бы было все очень красиво и просто.
+
+Давайте же посмотрим на упрощение реализации с тремя методами. Реализовываем класс GroovyMatcher<T>:
+
+[source, java]
+----
+abstract class GroovyMatcher<T> extends TypeSafeMatcher<T> {
+    private Description description = new StringDescription()
+    private Description mismatchDescription = new StringDescription()
+
+    @Override
+    boolean matchesSafely(T item) {
+        match(item, description, mismatchDescription)
+    }
+
+    @Override
+    void describeTo(Description description) {
+        description << this.description
+    }
+
+    @Override
+    void describeMismatchSafely(T item, Description mismatchDescription) {
+        mismatchDescription << this.mismatchDescription
+    }
+
+    abstract boolean match(T item, Description description, Description mismatchDescription)
+}
+----
+
+Все достаточно стандатно, но давайте теперь применим магию Groovy. В написанном нами классе GroovyMatcher нам нужно реализовать всего один абстрактный метод match. Пишем матчер для проверки номера телефона withPhone:
+
+[source, java]
+----
+static withPhone(String actual) {
+        { item, description, mismatchDescription ->
+            def expected = item.phone
+            description << "person with phone " | actual
+            mismatchDescription << "was " | expected
+            actual == expected
+        } as GroovyMatcher<Person>
+}
+----
+
+Как вы можете заметить, мы использовали мощь Groovy и реализовали абстрактный метод через closure.
+
+Перед подведением итогов и определением, какой-же подход лучше, хочу поделиться собственным опытом написания ExtentionModule.
+
+Дабы не переживать по поводу метапрограммирования, можно написать **ExtentionModule** для нашего Description класса. Делается это так: пишем сначала класс, в котором реализовываем нужные нам методы:
+
+[source, java]
+----
+class MatchersExtention {
+
+    static Description leftShift(Description self, StringDescription desc) {
+        self.appendText(desc.toString())
+        self
+    }
+
+    static Description leftShift(Description desc, String text) {
+        desc.appendText(text)
+        desc
+    }
+
+    static Description or(Description self, String value) {
+        self.appendValue(value)
+        self
+    }
+}
+----
+
+Далее, чтобы этот класс начал работать, мы создаем в папке src/main/resources папку META-INF/services, в ней создаем файлик **org.codehaus.groovy.runtime.ExtensionModule** со следующим содержанием:
+
+[source, xml]
+----
+moduleName = matchers-module
+moduleVersion = 1.0
+extensionClasses = org.example.MatchersExtention
+----
+
+Все, теперь наш класс Description обзавелся поддержкой метода **leftShift(<<)** и or (**|**).
+
+Вот так с использованием силы Groovy вы можете добавить в любой класс всяких-всячин. Даже если это класс из какой-то библиотеки!!!
+
+Теперь давайте проанализируем подходы к написанию матчеров на Groovy. Я показал три подхода к написанию матчеров. Но какой из них лучше? Лично у меня все реализовано на данный момент через классический путь с анонимным методом. Но там куча лишнего кода и при наличии парочки таких методов в классе становится реально страшно в него заходить.
+
+Подход c использованием Map, по моему мнению, самый классный. Магия метапрограммирования делает его очень коротким и понятным.
+
+Ну и наконец последний подход с применение closure. Да, этот подход элегантен, нам нужно реализовать только один метод, но зачастую проверки бывают не настолько простыми и реализация этого одного метода может наносить больше вреда чем пользы.
+
+На этом у меня все! Всех с наступающими праздниками и до встреч в Новом 2016 году...уиииии =)
+
+image::http://www.stickbutik.ru/upload/iblock/1f3/1f3417a4cb7b36be3b530db5c95a674b.png[]

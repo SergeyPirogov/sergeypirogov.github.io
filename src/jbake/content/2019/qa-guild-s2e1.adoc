@@ -1,0 +1,48 @@
+= QAGuild s2e1: Долгая работа в одной компании
+Сергей Пирогов
+2019-01-28
+:jbake-type: post
+:jbake-tags: QAGuild, Podcast, Сезон2
+:jbake-summary: Про усидчивых IT работников
+:jbake-status: published
+
+{zwsp} +
+*Гости*:
+
+- Сергей Пирогов - заводила подкаста
+- Ярослав Пернеровский - саунд продюсер
+- Дмитрий Гуменюк - главный в РП
+
+{zwsp} +
+*Темы:*
+
+- 00:01:30 - Как вошел в IT?
+- 00:09:07 - Про работу разработчиком?
+- 00:19:15 - Про работу и развитие в одной компании?
+- 00:27:35 - Почему в IT нету долгосидящих?
+- 00:35:39 - Была ли ломка при переходе от разработчика к менеджмент
+- 00:44:44 - Когда и как появилась работа связанная с тестированием?
+- 00:55:12 - Когда стало понятно что РП - успех
+- 00:52:05 - Про Репорт портал
+- 01:00:35 - Про Delex?
+- 01:08:19 - Постоянная рубрика - топ три скила автоматизатора
+- 01:09:30 - Про контр-офферы
+- 01:16:37 - Финал
+
+{zwsp} +
+++++
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/563784393&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://itunes.apple.com/ua/podcast/qaguild/id1350668092?l=ru&mt=2">Слушать в Itunes</a>
+++++
+
+++++
+<a class="btn btn-primary mx-2" role="button" href="https://www.patreon.com/automation_remarks">Стать патроном</a>
+++++
+
+{zwsp} +
+*Спасибо патронам*:
+
+Alisa Markova, Denys Kozachok, Kuptsov Ivan, Marat Reymers, Maryna Kolesnik, Miguel Suddya, Natalka Sokurenko, Nikita Verbitsky, Oleksii Ihnatiuk, Roman Marinsky, Roman Pobotin, Serge Soloshchenko, Tetiana Hrybok, Vitalii, Vitaly Fedrunov, Перетятько Игорь

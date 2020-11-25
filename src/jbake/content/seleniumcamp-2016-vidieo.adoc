@@ -1,0 +1,16 @@
+title=SeleniumCamp 2016 видео
+date=2016-05-10
+type=post
+status=published
+summary=Наконец-то появились видео с прошедшего SeleniumCamp.
+tags=События, Видео
+~~~~~~
+Наконец-то появились видео с прошедшего http://automation-remarks.com/seleniumcamp-2016-rietrospiektiva/[SeleniumCamp]. По результатам отзывов я вошел в тройку лучших спикеров.
+
+Видео отчет:
+
+video::liQxXvXg0Uc[youtube]
+
+Запись моего доклада:
+
+video::cW6DSthdLaw[youtube]

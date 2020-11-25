@@ -1,0 +1,10 @@
+title=Welcome!
+date=2014-11-16
+type=post
+status=published
+summary=Начало...
+tags=Getting started
+image=http://thestart.fm/themes/thestart/img/the-start.png
+~~~~~~
+
+Привет! Случилось: блог для автоматизторов от автоматизатора!
