@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>
+        <![CDATA[Заметки Автоматизатора]]>
+    </title>
+    <description>
+        <![CDATA[Автоматизация рутины приоритетнее давления массой]]>
+    </description>
+    <link>http://automation-remarks.com</link>
+    <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
+    <ttl>60</ttl>
+    <language>en-gb</language>
+    <pubDate>Wed, 25 Nov 2020 10:12:04 +0000</pubDate>
+    <lastBuildDate>Wed, 25 Nov 2020 10:12:04 +0000</lastBuildDate>
+
+        <item>
+          <title>
+              QAGuild S03E16: Про тестирование игр: от танчиков до казино
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e16/index.html</link>
+          <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e16/index.html</guid>
+          <description>
+                        Подкаст про тестирование игр
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/934383358&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Александр Шуков - тестирует World of Tanks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Александр Романов - тестирует казино и казуальные игры&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #43: Пробуем Cypress для автотестов
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live43/index.html</link>
+          <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live43/index.html</guid>
+          <description>
+                        В этом эпизоде попробуем написать тесты на Cypress
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32XBNlo&quot;&gt;Автоматизация тестирования контрактного тестирования&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/38PjgLP&quot;&gt;Автоматизация тестирования UI с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/N1y35XqWNiM&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live42/index.html</link>
+          <pubDate>Mon, 9 Nov 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live42/index.html</guid>
+          <description>
+                        В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ysrioQ1ZyI4&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live41/index.html</link>
+          <pubDate>Mon, 2 Nov 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live41/index.html</guid>
+          <description>
+                        В этом эпизоде посмотрели на новые функции Selenium 4
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/d7aq0aXYEss&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E15: Visual Testing из Open Source
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e15/index.html</link>
+          <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e15/index.html</guid>
+          <description>
+                        Подкаст про Visual Testing
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/906020350&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Павел Стрункин - автор Visual Regression Tracker&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:05&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:53&lt;/a&gt; - Как попал в айти&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:32&lt;/a&gt; - Зачем нужен вижуал тестинг&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:38&lt;/a&gt; - Что под капотом, селениум?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:13&lt;/a&gt; - Как это работает&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:35:16&lt;/a&gt; - Как настроить эту балалайку&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:02&lt;/a&gt; - Сколько нужно вложить времени в создание сценариев&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:40:10&lt;/a&gt; - Какие проблемы&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:42:28&lt;/a&gt; - Стоит ли за это платить деньги&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:35&lt;/a&gt; - ML и AI зачем&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:26:52&lt;/a&gt; - Патронs&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:29&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E14: SecOps - второе пришествие
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e14/index.html</link>
+          <pubDate>Mon, 5 Oct 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e14/index.html</guid>
+          <description>
+                        Подкаст про DevSecOps
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/902593087&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Денис Якимов - специалист по безопасности&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:50&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:54&lt;/a&gt; - Как попал в айти?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:57&lt;/a&gt; - Зачем нужен SecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:43&lt;/a&gt; - Моделирование угроз&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:10:50&lt;/a&gt; - Как сделать что бы секьюрити не замедляла ваше приложение&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:16:26&lt;/a&gt; - С чего начать внедрение&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:26:03&lt;/a&gt; - Кто этим может заниматься&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:29:28&lt;/a&gt; - Где можно научиться&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:36&lt;/a&gt; - В какое место пайплайна встраивать SecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:43:38&lt;/a&gt; - Чем сканировать Docker&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:49&lt;/a&gt; - Как продать DevSecOps&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:40&lt;/a&gt; - Про деньги&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:05:55&lt;/a&gt; - Патроны&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #40: Что лучше Selenium IDE или Playwright CLI для тестирования?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live40/index.html</link>
+          <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live40/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про Playwright CLI и сравним его с Selenium IDE. Кто победит в это битве взглядов?
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/r6nlNrE-ARE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #39: Что такое Moon Cloud и зачем он для ваших тестов?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live39/index.html</link>
+          <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live39/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про Selenium тесты в облаке на примере проекта Moon Cloud
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XRukn7_E9zs&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #38: Что лучше взять для автоматизации тестирования, Selenium или Selenide?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live38/index.html</link>
+          <pubDate>Mon, 7 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live38/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, что лучше выбрать Selenium или Selenide?
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/_0FAPshi-8U&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #37: C чего нужно начинать автоматизацию на проекте?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live37/index.html</link>
+          <pubDate>Wed, 2 Sep 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live37/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, с чего нужно начинать автоматизацию тестирования на проекте
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/fBTQ3v0i9ic&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E13: Про Тест планы и тест стратегии в 2020 году
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e13/index.html</link>
+          <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e13/index.html</guid>
+          <description>
+                        Подкаст про Тест планы и тест стратегии в 2020 году
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/878301127&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Алексей Лупан - эксперт по тестированию и стратегиям&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Антон Мужайло - лучший QA 2019&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:15&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:17&lt;/a&gt; - Гости&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:15&lt;/a&gt; - Тест план и тест стратегия&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:28:02&lt;/a&gt; - Что сейчас со стандартами (ISO-29119, IEEE-829, TMMI, ISTQB)&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:37:02&lt;/a&gt; - Как планировать оптимально и с пользой&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:48:49&lt;/a&gt; - Как можно планировать в мире аджайла&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:04&lt;/a&gt; - Как держать планы в актуальном состоянии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:58:02&lt;/a&gt; - Приводит ли планирование к успеху или это просто лишнее время&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:04:42&lt;/a&gt; - Как быстро сколхозить стратегию&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:11:21&lt;/a&gt; - Где брать примеры или какие книги читать про это все?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:17:15&lt;/a&gt; - Тест менеджмент в эпоху удаленки&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:29:22&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:11&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E11: Про релокацию в Эстонию
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e11/index.html</link>
+          <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e11/index.html</guid>
+          <description>
+                        Подкаст про релокацию в Эстонию
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/853785262&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Юлия Ёлкин - IT Recruiter, owner of www.ittalent.ee, live in Tallinn, Estonia&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:06&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:53&lt;/a&gt; - Как попала в IT рекрутмент&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:29&lt;/a&gt; - Чем привлекательна Эстония для работодателей и кандидатов?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:08:06&lt;/a&gt; - Зарплатные вилки для тестировщиков и автоматизаторов?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:12:49&lt;/a&gt; - Самые востребованные навыки и умения&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:22:13&lt;/a&gt; - Каких компаний больше на рынке, продукт или аутсорс?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:24:49&lt;/a&gt; - Особенности рекрутмента в условиях карантина&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:29:03&lt;/a&gt; - А если без знания английского?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:30:12&lt;/a&gt; - Знание эстонского даст бонусы?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:30:40&lt;/a&gt; - Что нужно для получения гражданства?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:33:23&lt;/a&gt; - А если просто переехать, продолжая работать удаленно на текущего работодателя?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:34:38&lt;/a&gt; - Переезд, время затраты, визы&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:40:34&lt;/a&gt; - Цена жизни в Эстонии для семьи с ребенком?&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:45:54&lt;/a&gt; - Трудовое законодательство&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:49:16&lt;/a&gt; - Про Эстонию, климат, культура, отношение к мигрантам...&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:06:05&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:11:35&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild S03E12: Про швейцарское IT
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-s03e12/index.html</link>
+          <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-s03e12/index.html</guid>
+          <description>
+                        Подкаст про работу в Швейцарии
+          </description>
+          <content:encoded>
+                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
+src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/874365418&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Гости:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Олексей Чаплиц - вошел в IT в Швейцарии в 48 лет&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Темы:&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;timecoder&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:55&lt;/a&gt; - Начало&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:01&lt;/a&gt; - Как попал в IT&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:09:56&lt;/a&gt; - Как переехать&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:17&lt;/a&gt; - Как найти работу&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:24:22&lt;/a&gt; - Учеба в Швейцарии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:36:15&lt;/a&gt; - Как жить в Швейцарии&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:53:16&lt;/a&gt; - Патроны&lt;/li&gt;
+  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:55:55&lt;/a&gt; - Конец&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Спасибо патронам: Miguel Suddya, Александр Шевцов, Tetiana Hrybok, Marat Reymers, Vitaly Fedrunov, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vitalii, Aliaksei Konau, Igor Gruziev, Slava Lysjuk, Alisa Markova, Yevhenii Hrytsai, Kuptsov Ivan, Oleksandr Demeniuk, Maxim Denisov, Alex Hramovich&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #36: Как использовать Moon для запуска Playwright тестов
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live36/index.html</link>
+          <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live36/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, как настроить инфраструктуру для запуска Playwright и Selenium тестов
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/IbTlHhI_UVk&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #35: Как нужно делать ревью тестового задания для QA Automation?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live35/index.html</link>
+          <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live35/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, как делать ревью тестового задания для QA Automation специалиста
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/lWhvKId7IYY&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #34: Каким должно быть тестовое задание для QA Automation?
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live34/index.html</link>
+          <pubDate>Mon, 3 Aug 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live34/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про то, каким же должно быть тестовое задание для QA Automation специалиста
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/qgmFhVyJ2oE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #33: Юбилейный стрим для тестировщиков
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live33/index.html</link>
+          <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live33/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про работу с Java + SQL
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Прошел 1 год с гаком с момента зарождения этого канала. Обсудим новости, как это было, челенджи и новые форматы выпусков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/backend-java/index.html&quot;&gt;Тренинг по автоматизации тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/aMjDbttJff0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #32: Java + SQL для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live32/index.html</link>
+          <pubDate>Mon, 6 Jul 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live32/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про работу с Java + SQL
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорим про Java + SQL для тестировщика&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/java-sql/index.html&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/skx83odlMv4&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #31: Про SQL и базы данных для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live31/index.html</link>
+          <pubDate>Wed, 1 Jul 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live31/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим про SQL
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорим про SQL для тестировщика&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/F9ITL4PmW6Y&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #30: Про Python для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2020/qaguild-live30/index.html</link>
+          <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/qaguild-live30/index.html</guid>
+          <description>
+                        В этом эпизоде поговорим о том, насколько важны DevOps скилы для тестировщика
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорим про Python для тестировщика&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/RhRCs6qqJ84&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+
+  </channel> 
+</rss>

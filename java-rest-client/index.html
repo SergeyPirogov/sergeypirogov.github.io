@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Java Simple REST Client">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        07/02/2015
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Java Simple REST Client</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Привет! Новая статейка о том, как можно сваять клиент на Java для работы с REST API.
+Я покажу два способа, как можно добиться желаемого результата быстро и качественно. Оба способа предусматривают использование сторонних библиотек.</p>
+</div>
+<div class="paragraph">
+<p><strong>Способ первый - Apache HTTPClient</strong></p>
+</div>
+<div class="paragraph">
+<p>Библиотека <code>Apache HttpClient</code> значительно упрощает обработку HTTP запросов. Для того, чтобы ею воспользоваться, можно пойти на сайт Apache и там почитать, поковыряться, но я использую <code>Maven</code> - поэтому у меня просто дэпэнденси:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+    &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+    &lt;version&gt;4.3.6&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ниже показаны примеры запросов GET:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+public class Test {
+    public static void main(String[] args) throws ClientProtocolException,IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet("http://restUrl");
+        HttpResponse response = client.execute(request);
+        BufferedReader rd = new BufferedReader (new InputStreamReader(response.getEntity().getContent()));
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+          System.out.println(line);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>POST:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+public class Test {
+    public static void main(String[] args) throws ClientProtocolException, IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost("http://restUrl");
+        StringEntity input = new StringEntity("product");
+        post.setEntity(input);
+        HttpResponse response = client.execute(post);
+        BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Существует возможность отправлять несколько параметрос с помощью POST:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+public class Test {
+    public static void main(String[] args) throws ClientProtocolException, IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost("http://restUrl");
+        List nameValuePairs = new ArrayList(1);
+        nameValuePairs.add(new BasicNameValuePair("name", "value")); //you can as many name value pair as you want in the list.
+        post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        HttpResponse response = client.execute(post);
+        BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Способ второй - Jersey</strong></p>
+</div>
+<div class="paragraph">
+<p>Jersey - это имплементация для <strong>JSR-311</strong> в <strong>Java</strong>. Jersey содержит в себе REST сервер и REST client.
+Пример GET запроса:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.IOException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.ClientProtocolException;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+public class Test {
+    public static void main(String[] args) throws ClientProtocolException, IOException {
+        ClientConfig config = new DefaultClientConfig();
+        Client client = Client.create(config);
+        WebResource service = client.resource(UriBuilder.fromUri("http://restUrl").build());
+        // getting XML data
+        System.out.println(service. path("restPath").path("resourcePath").accept(MediaType.APPLICATION_JSON).get(String.class));
+        // getting JSON data
+        System.out.println(service. path("restPath").path("resourcePath").accept(MediaType.APPLICATION_XML).get(String.class));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>POST запрос c несколькими параметрами:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.IOException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.ClientProtocolException;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
+public class Test {
+    public static void main(String[] args) throws ClientProtocolException, IOException {
+        ClientConfig config = new DefaultClientConfig();
+        Client client = Client.create(config);
+        WebResource webResource = client.resource(UriBuilder.fromUri("http://restUrl").build());
+        MultivaluedMap formData = new MultivaluedMapImpl();
+        formData.add("name1", "val1");
+        formData.add("name2", "val2");
+        ClientResponse response = webResource.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(ClientResponse.class, formData);
+        System.out.println("Response " + response.getEntity(String.class));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Существует возможность использовать свой собственный класс для POST:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">ClientResponse response = webResource.path("restPath").path("resourcePath").
+type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).post(ClientResponse.class, myPojo);
+System.out.println("Response " + response.getEntity(String.class));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Как вы можете заметить, обе представленные здесь библиотеки позволяют достаточно легко создать запросы и получить ответы от сервера, обработать их и вывести результат. Лично мне больше нравится Jersey - просто из-за того, что он не такой брутальный, как Apache, но выбирать Вам =)</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/REST.html">REST</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

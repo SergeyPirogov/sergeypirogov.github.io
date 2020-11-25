@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Работа с базой данных без боли и страданий">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Уже очень давно я писал заметку про работу с базой данных с использованием Groovy."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        09/01/2016
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Работа с базой данных без боли и страданий</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Уже очень давно я писал <a href="http://automation-remarks.com/maghiia-groovy-i-sql/">заметку</a> про работу с базой данных с использованием <strong>Groovy</strong>. В этот раз хочу более глубоко раскрыть тему.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://2.bp.blogspot.com/-vJbX3sRQTiI/UrpyumG5TkI/AAAAAAAAAbI/Q5kGfDXBPVE/s1600/sql+basis+data.png" alt="sql+basis+data">
+</div>
+</div>
+<div class="paragraph">
+<p>Итак, допустим, вам нужно работать с базой данных: выполнять запросы, вызывать хранимые процедуры, возможно, записывать какие-то данные. Стандартом работы с базами данных в java является <strong>JDBC</strong>. Но вот код, написанный с использованием <strong>jdbc</strong>, выглядит не очень:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class JDBCExample1 {
+  public static void main(String[] args) {
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    try{
+      Class.forName("org.gjt.mm.mysql.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/words",
+           "words", "words");
+      stmt = con.createStatement();
+      rs = stmt.executeQuery("select * from word");
+      while (rs.next()) {
+        System.out.println("word id: " + rs.getLong(1) +
+            " spelling: " + rs.getString(2) +
+            " part of speech: " + rs.getString(3));
+      }
+    }catch(SQLException e){
+      e.printStackTrace();
+    }catch(ClassNotFoundException e){
+      e.printStackTrace();
+    }finally{
+      try{rs.close();}catch(Exception e){}
+      try{stmt.close();}catch(Exception e){}
+      try{con.close();}catch(Exception e){}
+   }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Писать такой код очень не хотелось бы, тем более в тестовом фреймворке, который должен быть легковесным. Что же можно с этим сделать? Нужно использовать библиотеки, которые значительно облегчат жизнь.</p>
+</div>
+<div class="paragraph">
+<p><strong>1. JDBI</strong></p>
+</div>
+<div class="paragraph">
+<p>Имплементация этой библиотеки схожа с Groovy SQL. C использованием JBDI библиотеки можно будет писать такой вот код:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">DataSource ds = JdbcConnectionPool.create("jdbc:h2:mem:test",
+                                          "username",
+                                          "password");
+DBI dbi = new DBI(ds);
+Handle h = dbi.open();
+h.execute("create table something (id int primary key, name varchar(100))");
+h.execute("insert into something (id, name) values (?, ?)", 1, "Brian");
+String name = h.createQuery("select name from something where id = :id")
+                    .bind("id", 1)
+                    .map(StringMapper.FIRST)
+                    .first();
+
+assertThat(name, equalTo("Brian"));
+h.close();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Очень не кисло и читабельно, более того - можно запросы мапить на объекты, что позволит еще больше упростить жизнь.</p>
+</div>
+<div class="paragraph">
+<p><strong>2. JOOQ</strong></p>
+</div>
+<div class="paragraph">
+<p>Библиотека, о которой я читал давно, но вот только сейчас руки дошли поработать с ней. Скажу сразу, я с ней просто игрался. Впечатление двоякое: во-первых, почему-то есть бесплатная и платная версия, во-вторых, она умеет делать кучу всего, чего только душе угодно, и из-за этого повышается сложность работы с ней. Пример кода:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">select(KeyColumnUsage.CONSTRAINT_NAME, KeyColumnUsage.TABLE_NAME, KeyColumnUsage.COLUMN_NAME)
+                .from(KEY_COLUMN_USAGE).join(TABLE_CONSTRAINTS)
+                .on(KeyColumnUsage.TABLE_SCHEMA.equal(TableConstraints.TABLE_SCHEMA))
+                .and(KeyColumnUsage.TABLE_NAME.equal(TableConstraints.TABLE_NAME))
+                .and(KeyColumnUsage.CONSTRAINT_NAME.equal(TableConstraints.CONSTRAINT_NAME))
+                .where(TableConstraints.CONSTRAINT_TYPE.equal(constraintType))
+                .and(KeyColumnUsage.TABLE_SCHEMA.equal(getSchemaName()))
+                .orderBy(KeyColumnUsage.TABLE_NAME.ascending(), KeyColumnUsage.ORDINAL_POSITION.ascending()).fetch()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Лично мое мнение: я бы не использовал ее на проекте, лучше уж что-то попроще, чем такие куски не совсем читабельного и плохо отлаживаемого кода.</p>
+</div>
+<div class="paragraph">
+<p><strong>3. Querydsl</strong></p>
+</div>
+<div class="paragraph">
+<p>Еще одна библиотека из разряда навороченных. Умеет делать кучу всего полезного. Код, который можно писать, выглядит вот так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">List&lt;Person&gt; persons = queryFactory.selectFrom(person)
+  .where(
+    person.firstName.eq("John"),
+    person.lastName.eq("Doe"))
+  .fetch();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Мое мнение: слишком уж навороченная. К тому же, документация достаточно запутанная. Не люблю, когда для чего-то простого нужно перечитать тонну документации.</p>
+</div>
+<div class="paragraph">
+<p><strong>4. Sql2o</strong></p>
+</div>
+<div class="paragraph">
+<p>Достаточно симпатичная библиотека, которая позволит вещи делать быстро и просто. На странице Github сами же разработчики пишут, что Sql2o является самой производительной библиотекой. Лично не проверял, оставил этот момент на совести разработчиков. Код можно писать такой:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">public class Task{
+    private int id;
+    private String category;
+    private Date dueDate;
+
+    // getters and setters here
+}
+
+Sql2o sql2o = new Sql2o(DB_URL, USER, PASS);
+
+String sql =
+    "SELECT id, category, duedate " +
+    "FROM tasks " +
+    "WHERE category = :category";
+
+try(Connection con = sql2o.open()) {
+    List&lt;Task&gt; tasks = con.createQuery(sql)
+        .addParameter("category", "foo")
+        .executeAndFetch(Task.class);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Личное мнение: все достаточно просто и удобно, хорошая документация с четкими и понятными примерами. Одно удручает - вот эти вот строки SQL с конкатенациями =(</p>
+</div>
+<div class="paragraph">
+<p><strong>5. Groovy SQL</strong></p>
+</div>
+<div class="paragraph">
+<p>Не могу не написать про Groovy еще раз. Ну вот нравится мне этот язык за гибкость и отсутствие <strong>boilerplate</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Только теперь я расскажу о том, как я написал свою обертку над стандартым DataSet и добавил метод удаления, которого у стандартного класса нету.</p>
+</div>
+<div class="paragraph">
+<p>Итак, чего хотелось? Хотелось уметь удалять записи из базы в таком вот виде:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">employees.delete {it.id &gt; 5}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Но такой возможности не было, делать select можно, а удалять нет. Что ж, пришлось написать такой вот класс:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class DataTable {
+
+    @Delegate
+    DataSet dataSet
+
+    DataTable(Sql sql, Class&lt;?&gt; type) {
+        dataSet = sql.dataSet(type)
+    }
+
+    def delete(Closure where) {
+        def visitor = getSqlWhereVisitor(where)
+        def whereClause = visitor.getWhere()
+        def params = visitor.getParameters()
+        def sql = "DELETE FROM ${dataSet.@table} WHERE " + whereClause
+        dataSet.@delegate.executeUpdate(sql, params)
+    }
+
+    protected SqlWhereVisitor getSqlWhereVisitor(Closure where) {
+        def visitor = new SqlWhereVisitor();
+        visit(where, visitor);
+        return visitor;
+    }
+
+    private void visit(Closure closure, CodeVisitorSupport visitor) {
+        if (closure != null) {
+            ClassNode classNode = closure.getMetaClass().getClassNode();
+            if (classNode == null) {
+                throw new GroovyRuntimeException(
+                        "DataSet unable to evaluate expression. AST not available for closure: " + closure.getMetaClass().getTheClass().getName() +
+                                ". Is the source code on the classpath?");
+            }
+            List methods = classNode.getDeclaredMethods("doCall");
+            if (!methods.isEmpty()) {
+                MethodNode method = (MethodNode) methods.get(0);
+                if (method != null) {
+                    Statement statement = method.getCode();
+                    if (statement != null) {
+                        statement.visit(visitor);
+                    }
+                }
+            }
+        }
+    }
+
+    def add(Map... maps) {
+        for (row in maps) {
+            dataSet.add(row)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>После этого появилась возможность делать такие вот приятные штучки:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">@Canonical
+class Employee {
+    Integer id
+    String name
+    String lastName
+    Integer age
+    Integer department
+}
+
+dbSettings = [
+        url: 'jdbc:hsqldb:hsql://localhost/cookingdb',
+        driver: 'org.hsqldb.jdbcDriver',
+        user: 'sa',
+        password: ''
+]
+
+def db = Sql.newInstance(dbSettings)
+def employees = new DataTable(db, Employee)
+
+employees.add(
+        [id: 5, name: "vova", lastName: "ivliv"],
+        [id: 8, name: "viktor", lastName: "lovliv"],
+        [id: 1, name: "adam", lastName: "bomobm", age: 23, department: "5"]
+)
+
+employees.delete { it.id == 5 || it.id == 6 }
+
+employees.findAll { it.id &gt; 0 }.rows()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Один горький недостаток этого подхода - нельзя параметризовать запросы. Такой вот код не сработает:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def userId = 0
+employees.findAll { it.id &gt; userId }.rows()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Не очень удобно конечно, но это легко объезжается на велосипеде =)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">def query = employees.findAll { it.id == ":id" &amp;&amp; it.name == ":name" }.sql
+
+db.eachRow(query, [id: 3, name: "ivan"]) {
+    println it
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>На этот раз все.</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Groovy.html">Groovy</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

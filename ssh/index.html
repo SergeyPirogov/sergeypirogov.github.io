@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как автоматизатору побороть SSH">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        03/01/2016
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Как автоматизатору побороть SSH</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Хоу-хоу, надеюсь все отлично встретили Новый год и теперь ждут Рождества. Я решил не тратить время попусту и в этот короткий промежуток между праздниками написать небольшую заметку. В этот раз напишу о возможных вариантах работы с <strong>SSH</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q" alt="images?q=tbn:ANd9GcSIluTpLycP4jpvVo3Y0WeOulr4QuhdBSp4Yg6r1doJY4IEX0wx0Q">
+</div>
+</div>
+<div class="paragraph">
+<p>Я думаю, что люди, работающие с Linux, имеют достаточно хороший опыт работы с ssh. Для тех же, кто не знает и не пробовал, рекомендую почитать про <strong>ssh</strong>, <strong>putty</strong>, установить виртуалку с помощью <a href="http://automation-remarks.com/vagrant/">Vagrant</a> и поиграться.</p>
+</div>
+<div class="paragraph">
+<p>Приступим ближе к делу: зачем оно автоматизаторам и зачем я вообще затронул эту тему? Все очень просто! Если у вас на проекте есть linux сервера, то вам не избежать работы с ssh. У меня был опыт реализации такой задачи, когда нам нужно было закидывать конфигурационные файлы на сервер и смотреть, как себя поведет система после таких изменений. Делать это руками интересно, но только в первый раз =) Я заавтоматизировал этот процесс.</p>
+</div>
+<div class="paragraph">
+<p>Тогда я был маленьким джуниором и мое решение свелось к использованию библиотеки <strong>Jsch</strong>. Штука работала, но пришлось нахвататься проблем и опыта. Не буду вдаваться в подробности, просто посмотрите пример реализации <a href="http://www.jcraft.com/jsch/examples/Shell.java.html">здесь</a>.</p>
+</div>
+<div class="paragraph">
+<p>Гораздо проще пользоваться библиотеками-обертками, к примеру <a href="http://ssh.jcabi.com/">Jcabi-ssh</a>. Здесь и кода меньше и выглядит он поприятнее:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.jcabi.ssh.Shell;
+import com.jcabi.ssh.SSH;
+Shell shell = new SSH("example.com", 22, "username", "password");
+String stdout = new Shell.Plain(shell).exec("echo 'Hello, world!'");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Но все равно как-то выглядит не очень элегантно.</p>
+</div>
+<div class="paragraph">
+<p>Абсолютным победителем для меня является библиотека - <a href="https://github.com/aestasit/sshoogr">sshoogr</a>. По сути - это Groovy DSL для работы с SSH.</p>
+</div>
+<div class="paragraph">
+<p>Посмотрите, как легко с ней работать:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">@Grab('com.aestasit.infrastructure.sshoogr:sshoogr:0.9.18')
+import static com.aestasit.infrastructure.ssh.DefaultSsh.*
+
+remoteSession('user2:654321@localhost:2222') {
+  exec 'rm -rf /tmp/*'
+  exec 'touch /var/lock/my.pid'
+  remoteFile('/var/my.conf').text = "enabled=true"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Что стало для меня самым приятным, так это работа с файлами. К примеру:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def file = "/root/home/test.txt"
+ def selenium = "selenium-server-standalone-2.48.2.jar"
+
+ //write to file
+ remoteFile(file).text = "Hello"
+
+ //read from file
+ print remoteFile(file).text
+
+ //copy file to remote host
+ scp {
+      from { localFile "/root/home/${selenium}"}
+      into { remoteFile "/root/remote/${selenium}" }
+ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вот как можно легко и просто делать вещи. Не нужно париться с тысячей try-catch блоков, просто бери и делай. А самое важное здесь то, что все это является кодом, вы можете писать свои функции и использовать их, вы можете использовать мощь <strong>GString</strong> для параметризации и многие другие фишки <strong>Groovy</strong>. Я жалею, что узнал о ней только когда начал разбираться с <strong>Groovy</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>P.S</strong></p>
+</div>
+<div class="paragraph">
+<p>В бочке меда не без ложки дегтя: у меня почему-то не сработал вариант конфигурации:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">remoteSession {
+
+  host = 'localhost'
+  username = 'user2'
+  password = '654321'
+  port = 2222
+
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Возможно, я что-то недосмотрел, но во всех остальных случаях работает отлично. На этом все! спасибо, что читали. Возможно, эта заметка поможет в будущем решать подобные проблемы проще и эффективнее. Счастливого Рождества всем! Подписывайтесь - в 2016 будем на связи&#8230;&#8203;</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Groovy.html">Groovy</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

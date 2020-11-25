@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Используем Selenium Grid">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        23/06/2015
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Используем Selenium Grid</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Заметка, в которой я покажу, как использовать настроенный Selenium grid в тестовом фреймворке. О том, как настроить grid, я писал в предыдущей <a href="http://automation-remarks.com/nastraivaiem-selenium-grid-za-5-minut/">заметке</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.guru99.com/images/AdvanceSelenium/071514_0700_CrossBrowse1.png" alt="071514 0700 CrossBrowse1">
+</div>
+</div>
+<div class="paragraph">
+<p>Начнем с самого простого. Создаем <strong>Maven</strong> проект, подключаем две зависимости <strong>TestNG</strong> и <strong>Selenium-java</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.testng&lt;/groupId&gt;
+            &lt;artifactId&gt;testng&lt;/artifactId&gt;
+            &lt;version&gt;6.8.8&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+            &lt;version&gt;2.46.0&lt;/version&gt;
+        &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>TestNG</strong> приведен не случайно: именно его проще всего использовать для распараллеливания тестов. Почему? Попробуйте - и вы поймете сами =)</p>
+</div>
+<div class="paragraph">
+<p>В этом примере показан тест для страницы поиска Google. Но это не столь важно, следуя примеру, можно создать инфраструктуру для тестирования любого web-приложения.</p>
+</div>
+<div class="paragraph">
+<p>Создаем общий класс, от которого будут наследоваться все классы тестов. В него помещаем методы фикстуры и другие методы, общие для всех классов тестов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.grid.shedule.core.WebDriverInstansiator;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+public class BaseTestGrid {
+
+    @Parameters({"browserName", "browserVersion"})
+    @BeforeClass
+    public void setUp(@Optional String browserName, String browserVersion){
+        WebDriverInstansiator.setDriver(browserName, browserVersion);
+    }
+
+    @AfterClass
+    public void tearDown() throws Exception{
+        WebDriverInstansiator.getDriver().quit();
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Самое важное в коде, приведенном выше - класс <strong>WebDriverInstantiator</strong>. Этот класс будет служить менеджером веб-драйверов для наших тестов. Самое важное в этом классе - ThreadLocal переменная webdriver. Она вводится для того, чтобы на каждый новый поток создавать свой веб-драйвер.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.WebDriver;
+
+public class WebDriverInstansiator {
+
+    private static InheritableThreadLocal&lt;WebDriver&gt; webDriver = new InheritableThreadLocal&lt;WebDriver&gt;();
+    private static WebDriverFactory factory;
+
+    public static void setDriver(String browserName, String browserVersion){
+        factory = new WebDriverFactory();
+        webDriver.set(factory.getWebDriver(browserName, browserVersion));
+    }
+
+    public static WebDriver getDriver(){
+        return webDriver.get();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Внутри класса <strong>WebDriverInstansiator</strong> находится <strong>PageFactory</strong>, его цель - упростить создание новых инстансов веб-драйверов.</p>
+</div>
+<div class="paragraph">
+<p>Создаем <strong>Page object</strong> и класс тестов.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class GooglePage extends Page{
+
+    private static final String URL = "http://google.com/";
+
+    private static final By SEARCH_INPUT = By.name("q");
+    private static final By SEARCH_BTN = By.name("btnK");
+
+
+    public GooglePage(WebDriver driver) {
+       super(driver);
+    }
+
+    public void search(String name){
+        $(SEARCH_INPUT).sendKeys(name);
+        $(SEARCH_BTN).click();
+    }
+
+    public void open() {
+        toPage(URL);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Класс тестов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import com.grid.shedule.core.WebDriverInstansiator;
+import com.grid.shedule.pages.GooglePage;
+import org.testng.annotations.*;
+
+/**
+ * Created by Serhii_Pirohov on 23.06.2015.
+ */
+public class TestGoogleSearch extends BaseTestGrid {
+
+    GooglePage googlePage;
+
+    @BeforeMethod
+    public void setUp() {
+        googlePage = new GooglePage(WebDriverInstansiator.getDriver());
+    }
+
+    @Test
+    public void shouldBeBlogTitle() {
+        googlePage.open();
+        googlePage.search("automation remarks");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>И самая последняя часть: нужно настроить <strong>TestNG</strong> xml, в котором указать, какие тесты и в каких браузерах нужно запускать.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"&gt;
+&lt;suite name="ScheduleBusTest" parallel="tests" thread-count="5"&gt;
+    &lt;test name="ChromeTest" verbose="1" parallel="true"&gt;
+        &lt;parameter name="browserName" value="chrome" /&gt;
+        &lt;parameter name="browserVersion" value="" /&gt;
+        &lt;classes&gt;
+            &lt;class name="com.grid.shedule.test.TestGoogleSearch" /&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+    &lt;test name="InternetExplorerTest" verbose="1" parallel="true"&gt;
+        &lt;parameter name="browserName" value="internet explorer" /&gt;
+        &lt;parameter name="browserVersion" value="8" /&gt;
+        &lt;classes&gt;
+            &lt;class name="com.grid.shedule.test.TestGoogleSearch" /&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну вот, на этом настройка закончена. Для того, чтобы запустить тесты, нужно сначала стартовать наш Grid Hub с подключенными Node. Приведу пример скрипта с json файлом конфигурации:</p>
+</div>
+<div class="paragraph">
+<p><strong>NodeConfig.json</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-json" data-lang="json">{
+  "capabilities":
+      [
+        {
+            "browserName": "chrome",
+            "platform": "WINDOWS",
+            "maxInstances": 13,
+            "seleniumProtocol": "WebDriver",
+            "nodeName": "simpleNode"
+        },
+        {
+            "seleniumProtocol": "WebDriver",
+            "browserName": "internet explorer",
+            "version": "8",
+            "maxInstances": 13,
+            "platform" : "WINDOWS",
+            "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "22",
+          "platform": "WINDOWS",
+          "firefox_binary":"FirefoxExe/ff22/firefox.exe",
+          "maxInstances": 25,
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        },
+        {
+          "browserName": "firefox",
+          "version": "24",
+          "platform": "WINDOWS",
+          "maxInstances": 25,
+          "firefox_binary":"FirefoxExe/ff24/firefox.exe",
+          "seleniumProtocol": "WebDriver",
+          "nodeName": "simpleNode"
+        }
+      ],
+  "configuration":
+    {
+        "nodeTimeout":120,
+        "nodePolling":2000,
+        "registerCycle":10000,
+        "register":true,
+        "cleanUpCycle":2000,
+        "timeout":30000,
+        "maxSession":25,
+        "nodeStatusCheckTimeout":10000,
+        "downPollingLimit":360000
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Код самого <strong>.bat</strong> или <strong>.sh</strong> файла, который я использую для запуска сервера:</p>
+</div>
+<div class="paragraph">
+<p><strong>StartGrid.bat(.sh)</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role hub -port 4445 -timeout 300 -browserTimeout 360
+cmd /C start/MIN java -jar selenium-server-standalone-2.46.0.jar -role node -port 5599 -hub http://localhost:4445/grid/register -nodeConfig NodeConfig.json -Dwebdriver.chrome.driver=Drivers\chromedriver.exe -Dwebdriver.ie.driver=Drivers\IEDriverServer.exe</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ну вот, теперь можно запускать тест. Должны открыться два браузера IE и Chrome, в которых параллельно будет выполняться наш единственный тест.</p>
+</div>
+<div class="paragraph">
+<p>Надеюсь, вам понравилась заметка и вы нашли в ней что-то полезное. Подписывайтесь на мой блог, присылайте идеи, делитесь опытом. До новых встреч!..</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

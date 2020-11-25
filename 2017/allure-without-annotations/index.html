@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как перестать писать @Step аннотации для Allure">
+    <meta property="og:image" content="../../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Просто лайфхак"/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../../css/album.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        27/08/2017
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Как перестать писать @Step аннотации для Allure</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Привет! В этой заметке хочу поделиться лайфхаком, который позволит перестать ставить аннотации <code>@Step</code> в коде тестов.</p>
+</div>
+<div class="paragraph">
+<p>Давайте сначала обрисуем суть проблемы. При построении проектов автоматизции нам зачастую приходится прикручивать какие-то логеры или репортеры.
+Для меня репортером по умолчанию является <a href="https://github.com/allure-framework">Allure</a>. С его помощью можно генерировать достаточно информативные
+и понятные отчеты. Но есть у него один небольшой недостаток - если мы хотим логировать шаги теста, то над методами нужно ставить аннотацию <strong>@Step</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Пример:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>class LoginPage{
+
+    private SelenideElement email = $("#email");
+    private SelenideElement password = $("#password")
+    private SelenideElement submitBtn = $(".btnLogin")
+
+    @Step
+    public void loginAs(String name, String password){
+        email.setValue(name)
+        password.setValue(password)
+        submitBtn.click()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Теперь метод <code>loginAs</code> будет отображаться в отчете, так как мы указали над ним аннотацию <code>@Step</code>. Все бы ничего, да вот когда в классе страницы
+не один метод, а 5 или 10, уже становится не так радостно расставлять эти аннотации. К тому же, бывает, пишешь тест, описываешь поведение
+страниц, запускаешь тесты, а потом "Аx, я же забыл поставить аннотации для аллюра". А когда в команде 2-3 человека, приходится следить за этими аннотациями
+в PR, что никак не радует. В один прекрасный день я подумал: можно ведь как-то сделать без аннотаций?..</p>
+</div>
+<div class="paragraph">
+<p>Оказалось, что можно. Allure в своей работе использует <a href="http://www.baeldung.com/aspectj">Aspectj</a>, который мы и можем попробовать хакнуть и использовать для своих целей.</p>
+</div>
+<div class="paragraph">
+<p>Пробуем написать свой класс аспектов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>/**
+ * Created by sergey on 05.06.17.
+ */
+@SuppressWarnings("unused")
+@Aspect
+public class CustomAspect {
+
+  private static Allure ALLURE = Allure.LIFECYCLE;
+
+  @Pointcut("execution(* com.automation.remarks.video.service.pages.*.*(..))")
+  public void anyMethod() {
+    //pointcut body, should be empty
+  }
+
+  @Pointcut("execution(* com.codeborne.selenide.SelenideElement.should*(..))")
+  public void selenide() {
+    //pointcut body, should be empty
+  }
+
+  @Before("anyMethod() || selenide()")
+  public void stepStart(JoinPoint joinPoint) {
+    String stepTitle = createTitle(joinPoint);
+
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    StepStartedEvent startedEvent = new StepStartedEvent(
+        getName(methodSignature.getName(), joinPoint.getArgs())
+    );
+
+    if (!stepTitle.isEmpty()) {
+      startedEvent.setTitle(stepTitle);
+    }
+
+    ALLURE.fire(startedEvent);
+  }
+
+  @AfterThrowing(pointcut = "anyMethod() || selenide()", throwing = "e")
+  public void stepFailed(JoinPoint joinPoint, Throwable e) {
+    ALLURE.fire(new StepFailureEvent().withThrowable(e));
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  @AfterReturning(pointcut = "anyMethod() || selenide()", returning = "result")
+  public void stepStop(JoinPoint joinPoint, Object result) {
+    ALLURE.fire(new StepFinishedEvent());
+  }
+
+  public String createTitle(JoinPoint joinPoint) {
+    MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+    Step step = methodSignature.getMethod().getAnnotation(Step.class);
+    return step == null ? "" : getTitle(step.value(), methodSignature.getName(), joinPoint.getThis(), joinPoint.getArgs());
+  }
+
+
+  /**
+   * For tests only
+   */
+  static void setAllure(Allure allure) {
+    CustomAspect.ALLURE = allure;
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Наверное, для неподготовленного читателя выглядит очень "вырвиглазно". Что я вообще написал? AspectJ оперирует понятиями <strong>Pointcut</strong>,
+которые я и объявил в самом начале класса.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>@Pointcut("execution(* public com.automation.remarks.video.service.pages.*.*(..))")
+public void anyMethod() {
+    //pointcut body, should be empty
+}
+
+@Pointcut("execution(* public com.codeborne.selenide.SelenideElement.should*(..))")
+public void selenide() {
+    //pointcut body, should be empty
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Говоря проще, я написал селекторы, с помощью которых указал AspectJ учитывать только публичные методы из пакета <code>public com.automation.remarks.video.service.pages</code> и
+методы Selenide, которые начинаются со слова <code>should</code>.</p>
+</div>
+<div class="paragraph">
+<p>Далее я объявил условия @Before, @After, @AfterThrowing и @AfterReturning. В @Before мы извлекаем имя метода и его параметры, а в @After либо завершаем
+шаг успешно, либо маркаем, как неуспешный, и прикрепляем к нему текст ошибки. Все достаточно просто.</p>
+</div>
+<div class="paragraph">
+<p>Далее, чтобы это все заработало, нам нужно в папке <strong>src/main/resources/META-INF</strong> создать файлик под названием <strong>aop-ajc.xml</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>&lt;aspectj&gt;
+    &lt;aspects&gt;
+        &lt;aspect name="com.automation.remarks.video.service.pages.utils.CustomAspect"/&gt;
+    &lt;/aspects&gt;
+&lt;/aspectj&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>По факту мы в этом файле просто подключаем наш новый аспект. Теперь можно просто запускать тесты и смотреть на результат точно так же, как мы делали
+это раньше. Таким образом мы избавились от аннотаций в Page объектах и значительно упростили себе жизнь. В целом эта идея работает и имеет право на жизнь.
+Вы можете ее либо переиспользовать, либо развить и поделиться решением со всем миром автоматизации.</p>
+</div>
+<div class="paragraph">
+<p><strong>P/S</strong> Конечно, в таком подходе есть ряд недостатков. Первый: мы жестко завязались на жизненный цикл аллюра. Код, приведенный выше, работает только
+с первой версией, для второй версии нужно будет переписать вызовы <code>ALLURE.fire(new StepFailureEvent().withThrowable(e));</code>.
+Второе: дебажить аспекты практически невозможно (по крайней мере, я не нашел толковых примеров). Есть только упоминания, что вот в Eclipse как-то можно.
+Из-за этого код приходится писать почти вслепую. И третье: с Котлином эта тема не работает, так как сам AspectJ нормально не поддерживает Котлин.</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Allure.html">Allure</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../js/popper.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

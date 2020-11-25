@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Копаемся в закромах Jenkins">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Такая вот темка, о которой захотелось написать после альфа релиза Jenkins 2.0."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        06/03/2016
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Копаемся в закромах Jenkins</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Такая вот темка, о которой захотелось написать после альфа релиза Jenkins 2.0. У нас всех на проектах есть CI сервер. У вас нету? Плохо, нужно срочно завести. Если вы не знаете, что такое Jenkins, можете посмотреть <a href="http://automation-remarks.com/ci-build-tools-for-newbies/">видео</a>, либо почитать о <a href="http://automation-remarks.com/tri-sposoba-podniat-jenkins-ci-dlia-vashikh-avtotiestov/">способах настройки</a> Jenkins CI у себя на проекте.</p>
+</div>
+<div class="paragraph">
+<p>В этой же заметке хочу немного пролить свет на то, как и где хранятся созданные вами задачи, ну и описать такой инструмент как Jenkins Job Builder, о котором я услышал от Алексея Солдатенко на прошедшем SeleniumCamp 2016. Только спустя неделю удалось попробовать этот инструмент.</p>
+</div>
+<div class="paragraph">
+<p>Сейчас все большую популярность набирает <strong>DevOps</strong> направление, а автоматизаторы как никто близки по духу к этой специализации в IT. Когда автоматизатор умеет самостоятельно развернуть тестовую инфраструктуру - это круто. Так вот, чтобы ваша инфраструктура соответствовала духу InfrastructureAsCode, нужно очень хорошо разбираться в инструментах и их особенностях. Скажем, на моем прошлом проекте я был ответственен за настройку и поддержку Jenkins сервера и естественно переживал, дабы чего не хлопнулось, - поэтому делал бекапы. Правда, делал я это косо: просто архивировал папку <strong>${USR_HOME}/.jenkins</strong> в tar архив. Достаточно топорно, зато надежно =)</p>
+</div>
+<div class="paragraph">
+<p>Теперь же хочу поделиться некоторыми полезными советами, которые, возможно, помогут кому-то на проекте.</p>
+</div>
+<div class="paragraph">
+<p>Начну с того, что сейчас я предпочитаю запускать <strong>Jenkins в Docker</strong> контейнере. Делается это простой командой:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">docker run --name myjenkins -p 8080:8080 -p 50000:50000
+-v /your/home:/var/jenkins_home jenkins</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Эта штука отлично работает, в особенности если вам нужен Jenkins для каких-либо экспериментов. Более того, вы можете собрать Jenkins с предустановленными плагинами. Для этого нужно следовать инструкциям, описанным в разделе документации <a href="https://github.com/jenkinsci/docker/blob/master/README.md">Installing more tools</a>.</p>
+</div>
+<div class="paragraph">
+<p>Мое мнение: если следовать этим путем, то можно каждый раз запускать Jenkins со всеми нужными плагинами, не тратя время на их ручную установку. Очень сильно экономит время, к тому же, не нужно держать в голове все имена нужных вам плагинов.</p>
+</div>
+<div class="paragraph">
+<p>P.S. Почему-то на <strong>Windows 10</strong> у меня эта штука не завелась.</p>
+</div>
+<div class="paragraph">
+<p>Если же вы хотите установить какой-то плагин, а его нету в Jenkins репозитории или вам нужна конкретная версия. Вы можете свободно скачать .hpi файлы из этого репозитория и потом просто скопировать их в папку <strong>.jenkins/plugins</strong> и рестартовать ваш сервер.</p>
+</div>
+<div class="paragraph">
+<p>Теперь давайте посмотрим на создание <strong>Job Item</strong>. Раньше я создавал все задачи вручную и особо не переживал, но вот, оказывается, есть отличный инструмент <strong>Jenkins Job Builder</strong>, с помощью которого можно хранить конфигурации в <strong>Yaml</strong> файлах. По умолчанию все созданные задачи хранятся в <strong>config.xml</strong> файлах в папке <strong>.jenkins/jobs/${job_name}</strong>. Вот пример такого <strong>config.xml</strong> для задачи, которая всего лишь извлекает shell команду <strong>echo "Hello"</strong>:</p>
+</div>
+<div class="paragraph">
+<p><code>config.xml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;project&gt;
+  &lt;actions/&gt;
+  &lt;description&gt;&lt;/description&gt;
+  &lt;keepDependencies&gt;false&lt;/keepDependencies&gt;
+  &lt;properties/&gt;
+  &lt;scm class="hudson.scm.NullSCM"/&gt;
+  &lt;canRoam&gt;true&lt;/canRoam&gt;
+  &lt;disabled&gt;false&lt;/disabled&gt;
+  &lt;blockBuildWhenDownstreamBuilding&gt;false&lt;/blockBuildWhenDownstreamBuilding&gt;
+  &lt;blockBuildWhenUpstreamBuilding&gt;false&lt;/blockBuildWhenUpstreamBuilding&gt;
+  &lt;triggers/&gt;
+  &lt;concurrentBuild&gt;false&lt;/concurrentBuild&gt;
+  &lt;builders&gt;
+    &lt;hudson.tasks.Shell&gt;
+      &lt;command&gt;echo &amp;quot;Hello&amp;quot;&lt;/command&gt;
+    &lt;/hudson.tasks.Shell&gt;
+  &lt;/builders&gt;
+  &lt;publishers/&gt;
+  &lt;buildWrappers/&gt;
+&lt;/project&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Достаточно массивно, потому что в <strong>Yaml</strong> формате это выглядит так:</p>
+</div>
+<div class="paragraph">
+<p><code>config.yaml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">- job:
+    name: Test JJB
+    description: 'Do not edit this job through the web!'
+    project-type: freestyle
+    builders:
+    - shell: echo "Hello"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Мое мнение: достаточно удобно, так как можно хранить конфигурации под системой контроля версий вместе с файлом плагинов и не переживать о возможном сбое сервера и потере всех настроек. Правда, разбираться с <strong>Jenkins Job Builder</strong> тоже придется, так как не каждый может взять и сразу написать валидный <strong>Yaml</strong> файл :) Но штука классная.</p>
+</div>
+<div class="paragraph">
+<p>Увы про слейвы ничего такого нету, вы можете просто хранить в git файлы конфигурации из папки <strong>.jenkins/nodes/${node_name}/config.xml</strong>, так как они не слишком большие.</p>
+</div>
+<div class="paragraph">
+<p>Если вы хотите как-то похачить Jenkins, то вот <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Script+Console">здесь</a> есть много полезных скриптов.</p>
+</div>
+<div class="paragraph">
+<p>На этом все.. Если у вас есть чем поделиться, пишите, давайте шарить знания вместе.</p>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Jenkins.html">Jenkins</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/CI.html">CI</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>

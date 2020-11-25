@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="author" content="Сергей Пирогов">
+    <meta name="HandheldFriendly" content="True" />
+
+    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Красивый Soft Assert">
+    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta name="referrer" content="origin">
+
+       <meta property="og:description" content="Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться."/>
+    <link rel="canonical" href="http://automation-remarks.com"/>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <title>Заметки Автоматизатора</title>
+
+    <link href="../css/github.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="../css/album.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+           ga('create', 'UA-57010828-1', 'auto');
+           ga('send', 'pageview');
+    </script>
+  <body>
+<header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class='container'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+
+          </ul>
+          <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/archive.html">Архив</a>
+             </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
+	<div class="album py-5 bg-light">
+       <div class="post-container container">
+            <main class="content" role="main">
+                <article class="post">
+                    <div class="inner inner-post">
+                        <div id="push">
+                            <header class="post-header">
+                                <span class="post-meta">
+                                    <span class="post-author">
+                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                    </span> |
+                                    <span class="post-date">
+                                        24/01/2016
+                                    </span>
+                                </span>
+                                <div class="clear"></div>
+                                <h1 class="post-title">Красивый Soft Assert</h1>
+                            </header>
+
+                            <section class="post-content">
+                                <div class="paragraph">
+<p>Пользовались ли вы когда-либо ассертами? Автоматизаторы не понаслышке знают, что это такое и как им пользоваться. Я уже писал о <a href="http://automation-remarks.com/davaitie-poghovorim-pro-asserty/">библиотеках</a>, которые упрощают написание ассертов и делают их более читабельными.</p>
+</div>
+<div class="paragraph">
+<p>В этой заметке хочу поговорить о <strong>soft assert</strong>. Лично я ими раньше не пользовался, потому что не совсем понятно было, как оно поможет, да в количестве строк кода написание таких ассертов было делом затратным.</p>
+</div>
+<div class="paragraph">
+<p>Вот, скажем, пример <strong>SoftAssert</strong> и <strong>TestNG</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class SoftAsert
+{
+    @Test
+    public void test()
+    {
+        SoftAssert asert=new SoftAssert();
+        asert.assertEquals(false, true,"failed");
+        asert.assertEquals(0, 1,"brokedown");
+        asert.assertAll();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вроде как работает, но выглядит ужасно. К тому же, каждый раз нужно создавать объект и в конце писать <strong>assertAll()</strong>. И это не прихоть одной конкретной библиотеки, такой принцип у всех.</p>
+</div>
+<div class="paragraph">
+<p>Хочу поделиться своим видением ситуации. Если вам что-то не нравится, попробуйте изменить ситуацию. Я так и сделал и заменил <strong>Java</strong> на <strong>Groovy</strong>. Закоренелые читатели блога это заметили давно. Почему? Потому, что <strong>Groovy</strong> позволяет мне быть эффективнее в 2.5-3 раза. Код выглядит читабельнее и проще.</p>
+</div>
+<div class="paragraph">
+<p>Стоит посмотреть на <a href="http://automation-remarks.com/groovy-page/">page object</a>. Ну или на <a href="http://automation-remarks.com/rest-clients/">REST Client</a>.</p>
+</div>
+<div class="paragraph">
+<p>До этого момента в Groovy был очень крутой <strong>assert</strong>, а soft assert не было.</p>
+</div>
+<div class="paragraph">
+<p>Теперь есть, и выглядит он так!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">softAsserts {
+    expect "foo", equalTo("bar")
+    expect 1, equalTo(1)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Круто, не правда ли? Мне такой подход к делу нравится больше. К тому же, в этом коде везде работает автодополнение, а сами ассерты являются оберткой над Hamcrest.</p>
+</div>
+<div class="paragraph">
+<p>Реализация этого счастья выглядит так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">class SoftAsserts {
+    def static failedAssertions = []
+
+    static softAsserts(Closure closure) {
+        new SoftAsserts().bundleAsserts(closure)
+    }
+
+    private bundleAsserts(Closure closure) {
+        closure.resolveStrategy = Closure.DELEGATE_ONLY
+        closure.delegate = this
+        closure()
+
+        if (failedAssertions) {
+            throw new AssertionError("${failedAssertions.size()}
+            failed assertions found:\n ${failedAssertions.
+            message.join('\n')}".toString())
+        }
+    }
+
+    public static &lt;T&gt; void expect(T actual, Matcher&lt;? super T&gt; matcher) {
+        expect("", actual, matcher)
+    }
+
+    public static &lt;T&gt; void expect(String reason, T actual, Matcher&lt;? super T&gt; matcher) {
+        try {
+            if (!matcher.matches(actual)) {
+                Description description = new StringDescription();
+                description.appendText(reason)
+                        .appendText("\nExpected: ")
+                        .appendDescriptionOf(matcher)
+                        .appendText("\n     but: ");
+                matcher.describeMismatch(actual, description);
+
+                throw new AssertionError(description.toString());
+            }
+        } catch (AssertionError e) {
+            failedAssertions &lt;&lt; e
+        }
+    }
+
+    public static void expect(String reason, boolean assertion) {
+        if (!assertion) {
+            try {
+                throw new AssertionError(reason);
+            } catch (AssertionError e) {
+                failedAssertions &lt;&lt; e
+            }
+        }
+    }
+
+    def invokeMethod(String name, args) {
+        try {
+            def actual = args[0]
+            def expected = args[1]
+            assert actual == expected
+        } catch (AssertionError e) {
+            failedAssertions &lt;&lt; e
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Все предельно просто - один класс, в котором реализована вся логика.</p>
+</div>
+<div class="paragraph">
+<p>Тесты с применением этих ассертов становятся очень красивыми и понятными:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">def endpoint = 'http://swapi.co/api/'
+def client = new RESTClient(endpoint)
+def response = client.get(path:'people/1/',accept: ContentType.JSON,headers:['User-agent':'firefox'])
+
+softAsserts {
+    expect response.statusCode, is(200)
+    expect response.json.name, equalTo('Luke Skywalker')
+}</code></pre>
+</div>
+</div>
+                            </section>
+
+                            <footer class="post-footer">
+                                   <div class="post-tags">
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Groovy.html">Groovy</a>
+                                   </div>
+
+                            </footer>
+
+                            <div class="row pl-3 pr-3 training-banner-container">
+                                                                    <div class="col text-center pb-3 pt-2 training-banner">
+                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                    </div>
+                                                        </div>
+
+                            <div class="sidebar-social">
+                                <h5>Подпишись:</h5>
+                                <ul>
+                                <li>
+                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <span>Telegram</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <span>Подкаст</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                  <span>Youtube</span>
+                                </a>
+                                </li>
+
+                                <li>
+                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                      <span>Поддержать</span>
+                                   </a>
+                                </li>
+
+
+                            </div>
+
+
+
+
+                            <div class="row">
+                                  <div class="col-md-12">
+                                        <div class='related-posts-holder'>
+                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                                 <div class="card-deck">
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-s03e16/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">25 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-s03e16/index.html"> -->
+                                                                    QAGuild S03E16: Про тестирование игр: от танчиков до казино
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   Подкаст про тестирование игр
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-s03e16/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live43/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">18 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live43/index.html"> -->
+                                                                    QAGuild live #43: Пробуем Cypress для автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде попробуем написать тесты на Cypress
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live43/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live42/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">09 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live42/index.html"> -->
+                                                                    QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live42/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+
+                                                        <div class="card bg-light mb-3">
+                                                         <a class="linked-card rel-card h-100" target="blank" href="/2020/qaguild-live41/index.html">
+                                                            <div class="related-card card-body d-flex flex-column">
+                                                              <p class="card-text">
+                                                                      <small class="text-muted"><span class="post-date">02 November 2020</span></small>
+                                                              </p>
+                                                              <h5 class="card-title">
+                                                                  <!-- <a href="/2020/qaguild-live41/index.html"> -->
+                                                                    QAGuild live #41: Что Selenium 4 готовит для тестировщика?
+                                                                  <!-- </a> -->
+                                                              </h5>
+
+                                                              <!--
+                                                              <p class="card-text">
+                                                                   В этом эпизоде посмотрели на новые функции Selenium 4
+                                                              </p>
+                                                              -->
+                                                              <!-- <a href="/2020/qaguild-live41/index.html" class="mt-auto card-link">
+                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                              </a> -->
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                 </div>
+                                         </div>
+                                  </div>
+                                  <div class="col-md-6">
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+       </div>
+    </div>
+    <footer class="text-muted page-footer fixed-bottom">
+      <div class="container">
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/holder.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
+    <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
+    </body>
+</html>
