@@ -19,7 +19,7 @@ jobs:
 #      - name: Build the site
 #        run:  ./gradlew clean jbake
 #      - name: Commit files
-        run: |
+      - run: |
             - git config user.name SergeyPirogov
             - git config user.email sergio_89@ukr.net
             - git add -A ./build/jbake/*
