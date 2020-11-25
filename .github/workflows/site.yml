@@ -20,10 +20,7 @@ jobs:
         run:  ./gradlew clean jbake
       - name: Commit files
         run: |
-            - git clone https://github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
-            - cp -R build/jbake/* ../sergeypirogov.github.io.master
-            - cd ../sergeypirogov.github.io.master
-            - ls -la
+            - git comfig. user.name
 #            - git config user.name SergeyPirogov
 #            - git config user.email sergio_89@ukr.net
 #            - git add -A .
