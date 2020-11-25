@@ -20,9 +20,13 @@ jobs:
         run:  ./gradlew clean jbake
       - name: Commit files
         run: |
+            - git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
+            - cp -R build/jbake/* ../sergeypirogov.github.io.master
+            - cd ../sergeypirogov.github.io.master
+            - ls -la
             - git config user.name "${{ secrets.GH_USER_NAME }}"
             - git config user.email "${{ secrets.GH_USER_EMAIL }}"
-            - git add -A ./build/jbake/*
+            - git add -A .
             - git status
             - git commit -m "Deploy to GitHub Pages"
       - name: Push changes
