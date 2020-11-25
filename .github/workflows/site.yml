@@ -26,8 +26,8 @@ jobs:
             - cp -R build/jbake/* ../sergeypirogov.github.io.master
             - cd ../sergeypirogov.github.io.master
             - ls -la
-            - git config user.name "${{ secrets.GH_USER_NAME }}"
-            - git config user.email "${{ secrets.GH_USER_EMAIL }}"
+            - git config user.name SergeyPirogov
+            - git config user.email sergio_89@ukr.net
             - git add -A .
             - git status
             - git commit -m "Deploy to GitHub Pages"
