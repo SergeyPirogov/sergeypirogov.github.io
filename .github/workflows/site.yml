@@ -5,7 +5,7 @@ name: Site CI
 on:
   push:
     branches:
-      - source
+      - master
 
 jobs:
   build:
