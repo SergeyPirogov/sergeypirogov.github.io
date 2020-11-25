@@ -22,7 +22,7 @@ jobs:
         run: git --version
       - name: Commit files
         run: |
-            - git clone https://${{ secrets.GH_TOKEN }}@github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
+            - git clone https://github.com/SergeyPirogov/sergeypirogov.github.io.git ../sergeypirogov.github.io.master
             - cp -R build/jbake/* ../sergeypirogov.github.io.master
             - cd ../sergeypirogov.github.io.master
             - ls -la
