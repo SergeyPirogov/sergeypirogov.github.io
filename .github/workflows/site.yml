@@ -16,3 +16,14 @@ jobs:
           java-version: 1.8
       - name: Build the site
         run:  ./gradlew clean jbake
+      - name: Commit files
+          run: |
+            - git config user.name "${GH_USER_NAME}"
+            - git config user.email "{GH_USER_EMAIL}"
+            - git add -A .
+            - git commit -m "Deploy to GitHub Pages ${TRAVIS_BUILD_NUMBER}"
+      - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ github.ref }}
