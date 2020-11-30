@@ -14,9 +14,30 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 25 Nov 2020 15:46:21 +0000</pubDate>
-    <lastBuildDate>Wed, 25 Nov 2020 15:46:21 +0000</lastBuildDate>
+    <pubDate>Mon, 30 Nov 2020 16:07:32 +0000</pubDate>
+    <lastBuildDate>Mon, 30 Nov 2020 16:07:32 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild: Черная пятница для QA
+          </title>
+          <link>http://automation-remarks.com/2020/black-friday-2020/index.html</link>
+          <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2020/black-friday-2020/index.html</guid>
+          <description>
+                        Черная пятница для QA
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Для тех, кто смотрит стримы в ютубе, уже давно действует промокод, дающий 10% скидки на любой тренинг из списка.
+Следуя чернопятничной моде, решил сделать для читателей скидку 15%. Будет работать до 30 декабря 2020 года.
+Подробности и регистрация на сайте👇&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings&quot; class=&quot;bare&quot;&gt;https://automation-remarks.com/trainings&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild live #44: Как IT специалисту правильно составить резюме?
@@ -801,31 +822,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/skx83odlMv4&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #31: Про SQL и базы данных для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live31/index.html</link>
-          <pubDate>Wed, 1 Jul 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live31/index.html</guid>
-          <description>
-                        В этом эпизоде поговорим про SQL
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде поговорим про SQL для тестировщика&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://automation-remarks.com/trainings/api-python/index.html&quot;&gt;Тренинг по автоматизации тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://donatesystem.io/donate/automation_remarks&quot;&gt;Донат заносить сюда&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/F9ITL4PmW6Y&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
