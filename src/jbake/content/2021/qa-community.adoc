@@ -1,6 +1,6 @@
 = Сообщество Automation remarks
 Сергей Пирогов
-2020-01-18
+2021-01-18
 :jbake-type: post
 :jbake-tags: Telegram
 :jbake-summary: Сообщество Automation remarks
