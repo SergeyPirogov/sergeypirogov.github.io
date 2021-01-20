@@ -1,0 +1,17 @@
+= QAGuild live #47: Стоит ли писать автотесты на Java в 2021 году?
+Сергей Пирогов
+2020-12-20
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Первый стрим в 2021 году
+:jbake-status: published
+
+Поговорим о целесообразности написания автотестов на Java в 2021 году. Какие плюсы, минусы и альтернативы
+
+- Подписывайтесь на http://bit.ly/tg-bot[официальный телеграмм бот]
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KS4He2Pufh4" allowfullscreen></iframe>
+</div>
+++++
