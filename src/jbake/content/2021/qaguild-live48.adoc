@@ -1,15 +1,17 @@
-= QAGuild s04e01: Переезд тестировщика в Калифорнию
+= QAGuild live #48: Говорим про Sorry-Cypress/Cypress для тестировщика
 Сергей Пирогов
-2021-01-28
+2021-02-04
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
-:jbake-summary: В этом эпизоде поговорили про обучение профессии тестировщика и переезд в солнечную Калифорнию
+:jbake-summary: Про Sorry-Cypress/Cypress
 :jbake-status: published
 
-В этом эпизоде поговорили про обучение профессии тестировщика и переезд в солнечную Калифорнию. Очень мотивирующая история человека, который 15 лет проработал анестезиологом, 5 лет совмещал основную работу и работу QA и со временем переехал жить и работать в Калифорнию.
+В этом выпуске гостем был автор проекта sorry-cypess. Поговорили об истории создания проекта, сложностях и будущем его развитии.
 
 ++++
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qrkujfMdSY4" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6_JRHLcwFjs" allowfullscreen></iframe>
 </div>
 ++++
+
+- Подписывайтесь на http://bit.ly/tg-bot[официальный телеграмм бот]
