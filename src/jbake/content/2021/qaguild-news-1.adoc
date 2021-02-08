@@ -1,0 +1,15 @@
+= QAGuild news #1: Новости мира тестирования за январь 2021/ AWS/ Книги/ Зарплаты QA
+Сергей Пирогов
+2021-02-08
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: O новостях мира тестирования за Январь 2021
+:jbake-status: published
+
+В этом выпуске говорили о новостях мира тестирования за Январь 2021: книги, полезные материалы и новые релизы инструментов.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5g0G1VQmeOo" allowfullscreen></iframe>
+</div>
+++++
