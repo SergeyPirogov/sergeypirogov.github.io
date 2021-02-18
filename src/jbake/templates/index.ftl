@@ -14,16 +14,16 @@
 
       <div class="album py-3 bg-light index">
         <div class="container">
-          <!-- <div class="row pl-3 pr-3 training-banner-container">
+          <div class="row pl-3 pr-3 training-banner-container">
             <div class="col text-center pb-3 pt-2 training-banner">
                 <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
             </div>
-          </div> -->
-          <div class="row pl-3 pr-3 mb-3">
+          </div>
+          <!-- <div class="row pl-3 pr-3 mb-3">
             <a href="https://otus.ru/lessons/devops-praktiki-i-instrumenty/?utm_source=partners&utm_medium=cpm&utm_campaign=devops&utm_content=test&utm_term=automation_remarks">
               <img class="img-fluid" src="/images/banner/devops.jpg" height="60"></img>
             </a>
-          </div>
+          </div> -->
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
                 <#list posts as post>
                     <#if (post.status == "published")>
