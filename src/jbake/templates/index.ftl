@@ -19,11 +19,6 @@
                 <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
             </div>
           </div>
-          <!-- <div class="row pl-3 pr-3 mb-3">
-            <a href="https://otus.ru/lessons/devops-praktiki-i-instrumenty/?utm_source=partners&utm_medium=cpm&utm_campaign=devops&utm_content=test&utm_term=automation_remarks">
-              <img class="img-fluid" src="/images/banner/devops.jpg" height="60"></img>
-            </a>
-          </div> -->
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
                 <#list posts as post>
                     <#if (post.status == "published")>
