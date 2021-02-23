@@ -14,15 +14,15 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 23 Feb 2021 15:53:36 +0000</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2021 15:53:36 +0000</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2021 16:00:43 +0000</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2021 16:00:43 +0000</lastBuildDate>
 
         <item>
           <title>
               QAGuild news #1: Новости мира тестирования за январь 2021/ AWS/ Книги/ Зарплаты QA
           </title>
           <link>http://automation-remarks.com/2021/qaguild-news-1/index.html</link>
-          <pubDate>Mon, 8 Feb 2021 00:00:00 +0000</pubDate>
+          <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2021/qaguild-news-1/index.html</guid>
           <description>
                         O новостях мира тестирования за Январь 2021
