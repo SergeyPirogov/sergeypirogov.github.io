@@ -1,6 +1,6 @@
 = QAGuild live #49: Самая частая проблема в сфере тестирования
 Сергей Пирогов
-2021-02-04
+2021-02-23
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: Проблемы QA
