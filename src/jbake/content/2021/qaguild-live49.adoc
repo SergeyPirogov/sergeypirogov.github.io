@@ -1,0 +1,15 @@
+= QAGuild live #49: Самая частая проблема в сфере тестирования
+Сергей Пирогов
+2021-02-04
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Проблемы QA
+:jbake-status: published
+
+В этом выпуске говорили о самой частой проблеме среди тестировщиков.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/k_SYBYbF2iI" allowfullscreen></iframe>
+</div>
+++++
