@@ -14,15 +14,34 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 23 Feb 2021 16:00:43 +0000</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2021 16:00:43 +0000</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2021 16:09:52 +0000</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2021 16:09:52 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild live #49: Самая частая проблема в сфере тестирования
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live49/index.html</link>
+          <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live49/index.html</guid>
+          <description>
+                        Проблемы QA
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о самой частой проблеме среди тестировщиков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/k_SYBYbF2iI&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild news #1: Новости мира тестирования за январь 2021/ AWS/ Книги/ Зарплаты QA
           </title>
           <link>http://automation-remarks.com/2021/qaguild-news-1/index.html</link>
-          <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+          <pubDate>Mon, 8 Feb 2021 00:00:00 +0000</pubDate>
           <guid isPermaLink="false">2021/qaguild-news-1/index.html</guid>
           <description>
                         O новостях мира тестирования за Январь 2021
@@ -59,25 +78,6 @@
 &lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #49: Самая частая проблема в сфере тестирования
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live49/index.html</link>
-          <pubDate>Thu, 4 Feb 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live49/index.html</guid>
-          <description>
-                        Проблемы QA
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о самой частой проблеме среди тестировщиков.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/k_SYBYbF2iI&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
