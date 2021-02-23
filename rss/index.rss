@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 18 Feb 2021 08:36:59 +0000</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2021 08:36:59 +0000</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2021 15:53:36 +0000</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2021 15:53:36 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -59,6 +59,25 @@
 &lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QAGuild live #49: Самая частая проблема в сфере тестирования
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live49/index.html</link>
+          <pubDate>Thu, 4 Feb 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live49/index.html</guid>
+          <description>
+                        Проблемы QA
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о самой частой проблеме среди тестировщиков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/k_SYBYbF2iI&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -720,62 +739,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/fBTQ3v0i9ic&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E13: Про Тест планы и тест стратегии в 2020 году
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e13/index.html</link>
-          <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e13/index.html</guid>
-          <description>
-                        Подкаст про Тест планы и тест стратегии в 2020 году
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/878301127&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Алексей Лупан - эксперт по тестированию и стратегиям&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Антон Мужайло - лучший QA 2019&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:15&lt;/a&gt; - Начало&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:17&lt;/a&gt; - Гости&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:15&lt;/a&gt; - Тест план и тест стратегия&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:28:02&lt;/a&gt; - Что сейчас со стандартами (ISO-29119, IEEE-829, TMMI, ISTQB)&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:37:02&lt;/a&gt; - Как планировать оптимально и с пользой&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:48:49&lt;/a&gt; - Как можно планировать в мире аджайла&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:04&lt;/a&gt; - Как держать планы в актуальном состоянии&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:58:02&lt;/a&gt; - Приводит ли планирование к успеху или это просто лишнее время&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:04:42&lt;/a&gt; - Как быстро сколхозить стратегию&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:11:21&lt;/a&gt; - Где брать примеры или какие книги читать про это все?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:17:15&lt;/a&gt; - Тест менеджмент в эпоху удаленки&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:29:22&lt;/a&gt; - Патроны&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:31:11&lt;/a&gt; - Конец&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
