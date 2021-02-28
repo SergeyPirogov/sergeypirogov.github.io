@@ -1,6 +1,6 @@
 = QAGuild #50: Про Swagger coverage для тестировщика | Reqover
 Сергей Пирогов
-2021-02-23
+2021-02-28
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: Про Swagger coverage
