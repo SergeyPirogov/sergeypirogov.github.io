@@ -1,0 +1,15 @@
+= QAGuild #50: Про Swagger coverage для тестировщика | Reqover
+Сергей Пирогов
+2021-02-23
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про Swagger coverage
+:jbake-status: published
+
+В этом выпуске показал инструмент, который поможет тестировщикам измерить качетсво тестов для API на основе Swagger спецификации.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_LaLEpg0fhA" allowfullscreen></iframe>
+</div>
+++++
