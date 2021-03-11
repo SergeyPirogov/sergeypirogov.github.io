@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 6 Mar 2021 17:42:43 +0000</pubDate>
-    <lastBuildDate>Sat, 6 Mar 2021 17:42:43 +0000</lastBuildDate>
+    <pubDate>Thu, 11 Mar 2021 12:42:35 +0000</pubDate>
+    <lastBuildDate>Thu, 11 Mar 2021 12:42:35 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild s04e02: Переход с позиции Senior QA Automation в Senior Frontent developer
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-s4e02/index.html</link>
+          <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-s4e02/index.html</guid>
+          <description>
+                        В этом эпизоде поговорили про переезд тестировщика Амстердам и переход с позиции Senior QA Automation в Senior Frontend developer
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом эпизоде поговорили про переезд тестировщика Амстердам и переход с позиции Senior QA Automation в Senior Frontend developer&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/3ILmLBuhevw&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild #50: Про Swagger coverage для тестировщика | Reqover
@@ -676,47 +695,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XRukn7_E9zs&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #38: Что лучше взять для автоматизации тестирования, Selenium или Selenide?
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live38/index.html</link>
-          <pubDate>Mon, 7 Sep 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live38/index.html</guid>
-          <description>
-                        В этом эпизоде поговорим про то, что лучше выбрать Selenium или Selenide?
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/_0FAPshi-8U&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
