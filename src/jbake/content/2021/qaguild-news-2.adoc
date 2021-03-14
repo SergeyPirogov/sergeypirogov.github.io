@@ -1,6 +1,6 @@
 = QAGuild news #2: Новости мира тестирования за февраль 2021 | Карьера QA/WDIO/ VS Code
 Сергей Пирогов
-2021-02-08
+2021-03-14
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: O новостях мира тестирования за февраль 2021
