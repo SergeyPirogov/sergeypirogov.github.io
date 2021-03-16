@@ -1,0 +1,15 @@
+= QAGuild #51: Генерация PageObject в Intellij Idea для тестировщика
+Сергей Пирогов
+2021-03-16
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Selenium plugin в Intellij Idea
+:jbake-status: published
+
+В этом выпуске говорили о новой возможности в Intelij Idea  - герерации Page Object для ускорения создания автотестов. Оценили ее полезность для тестировщиков.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/enJrkHnb_Yo" allowfullscreen></iframe>
+</div>
+++++
