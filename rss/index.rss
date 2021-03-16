@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 14 Mar 2021 14:04:47 +0000</pubDate>
-    <lastBuildDate>Sun, 14 Mar 2021 14:04:47 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Mar 2021 11:21:56 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Mar 2021 11:21:56 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild #51: Генерация PageObject в Intellij Idea для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live51/index.html</link>
+          <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live51/index.html</guid>
+          <description>
+                        Selenium plugin в Intellij Idea
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новой возможности в Intelij Idea  - герерации Page Object для ускорения создания автотестов. Оценили ее полезность для тестировщиков.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/enJrkHnb_Yo&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild news #2: Новости мира тестирования за февраль 2021 | Карьера QA/WDIO/ VS Code
@@ -633,47 +652,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #40: Что лучше Selenium IDE или Playwright CLI для тестирования?
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live40/index.html</link>
-          <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live40/index.html</guid>
-          <description>
-                        В этом эпизоде поговорим про Playwright CLI и сравним его с Selenium IDE. Кто победит в это битве взглядов?
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/r6nlNrE-ARE&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
