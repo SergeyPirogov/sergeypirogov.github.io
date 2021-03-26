@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 16 Mar 2021 11:21:56 +0000</pubDate>
-    <lastBuildDate>Tue, 16 Mar 2021 11:21:56 +0000</lastBuildDate>
+    <pubDate>Fri, 26 Mar 2021 08:13:02 +0000</pubDate>
+    <lastBuildDate>Fri, 26 Mar 2021 08:13:02 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечер грязи #1: Чем отличается работа QA в большой и маленькой компании?
+          </title>
+          <link>http://automation-remarks.com/2021/dirty-night/index.html</link>
+          <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/dirty-night/index.html</guid>
+          <description>
+                        Selenium plugin в Intellij Idea
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В прошлую субботу мы тестировали голосовой чат в телеграмм. Формат получил много хороших отзывов, поэтому будем делать его на постоянной основе. В прошлый раз говорили о различиях работы в большой компании, маленькой и стартапе.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/49052375&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/49052375&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild #51: Генерация PageObject в Intellij Idea для тестировщика
@@ -590,59 +609,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
   &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:35&lt;/a&gt; - ML и AI зачем&lt;/li&gt;
   &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:26:52&lt;/a&gt; - Патронs&lt;/li&gt;
   &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:29&lt;/a&gt; - Конец&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E14: SecOps - второе пришествие
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e14/index.html</link>
-          <pubDate>Mon, 5 Oct 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e14/index.html</guid>
-          <description>
-                        Подкаст про DevSecOps
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/902593087&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Денис Якимов - специалист по безопасности&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:50&lt;/a&gt; - Начало&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:01:54&lt;/a&gt; - Как попал в айти?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:57&lt;/a&gt; - Зачем нужен SecOps&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:07:43&lt;/a&gt; - Моделирование угроз&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:10:50&lt;/a&gt; - Как сделать что бы секьюрити не замедляла ваше приложение&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:16:26&lt;/a&gt; - С чего начать внедрение&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:26:03&lt;/a&gt; - Кто этим может заниматься&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:29:28&lt;/a&gt; - Где можно научиться&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:36&lt;/a&gt; - В какое место пайплайна встраивать SecOps&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:43:38&lt;/a&gt; - Чем сканировать Docker&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:49&lt;/a&gt; - Как продать DevSecOps&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:51:40&lt;/a&gt; - Про деньги&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:05:55&lt;/a&gt; - Патроны&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
