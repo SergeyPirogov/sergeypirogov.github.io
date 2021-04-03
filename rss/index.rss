@@ -14,18 +14,18 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 26 Mar 2021 08:13:02 +0000</pubDate>
-    <lastBuildDate>Fri, 26 Mar 2021 08:13:02 +0000</lastBuildDate>
+    <pubDate>Sat, 3 Apr 2021 07:32:44 +0000</pubDate>
+    <lastBuildDate>Sat, 3 Apr 2021 07:32:44 +0000</lastBuildDate>
 
         <item>
           <title>
               Вечер грязи #1: Чем отличается работа QA в большой и маленькой компании?
           </title>
-          <link>http://automation-remarks.com/2021/dirty-night/index.html</link>
-          <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/dirty-night/index.html</guid>
+          <link>http://automation-remarks.com/2021/dirty-night-1/index.html</link>
+          <pubDate>Fri, 2 Apr 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/dirty-night-1/index.html</guid>
           <description>
-                        Selenium plugin в Intellij Idea
+                        Вечер грязи
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
@@ -33,6 +33,25 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/49052375&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/49052375&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              Вечер грязи #0: Как выжить в токсичном IT мире?
+          </title>
+          <link>http://automation-remarks.com/2021/dirty-night/index.html</link>
+          <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/dirty-night/index.html</guid>
+          <description>
+                        Вечер грязи
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Разговор о различных типах токсичнх сотрудников. Почему это плохо и как с ними общаться.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-1-49263064&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/vecher-griazi-1-49263064&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -566,58 +585,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/d7aq0aXYEss&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E15: Visual Testing из Open Source
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e15/index.html</link>
-          <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e15/index.html</guid>
-          <description>
-                        Подкаст про Visual Testing
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/906020350&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Павел Стрункин - автор Visual Regression Tracker&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Темы:&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul class=&quot;timecoder&quot;&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:05&lt;/a&gt; - Начало&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:00:53&lt;/a&gt; - Как попал в айти&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:02:32&lt;/a&gt; - Зачем нужен вижуал тестинг&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:04:38&lt;/a&gt; - Что под капотом, селениум?&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:13:13&lt;/a&gt; - Как это работает&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:35:16&lt;/a&gt; - Как настроить эту балалайку&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:38:02&lt;/a&gt; - Сколько нужно вложить времени в создание сценариев&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:40:10&lt;/a&gt; - Какие проблемы&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:42:28&lt;/a&gt; - Стоит ли за это платить деньги&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;00:47:35&lt;/a&gt; - ML и AI зачем&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:26:52&lt;/a&gt; - Патронs&lt;/li&gt;
-  &lt;li&gt;&lt;a class=&quot;timecode&quot;&gt;01:30:29&lt;/a&gt; - Конец&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
