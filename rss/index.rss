@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 3 Apr 2021 07:32:44 +0000</pubDate>
-    <lastBuildDate>Sat, 3 Apr 2021 07:32:44 +0000</lastBuildDate>
+    <pubDate>Wed, 14 Apr 2021 06:01:32 +0000</pubDate>
+    <lastBuildDate>Wed, 14 Apr 2021 06:01:32 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild news #3: Selenium в AWS/TypeScript/TMS в Idea/Лычки тестировщиков
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-3/index.html</link>
+          <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-3/index.html</guid>
+          <description>
+                        O новостях мира тестирования за март 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/yqhasS7vF6M&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Вечер грязи #1: Чем отличается работа QA в большой и маленькой компании?
@@ -544,47 +563,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ysrioQ1ZyI4&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #41: Что Selenium 4 готовит для тестировщика?
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live41/index.html</link>
-          <pubDate>Mon, 2 Nov 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live41/index.html</guid>
-          <description>
-                        В этом эпизоде посмотрели на новые функции Selenium 4
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/d7aq0aXYEss&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
