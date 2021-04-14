@@ -1,0 +1,15 @@
+= QAGuild news #3: Selenium в AWS/TypeScript/TMS в Idea/Лычки тестировщиков
+Сергей Пирогов
+2021-04-14
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube, News
+:jbake-summary: O новостях мира тестирования за март 2021
+:jbake-status: published
+
+В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yqhasS7vF6M" allowfullscreen></iframe>
+</div>
+++++
