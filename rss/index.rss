@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 14 Apr 2021 06:01:32 +0000</pubDate>
-    <lastBuildDate>Wed, 14 Apr 2021 06:01:32 +0000</lastBuildDate>
+    <pubDate>Mon, 26 Apr 2021 06:33:54 +0000</pubDate>
+    <lastBuildDate>Mon, 26 Apr 2021 06:33:54 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечер грязи #3: Что происходит с зарплатами тестировщиков?
+          </title>
+          <link>http://automation-remarks.com/2021/dirty-night-3/index.html</link>
+          <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/dirty-night-3/index.html</guid>
+          <description>
+                        Вечер грязи
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Очередной выпуск &quot;вечера грязи&quot;. В этот раз говорили про больную тему зарплат. Что, кто и сколько. Нормально ли это - джуниор за 1200 или middle за 2500. Также поговорили про опционы и прочие бенефиты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/50485698&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/50485698&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild news #3: Selenium в AWS/TypeScript/TMS в Idea/Лычки тестировщиков
@@ -522,47 +541,6 @@ src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/trac
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/N1y35XqWNiM&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #42: 3 вещи которые нужно сделать перед созданием автотестов
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live42/index.html</link>
-          <pubDate>Mon, 9 Nov 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live42/index.html</guid>
-          <description>
-                        В этом эпизоде поговорили о важных аспектах, которые надо учесть до начала создания автотестов
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/3joWD2G&quot;&gt;Автоматизация тестирования API с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/32JtqIW&quot;&gt;Автоматизация тестирования API с помощью Python&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/39gMcub&quot;&gt;Автоматизация тестирования бекенда с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/31JzbHB&quot;&gt;Aвтоматизация тестирования UI с помощью Java&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/34Qz1QK&quot;&gt;Тренинг по настройке Jenkins CI для тестировщика&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2EPN6mi&quot;&gt;Тренинг по работе с базами данных Java + SQL&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ysrioQ1ZyI4&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
