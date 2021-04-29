@@ -1,0 +1,15 @@
+= QAGuild #52: Как выбрать курсы тестировщиков?
+Сергей Пирогов
+2021-04-29
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про выбор курсов
+:jbake-status: published
+
+В этом видео вы узнаете о том, на какие аспекты нужно обращать внимание при выборе курсов для тестировщика. Узнаете про альтернативные способы обучения, такие как менторинг, тренинги и самообучение.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bceDLtU1WhY" allowfullscreen></iframe>
+</div>
+++++
