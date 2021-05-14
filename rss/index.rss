@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 14 May 2021 08:10:37 +0000</pubDate>
-    <lastBuildDate>Fri, 14 May 2021 08:10:37 +0000</lastBuildDate>
+    <pubDate>Fri, 14 May 2021 14:54:09 +0000</pubDate>
+    <lastBuildDate>Fri, 14 May 2021 14:54:09 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -50,9 +50,13 @@
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Очередной выпуск &quot;вечера грязи&quot;. В этот раз говорили про больную тему зарплат. Что, кто и сколько. Нормально ли это - джуниор за 1200 или middle за 2500. Также поговорили про опционы и прочие бенефиты.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/50485698&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/50485698&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;audio class=&apos;audio-player&apos;
+    controls
+    src=&quot;https://c10.patreonusercontent.com/3/eyJhIjoxLCJwIjoxfQ%3D%3D/patreon-media/p/post/50485698/cfb7629c57d24905a706f27eddc4275e/1.mp3?token-time=1621123200&amp;token-hash=p9ApokVUDSl01ZhhPPkhoPn0M_NcjZBV_D6mYVqcBGU%3D&quot;&gt;
+    Your browser does not support the
+    &lt;code&gt;audio&lt;/code&gt; element.
+&lt;/audio&gt;
+&lt;a href=&quot;https://www.patreon.com/bePatron?u=9260642&quot; data-patreon-widget-type=&quot;become-patron-button&quot;&gt;Become a Patron!&lt;/a&gt;&lt;script async src=&quot;https://c6.patreon.com/becomePatronButton.bundle.js&quot;&gt;&lt;/script&gt;
           </content:encoded>
         </item>
         <item>
@@ -88,9 +92,13 @@
                         &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;В прошлую субботу мы тестировали голосовой чат в телеграмм. Формат получил много хороших отзывов, поэтому будем делать его на постоянной основе. В прошлый раз говорили о различиях работы в большой компании, маленькой и стартапе.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/49052375&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/49052375&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;audio class=&apos;audio-player&apos;
+    controls
+    src=&quot;https://c10.patreonusercontent.com/3/eyJhIjoxLCJwIjoxfQ%3D%3D/patreon-media/p/post/49052375/b1af5a49a6a2419fbc76153c551c3640/1.mp3?token-time=1621123200&amp;token-hash=4DpqHc_AB3uHOnHDDks5Gkn3rEg8jur6Q-q80Kfpxm8%3D&quot;&gt;
+    Your browser does not support the
+    &lt;code&gt;audio&lt;/code&gt; element.
+&lt;/audio&gt;
+&lt;a href=&quot;https://www.patreon.com/bePatron?u=9260642&quot; data-patreon-widget-type=&quot;become-patron-button&quot;&gt;Become a Patron!&lt;/a&gt;&lt;script async src=&quot;https://c6.patreon.com/becomePatronButton.bundle.js&quot;&gt;&lt;/script&gt;
           </content:encoded>
         </item>
         <item>
