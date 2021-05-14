@@ -8,4 +8,12 @@
 
 В прошлую субботу мы тестировали голосовой чат в телеграмм. Формат получил много хороших отзывов, поэтому будем делать его на постоянной основе. В прошлый раз говорили о различиях работы в большой компании, маленькой и стартапе.
 
-Запись доступна по ссылке: https://www.patreon.com/posts/49052375
+++++
+<audio class='audio-player'
+    controls
+    src="https://c10.patreonusercontent.com/3/eyJhIjoxLCJwIjoxfQ%3D%3D/patreon-media/p/post/49052375/b1af5a49a6a2419fbc76153c551c3640/1.mp3?token-time=1621123200&token-hash=4DpqHc_AB3uHOnHDDks5Gkn3rEg8jur6Q-q80Kfpxm8%3D">
+    Your browser does not support the
+    <code>audio</code> element.
+</audio>
+<a href="https://www.patreon.com/bePatron?u=9260642" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+++++
