@@ -13,10 +13,10 @@
           </ul>
           <ul class="navbar-nav">
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+               <a class="nav-link" target=blank href="https://www.youtube.com/qaguild">Youtube</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+               <a class="nav-link" target=blank href="https://t.me/automation_remarks">Телеграм</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="/archive.html">Архив</a>

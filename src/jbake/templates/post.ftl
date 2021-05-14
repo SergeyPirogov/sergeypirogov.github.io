@@ -53,30 +53,30 @@
                                 <h5>Подпишись:</h5>
                                 <ul>
                                 <li>
-                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                <a href="https://t.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
                                   <i class="fa fa-telegram" aria-hidden="true"></i>
                                   <span>Telegram</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                <a href="https://www.patreon.com/automation_remarks?filters[tag]=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%20%D0%B3%D1%80%D1%8F%D0%B7%D0%B8" class="podcast" target="_blank" rel="nofollow">
                                   <i class="fa fa-podcast" aria-hidden="true"></i>
                                   <span>Подкаст</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <a href="https://www.youtube.com/qaguild" class="youtube" target="_blank" rel="nofollow">
                                 <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                   <span>Youtube</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="9nofollow">
                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                      <span>Поддержать</span>
+                                      <span>Patreon</span>
                                    </a>
                                 </li>
 
