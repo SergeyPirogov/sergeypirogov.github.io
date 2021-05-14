@@ -24,7 +24,7 @@ jobs:
           architecture: x64
           
       - name: Build the site
-        run: ./gradlew clean jbake
+        run: ./gradlew clean bake
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
