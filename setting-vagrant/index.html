@@ -11,23 +11,23 @@
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Тюнингуем Vagrant box">
-    <meta property="og:image" content="../images/blog-logo.png"/>
+    <meta property="og:image" content="/../../images/blog-logo.png"/>
     <meta name="referrer" content="origin">
 
        <meta property="og:description" content="Снова о Vagrant"/>
     <link rel="canonical" href="http://automation-remarks.com"/>
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/../../images/favicon.ico" type="image/x-icon">
 
     <title>Заметки Автоматизатора</title>
 
-    <link href="../css/github.css" rel="stylesheet">
+    <link href="/../../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="/../../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href="../css/album.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="/../../css/album.css" rel="stylesheet">
+    <link href="/../../css/main.css" rel="stylesheet">
 
     <script>
            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -54,10 +54,10 @@
           </ul>
           <ul class="navbar-nav">
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://soundcloud.com/qaguild">Подкаст</a>
+               <a class="nav-link" target=blank href="https://www.youtube.com/qaguild">Youtube</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://tttttt.me/automation_remarks">Телеграм</a>
+               <a class="nav-link" target=blank href="https://t.me/automation_remarks">Телеграм</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="/archive.html">Архив</a>
@@ -113,7 +113,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">mkdir vagrant_box
+<pre class="prettyprint highlight"><code data-lang="xml">mkdir vagrant_box
 cd vagrant_box
 vagrant init ubuntu/trusty64; vagrant up --provider virtualbox</code></pre>
 </div>
@@ -123,7 +123,7 @@ vagrant init ubuntu/trusty64; vagrant up --provider virtualbox</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.network :private_network, ip: "192.168.33.10"
+<pre class="prettyprint highlight"><code data-lang="xml">config.vm.network :private_network, ip: "192.168.33.10"
 config.vm.network :public_network</code></pre>
 </div>
 </div>
@@ -132,7 +132,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant reload</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">vagrant reload</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -143,7 +143,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant status</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">vagrant status</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -151,7 +151,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant ssh</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">vagrant ssh</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -165,7 +165,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml"># Enable provisioning with a shell script. Additional provisioners such as
+<pre class="prettyprint highlight"><code data-lang="xml"># Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   # config.vm.provision "shell", inline: &lt;&lt;-SHELL
@@ -179,7 +179,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.provision "shell", path: "java.sh"</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">config.vm.provision "shell", path: "java.sh"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -187,7 +187,7 @@ config.vm.network :public_network</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">#! /usr/bin/env bash
+<pre class="prettyprint highlight"><code data-lang="xml">#! /usr/bin/env bash
 echo "Installing java 7"
 sudo apt-get install -y python-software-properties
 sudo add-apt-repository -y ppa:webupd8team/java
@@ -212,7 +212,7 @@ echo "Java 7 installation finished"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant reload --provision</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">vagrant reload --provision</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -220,7 +220,7 @@ echo "Java 7 installation finished"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">vagrant up --provision</code></pre>
+<pre class="prettyprint highlight"><code data-lang="xml">vagrant up --provision</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -228,7 +228,7 @@ echo "Java 7 installation finished"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">config.vm.provision "shell", inline: &lt;&lt;-SHELL
+<pre class="prettyprint highlight"><code data-lang="xml">config.vm.provision "shell", inline: &lt;&lt;-SHELL
     echo "Start nodejs installation"
     sudo apt-get install -y curl
     curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -264,30 +264,30 @@ SHELL</code></pre>
                                 <h5>Подпишись:</h5>
                                 <ul>
                                 <li>
-                                <a href="https://tttttt.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
+                                <a href="https://t.me/automation_remarks" class="telegram" target="_blank" rel="nofollow">
                                   <i class="fa fa-telegram" aria-hidden="true"></i>
                                   <span>Telegram</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                <a href="https://soundcloud.com/qaguild" class="podcast" target="_blank" rel="nofollow">
+                                <a href="https://www.patreon.com/automation_remarks?filters[tag]=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%20%D0%B3%D1%80%D1%8F%D0%B7%D0%B8" class="podcast" target="_blank" rel="nofollow">
                                   <i class="fa fa-podcast" aria-hidden="true"></i>
                                   <span>Подкаст</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                <a href="https://www.youtube.com/channel/UCHtyBZ2XbtsRmNiAxh48RGg?view_as=subscriber" class="youtube" target="_blank" rel="nofollow">
+                                <a href="https://www.youtube.com/qaguild" class="youtube" target="_blank" rel="nofollow">
                                 <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                   <span>Youtube</span>
                                 </a>
                                 </li>
 
                                 <li>
-                                   <a href="https://donatesystem.io/donate/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="9nofollow">
                                    <i class="fa fa-money" aria-hidden="true"></i>
-                                      <span>Поддержать</span>
+                                      <span>Patreon</span>
                                    </a>
                                 </li>
 
@@ -424,15 +424,15 @@ SHELL</code></pre>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="/../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../js/popper.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/holder.js"></script>
+    <script src="/../../js/popper.js"></script>
+    <script src="/../../js/bootstrap.js"></script>
+    <script src="/../../js/holder.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="/../../js/script.js"></script>
     <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
