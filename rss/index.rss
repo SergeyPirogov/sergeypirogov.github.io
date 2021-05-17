@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 14 May 2021 14:54:09 +0000</pubDate>
-    <lastBuildDate>Fri, 14 May 2021 14:54:09 +0000</lastBuildDate>
+    <pubDate>Mon, 17 May 2021 06:19:09 +0000</pubDate>
+    <lastBuildDate>Mon, 17 May 2021 06:19:09 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA News #4: Конец Protractor/Мощный Cypress/Проблемы WebdriverIO/Советы тестировщикам
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-4/index.html</link>
+          <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-4/index.html</guid>
+          <description>
+                        O новостях мира тестирования за апрель 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/A_DrPVf-tkM&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QAGuild #52: Как выбрать курсы тестировщиков?
@@ -483,44 +502,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Hca0MnniqqI&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild S03E16: Про тестирование игр: от танчиков до казино
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-s03e16/index.html</link>
-          <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-s03e16/index.html</guid>
-          <description>
-                        Подкаст про тестирование игр
-          </description>
-          <content:encoded>
-                        &lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot;
-src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/934383358&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;
-&lt;/iframe&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Гости:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Александр Шуков - тестирует World of Tanks&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Александр Романов - тестирует казино и казуальные игры&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/automation_remarks&quot;&gt;Стать патроном&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Спасибо патронам:Tetiana Hrybok, Vitaly Fedrunov, Anastasiya Mazheika, Mykola Podolianiuk, Nikita Verbitsky, Олександр Пелих, Nikolay Georgievskiy, Vladimir Shukhov, Oleksandr Lazorenko, Andrey Lazuk, Арина Аригри, Oleksandr Shapovalov, Yevhenii Hrytsai, Kuptsov Ivan, Tiko, Oleksandr Demeniuk, Валентин Ханмамедов, Alex Hramovich&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
