@@ -1,0 +1,15 @@
+= QA News #4: Конец Protractor/Мощный Cypress/Проблемы WebdriverIO/Советы тестировщикам
+Сергей Пирогов
+2021-05-17
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube, News
+:jbake-summary: O новостях мира тестирования за апрель 2021
+:jbake-status: published
+
+В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A_DrPVf-tkM" allowfullscreen></iframe>
+</div>
+++++
