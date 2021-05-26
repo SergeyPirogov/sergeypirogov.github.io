@@ -1,6 +1,6 @@
 = QAGuild #53: Тестирование api на python и schemathesis
 Сергей Пирогов
-2021-04-29
+2021-05-26
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: Про python schemathesis
