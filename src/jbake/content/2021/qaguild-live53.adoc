@@ -1,0 +1,15 @@
+= QAGuild #53: Тестирование api на python и schemathesis
+Сергей Пирогов
+2021-04-29
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Про python schemathesis
+:jbake-status: published
+
+В этом выпуске говорили о тестировании REST API с помощью schemathesis. Вы узнаете о возможностях этого инструмента и вариантах применения. Все что нужно, чтобы начать его использовать - валидная Swagger/Open API схема.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/y5zSVa9GlY0" allowfullscreen></iframe>
+</div>
+++++
