@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 26 May 2021 06:27:41 +0000</pubDate>
-    <lastBuildDate>Wed, 26 May 2021 06:27:41 +0000</lastBuildDate>
+    <pubDate>Wed, 26 May 2021 06:29:00 +0000</pubDate>
+    <lastBuildDate>Wed, 26 May 2021 06:29:00 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QAGuild #53: Тестирование api на python и schemathesis
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live53/index.html</link>
+          <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live53/index.html</guid>
+          <description>
+                        Про python schemathesis
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о тестировании REST API с помощью schemathesis. Вы узнаете о возможностях этого инструмента и вариантах применения. Все что нужно, чтобы начать его использовать - валидная Swagger/Open API схема.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/y5zSVa9GlY0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA News #4: Конец Protractor/Мощный Cypress/Проблемы WebdriverIO/Советы тестировщикам
@@ -52,25 +71,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/bceDLtU1WhY&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild #53: Тестирование api на python и schemathesis
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live53/index.html</link>
-          <pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live53/index.html</guid>
-          <description>
-                        Про python schemathesis
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о тестировании REST API с помощью schemathesis. Вы узнаете о возможностях этого инструмента и вариантах применения. Все что нужно, чтобы начать его использовать - валидная Swagger/Open API схема.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/y5zSVa9GlY0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
