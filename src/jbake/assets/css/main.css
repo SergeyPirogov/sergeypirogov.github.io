@@ -350,8 +350,12 @@ ul.actions li {
 
 .training-form {
   width: 69%;
-  margin-top: 2em;
+  margin-top: 1em;
   padding-left: 5px;
+}
+
+.payment-btn {
+  margin-top: 1.25rem;
 }
 
 .payment-sub-header {
