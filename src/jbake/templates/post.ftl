@@ -7,7 +7,7 @@
 
         <div class="row pl-3 pr-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
-                    <a href="/2021/qa-community/index.html">Присоединяйтесь в сообщество тестировщиков Automation remarks</a>
+                    <a href="https://t.me/automation_remarks">Присоединяйтесь в Telegram</a>
                 </div>
         </div>
 
