@@ -381,6 +381,8 @@ ul.actions li {
 
 .training-banner a {
   color: brown;
+  font-size: large;
+  font-weight: 400;
 }
 
 .training-banner a:hover {
