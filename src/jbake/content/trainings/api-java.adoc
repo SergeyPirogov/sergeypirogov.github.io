@@ -18,3 +18,13 @@ state=active
 * Jenkins CI
 
 Длительность 3 часа.
+
+++++
+<div class='payment-btn'>
+    <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+    <a href="https://pay.fondy.eu/s/fTr5KQCcevi91ifc" data-button="" class="f-p-b" style="--fpb-background:#19b616; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:0px; --fpb-font-weight:400; --fpb-font-size:18px; --fpb-border-radius:8px;">
+    <i data-text="name">Оплатить</i>
+    <i data-text="amount">30 USD</i>
+    <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+</div>
+++++
