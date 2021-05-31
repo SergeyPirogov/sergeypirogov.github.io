@@ -358,6 +358,10 @@ ul.actions li {
   margin-top: 1.25rem;
 }
 
+.payment-btn a {
+  border-bottom: none;
+}
+
 .payment-sub-header {
   font-weight: 400;
 }
