@@ -1,0 +1,15 @@
+= QAGuild #54: Что должен знать тестировщик? Топ 3 навыка для QA Automation engineer
+Сергей Пирогов
+2021-06-03
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Топ 3 навыка для QA Automation engineer
+:jbake-status: published
+
+Один из частых вопросов для тестировщиков о развитии профессиональных навыков. В этом выпуске рассказал о навыках для тестировщиков, которые помогут в развитии карьеры. Топ 3 навыка которые нужно развивать как Junior QA так и опытным Senior тестировщикам.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XgMGjRAQZJg" allowfullscreen></iframe>
+</div>
+++++
