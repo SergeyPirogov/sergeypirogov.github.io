@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 18 Jun 2021 06:41:16 +0000</pubDate>
-    <lastBuildDate>Fri, 18 Jun 2021 06:41:16 +0000</lastBuildDate>
+    <pubDate>Wed, 30 Jun 2021 06:24:46 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Jun 2021 06:24:46 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Рабочее место тестировщика/рабочее место на балконе
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live54/index.html</link>
+          <pubDate>Wed, 30 Jun 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live54/index.html</guid>
+          <description>
+                        Про рабочее место на балконе
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео расскажу о своем рабочем месте на балконе. Плюсы, минусы и недочеты во время оформления места работы для тестировщика.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/zzJa7XBoVVE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA News #5: Вечера грязи для тестировщика/Quality Architect/DOU QA дайджест/Тестовые данные
@@ -410,32 +429,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Чтобы присоединиться к сообществу, подписывайся на бот &lt;a href=&quot;https://t.me/automation_remarks_bot&quot;&gt;@automation_remarks_bot&lt;/a&gt;. Первая неделя - бесплатно, ты сможешь читать новости, потом нужно будет стать патроном 💸. Всем мир🙌&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #46: Подводим итоги 2020 для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2020/qaguild-live46/index.html</link>
-          <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2020/qaguild-live46/index.html</guid>
-          <description>
-                        Подводим итоги 2020, говорим о самых интересных проектах в сфере тестирования и новостях года.
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Список тренингов, которые вы можете пройти онлайн:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/nw4xv8KW-FI&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
