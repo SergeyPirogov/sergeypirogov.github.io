@@ -1,0 +1,18 @@
+title=Тренинг по автоматизации c подходом Test Cases as Code
+type=trainingPage
+status=published
+summary=Технологии: Java 8, Gradle, TestRail, Intelij Idea
+price=30$
+state=active
+~~~~~~
+
+Тренинг в котором показано как построить проект к управлению тестами как код (Test Cases as a Code)
+
+Технологии c которыми познакомитесь:
+
+* Java 8
+* Intelij Idea
+* Gradle
+* TestRail
+
+Длительность 3 часа.
