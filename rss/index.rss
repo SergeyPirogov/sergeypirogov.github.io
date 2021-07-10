@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 10 Jul 2021 06:41:18 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Jul 2021 06:41:18 +0000</lastBuildDate>
+    <pubDate>Sat, 10 Jul 2021 16:05:11 +0000</pubDate>
+    <lastBuildDate>Sat, 10 Jul 2021 16:05:11 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -33,6 +33,25 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/zzJa7XBoVVE&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QA News #6: Вечера грязи для тестировщика/Медленный Cypress/Фаулер про пирамиду
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-6/index.html</link>
+          <pubDate>Tue, 8 Jun 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-6/index.html</guid>
+          <description>
+                        O новостях мира тестирования за май 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за май 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;, медленный Cypress, Фаулер про пирамиду.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/oA43q-hwT1k&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -390,45 +409,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/KS4He2Pufh4&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Сообщество Automation remarks
-          </title>
-          <link>http://automation-remarks.com/2021/qa-community/index.html</link>
-          <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qa-community/index.html</guid>
-          <description>
-                        Сообщество Automation remarks
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Пришло время обнуляться и сделать анонс бота &lt;a href=&quot;https://t.me/automation_remarks_bot&quot;&gt;@automation_remarks_bot&lt;/a&gt; и привязанного к нему чата. Я решил создать его с целью развития комьюнити и создания места, где люди говорят о тестировании без флуда, рекламы и токсичных участников. Места, где люди не стесняются задавать вопросы и делиться опытом (необязательно успешным).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Что там будет:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;📌 регулярные посты, новости, ссылки на закрытые YouTube стримы и ранний доступ к подкасту;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;📌 1 раз в месяц будем собираться и обсуждать новости индустрии (сначала онлайн, а как попустит корону, попробуем делать митапы оффлайн);&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;📌 закрытый чат с модерацией.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Что будет с бесплатным каналом?
-Он продолжит свое существование на прежней основе, уменьшится частота постов.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Чтобы присоединиться к сообществу, подписывайся на бот &lt;a href=&quot;https://t.me/automation_remarks_bot&quot;&gt;@automation_remarks_bot&lt;/a&gt;. Первая неделя - бесплатно, ты сможешь читать новости, потом нужно будет стать патроном 💸. Всем мир🙌&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
