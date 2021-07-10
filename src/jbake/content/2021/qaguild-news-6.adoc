@@ -1,0 +1,15 @@
+= QA News #6: Вечера грязи для тестировщика/Медленный Cypress/Фаулер про пирамиду
+Сергей Пирогов
+2021-06-08
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube, News
+:jbake-summary: O новостях мира тестирования за май 2021
+:jbake-status: published
+
+В этом выпуске говорили о новостях мира тестирования за май 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды "Вечера грязи", медленный Cypress, Фаулер про пирамиду.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oA43q-hwT1k" allowfullscreen></iframe>
+</div>
+++++
