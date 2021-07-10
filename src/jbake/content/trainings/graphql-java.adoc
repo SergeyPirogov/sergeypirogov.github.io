@@ -2,7 +2,7 @@ title=Тренинг по автоматизации тестирования AP
 type=trainingPage
 status=published
 summary=Технологии: GraphQL, Java 8/11, Rest Assured, Gradle, Allure, Jenkins CI
-price=30$
+price=15$
 state=active
 ~~~~~~
 
