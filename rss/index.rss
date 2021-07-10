@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 10 Jul 2021 16:05:11 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Jul 2021 16:05:11 +0000</lastBuildDate>
+    <pubDate>Sat, 10 Jul 2021 16:14:20 +0000</pubDate>
+    <lastBuildDate>Sat, 10 Jul 2021 16:14:20 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA News #6: Вечера грязи для тестировщика/Медленный Cypress/Фаулер про пирамиду
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-6/index.html</link>
+          <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-6/index.html</guid>
+          <description>
+                        O новостях мира тестирования за июнь 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за май 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;, медленный Cypress, Фаулер про пирамиду.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/oA43q-hwT1k&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Рабочее место тестировщика/рабочее место на балконе
@@ -33,25 +52,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/zzJa7XBoVVE&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QA News #6: Вечера грязи для тестировщика/Медленный Cypress/Фаулер про пирамиду
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-news-6/index.html</link>
-          <pubDate>Tue, 8 Jun 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-news-6/index.html</guid>
-          <description>
-                        O новостях мира тестирования за май 2021
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за май 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;, медленный Cypress, Фаулер про пирамиду.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/oA43q-hwT1k&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
