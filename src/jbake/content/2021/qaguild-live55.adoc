@@ -1,0 +1,15 @@
+= Рабочее место тестировщика/рабочее место на балконе
+Сергей Пирогов
+2021-07-14
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Решаем самые распространенные алгоритмические зачади
+:jbake-status: published
+
+В этом видео мы решали самые распространенные алгоритмические зачади, которые задают тестировщикам во время технических собеседований.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bhMHrhGvDDc" allowfullscreen></iframe>
+</div>
+++++
