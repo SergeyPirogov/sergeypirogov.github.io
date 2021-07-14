@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 10 Jul 2021 16:14:20 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Jul 2021 16:14:20 +0000</lastBuildDate>
+    <pubDate>Wed, 14 Jul 2021 06:19:29 +0000</pubDate>
+    <lastBuildDate>Wed, 14 Jul 2021 06:19:29 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Рабочее место тестировщика/рабочее место на балконе
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live55/index.html</link>
+          <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live55/index.html</guid>
+          <description>
+                        Решаем самые распространенные алгоритмические зачади
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео мы решали самые распространенные алгоритмические зачади, которые задают тестировщикам во время технических собеседований.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/bhMHrhGvDDc&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA News #6: Вечера грязи для тестировщика/Медленный Cypress/Фаулер про пирамиду
@@ -383,32 +402,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/qrkujfMdSY4&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #47: Стоит ли писать автотесты на Java в 2021 году?
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live47/index.html</link>
-          <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live47/index.html</guid>
-          <description>
-                        Первый стрим в 2021 году
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Поговорим о целесообразности написания автотестов на Java в 2021 году. Какие плюсы, минусы и альтернативы&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/KS4He2Pufh4&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
