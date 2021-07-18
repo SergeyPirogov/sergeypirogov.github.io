@@ -22,7 +22,7 @@
                            
                            <section class="training-form">
                                 <h4>Задать вопрос</h4>
-                                <! --<h6 class="payment-sub-header">
+                                <!-- <h6 class="payment-sub-header">
                                     Способ оплаты зависит от страны проживания
                                 </h6> -->
                                 <form id="my-form" method="POST" action="https://formspree.io/myyngrqz" method="POST">
