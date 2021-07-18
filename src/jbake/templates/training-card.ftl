@@ -17,7 +17,7 @@
 
                     <div class="card-footer bg-transparent">
                         <!-- <a href="/${content.uri}" target="blank" class="stretched-link mt-auto card-link"> -->
-                                             Записаться<i class="fa fa-chevron-right ml-1"></i>
+                                             Подробнее<i class="fa fa-chevron-right ml-1"></i>
                         <!-- </a> -->
                     </div>
                 </div>
