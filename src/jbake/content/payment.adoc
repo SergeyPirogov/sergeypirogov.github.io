@@ -1,5 +1,5 @@
 title=Успешная регистрация
-type=successPayment
+type=payment
 status=published
 ~~~~~~
 
