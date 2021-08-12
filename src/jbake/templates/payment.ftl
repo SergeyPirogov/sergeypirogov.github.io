@@ -8,7 +8,7 @@
                 <article class="post">
                     <div class="inner inner-post">
                         <div id="push">
-                            <header class="post-header">
+                            <header class="post-header text-center">
                                 <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
                             </header>
 
