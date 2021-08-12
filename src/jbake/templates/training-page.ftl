@@ -1,6 +1,6 @@
 <#include "header.ftl">
 
-    <#include "menu.ftl">
+  <#include "menu.ftl">
 
    <div class="album training py-5 bg-light">
           <div class="post-container container">
