@@ -14,9 +14,31 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Thu, 12 Aug 2021 10:42:13 +0000</pubDate>
-    <lastBuildDate>Thu, 12 Aug 2021 10:42:13 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Aug 2021 06:13:26 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Aug 2021 06:13:26 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Пути развития тестировщика. Карьера QA Engineer | QAGuild #56
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live56/index.html</link>
+          <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live56/index.html</guid>
+          <description>
+                        Пути развития тестировщика. Карьера QA Engineer
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео показан функционал telegram бота, который поможет тестировщику оценить резюме и выбрать навыки, которые стоит качать для развития вашей карьеры.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ссылка на бот: &lt;a href=&quot;http://t.me/automation_remarks_bot?start=blog&quot; class=&quot;bare&quot;&gt;http://t.me/automation_remarks_bot?start=blog&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/h8JdZKa35dU&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Собеседование QA. Решаем алгоритмические задачи на собеседовании | QAGuild #55
@@ -383,25 +405,6 @@
 &lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild s04e01: Переезд тестировщика в Калифорнию
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-s04e01/index.html</link>
-          <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-s04e01/index.html</guid>
-          <description>
-                        В этом эпизоде поговорили про обучение профессии тестировщика и переезд в солнечную Калифорнию
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде поговорили про обучение профессии тестировщика и переезд в солнечную Калифорнию. Очень мотивирующая история человека, который 15 лет проработал анестезиологом, 5 лет совмещал основную работу и работу QA и со временем переехал жить и работать в Калифорнию.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/qrkujfMdSY4&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
