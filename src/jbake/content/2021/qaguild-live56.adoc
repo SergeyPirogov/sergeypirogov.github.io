@@ -1,0 +1,17 @@
+= Пути развития тестировщика. Карьера QA Engineer | QAGuild #56
+Сергей Пирогов
+2021-08-13
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Пути развития тестировщика. Карьера QA Engineer
+:jbake-status: published
+
+В этом видео показан функционал telegram бота, который поможет тестировщику оценить резюме и выбрать навыки, которые стоит качать для развития вашей карьеры. 
+
+Ссылка на бот: http://t.me/automation_remarks_bot?start=blog
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/h8JdZKa35dU" allowfullscreen></iframe>
+</div>
+++++
