@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 13 Aug 2021 06:13:26 +0000</pubDate>
-    <lastBuildDate>Fri, 13 Aug 2021 06:13:26 +0000</lastBuildDate>
+    <pubDate>Wed, 25 Aug 2021 06:56:45 +0000</pubDate>
+    <lastBuildDate>Wed, 25 Aug 2021 06:56:45 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -74,6 +74,25 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/oA43q-hwT1k&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
+        <item>
+          <title>
+              QA News #7: Новости мира тестирования за июль 2021
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-7/index.html</link>
+          <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-7/index.html</guid>
+          <description>
+                        O новостях мира тестирования за июль 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за июль 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ttdpFWAtvXA&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
@@ -379,32 +398,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/5g0G1VQmeOo&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild live #48: Говорим про Sorry-Cypress/Cypress для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live48/index.html</link>
-          <pubDate>Thu, 4 Feb 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live48/index.html</guid>
-          <description>
-                        Про Sorry-Cypress/Cypress
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске гостем был автор проекта sorry-cypess. Поговорили об истории создания проекта, сложностях и будущем его развитии.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/6_JRHLcwFjs&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Подписывайтесь на &lt;a href=&quot;http://bit.ly/tg-bot&quot;&gt;официальный телеграмм бот&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
