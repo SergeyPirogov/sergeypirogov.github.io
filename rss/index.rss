@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 25 Aug 2021 06:56:45 +0000</pubDate>
-    <lastBuildDate>Wed, 25 Aug 2021 06:56:45 +0000</lastBuildDate>
+    <pubDate>Wed, 25 Aug 2021 07:03:16 +0000</pubDate>
+    <lastBuildDate>Wed, 25 Aug 2021 07:03:16 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA News #7: Новости мира тестирования за июль 2021
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-7/index.html</link>
+          <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-7/index.html</guid>
+          <description>
+                        O новостях мира тестирования за июль 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за июль 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ttdpFWAtvXA&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Пути развития тестировщика. Карьера QA Engineer | QAGuild #56
@@ -74,25 +93,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/oA43q-hwT1k&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QA News #7: Новости мира тестирования за июль 2021
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-news-7/index.html</link>
-          <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-news-7/index.html</guid>
-          <description>
-                        O новостях мира тестирования за июль 2021
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за июль 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ttdpFWAtvXA&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
