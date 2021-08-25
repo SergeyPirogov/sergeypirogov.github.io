@@ -1,6 +1,6 @@
 = QA News #7: Новости мира тестирования за июль 2021
 Сергей Пирогов
-2021-07-10
+2021-08-25
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube, News
 :jbake-summary: O новостях мира тестирования за июль 2021
