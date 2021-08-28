@@ -1,0 +1,28 @@
+title=Тренинг по автоматизации тестирования API GraphQL с помощью Python
+type=trainingPage
+status=published
+summary=Технологии: GraphQL, Python 3, Allure, Jenkins CI
+price=15$
+state=active
+~~~~~~
+
+Тренинг в котором показано как построить проект для тестирования GraphQL API с помощью языка программирования Python,
+с чего начать и как довести все до CI сервера.
+
+Технологии c которыми познакомитесь:
+
+* Python 3
+* requests
+* GraphQL
+* Allure
+* Jenkins CI
+
+Длительность 3 часа.
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://pay.fondy.eu/s/VNBA9vSrHOPH" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
+<i data-text="name">Оплатить</i>
+<i data-text="amount">15 USD</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++
