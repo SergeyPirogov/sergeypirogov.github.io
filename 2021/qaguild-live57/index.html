@@ -10,24 +10,24 @@
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Мощь Groovy: Reading URL Content">
-    <meta property="og:image" content="/../../images/blog-logo.png"/>
+    <meta property="og:title" content="Автоматизация на Rest Assured или Retrofit? Что лучше? | QAGuild #57">
+    <meta property="og:image" content="../../../images/blog-logo.png"/>
     <meta name="referrer" content="origin">
 
-       <meta property="og:description" content="Groovy adds some methods to the URL class which make reading data from an URL easy."/>
+       <meta property="og:description" content="Пути развития тестировщика. Карьера QA Engineer"/>
     <link rel="canonical" href="http://automation-remarks.com"/>
-    <link rel="shortcut icon" href="/../../images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/../../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon">
 
     <title>Заметки Автоматизатора</title>
 
-    <link href="/../../css/github.css" rel="stylesheet">
+    <link href="../../../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-    <link href="/../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href="/../../css/album.css" rel="stylesheet">
-    <link href="/../../css/main.css" rel="stylesheet">
+    <link href="../../../css/album.css" rel="stylesheet">
+    <link href="../../../css/main.css" rel="stylesheet">
 
     <script>
            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -86,49 +86,26 @@
                                         <a href="/author/index.html">Сергей Пирогов</a>
                                     </span> |
                                     <span class="post-date">
-                                        26/02/2015
+                                        28/08/2021
                                     </span>
                                 </span>
                                 <div class="clear"></div>
-                                <h1 class="post-title">Мощь Groovy: Reading URL Content</h1>
+                                <h1 class="post-title">Автоматизация на Rest Assured или Retrofit? Что лучше? | QAGuild #57</h1>
                             </header>
 
                             <section class="post-content">
                                 <div class="paragraph">
-<p>Groovy adds some methods to the URL class which make reading data from an URL easy. For example the text property returns the complete contents of the document that is identified by the URL. Or we can use the <strong>eachLine()</strong> method to loop through each line of the document. Groovy also adds a <strong>toURL()</strong> to the String class to make a URL object.</p>
+<p>В этом видео сравним RestAssured vs Retrofit. Что лучше? На чем тестировщику проще и быстрее создавать тесты?</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="groovy">def url = "http://www.mrhaki.com/url.html".toURL()
-
-assert '''\
-     Simple test document
-     for testing URL extensions
-     in Groovy.
-''' == url.text
-
-def result = []
-    url.eachLine {
-        if (it =~ /Groovy/) {
-        result &lt;&lt; it
-    }
-}
-assert ['in Groovy.'] == result
-
-url.withReader { reader -&gt;
-    assert 'Simple test document' == reader.readLine()
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>That&#8217;s all, just simple.</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Hz7PGd11l9k" allowfullscreen></iframe>
 </div>
                             </section>
 
                             <footer class="post-footer">
                                    <div class="post-tags">
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Groovy.html">Groovy</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/QAGuild.html">QAGuild</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Youtube.html">Youtube</a>
                                    </div>
 
                             </footer>
@@ -181,31 +158,6 @@ url.withReader { reader -&gt;
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Похожие заметки:</h2>
                                                  <div class="card-deck">
-
-                                                        <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/2021/qaguild-live57/index.html">
-                                                            <div class="related-card card-body d-flex flex-column">
-                                                              <p class="card-text">
-                                                                      <small class="text-muted"><span class="post-date">28 August 2021</span></small>
-                                                              </p>
-                                                              <h5 class="card-title">
-                                                                  <!-- <a href="/2021/qaguild-live57/index.html"> -->
-                                                                    Автоматизация на Rest Assured или Retrofit? Что лучше? | QAGuild #57
-                                                                  <!-- </a> -->
-                                                              </h5>
-
-                                                              <!--
-                                                              <p class="card-text">
-                                                                   Пути развития тестировщика. Карьера QA Engineer
-                                                              </p>
-                                                              -->
-                                                              <!-- <a href="/2021/qaguild-live57/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
-                                                              </a> -->
-                                                            </div>
-                                                            </a>
-                                                        </div>
-
 
                                                         <div class="card bg-light mb-3">
                                                          <a class="linked-card rel-card h-100" target="blank" href="/2021/qaguild-news-7/index.html">
@@ -303,15 +255,15 @@ url.withReader { reader -&gt;
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/../../js/popper.js"></script>
-    <script src="/../../js/bootstrap.js"></script>
-    <script src="/../../js/holder.js"></script>
+    <script src="../../../js/popper.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/holder.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="/../../js/script.js"></script>
+    <script src="../../../js/script.js"></script>
     <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>

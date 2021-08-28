@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 25 Aug 2021 07:03:16 +0000</pubDate>
-    <lastBuildDate>Wed, 25 Aug 2021 07:03:16 +0000</lastBuildDate>
+    <pubDate>Sat, 28 Aug 2021 06:19:05 +0000</pubDate>
+    <lastBuildDate>Sat, 28 Aug 2021 06:19:05 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Автоматизация на Rest Assured или Retrofit? Что лучше? | QAGuild #57
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live57/index.html</link>
+          <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live57/index.html</guid>
+          <description>
+                        Пути развития тестировщика. Карьера QA Engineer
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео сравним RestAssured vs Retrofit. Что лучше? На чем тестировщику проще и быстрее создавать тесты?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Hz7PGd11l9k&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               QA News #7: Новости мира тестирования за июль 2021
@@ -379,25 +398,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/k_SYBYbF2iI&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild news #1: Новости мира тестирования за январь 2021/ AWS/ Книги/ Зарплаты QA
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-news-1/index.html</link>
-          <pubDate>Mon, 8 Feb 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-news-1/index.html</guid>
-          <description>
-                        O новостях мира тестирования за Январь 2021
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за Январь 2021: книги, полезные материалы и новые релизы инструментов.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/5g0G1VQmeOo&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
