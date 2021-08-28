@@ -1,0 +1,15 @@
+= Автоматизация на Rest Assured или Retrofit? Что лучше? | QAGuild #57
+Сергей Пирогов
+2021-08-28
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Пути развития тестировщика. Карьера QA Engineer
+:jbake-status: published
+
+В этом видео сравним RestAssured vs Retrofit. Что лучше? На чем тестировщику проще и быстрее создавать тесты?
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Hz7PGd11l9k" allowfullscreen></iframe>
+</div>
+++++
