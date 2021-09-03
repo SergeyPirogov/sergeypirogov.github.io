@@ -24,7 +24,7 @@
                                 <h6 class="payment-sub-header">
                                     Форма оплаты работает для стран СНГ. Для оплаты из Европы и США оставьте заявку и я сделаю запрос через payoneer.
                                 </h6>
-                                <h4>Задать вопрос</h4>
+                                <h4>Оставить заявку</h4>
   
                                 <form id="my-form" method="POST" action="https://formspree.io/myyngrqz" method="POST">
                                       <div class="field half first">
