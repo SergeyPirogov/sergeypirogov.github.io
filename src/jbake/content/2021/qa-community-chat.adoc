@@ -1,6 +1,6 @@
 = Сообщество тестировщиков Automation remarks
 Сергей Пирогов
-2021-01-18
+2021-09-12
 :jbake-type: post
 :jbake-tags: Telegram
 :jbake-summary: Сообщество Automation remarks
