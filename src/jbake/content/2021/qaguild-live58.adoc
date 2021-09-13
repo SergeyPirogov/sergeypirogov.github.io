@@ -1,6 +1,6 @@
 = Визуализация покрытия автотестов для GraphQL | QAGuild #58
 Сергей Пирогов
-2021-08-28
+2021-09-13
 :jbake-type: post
 :jbake-tags: QAGuild, Youtube
 :jbake-summary: Визуализация покрытия автотестов для GraphQL
