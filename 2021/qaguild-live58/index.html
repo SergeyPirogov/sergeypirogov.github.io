@@ -10,24 +10,24 @@
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Свое АОP в JDK">
-    <meta property="og:image" content="/../../images/blog-logo.png"/>
+    <meta property="og:title" content="Визуализация покрытия автотестов для GraphQL | QAGuild #58">
+    <meta property="og:image" content="../../../images/blog-logo.png"/>
     <meta name="referrer" content="origin">
 
-       <meta property="og:description" content="Заметка о том, как можно реализовать AOP без Spring и AspectJ."/>
+       <meta property="og:description" content="Визуализация покрытия автотестов для GraphQL"/>
     <link rel="canonical" href="http://automation-remarks.com"/>
-    <link rel="shortcut icon" href="/../../images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/../../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon">
 
     <title>Заметки Автоматизатора</title>
 
-    <link href="/../../css/github.css" rel="stylesheet">
+    <link href="../../../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-    <link href="/../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href="/../../css/album.css" rel="stylesheet">
-    <link href="/../../css/main.css" rel="stylesheet">
+    <link href="../../../css/album.css" rel="stylesheet">
+    <link href="../../../css/main.css" rel="stylesheet">
 
     <script>
            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -86,203 +86,26 @@
                                         <a href="/author/index.html">Сергей Пирогов</a>
                                     </span> |
                                     <span class="post-date">
-                                        29/03/2015
+                                        28/08/2021
                                     </span>
                                 </span>
                                 <div class="clear"></div>
-                                <h1 class="post-title">Свое АОP в JDK</h1>
+                                <h1 class="post-title">Визуализация покрытия автотестов для GraphQL | QAGuild #58</h1>
                             </header>
 
                             <section class="post-content">
                                 <div class="paragraph">
-<p>Заметка о том, как можно реализовать <strong>AOP</strong> без <strong>Spring</strong> и <strong>AspectJ</strong>. Для тех, кто не особо в курсе, что такое AOP смотреть суда. Итак, приступим. Создадим нашу мини программу:</p>
+<p>В этом видео я показал как можно визуализировать покрытие автоматическими тестами для GraphQL api с помощью инструмента Reqover.</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public interface Calculator {
-    public int calculate( int a , int b);
-}
-
-public class CalculatorImpl implements Calculator {
-    @Override
-    public int calculate(int a, int b) {
-        System.out.println("**********Actual Method Execution**********");
-        return a/b;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Класс <strong>Calculator</strong> будет имеенно тем классом, который мы будем проксировать. В java есть такой интересный интерфейс <strong>InvocationHandler</strong>, его мы и будем использовать для нашей реализации <strong>AOP</strong>. Создадим абстрактный <strong>Handler</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public abstract class AbstractHandler implements InvocationHandler {
-
-    private Object targetObject;
-
-    public void setTargetObject(Object targetObject) {
-        this.targetObject = targetObject;
-    }
-
-    public Object getTargetObject() {
-        return targetObject;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Создадим <strong>ProxyFactory</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public class ProxyFactory {
-
-public static Object getProxy(Object targetObject,
-        List&lt;AbstractHandler&gt; handlers) {
-    Object proxyObject = null;
-    if (handlers.size() &gt; 0) {
-        proxyObject = targetObject;
-        for (int i = 0; i &lt; handlers.size(); i++) {
-            handlers.get(i).setTargetObject(proxyObject);
-            proxyObject = Proxy.newProxyInstance(targetObject.getClass()
-                    .getClassLoader(), targetObject.getClass()
-                    .getInterfaces(), handlers.get(i));
-        }
-        return proxyObject;
-    } else {
-        return targetObject;
-    }
-}
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>В AOP существует несколько срезов: <strong>Before</strong>, <strong>After</strong>, <strong>AfterThrowing</strong>, <strong>AfterReturning</strong> и <strong>Around</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Так как реализации каждого среза могут быть разными, для разных случаев, создадим для них абстрактные классы:</p>
-</div>
-<div class="paragraph">
-<p>Пример для <strong>AfterHandler</strong> и <strong>BeforeHandler</strong>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public abstract class AfterHandler extends AbstractHandler {
-
-    /**
-     * Handles after the execution of method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleAfter(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-        Object result = method.invoke(getTargetObject(), args);
-        handleAfter(proxy, method, args);
-        return result;
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>AbstractBeforeHandler:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public abstract class BeforeHandler extends AbstractHandler {
-
-    /**
-     * Handles before execution of actual method.
-     *
-     * @param proxy the proxy
-     * @param method the method
-     * @param args the args
-     */
-    public abstract void handleBefore(Object proxy, Method method, Object[] args);
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        handleBefore(proxy, method, args);
-        return method.invoke(getTargetObject(), args);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь нам нужно сделать конкретные реализации для каждого из срезов:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public class AfterHandlerImpl extends AfterHandler {
-
-    @Override
-    public void handleAfter(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println(method.getName() + Arrays.toString(args));
-        System.out.println("Handling after actual method execution ........");
-    }
-}
-
-public class BeforeHandlerImpl extends BeforeHandler {
-
-    @Override
-    public void handleBefore(Object proxy, Method method, Object[] args) {
-        //Provide your own cross cutting concern
-        System.out.println("Handling before actual method execution ........");
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Теперь мы можем легко проксировать наш <strong>Calculator</strong> класс:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="java">public class TestAopInJDK {
-
-    public static void main(String[] args) {
-        CalculatorImpl calcImpl = new CalculatorImpl();
-        BeforeHandler before = new BeforeHandlerImpl();
-        AfterHandler after = new AfterHandlerImpl();
-        List&lt;AbstractHandler&gt; handlers = new ArrayList&lt;AbstractHandler&gt;();
-        handlers.add(before);
-        handlers.add(after);
-        Calculator proxy = (Calculator) ProxyFactory.getProxy(calcImpl,
-                handlers);
-        int result = proxy.calculate(20, 10);
-        System.out.println("FInal Result :::" + result);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>После запуска вывод в консоль оказывается таким:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="xml">Handling before actual method execution ........
-**********Actual Method Execution**********
-calculate[20, 10]
-Handling after actual method execution ........
-Final Result :::2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Как вы можете заметить срабатывает Before, затем идет работа метода и затем срабатывает After.
-<strong>P.S.</strong>
-Многие кто не сильно в теме могут сказать, что такое же можно было реализовать просто написав перед вызовом и после вызова sysout. Да, можно было, но AOP предназначено немного для других целей.Я уже описывал то как мы используем логер для действий вебдрайвера здесь. В своих фреймворках, я дополнительно логирую имена методов и параметры которые он принимают используя AOP. Это позволяет хранить весь код логирования в одном месте,а не розмазывать его по всем классам.</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YghEDzXI5m8" allowfullscreen></iframe>
 </div>
                             </section>
 
                             <footer class="post-footer">
                                    <div class="post-tags">
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Тест-фреймворк.html">Тест фреймворк</a>
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/QAGuild.html">QAGuild</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Youtube.html">Youtube</a>
                                    </div>
 
                             </footer>
@@ -387,31 +210,6 @@ Final Result :::2</code></pre>
 
 
                                                         <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/2021/qaguild-live58/index.html">
-                                                            <div class="related-card card-body d-flex flex-column">
-                                                              <p class="card-text">
-                                                                      <small class="text-muted"><span class="post-date">28 August 2021</span></small>
-                                                              </p>
-                                                              <h5 class="card-title">
-                                                                  <!-- <a href="/2021/qaguild-live58/index.html"> -->
-                                                                    Визуализация покрытия автотестов для GraphQL | QAGuild #58
-                                                                  <!-- </a> -->
-                                                              </h5>
-
-                                                              <!--
-                                                              <p class="card-text">
-                                                                   Визуализация покрытия автотестов для GraphQL
-                                                              </p>
-                                                              -->
-                                                              <!-- <a href="/2021/qaguild-live58/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
-                                                              </a> -->
-                                                            </div>
-                                                            </a>
-                                                        </div>
-
-
-                                                        <div class="card bg-light mb-3">
                                                          <a class="linked-card rel-card h-100" target="blank" href="/2021/qaguild-news-7/index.html">
                                                             <div class="related-card card-body d-flex flex-column">
                                                               <p class="card-text">
@@ -457,15 +255,15 @@ Final Result :::2</code></pre>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/../../js/popper.js"></script>
-    <script src="/../../js/bootstrap.js"></script>
-    <script src="/../../js/holder.js"></script>
+    <script src="../../../js/popper.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/holder.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="/../../js/script.js"></script>
+    <script src="../../../js/script.js"></script>
     <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
