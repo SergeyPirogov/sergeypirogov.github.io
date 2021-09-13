@@ -1,0 +1,15 @@
+= Визуализация покрытия автотестов для GraphQL | QAGuild #58
+Сергей Пирогов
+2021-08-28
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Визуализация покрытия автотестов для GraphQL
+:jbake-status: published
+
+В этом видео я показал как можно визуализировать покрытие автоматическими тестами для GraphQL api с помощью инструмента Reqover.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YghEDzXI5m8" allowfullscreen></iframe>
+</div>
+++++
