@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 13 Sep 2021 06:41:47 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Sep 2021 06:41:47 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Sep 2021 06:47:38 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Sep 2021 06:47:38 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Визуализация покрытия автотестов для GraphQL | QAGuild #58
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live58/index.html</link>
+          <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live58/index.html</guid>
+          <description>
+                        Визуализация покрытия автотестов для GraphQL
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео я показал как можно визуализировать покрытие автоматическими тестами для GraphQL api с помощью инструмента Reqover.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/YghEDzXI5m8&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Сообщество тестировщиков Automation remarks
@@ -102,25 +121,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Hz7PGd11l9k&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Визуализация покрытия автотестов для GraphQL | QAGuild #58
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live58/index.html</link>
-          <pubDate>Sat, 28 Aug 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live58/index.html</guid>
-          <description>
-                        Визуализация покрытия автотестов для GraphQL
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом видео я показал как можно визуализировать покрытие автоматическими тестами для GraphQL api с помощью инструмента Reqover.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/YghEDzXI5m8&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
