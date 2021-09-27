@@ -1,0 +1,15 @@
+= QA News #8: Новости мира тестирования за август 2021
+Сергей Пирогов
+2021-08-27
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube, News
+:jbake-summary: O новостях мира тестирования за август 2021
+:jbake-status: published
+
+В этом выпуске говорили о новостях мира тестирования за август 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды "Вечера грязи".
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0gciZFXqZUQ" allowfullscreen></iframe>
+</div>
+++++
