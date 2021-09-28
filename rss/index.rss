@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 13 Sep 2021 06:47:38 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Sep 2021 06:47:38 +0000</lastBuildDate>
+    <pubDate>Tue, 28 Sep 2021 13:25:12 +0000</pubDate>
+    <lastBuildDate>Tue, 28 Sep 2021 13:25:12 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              QA News #8: Новости мира тестирования за август 2021
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-news-8/index.html</link>
+          <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-news-8/index.html</guid>
+          <description>
+                        O новостях мира тестирования за август 2021
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за август 2021: книги, полезные материалы и новые релизы инструментов. Новые эпизоды &quot;Вечера грязи&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/0gciZFXqZUQ&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Визуализация покрытия автотестов для GraphQL | QAGuild #58
@@ -429,25 +448,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/meBzP9TJp1A&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild s04e02: Переход с позиции Senior QA Automation в Senior Frontent developer
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-s4e02/index.html</link>
-          <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-s4e02/index.html</guid>
-          <description>
-                        В этом эпизоде поговорили про переезд тестировщика Амстердам и переход с позиции Senior QA Automation в Senior Frontend developer
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом эпизоде поговорили про переезд тестировщика Амстердам и переход с позиции Senior QA Automation в Senior Frontend developer&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/3ILmLBuhevw&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
