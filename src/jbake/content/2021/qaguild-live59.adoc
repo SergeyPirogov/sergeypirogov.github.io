@@ -1,0 +1,15 @@
+= Как тестировщику запустить Selenium, Playwright и Cypress тесты удаленно с помощью Moon? | QAGuild #59
+Сергей Пирогов
+2021-09-29
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Видео о том, как запустить автотесты через Moon
+:jbake-status: published
+
+В этом видео Крутов рассказал про инструменты Moon и Moon Cloud. Обсудили новые фичи: поддержка Selenium 4, Playwright, Cypress.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9NMX_acge4I" allowfullscreen></iframe>
+</div>
+++++
