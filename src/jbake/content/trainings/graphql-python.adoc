@@ -15,7 +15,7 @@ state=active
 * requests
 * GraphQL
 * Allure
-* Jenkins CI
+* Github Actions
 
 Длительность 3 часа.
 
