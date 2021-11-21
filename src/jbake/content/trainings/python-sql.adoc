@@ -13,6 +13,7 @@ state=active
 * Python3
 * sqlalchemy
 * pytest
+* postgres
 
 Длительность 2 часа.
 
