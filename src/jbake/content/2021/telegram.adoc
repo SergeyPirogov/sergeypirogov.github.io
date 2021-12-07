@@ -1,0 +1,14 @@
+= Классный telegram канал для тестировщика
+Сергей Пирогов
+2021-12-07
+:jbake-type: post
+:jbake-tags: Telegram
+:jbake-summary: Сообщество Automation remarks
+:jbake-status: published
+
+
+Привет! В блоге появляется мало новостей, потому что все переехало в telegram.
+
+Подпишитесь на самый крутой канал для QA инженеров, тестировщиков, QA Automation и SDET. Говорим про автоматизацию в тестировании и просто за жизнь.
+
+https://t.me/automation_remarks
