@@ -14,9 +14,31 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 21 Nov 2021 08:09:13 +0000</pubDate>
-    <lastBuildDate>Sun, 21 Nov 2021 08:09:13 +0000</lastBuildDate>
+    <pubDate>Tue, 7 Dec 2021 07:24:30 +0000</pubDate>
+    <lastBuildDate>Tue, 7 Dec 2021 07:24:30 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Классный telegram канал для тестировщика
+          </title>
+          <link>http://automation-remarks.com/2021/telegram/index.html</link>
+          <pubDate>Tue, 7 Dec 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/telegram/index.html</guid>
+          <description>
+                        Сообщество Automation remarks
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Привет! В блоге появляется мало новостей, потому что все переехало в telegram.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Подпишитесь на самый крутой канал для QA инженеров, тестировщиков, QA Automation и SDET. Говорим про автоматизацию в тестировании и просто за жизнь.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://t.me/automation_remarks&quot; class=&quot;bare&quot;&gt;https://t.me/automation_remarks&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Как тестировщику запустить Selenium, Playwright и Cypress тесты удаленно с помощью Moon? | QAGuild #59
@@ -428,25 +450,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-1-49263064&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/vecher-griazi-1-49263064&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild #51: Генерация PageObject в Intellij Idea для тестировщика
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live51/index.html</link>
-          <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live51/index.html</guid>
-          <description>
-                        Selenium plugin в Intellij Idea
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новой возможности в Intelij Idea  - герерации Page Object для ускорения создания автотестов. Оценили ее полезность для тестировщиков.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/enJrkHnb_Yo&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
