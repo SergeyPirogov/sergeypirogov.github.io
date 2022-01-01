@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 7 Dec 2021 07:24:30 +0000</pubDate>
-    <lastBuildDate>Tue, 7 Dec 2021 07:24:30 +0000</lastBuildDate>
+    <pubDate>Sat, 1 Jan 2022 09:42:53 +0000</pubDate>
+    <lastBuildDate>Sat, 1 Jan 2022 09:42:53 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Итоги года 2021 для тестировщика | QAGuild #60
+          </title>
+          <link>http://automation-remarks.com/2021/qaguild-live60/index.html</link>
+          <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2021/qaguild-live60/index.html</guid>
+          <description>
+                        В этом видео поговорили про итоги 2021 года в сфере тестирования.
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео поговорили про итоги 2021 года в сфере тестирования.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/WWgNpx76OsU&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Классный telegram канал для тестировщика
@@ -431,25 +450,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-0-49052375?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слышать&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Вечер грязи #0: Как выжить в токсичном IT мире?
-          </title>
-          <link>http://automation-remarks.com/2021/dirty-night/index.html</link>
-          <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/dirty-night/index.html</guid>
-          <description>
-                        Вечер грязи
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Разговор о различных типах токсичнх сотрудников. Почему это плохо и как с ними общаться.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Запись доступна по ссылке: &lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-1-49263064&quot; class=&quot;bare&quot;&gt;https://www.patreon.com/posts/vecher-griazi-1-49263064&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
