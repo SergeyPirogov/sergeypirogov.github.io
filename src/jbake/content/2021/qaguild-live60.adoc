@@ -1,0 +1,15 @@
+= Итоги года 2021 для тестировщика | QAGuild #60
+Сергей Пирогов
+2021-12-31
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом видео поговорили про итоги 2021 года в сфере тестирования.
+:jbake-status: published
+
+В этом видео поговорили про итоги 2021 года в сфере тестирования.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/WWgNpx76OsU" allowfullscreen></iframe>
+</div>
+++++
