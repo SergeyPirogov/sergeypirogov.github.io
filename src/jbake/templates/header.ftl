@@ -40,4 +40,6 @@
            ga('create', 'UA-57010828-1', 'auto');
            ga('send', 'pageview');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4997089981836978"
+     crossorigin="anonymous"></script>
   <body>
