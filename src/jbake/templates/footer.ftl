@@ -23,6 +23,7 @@
     <script>
         Ukraine.save({
             isCancelable: false,
+            moreInfoUrl: 'https://www.comebackalive.in.ua'
         });
     </script>
     </body>
