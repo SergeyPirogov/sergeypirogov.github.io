@@ -22,7 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/save-ukraine@0.18.0/dist/umd/main.js"></script>
     <script>
         Ukraine.save({
-            isCancelable: false,
+            isCancelable: true,
             moreInfoUrl: 'https://www.comebackalive.in.ua'
         });
     </script>
