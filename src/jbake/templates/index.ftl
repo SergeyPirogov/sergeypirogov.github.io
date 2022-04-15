@@ -20,7 +20,7 @@
             </div>
           </div>
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
-                <#list posts as post>
+                <#list posts[0..6] as post>
                     <#if (post.status == "published")>
                          <#include "loop.ftl">
                     </#if>
