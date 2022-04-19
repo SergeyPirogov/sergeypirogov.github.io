@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 15 Apr 2022 07:32:31 +0000</pubDate>
-    <lastBuildDate>Fri, 15 Apr 2022 07:32:31 +0000</lastBuildDate>
+    <pubDate>Tue, 19 Apr 2022 06:22:31 +0000</pubDate>
+    <lastBuildDate>Tue, 19 Apr 2022 06:22:31 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Почему разделение на QA Manual и QA Automation - это ошибка!
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-live61/index.html</link>
+          <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-live61/index.html</guid>
+          <description>
+                        В этом видео поговорили про разделение на QA Manual и QA Automation
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;В этом видео поговорили про разделение на QA Manual и QA Automation&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/0NMJ4NCvoPs&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Итоги года 2021 для тестировщика | QAGuild #60
@@ -431,25 +450,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/yqhasS7vF6M&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Вечер грязи #1: Чем отличается работа QA в большой и маленькой компании?
-          </title>
-          <link>http://automation-remarks.com/2021/dirty-night-1/index.html</link>
-          <pubDate>Fri, 2 Apr 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/dirty-night-1/index.html</guid>
-          <description>
-                        Вечер грязи
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В прошлую субботу мы тестировали голосовой чат в телеграмм. Формат получил много хороших отзывов, поэтому будем делать его на постоянной основе. В прошлый раз говорили о различиях работы в большой компании, маленькой и стартапе.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-0-49052375?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слышать&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
