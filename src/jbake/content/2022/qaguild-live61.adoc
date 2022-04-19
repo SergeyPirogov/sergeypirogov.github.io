@@ -1,0 +1,15 @@
+= Почему разделение на QA Manual и QA Automation - это ошибка!
+Сергей Пирогов
+2022-04-19
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: В этом видео поговорили про разделение на QA Manual и QA Automation
+:jbake-status: published
+
+В этом видео поговорили про разделение на QA Manual и QA Automation
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0NMJ4NCvoPs" allowfullscreen></iframe>
+</div>
+++++
