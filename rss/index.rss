@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Wed, 4 May 2022 20:25:53 +0000</pubDate>
-    <lastBuildDate>Wed, 4 May 2022 20:25:53 +0000</lastBuildDate>
+    <pubDate>Sat, 7 May 2022 09:34:37 +0000</pubDate>
+    <lastBuildDate>Sat, 7 May 2022 09:34:37 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечір бруду - новини світу тестування за квітень 2022
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-live62/index.html</link>
+          <pubDate>Sat, 7 May 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-live62/index.html</guid>
+          <description>
+                        Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/5aNQX8jpUNs&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Почему разделение на QA Manual и QA Automation - это ошибка!
@@ -431,25 +450,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-3-50485698?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слушать&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild news #3: Selenium в AWS/TypeScript/TMS в Idea/Лычки тестировщиков
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-news-3/index.html</link>
-          <pubDate>Wed, 14 Apr 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-news-3/index.html</guid>
-          <description>
-                        O новостях мира тестирования за март 2021
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/yqhasS7vF6M&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
