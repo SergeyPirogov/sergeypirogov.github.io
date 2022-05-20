@@ -16,9 +16,11 @@
 
       <div class="album py-5 bg-light ">
         <div class="container">
-          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+          <div id="push" class="row post-list row-cols-1 row-cols-md-3">
             <#list trainingPages as content>
-                <#include "training-card.ftl">
+                <#if (content.state == "active")>
+                  <#include "training-card.ftl">
+                </#if>
             </#list>
           </div>
 
