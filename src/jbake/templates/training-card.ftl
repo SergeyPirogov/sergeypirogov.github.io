@@ -1,4 +1,4 @@
-<div class="col mb-3 d-flex">
+<div class="col-md-4 mb-3 d-flex">
             <a class="linked-card ${content.state}" target="blank" href="/${content.uri}">
                 <div class="card h-100 training-card">
                     <div class="card-body d-flex flex-column">
