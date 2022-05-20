@@ -3,7 +3,7 @@ type=trainingPage
 status=published
 summary=Технологии: Java 8, Gradle, DbUtils, JDBI
 price=15$
-state=active
+state=inactive
 ~~~~~~
 
 Тренинг в котором показано как построить проект для работы с базами данных с помощью Java

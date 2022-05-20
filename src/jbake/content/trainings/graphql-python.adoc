@@ -3,7 +3,7 @@ type=trainingPage
 status=published
 summary=Технологии: GraphQL, Python 3, Allure, Jenkins CI
 price=15$
-state=active
+state=inactive
 ~~~~~~
 
 Тренинг в котором показано как построить проект для тестирования GraphQL API с помощью языка программирования Python,
