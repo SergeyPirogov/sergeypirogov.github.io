@@ -10,11 +10,11 @@
 
     <meta property="og:site_name" content="Заметки Автоматизатора">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="QAGuild S3E01: Про релокацию в США">
+    <meta property="og:title" content="Python Webdriver manager">
     <meta property="og:image" content="../../../images/blog-logo.png"/>
     <meta name="referrer" content="origin">
 
-       <meta property="og:description" content="Разговор о переезде на работу в США"/>
+       <meta property="og:description" content="About Python Webdriver manager"/>
     <link rel="canonical" href="http://automation-remarks.com"/>
     <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon">
@@ -90,113 +90,153 @@
                                         <a href="/author/index.html">Сергей Пирогов</a>
                                     </span> |
                                     <span class="post-date">
-                                        03/02/2020
+                                        24/05/2022
                                     </span>
                                 </span>
                                 <div class="clear"></div>
-                                <h1 class="post-title">QAGuild S3E01: Про релокацию в США</h1>
+                                <h1 class="post-title">Python Webdriver manager</h1>
                             </header>
 
                             <section class="post-content">
-                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/754154095&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                                <div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Гости:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Катерина Кравченко - живет в центре всего IT мира</p>
-</li>
-</ul>
+<p>We all know that we need to have browser drivers, .exe files like chromedriver.exe and geckodriver.exe in case of windows environment or binary files like chromedriver and gheckodriver in case of linux distributions, in order to run our selenium webdriver automation scripts on chrome and firefox browsers.</p>
 </div>
 <div class="paragraph">
-<p>Темы:</p>
+<p>And also we need to set the path of these files in our script like below or need to add location to the class path.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>00:01:09 - Начало</p>
-</li>
-<li>
-<p>00:01:12 - Гость</p>
-</li>
-<li>
-<p>00:04:00 - Про опыт до переезда</p>
-</li>
-<li>
-<p>00:09:12 - Как проходят собеседования?</p>
-</li>
-<li>
-<p>00:20:22 - Как искать жилье?</p>
-</li>
-<li>
-<p>00:24:25 - Какой бюджет?</p>
-</li>
-<li>
-<p>00:29:30 - В каком штате ты и почему именно туда?</p>
-</li>
-<li>
-<p>00:31:01 - UTest стоит ли пробовать для прокачки опыта?</p>
-</li>
-<li>
-<p>00:33:37 - Что изменилось после переезда и не тянет ли назад?</p>
-</li>
-<li>
-<p>00:35:23 - Что требуют от тестировщика у них? Сертификаты, программирование, ДевОпс и т.п.?</p>
-</li>
-<li>
-<p>00:39:49 - Айтишная тусовка и конференции там и тут ?</p>
-</li>
-<li>
-<p>00:43:20 - Скок и как понять уровень зп?</p>
-</li>
-<li>
-<p>00:52:22 - Налоги страшные?</p>
-</li>
-<li>
-<p>00:56:52 - FAANG</p>
-</li>
-<li>
-<p>01:00:45 - А что если заболеешь?</p>
-</li>
-<li>
-<p>01:07:47 - Какие тренды сейчас?</p>
-</li>
-<li>
-<p>01:13:34 - Как часто происходят прибавки к ЗП?</p>
-</li>
-<li>
-<p>01:20:49 - Работа там? Какие особенности? Скрам, не скрам?</p>
-</li>
-<li>
-<p>01:27:50 - Купить или снимать?</p>
-</li>
-<li>
-<p>01:33:39 - Когда захотелось завести YouTube канал?</p>
-</li>
-<li>
-<p>01:34:35 - Про курсы вайтишников там</p>
-</li>
-<li>
-<p>01:42:56 - Советы тем кто хочет переехать</p>
-</li>
-<li>
-<p>01:52:25 - Гражданство</p>
-</li>
-<li>
-<p>01:54:56 - Патроны</p>
-</li>
-<li>
-<p>01:55:35 - Финал</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">driver = webdriver.Chrome(executable_path="/path/to/binary/chromedriver")</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">driver = webdriver.Firefox(executable_path="/path/to/binary/firefoxdriver")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the path is not defined/given or if the path provided is wrong, we will get an exceptions. And it is mandatory for all browsers to have browser drivers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+selenium.common.exceptions.WebDriverException: Message: 'geckodriver' executable needs to be in PATH.
+---</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+---</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To avoid this error, we need to manually download and manage these browser drivers for each operating systems/environments which is very painful and time consuming. Above all we also have to check and update relevant drivers when new versions of the binaries are released or new browsers versions are released along with compatibility for driver to browser.</p>
+</div>
+<div class="paragraph">
+<p>That is why webdriver-manager for Python has been developed. It helps us to manage driver related settings automatically for python. This package downloads binaries/executables in an automated way and helps us to avoid all the manual steps that we do previously related to drivers to run our tests.</p>
+</div>
+<div class="paragraph">
+<p>It supports browsers such as Chrome, Firefox, Brave,Opera, Microsoft Edge, or Internet Explorer. You can check that in project page <a href="https://github.com/SergeyPirogov/webdriver_manager">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_do_we_use_this_in_your_project">How do we use this in your project?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Only setup required is to install this package using ‘pip’.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>pip install webdriver-manager
+---</p>
+</div>
+<div class="paragraph">
+<p>That’s it! We are all set. Just import this module in your python project and start using it.</p>
+</div>
+<div class="paragraph">
+<p>For Chrome:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---</p>
+</div>
+<div class="paragraph">
+<p>For Firefox:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---</p>
+</div>
+<div class="paragraph">
+<p>It can work with both Selenium 3 and Selenium 4 versions. The only difference is the way to pass it via driver constructor. For Selenium 4 instead of executable_path you have to pass service variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---</p>
+</div>
+<div class="paragraph">
+<p>webdriver_manager, by default, tries to download the latest version of a given driver binary. To use a specific version of driver, pass the driver version like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="python">---
+webdriver.Chrome(executable_path=ChromeDriverManager("2.42").install())
+---</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Starting version 3.7.0 it supports both Intel i386 and Apple M1. You don&#8217;t have to do any changes, it will detect CPU architecture automatically and download appropriate driver.</p>
+</div>
+<div class="paragraph">
+<p>This eliminates lot of manual works and incompatibility issues. Thanks to Sergey Pirogov. Happy scripting!!!</p>
+</div>
+<div class="paragraph">
+<p>Don’t forget to provide your valuable comments.</p>
+</div>
+</div>
 </div>
                             </section>
 
                             <footer class="post-footer">
                                    <div class="post-tags">
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/QAGuild.html">QAGuild</a>
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Podcast.html">Podcast</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Python.html">Python</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Selenium.html">Selenium</a>
                                    </div>
 
                             </footer>
@@ -249,31 +289,6 @@
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Похожие заметки:</h2>
                                                  <div class="card-deck">
-
-                                                        <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/2022/python-webdriver-manager/index.html">
-                                                            <div class="related-card card-body d-flex flex-column">
-                                                              <p class="card-text">
-                                                                      <small class="text-muted"><span class="post-date">24 May 2022</span></small>
-                                                              </p>
-                                                              <h5 class="card-title">
-                                                                  <!-- <a href="/2022/python-webdriver-manager/index.html"> -->
-                                                                    Python Webdriver manager
-                                                                  <!-- </a> -->
-                                                              </h5>
-
-                                                              <!--
-                                                              <p class="card-text">
-                                                                   About Python Webdriver manager
-                                                              </p>
-                                                              -->
-                                                              <!-- <a href="/2022/python-webdriver-manager/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
-                                                              </a> -->
-                                                            </div>
-                                                            </a>
-                                                        </div>
-
 
                                                         <div class="card bg-light mb-3">
                                                          <a class="linked-card rel-card h-100" target="blank" href="/2022/qaguild-live62/index.html">

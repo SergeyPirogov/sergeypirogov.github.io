@@ -14,9 +14,155 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 24 May 2022 07:15:05 +0000</pubDate>
-    <lastBuildDate>Tue, 24 May 2022 07:15:05 +0000</lastBuildDate>
+    <pubDate>Tue, 24 May 2022 08:13:10 +0000</pubDate>
+    <lastBuildDate>Tue, 24 May 2022 08:13:10 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Python Webdriver manager
+          </title>
+          <link>http://automation-remarks.com/2022/python-webdriver-manager/index.html</link>
+          <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/python-webdriver-manager/index.html</guid>
+          <description>
+                        About Python Webdriver manager
+          </description>
+          <content:encoded>
+                        &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We all know that we need to have browser drivers, .exe files like chromedriver.exe and geckodriver.exe in case of windows environment or binary files like chromedriver and gheckodriver in case of linux distributions, in order to run our selenium webdriver automation scripts on chrome and firefox browsers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And also we need to set the path of these files in our script like below or need to add location to the class path.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;driver = webdriver.Chrome(executable_path=&quot;/path/to/binary/chromedriver&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;driver = webdriver.Firefox(executable_path=&quot;/path/to/binary/firefoxdriver&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If the path is not defined/given or if the path provided is wrong, we will get an exceptions. And it is mandatory for all browsers to have browser drivers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+selenium.common.exceptions.WebDriverException: Message: &apos;geckodriver&apos; executable needs to be in PATH.
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+selenium.common.exceptions.WebDriverException: Message: &apos;chromedriver&apos; executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To avoid this error, we need to manually download and manage these browser drivers for each operating systems/environments which is very painful and time consuming. Above all we also have to check and update relevant drivers when new versions of the binaries are released or new browsers versions are released along with compatibility for driver to browser.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That is why webdriver-manager for Python has been developed. It helps us to manage driver related settings automatically for python. This package downloads binaries/executables in an automated way and helps us to avoid all the manual steps that we do previously related to drivers to run our tests.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It supports browsers such as Chrome, Firefox, Brave,Opera, Microsoft Edge, or Internet Explorer. You can check that in project page &lt;a href=&quot;https://github.com/SergeyPirogov/webdriver_manager&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_how_do_we_use_this_in_your_project&quot;&gt;How do we use this in your project?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Only setup required is to install this package using ‘pip’.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;pip install webdriver-manager
+---&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That’s it! We are all set. Just import this module in your python project and start using it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For Chrome:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.get(&quot;http://www.google.com/&quot;)
+print(driver.title)
+driver.quit()
+---&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For Firefox:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+driver.get(&quot;http://www.google.com/&quot;)
+print(driver.title)
+driver.quit()
+---&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It can work with both Selenium 3 and Selenium 4 versions. The only difference is the way to pass it via driver constructor. For Selenium 4 instead of executable_path you have to pass service variable:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.get(&quot;http://www.google.com/&quot;)
+print(driver.title)
+driver.quit()
+---&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;webdriver_manager, by default, tries to download the latest version of a given driver binary. To use a specific version of driver, pass the driver version like below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;---
+webdriver.Chrome(executable_path=ChromeDriverManager(&quot;2.42&quot;).install())
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Starting version 3.7.0 it supports both Intel i386 and Apple M1. You don&amp;#8217;t have to do any changes, it will detect CPU architecture automatically and download appropriate driver.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This eliminates lot of manual works and incompatibility issues. Thanks to Sergey Pirogov. Happy scripting!!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Don’t forget to provide your valuable comments.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Вечір бруду - новини світу тестування за квітень 2022
@@ -431,25 +577,6 @@
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/bceDLtU1WhY&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Вечер грязи #3: Что происходит с зарплатами тестировщиков?
-          </title>
-          <link>http://automation-remarks.com/2021/dirty-night-3/index.html</link>
-          <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/dirty-night-3/index.html</guid>
-          <description>
-                        Вечер грязи
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Очередной выпуск &quot;вечера грязи&quot;. В этот раз говорили про больную тему зарплат. Что, кто и сколько. Нормально ли это - джуниор за 1200 или middle за 2500. Также поговорили про опционы и прочие бенефиты.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-3-50485698?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слушать&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
