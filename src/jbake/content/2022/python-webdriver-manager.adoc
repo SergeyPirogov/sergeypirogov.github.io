@@ -1,0 +1,102 @@
+= Python Webdriver manager
+Sergey Pirogov
+2022-05-24
+:jbake-type: post
+:jbake-tags: Python, Selenium
+:jbake-summary: About Python Webdriver manager
+:jbake-status: published
+
+We all know that we need to have browser drivers, .exe files like chromedriver.exe and geckodriver.exe in case of windows environment or binary files like chromedriver and gheckodriver in case of linux distributions, in order to run our selenium webdriver automation scripts on chrome and firefox browsers.
+
+And also we need to set the path of these files in our script like below or need to add location to the class path.
+
+[source, python]
+----
+driver = webdriver.Chrome(executable_path="/path/to/binary/chromedriver")
+----
+
+[source, python]
+----
+driver = webdriver.Firefox(executable_path="/path/to/binary/firefoxdriver")
+----
+
+If the path is not defined/given or if the path provided is wrong, we will get an exceptions. And it is mandatory for all browsers to have browser drivers.
+
+[source, python]
+---
+selenium.common.exceptions.WebDriverException: Message: 'geckodriver' executable needs to be in PATH.
+---
+
+[source, python]
+---
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+---
+
+To avoid this error, we need to manually download and manage these browser drivers for each operating systems/environments which is very painful and time consuming. Above all we also have to check and update relevant drivers when new versions of the binaries are released or new browsers versions are released along with compatibility for driver to browser.
+
+That is why webdriver-manager for Python has been developed. It helps us to manage driver related settings automatically for python. This package downloads binaries/executables in an automated way and helps us to avoid all the manual steps that we do previously related to drivers to run our tests.
+
+It supports browsers such as Chrome, Firefox, Brave,Opera, Microsoft Edge, or Internet Explorer. You can check that in project page https://github.com/SergeyPirogov/webdriver_manager[here].
+
+== How do we use this in your project?
+
+Only setup required is to install this package using ‘pip’.
+
+---
+pip install webdriver-manager
+---
+
+That’s it! We are all set. Just import this module in your python project and start using it.
+
+For Chrome:
+
+[source, python]
+---
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
+
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---
+
+For Firefox:
+
+[source, python]
+---
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver
+
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---
+
+It can work with both Selenium 3 and Selenium 4 versions. The only difference is the way to pass it via driver constructor. For Selenium 4 instead of executable_path you have to pass service variable:
+
+[source, python]
+---
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.get("http://www.google.com/")
+print(driver.title)
+driver.quit()
+---
+
+webdriver_manager, by default, tries to download the latest version of a given driver binary. To use a specific version of driver, pass the driver version like below.
+
+[source, python]
+---
+webdriver.Chrome(executable_path=ChromeDriverManager("2.42").install())
+---
+
+Starting version 3.7.0 it supports both Intel i386 and Apple M1. You don't have to do any changes, it will detect CPU architecture automatically and download appropriate driver.
+
+This eliminates lot of manual works and incompatibility issues. Thanks to Sergey Pirogov. Happy scripting!!!
+
+Don’t forget to provide your valuable comments.
