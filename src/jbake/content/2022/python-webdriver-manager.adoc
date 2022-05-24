@@ -42,6 +42,7 @@ It supports browsers such as Chrome, Firefox, Brave,Opera, Microsoft Edge, or In
 
 Only setup required is to install this package using ‘pip’.
 
+[source, python]
 ----
 pip install webdriver-manager
 ----
@@ -51,7 +52,7 @@ That’s it! We are all set. Just import this module in your python project and 
 For Chrome:
 
 [source, python]
----
+----
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 
