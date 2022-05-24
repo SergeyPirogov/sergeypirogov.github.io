@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Tue, 24 May 2022 08:21:50 +0000</pubDate>
-    <lastBuildDate>Tue, 24 May 2022 08:21:50 +0000</lastBuildDate>
+    <pubDate>Tue, 24 May 2022 08:25:22 +0000</pubDate>
+    <lastBuildDate>Tue, 24 May 2022 08:25:22 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -95,60 +95,54 @@ from selenium import webdriver
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get(&quot;http://www.google.com/&quot;)
 print(driver.title)
-driver.quit()
----
-
-For Firefox:
-
-[source, python]&lt;/code&gt;&lt;/pre&gt;
+driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;from webdriver_manager.firefox import GeckoDriverManager
-from selenium import webdriver&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-driver.get(&quot;http://www.google.com/&quot;)
-print(driver.title)
-driver.quit()&lt;/p&gt;
+&lt;p&gt;For Firefox:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;It can work with both Selenium 3 and Selenium 4 versions. The only difference is the way to pass it via driver constructor. For Selenium 4 instead of executable_path you have to pass service variable:
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver
 
-[source, python]&lt;/pre&gt;
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+driver.get(&quot;http://www.google.com/&quot;)
+print(driver.title)
+driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;from selenium import webdriver
+&lt;p&gt;It can work with both Selenium 3 and Selenium 4 versions. The only difference is the way to pass it via driver constructor. For Selenium 4 instead of executable_path you have to pass service variable:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get(&quot;http://www.google.com/&quot;)
 print(driver.title)
-driver.quit()&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;webdriver_manager, by default, tries to download the latest version of a given driver binary. To use a specific version of driver, pass the driver version like below.
-
-[source, python]&lt;/pre&gt;
+driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;webdriver.Chrome(executable_path=ChromeDriverManager(&quot;2.42&quot;).install())&lt;/p&gt;
+&lt;p&gt;webdriver_manager, by default, tries to download the latest version of a given driver binary. To use a specific version of driver, pass the driver version like below.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;Starting version 3.7.0 it supports both Intel i386 and Apple M1. You don&apos;t have to do any changes, it will detect CPU architecture automatically and download appropriate driver.
-
-This eliminates lot of manual works and incompatibility issues. Thanks to Sergey Pirogov. Happy scripting!!!
-
-Don’t forget to provide your valuable comments.&lt;/pre&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;python&quot;&gt;webdriver.Chrome(executable_path=ChromeDriverManager(&quot;2.42&quot;).install())&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Starting version 3.7.0 it supports both Intel i386 and Apple M1. You don&amp;#8217;t have to do any changes, it will detect CPU architecture automatically and download appropriate driver.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This eliminates lot of manual works and incompatibility issues. Thanks to Sergey Pirogov. Happy scripting!!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Don’t forget to provide your valuable comments.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
