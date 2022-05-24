@@ -418,3 +418,8 @@ a.linked-card.inactive {
 .audio-player {
   width: 100%;
 }
+
+.card.index-card img {
+  max-width: 100%;
+  border-radius: 5px 5px 0 0
+}
