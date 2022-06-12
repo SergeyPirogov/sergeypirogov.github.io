@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
+    <meta name="description" content="Automation of the routine takes precedence over mass pressure">
     <meta name="author" content="Sergey Pirogov">
     <meta name="HandheldFriendly" content="True" />
 
