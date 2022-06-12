@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
 
           </ul>
@@ -16,10 +16,10 @@
                <a class="nav-link" target=blank href="https://www.youtube.com/qaguild">Youtube</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://t.me/automation_remarks_bot">Телеграм</a>
+               <a class="nav-link" target=blank href="https://t.me/automation_remarks_bot">Telegram</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="/archive.html">Архив</a>
+               <a class="nav-link" href="/archive.html">Archive</a>
              </li>
           </ul>
         </div>
