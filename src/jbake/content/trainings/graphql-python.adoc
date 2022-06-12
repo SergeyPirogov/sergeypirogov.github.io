@@ -21,6 +21,8 @@ Covered topics:
 
 * How to organize logging and repporting for the project
 
+* How to measure test coverage for Graphql API
+
 * How to integrate tests into CI/CD pipeline
 
 Technology list: 
