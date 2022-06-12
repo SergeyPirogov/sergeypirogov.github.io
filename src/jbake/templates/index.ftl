@@ -26,7 +26,7 @@
                     </#if>
                 </#list>
           </div>
-          <a href="/archive.html" type="button" class="archive-btn float-right">Архив
+          <a href="/archive.html" type="button" class="archive-btn float-right">Archive
             <i class="fa fa-chevron-right ml-1"></i>
           </a>
         </div>
