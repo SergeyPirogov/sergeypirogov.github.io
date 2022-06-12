@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Автоматизация рутины приоритетнее давления массой">
-    <meta name="author" content="Сергей Пирогов">
+    <meta name="author" content="Sergey Pirogov">
     <meta name="HandheldFriendly" content="True" />
 
-    <meta property="og:site_name" content="Заметки Автоматизатора">
+    <meta property="og:site_name" content="Automation Remarks">
     <meta property="og:type" content="article">
     <meta property="og:title" content="<#if (content.title)??><#escape x as x?xml>${content.title}</#escape></#if>">
     <meta property="og:image" content="${content.rootpath}../images/blog-logo.png"/>
@@ -21,7 +21,7 @@
     <link rel="shortcut icon" href="${content.rootpath}../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="${content.rootpath}../images/favicon.ico" type="image/x-icon">
 
-    <title>Заметки Автоматизатора</title>
+    <title>Automation Remarks</title>
 
     <link href="${content.rootpath}../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
