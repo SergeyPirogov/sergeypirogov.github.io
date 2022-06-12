@@ -18,7 +18,7 @@
                             <header class="post-header">
                                 <span class="post-meta">
                                     <span class="post-author">
-                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                        <a href="/author/index.html">Sergey Pirogov</a>
                                     </span> |
                                     <span class="post-date">
                                         ${content.date?string("dd/MM/yyyy")}
