@@ -1,0 +1,15 @@
+= Вечір бруду - новини світу тестування за травень 2022
+Сергей Пирогов
+2022-05-07
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
+:jbake-status: published
+
+Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування.
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Az2en9n-FJo" allowfullscreen></iframe>
+</div>
+++++
