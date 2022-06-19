@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 19 Jun 2022 07:37:58 +0000</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 07:37:58 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 07:38:59 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 07:38:59 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечір бруду - новини світу тестування за травень 2022
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-live63/index.html</link>
+          <pubDate>Sun, 19 Jun 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-live63/index.html</guid>
+          <description>
+                        Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Az2en9n-FJo&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Python Webdriver manager
@@ -164,25 +183,6 @@ driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/5aNQX8jpUNs&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Вечір бруду - новини світу тестування за травень 2022
-          </title>
-          <link>http://automation-remarks.com/2022/qaguild-live63/index.html</link>
-          <pubDate>Sat, 7 May 2022 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2022/qaguild-live63/index.html</guid>
-          <description>
-                        Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Az2en9n-FJo&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
