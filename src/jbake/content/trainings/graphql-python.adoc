@@ -1,28 +1,43 @@
-title=Тренинг по автоматизации тестирования API GraphQL с помощью Python
+title=GraphQL API Test Automation with Python
 type=trainingPage
 status=published
-summary=Технологии: GraphQL, Python 3, Allure, Jenkins CI
+summary=Technology: GraphQL, Python 3, Jenkins CI, Github Actions
 price=15$
-state=inactive
+state=active
 ~~~~~~
 
-Тренинг в котором показано как построить проект для тестирования GraphQL API с помощью языка программирования Python,
-с чего начать и как довести все до CI сервера.
+A training that shows how to build a project for testing the GraphQL API using the Python programming language,
+where to start and how to bring everything to the CI server.
 
-Технологии c которыми познакомитесь:
+Covered topics:
+
+* What is GraphQL and how to work with GraphQL API
+
+* How to setup Python project with Python 3
+
+** Project structure and basic architecture for scale
+
+* How to write tests for Queries and Mutations
+
+* How to organize logging and repporting for the project
+
+* How to measure test coverage for Graphql API
+
+* How to integrate tests into CI/CD pipeline
+
+Technology list: 
 
 * Python 3
-* requests
 * GraphQL
-* Allure
+* Jenkins
 * Github Actions
 
-Длительность 3 часа.
+Approximate duration - 3 hours.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/VNBA9vSrHOPH" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Pay</i>
 <i data-text="amount">15 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++

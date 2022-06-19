@@ -7,8 +7,8 @@
       <section class="jumbotron text-center">
         <div class="container">
           <img id="blog-logo" src="images/blog-logo.png" alt="Blog logo">
-          <h1 class="jumbotron-heading">Заметки Автоматизатора</h1>
-          <p class="lead text-muted">Автоматизация рутины приоритетнее давления массой</p>
+          <h1 class="jumbotron-heading">Automation remarks</h1>
+          <p class="lead text-muted">Automation of the routine takes precedence over mass pressure</p>
         </div>
       </section>
 
@@ -16,7 +16,7 @@
         <div class="container">
           <div class="row pl-3 pr-3 training-banner-container">
             <div class="col text-center pb-3 pt-2 training-banner">
-                <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                <a href="/trainings">Test Automation trainings to boost your skills: Java API, Java UI, Python API, Jenkins CI, SQL</a>
             </div>
           </div>
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
@@ -26,7 +26,7 @@
                     </#if>
                 </#list>
           </div>
-          <a href="/archive.html" type="button" class="archive-btn float-right">Архив
+          <a href="/archive.html" type="button" class="archive-btn float-right">Archive
             <i class="fa fa-chevron-right ml-1"></i>
           </a>
         </div>

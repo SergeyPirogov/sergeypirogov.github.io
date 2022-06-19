@@ -7,7 +7,7 @@
 
         <div class="row pl-3 pr-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
-                    <a href="https://t.me/automation_remarks_bot?start=blog">Присоединяйтесь в Telegram</a>
+                    <a href="https://t.me/automation_remarks_bot?start=blog">Join Telegram</a>
                 </div>
         </div>
 
@@ -18,7 +18,7 @@
                             <header class="post-header">
                                 <span class="post-meta">
                                     <span class="post-author">
-                                        <a href="/author/index.html">Сергей Пирогов</a>
+                                        <a href="/author/index.html">Sergey Pirogov</a>
                                     </span> |
                                     <span class="post-date">
                                         ${content.date?string("dd/MM/yyyy")}
@@ -45,12 +45,12 @@
 
                             <div class="row pl-3 pr-3 training-banner-container">
                                                                     <div class="col text-center pb-3 pt-2 training-banner">
-                                                                        <a href="/trainings">Доступные тренинги по автоматизации тестирования: Java API, Java UI, Python API, Jenkins CI</a>
+                                                                        <a href="/trainings">Test Automation trainings to boost your skills: Java API, Java UI, Python API, Jenkins CI</a>
                                                                     </div>
                                                         </div>
 
                             <div class="sidebar-social">
-                                <h5>Подпишись:</h5>
+                                <h5>Subscribe:</h5>
                                 <ul>
                                 <li>
                                 <a href="https://t.me/automation_remarks_bot" class="telegram" target="_blank" rel="nofollow">
@@ -62,7 +62,7 @@
                                 <li>
                                 <a href="https://www.patreon.com/automation_remarks?filters[tag]=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%20%D0%B3%D1%80%D1%8F%D0%B7%D0%B8" class="podcast" target="_blank" rel="nofollow">
                                   <i class="fa fa-podcast" aria-hidden="true"></i>
-                                  <span>Подкаст</span>
+                                  <span>Podcast</span>
                                 </a>
                                 </li>
 
@@ -79,17 +79,12 @@
                                       <span>Patreon</span>
                                    </a>
                                 </li>
-
-
                             </div>
-
-
-
 
                             <div class="row">
                                   <div class="col-md-12">
                                         <div class='related-posts-holder'>
-                                             <h2 class="related-posts-header">Похожие заметки:</h2>
+                                             <h2 class="related-posts-header">Related articles:</h2>
                                                  <#assign related_posts = published_posts[0..3]>
                                                  <div class="card-deck">
                                                  <#list  related_posts as post>
