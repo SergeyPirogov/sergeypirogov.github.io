@@ -7,7 +7,7 @@
       <section class="jumbotron text-center">
         <div class="container">
           <img id="blog-logo" src="images/blog-logo.png" alt="Blog logo">
-          <h1 class="jumbotron-heading">Automation remarks</h1>
+          <h1 class="jumbotron-heading">Automation Remarks</h1>
           <p class="lead text-muted">Automation of the routine takes precedence over mass pressure</p>
         </div>
       </section>
