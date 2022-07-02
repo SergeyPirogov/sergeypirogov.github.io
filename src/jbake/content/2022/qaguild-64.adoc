@@ -6,7 +6,7 @@
 :jbake-summary: Огляд інстрменту для вимірювання покриття API тестів
 :jbake-status: published
 
-Огляд інстрменту для вимірювання покриття API тестів з допомогою Swagger
+Огляд інструменту для вимірювання покриття API тестів з допомогою Swagger
 
 ++++
 <div class="embed-responsive embed-responsive-16by9">
