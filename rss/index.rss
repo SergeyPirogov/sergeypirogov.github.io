@@ -14,8 +14,8 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 2 Jul 2022 07:09:44 +0000</pubDate>
-    <lastBuildDate>Sat, 2 Jul 2022 07:09:44 +0000</lastBuildDate>
+    <pubDate>Sat, 2 Jul 2022 07:10:15 +0000</pubDate>
+    <lastBuildDate>Sat, 2 Jul 2022 07:10:15 +0000</lastBuildDate>
 
         <item>
           <title>
@@ -29,7 +29,7 @@
           </description>
           <content:encoded>
                         &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Огляд інстрменту для вимірювання покриття API тестів з допомогою Swagger&lt;/p&gt;
+&lt;p&gt;Огляд інструменту для вимірювання покриття API тестів з допомогою Swagger&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Gd6Pddhwvkk&quot; allowfullscreen&gt;&lt;/iframe&gt;
