@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Mon, 20 Jun 2022 06:49:56 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jun 2022 06:49:56 +0000</lastBuildDate>
+    <pubDate>Sat, 2 Jul 2022 07:09:44 +0000</pubDate>
+    <lastBuildDate>Sat, 2 Jul 2022 07:09:44 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Reqover for API testing
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-64/index.html</link>
+          <pubDate>Fri, 1 Jul 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-64/index.html</guid>
+          <description>
+                        Огляд інстрменту для вимірювання покриття API тестів
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Огляд інстрменту для вимірювання покриття API тестів з допомогою Swagger&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/Gd6Pddhwvkk&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Вечір бруду - новини світу тестування за травень 2022
@@ -543,25 +562,6 @@ driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/y5zSVa9GlY0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QA News #4: Конец Protractor/Мощный Cypress/Проблемы WebdriverIO/Советы тестировщикам
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-news-4/index.html</link>
-          <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-news-4/index.html</guid>
-          <description>
-                        O новостях мира тестирования за апрель 2021
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о новостях мира тестирования за март 2021: книги, полезные материалы и новые релизы инструментов, которые будут полезны для тестировщиков разного уровня.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/A_DrPVf-tkM&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
