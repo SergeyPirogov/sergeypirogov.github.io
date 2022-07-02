@@ -1,0 +1,15 @@
+= Reqover for API testing 
+Сергей Пирогов
+2022-07-01
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Огляд інстрменту для вимірювання покриття API тестів
+:jbake-status: published
+
+Огляд інстрменту для вимірювання покриття API тестів з допомогою Swagger
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Gd6Pddhwvkk" allowfullscreen></iframe>
+</div>
+++++
