@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sat, 2 Jul 2022 07:10:15 +0000</pubDate>
-    <lastBuildDate>Sat, 2 Jul 2022 07:10:15 +0000</lastBuildDate>
+    <pubDate>Sun, 3 Jul 2022 08:29:17 +0000</pubDate>
+    <lastBuildDate>Sun, 3 Jul 2022 08:29:17 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-live65/index.html</link>
+          <pubDate>Sun, 3 Jul 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-live65/index.html</guid>
+          <description>
+                        Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/nLoCsKJn_fY&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Reqover for API testing
@@ -543,25 +562,6 @@ driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XgMGjRAQZJg&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild #53: Тестирование api на python и schemathesis
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live53/index.html</link>
-          <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live53/index.html</guid>
-          <description>
-                        Про python schemathesis
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом выпуске говорили о тестировании REST API с помощью schemathesis. Вы узнаете о возможностях этого инструмента и вариантах применения. Все что нужно, чтобы начать его использовать - валидная Swagger/Open API схема.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/y5zSVa9GlY0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
