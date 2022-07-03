@@ -1,0 +1,15 @@
+= Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
+Sergey Pirogov
+2022-07-03
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
+:jbake-status: published
+
+Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nLoCsKJn_fY" allowfullscreen></iframe>
+</div>
+++++
