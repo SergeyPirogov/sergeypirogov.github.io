@@ -1,0 +1,15 @@
+= Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці
+Sergey Pirogov
+2022-07-16
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці
+:jbake-status: published
+
+Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NAqoV1EM98M" allowfullscreen></iframe>
+</div>
+++++
