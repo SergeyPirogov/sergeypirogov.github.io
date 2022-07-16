@@ -14,9 +14,28 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 3 Jul 2022 08:29:17 +0000</pubDate>
-    <lastBuildDate>Sun, 3 Jul 2022 08:29:17 +0000</lastBuildDate>
+    <pubDate>Sat, 16 Jul 2022 08:38:55 +0000</pubDate>
+    <lastBuildDate>Sat, 16 Jul 2022 08:38:55 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці
+          </title>
+          <link>http://automation-remarks.com/2022/qaguild-live66/index.html</link>
+          <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2022/qaguild-live66/index.html</guid>
+          <description>
+                        Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Вечір бруду - Як айтішніки з дронами допомогають аеророзвідці&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/NAqoV1EM98M&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Вечір Бруду - про війну, допомогу від компаній, волонтерство і роботу у воєнні часи
@@ -543,25 +562,6 @@ driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/lG7DcbrkE9E&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              QAGuild #54: Что должен знать тестировщик? Топ 3 навыка для QA Automation engineer
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild54/index.html</link>
-          <pubDate>Thu, 3 Jun 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild54/index.html</guid>
-          <description>
-                        Топ 3 навыка для QA Automation engineer
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Один из частых вопросов для тестировщиков о развитии профессиональных навыков. В этом выпуске рассказал о навыках для тестировщиков, которые помогут в развитии карьеры. Топ 3 навыка которые нужно развивать как Junior QA так и опытным Senior тестировщикам.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/XgMGjRAQZJg&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
