@@ -1,0 +1,15 @@
+= Вечір бруду - новини світу тестування за липень 2022
+Sergey Pirogov
+2022-08-16
+:jbake-type: post
+:jbake-tags: QAGuild, Youtube
+:jbake-summary: Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
+:jbake-status: published
+
+Незважаючи на війну та умови, ми продовжуємо робити огляд новин зі світу тестування
+
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-SGhZRo7IZk" allowfullscreen></iframe>
+</div>
+++++
