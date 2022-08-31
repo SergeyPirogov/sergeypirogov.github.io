@@ -1,0 +1,14 @@
+= Зустрічайте новий подкаст - Не баг, а фіча!
+Sergey Pirogov
+2022-08-31
+:jbake-type: post
+:jbake-tags: Подкаст, Youtube
+:jbake-summary: Анонс подкасту
+:jbake-status: published
+
+Новий україномовний подкаст - It's not a bug, it's a feature
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tl0wpM0fyrQ" allowfullscreen></iframe>
+</div>
+++++
