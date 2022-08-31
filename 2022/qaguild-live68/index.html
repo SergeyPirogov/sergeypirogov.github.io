@@ -10,24 +10,24 @@
 
     <meta property="og:site_name" content="Automation Remarks">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Магия Groovy и SQL">
-    <meta property="og:image" content="/../../images/blog-logo.png"/>
+    <meta property="og:title" content="Зустрічайте новий подкаст - Не баг, а фіча!">
+    <meta property="og:image" content="../../../images/blog-logo.png"/>
     <meta name="referrer" content="origin">
 
-       <meta property="og:description" content="Новая заметка, о том как можно упростить и ускорить тестирование баз данных."/>
+       <meta property="og:description" content="Анонс подкасту"/>
     <link rel="canonical" href="http://automation-remarks.com"/>
-    <link rel="shortcut icon" href="/../../images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/../../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon">
 
     <title>Automation Remarks</title>
 
-    <link href="/../../css/github.css" rel="stylesheet">
+    <link href="../../../css/github.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-    <link href="/../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href="/../../css/album.css" rel="stylesheet">
-    <link href="/../../css/main.css" rel="stylesheet">
+    <link href="../../../css/album.css" rel="stylesheet">
+    <link href="../../../css/main.css" rel="stylesheet">
 
     <script>
            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -90,115 +90,26 @@
                                         <a href="/author/index.html">Sergey Pirogov</a>
                                     </span> |
                                     <span class="post-date">
-                                        12/05/2015
+                                        31/08/2022
                                     </span>
                                 </span>
                                 <div class="clear"></div>
-                                <h1 class="post-title">Магия Groovy и SQL</h1>
+                                <h1 class="post-title">Зустрічайте новий подкаст - Не баг, а фіча!</h1>
                             </header>
 
                             <section class="post-content">
                                 <div class="paragraph">
-<p>Новая заметка, о том как можно упростить и ускорить тестирование баз данных.
-Начну с описания примерной ситуации, в которой может пригодиться данный подход. Скажем, есть у вас схема базы данных и вы перед стартом приложения, хотите проверить целостность базы данных и находящихся в ней данных. Для этого можно использовать различные подходы, я покажу один из них. В показаном примере используется Groovy. Лично для меня, он привлекателен тем, что некоторые вещи можно делать проще и быстрее. К примеру я уже показывал здесь как быстро и просто прочитать данные из url.
-Итак приступим к делу, в примере ниже, я покажу как соедениться с базой данных SQLite. Итак открываем Groovy Console и пишем:</p>
+<p>Новий україномовний подкаст - It&#8217;s not a bug, it&#8217;s a feature</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="groovy">@Grapes([
- @Grab(group='org.xerial',module='sqlite-jdbc',version='3.7.2'),
- @GrabConfig(systemClassLoader=true)
-])
-
-import java.sql.*
-import org.sqlite.SQLite
-import groovy.sql.Sql
-
-//Class.forName("org.sqlite.JDBC")
-
-def sql = Sql.newInstance("jdbc:sqlite:sample.db", "org.sqlite.JDBC")
-
-sql.execute("drop table if exists person")
-sql.execute("create table person (id integer, name string)")
-
-def people = sql.dataSet("person")
-people.add(id:1, name:"leo")
-people.add(id:2,name:'yui')
-
-sql.eachRow("select * from person") {
-  println("id=${it.id}, name= ${it.name}")
-}
-
-result:
-id=1, name= leo
-id=2, name= yui</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Вот так вот, всего пару строк, котрые позволяют создать таблицу, заполнить ее данными и извлечь их.
-Пойдем еще дальше, так как груви консоль - это инструмент "поиграться".
-Берем более серъезные инструменты <strong>Groovy + Spock Framework</strong>.Базы данных <strong>H2</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Создаем тестовый класс:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="groovy">import groovy.sql.Sql
-import spock.lang.Shared
-import spock.lang.Specification
-
-class DatabaseDrivenSpec extends Specification {
-    @Shared
-            sql = Sql.newInstance("jdbc:h2:mem:", "org.h2.Driver")
-
-    // insert data (usually the database would already contain the data)
-    def setupSpec() {
-        sql.execute("""
-                        CREATE TABLE employees
-                        ( employee_number number(10) not null,
-                          employee_name varchar2(50) not null,
-                          salary number(6),
-                          CONSTRAINT employees_pk PRIMARY KEY (employee_number)
-                        );
-                    """
-        );
-
-sql.execute("INSERT INTO employees (employee_number, employee_name, salary) VALUES (1001, 'Sally Johnson', 32000);")
-    }
-
-
-    def "employees test"() {
-        expect:
-        employee_number == 1001
-        employee_name == "Sally Johnson"
-        salary == 32000
-
-        where:
-        [employee_number, employee_name, salary] &lt;&lt; sql.rows("select * from employees")
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Можно очень легко читать .sql файлы.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight"><code data-lang="groovy">String query = new File('insert.sql').text
-sql.execute(query)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Вот так вот, мы очень легко и понятно можем обращаться с данными используя Groovy SQL.</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tl0wpM0fyrQ" allowfullscreen></iframe>
 </div>
                             </section>
 
                             <footer class="post-footer">
                                    <div class="post-tags">
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Java.html">Java</a>
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Groovy.html">Groovy</a>
-                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Test-фреймворк.html">Test фреймворк</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Подкаст.html">Подкаст</a>
+                                           <a class="btn btn-sm btn-outline-dark tag" href="/tags/Youtube.html">Youtube</a>
                                    </div>
 
                             </footer>
@@ -246,31 +157,6 @@ sql.execute(query)</code></pre>
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Related articles:</h2>
                                                  <div class="card-deck">
-
-                                                        <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/2022/qaguild-live68/index.html">
-                                                            <div class="related-card card-body d-flex flex-column">
-                                                              <p class="card-text">
-                                                                      <small class="text-muted"><span class="post-date">31 August 2022</span></small>
-                                                              </p>
-                                                              <h5 class="card-title">
-                                                                  <!-- <a href="/2022/qaguild-live68/index.html"> -->
-                                                                    Зустрічайте новий подкаст - Не баг, а фіча!
-                                                                  <!-- </a> -->
-                                                              </h5>
-
-                                                              <!--
-                                                              <p class="card-text">
-                                                                   Анонс подкасту
-                                                              </p>
-                                                              -->
-                                                              <!-- <a href="/2022/qaguild-live68/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
-                                                              </a> -->
-                                                            </div>
-                                                            </a>
-                                                        </div>
-
 
                                                         <div class="card bg-light mb-3">
                                                          <a class="linked-card rel-card h-100" target="blank" href="/2022/qaguild-live67/index.html">
@@ -368,15 +254,15 @@ sql.execute(query)</code></pre>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/../../js/popper.js"></script>
-    <script src="/../../js/bootstrap.js"></script>
-    <script src="/../../js/holder.js"></script>
+    <script src="../../../js/popper.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/holder.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="/../../js/script.js"></script>
+    <script src="../../../js/script.js"></script>
     <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
