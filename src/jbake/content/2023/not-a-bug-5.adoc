@@ -1,0 +1,14 @@
+= Не баг, а фіча #5
+Sergey Pirogov
+2022-12-27
+:jbake-type: post
+:jbake-tags: Подкаст, Youtube
+:jbake-summary: Випуск подкасту Не баг, а фіча
+:jbake-status: published
+
+Новий україномовний подкаст - It's not a bug, it's a feature
+++++
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bGhIJqmzN4M" allowfullscreen></iframe>
+</div>
+++++
