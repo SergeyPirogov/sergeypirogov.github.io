@@ -14,16 +14,16 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Fri, 27 Jan 2023 08:02:03 +0000</pubDate>
-    <lastBuildDate>Fri, 27 Jan 2023 08:02:03 +0000</lastBuildDate>
+    <pubDate>Fri, 27 Jan 2023 08:03:45 +0000</pubDate>
+    <lastBuildDate>Fri, 27 Jan 2023 08:03:45 +0000</lastBuildDate>
 
         <item>
           <title>
               Вечір бруду 2023
           </title>
-          <link>http://automation-remarks.com/2023/dirty-night-3/index.html</link>
+          <link>http://automation-remarks.com/2023/dirty-night-2023-1/index.html</link>
           <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2023/dirty-night-3/index.html</guid>
+          <guid isPermaLink="false">2023/dirty-night-2023-1/index.html</guid>
           <description>
                         Вечір бруду
           </description>
@@ -46,8 +46,8 @@
 &lt;p&gt;🔗Посилання на банку
 &lt;a href=&quot;https://send.monobank.ua/jar/6KFEdwf2d8&quot; class=&quot;bare&quot;&gt;https://send.monobank.ua/jar/6KFEdwf2d8&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-3-50485698?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слушать&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/r4lAFFxECxw&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
