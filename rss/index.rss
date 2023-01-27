@@ -14,9 +14,43 @@
     <atom:link href="http://automation-remarks.com/rss/index.rss" rel="self" type="application/rss+xml" />
     <ttl>60</ttl>
     <language>en-gb</language>
-    <pubDate>Sun, 8 Jan 2023 08:09:56 +0000</pubDate>
-    <lastBuildDate>Sun, 8 Jan 2023 08:09:56 +0000</lastBuildDate>
+    <pubDate>Fri, 27 Jan 2023 08:02:03 +0000</pubDate>
+    <lastBuildDate>Fri, 27 Jan 2023 08:02:03 +0000</lastBuildDate>
 
+        <item>
+          <title>
+              Вечір бруду 2023
+          </title>
+          <link>http://automation-remarks.com/2023/dirty-night-3/index.html</link>
+          <pubDate>Thu, 26 Jan 2023 00:00:00 +0000</pubDate>
+          <guid isPermaLink="false">2023/dirty-night-3/index.html</guid>
+          <description>
+                        Вечір бруду
+          </description>
+          <content:encoded>
+                        &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Черговий випуск &quot;вечора бруду&quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Теми:
+- Україномовне комюніті
+- Як пережили блекаут
+- Як AI змiнить ринок / нашу роботу?
+- Яка думка стосовно масових звільнень по світу? Чи повернеться ринок до норми ?
+- Зашкварний PM&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Збір на балістичні шоломи 🪖&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;🔗Посилання на банку
+&lt;a href=&quot;https://send.monobank.ua/jar/6KFEdwf2d8&quot; class=&quot;bare&quot;&gt;https://send.monobank.ua/jar/6KFEdwf2d8&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.patreon.com/posts/vecher-griazi-3-50485698?utm_medium=clipboard_copy&amp;amp;utm_source=copy_to_clipboard&amp;amp;utm_campaign=postshare&quot;&gt;Слушать&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+          </content:encoded>
+        </item>
         <item>
           <title>
               Не баг, а фіча #5
@@ -540,28 +574,6 @@ driver.quit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
   &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/ttdpFWAtvXA&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-          </content:encoded>
-        </item>
-        <item>
-          <title>
-              Пути развития тестировщика. Карьера QA Engineer | QAGuild #56
-          </title>
-          <link>http://automation-remarks.com/2021/qaguild-live56/index.html</link>
-          <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-          <guid isPermaLink="false">2021/qaguild-live56/index.html</guid>
-          <description>
-                        Пути развития тестировщика. Карьера QA Engineer
-          </description>
-          <content:encoded>
-                        &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;В этом видео показан функционал telegram бота, который поможет тестировщику оценить резюме и выбрать навыки, которые стоит качать для развития вашей карьеры.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ссылка на бот: &lt;a href=&quot;http://t.me/automation_remarks_bot?start=blog&quot; class=&quot;bare&quot;&gt;http://t.me/automation_remarks_bot?start=blog&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
-  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/h8JdZKa35dU&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
           </content:encoded>
         </item>
