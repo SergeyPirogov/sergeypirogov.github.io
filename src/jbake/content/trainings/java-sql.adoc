@@ -1,14 +1,14 @@
-title=Тренинг по работе с базами данных Java + SQL
+title=Тренінг по роботі з базами данних Java + SQL
 type=trainingPage
 status=published
-summary=Технологии: Java 8, Gradle, DbUtils, JDBI
+summary=Технології: Java 8, Gradle, DbUtils, JDBI
 price=15$
 state=inactive
 ~~~~~~
 
-Тренинг в котором показано как построить проект для работы с базами данных с помощью Java
+ТТренінг, у якому показано, як збудувати проєкт для роботи с базами данних за допомогою Java
 
-Технологии c которыми познакомитесь:
+Технології, з якими ви ознайомитеся:
 
 * Java 8
 * Selenide
@@ -16,12 +16,12 @@ state=inactive
 * DbUtils
 * JDBI
 
-Длительность 2 часа.
+Тривалість дві години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/QA1EBhY" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Оплатити</i>
 <i data-text="amount">15 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++

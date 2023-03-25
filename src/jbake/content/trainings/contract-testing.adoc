@@ -1,16 +1,16 @@
-title=Тренинг по автоматизации контрактного тестирования
+title=Тренінг з автоматизації контрактного тестування
 type=trainingPage
 status=published
-summary=Технологии: Spring boot, Spring cloud contracts, Swagger, Docker, Jenkins CI
+summary=Технології: Spring boot, Spring cloud contracts, Swagger, Docker, Jenkins CI
 price=30$
 state=active
 ~~~~~~
 
-Тренинг по контрактному тестированию на основе Java + Spring cloud contracts + Swagger.
-В этом тренинге, показано как организовать подход с технической и процессной стороны.
-Будет полезно тем, кто давно хотел разобраться в теме и внедрить контрактные тесты у себя на проекте.
+Тренінг з контрактного тестування на основі Java + Spring cloud contracts + Swagger.
+У цьому тренінгу показано, як організувати підхід з технічного й процесного боку.
+Буде корисним для тих, хто давно хотів розібратися в темі та впровадити контрактні тести на своєму проєкті.
 
-Технологии c которыми познакомитесь:
+Технології, з якими ви ознайомитеся:
 
 * Spring boot
 * Spring cloud contracts
@@ -18,12 +18,12 @@ state=active
 * Swagger
 * Jenkins CI
 
-Длительность 3 часа.
+Тривалість три години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/ELQt" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Оплатити</i>
 <i data-text="amount">30 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++

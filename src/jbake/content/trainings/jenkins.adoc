@@ -1,29 +1,29 @@
-title=Тренинг по настройке Jenkins CI для тестировщика
+title=Тренінг з налаштування Jenkins CI для тестувальника
 type=trainingPage
 status=published
-summary=Тренинг в котором можно посмотреть на устройство Jenkins CI
+summary=Тренінг, у якому можна поглянути на влаштування Jenkins CI
 price=15$
 state=active
 ~~~~~~
 
-Тренинг в котором можно посмотреть на устройство Jenkins CI, показаны способы устрановки, настройки и подключения тестов.
+Тренінг, у якому можна поглянути на влаштування Jenkins CI, показано способи встановлення, налаштування й підключення тестів.
 
-Из того, что можно будет узнать:
+Серед іншого дізнаєтеся про:
 
-- Настройка Jenkins server
-- Покопаемся во внутрянках
-- Настроим джобы и попробуем Jenkins pipeline
-- Подключим slave
-- Интеграция с мессенджерами типа Slack
-- Посмотрим на разные полезные плагины, которые делают жизнь проще
+- Налаштування Jenkins server
+- Покопирсаємося всередині
+- Налаштуємо джоби й спробуємо Jenkins pipeline
+- Підключимо slave
+- Інтеграція з месенджерами типу Slack
+- Поглянемо на різні корисні плагіни, які полегшують життя
 
-Длительность 3 часа 27 минут.
+Тривалість три з половиною години.
 
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/8hTTVpoFULE9tqs" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Оплатити</i>
 <i data-text="amount">15 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++

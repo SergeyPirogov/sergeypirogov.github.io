@@ -1,14 +1,14 @@
-title=Тренинг по Gitlab CI vs Travis CI vs Github actions
+title=Тренінг з Gitlab CI vs Travis CI vs Github actions
 type=trainingPage
 status=published
-summary=Технологии: Java 8, Gradle, Allure, Gitlab CI, Travis CI, Github actions
+summary=Технології: Java 8, Gradle, Allure, Gitlab CI, Travis CI, Github actions
 price=15$
 state=active
 ~~~~~~
 
-Тренинг в котором показано как ипользовать Gitlab CI, Travis CI, Github actions для запуска тестов.
+Тренінг, у якому показано, як використовувати Gitlab CI, Travis CI, Github actions для запуску тестів.
 
-Технологии c которыми познакомитесь:
+Технології, з якими ви ознайомитеся:
 
 * Java 8
 * Rest Assured
@@ -17,12 +17,12 @@ state=active
 * Travis CI
 * Github actions
 
-Длительность 2.5 часа.
+Тривалість 2.5 години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/EE6o" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Оплатити</i>
 <i data-text="amount">15 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++

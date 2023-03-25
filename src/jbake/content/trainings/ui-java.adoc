@@ -1,15 +1,15 @@
-title=Тренинг по автоматизации тестирования UI с помощью Java
+title=Тренінг з автоматизації тестування UI за допомогою Java
 type=trainingPage
 status=published
-summary=Технологии: Java 8, Selenide, Gradle, Allure, Jenkins CI
+summary=Технології: Java 8, Selenide, Gradle, Allure, Jenkins CI
 price=30$
 state=active
 ~~~~~~
 
-Тренинг в котором показано как построить проект для тестирования UI с помощью языка программирования Java,
-с чего начать и как довести все до CI сервера.
+Тренінг, у якому показано, як побудувати проєкт для тестування UI за допомогою мови програмування Java:
+з чого почати та як довести все до CI сервера.
 
-Технологии c которыми познакомитесь:
+Технології, з якими ви ознайомитеся:
 
 * Java 8
 * Selenide
@@ -17,12 +17,12 @@ state=active
 * Allure
 * Jenkins CI
 
-Длительность 3 часа.
+Тривалість три години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
 <a href="https://pay.fondy.eu/s/BtW2kSGSQh6FRe" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
-<i data-text="name">Оплатить</i>
+<i data-text="name">Оплатити</i>
 <i data-text="amount">30 USD</i>
 <i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 ++++
