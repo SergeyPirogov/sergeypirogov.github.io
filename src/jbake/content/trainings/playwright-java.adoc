@@ -1,0 +1,29 @@
+title=Тренінг з автоматизації тестування UI за допомогою Playwright Java
+type=trainingPage
+status=published
+summary=Технології: Java 11, Playwright Java, Gradle, Github
+price=30$
+state=active
+~~~~~~
+
+Тренінг, у якому показано, як збудувати проєкт для тестування UI за допомогою Playwright Java:
+з чого почати та як довести все до CI сервера.
+
+Тренінг буде корисний людям, які працювали з Selenium/Selenide і ніколи не пробували робити проекти з Playwright.
+
+Технології, з якими ви ознайомитеся:
+
+* Java 17
+* Playwright Java
+* Gradle/Maven
+* Github/Github Actions
+
+Тривалість чотири години.
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://pay.fondy.eu/s/H7EK9WWsCgfW" data-button="" class="f-p-b" style="--fpb-background:#56c64e; --fpb-color:#000000; --fpb-border-color:#ffffff; --fpb-border-width:2px; --fpb-font-weight:400; --fpb-font-size:16px; --fpb-border-radius:9px;">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">30 USD</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++
