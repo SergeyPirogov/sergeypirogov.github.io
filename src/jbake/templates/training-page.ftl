@@ -27,6 +27,7 @@
                                 <h6 class="payment-sub-header">
                                     Форма оплати працює тільки для Україні і країн Європи. Якшо ви з США, залиште заявку
                                 </h6>
+                                <br>
                                 <h4>Залишити заявку</h4>
   
                                 <form id="my-form" method="POST" action="https://formspree.io/myyngrqz" method="POST">
