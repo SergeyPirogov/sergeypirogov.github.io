@@ -1,4 +1,4 @@
-title=Успешная регистрация
+title=Успішна регістрація
 type=payment
 status=published
 ~~~~~~
