@@ -1,7 +1,5 @@
 <#include "header.ftl">
-
   <#include "menu.ftl">
-
    <div class="album training py-5 bg-light">
           <div class="post-container container">
                <main class="content" role="main">
@@ -52,6 +50,11 @@
                        </div>
                    </article>
                </main>
+               <div class="row mt-2 pl-3 pr-3 training-banner-container">
+                   <div class="col text-center pb-3 pt-2 training-banner">
+                        <a href="/trainings">Переглянути інші тренінги: Playwright, Java API, Java UI, Python API, Jenkins CI, SQL</a>
+                   </div>
+               </div>
           </div>
        </div>
 
