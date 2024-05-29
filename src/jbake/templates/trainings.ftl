@@ -6,10 +6,10 @@
 
       <section class="jumbotron archive text-center">
         <div class="container trainings">
-          <h1 class="jumbotron-heading">Affordable Test Automation Trainings</h1>
+          <h1 class="jumbotron-heading">Доступні тренінги з автоматизації тестування</h1>
            <p class="lead text-muted">
-          Trainings that show how to build a project, where to start and how to bring everything to the CI server.
-          This is a great opportunity to look at ideas and approaches and make automation on your project better.
+          Тренінги, які показують, як створити проект, з чого почати та як перенести все на сервер CI.
+          Це чудова можливість переглянути ідеї та підходи та покращити автоматизацію вашого проекту.
           </p>
         </div>
       </section>
