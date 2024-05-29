@@ -16,7 +16,7 @@
         <div class="container">
           <div class="row pl-3 pr-3 training-banner-container">
             <div class="col text-center pb-3 pt-2 training-banner">
-                <a href="/trainings">Test Automation trainings to boost your skills: Playwright, Java API, Java UI, Python API, Jenkins CI, SQL</a>
+                <a href="/trainings">Тренінги для покращення навичок: Playwright, Java API, Java UI, Python API, Jenkins CI, SQL</a>
             </div>
           </div>
           <div id="push" class="row post-list row-cols-1 row-cols-md-4">
@@ -26,7 +26,7 @@
                     </#if>
                 </#list>
           </div>
-          <a href="/archive.html" type="button" class="archive-btn float-right">Archive
+          <a href="/archive.html" type="button" class="archive-btn float-right">Архів
             <i class="fa fa-chevron-right ml-1"></i>
           </a>
         </div>
