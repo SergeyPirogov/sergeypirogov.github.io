@@ -7,7 +7,7 @@
 
         <div class="row pl-3 pr-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
-                    <a href="https://t.me/automation_remarks_bot?start=blog">Join Telegram</a>
+                    <a href="https://t.me/automation_remarks_bot?start=blog">Приєднатись до Telegram</a>
                 </div>
         </div>
 
