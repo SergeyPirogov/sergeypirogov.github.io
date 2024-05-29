@@ -1,8 +1,8 @@
 <#include "header.ftl">
 
-    <#include "menu.ftl">
+<#include "menu.ftl">
 
-    <main role="main">
+<main role = "main">
 
       <section class="jumbotron archive text-center">
         <div class="container trainings">
