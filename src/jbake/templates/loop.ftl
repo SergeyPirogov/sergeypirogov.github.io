@@ -21,7 +21,7 @@
             </#if>
           </p>
           <a href="/${post.uri}" class="stretched-link mt-auto card-link">
-            Read<i class="fa fa-chevron-right ml-1"></i>
+            Читати<i class="fa fa-chevron-right ml-1"></i>
           </a>
         </div>
     </div>
