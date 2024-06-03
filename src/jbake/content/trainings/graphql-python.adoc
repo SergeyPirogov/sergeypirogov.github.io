@@ -6,33 +6,33 @@ price=15$
 state=active
 ~~~~~~
 
-A training that shows how to build a project for testing the GraphQL API using the Python programming language,
-where to start and how to bring everything to the CI server.
+Тренінг, який показує, як створити проект для тестування GraphQL API за допомогою мови програмування Python,
+з чого почати і як перенести все на сервер CI.
 
-Covered topics:
+Розглянуті теми:
 
-* What is GraphQL and how to work with GraphQL API
+* Що таке GraphQL і як працювати з GraphQL API
 
-* How to setup Python project with Python 3
+* Як налаштувати проект Python за допомогою Python 3
 
-** Project structure and basic architecture for scale
+* Структура проекту та базова архітектура для масштабу
 
-* How to write tests for Queries and Mutations
+* Як писати тести для запитів і мутацій
 
-* How to organize logging and repporting for the project
+* Як організувати журналювання та звітність для проекту
 
-* How to measure test coverage for Graphql API
+* Як виміряти тестове покриття для Graphql API
 
-* How to integrate tests into CI/CD pipeline
+* Як інтегрувати тести в конвеєр CI/CD
 
-Technology list: 
+Технології, з якими ви ознайомитеся:
 
 * Python 3
 * GraphQL
 * Jenkins
 * Github Actions
 
-Approximate duration - 3 hours.
+Навчання відбувається у вигляді практичних онлайн лекції. Тривалість три години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>

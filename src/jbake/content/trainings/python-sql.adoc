@@ -15,7 +15,7 @@ state=active
 * pytest
 * postgres
 
-Тривалість дві години.
+Навчання відбувається у вигляді практичних онлайн лекції. Тривалість дві години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>

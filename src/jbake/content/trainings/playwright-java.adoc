@@ -18,7 +18,7 @@ state=active
 * Gradle/Maven
 * Github/Github Actions
 
-Тривалість чотири години.
+Навчання відбувається у вигляді практичних онлайн лекції. Тривалість чотири години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>

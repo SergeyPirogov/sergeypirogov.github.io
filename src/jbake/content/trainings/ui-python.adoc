@@ -19,7 +19,7 @@ state=active
 * Pytest
 * Jenkins CI
 
-Тривалість три години.
+Навчання відбувається у вигляді практичних онлайн лекції. Тривалість три години.
 
 ++++
 <style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
