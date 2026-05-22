@@ -238,6 +238,11 @@
             <p class="cta-subtitle-modern">
               Отримайте експертне керівництво, адаптоване до потреб вашої команди. Доступні тренінги, консультації та менторинг.
             </p>
+            <div class="text-center mb-4">
+              <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
+                <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua
+              </a>
+            </div>
             <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
               <div class="form-row">
                 <div class="form-group col">
@@ -259,11 +264,6 @@
             <p class="cta-alternative-modern">
               Або напишіть прямо: <a href="https://t.me/spirogov">@spirogov в Telegram</a>
             </p>
-            <div class="text-center mt-4">
-              <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
-                <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua
-              </a>
-            </div>
           </div>
         </div>
       </section>
