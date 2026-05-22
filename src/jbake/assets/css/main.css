@@ -752,6 +752,8 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 /* Training Cards - Modern Grid */
 .trainings-section-modern {
   background: #f8f9fa;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .training-card-modern-link {
