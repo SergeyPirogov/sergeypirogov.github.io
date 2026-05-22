@@ -12,7 +12,7 @@
               <div class="col-lg-7 hero-text-column">
                 <h1 class="hero-title-modern">Automation Remarks<br><span class="text-accent">Консультації & Тренінги</span></h1>
                 <p class="hero-subtitle-modern">
-                  Трансформуйте вашу стратегію тестування з допомогою експертного керівництва від Senior QA Automation Engineer. Сотні інженерів навчені, десятки компаній допоможено.
+                  Трансформуйте вашу стратегію тестування з допомогою експертного керівництва від Senior QA Automation Engineer.
                 </p>
                 <div class="hero-cta-modern mt-5">
                   <a href="/trainings" class="btn-modern btn-primary-modern">
