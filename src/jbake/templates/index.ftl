@@ -245,7 +245,7 @@
               </div>
               <input type="hidden" name="_subject" value="Заявка на Консультацію з automation-remarks.com"/>
               <div style="text-align: center;">
-                <button type="submit" class="btn-modern btn-primary-modern">Відправити</button>
+                <button type="submit" class="btn-modern btn-primary-modern" style="width: 100%; text-align: center;">Відправити</button>
               </div>
               <p id="cta-form-status" class="form-status-modern"></p>
             </form>
