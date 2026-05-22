@@ -13,6 +13,21 @@ buildscript {
 
 apply plugin: "org.jbake.site"
 
+// Fix for macOS arm64: use pure Java implementation when native fails
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            eachDependency { DependencyResolveDetails details ->
+                if (details.requested.name == 'jna') {
+                    details.useVersion '5.13.0'
+                }
+                if (details.requested.name == 'jna-platform') {
+                    details.useVersion '5.13.0'
+                }
+            }
+        }
+    }
+}
 
 jbake {
     srcDirName = 'src/jbake'
