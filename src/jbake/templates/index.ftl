@@ -86,7 +86,7 @@
       <section id="trainings" class="trainings-section-modern py-6 bg-light-modern">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
-            <h2 class="section-title-modern">Популярні Курси</h2>
+            <h2 class="section-title-modern">Популярні тренінги</h2>
             <p class="section-subtitle-modern">Почніть навчатися негайно з відеокурсів</p>
           </div>
           <div class="row">
