@@ -1,3 +1,4 @@
+<#if content.uri?? && content.uri != "index.html">
 <header>
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class='container'>
@@ -31,3 +32,4 @@
         </div>
       </nav>
 </header>
+</#if>

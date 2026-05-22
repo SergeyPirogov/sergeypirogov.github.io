@@ -434,6 +434,11 @@ body {
 
 /* Hero section with no navbar (homepage) */
 body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
+  padding-top: 80px;
+}
+
+/* Hero section with no navbar (homepage) */
+body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   padding-top: 0;
 }
 
