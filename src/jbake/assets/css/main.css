@@ -435,7 +435,6 @@ a.linked-card.inactive {
   margin-top: 56px;
   position: relative;
   overflow: hidden;
-  border-bottom: 3px solid #2d9d7e;
 }
 
 .hero-content {
@@ -452,7 +451,7 @@ a.linked-card.inactive {
 }
 
 .text-accent {
-  background: linear-gradient(135deg, #2d9d7e, #1f7a5f);
+  background: linear-gradient(135deg, #2d9d7e, #2db77e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -469,27 +468,6 @@ a.linked-card.inactive {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.hero-image-modern {
-  filter: drop-shadow(0 10px 30px rgba(45, 157, 126, 0.3));
-  transition: transform 0.3s ease;
-  max-width: 300px;
-  height: auto;
-}
-
-.hero-image-modern:hover {
-  transform: scale(1.05);
-}
-
-.hero-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 350px;
-  background: radial-gradient(circle at center, rgba(45, 157, 126, 0.05) 0%, transparent 70%);
-  border-radius: 20px;
-  padding: 40px;
 }
 
 .btn-modern {
