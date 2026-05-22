@@ -1,94 +1,104 @@
 <#include "header.ftl">
 <#include "menu.ftl">
-<div class = "album training py-5 bg-light">
-          <div class="post-container container">
-               <main class="content" role="main">
-                   <article class="post">
-                       <div class="inner inner-post">
-                           <div id="push">
-                               <header class="post-header">
-                                   <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
-                               </header>
 
-                               <section class="post-content">
-                                   ${content.body}
-                                   <!-- <div class="paragraph">
-                                    <p>Цена: ${content.price}</p>
-                                   </div> -->
-                               </section>
-                           </div>
-                           
-                           <section class="training-form">
-                                <h6 class="payment-sub-header">
-                                    Якшо ви сплатили використовуючи кнопку зверху, то заявка на участь свориться автоматично
-                                </h6>
-                                <h6 class="payment-sub-header">
-                                    Форма оплати працює тільки для Україні і країн Європи. Якшо ви з США, спробуйте Paypal або залиште заявку
-                                </h6>
-                                <br>
-                                <h5>В разі виникнення додаткових питань, залиште заявку:</h4>
-  
-                                <form id="my-form" method="POST" action="https://formspree.io/myyngrqz" method="POST">
-                                      <div class="field half first">
-                                        <input type="text" name="name" id="name" placeholder="Ім'я" required>
-                                      </div>
-                                      <div class="field half">
-                                        <input type="email" name="_replyto" id="email" placeholder="Email" required>
-                                      </div>
-                                      <div class="field half first">
-                                        <input type="text" id="city-name" name="city" placeholder="Місто" required>
-                                      </div>
-                                      <input type="hidden" name="_subject" value="${content.title} - (${content.price})"/>
-                                      <ul class="actions">
-                                          <li>
-                                            <button id="my-form-button" class="btn btn-dark">Відправити</button>
-                                          </li>
-                                    </ul>
-                                    <p id="my-form-status"></p>
-                                  </form>
-                            </section>
-                       </div>
-                   </article>
-               </main>
-               <div class="row mt-2 pl-3 pr-3 training-banner-container">
-                   <div class="col text-center pb-3 pt-2 training-banner">
-                        <a href="/trainings">Переглянути інші тренінги: Playwright, Java API, Java UI, Python API, Jenkins CI, SQL</a>
-                   </div>
-               </div>
+<section class="section-header-modern-page py-6">
+  <div class="container">
+    <div>
+      <h1 class="section-title-modern"><#escape x as x?xml>${content.title}</#escape></h1>
+      <p class="section-subtitle-modern">${content.price}</p>
+    </div>
+  </div>
+</section>
+
+<div class="training-details-container py-5">
+  <div class="container">
+    <article class="training-content-modern">
+      <div class="inner inner-post">
+        <section class="post-content">
+          ${content.body}
+        </section>
+      </div>
+    </article>
+
+    <div class="training-navigation mt-5">
+      <a href="/trainings" class="btn btn-outline-success">
+        <i class="fa fa-arrow-left mr-2"></i>Всі тренінги
+      </a>
+    </div>
+
+    <div class="training-form-container mt-5">
+      <h4 class="mb-4">Залишити заявку</h4>
+
+      <div class="info-box mb-4">
+        <p class="small text-muted mb-2">
+          <i class="fa fa-info-circle mr-2"></i>Якшо ви сплатили, заявка створюється автоматично
+        </p>
+        <p class="small text-muted mb-0">
+          <i class="fa fa-globe mr-2"></i>Форма працює для України та Європи
+        </p>
+      </div>
+
+      <form id="my-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name" class="form-label-modern">Ім'я</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Ваше ім'я" required>
           </div>
-       </div>
+
+          <div class="form-group col-md-6">
+            <label for="email" class="form-label-modern">Email</label>
+            <input type="email" class="form-control" name="_replyto" id="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="city-name" class="form-label-modern">Місто</label>
+          <input type="text" class="form-control" id="city-name" name="city" placeholder="Ваше місто" required>
+        </div>
+
+        <input type="hidden" name="_subject" value="${content.title} - (${content.price})"/>
+
+        <button id="my-form-button" class="btn btn-success">
+          Відправити заявку
+        </button>
+        <p id="my-form-status" class="mt-3"></p>
+      </form>
+
+      <div class="text-center mt-5">
+        <p class="small text-muted mb-3">Питання? Напишіть мені:</p>
+        <a href="https://t.me/spirogov" target="_blank" class="btn btn-info">
+          <i class="fab fa-telegram-plane mr-2"></i>Telegram @spirogov
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   window.addEventListener("DOMContentLoaded", function() {
-
-// get the form elements defined in your form HTML above
 
 var form = document.getElementById("my-form");
 var button = document.getElementById("my-form-button");
 var status = document.getElementById("my-form-status");
 
-// Success and Error functions for after the form is submitted
-
 function success() {
 form.reset();
 button.style = "display: none ";
-status.innerHTML = "Дякую! Ваша заявка прийнята.";
+status.innerHTML = "<strong>✓ Дякую! Ваша заявка прийнята.</strong>";
+status.classList.add('success');
 }
 
-     function error() {
-status.innerHTML = "Something has gone wrong! Check that the form fields are not empty and the email is in the format example@domain";
+function error() {
+status.innerHTML = "Помилка при відправці. Спробуйте ще раз.";
+status.classList.add('error');
 }
 
-    // handle the form submission event
-
-    form.addEventListener("submit", function(ev) {
+form.addEventListener("submit", function(ev) {
 ev.preventDefault();
 var data = new FormData(form);
 ajax(form.method, form.action, data, success, error);
 });
   });
-
-  // helper function for sending an AJAX request
 
   function ajax(method, url, data, success, error) {
 var xhr = new XMLHttpRequest();

@@ -1,3 +1,4 @@
+<#if content.uri?? && content.uri != "index.html">
 <header>
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class='container'>
@@ -9,20 +10,26 @@
             <li class="nav-item">
               <a class="nav-link" href="/">На головну<span class="sr-only">(current)</span></a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="/trainings">Тренінги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#consulting-cta">Консультація</a>
+            </li>
           </ul>
           <ul class="navbar-nav">
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://www.youtube.com/qaguild">Youtube</a>
+               <a class="nav-link" href="/archive.html">Блог</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" target=blank href="https://t.me/automation_remarks_bot">Telegram</a>
+               <a class="nav-link" target="_blank" href="https://www.youtube.com/qaguild">Youtube</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="/archive.html">Архів</a>
+               <a class="nav-link" target="_blank" href="https://t.me/automation_remarks_bot">Telegram</a>
              </li>
           </ul>
         </div>
         </div>
       </nav>
 </header>
+</#if>

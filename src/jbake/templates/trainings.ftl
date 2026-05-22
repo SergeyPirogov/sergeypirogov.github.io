@@ -4,28 +4,29 @@
 
 <main role = "main">
 
-      <section class="jumbotron archive text-center">
+      <section class="section-header-modern-page text-center py-6">
         <div class="container trainings">
-          <h1 class="jumbotron-heading">Доступні тренінги з автоматизації тестування</h1>
-           <p class="lead text-muted">
+          <h1 class="section-title-modern">Доступні тренінги з автоматизації тестування</h1>
+          <p class="section-subtitle-modern">
           Тренінги, які показують, як створити проект, з чого почати та як перенести все на сервер CI.
           Це чудова можливість переглянути ідеї та підходи та покращити автоматизацію вашого проекту.
           </p>
         </div>
       </section>
 
-      <div class="album py-5 bg-light ">
+      <section class="trainings-section-modern py-6 bg-light-modern">
         <div class="container">
-          <div id="push" class="row post-list row-cols-1 row-cols-md-3">
+          <div id="push" class="row">
             <#list trainingPages as content>
                 <#if (content.state == "active")>
-                  <#include "training-card.ftl">
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <#include "training-card.ftl">
+                  </div>
                 </#if>
             </#list>
           </div>
-
         </div>
-      </div>
+      </section>
     </main>
 
 <#include "footer.ftl">
