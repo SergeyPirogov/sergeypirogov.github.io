@@ -24,7 +24,9 @@
                 </div>
               </div>
               <div class="col-lg-6 text-center">
-                <img id="blog-logo" src="images/blog-logo.png" alt="QA Automation" class="hero-image-modern">
+                <div class="hero-logo-wrapper">
+                  <img id="blog-logo" src="images/blog-logo.png" alt="QA Automation" class="hero-image-modern">
+                </div>
               </div>
             </div>
           </div>
