@@ -8,7 +8,6 @@
         <div class="container">
           <h1 class="section-title-modern">Архів статей</h1>
           <p class="section-subtitle-modern">Все статті про автоматизацію тестування</p>
-          <div class="gcse-search mt-4">
         </div>
       </section>
 
@@ -21,9 +20,6 @@
                     </#if>
                 </#list>
           </div>
-          <a href="/archive.html" type="button" class="archive-btn float-end">Архив
-            <i class="fa-solid fa-chevron-right ms-1"></i>
-          </a>
         </div>
       </div>
 
