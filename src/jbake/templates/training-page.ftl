@@ -28,7 +28,7 @@
                                 <br>
                                 <h5>В разі виникнення додаткових питань, залиште заявку:</h4>
   
-                                <form id="my-form" method="POST" action="https://formspree.io/myyngrqz" method="POST">
+                                <form id="my-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
                                       <div class="field half first">
                                         <input type="text" name="name" id="name" placeholder="Ім'я" required>
                                       </div>

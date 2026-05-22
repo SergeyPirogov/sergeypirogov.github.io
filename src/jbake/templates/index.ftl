@@ -238,7 +238,7 @@
             <p class="cta-subtitle-modern">
               Отримайте експертне керівництво, адаптоване до потреб вашої команди. Доступні тренінги, консультації та менторинг.
             </p>
-            <form id="cta-form" method="POST" action="https://formspree.io/myyngrqz" class="cta-form-modern">
+            <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg" class="cta-form-modern">
               <div class="form-row">
                 <div class="form-group">
                   <input type="text" class="form-control-modern" name="name" placeholder="Ваше Ім'я" required>
