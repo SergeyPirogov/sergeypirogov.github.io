@@ -91,7 +91,7 @@
           </div>
           <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/playwright-java.html" class="training-card-modern-link">
+              <a href="/trainings/playwright-java/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <div class="training-badge">ПОПУЛЯРНИЙ</div>
                   <h4 class="training-title-modern">Playwright Java UI</h4>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/playwright-js.html" class="training-card-modern-link">
+              <a href="/trainings/playwright-js/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <div class="training-badge">ПОПУЛЯРНИЙ</div>
                   <h4 class="training-title-modern">Playwright JS/TS UI</h4>
@@ -119,7 +119,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/api-java.html" class="training-card-modern-link">
+              <a href="/trainings/api-java/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <h4 class="training-title-modern">API Тестування Java</h4>
                   <p class="training-tech-modern">Java 8 • Rest Assured • Allure</p>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/api-python.html" class="training-card-modern-link">
+              <a href="/trainings/api-python/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <h4 class="training-title-modern">API Тестування Python</h4>
                   <p class="training-tech-modern">Python 3 • pytest • requests</p>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/ui-java.html" class="training-card-modern-link">
+              <a href="/trainings/ui-java/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <h4 class="training-title-modern">UI Тестування Java</h4>
                   <p class="training-tech-modern">Java 8 • Selenide • Allure</p>
@@ -158,7 +158,7 @@
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <a href="/trainings/mentoring-java.html" class="training-card-modern-link">
+              <a href="/trainings/mentoring-java/index.html" class="training-card-modern-link">
                 <div class="training-card-modern">
                   <h4 class="training-title-modern">Персональний Менторинг</h4>
                   <p class="training-tech-modern">Адаптований • Гнучкий • Комплексний</p>
