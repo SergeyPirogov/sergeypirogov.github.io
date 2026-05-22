@@ -16,7 +16,7 @@
                 </p>
                 <div class="hero-cta-modern mt-5">
                   <a href="/trainings" class="btn-modern btn-primary-modern">
-                    <i class="fa fa-graduation-cap mr-2"></i>Всі тренінги
+                    <i class="fa fa-graduation-cap mr-2"></i>Переглянути Тренінги
                   </a>
                   <a href="#consulting-cta" class="btn-modern btn-secondary-modern">
                     <i class="fa fa-calendar mr-2"></i>Замовити Консультацію
