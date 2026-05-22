@@ -925,21 +925,6 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 /* CTA Form - Bootstrap with glassmorphism */
-#cta-form {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 40px 40px 25px 40px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-#cta-form:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(45, 157, 126, 0.4);
-  box-shadow: 0 12px 40px rgba(45, 157, 126, 0.2);
-}
-
 #cta-form .form-control {
   padding: 14px 18px;
   border: none;
@@ -975,11 +960,21 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   resize: none;
 }
 
+#cta-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#cta-form .form-group {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 #cta-form .btn-success {
-  margin-top: 20px;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 600;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 .cta-form-modern {
