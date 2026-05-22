@@ -22,6 +22,11 @@
                     <i class="fa fa-calendar mr-2"></i>Замовити консультацію
                   </a>
                 </div>
+                <div class="hero-cta-modern mt-3">
+                  <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
+                    <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua
+                  </a>
+                </div>
               </div>
               <div class="col-lg-5 hero-logo-container">
                 <img id="blog-logo" src="images/blog-logo.png" alt="QA Automation" class="hero-image-modern">
@@ -238,11 +243,6 @@
             <p class="cta-subtitle-modern">
               Отримайте експертне керівництво, адаптоване до потреб вашої команди. Доступні тренінги, консультації та менторинг.
             </p>
-            <div class="text-center mb-4">
-              <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
-                <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua
-              </a>
-            </div>
             <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
               <div class="form-row">
                 <div class="form-group col">
