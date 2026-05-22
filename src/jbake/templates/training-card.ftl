@@ -1,4 +1,4 @@
-<a class="training-card-modern-link" target="blank" href="/${content.uri}">
+<a class="training-card-modern-link" href="/${content.uri}">
   <div class="training-card-modern">
     <h4 class="training-title-modern">${content.title}</h4>
     <p class="training-tech-modern">${content.summary}</p>

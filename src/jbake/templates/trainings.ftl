@@ -14,7 +14,7 @@
         </div>
       </section>
 
-      <section class="trainings-section-modern py-6 bg-light-modern">
+      <section class="trainings-section-modern py-2 bg-light-modern">
         <div class="container">
           <div id="push" class="row">
             <#list trainingPages as content>
