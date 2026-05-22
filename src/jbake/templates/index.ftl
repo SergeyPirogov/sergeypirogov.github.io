@@ -204,7 +204,7 @@
             </div>
             <div class="col-md-3 col-6 mb-4">
               <div class="stat-modern">
-                <div class="stat-number-modern">50K+</div>
+                <div class="stat-number-modern">12k</div>
                 <div class="stat-label-modern">Підписників YouTube</div>
               </div>
             </div>
