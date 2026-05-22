@@ -539,15 +539,10 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 .btn-primary-modern:hover {
-  background: #1f7a5f;
+  background: #2d9d7e;
+  color: #212529;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(45, 157, 126, 0.3);
-}
-
-.btn-primary-modern:hover {
-  background: #2db77e;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(54, 217, 149, 0.3);
 }
 
 .btn-secondary-modern {
