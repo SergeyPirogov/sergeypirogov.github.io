@@ -4,15 +4,16 @@
 
     <main role="main">
 
-      <section class="jumbotron archive text-center">
+      <section class="section-header-modern-page text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Автор</h1>
+          <h1 class="section-title-modern">Про автора</h1>
+          <p class="section-subtitle-modern">QA Automation Engineer · Спікер · Open Source Contributor</p>
         </div>
       </section>
 
-      <div class="album py-5 bg-light ">
+      <div class="page-content-section">
         <div class="container">
-          <div id="push" class="row post-list row-cols-1 row-cols-md-4">
+          <div id="push" class="row post-list">
             <div class="text-justify">
                 <img src="${content.rootpath}../images/about_me.jpg" class="rounded bio-photo float-left mr-3 mb-3" alt="photo">
 

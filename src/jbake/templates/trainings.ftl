@@ -4,7 +4,7 @@
 
 <main role = "main">
 
-      <section class="section-header-modern-page text-center py-6">
+      <section class="section-header-modern-page text-center">
         <div class="container trainings">
           <h1 class="section-title-modern">Доступні тренінги з автоматизації тестування</h1>
           <p class="section-subtitle-modern">

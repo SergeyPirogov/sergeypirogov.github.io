@@ -1,7 +1,7 @@
 <#include "header.ftl">
 <#include "menu.ftl">
 
-<section class="section-header-modern-page">
+<section class="section-header-modern-page text-center">
   <div class="container">
     <div>
       <h1 class="section-title-modern"><#escape x as x?xml>${content.title}</#escape></h1>

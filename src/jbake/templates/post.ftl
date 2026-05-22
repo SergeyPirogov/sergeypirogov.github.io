@@ -2,8 +2,22 @@
 
 	<#include "menu.ftl">
 
-	<div class="album py-5 bg-light">
-       <div class="post-container container">
+	<section class="section-header-modern-page text-center">
+		<div class="container">
+			<h1 class="section-title-modern"><#escape x as x?xml>${content.title}</#escape></h1>
+			<p class="section-subtitle-modern">
+				<span class="post-author">
+					<a href="/author/index.html">Сергій Пірогов</a>
+				</span> |
+				<span class="post-date">
+					${content.date?string("dd/MM/yyyy")}
+				</span>
+			</p>
+		</div>
+	</section>
+
+	<div class="page-content-section">
+       <div class="container">
 
         <div class="row pl-3 pr-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
@@ -13,21 +27,7 @@
 
             <main class="content" role="main">
                 <article class="post">
-                    <div class="inner inner-post">
                         <div id="push">
-                            <header class="post-header">
-                                <span class="post-meta">
-                                    <span class="post-author">
-                                        <a href="/author/index.html">Сергій Пірогов</a>
-                                    </span> |
-                                    <span class="post-date">
-                                        ${content.date?string("dd/MM/yyyy")}
-                                    </span>
-                                </span>
-                                <div class="clear"></div>
-                                <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
-                            </header>
-
                             <section class="post-content">
                                 ${content.body}
                             </section>
@@ -126,8 +126,7 @@
                                   </div>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
             </main>
        </div>
     </div>

@@ -3,16 +3,19 @@
 	<#include "menu.ftl">
 
 	<main class="content" role="main">
-		<div class="album py-5 bg-light ">
+		<section class="section-header-modern-page text-center">
+			<div class="container">
+				<h1 class="section-title-modern"><#escape x as x?xml>${content.title}</#escape></h1>
+			</div>
+		</section>
+
+		<div class="page-content-section">
                 <div class="container">
-                  <div id="push" class="row post-list row-cols-1 row-cols-md-4 page">
-				    <header class="post-header">
-                        <h1 class="post-title"><#escape x as x?xml>${content.title}</#escape></h1>
-                    </header>
-                    <section class="post-content">
+                  <div id="push" class="row post-list">
+					    <section class="post-content">
                         ${content.body}
                     </section>
+					</div>
 				</div>
-			</div>
 		</div>
 	</main>
