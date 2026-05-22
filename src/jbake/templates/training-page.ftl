@@ -22,7 +22,7 @@
 
     <div class="training-navigation mt-3">
       <a href="/trainings" class="btn btn-outline-success">
-        <i class="fa fa-arrow-left mr-2"></i>Всі тренінги
+        <i class="fa-solid fa-arrow-left me-2"></i>Всі тренінги
       </a>
     </div>
 
@@ -30,7 +30,7 @@
       <div class="text-center">
         <p class="small text-muted mb-3">Питання? Напишіть мені:</p>
         <a href="https://t.me/spirogov" target="_blank" class="btn btn-info">
-          <i class="fab fa-telegram-plane mr-2"></i>Telegram @spirogov
+          <i class="fa-brands fa-telegram me-2"></i>Telegram @spirogov
         </a>
       </div>
     </div>

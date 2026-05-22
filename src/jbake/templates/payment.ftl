@@ -18,7 +18,7 @@
                             </section>
 
 
-                            <div class="row pl-3 pr-3 training-banner-container">
+                            <div class="row px-3 training-banner-container">
                               <div class="col text-center pb-3 pt-2 training-banner">
                                 <a href="/trainings">Переглянути інші тренінги: Java API, Java UI, Python API, Jenkins CI</a>
                               </div>

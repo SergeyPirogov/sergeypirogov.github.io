@@ -4,7 +4,7 @@
     <p class="training-tech-modern">${content.summary}</p>
     <div class="training-footer-modern">
       <span class="training-price-modern">${content.price}</span>
-      <i class="fa fa-arrow-right"></i>
+      <i class="fa-solid fa-arrow-right"></i>
     </div>
   </div>
 </a>

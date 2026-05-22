@@ -15,7 +15,7 @@
         <div class="container">
           <div id="push" class="row post-list">
             <div class="text-justify">
-                <img src="${content.rootpath}../images/about_me.jpg" class="rounded bio-photo float-left mr-3 mb-3" alt="photo">
+                <img src="${content.rootpath}../images/about_me.jpg" class="rounded bio-photo float-start me-3 mb-3" alt="photo">
 
 <p>Досвідчений QA Automation спеціаліст з 10-річним досвідом створення проектів з нуля. Перевірений досвід у розробці та впровадженні наскрізних рішень автоматизації. Мої ключові компетенції включають автоматизацію тестування, планування тестування, Java, Selenium, Python, JS/TypeScript, SQL, Jenkins, Git/GitHub, Linux, Docker і хмарні технології. Значний досвід роботи з процесами CI/CD. Ефективна співпраця з міжфункціональними командами для узгодження стратегій тестування та забезпечення високоякісного постачання програмного забезпечення. Постійне вдосконалення та оновлення останніх галузевих тенденцій для оптимізації процесів тестування та підвищення ефективності.</p>
 

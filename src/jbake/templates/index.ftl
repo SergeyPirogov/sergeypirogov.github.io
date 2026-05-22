@@ -8,7 +8,7 @@
       <section class="hero-section-modern">
         <div class="hero-content">
           <div class="container-fluid">
-            <div class="row align-items-center" style="position: relative; min-height: 500px;">
+            <div class="row align-items-center hero-row">
               <div class="col-lg-7 hero-text-column">
                 <h1 class="hero-title-modern">Automation Remarks<br><span class="text-accent">Консультації & Тренінги</span></h1>
                 <p class="hero-subtitle-modern">
@@ -16,15 +16,15 @@
                 </p>
                 <div class="hero-cta-modern mt-5">
                   <a href="/trainings" class="btn-modern btn-primary-modern">
-                    <i class="fa fa-graduation-cap mr-2"></i>Переглянути тренінги
+                    <i class="fa-solid fa-graduation-cap me-2"></i>Переглянути тренінги
                   </a>
                   <a href="#consulting-cta" class="btn-modern btn-secondary-modern">
-                    <i class="fa fa-calendar mr-2"></i>Замовити консультацію
+                    <i class="fa-solid fa-calendar me-2"></i>Замовити консультацію
                   </a>
                 </div>
                 <div class="hero-cta-modern mt-3">
                   <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
-                    <i class="fab fa-telegram-plane mr-2"></i>Телеграм @automation_remarks_ua 🇺🇦
+                    <i class="fa-brands fa-telegram me-2"></i>Телеграм @automation_remarks_ua 🇺🇦
                   </a>
                 </div>
               </div>
@@ -48,7 +48,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="service-card-modern">
                 <div class="service-icon-modern">
-                  <i class="fa fa-graduation-cap"></i>
+                  <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <h3 class="service-title-modern">Відеотренінги</h3>
                 <p class="service-text-modern">
@@ -61,7 +61,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="service-card-modern">
                 <div class="service-icon-modern">
-                  <i class="fa fa-users"></i>
+                  <i class="fa-solid fa-users"></i>
                 </div>
                 <h3 class="service-title-modern">Персональний Менторинг</h3>
                 <p class="service-text-modern">
@@ -74,7 +74,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="service-card-modern">
                 <div class="service-icon-modern">
-                  <i class="fa fa-comments"></i>
+                  <i class="fa-solid fa-comments"></i>
                 </div>
                 <h3 class="service-title-modern">Консультація</h3>
                 <p class="service-text-modern">
@@ -103,7 +103,7 @@
                   <p class="training-tech-modern">Java 17 • Playwright • Gradle</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -117,7 +117,7 @@
                   <p class="training-tech-modern">JavaScript • Playwright • GitHub</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -130,7 +130,7 @@
                   <p class="training-tech-modern">Java 8 • Rest Assured • Allure</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -143,7 +143,7 @@
                   <p class="training-tech-modern">Python 3 • pytest • requests</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -156,7 +156,7 @@
                   <p class="training-tech-modern">Java 8 • Selenide • Allure</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -169,7 +169,7 @@
                   <p class="training-tech-modern">Адаптований • Гнучкий • Комплексний</p>
                   <div class="training-footer-modern">
                     <span class="training-price-modern">$30/год</span>
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -229,7 +229,7 @@
           <div class="text-center mt-5 border-top">
             <p class="conference-label-modern pt-3">Знайдіть мене в LinkedIn</p>
             <a href="https://www.linkedin.com/in/spirogov/" target="_blank" class="linkedin-link-modern">
-              <i class="fab fa-linkedin-in"></i> Сергій Пірогов на LinkedIn
+              <i class="fa-brands fa-linkedin-in"></i> Сергій Пірогов на LinkedIn
             </a>
           </div>
         </div>
@@ -244,15 +244,15 @@
               Отримайте експертне керівництво, адаптоване до потреб вашої команди. Доступні тренінги, консультації та менторинг.
             </p>
             <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
-              <div class="form-row">
-                <div class="form-group col">
+              <div class="row g-2">
+                <div class="col">
                   <input type="text" class="form-control" name="name" placeholder="Ваше Ім'я" required>
                 </div>
-                <div class="form-group col">
+                <div class="col">
                   <input type="email" class="form-control" name="_replyto" placeholder="Ваш Email" required>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="mt-2">
                 <textarea class="form-control" name="message" rows="4" placeholder="Розкажіть про ваші потреби..."></textarea>
               </div>
               <input type="hidden" name="_subject" value="Заявка на Консультацію з automation-remarks.com"/>

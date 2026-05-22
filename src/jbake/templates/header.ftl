@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Automation of the routine takes precedence over mass pressure">
     <meta name="author" content="Sergey Pirogov">
     <meta name="HandheldFriendly" content="True" />
@@ -24,9 +24,10 @@
     <title>Automation Remarks</title>
 
     <link href="${content.rootpath}../css/github.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="${content.rootpath}../css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plop7G5sVJVarious==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Custom styles for this template -->
     <link href="${content.rootpath}../css/album.css" rel="stylesheet">
     <link href="${content.rootpath}../css/main.css" rel="stylesheet">

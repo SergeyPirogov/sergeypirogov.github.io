@@ -19,7 +19,7 @@
 	<div class="page-content-section">
        <div class="container">
 
-        <div class="row pl-3 pr-3 training-banner-container">
+        <div class="row px-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
                     <a href="https://t.me/automation_remarks_bot?start=blog">Приєднатись до Telegram</a>
                 </div>
@@ -43,7 +43,7 @@
 
                             </footer>
 
-                            <div class="row pl-3 pr-3 training-banner-container">
+                            <div class="row px-3 training-banner-container">
                                                                     <div class="col text-center pb-3 pt-2 training-banner">
                                                                         <a href="/trainings">Тренінги для покращення навичок: Java API, Java UI, Python API, Jenkins CI</a>
                                                                     </div>
@@ -54,28 +54,28 @@
                                 <ul>
                                 <li>
                                 <a href="https://t.me/automation_remarks_bot" class="telegram" target="_blank" rel="nofollow">
-                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <i class="fa-brands fa-telegram" aria-hidden="true"></i>
                                   <span>Telegram</span>
                                 </a>
                                 </li>
 
                                 <li>
                                 <a href="https://www.patreon.com/automation_remarks?filters[tag]=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%20%D0%B3%D1%80%D1%8F%D0%B7%D0%B8" class="podcast" target="_blank" rel="nofollow">
-                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <i class="fa-solid fa-podcast" aria-hidden="true"></i>
                                   <span>Podcast</span>
                                 </a>
                                 </li>
 
                                 <li>
                                 <a href="https://www.youtube.com/qaguild" class="youtube" target="_blank" rel="nofollow">
-                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                                   <span>Youtube</span>
                                 </a>
                                 </li>
 
                                 <li>
                                    <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="9nofollow">
-                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                   <i class="fa-solid fa-money-bill" aria-hidden="true"></i>
                                       <span>Patreon</span>
                                    </a>
                                 </li>
@@ -86,7 +86,7 @@
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Схожі статті:</h2>
                                                  <#assign related_posts = published_posts[0..3]>
-                                                 <div class="card-deck">
+                                                 <div class="row row-cols-1 row-cols-md-3 g-3">
                                                  <#list  related_posts as post>
                                                     <#if (content.title != post.title)>
 
@@ -110,7 +110,7 @@
                                                               </p>
                                                               -->
                                                               <!-- <a href="/${post.uri}" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
                                                               </a> -->
                                                             </div>
                                                             </a>
