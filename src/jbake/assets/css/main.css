@@ -648,7 +648,7 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .section-header-modern-page {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 20px;
   background-color: #1a1a1a;
   text-align: left;
 }
@@ -1378,11 +1378,11 @@ textarea.form-control-modern {
 }
 
 .training-content-modern {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  line-height: 1.8;
+  /* background: #ffffff; */
+  /* border-radius: 12px; */
+  /* padding: 40px; */
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
+  /* line-height: 1.8; */
 }
 
 .training-content-modern p {
@@ -1564,7 +1564,7 @@ textarea.form-control-modern {
 
 /* Portmone Payment Button Styling */
 .f-p-b {
-  display: flex !important;
+  /* display: flex !important; */
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1581,6 +1581,13 @@ textarea.form-control-modern {
   font-size: 0.95rem !important;
   text-align: center !important;
   width: 100% !important;
+  --fpb-background: #2d9d7e !important;
+  --fpb-color: #212529 !important;
+  --fpb-border-color: #2d9d7e !important;
+  --fpb-border-width: 1px !important;
+  --fpb-font-weight: 600 !important;
+  --fpb-font-size: 0.95rem !important;
+  --fpb-border-radius: 4px !important;
 }
 
 .f-p-b:hover {
