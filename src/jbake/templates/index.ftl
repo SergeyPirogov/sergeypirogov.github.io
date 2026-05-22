@@ -24,7 +24,7 @@
                 </div>
                 <div class="hero-cta-modern mt-3">
                   <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
-                    <i class="fab fa-telegram-plane mr-2"></i>🇺🇦 Підпишіться на канал @automation_remarks_ua
+                    <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua 🇺🇦
                   </a>
                 </div>
               </div>
