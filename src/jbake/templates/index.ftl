@@ -171,7 +171,7 @@
             </div>
           </div>
           <div class="text-center mt-5">
-            <a href="/trainings" class="btn-modern btn-outline-modern">Всі Курси</a>
+            <a href="/trainings" class="btn-modern btn-outline-modern">Всі тренінги</a>
           </div>
         </div>
       </section>
