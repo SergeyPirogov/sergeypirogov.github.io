@@ -254,7 +254,7 @@
               <div class="text-center">
                 <button type="submit" class="btn btn-success">Відправити</button>
               </div>
-              <p id="cta-form-status" class="form-status-modern"></p>
+              <p id="cta-form-status"></p>
             </form>
             <p class="cta-alternative-modern">
               Або напишіть прямо: <a href="https://t.me/spirogov">@spirogov в Telegram</a>
