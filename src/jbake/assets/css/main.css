@@ -855,6 +855,7 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   font-size: 0.95rem;
   transition: all 0.3s ease;
   font-family: inherit;
+  position: relative;
 }
 
 .form-control-modern::placeholder {
@@ -862,15 +863,22 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 .form-control-modern:hover {
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.form-control-modern:active,
 .form-control-modern:focus {
   outline: none;
   border-color: #2d9d7e;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 4px rgba(45, 157, 126, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 4px rgba(45, 157, 126, 0.3), 0 4px 16px rgba(45, 157, 126, 0.2);
+}
+
+.form-control-modern:active::placeholder,
+.form-control-modern:focus::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .cta-form-modern .btn-primary-modern {
