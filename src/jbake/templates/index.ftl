@@ -248,7 +248,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="4" placeholder="Розповідіть про ваші потреби..."></textarea>
+                <textarea class="form-control" name="message" rows="4" placeholder="Розкажіть про ваші потреби..."></textarea>
               </div>
               <input type="hidden" name="_subject" value="Заявка на Консультацію з automation-remarks.com"/>
               <div class="text-center">
