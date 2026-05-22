@@ -238,21 +238,21 @@
             <p class="cta-subtitle-modern">
               Отримайте експертне керівництво, адаптоване до потреб вашої команди. Доступні тренінги, консультації та менторинг.
             </p>
-            <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg" class="cta-form-modern">
+            <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
               <div class="form-row">
-                <div class="form-group">
-                  <input type="text" class="form-control-modern" name="name" placeholder="Ваше Ім'я" required>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" name="name" placeholder="Ваше Ім'я" required>
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control-modern" name="_replyto" placeholder="Ваш Email" required>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" name="_replyto" placeholder="Ваш Email" required>
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control-modern" name="message" rows="4" placeholder="Розповідіть про ваші потреби..."></textarea>
+                <textarea class="form-control" name="message" rows="4" placeholder="Розповідіть про ваші потреби..."></textarea>
               </div>
               <input type="hidden" name="_subject" value="Заявка на Консультацію з automation-remarks.com"/>
-              <div style="text-align: center;">
-                <button type="submit" class="btn-modern btn-primary-modern" style="display: flex; align-items: center; justify-content: center; width: auto;">Відправити</button>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Відправити</button>
               </div>
               <p id="cta-form-status" class="form-status-modern"></p>
             </form>

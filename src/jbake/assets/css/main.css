@@ -818,6 +818,64 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   line-height: 1.6;
 }
 
+/* CTA Form - Bootstrap with glassmorphism */
+#cta-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+#cta-form:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(45, 157, 126, 0.4);
+  box-shadow: 0 12px 40px rgba(45, 157, 126, 0.2);
+}
+
+#cta-form .form-control {
+  padding: 14px 18px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: background 0.2s ease;
+}
+
+#cta-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#cta-form .form-control:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#cta-form .form-control:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: transparent;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+#cta-form .form-control:focus::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#cta-form textarea.form-control {
+  resize: none;
+}
+
+#cta-form .btn-success {
+  margin-top: 20px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .cta-form-modern {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
