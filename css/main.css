@@ -1,5 +1,5 @@
 .album {
-  padding-bottom: 75px !important;
+  padding-bottom: 0;
 }
 
 .jumbotron {
@@ -91,13 +91,6 @@ footer.page-footer .container {
   border-radius: 4em;
 }
 
-article div.inner {
-  background-color: white;
-  border-radius: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 
 .post-container {
   padding-top: 1em;
@@ -266,10 +259,6 @@ a.tg-post-icon {
   color: #ff57ae;
 }
 
-.jumbotron.archive {
-  padding-top: 4.5em;
-  padding-bottom: 1em;
-}
 
 img.bio-photo {
   width: 250px;
@@ -292,9 +281,6 @@ img.bio-photo {
   background-color: antiquewhite;
 }
 
-.jumbotron .container.trainings {
-  max-width: 70rem;
-}
 
 form .half.first {
   width: calc(50% - 1em) !important;
@@ -378,13 +364,6 @@ ul.actions li {
   font-weight: 400;
 }
 
-.album.training {
-  padding-bottom: 200px !important;
-}
-
-.album.index {
-  padding-bottom: 95px !important;
-}
 
 .training-banner-container {
   background-color: bisque;
@@ -648,9 +627,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .section-header-modern-page {
   padding-top: 80px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   background-color: #1a1a1a;
-  text-align: left;
+  text-align: center;
 }
 
 .section-header-modern-page .container {
@@ -1638,4 +1617,11 @@ textarea.form-control-modern {
 
 .f-p-b i[data-brand] {
   margin-left: 4px !important;
+}
+
+/* Page content wrapper — used consistently across all inner pages */
+.page-content-section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: #f8f9fa;
 }

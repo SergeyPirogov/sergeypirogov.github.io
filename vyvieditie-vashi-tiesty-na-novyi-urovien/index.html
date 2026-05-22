@@ -76,8 +76,22 @@
       </nav>
 </header>
 
-	<div class="album py-5 bg-light">
-       <div class="post-container container">
+	<section class="section-header-modern-page text-center">
+		<div class="container">
+			<h1 class="section-title-modern">Выведите ваши тесты на новый уровень!</h1>
+			<p class="section-subtitle-modern">
+				<span class="post-author">
+					<a href="/author/index.html">Сергій Пірогов</a>
+				</span> |
+				<span class="post-date">
+					20/03/2015
+				</span>
+			</p>
+		</div>
+	</section>
+
+	<div class="page-content-section">
+       <div class="container">
 
         <div class="row pl-3 pr-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
@@ -87,21 +101,7 @@
 
             <main class="content" role="main">
                 <article class="post">
-                    <div class="inner inner-post">
                         <div id="push">
-                            <header class="post-header">
-                                <span class="post-meta">
-                                    <span class="post-author">
-                                        <a href="/author/index.html">Сергій Пірогов</a>
-                                    </span> |
-                                    <span class="post-date">
-                                        20/03/2015
-                                    </span>
-                                </span>
-                                <div class="clear"></div>
-                                <h1 class="post-title">Выведите ваши тесты на новый уровень!</h1>
-                            </header>
-
                             <section class="post-content">
                                 <div class="paragraph">
 <p>Пару месяцев назад, я задумался - вот есть у меня пару сотен тестов, фреймворк там да, все как положенно! Тесты бегают 24\7 с 98% пасс результатом, отчет собирается и успешно уходит всем манагерам. Казалось бы - жизнь удалась. Но, за всем прекрасным всегда скрывается, что то ужасное. Решил я попробовать прогнать проект через <strong>Sonar</strong>. Собственно таким введением я хотел начать рассказ о том стоит ли применять статические анализаторы кода для фреймворка и тестов. Статический анализатор предназначен для того, чтобы следить за чистотой кода и отслеживать ошибки типа переполнение буфера или возможный <em>NullPointerException</em>. Устанавливается сонар очень просто: скачиваем архив, распаковываем, ставим <strong>MySQL</strong>, прописываем в пропертях сонара путь к базе, стартуем батник и все. Несколько простых шагов и у нас есть сервер. Далее нам нужно просканировать проект. Если проект на <strong>Maven</strong>, то просто в pom нужно вписать:</p>
@@ -328,8 +328,7 @@
                                   </div>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
             </main>
        </div>
     </div>
