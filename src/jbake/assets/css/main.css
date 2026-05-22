@@ -430,7 +430,7 @@ a.linked-card.inactive {
 
 /* Hero Section - Modern Gradient */
 .hero-section-modern {
-  background: #000000;
+  background: #1a1a1a;
   padding: 80px 0;
   margin-top: 56px;
   position: relative;
@@ -760,7 +760,7 @@ a.linked-card.inactive {
 
 /* CTA Section - Modern */
 .cta-section-modern {
-  background: #000000;
+  background: #1a1a1a;
   color: #ffffff;
 }
 
