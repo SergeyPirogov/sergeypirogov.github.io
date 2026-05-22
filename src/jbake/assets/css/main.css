@@ -525,6 +525,12 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.btn-modern:active,
+.btn-modern:focus {
+  outline: none;
 }
 
 .btn-primary-modern {
@@ -572,6 +578,7 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  outline: none;
 }
 
 .hero-cta-modern .btn-info:hover {
@@ -579,6 +586,11 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
   color: #ffffff;
+}
+
+.hero-cta-modern .btn-info:active,
+.hero-cta-modern .btn-info:focus {
+  outline: none;
 }
 
 .btn-outline-modern {
