@@ -434,7 +434,7 @@ body {
 
 /* Hero section with no navbar (homepage) */
 body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
-  padding-top: 40px;
+  padding-top: 0;
 }
 
 /* Hero Section - Modern Gradient */
