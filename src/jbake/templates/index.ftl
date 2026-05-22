@@ -306,17 +306,14 @@
           body: formData
         })
         .then(response => {
-          if (response.ok) {
-            status.innerHTML = "✓ Дякую! Я зв'яжусь з вами найскоріше.";
-            status.classList.add('success');
-            form.reset();
-          } else {
-            status.innerHTML = "Помилка при відправці. Спробуйте ще раз.";
-            status.classList.add('error');
-          }
+          status.innerHTML = "✓ Дякую! Я зв'яжусь з вами найскоріше.";
+          status.classList.remove('error');
+          status.classList.add('success');
+          form.reset();
         })
         .catch(error => {
           status.innerHTML = "Помилка при відправці. Спробуйте ще раз.";
+          status.classList.remove('success');
           status.classList.add('error');
         });
       });
