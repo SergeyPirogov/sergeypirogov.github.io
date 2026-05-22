@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Automation of the routine takes precedence over mass pressure">
     <meta name="author" content="Sergey Pirogov">
     <meta name="HandheldFriendly" content="True" />
@@ -22,9 +22,10 @@
     <title>Automation Remarks</title>
 
     <link href="../../../css/github.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="../../../css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plop7G5sVJVarious==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Custom styles for this template -->
     <link href="../../../css/album.css" rel="stylesheet">
     <link href="../../../css/main.css" rel="stylesheet">
@@ -45,13 +46,13 @@
 <header>
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class='container'>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/">На головну<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">На головну<span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/trainings">Тренінги</a>
@@ -93,7 +94,7 @@
 	<div class="page-content-section">
        <div class="container">
 
-        <div class="row pl-3 pr-3 training-banner-container">
+        <div class="row px-3 training-banner-container">
                 <div class="col text-center pb-3 pt-2 training-banner">
                     <a href="https://t.me/automation_remarks_bot?start=blog">Приєднатись до Telegram</a>
                 </div>
@@ -213,7 +214,7 @@ $ ./cm selenoid-ui start</code></pre>
 
                             </footer>
 
-                            <div class="row pl-3 pr-3 training-banner-container">
+                            <div class="row px-3 training-banner-container">
                                                                     <div class="col text-center pb-3 pt-2 training-banner">
                                                                         <a href="/trainings">Тренінги для покращення навичок: Java API, Java UI, Python API, Jenkins CI</a>
                                                                     </div>
@@ -224,28 +225,28 @@ $ ./cm selenoid-ui start</code></pre>
                                 <ul>
                                 <li>
                                 <a href="https://t.me/automation_remarks_bot" class="telegram" target="_blank" rel="nofollow">
-                                  <i class="fa fa-telegram" aria-hidden="true"></i>
+                                  <i class="fa-brands fa-telegram" aria-hidden="true"></i>
                                   <span>Telegram</span>
                                 </a>
                                 </li>
 
                                 <li>
                                 <a href="https://www.patreon.com/automation_remarks?filters[tag]=%D0%B2%D0%B5%D1%87%D0%B5%D1%80%20%D0%B3%D1%80%D1%8F%D0%B7%D0%B8" class="podcast" target="_blank" rel="nofollow">
-                                  <i class="fa fa-podcast" aria-hidden="true"></i>
+                                  <i class="fa-solid fa-podcast" aria-hidden="true"></i>
                                   <span>Podcast</span>
                                 </a>
                                 </li>
 
                                 <li>
                                 <a href="https://www.youtube.com/qaguild" class="youtube" target="_blank" rel="nofollow">
-                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                                   <span>Youtube</span>
                                 </a>
                                 </li>
 
                                 <li>
                                    <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="9nofollow">
-                                   <i class="fa fa-money" aria-hidden="true"></i>
+                                   <i class="fa-solid fa-money-bill" aria-hidden="true"></i>
                                       <span>Patreon</span>
                                    </a>
                                 </li>
@@ -255,7 +256,7 @@ $ ./cm selenoid-ui start</code></pre>
                                   <div class="col-md-12">
                                         <div class='related-posts-holder'>
                                              <h2 class="related-posts-header">Схожі статті:</h2>
-                                                 <div class="card-deck">
+                                                 <div class="row row-cols-1 row-cols-md-3 g-3">
 
                                                         <div class="card bg-light mb-3">
                                                          <a class="linked-card rel-card h-100" target="blank" href="/2023/dirty-night-2023-1/index.html">
@@ -275,7 +276,7 @@ $ ./cm selenoid-ui start</code></pre>
                                                               </p>
                                                               -->
                                                               <!-- <a href="/2023/dirty-night-2023-1/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
                                                               </a> -->
                                                             </div>
                                                             </a>
@@ -300,7 +301,7 @@ $ ./cm selenoid-ui start</code></pre>
                                                               </p>
                                                               -->
                                                               <!-- <a href="/2023/not-a-bug-5/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
                                                               </a> -->
                                                             </div>
                                                             </a>
@@ -325,7 +326,7 @@ $ ./cm selenoid-ui start</code></pre>
                                                               </p>
                                                               -->
                                                               <!-- <a href="/2023/not-a-bug-4/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
                                                               </a> -->
                                                             </div>
                                                             </a>
@@ -350,7 +351,7 @@ $ ./cm selenoid-ui start</code></pre>
                                                               </p>
                                                               -->
                                                               <!-- <a href="/2022/qaguild-live68/index.html" class="mt-auto card-link">
-                                                                Читать<i class="fa fa-chevron-right ml-1"></i>
+                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
                                                               </a> -->
                                                             </div>
                                                             </a>
@@ -370,24 +371,17 @@ $ ./cm selenoid-ui start</code></pre>
     </div>
     <footer class="text-muted page-footer">
       <div class="container">
-            <a class="text-secondary float-right" href="https://docs.google.com/document/d/1UC6xHrskcO49xxnhMK4a5uFKHC-FPdHnFdNdIb4luUc/edit?usp=sharing">Політика конфіденційності</a>
-            <a class="text-secondary float-right mr-2" href="https://docs.google.com/document/d/125Xfq7Rm5kUpQVoAhwUoTPtM-hPgGyMpRCyWwUFpoeA/edit?usp=sharing">Публічна оферта</a>
+            <a class="text-secondary float-end" href="https://docs.google.com/document/d/1UC6xHrskcO49xxnhMK4a5uFKHC-FPdHnFdNdIb4luUc/edit?usp=sharing">Політика конфіденційності</a>
+            <a class="text-secondary float-end me-2" href="https://docs.google.com/document/d/125Xfq7Rm5kUpQVoAhwUoTPtM-hPgGyMpRCyWwUFpoeA/edit?usp=sharing">Публічна оферта</a>
     </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../js/jquery-3.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../js/popper.js"></script>
-    <script src="../../../js/bootstrap.js"></script>
-    <script src="../../../js/holder.js"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="../../../js/script.js"></script>
-    <script src="https://use.fontawesome.com/e0e0cff5da.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
     </body>

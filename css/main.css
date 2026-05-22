@@ -447,6 +447,11 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   z-index: 2;
 }
 
+.hero-row {
+  position: relative;
+  min-height: 500px;
+}
+
 .hero-title-modern {
   font-size: 3.5rem;
   font-weight: 800;
