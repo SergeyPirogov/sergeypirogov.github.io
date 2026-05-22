@@ -423,3 +423,99 @@ a.linked-card.inactive {
   max-width: 100%;
   border-radius: 5px 5px 0 0
 }
+
+/* ============================================
+   LANDING PAGE SECTIONS (index.ftl redesign)
+   ============================================ */
+
+/* Hero */
+.hero-section {
+  background-color: #212529;
+  padding: 5rem 0 4rem;
+  margin-top: 56px;
+}
+
+.hero-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Override Bootstrap btn-success to use brand green */
+.btn-success,
+.btn-outline-success {
+  border-color: #36d995;
+}
+
+.btn-success {
+  background-color: #36d995;
+  color: #212529;
+  font-weight: 600;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #2db77e;
+  border-color: #2db77e;
+  color: #212529;
+}
+
+.btn-outline-success {
+  color: #36d995;
+}
+
+.btn-outline-success:hover {
+  background-color: #36d995;
+  color: #212529;
+}
+
+/* Section common */
+.section-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Services */
+.service-card {
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Social Proof */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #36d995;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+
+.badge-conf {
+  display: inline-block;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 2rem;
+  padding: 0.3em 1em;
+  margin: 0.2em;
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+/* Consulting CTA */
+.consulting-cta-bg {
+  background-color: #f0fdf8;
+}
