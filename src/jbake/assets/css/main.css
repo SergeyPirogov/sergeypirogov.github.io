@@ -557,7 +557,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 .btn-secondary-modern:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 2px solid #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
