@@ -485,6 +485,18 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   align-items: center;
 }
 
+.hero-cta-modern:first-of-type {
+  margin-bottom: 0;
+}
+
+.hero-cta-modern .btn-modern,
+.hero-cta-modern .btn {
+  flex: 1 1 auto;
+  min-width: 200px;
+  text-align: center;
+  justify-content: center;
+}
+
 .hero-logo-container {
   position: absolute;
   right: 0;
@@ -554,6 +566,12 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   font-size: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 136, 204, 0.25);
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .hero-cta-modern .btn-info:hover {
