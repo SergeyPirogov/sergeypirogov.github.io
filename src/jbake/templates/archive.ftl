@@ -4,11 +4,11 @@
 
     <main role="main">
 
-      <section class="jumbotron archive text-center">
+      <section class="section-header-modern-page text-center py-6">
         <div class="container">
-
-          <h1 class="jumbotron-heading">Архив заметок</h1>
-          <div class="gcse-search">
+          <h1 class="section-title-modern">Архив заметок</h1>
+          <p class="section-subtitle-modern">Все статті про автоматизацію тестування</p>
+          <div class="gcse-search mt-4">
         </div>
       </section>
 

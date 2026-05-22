@@ -3,9 +3,9 @@
 	<#include "menu.ftl">
     <main role="main">
 
-        <section class="jumbotron text-center tag-header">
+        <section class="section-header-modern-page text-center py-6">
                 <div class="container">
-                  <h1 class="jumbotron-heading">${tag}</h1>
+                  <h1 class="section-title-modern">${tag}</h1>
                 </div>
               </section>
 
