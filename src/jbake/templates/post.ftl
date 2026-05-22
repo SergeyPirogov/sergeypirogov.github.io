@@ -74,11 +74,12 @@
                                 </li>
 
                                 <li>
-                                   <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="9nofollow">
+                                   <a href="https://www.patreon.com/automation_remarks" class="support" target="_blank" rel="nofollow">
                                    <i class="fa-solid fa-money-bill" aria-hidden="true"></i>
                                       <span>Patreon</span>
                                    </a>
                                 </li>
+                            </ul>
                             </div>
 
                             <div class="row">
@@ -91,27 +92,14 @@
                                                     <#if (content.title != post.title)>
 
                                                         <div class="card bg-light mb-3">
-                                                         <a class="linked-card rel-card h-100" target="blank" href="/${post.uri}">
+                                                         <a class="linked-card rel-card h-100" target="_blank" href="/${post.uri}">
                                                             <div class="related-card card-body d-flex flex-column">
                                                               <p class="card-text">
                                                                       <small class="text-muted"><span class="post-date">${post.date?string("dd MMMM yyyy")}</span></small>
                                                               </p>
                                                               <h5 class="card-title">
-                                                                  <!-- <a href="/${post.uri}"> -->
                                                                     <#escape x as x?xml>${post.title}</#escape>
-                                                                  <!-- </a> -->
                                                               </h5>
-
-                                                              <!--
-                                                              <p class="card-text">
-                                                                <#if post.summary??>
-                                                                   <#escape x as x?xml>${post.summary}</#escape>
-                                                                </#if>
-                                                              </p>
-                                                              -->
-                                                              <!-- <a href="/${post.uri}" class="mt-auto card-link">
-                                                                Читать<i class="fa-solid fa-chevron-right ms-1"></i>
-                                                              </a> -->
                                                             </div>
                                                             </a>
                                                         </div>
@@ -120,9 +108,6 @@
                                                  </#list>
                                                  </div>
                                          </div>
-                                  </div>
-                                  <div class="col-md-6">
-
                                   </div>
                             </div>
                         </div>
