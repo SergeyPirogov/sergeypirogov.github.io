@@ -638,14 +638,11 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   padding-top: 80px;
   padding-bottom: 80px;
   background-color: #1a1a1a;
-  margin-bottom: 60px;
   text-align: left;
 }
 
 .section-header-modern-page .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
 }
 
 .section-header-modern-page .section-title-modern {
@@ -1373,6 +1370,10 @@ textarea.form-control-modern {
   margin-bottom: 8px;
 }
 
+#my-form .form-label-modern {
+  color: #333;
+}
+
 .form-control {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -1385,6 +1386,54 @@ textarea.form-control-modern {
   border-color: #2d9d7e;
   box-shadow: 0 0 0 0.2rem rgba(45, 157, 126, 0.15);
   outline: none;
+}
+
+#my-form {
+  background: rgba(45, 157, 126, 0.08);
+  border: 1px solid rgba(45, 157, 126, 0.2);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#my-form:hover {
+  background: rgba(45, 157, 126, 0.12);
+  border-color: rgba(45, 157, 126, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#my-form .form-control {
+  padding: 14px 18px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#my-form .form-control::placeholder {
+  color: #999;
+}
+
+#my-form .form-control:hover {
+  border-color: #2d9d7e;
+}
+
+#my-form .form-control:focus {
+  outline: none;
+  border-color: #2d9d7e;
+  box-shadow: 0 0 0 0.2rem rgba(45, 157, 126, 0.15);
+  color: #333;
+}
+
+#my-form .form-control:focus::placeholder {
+  color: #bbb;
+}
+
+#my-form textarea.form-control {
+  resize: none;
 }
 
 #my-form .btn-success {
