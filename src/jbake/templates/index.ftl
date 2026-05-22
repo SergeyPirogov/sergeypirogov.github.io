@@ -278,7 +278,7 @@
             </#list>
           </div>
           <div class="text-center mt-5 pb-5">
-            <a href="/archive.html" class="btn-modern btn-outline-modern">Всі Статті</a>
+            <a href="/archive.html" class="btn-modern btn-outline-modern">Всі статті</a>
           </div>
         </div>
       </section>
