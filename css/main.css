@@ -1459,6 +1459,23 @@ textarea.form-control-modern {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+#my-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#my-form .form-group {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#my-form .btn-success {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 #my-form:hover {
   background: rgba(45, 157, 126, 0.12);
   border-color: rgba(45, 157, 126, 0.3);
@@ -1547,8 +1564,12 @@ textarea.form-control-modern {
 
 /* Portmone Payment Button Styling */
 .f-p-b {
-  display: inline-block !important;
-  padding: 12px 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 16px 24px !important;
   background-color: #2d9d7e !important;
   color: #212529 !important;
   border: 1px solid #2d9d7e !important;
@@ -1559,6 +1580,7 @@ textarea.form-control-modern {
   cursor: pointer !important;
   font-size: 0.95rem !important;
   text-align: center !important;
+  width: 100% !important;
 }
 
 .f-p-b:hover {
@@ -1575,15 +1597,25 @@ textarea.form-control-modern {
 
 .f-p-b i {
   font-style: normal !important;
-  margin: 0 2px !important;
+  margin: 0 !important;
 }
 
-.f-p-b i[data-text] {
-  display: inline !important;
+.f-p-b i[data-text="name"] {
+  display: block !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+}
+
+.f-p-b i[data-text="amount"] {
+  display: block !important;
+  font-size: 0.85rem !important;
+  opacity: 0.9 !important;
 }
 
 .f-p-b i[data-brand] {
-  margin-left: 4px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  font-size: 1.2rem !important;
 }
 
 .f-p-b i {
