@@ -1022,11 +1022,6 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   background-color: #1a1a1a !important;
 }
 
-.navbar .container-fluid {
-  padding-left: 60px;
-  padding-right: 0;
-}
-
 /* Section common */
 .section-heading {
   font-size: 1.75rem;
