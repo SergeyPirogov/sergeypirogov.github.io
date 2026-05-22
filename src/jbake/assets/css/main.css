@@ -485,6 +485,10 @@ body {
   z-index: 1;
 }
 
+.hero-text-column {
+  padding-left: 60px;
+}
+
 .btn-modern {
   display: inline-flex;
   align-items: center;
