@@ -1202,3 +1202,18 @@ textarea.form-control-modern {
   color: #ff6b6b;
   border-left: 4px solid #ff6b6b;
 }
+
+/* Telegram button styling */
+.btn-info {
+  background-color: #0088cc;
+  border-color: #0088cc;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+  background-color: #006a99;
+  border-color: #006a99;
+  color: #ffffff;
+}
