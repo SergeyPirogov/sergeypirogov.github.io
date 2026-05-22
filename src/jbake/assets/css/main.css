@@ -843,9 +843,6 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .form-group {
   margin-bottom: 15px;
-  min-height: 56px;
-  display: flex;
-  align-items: center;
 }
 
 .form-control-modern {
@@ -856,8 +853,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, outline 0.2s ease;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .form-control-modern::placeholder {
@@ -869,7 +867,6 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.form-control-modern:active,
 .form-control-modern:focus {
   outline: 2px solid #2d9d7e;
   outline-offset: 2px;
@@ -877,7 +874,6 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.form-control-modern:active::placeholder,
 .form-control-modern:focus::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
