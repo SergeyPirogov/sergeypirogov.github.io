@@ -470,6 +470,17 @@ a.linked-card.inactive {
   flex-wrap: wrap;
 }
 
+.hero-logo-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
 .btn-modern {
   display: inline-flex;
   align-items: center;
@@ -565,19 +576,22 @@ a.linked-card.inactive {
 }
 
 .service-card-modern {
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-  border: 1px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 40px 30px;
   text-align: center;
   transition: all 0.3s ease;
   height: 100%;
+  color: #212529;
 }
 
 .service-card-modern:hover {
   transform: translateY(-8px);
-  border-color: #2d9d7e;
-  box-shadow: 0 20px 40px rgba(54, 217, 149, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(45, 157, 126, 0.5);
+  box-shadow: 0 20px 40px rgba(45, 157, 126, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .service-icon-modern {
@@ -626,8 +640,9 @@ a.linked-card.inactive {
 }
 
 .training-card-modern {
-  background: #ffffff;
-  border: 1px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 25px;
   transition: all 0.3s ease;
@@ -635,12 +650,14 @@ a.linked-card.inactive {
   height: 100%;
   display: flex;
   flex-direction: column;
+  color: #212529;
 }
 
 .training-card-modern:hover {
   transform: translateY(-6px);
-  border-color: #2d9d7e;
-  box-shadow: 0 15px 35px rgba(54, 217, 149, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(45, 157, 126, 0.5);
+  box-shadow: 0 15px 35px rgba(45, 157, 126, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .training-badge {
@@ -873,20 +890,23 @@ a.linked-card.inactive {
 }
 
 .blog-card-modern {
-  background: #ffffff;
-  border: 1px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 25px;
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  color: #212529;
 }
 
 .blog-card-modern:hover {
   transform: translateY(-6px);
-  border-color: #2d9d7e;
-  box-shadow: 0 15px 35px rgba(54, 217, 149, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(45, 157, 126, 0.5);
+  box-shadow: 0 15px 35px rgba(45, 157, 126, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .blog-title-modern {

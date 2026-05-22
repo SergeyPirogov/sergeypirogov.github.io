@@ -7,9 +7,9 @@
       <!-- Hero Section - Modern Gradient -->
       <section class="hero-section-modern">
         <div class="hero-content">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
+          <div class="container-fluid">
+            <div class="row align-items-center" style="position: relative; min-height: 500px;">
+              <div class="col-lg-7">
                 <h1 class="hero-title-modern">Automation Remarks<br><span class="text-accent">Консультації & Тренінги</span></h1>
                 <p class="hero-subtitle-modern">
                   Трансформуйте вашу стратегію тестування з допомогою експертного керівництва від Senior QA Automation Engineer. Сотні інженерів навчені, десятки компаній допоможено.
@@ -23,7 +23,7 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-6 text-center">
+              <div class="col-lg-5 hero-logo-container">
                 <img id="blog-logo" src="images/blog-logo.png" alt="QA Automation" class="hero-image-modern">
               </div>
             </div>
