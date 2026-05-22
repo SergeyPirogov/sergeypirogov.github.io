@@ -869,8 +869,7 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 .form-control-modern:focus {
-  outline: 2px solid #2d9d7e;
-  outline-offset: 2px;
+  outline: none;
   background: rgba(255, 255, 255, 0.15);
 }
 
