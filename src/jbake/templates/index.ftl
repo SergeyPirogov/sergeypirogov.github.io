@@ -19,7 +19,7 @@
                     <i class="fa fa-graduation-cap mr-2"></i>Переглянути тренінги
                   </a>
                   <a href="#consulting-cta" class="btn-modern btn-secondary-modern">
-                    <i class="fa fa-calendar mr-2"></i>Замовити Консультацію
+                    <i class="fa fa-calendar mr-2"></i>Замовити консультацію
                   </a>
                 </div>
               </div>
