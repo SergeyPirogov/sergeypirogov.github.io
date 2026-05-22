@@ -480,8 +480,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .hero-cta-modern {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-logo-container {
@@ -503,19 +504,26 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 32px;
+  padding: 16px 32px;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary-modern {
   background: #2d9d7e;
   color: #212529;
+}
+
+.btn-primary-modern:hover {
+  background: #1f7a5f;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(45, 157, 126, 0.3);
 }
 
 .btn-primary-modern:hover {
@@ -532,7 +540,27 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .btn-secondary-modern:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Telegram button styling */
+.hero-cta-modern .btn-info {
+  background: #0088cc;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 16px 32px;
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.25);
+}
+
+.hero-cta-modern .btn-info:hover {
+  background: #006a99;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
+  color: #ffffff;
 }
 
 .btn-outline-modern {
