@@ -533,6 +533,18 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   outline: none;
 }
 
+.btn-modern:hover {
+  text-decoration: none;
+}
+
+.btn {
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
 .btn-primary-modern {
   background: #2d9d7e;
   color: #212529;
