@@ -180,7 +180,7 @@
       <section id="social-proof" class="social-proof-section-modern py-6">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
-            <h2 class="section-title-modern">Довіра Інженерів Світу</h2>
+            <h2 class="section-title-modern">Довіра Інженерів</h2>
             <p class="section-subtitle-modern">10+ років досвіду в автоматизації тестування</p>
           </div>
           <div class="row stats-modern mb-5">
