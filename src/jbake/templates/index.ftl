@@ -240,10 +240,12 @@
             </p>
             <form id="cta-form" method="POST" action="https://formspree.io/f/xzdwgrqg">
               <div class="form-row">
-                <div class="form-group col-lg-6">
+                <div class="form-group col">
                   <input type="text" class="form-control" name="name" placeholder="Ваше Ім'я" required>
                 </div>
-                <div class="form-group col-lg-6">
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
                   <input type="email" class="form-control" name="_replyto" placeholder="Ваш Email" required>
                 </div>
               </div>
