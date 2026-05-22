@@ -984,6 +984,11 @@ a.linked-card.inactive {
   color: #212529;
 }
 
+/* Navigation bar - match hero section */
+.navbar.bg-dark {
+  background-color: #1a1a1a !important;
+}
+
 /* Section common */
 .section-heading {
   font-size: 1.75rem;
