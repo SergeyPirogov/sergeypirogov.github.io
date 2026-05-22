@@ -260,7 +260,7 @@
       <section id="blog" class="blog-section-modern py-6 bg-light-modern">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
-            <h2 class="section-title-modern">Останні Статті</h2>
+            <h2 class="section-title-modern">Останні статті</h2>
             <p class="section-subtitle-modern">Глибокі матеріали про техніки автоматизації тестування</p>
           </div>
           <div class="row">
