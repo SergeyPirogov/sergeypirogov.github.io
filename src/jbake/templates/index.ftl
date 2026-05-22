@@ -24,7 +24,7 @@
                 </div>
                 <div class="hero-cta-modern mt-3">
                   <a href="https://t.me/automation_remarks_ua" target="_blank" class="btn btn-info btn-lg">
-                    <i class="fab fa-telegram-plane mr-2"></i>Підпишіться на канал @automation_remarks_ua 🇺🇦
+                    <i class="fab fa-telegram-plane mr-2"></i>Телеграм @automation_remarks_ua 🇺🇦
                   </a>
                 </div>
               </div>
@@ -38,7 +38,7 @@
       </section>
 
       <!-- Services Section - Modern Cards -->
-      <section id="services" class="services-section-modern py-6">
+      <section id="services" class="services-section-modern py-4">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
             <h2 class="section-title-modern">Що я пропоную</h2>
@@ -88,7 +88,7 @@
       </section>
 
       <!-- Training Preview - Modern Grid -->
-      <section id="trainings" class="trainings-section-modern py-6 bg-light-modern">
+      <section id="trainings" class="trainings-section-modern py-4 bg-light-modern">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
             <h2 class="section-title-modern">Популярні тренінги</h2>
@@ -175,14 +175,14 @@
               </a>
             </div>
           </div>
-          <div class="text-center mt-5">
+          <div class="text-center">
             <a href="/trainings" class="btn-modern btn-outline-modern">Всі тренінги</a>
           </div>
         </div>
       </section>
 
       <!-- Social Proof - Modern Stats -->
-      <section id="social-proof" class="social-proof-section-modern py-6">
+      <section id="social-proof" class="social-proof-section-modern py-4">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
             <h2 class="section-title-modern">Довіра Інженерів</h2>
@@ -236,7 +236,7 @@
       </section>
 
       <!-- Consulting CTA - Modern -->
-      <section id="consulting-cta" class="cta-section-modern py-6">
+      <section id="consulting-cta" class="cta-section-modern py-4">
         <div class="container">
           <div class="cta-content-modern">
             <h2 class="cta-title-modern">Готові Трансформувати Ваше Тестування?</h2>
@@ -269,7 +269,7 @@
       </section>
 
       <!-- Blog Section - Modern -->
-      <section id="blog" class="blog-section-modern py-6 bg-light-modern">
+      <section id="blog" class="blog-section-modern py-4 bg-light-modern">
         <div class="container">
           <div class="section-header-modern text-center mb-5">
             <h2 class="section-title-modern">Останні статті</h2>
@@ -291,7 +291,7 @@
                 </#if>
             </#list>
           </div>
-          <div class="text-center mt-5 pb-5">
+          <div class="text-center">
             <a href="/archive.html" class="btn-modern btn-outline-modern">Всі статті</a>
           </div>
         </div>
