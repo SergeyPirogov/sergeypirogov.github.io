@@ -220,6 +220,13 @@
               <span class="conf-badge-modern">EPAM IT Week</span>
             </div>
           </div>
+
+          <div class="text-center mt-5 pt-5 border-top">
+            <p class="conference-label-modern">Знайдіть мене в LinkedIn</p>
+            <a href="https://www.linkedin.com/in/spirogov/" target="_blank" class="linkedin-link-modern">
+              <i class="fab fa-linkedin-in"></i> Сергій Пірогов на LinkedIn
+            </a>
+          </div>
         </div>
       </section>
 
