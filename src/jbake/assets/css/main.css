@@ -1179,3 +1179,26 @@ textarea.form-control-modern {
 .linkedin-link-modern i {
   font-size: 1.2rem;
 }
+
+/* Form status message styling */
+#cta-form-status {
+  margin-top: 15px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: none;
+}
+
+#cta-form-status.success {
+  display: block;
+  background: rgba(45, 157, 126, 0.2);
+  color: #2d9d7e;
+  border-left: 4px solid #2d9d7e;
+}
+
+#cta-form-status.error {
+  display: block;
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border-left: 4px solid #ff6b6b;
+}
