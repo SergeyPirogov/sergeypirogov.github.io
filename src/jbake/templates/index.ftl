@@ -10,7 +10,7 @@
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-6">
-                <h1 class="hero-title-modern">QA Автоматизація<br><span class="text-accent">Консультації & Тренінги</span></h1>
+                <h1 class="hero-title-modern">QA Automation<br><span class="text-accent">Консультації & Тренінги</span></h1>
                 <p class="hero-subtitle-modern">
                   Трансформуйте вашу стратегію тестування з допомогою експертного керівництва від Senior QA Automation Engineer. Сотні інженерів навчені, десятки компаній допоможено.
                 </p>
