@@ -1017,6 +1017,12 @@ body {
   background-color: #1a1a1a !important;
 }
 
+.navbar .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 60px;
+}
+
 /* Section common */
 .section-heading {
   font-size: 1.75rem;
