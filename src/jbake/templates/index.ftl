@@ -244,7 +244,9 @@
                 <textarea class="form-control-modern" name="message" rows="4" placeholder="Розповідіть про ваші потреби..."></textarea>
               </div>
               <input type="hidden" name="_subject" value="Заявка на Консультацію з automation-remarks.com"/>
-              <button type="submit" class="btn-modern btn-primary-modern">Відправити</button>
+              <div style="text-align: center;">
+                <button type="submit" class="btn-modern btn-primary-modern">Відправити</button>
+              </div>
               <p id="cta-form-status" class="form-status-modern"></p>
             </form>
             <p class="cta-alternative-modern">
