@@ -243,8 +243,6 @@
                 <div class="form-group col">
                   <input type="text" class="form-control" name="name" placeholder="Ваше Ім'я" required>
                 </div>
-              </div>
-              <div class="form-row">
                 <div class="form-group col">
                   <input type="email" class="form-control" name="_replyto" placeholder="Ваш Email" required>
                 </div>
