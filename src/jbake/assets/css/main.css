@@ -658,9 +658,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 }
 
 .training-card-modern {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(45, 157, 126, 0.3);
   border-radius: 12px;
   padding: 25px;
   transition: all 0.3s ease;
@@ -673,9 +673,9 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
 
 .training-card-modern:hover {
   transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(45, 157, 126, 0.5);
-  box-shadow: 0 15px 35px rgba(45, 157, 126, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(45, 157, 126, 0.7);
+  box-shadow: 0 15px 35px rgba(45, 157, 126, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .training-badge {
