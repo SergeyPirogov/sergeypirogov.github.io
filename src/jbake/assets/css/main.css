@@ -425,26 +425,535 @@ a.linked-card.inactive {
 }
 
 /* ============================================
-   LANDING PAGE SECTIONS (index.ftl redesign)
+   MODERN LANDING PAGE REDESIGN
    ============================================ */
 
-/* Hero */
-.hero-section {
-  background-color: #212529;
-  padding: 5rem 0 4rem;
+/* Hero Section - Modern Gradient */
+.hero-section-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 0;
   margin-top: 56px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-heading {
-  font-size: 2.25rem;
-  font-weight: 700;
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-modern {
+  font-size: 3.5rem;
+  font-weight: 800;
   color: #ffffff;
-  margin-top: 1rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
-.hero-lead {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.8);
+.text-accent {
+  background: linear-gradient(135deg, #36d995, #2db77e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle-modern {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-cta-modern {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary-modern {
+  background: #36d995;
+  color: #212529;
+}
+
+.btn-primary-modern:hover {
+  background: #2db77e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(54, 217, 149, 0.3);
+}
+
+.btn-secondary-modern {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.btn-secondary-modern:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline-modern {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-outline-modern:hover {
+  background: #667eea;
+  color: #ffffff;
+}
+
+.hero-image-modern {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.95;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="white"/></svg>');
+  background-size: cover;
+}
+
+/* Section Headers */
+.section-header-modern {
+  margin-bottom: 60px;
+}
+
+.section-title-modern {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #212529;
+  margin-bottom: 15px;
+}
+
+.section-subtitle-modern {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.py-6 {
+  padding: 60px 0;
+}
+
+.bg-light-modern {
+  background-color: #f8f9fa;
+}
+
+/* Services Section - Modern Cards */
+.services-section-modern {
+  background: #ffffff;
+}
+
+.service-card-modern {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.service-card-modern:hover {
+  transform: translateY(-8px);
+  border-color: #36d995;
+  box-shadow: 0 20px 40px rgba(54, 217, 149, 0.15);
+}
+
+.service-icon-modern {
+  font-size: 3rem;
+  color: #36d995;
+  margin-bottom: 20px;
+}
+
+.service-title-modern {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 15px;
+}
+
+.service-text-modern {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.service-link-modern {
+  color: #36d995;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-link-modern:hover {
+  color: #2db77e;
+  gap: 12px;
+}
+
+/* Training Cards - Modern Grid */
+.trainings-section-modern {
+  background: #f8f9fa;
+}
+
+.training-card-modern-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.training-card-modern {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.training-card-modern:hover {
+  transform: translateY(-6px);
+  border-color: #36d995;
+  box-shadow: 0 15px 35px rgba(54, 217, 149, 0.2);
+}
+
+.training-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.training-title-modern {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.training-tech-modern {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.training-footer-modern {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.training-price-modern {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #36d995;
+}
+
+.training-card-modern:hover i {
+  transform: translateX(3px);
+}
+
+.training-card-modern i {
+  color: #36d995;
+  transition: transform 0.3s ease;
+}
+
+/* Social Proof - Modern Stats */
+.social-proof-section-modern {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.stats-modern {
+  margin-bottom: 40px;
+}
+
+.stat-modern {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.stat-modern:hover {
+  border-color: #36d995;
+  box-shadow: 0 10px 25px rgba(54, 217, 149, 0.1);
+}
+
+.stat-number-modern {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.stat-label-modern {
+  color: #6c757d;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.conference-label-modern {
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.conferences-modern {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.conf-badge-modern {
+  background: #ffffff;
+  color: #667eea;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.conf-badge-modern:hover {
+  background: #667eea;
+  color: #ffffff;
+}
+
+/* CTA Section - Modern */
+.cta-section-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.cta-content-modern {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title-modern {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.cta-subtitle-modern {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.cta-form-modern {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control-modern {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control-modern::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control-modern:focus {
+  outline: none;
+  border-color: #36d995;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(54, 217, 149, 0.2);
+}
+
+.cta-form-modern .btn-primary-modern {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.form-status-modern {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.form-status-modern.success {
+  background: rgba(54, 217, 149, 0.2);
+  color: #36d995;
+}
+
+.form-status-modern.error {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+}
+
+.cta-alternative-modern {
+  margin-top: 25px;
+  font-size: 0.95rem;
+}
+
+.cta-alternative-modern a {
+  color: #36d995;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.cta-alternative-modern a:hover {
+  color: #2db77e;
+}
+
+/* Blog Section - Modern Cards */
+.blog-section-modern {
+  background: #f8f9fa;
+}
+
+.blog-card-modern-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card-modern {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card-modern:hover {
+  transform: translateY(-6px);
+  border-color: #36d995;
+  box-shadow: 0 15px 35px rgba(54, 217, 149, 0.15);
+}
+
+.blog-title-modern {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.blog-date-modern {
+  color: #36d995;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.blog-summary-modern {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.blog-footer-modern {
+  color: #36d995;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s ease;
+}
+
+.blog-card-modern:hover .blog-footer-modern {
+  gap: 12px;
+}
+
+.blog-card-modern:hover i {
+  transform: translateX(3px);
+}
+
+.blog-card-modern i {
+  transition: transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title-modern {
+    font-size: 2.2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta-modern {
+    flex-direction: column;
+  }
+
+  .btn-modern {
+    justify-content: center;
+  }
+
+  .section-title-modern {
+    font-size: 1.8rem;
+  }
 }
 
 /* Override Bootstrap btn-success to use brand green */
