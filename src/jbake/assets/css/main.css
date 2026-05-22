@@ -59,7 +59,7 @@
 .card-body hr {
   width: 2em;
   margin-left: 0px;
-  border-bottom: 3px solid #36d995;
+  border-bottom: 3px solid #FFA500;
 }
 
 footer.page-footer {
@@ -75,7 +75,7 @@ footer.page-footer {
   text-decoration: none;
   font-weight: 700;
   color: #363740;
-  border: 1px solid #36d995;
+  border: 1px solid #FFA500;
   border-radius: 4em;
 }
 
@@ -122,7 +122,7 @@ article div.inner {
   color: inherit;
   text-decoration: none;
   font-weight: 400;
-  border-bottom: 2px solid #36d995;
+  border-bottom: 2px solid #FFA500;
 }
 
 .post-content a:hover,
@@ -451,7 +451,7 @@ a.linked-card.inactive {
 }
 
 .text-accent {
-  background: linear-gradient(135deg, #36d995, #2db77e);
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -485,7 +485,7 @@ a.linked-card.inactive {
 }
 
 .btn-primary-modern {
-  background: #36d995;
+  background: #FFA500;
   color: #212529;
 }
 
@@ -576,13 +576,13 @@ a.linked-card.inactive {
 
 .service-card-modern:hover {
   transform: translateY(-8px);
-  border-color: #36d995;
+  border-color: #FFA500;
   box-shadow: 0 20px 40px rgba(54, 217, 149, 0.15);
 }
 
 .service-icon-modern {
   font-size: 3rem;
-  color: #36d995;
+  color: #FFA500;
   margin-bottom: 20px;
 }
 
@@ -601,7 +601,7 @@ a.linked-card.inactive {
 }
 
 .service-link-modern {
-  color: #36d995;
+  color: #FFA500;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -639,7 +639,7 @@ a.linked-card.inactive {
 
 .training-card-modern:hover {
   transform: translateY(-6px);
-  border-color: #36d995;
+  border-color: #FFA500;
   box-shadow: 0 15px 35px rgba(54, 217, 149, 0.2);
 }
 
@@ -679,7 +679,7 @@ a.linked-card.inactive {
 .training-price-modern {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #36d995;
+  color: #FFA500;
 }
 
 .training-card-modern:hover i {
@@ -687,7 +687,7 @@ a.linked-card.inactive {
 }
 
 .training-card-modern i {
-  color: #36d995;
+  color: #FFA500;
   transition: transform 0.3s ease;
 }
 
@@ -709,7 +709,7 @@ a.linked-card.inactive {
 }
 
 .stat-modern:hover {
-  border-color: #36d995;
+  border-color: #FFA500;
   box-shadow: 0 10px 25px rgba(54, 217, 149, 0.1);
 }
 
@@ -819,7 +819,7 @@ a.linked-card.inactive {
 
 .form-control-modern:focus {
   outline: none;
-  border-color: #36d995;
+  border-color: #FFA500;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 0 3px rgba(54, 217, 149, 0.2);
 }
@@ -838,7 +838,7 @@ a.linked-card.inactive {
 
 .form-status-modern.success {
   background: rgba(54, 217, 149, 0.2);
-  color: #36d995;
+  color: #FFA500;
 }
 
 .form-status-modern.error {
@@ -852,7 +852,7 @@ a.linked-card.inactive {
 }
 
 .cta-alternative-modern a {
-  color: #36d995;
+  color: #FFA500;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -885,7 +885,7 @@ a.linked-card.inactive {
 
 .blog-card-modern:hover {
   transform: translateY(-6px);
-  border-color: #36d995;
+  border-color: #FFA500;
   box-shadow: 0 15px 35px rgba(54, 217, 149, 0.15);
 }
 
@@ -898,7 +898,7 @@ a.linked-card.inactive {
 }
 
 .blog-date-modern {
-  color: #36d995;
+  color: #FFA500;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -913,7 +913,7 @@ a.linked-card.inactive {
 }
 
 .blog-footer-modern {
-  color: #36d995;
+  color: #FFA500;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -959,11 +959,11 @@ a.linked-card.inactive {
 /* Override Bootstrap btn-success to use brand green */
 .btn-success,
 .btn-outline-success {
-  border-color: #36d995;
+  border-color: #FFA500;
 }
 
 .btn-success {
-  background-color: #36d995;
+  background-color: #FFA500;
   color: #212529;
   font-weight: 600;
 }
@@ -976,11 +976,11 @@ a.linked-card.inactive {
 }
 
 .btn-outline-success {
-  color: #36d995;
+  color: #FFA500;
 }
 
 .btn-outline-success:hover {
-  background-color: #36d995;
+  background-color: #FFA500;
   color: #212529;
 }
 
@@ -1001,7 +1001,7 @@ a.linked-card.inactive {
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #36d995;
+  color: #FFA500;
   line-height: 1;
 }
 
