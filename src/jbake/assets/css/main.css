@@ -747,6 +747,10 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   color: inherit;
 }
 
+.training-card-modern-link:hover {
+  text-decoration: none;
+}
+
 .training-card-modern {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(15px);
@@ -766,6 +770,7 @@ body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
   background: rgba(255, 255, 255, 0.35);
   border-color: rgba(45, 157, 126, 0.7);
   box-shadow: 0 15px 35px rgba(45, 157, 126, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-decoration: none;
 }
 
 .training-badge {
@@ -1480,4 +1485,58 @@ textarea.form-control-modern {
   background: rgba(255, 107, 107, 0.2);
   color: #ff6b6b;
   border-left: 4px solid #ff6b6b;
+}
+
+/* Portmone Payment Button Styling */
+.f-p-b {
+  display: inline-block !important;
+  padding: 12px 24px !important;
+  background-color: #2d9d7e !important;
+  color: #212529 !important;
+  border: 1px solid #2d9d7e !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  font-size: 0.95rem !important;
+  text-align: center !important;
+}
+
+.f-p-b:hover {
+  background-color: #2db77e !important;
+  border-color: #2db77e !important;
+  color: #212529 !important;
+  text-decoration: none !important;
+}
+
+.f-p-b:active {
+  background-color: #2d9d7e !important;
+  border-color: #2d9d7e !important;
+}
+
+.f-p-b i {
+  font-style: normal !important;
+  margin: 0 2px !important;
+}
+
+.f-p-b i[data-text] {
+  display: inline !important;
+}
+
+.f-p-b i[data-brand] {
+  margin-left: 4px !important;
+}
+
+.f-p-b i {
+  font-style: normal !important;
+  margin: 0 2px !important;
+}
+
+.f-p-b i[data-text] {
+  display: inline !important;
+}
+
+.f-p-b i[data-brand] {
+  margin-left: 4px !important;
 }
