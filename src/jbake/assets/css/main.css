@@ -432,6 +432,11 @@ body {
   background-color: #ffffff;
 }
 
+/* Hero section with no navbar (homepage) */
+body:has(main .hero-section-modern:first-of-type) .hero-section-modern {
+  padding-top: 100px;
+}
+
 /* Hero Section - Modern Gradient */
 .hero-section-modern {
   background: #1a1a1a;
