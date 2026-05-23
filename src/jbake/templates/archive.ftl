@@ -11,12 +11,23 @@
         </div>
       </section>
 
-      <div class="page-content-section">
+      <div class="page-content-section py-4 bg-light-modern">
         <div class="container">
-          <div id="push" class="row post-list row-cols-1 row-cols-md-3">
+          <div id="push" class="row row-cols-1 row-cols-md-4 g-3">
                 <#list posts as post>
                     <#if (post.status == "published")>
-                         <#include "loop.ftl">
+                         <div class="col">
+                           <a href="/${post.uri}" class="blog-card-modern-link">
+                             <div class="blog-card-modern">
+                               <h5 class="blog-title-modern"><#escape x as x?xml>${post.title}</#escape></h5>
+                               <p class="blog-date-modern">${post.date?string("dd MMM yyyy")}</p>
+                               <#if post.summary??>
+                                 <p class="blog-summary-modern"><#escape x as x?xml>${post.summary}</#escape></p>
+                               </#if>
+                               <div class="blog-footer-modern">Прочитати →</div>
+                             </div>
+                           </a>
+                         </div>
                     </#if>
                 </#list>
           </div>
