@@ -5,7 +5,6 @@
   <div class="container">
     <div>
       <h1 class="section-title-modern"><#escape x as x?xml>${content.title}</#escape></h1>
-      <p class="section-subtitle-modern">${content.price}</p>
     </div>
   </div>
 </section>
