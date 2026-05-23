@@ -419,8 +419,20 @@ a.linked-card.inactive {
    MODERN LANDING PAGE REDESIGN
    ============================================ */
 
+html {
+  height: 100%;
+  background-color: #1a1a1a;
+}
+
 body {
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > footer {
+  margin-top: auto;
 }
 
 /* Hero section with no navbar (homepage) */
