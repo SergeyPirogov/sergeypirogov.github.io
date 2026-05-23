@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  jbake-builder:
+    build: .
+    container_name: sergeypirogov-jbake
+    volumes:
+      - .:/workspace
+      - gradle-cache:/root/.gradle
+    working_dir: /workspace
+    environment:
+      - GRADLE_OPTS=-Xmx1024m
+    ports:
+      - "8000:8000"
+    command: >
+      bash -c "
+        echo 'Building JBake site...' &&
+        ./gradlew clean bake &&
+        echo 'Build complete!' &&
+        echo 'Watching for changes...' &&
+        while inotifywait -r -e modify src/jbake/; do
+          echo 'Changes detected, rebuilding...' &&
+          ./gradlew bake &&
+          echo 'Rebuild complete!'
+        done
+      "
+
+volumes:
+  gradle-cache:

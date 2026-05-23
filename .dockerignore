@@ -1,0 +1,12 @@
+.git
+.gitignore
+build/
+.gradle/
+.gradle
+*.hprof
+*.dylib
+.DS_Store
+.idea/
+*.iml
+node_modules/
+.astro/

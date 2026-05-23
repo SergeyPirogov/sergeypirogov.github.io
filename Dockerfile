@@ -1,15 +1,26 @@
-FROM eclipse-temurin:11-jdk
+FROM eclipse-temurin:11-jdk-focal
 
-WORKDIR /app
+# Install required tools
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    inotify-tools \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy project
-COPY . /app/
+# Set working directory
+WORKDIR /workspace
 
-# Build the site
-RUN chmod +x gradlew && \
-    ./gradlew clean bake
+# Copy the project
+COPY . /workspace/
 
-# Output directory for deployment
-VOLUME /app/build/jbake
+# Make gradlew executable
+RUN chmod +x ./gradlew
 
-CMD ["tail", "-f", "/dev/null"]
+# Create gradle cache directory
+RUN mkdir -p ~/.gradle/caches
+
+# Expose port for local server (if needed for testing)
+EXPOSE 8000
+
+# Default command: build and watch
+CMD ["./gradlew", "clean", "bake"]
