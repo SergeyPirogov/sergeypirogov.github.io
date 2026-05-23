@@ -308,15 +308,25 @@
 
         fetch(form.action, {
           method: 'POST',
-          body: formData
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         })
         .then(response => {
-          status.innerHTML = "✓ Дякую! Я зв'яжусь з вами найскоріше.";
-          status.classList.remove('error');
-          status.classList.add('success');
-          form.reset();
+          if (response.status === 302 || response.status === 200 || response.ok) {
+            status.innerHTML = "✓ Дякую! Я зв'яжусь з вами найскоріше.";
+            status.classList.remove('error');
+            status.classList.add('success');
+            form.reset();
+          } else {
+            status.innerHTML = "Помилка при відправці. Спробуйте ще раз.";
+            status.classList.remove('success');
+            status.classList.add('error');
+          }
         })
         .catch(error => {
+          console.error('Error:', error);
           status.innerHTML = "Помилка при відправці. Спробуйте ще раз.";
           status.classList.remove('success');
           status.classList.add('error');
