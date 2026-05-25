@@ -1,40 +1,40 @@
-title=Тренінг з автоматизації тестування API GraphQL за допомогою Java
+title=GraphQL API Test Automation with Python
 type=trainingPage
 status=published
-summary=Технології: GraphQL, Java 8/11, Rest Assured, Gradle, Allure, Jenkins CI
+summary=Technology: GraphQL, Python 3, Jenkins CI, Github Actions
 price=15$
 state=active
 ~~~~~~
 
-== GraphQL API Test Automation з Java - Від основ до CI/CD
+== GraphQL API Test Automation з Python - Від основ до CI/CD
 
-Тренінг з автоматизації тестування GraphQL API за допомогою Java.
+Тренінг з автоматизації тестування GraphQL API за допомогою Python.
 Ви навчитесь створювати масштабовані проекти тестування GraphQL сервісів з нуля до розгортування у CI/CD.
 
 === Для кого цей тренінг?
 
 * Початківці в тестуванні GraphQL API
 * QA інженери, які хочуть навчитися GraphQL
-* Java розробники, які працюють з GraphQL
+* Python розробники, які працюють з GraphQL
 * Тестувальники, які шукають альтернативу REST API
 
 === Що ви отримаєте?
 
 * **Розуміння GraphQL** - відмінності від REST, структура запитів, мутації
 * **Написання GraphQL запитів** - синтаксис, змінні, фрагменти
-* **Rest Assured для GraphQL** - відправка запитів та обробка відповідей
-* **Валідація відповідей** - перевірка структури та содержимого
-* **Allure звітування** - красивіші звіти про результати
-* **CI/CD інтеграція** - запуск тестів у Jenkins pipeline
+* **Відправка запитів** - requests бібліотека та GraphQL клієнти
+* **Структура проекту** - базова архітектура для масштабу
+* **Журналювання та звітність** - організація результатів тестування
+* **Вимірювання тестового покриття** - для GraphQL API
 
 === Які технології ми використовуємо?
 
-* *Java 8/11* - мова програмування
-* *Rest Assured* - фреймворк для API тестування
+* *Python 3* - мова програмування
 * *GraphQL* - мова запитів для API
-* *Gradle* - систем білдування
-* *Allure* - фреймворк звітування
+* *requests* - бібліотека для HTTP запитів
+* *pytest* - фреймворк для тестування
 * *Jenkins* - серверний контроль та CI/CD
+* *GitHub Actions* - автоматизація на GitHub платформі
 
 === Формат навчання
 
@@ -50,3 +50,11 @@ state=active
 * Домашні завдання та розв'язки
 * Пожиттєвий доступ до матеріалів
 * Консультація після тренінгу
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://prt.mn/I7geTsPKw" data-button="" class="f-p-b">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">2000 UAH</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++

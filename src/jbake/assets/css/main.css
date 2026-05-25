@@ -1837,3 +1837,68 @@ textarea.form-control-modern {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(45, 157, 126, 0.2);
 }
+
+/* Payment form styling */
+.payment-email-input {
+  border: 2px solid #dee2e6;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.payment-email-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+  outline: none;
+}
+
+.payment-email-input::placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.payment-email-input.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Responsive payment icons */
+.payment-icon {
+  font-size: 32px;
+  margin-right: 8px;
+  color: #212529;
+}
+
+@media (max-width: 576px) {
+  .payment-icon {
+    font-size: 24px;
+    margin-right: 6px;
+  }
+
+  .payment-email-input {
+    max-width: 280px !important;
+    height: 50px !important;
+  }
+
+  .btn.btn-lg {
+    padding: 6px 12px !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .payment-icon {
+    font-size: 28px;
+    margin-right: 6px;
+  }
+
+  .payment-email-input {
+    max-width: 320px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .payment-icon {
+    font-size: 32px;
+    margin-right: 8px;
+  }
+}

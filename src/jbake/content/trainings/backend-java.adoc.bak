@@ -50,3 +50,11 @@ state=active
 * Домашні завдання та розв'язки
 * Пожиттєвий доступ до матеріалів
 * Консультація після тренінгу
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://prt.mn/RT-SEf9Z--" data-button="" class="f-p-b">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">2000 UAH</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++

@@ -1,40 +1,39 @@
-title=Тренінг з автоматизації тестування UI за допомогою Python
+title=Тренінг з автоматизації тестування UI за допомогою Java
 type=trainingPage
 status=published
-summary=Технології: Python 3, Pytest, Allure, Report portal, Jenkins CI
+summary=Технології: Java 8, Selenide, Gradle, Allure, Jenkins CI
 price=30$
 state=active
 ~~~~~~
 
-== UI Test Automation з Python - Від основ до CI/CD
+== UI Test Automation з Java - Від основ до CI/CD
 
-Комплексний тренінг з автоматизації тестування UI за допомогою Python.
+Комплексний тренінг з автоматизації тестування UI за допомогою Java та Selenide.
 Ви навчитесь створювати масштабовані проекти тестування UI з нуля до розгортування у CI/CD pipeline.
 
 === Для кого цей тренінг?
 
 * Початківці в автоматизації UI тестування
-* QA інженери, які хочуть навчитися Python та Selenium/Playwright
-* Python розробники, які переходять на тестування
-* Тестувальники без досвіду програмування на Python
+* QA інженери, які хочуть навчитися Java та Selenide
+* Java розробники, які переходять на тестування
+* Тестувальники без досвіду програмування на Java
 
 === Що ви отримаєте?
 
-* **Основи Python** - синтаксис, структури данних, ООП
-* **Selenium та Playwright** - обидва фреймворки для UI тестування
+* **Основи Java** - синтаксис, структури данних, ООП
+* **Selenide фреймворк** - спрощена робота з Selenium
 * **Пошук елементів** - локатори, стратегії, best practices
 * **Page Object Model** - структурування тестового коду
-* **Allure та Report Portal** - красивіші звіти про результати
+* **Allure звітування** - красивіші звіти про результати
 * **Jenkins CI/CD** - запуск тестів у pipeline та автоматизація
 
 === Які технології ми використовуємо?
 
-* *Python 3* - мова програмування
-* *Selenium* - класичний фреймворк для UI тестування
-* *Playwright* - современний фреймворк для браузерної автоматизації
-* *pytest* - фреймворк для тестування
+* *Java 8* - мова програмування
+* *Selenide* - фреймворк для UI тестування
+* *Gradle* - систем білдування
 * *Allure* - фреймворк звітування
-* *Report Portal* - система управління звітами
+* *Jenkins* - серверний контроль та CI/CD
 
 === Формат навчання
 
@@ -50,3 +49,11 @@ state=active
 * Домашні завдання та розв'язки
 * Пожиттєвий доступ до матеріалів
 * Консультація після тренінгу
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://prt.mn/ejyJB0Bt0Z" data-button="" class="f-p-b">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">1200 UAH</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++

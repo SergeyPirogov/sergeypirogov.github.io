@@ -102,7 +102,7 @@
                   <h4 class="training-title-modern">Playwright Java UI</h4>
                   <p class="training-tech-modern">Java 17 • Playwright • Gradle</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
@@ -116,7 +116,7 @@
                   <h4 class="training-title-modern">Playwright JS/TS UI</h4>
                   <p class="training-tech-modern">JavaScript • Playwright • GitHub</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
@@ -129,7 +129,7 @@
                   <h4 class="training-title-modern">API Тестування Java</h4>
                   <p class="training-tech-modern">Java 8 • Rest Assured • Allure</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
@@ -142,7 +142,7 @@
                   <h4 class="training-title-modern">API Тестування Python</h4>
                   <p class="training-tech-modern">Python 3 • pytest • requests</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
@@ -155,7 +155,7 @@
                   <h4 class="training-title-modern">UI Тестування Java</h4>
                   <p class="training-tech-modern">Java 8 • Selenide • Allure</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                   <h4 class="training-title-modern">Персональний Менторинг</h4>
                   <p class="training-tech-modern">Адаптований • Гнучкий • Комплексний</p>
                   <div class="training-footer-modern">
-                    <span class="training-price-modern">$30/год</span>
+                    <span class="training-price-modern" data-price-usd="30">завантаження...</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
