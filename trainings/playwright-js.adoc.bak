@@ -1,0 +1,59 @@
+title=Тренінг з автоматизації тестування UI за допомогою Playwright JS/TS
+type=trainingPage
+status=published
+summary=JavaScript/TypeScript, Playwright, Github Actions - повний курс від основ до CI/CD
+price=30$
+state=active
+~~~~~~
+
+== Playwright JS/TS UI Automation - Від основ до Production
+
+Комплексний тренінг з автоматизації тестування UI за допомогою Playwright на JavaScript/TypeScript.
+Ви навчитесь створювати масштабовані проекти тестування з нуля до розгортування у CI/CD pipeline.
+
+=== Для кого цей тренінг?
+
+* Початківці в автоматизації тестування
+* QA інженери, які хочуть навчитися Playwright
+* JavaScript розробники, які переходять на тестування
+* Тестувальники без досвіду програмування на JS/TS
+
+=== Що ви отримаєте?
+
+* **Розуміння Playwright Framework** - архітектура, можливості, переваги
+* **Написання стійких тестів** - best practices, стратегії пошуку елементів, обробка очікувань
+* **Основи JavaScript/TypeScript** - все необхідне для написання тестів
+* **Page Object Model** - структурування тестового коду
+* **GitHub Actions CI/CD** - запуск тестів у pipeline
+* **Налагодження та вирішення проблем** - оптимізація тестів
+
+=== Які технології ми використовуємо?
+
+* *JavaScript / TypeScript* - мова програмування
+* *Playwright* - браузерна автоматизація
+* *GitHub / GitHub Actions* - контроль версій та CI/CD
+* *Visual Studio Code* - IDE
+* *npm / yarn* - менеджери пакетів
+
+=== Формат навчання
+
+Інтерактивні онлайн лекції з практичними завданнями.
+Ви напишете реальні тести разом із ментором протягом кожної лекції.
+
+⏱️ *Тривалість: 2 години практики + доступ до матеріалів*
+
+=== Що буде включено?
+
+* Записи всіх лекцій
+* Готові приклади коду (GitHub репозиторій)
+* Домашні завдання та розв'язки
+* Пожиттєвий доступ до матеріалів
+* Консультація після тренінгу
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://prt.mn/HZTy8vbdxx" data-button="" class="f-p-b">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">2000 UAH</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++

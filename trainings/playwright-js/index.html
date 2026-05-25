@@ -25,7 +25,7 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plop7G5sVJVarious==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Custom styles for this template -->
     <link href="../../../css/album.css" rel="stylesheet">
     <link href="../../../css/main.css" rel="stylesheet">
@@ -41,7 +41,8 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4997089981836978"
      crossorigin="anonymous"></script>
-  <body>
+</head>
+<body>
 <header>
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class='container'>
@@ -187,17 +188,35 @@
 </li>
 </ul>
 </div>
-<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
-<a href="https://prt.mn/HZTy8vbdxx" data-button="" class="f-p-b">
-<i data-text="name">Оплатити</i>
-<i data-text="amount">2000 UAH</i>
-<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
 </div>
 </div>
 </div>
         </section>
       </div>
     </article>
+
+      <div class="payment-block mt-4">
+        <div class="d-flex gap-2 justify-content-center align-items-center flex-wrap">
+          <input
+            type="email"
+            class="form-control payment-email-input"
+            style="max-width: 350px; height: 60px; font-size: 16px;"
+            placeholder="Ваш email"
+            required
+          />
+          <button
+            class="btn btn-success btn-lg"
+            style="height: 60px; white-space: nowrap; display: flex; align-items: center; gap: 8px;"
+            data-price-usd="30"
+            data-bill-number="trainings-playwright-js"
+            data-description="Тренінг з автоматизації тестування UI за допомогою Playwright JS/TS"
+            onclick="handlePortmonePayment(this)"
+          >
+            <i class="fa-brands fa-cc-visa payment-icon"></i><i class="fa-brands fa-cc-mastercard payment-icon"></i>
+            <span class="pay-amount" style="font-size: 18px; font-weight: 600;">завантаження...</span>
+          </button>
+        </div>
+      </div>
 
     <div class="training-navigation mt-3">
       <a href="/trainings" class="btn btn-outline-success">
@@ -229,6 +248,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="../../../js/script.js"></script>
+    <script src="../../../js/payment.js"></script>
     <script async src="https://cse.google.com/cse.js?cx=005666829887305506139:i4vgkrjldvk"></script>
     <script src="https://my.hellobar.com/b89babe68c85bfcf7416926983e86b31a9467186.js" type="text/javascript" charset="utf-8" async="async"></script>
     </body>

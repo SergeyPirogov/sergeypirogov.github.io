@@ -1,0 +1,60 @@
+title=Тренінг з Gitlab CI vs Travis CI vs Github actions
+type=trainingPage
+status=published
+summary=Технології: Java 8, Gradle, Allure, Gitlab CI, Travis CI, Github actions
+price=15$
+state=active
+~~~~~~
+
+== CI/CD Pipeline - GitLab, Travis та GitHub Actions
+
+Тренінг з налаштування та використання різних платформ для Continuous Integration та Continuous Deployment.
+Ви навчитесь запускати автоматизовані тести у хмарних CI/CD системах.
+
+=== Для кого цей тренінг?
+
+* Розробники, які хочуть автоматизувати тестування
+* QA інженери, які хочуть настроїти CI/CD pipeline
+* DevOps інженери, які управляють процесом запуску тестів
+* Команди, які шукають кращого рішення для своїх потреб
+
+=== Що ви отримаєте?
+
+* **GitLab CI** - настройка pipeline на GitLab платформі
+* **Travis CI** - налаштування тестів на Travis CI
+* **GitHub Actions** - автоматизація на GitHub платформі
+* **Порівняння платформ** - плюси та мінуси кожної системи
+* **Управління артефактами** - збереження та публікація результатів
+* **Інтеграція з Allure** - красиві звіти у CI/CD
+
+=== Які технології ми використовуємо?
+
+* *Java 8* - мова програмування
+* *Rest Assured* - фреймворк для тестування
+* *Gradle* - систем білдування
+* *GitLab CI* - CI/CD платформа
+* *Travis CI* - облікова CI система
+* *GitHub Actions* - вбудована автоматизація на GitHub
+
+=== Формат навчання
+
+Інтерактивні онлайн лекції з практичними завданнями.
+Ви налаштуєте реальні pipeline разом із ментором на кожній платформі.
+
+⏱️ *Тривалість: 2.5 години практики + доступ до матеріалів*
+
+=== Що буде включено?
+
+* Записи всіх лекцій
+* Готові приклади конфігурацій
+* Домашні завдання та розв'язки
+* Пожиттєвий доступ до матеріалів
+* Консультація після тренінгу
+
+++++
+<style>@import url("//portal.fondy.eu/mportal/static/css/button.css");</style>
+<a href="https://prt.mn/IbtUh57L6M" data-button="" class="f-p-b">
+<i data-text="name">Оплатити</i>
+<i data-text="amount">2000 UAH</i>
+<i data-brand="visa"></i><i data-brand="mastercard"></i></a>
+++++
