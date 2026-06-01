@@ -71,7 +71,13 @@
           amount: uah,
           billNumber: bill,
           description: desc,
-          emailAddress: email
+          emailAddress: email,
+          paymentMethod: 'card',
+          payerEmail: email,
+          payerData: {
+            email: email,
+            language: 'uk'
+          }
         })
       });
 
