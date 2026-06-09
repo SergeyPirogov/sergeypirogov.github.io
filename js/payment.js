@@ -57,7 +57,7 @@
 
       const rate = await getRate();
       const usd = parseFloat(btn.dataset.priceUsd);
-      const uah = Math.ceil(usd * rate / 10) * 10;
+      const amountUah = Math.ceil(usd * rate / 10) * 10;
       const desc = btn.dataset.description;
       const bill = btn.dataset.billNumber + '_' + Date.now();
 
@@ -68,7 +68,7 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          amount: uah,
+          amount: amountUah,
           description: desc,
           attribute1: email
         })
