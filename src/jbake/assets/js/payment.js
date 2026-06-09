@@ -69,15 +69,8 @@
         },
         body: JSON.stringify({
           amount: uah,
-          billNumber: bill,
           description: desc,
-          emailAddress: email,
-          paymentMethod: 'card',
-          payerEmail: email,
-          payerData: {
-            email: email,
-            language: 'uk'
-          }
+          attribute1: email
         })
       });
 
