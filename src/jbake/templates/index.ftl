@@ -293,6 +293,7 @@
           </div>
           <div class="text-center">
             <a href="/archive.html" class="btn-modern btn-outline-modern">Всі статті</a>
+            <a href="/podcast" class="btn-modern btn-outline-modern">Подкаст</a>
           </div>
         </div>
       </section>
