@@ -1,6 +1,6 @@
 title=Епізод 1: Як почати в автоматизації тестування
 type=podcastEpisode
-status=published
+status=draft
 summary=Перший епізод подкасту — з чого почати шлях в QA automation
 ~~~~~~
 

@@ -1,0 +1,14 @@
+title=Майже без багів — новий подкаст про тестування | Тізер
+type=podcastEpisode
+status=published
+date=2026-10-08
+summary=Тізер нового подкасту «Майже без багів» про тестування
+~~~~~~
+
+Знайомтеся — «Майже без багів», новий подкаст про тестування. У тізері коротко про те, про що буде подкаст і чого чекати від епізодів.
+
+++++
+<div class="ratio ratio-16x9">
+  <iframe src="https://www.youtube.com/embed/iBSsYoVwRQc" title="Майже без багів — новий подкаст про тестування | Тізер" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+</div>
+++++
